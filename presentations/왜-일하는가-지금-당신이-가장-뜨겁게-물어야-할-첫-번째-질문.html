@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>왜 일하는가 - 이나모리 가즈오</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">📖</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">왜 일하는가</h1>
+          <p class="text-xl md:text-2xl text-gray-700">이나모리 가즈오 | <span class="highlight">살아있는 경영의 신이 던지는</span> 첫 번째 질문</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Author Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자: <span class="highlight">이나모리 가즈오</span> (稲盛和夫)</h2>
+          <p class="slide-subtitle">살아있는 경영의 신, 교세라 창업자</p>
+          <div class="slide-content space-y-4">
+            <p>✓ 27세에 벤처기업 교토세라믹을 창업, 글로벌 기업으로 성장.</p>
+            <p>✓ 신생 통신업체 다이니덴덴(현 KDDI)을 거대 기업으로 키워냄.</p>
+            <p>✓ 77세에 파산 위기의 일본항공(JAL) 회장으로 취임, 8개월 만에 흑자 전환.</p>
+            <p>✓ 그의 경영 철학은 수많은 CEO와 직장인에게 깊은 영감을 줌.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 훑어보기 🧭</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <p><b>프롤로그:</b> 진정으로 가치 있는 인생을 위하여</p>
+            <p><b>1장. 왜 일하는가:</b> 일의 근본적인 의미</p>
+            <p><b>2장. 일을 사랑하는가:</b> 마음가짐을 바꿔 일을 사랑하는 법</p>
+            <p><b>3장. 무엇을 꿈꾸는가:</b> 꿈을 현실로 만드는 힘</p>
+            <p><b>4장. 노력을 지속하는가:</b> 평범함을 비범함으로 바꾸는 지속의 힘</p>
+            <p><b>5장. 현재에 만족하는가:</b> 완벽함을 추구하는 자세</p>
+            <p><b>6장. 창조적으로 일하는가:</b> 어제보다 나은 오늘을 만드는 법</p>
+            <p><b>에필로그:</b> 인생 방정식을 풀다</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Section Title - Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">진정으로 <span class="highlight">가치 있는 인생</span>을 살아가기 위하여</h2>
+          <p class="slide-content">우리는 이정표 없는 시대를 살아가고 있습니다. 변화하는 세상 속에서 변치 않아야 할 것들을 잃어가고 있지는 않습니까? 그 첫 번째 질문, '왜 일하는가?'에 답해야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Prologue Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일의 의미를 잃어버린 시대</h2>
+          <p class="slide-subtitle">기술과 매뉴얼은 넘쳐나지만, 우리는 일의 근본적인 이유에 대해 깊이 생각하지 않습니다.</p>
+          <div class="slide-content">
+            <p>"솔직히 일하기 싫다. 먹고살기 위해 어쩔 수 없이 회사에 나간다."</p>
+            <p class="mt-4">이런 생각이 만연한 시대, 저자는 60년 경영자로서 깨달은 '일하는 이유'와 '일하는 방법'을 통해 <span class="highlight">행복한 인생을 손에 넣는 법</span>을 이야기하고자 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Section Title - Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">🤔 왜 일하는가</h2>
+          <p class="slide-content">일은 단순히 생계를 유지하기 위한 수단을 넘어, <span class="highlight">내면을 성장시키고 인격을 수양하는</span> 과정입니다. 진정한 기쁨은 일 속에 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 7: Chapter 1 - Master Carpenter -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1000년을 생각하며 집을 짓듯이</h2>
+          <p class="slide-subtitle">한 노련한 도편수(궁궐이나 사찰을 짓는 대목장)의 이야기에서 일의 의미를 배웁니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg text-center">"모든 나무에는 영혼이 깃들어 있습니다."</h3>
+              <p class="mt-2 text-center">"1000년 된 나무를 사용할 거라면, 앞으로도 1000년의 세월을 견딜 수 있을 만큼 <span class="highlight">가치 있는 일</span>을 해야 합니다."</p>
+            </div>
+            <p class="mt-6">그에게 일은 인생을 바친 소명이자, 내면을 단련하는 수련이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Chapter 1 - What is Work? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일이란 무엇인가?</h2>
+          <p class="slide-subtitle">'대체 무엇을 위해 일하는 걸까?' 라는 의문이 들 때, 한 가지 사실을 떠올려보십시오.</p>
+          <div class="slide-content">
+            <p class="text-2xl font-bold text-center mt-8">일하는 것은 우리의 내면을 단단하게 하고, 마음을 갈고닦으며, 삶에서 <span class="highlight">가장 가치 있는 것을 손에 넣기 위한 행위</span>라는 것을.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Chapter 1 - Western vs. Eastern Views -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일(Work)에 대한 <span class="highlight">동서양의 시각차</span></h2>
+          <p class="slide-subtitle">일에 대한 근본적인 관점은 문화에 따라 다르게 형성되었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2"> захід  西洋 (서양)</h3>
+              <p>구약성서에서 아담과 이브는 선악과를 먹은 '원죄'로 인해 에덴동산에서 추방되어 노동이라는 벌을 받습니다. 일은 <span class="highlight">'고통으로 가득 찬 고역'</span>이라는 부정적 인식이 깊게 자리 잡았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">東洋 (동양)</h3>
+              <p>일은 고생이 따르지만, 그 이상으로 기쁨과 긍지, 삶의 보람을 가져다주는 <span class="highlight">'존엄한 행위'</span>로 여겨졌습니다. 일은 기술 연마를 넘어 마음을 닦는 수행의 과정이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Chapter 1 - Author's Experience -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">간절한 몰입이 인생을 바꾼다</h2>
+          <p class="slide-subtitle">저자 역시 처음부터 일을 좋아하지 않았습니다. 망해가는 회사에 입사해 절망적인 상황이었습니다.</p>
+          <div class="slide-content">
+            <p>갈 곳 없던 저자는 '우선 눈앞에 놓인 일에 철저히 몰두해보자'고 다짐합니다. 불평불만 대신 일에 정면으로 부딪히자 놀라운 변화가 시작되었습니다.</p>
+            <p class="mt-4 font-bold">👉 24시간 연구에 몰두하자 실험 결과가 나오기 시작했고, '회사를 그만두고 싶다'는 고민이 사라졌습니다. 일이 <span class="highlight">재미있어지기 시작했습니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Chapter 1 - Divine Intervention -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신이 손을 내밀어줄 때까지</h2>
+          <p class="slide-subtitle">필사적으로 일에 몰두하면, 마치 '신의 계시'와 같은 순간을 마주하게 됩니다.</p>
+          <div class="slide-content">
+            <p>포스테라이트 합성 연구 중, 우연히 발에 묻은 파라핀 왁스에서 영감을 얻어 난제를 해결한 경험. 이는 단순한 우연이 아니었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg text-center">"신이 도와주고 싶어 할 만큼 한결같이 일에 전념하게."</h3>
+              <p class="mt-2 text-center">"그러면 아무리 고통스러운 순간에도 분명 신은 손을 내밀 것이고, 반드시 성공할 수 있다네."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Section Title - Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">❤️ 일을 사랑하는가</h2>
+          <p class="slide-content">주어진 일을 사랑하려고 애쓰는 것부터 시작해야 합니다. <span class="highlight">마음가짐 하나만 바꿨을 뿐인데,</span> 세상을 극적으로 변화시킬 수 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 13: Chapter 2 - Change Your Mindset -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음가짐부터 바꿔라</h2>
+          <p class="slide-subtitle">천직은 우연히 만나는 것이 아니라, 스스로 만들어내는 것입니다.</p>
+          <div class="slide-content">
+            <p>하기 싫다는 부정적인 감정을 몰아내고, '일이 좋아지도록 최선을 다해보자'고 결심하는 것. 그 노력이 있었기에 불모지였던 파인세라믹 연구가 가치 있는 일로 느껴지기 시작했습니다.</p>
+            <p class="text-2xl font-bold text-center mt-8">"어쩌면 전 세계에서 나 하나뿐일지도 모른다. 내가 하는 이 일은 <span class="highlight">그만큼 가치 있는 일이다.</span>"</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 2 - If You Want to Be Loved -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑받고 싶다면 <span class="highlight">먼저 사랑하라</span></h2>
+          <p class="slide-subtitle">사랑에 빠지면 오직 그 사람만 눈에 들어오듯, 일과 사랑에 빠져야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p>❤️ <b>사랑하는 사람에게 가는 길:</b> 아무리 멀어도 가깝게 느껴지고, 힘든 줄 모릅니다.</p>
+              <p>💼 <b>일도 마찬가지입니다:</b> 일과 사랑에 빠져, 일하는 그 순간이 너무 행복해야 합니다. 아무 이유 없이 내가 하는 일이 너무 좋아야 합니다.</p>
+            </div>
+            <div class="text-8xl text-center">
+              ❤️‍🔥
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Chapter 2 - Finding a Job You Love -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'좋아하는 일'을 찾는다는 환상</h2>
+          <p class="slide-subtitle">대부분의 사람은 '좋아하지 않는 일'을 맡으며 인생을 시작합니다.</p>
+          <div class="slide-content">
+            <p>문제는 '내가 좋아하지 않는 일을 하고 있다'며 스스로를 비하하고 마지못해 계속한다는 사실입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 저자의 조언</h3>
+              <p class="mt-2">"자신이 좋아하는 일을 찾기보다는, 우선 <span class="highlight">주어진 일을 좋아하려는 마음</span>부터 갖길 바랍니다."</p>
+            </div>
+            <p class="mt-4">환상을 좇기보다 눈앞의 일을 좋아하려 노력하는 자세가 인생의 선순환을 만듭니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Chapter 2 - Embrace Your Product -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제품을 <span class="highlight">끌어안고 싶을 만큼의</span> 애정으로</h2>
+          <p class="slide-subtitle">자신이 하는 일과 만든 제품에 그만큼의 애정을 쏟지 않으면 결코 만족할 만한 결과를 낼 수 없습니다.</p>
+          <div class="slide-content">
+            <p>복잡한 구조의 '수냉식 사관' 개발 당시, 직원들은 변형을 막기 위해 밤새 제품을 가슴에 안고 천천히 돌려가며 모양을 지켰습니다. 이는 마치 자식을 돌보는 부모의 마음과 같았습니다.</p>
+            <p class="mt-4 font-bold">'자신이 만든 제품을 품에 끌어안고 잘' 정도의 애정으로 일하지 않고서는 어려운 과제에 도전하는 참맛을 알지 못합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 2 - Listen to the Product's Voice -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제품이 우는 소리에 귀를 기울여라 👂</h2>
+          <p class="slide-subtitle">일에 진심으로 애정을 가지면, 문제 해결의 실마리를 먼저 발견할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>불량품이 나오는 것은 생산 공정 어딘가에 문제가 있다는 신호입니다. 저자는 이를 '제품이 우는 소리'라고 표현합니다.</p>
+            <p class="mt-4">애정을 듬뿍 담아 겸허한 시선으로 제품을 꼼꼼히 관찰하면, 마치 의사가 환자의 심장 소리를 듣고 병을 진단하듯 문제의 원인을 파악할 수 있습니다. <span class="highlight">일에 대한 애정만큼 유능한 스승은 없습니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Section Title - Chapter 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">✨ 무엇을 꿈꾸는가</h2>
+          <p class="slide-content">인생은 희망으로 가득 찬 멋진 선물입니다. 그 희망을 누리려면 미래에 대한 <span class="highlight">밝고 적극적인 꿈</span>을 품어야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: Chapter 3 - Big Dreams -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2등이 꿈인 사람은 없다</h2>
+          <p class="slide-subtitle">교세라 창업 당시, 저자는 28명의 직원 앞에서 원대한 포부를 밝혔습니다.</p>
+          <div class="slide-content">
+            <p class="text-xl font-bold text-center mt-4">"여기 니시노쿄하라마치에서 1등 회사가 됩시다. 동네에서 1등이 되면 교토에서, 일본에서, 그리고 <span class="highlight">세계 최고</span>가 되는 게 우리의 목표입니다."</p>
+            <p class="mt-6">당시엔 허무맹랑하게 들렸을지 모를 이 꿈이 있었기에, 모두가 불가능해 보이는 목표를 공유하고 끝없는 노력을 퍼부을 수 있었습니다. <span class="highlight">높은 목표는 인간과 조직을 발전시키는 최고의 원동력입니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Chapter 3 - Dam Management -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">꼭 이루겠다고 <span class="highlight">간절히 마음먹어라</span></h2>
+          <p class="slide-subtitle">마쓰시타 고노스케 회장의 '댐 경영' 강연에서 얻은 깨달음.</p>
+          <div class="slide-content">
+            <p>댐 경영의 구체적인 방법을 묻는 질문에 마쓰시타 회장은 "그렇게 하려고 마음먹으면 되지"라고 답했습니다. 이는 무책임한 답변이 아니었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 깨달음</h3>
+              <p class="mt-2">"반드시 그렇게 경영하겠다고 당신 스스로 진지하게 마음먹어야 합니다. <span class="highlight">간절한 마음과 절실한 다짐</span>이 경영의 시작이니까요."</p>
+            </div>
+            <p class="mt-4">진정으로 원하고 전념을 다할 때 꿈은 비로소 현실이 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Chapter 3 - The Subconscious -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">잠재의식에 닿는 순간 기회가 찾아온다</h2>
+          <p class="slide-subtitle">마음으로 간절히 바라면 그 일은 반드시 이루어집니다.</p>
+          <div class="slide-content">
+            <p>먹고 자는 일조차 잊을 만큼 간절히 바라고, 하루 종일 오직 그 일만 생각하면 소망은 차츰 잠재의식에까지 침투합니다.</p>
+            <p class="mt-4">잠재의식이 가동되면, 생각지 못한 순간에 문제의 핵심을 파고드는 아이디어가 떠오릅니다. 이는 마치 '신의 계시'처럼 느껴지며, 필연적으로 좋은 결과를 끌어당깁니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Chapter 3 - Human Duty -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간으로서 해야 할 도리를 다하였는가?</h2>
+          <p class="slide-subtitle">성공은 보이지 않는 땀과 눈물의 결과입니다.</p>
+          <div class="slide-content">
+            <p>IBM으로부터 받은 불가능에 가까운 주문. 수많은 실패 끝에 한 기술자가 소성로 앞에서 눈물을 흘리고 있었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="mt-2 text-center text-xl">"자네, 제품을 만들며 신께 간절히 기도를 드렸나?"</p>
+            </div>
+            <p class="mt-6">이 질문의 진짜 의미는 이것입니다: "사람이 할 수 있는 최선의 노력을 다한 뒤 이제는 신께 빌며 천명을 기다리는 방법밖에 없다고 자신할 만큼, 당신이 가진 모든 힘을 쏟아냈는가?"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Section Title - Chapter 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">💪 노력을 지속하는가</h2>
+          <p class="slide-content">평범함을 비범함으로 바꾸는 것은 재능이 아니라 <span class="highlight">지속하는 힘</span>입니다. 위대한 일은 사소한 일들의 축적된 결과입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 24: Chapter 4 - The Power of Continuation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">평범함을 비범함으로 바꾸는 <span class="highlight">지속의 힘</span></h2>
+          <p class="slide-subtitle">단순한 작업을 20년간 묵묵히 해낸 한 직원의 이야기.</p>
+          <div class="slide-content">
+            <p>중학교만 졸업하고 입사해 눈에 띄지 않던 직원이 20년 후, 놀랍게도 사업부장으로 승진해 회사의 핵심 인재로 활약하고 있었습니다. 인격과 식견을 갖춘 훌륭한 리더로 성장한 것입니다.</p>
+            <p class="mt-4">그의 비범함은 어디서 왔을까요? 요행을 바라지 않고, 미미하고 단순한 일일지라도 싫증 내지 않고 오랫동안 노력을 거듭해온 '지속의 힘' 덕분이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Chapter 4 - Two Types of People -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'면도날' 같은 사람 vs '우직한' 사람</h2>
+          <p class="slide-subtitle">경영자는 어떤 인재를 선택해야 할까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🔪 면도날 같은 사람</h3>
+              <p>재기가 넘치고 일머리가 좋으며 습득 속도가 빠릅니다. 처음에는 큰 기대를 받지만, 일이 지루하거나 회사에 가망이 없다고 판단되면 빠르게 그만두는 경우가 많습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🐂 우직한 사람</h3>
+              <p>처음에는 답답하게 느껴질 수 있지만, 남들이 싫어하는 일도 게으름 피우지 않고 꾸준히 해냅니다. 10년, 20년 한결같은 모습으로 노력하여 결국 비범한 인재로 성장합니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center font-bold">'지속의 힘'이야말로 일을 성공으로 이끌고 인생을 가치 있게 만드는 진정한 능력입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Chapter 4 - One Step Forward -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어제보다 <span class="highlight">한 걸음 더</span> 앞으로 나아가라</h2>
+          <p class="slide-subtitle">막연한 미래를 걱정하기보다, 당장 내 눈앞에 있는 현실에 집중했습니다.</p>
+          <div class="slide-content">
+            <p>저자는 불안과 두려움에 휩싸였을 때, 먼 미래 대신 '오늘 하루'에 집중하기로 했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🎯 하루 단위의 목표</h3>
+              <p class="mt-2">"오늘 달성하기로 한 일은 반드시 오늘 해내자. 오늘은 어제보다 1센티미터라도 더 앞으로 나아가자."</p>
+            </div>
+            <p class="mt-4">오늘 하루를 '살아가는 단위'로 정하고, 그 하루하루를 온 힘을 다해 살아가는 것. 이것이 일과 삶을 걷는 데 가장 적합한 보폭입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Chapter 4 - No Long-Term Plans -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">교세라는 10년 앞을 내다보지 않는다</h2>
+          <p class="slide-subtitle">"충실한 오늘을 매일매일 계속해나간다." 이것이 교세라의 경영 철학입니다.</p>
+          <div class="slide-content">
+            <p>장기 계획은 뜬구름 잡기 쉽고, 예측 불가능한 환경 변화로 인해 거짓으로 끝나는 경우가 많습니다. 교세라는 1년간의 경영 계획만 세웁니다.</p>
+            <p class="mt-4">그리고 그 1년의 계획을 다시 월별, 일별 목표로 세분화하여 단기 목표들을 반드시 달성하려고 노력합니다.</p>
+            <p class="mt-4 font-bold text-center">오늘 하루 열심히 일하면 <span class="highlight">내일이 보일 것이다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Section Title - Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">✅ 현재에 만족하는가</h2>
+          <p class="slide-content">대담함과 세심함. 이 두 가지 모순된 요소를 모두 갖추어야 무슨 일이든 <span class="highlight">완전하게</span> 해낼 수 있습니다. </p>
+        </div>
+      </div>
+
+      <!-- Slide 29: Chapter 5 - Strive for Perfection -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기왕 할 거라면 <span class="highlight">완벽하게</span> 하라</h2>
+          <p class="slide-subtitle">저자의 숙부는 2차 대전 당시 해군 정비사였습니다.</p>
+          <div class="slide-content">
+            <p>그는 자신이 정비한 비행기에 타지 않았습니다. "정말 완벽했는가?"라는 질문에 "네, 완벽합니다!"라고 자신 있게 대답할 수 없었기 때문입니다.</p>
+            <p class="mt-4">저자는 다릅니다. "내가 직접 하겠다"고 말할 수 있는 자신감은 어디서 올까요?</p>
+            <p class="mt-4 font-bold">매일이 목숨을 내놓고 벌이는 정면 승부였고, 그 하루하루의 축적을 통해 쌓은 실력에 대한 자신감 때문입니다. <span class="highlight">완벽주의는 날마다 일에 진지하게 임할 때 비로소 생겨납니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Chapter 5 - 99% is not enough -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">99퍼센트도 부족하다</h2>
+          <p class="slide-subtitle">제품을 만들 땐 99퍼센트까지 순조롭더라도, 마지막 1퍼센트의 노력을 게을리하면 모든 것이 물거품이 됩니다.</p>
+          <div class="slide-content">
+            <p>단 한 번의 실수, 한 번의 타협, 한순간의 날림도 허용하지 않는 <span class="highlight">100퍼센트의 노력이 필요합니다.</span></p>
+            <p class="mt-4">아주 작은 실수 하나가 그때까지의 모든 노력을 물거품으로 만들고, 고객의 신용마저 무너뜨릴 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Chapter 5 - Intentional Attention -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유의주의 (有意注意)</h2>
+          <p class="slide-subtitle">의식하고 집중하는 힘.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">유의주의 (有意注意)</h3>
+              <p>'뜻을 가지고 뜻을 기울이라'는 의미. 뚜렷하고 진지하게 의식과 신경을 대상에 집중시키는 것입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">무의주의 (無意注意)</h3>
+              <p>소리가 들리고 난 후에야 돌아보고 주의를 기울이는 것. 즉, 일이 터진 후 수습하는 것입니다.</p>
+            </div>
+          </div>
+           <p class="mt-8 text-center font-bold">유의주의를 통해 일에 매진하면 실수가 확실히 줄어들고, 문제가 발생해도 즉시 핵심을 파악해 해결할 수 있습니다. 이것이 완벽주의에 이르는 길입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Chapter 5 - Be Meticulous -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사소한 것일수록 <span class="highlight">더 신중하라</span></h2>
+          <p class="slide-subtitle">연구 성과가 나오지 않던 시절, 저자는 한 선배의 모습에서 큰 깨달음을 얻습니다.</p>
+          <div class="slide-content">
+            <p>그 선배는 실험 도구인 포트밀과 분쇄용 돌을 매우 꼼꼼하고 정성스럽게 세척하고 있었습니다. 흠집에 낀 작은 분말까지 긁어내고 있었습니다.</p>
+            <p class="mt-4">저자는 그동안 세척을 '잡일'로 여기고 요령껏 해치웠습니다. 그 미세한 불순물이 실험 결과에 영향을 미쳤던 것입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg text-center">"신은 디테일 속에 있다."</h3>
+               <p class="mt-2 text-center">일의 본질은 세세하고 단순한 데 있으며, 성과는 세세한 작업을 소홀히 하지 않는 자세에서 비롯됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Chapter 5 - Perfect, Not Best -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">최고가 아닌 <span class="highlight">완벽</span>을 꿈꿔라</h2>
+          <p class="slide-subtitle">슐룸베르거의 장 리부 사장과의 대화에서 얻은 경영 철학.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">최고 (The Best)</h3>
+              <p>다른 것과 비교해 그중에서 가장 좋다는 의미. 상대적인 개념입니다. 수준이 낮은 것들 가운데서도 최고는 존재할 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">완벽 (Perfection)</h3>
+              <p>다른 것과 비교하지 않고, 오직 가장 완벽한 가치만을 생각하는 것. 절대적인 개념입니다. 완벽을 넘어서는 것은 이 세상에 존재하지 않습니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center font-bold">교세라가 추구하는 목표는 '최고'가 아니라 '완벽'입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Section Title - Chapter 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">💡 창조적으로 일하는가</h2>
+          <p class="slide-content">매일 전심전력으로 일에 몰두하면서도, 항상 '이대로 좋은가?'라고 자문하며 <span class="highlight">어제보다 나은 오늘, 오늘보다 나은 내일</span>을 추구해야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 35: Chapter 6 - Untraveled Paths -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남들이 가지 않은 길을 가라</h2>
+          <p class="slide-subtitle">"이번에 하려는 일은 사람들이 모두 '우리가 결코 해낼 수 없다'고 말한 일입니다."</p>
+          <div class="slide-content">
+            <p>저자는 항상 아무도 지나간 적 없는 새로운 길, 즉 '진창길'을 선택해 걸어왔습니다.</p>
+            <p class="mt-4">매끈하게 포장된 길을 다른 사람 뒤를 따라 걷는다면 놀라운 성취를 만날 기회는 없습니다. 힘들어도 새로운 것을 발견할 가능성이 있고 더 큰 성과를 기대할 수 있는 길을 걸어가야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Chapter 6 - Today is Not Yesterday -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오늘은 어제와 같을 수 없다</h2>
+          <p class="slide-subtitle">매일 '창조적인 일을 한다'는 말을 되뇌며 일합니다.</p>
+          <div class="slide-content">
+            <p>단순한 청소조차도 창의적으로 할 수 있습니다. 어제와 다른 방식으로 쓸어보고, 더 효율적인 방법을 궁리하고, 새로운 도구를 제안해볼 수 있습니다.</p>
+            <p class="mt-4">어쩔 수 없이 해야 하는 일이라고 투덜대며 건성으로 해치우는 사람은 10년이 지나도 변함이 없습니다. 매일 약간의 창의와 궁리를 더해 <span class="highlight">어제보다 한 걸음 더 앞서간 오늘</span>을 창조해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Chapter 6 - Power of Non-Experts -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비전문가가 전문가보다 더 크게 성공하는 이유</h2>
+          <p class="slide-subtitle">교토의 우량 기업 대다수는 그 분야의 비전문가, 즉 문외한들에 의해 설립되었습니다.</p>
+          <div class="slide-content">
+            <p>문외한은 기존의 개념이나 관습, 관례에 얽매이지 않습니다. 초보이기 때문에, 아무것도 모르기 때문에 <span class="highlight">자유롭게 생각합니다.</span> 이것이 새로운 일에 맞서는 가장 강력한 무기입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 창조의 원천</h3>
+              <p class="mt-2">"새로운 일을 해낼 수 있는 사람은 그 어떤 것에도 얽매이지 않는 초심자이지, 그 분야에서 경험을 쌓아 많은 지식을 갖춘 전문가가 아닙니다. <span class="highlight">모험심이야말로 창조의 원천이기 때문입니다.</span>"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Chapter 6 - Motivation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">동기가 선하고 <span class="highlight">사심이 없는가?</span></h2>
+          <p class="slide-subtitle">새로운 통신 사업에 뛰어들었을 때, 저자는 스스로에게 끊임없이 물었습니다.</p>
+          <div class="slide-content text-lg space-y-3">
+            <p>❓ '통신 사업을 하고 싶다는 의지가 나 자신이 부자가 되고 싶어서인가?'</p>
+            <p>❓ '더 유명해지고 싶어서인가?'</p>
+            <p>❓ '내 개인적인 욕심을 채우기 위해서인가?'</p>
+            <p class="font-bold">❓ '정말 세상과 사람을 위해서라는, 사심 없는 선의에서인가?'</p>
+            <p class="mt-4">이 질문들에 '그렇다'고 답할 수 있었을 때, 비로소 사업에 진출했습니다. 순수하고 아름다운 마음을 간절히 품고 노력하면 아무리 어려운 목표도 반드시 실현할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Chapter 6 - Planners -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생각은 밝게, 계획은 꼼꼼하게</h2>
+          <p class="slide-subtitle">새로운 일에 도전하는 가장 이상적인 시스템.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🚀 낙관론자 (Optimist)</h3>
+              <p>어려운 전망에도 추진해 나아가려는 강인한 힘이 있습니다. 프로젝트의 구상 단계나 착수 시기에 그들의 추진력이 필요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🧐 비관론자 (Pessimist)</h3>
+              <p>진중하고 차분하게 리스크를 상정하고 세심한 계획을 세웁니다. 아이디어를 구체적으로 계획하는 단계에서 그들의 도움이 필요합니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center font-bold text-xl">"<span class="highlight">낙관적으로 구상하고, 비관적으로 계획하며, 다시 낙관적으로 실행한다.</span>"</p>
+        </div>
+      </div>
+
+      <!-- Slide 40: Section Title - Epilogue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">에필로그</p>
+          <h2 class="slide-title">내일을 여는 🚀<br>인생 방정식</h2>
+          <p class="slide-content">인생과 일을 대하는 저자의 가치관을 하나의 방정식으로 나타냅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 41: Epilogue - The Equation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title text-center">인생 · 일의 결과 = <br><span class="highlight">능력 × 열의 × 사고방식</span></h2>
+          <div class="slide-content mt-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-2xl mb-2">🧠 능력</h3>
+              <p>지능, 건강, 운동신경 등 선천적으로 물려받은 재능 (0점 ~ 100점)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl mb-2">🔥 열의</h3>
+              <p>의욕, 노력, 패기 등 후천적인 노력 (0점 ~ 100점)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl mb-2">💭 사고방식</h3>
+              <p>철학, 가치관, 인격 등 마음의 자세 (-100점 ~ 100점)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Epilogue - Explanation 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">방정식 해설: 능력과 열의</h2>
+          <p class="slide-subtitle">능력과 열의는 곱셈으로 계산됩니다.</p>
+          <div class="slide-content">
+            <p>• <b>능력 90점 × 열의 30점 = 2700점</b><br/> (재능을 믿고 노력하지 않는 사람)</p>
+            <p class="mt-4">• <b>능력 60점 × 열의 90점 = 5400점</b><br/> (재능은 평범하지만 한결같이 노력하는 사람)</p>
+            <p class="mt-8 font-bold">타고난 능력보다 <span class="highlight">후천적인 열의와 노력이 결과에 더 큰 영향</span>을 미칩니다. 보잘것없는 능력이라도 꾸준한 노력으로 성공을 거둔 사람들이 의외로 많습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Epilogue - Explanation 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">방정식 해설: <span class="highlight">가장 중요한 '사고방식'</span></h2>
+          <p class="slide-subtitle">'사고방식'은 유일하게 마이너스(-) 값을 가질 수 있습니다.</p>
+          <div class="slide-content">
+            <p>아무리 높은 능력과 열의를 가졌더라도, 사고방식이 부정적이라면(세상을 탓하고 남을 질투한다면) 인생과 일의 결과는 마이너스가 됩니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg text-center text-red-700">능력(90) x 열의(100) x 사고방식(-2) = -18,000점</h3>
+              <p class="mt-2 text-center text-red-700">능력이 높고 열의가 강할수록, 부정적인 사고방식은 인생을 더 끔찍한 방향으로 질주하게 만듭니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Epilogue - Final Advice -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마지막 조언 📜</h2>
+          <p class="slide-subtitle">미래를 짊어져야 하는 이 땅의 모든 일하는 이들에게.</p>
+          <div class="slide-content space-y-2">
+             <p>✓ 무슨 일이든 이룰 수 있다고 다짐하라.</p>
+             <p>✓ 모두와 함께 일하고 기쁨을 나누어라.</p>
+             <p>✓ 밝고 긍정적으로 생각하고 행동하라.</p>
+             <p>✓ 다른 사람에게 선의를 베풀어라.</p>
+             <p>✓ 남을 배려하고 자상하게 행동하라.</p>
+             <p>✓ 성실하고, 정직하며, 겸허하게 노력하라.</p>
+             <p>✓ 이기적으로 행동하지 말고 욕심을 버려라.</p>
+             <p>✓ 만족할 줄 아는 마음을 지녀라.</p>
+             <p>✓ <span class="highlight">모든 것에 감사하는 마음을 가져라.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 일은 삶을 단련하는 도장</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">일의 의미와 목적을 잃은 채 살아가는 이들에게, 이나모리 가즈오는 '일'이야말로 삶의 모든 고통을 이겨내고 인생을 좋은 방향으로 이끄는 <span class="highlight">만병통치약이자 묘약</span>이라고 말합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">주어진 일에 맹렬히 전념함으로써, 우리는 혹독한 운명을 이겨내고 삶을 밝고 희망차게 만들 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ... Additional Slides to reach 50+ ... -->
+      
+      <!-- Slide 46: Deeper Dive - Adversity as a Gift -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고난과 좌절은 <span class="highlight">최고의 선물</span></h2>
+          <p class="slide-subtitle">저자의 인생은 수많은 고통과 좌절의 연속이었습니다.</p>
+          <div class="slide-content">
+            <p>하지만 되돌아보면 그때 괴롭고 어렵다고 생각한 일에 도전하고 적극적으로 맞선 것이 오히려 좋은 결과를 불러왔습니다.</p>
+            <p class="mt-4 font-bold">"내가 맞닥뜨린 고난과 좌절은 내 인생의 전환점이었고, 최대의 행운인 셈이었다."</p>
+            <p class="mt-4">쇼후공업에서의 시간은 가혹한 운명이 아니라, <span class="highlight">신이 내게 준 최고의 선물</span>이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Deeper Dive - The Weed's Tenacity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돌 틈에서도 싹을 틔우는 잡초의 기세로</h2>
+          <p class="slide-subtitle">'누구에게도 뒤지지 않을 만큼의 노력'은 특별한 것이 아닙니다.</p>
+          <div class="slide-content">
+            <p>자연을 보면 어느 동식물이든 온 힘을 다해 살아가지 않는 생명은 없습니다. 아스팔트 틈새의 잡초는 치열하게 발버둥 치며 필사적으로 살아남아 꽃을 피웁니다.</p>
+            <p class="mt-4">오직 인간만이 편하고 쉬운 길을 찾는 데 열중합니다. 인생은 살아가는 일 자체가 치열한 노력의 연속입니다. 그것이 <span class="highlight">자연의 섭리이자, 인간이 인간다워지는 섭리</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: Deeper Dive - Small Successes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">작은 일에도 크게 감동하라</h2>
+          <p class="slide-subtitle">일의 과정 속에서 기쁨을 발견해야 일을 오래 할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>저자는 실험 결과가 좋으면 아이처럼 펄쩍펄쩍 뛰며 기뻐했습니다. 한 젊은 직원은 그런 모습을 경박하다고 비판했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 저자의 반론</h3>
+              <p class="mt-2">"소소한 일에도 기쁨을 느끼고 감동할 줄 아는 것이야말로 세상에서 가장 멋진 일이지. 그 기쁨과 감동이 <span class="highlight">새로운 에너지를 주는 법이니까.</span>"</p>
+            </div>
+            <p class="mt-4">감동에서 샘솟는 에너지를 양식으로 삼아 더욱 열심히 일하는 자세가 기나긴 인생을 살아가는 지혜로운 방법입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49: Deeper Dive - Becoming the Vortex -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스스로를 태우는 사람이 되어라</h2>
+          <p class="slide-subtitle">사람은 세 종류로 나뉩니다: 가연성, 불연성, 자연성.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🔥 가연성(可燃性)</h3>
+              <p>주변의 영향을 받아야 행동하는 사람.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🧊 불연성(不燃性)</h3>
+              <p>좀처럼 타지 않고 주변의 불씨까지 꺼버리는 사람.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">☀️ 자연성(自然性)</h3>
+              <p>스스로 타올라 행동으로 옮기는 사람.</p>
+            </div>
+          </div>
+          <p class="mt-8 font-bold text-center">어떤 일이든 끝까지 해내려면 <span class="highlight">'스스로 타오르는 사람'</span>이 되어야 합니다. 조직의 중심이 되어 주변을 이끌고 역동적으로 움직이게 하는 '소용돌이의 중심'이 되십시오.</p>
+        </div>
+      </div>
+
+      <!-- Slide 50: Deeper Dive - The Power of Words -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">말의 힘: 마음을 다스리는 주문</h2>
+            <p class="slide-subtitle">저자는 힘겨운 시절, 스스로를 다독이며 이겨냈습니다.</p>
+            <div class="slide-content">
+                <p>고독과 괴로움이 엄습할 때면 홀로 하늘을 보며 노래를 불렀습니다. 그 노래가 끝나고 기숙사로 돌아갈 때면 이미 마음은 한결 가벼워져 있었습니다.</p>
+                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <h3 class="font-bold text-lg text-center">스스로에게 건네는 위로</h3>
+                    <p class="mt-2 text-center">"왜 이렇게 약해? 넌 충분히 잘하고 있어. 앞으로도 잘할 거야. 이건 <span class="highlight">신이 너를 시험하려고 준 시련일 뿐이야.</span>"</p>
+                </div>
+                <p class="mt-4">내일에 대한 희망과 용기를 품고 밝고 환한 마음으로 다시 나아갈 힘을 얻었습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Final Summary Question -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title text-center">그래서, 당신은...</h2>
+            <div class="slide-content text-2xl text-center space-y-8 mt-12">
+                <p>왜 그 일을 하는가?</p>
+                <p>그 일을 통해 <span class="highlight">무엇이 되길 꿈꾸는가?</span></p>
+                <p>끌려다녀서는 아무것도 제대로 할 수 없다.</p>
+                <p class="font-bold">일도, 그리고 인생도.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
