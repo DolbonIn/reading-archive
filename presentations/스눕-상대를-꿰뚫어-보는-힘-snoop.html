@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스눕(Snoop) 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+    }
+    ul li {
+        margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🕵️‍♂️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">스눕 (Snoop)</h1>
+          <p class="text-xl md:text-2xl text-gray-700">상대를 <span class="highlight">꿰뚫어보는</span> 힘, 당신의 물건이 말해주는 것들</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 스눕이란 무엇인가?:</b> '척 보면 아는' 통찰의 예술</p>
+            <p><b>2. 성격의 3가지 단서:</b> 정체성, 감정, 그리고 행동의 흔적</p>
+            <p><b>3. OCEAN 모델:</b> 5가지 성격 유형 파헤치기</p>
+            <p><b>4. 스누핑 실전:</b> 공간과 사물, 온라인에서 사람 읽기</p>
+            <p><b>5. 스누핑의 함정:</b> 잘못된 판단을 피하는 방법</p>
+            <p><b>6. 결론:</b> 스누핑을 통한 진정한 인간 이해</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: 스눕이란 무엇인가?</p>
+          <h2 class="slide-title">'척 보면 아는' <span class="highlight">통찰의 예술</span> 🧐</h2>
+          <p class="slide-content">우리는 타인의 공간과 소지품을 통해 그 사람을 파악하려는 본능이 있습니다. 이 책은 그 과정이 단순한 '감'이 아니라 과학적 근거를 가진 '기술'이 될 수 있음을 보여줍니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Why We Snoop -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리는 왜 <span class="highlight">엿보고</span> 싶어할까?</h2>
+          <p class="slide-subtitle">상대의 마음을 꿰뚫어보고자 하는 욕구는 인간의 본능입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🤝 원활한 소통</h3>
+              <p>상대의 지적 수준, 취향, 성향 등을 미리 알면 훨씬 더 효과적으로 소통할 수 있습니다. 불필요한 오해를 줄이고 관계를 원만하게 이끌 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🔍 진정한 모습 발견</h3>
+              <p>'내가 원하는 모습의 나'를 상대에게 보여줄 수 있을 뿐만 아니라, 상대방이 의식적으로 드러내지 않는 진정한 내면의 특성을 파악할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Snoop is Science -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스누핑은 <span class="highlight">마술이 아니다</span> 🎩</h2>
+          <p class="slide-subtitle">인간은 본능적으로 사물로부터 의미를 유추하지만, 그 과정을 스스로 인식하지 못할 때가 많습니다.</p>
+          <div class="slide-content">
+            <p>우리가 누군가를 처음 만났을 때, 우리는 무의식적으로 수많은 정보를 종합하여 그 사람에 대한 인상을 만듭니다.</p>
+            <ul class="mt-4">
+              <li><b>헤어스타일, 옷차림:</b> 그 사람의 스타일과 개성을 보여줍니다.</li>
+              <li><b>악수할 때 손의 힘:</b> 자신감이나 성향을 짐작하게 합니다.</li>
+              <li><b>사무실 책상 위의 물건들:</b> 취미, 가치관, 일하는 방식을 드러냅니다.</li>
+            </ul>
+            <p class="mt-4">이 책은 이러한 복잡 미묘한 심리학적 과정이 어떻게 작동하는지, 그리고 어떻게 하면 더 정확하게 타인을 파악할 수 있는지 알려줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Author's Motivation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자, 샘 고슬링의 <span class="highlight">연구 동기</span></h2>
+          <p class="slide-subtitle">심리학자로서, 사람들이 자신의 생활 공간에 남긴 단서들을 통해 그 사람의 보이지 않는 심리적 특성을 파악할 수 있다는 아이디어에서 연구는 시작되었습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">🛋️ '침실 연구'의 시작</h3>
+            <p class="mt-2">저자는 낯선 사람의 침실을 살펴보는 것만으로 그 사람에 대한 어떤 사실을 알아낼 수 있을지 궁금했습니다. 이 호기심은 기숙사 방, 사무실, 개인 홈페이지, 아이팟 플레이리스트 등 다양한 공간과 사물을 분석하는 대규모 연구로 발전했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: 성격의 3가지 단서</p>
+          <h2 class="slide-title">당신을 말해주는 <span class="highlight">3가지 흔적</span> 👣</h2>
+          <p class="slide-content">우리의 소지품은 세 가지 주요한 방식으로 우리의 성격을 드러냅니다. 이 단서들을 이해하는 것이 스누핑의 핵심입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: Identity Claims -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1. 자기 정체성 주장 <span class="highlight">(Identity Claims)</span></h2>
+          <p class="slide-subtitle">스스로를 어떻게 생각하는지, 그리고 남에게 어떻게 보이고 싶은지를 의식적으로 표현하는 상징물입니다.</p>
+          <div class="slide-content">
+            <p>이것은 타인에게 보내는 일종의 '선언'과 같습니다. "나는 이런 사람이야!"라고 말하는 것과 같죠.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔎 예시</h3>
+              <p class="mt-2"><b>포스터, 사진, 기념품:</b> 특정 밴드, 영화, 여행지에 대한 애정을 드러냅니다.</p>
+              <p class="mt-2"><b>티셔츠나 스티커:</b> 정치적 신념이나 소속된 집단에 대한 충성심을 보여줍니다.</p>
+              <p class="mt-2"><b>자격증이나 상장:</b> 자신의 능력과 성취를 강조합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Feeling Regulators -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2. 감정 조절 장치 <span class="highlight">(Feeling Regulators)</span></h2>
+          <p class="slide-subtitle">자신의 감정과 생각을 관리하고 조절하기 위해 사용하는 물건들입니다.</p>
+          <div class="slide-content">
+            <p>이 물건들은 주로 남에게 보여주기 위한 것이 아니라, 자신의 심리적 안정을 위해 사용됩니다. 우리의 내면 세계를 엿볼 수 있는 중요한 단서가 됩니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🎶 예시</h3>
+              <p class="mt-2"><b>음악 컬렉션 (CD, 플레이리스트):</b> 기분을 전환하거나 집중력을 높이는 데 사용됩니다.</p>
+              <p class="mt-2"><b>가족이나 연인의 사진:</b> 심리적 안정감과 유대감을 줍니다.</p>
+              <p class="mt-2"><b>향초나 작은 분수:</b> 공간의 분위기를 바꾸고 스트레스를 완화합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Behavioral Residue -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 행동의 잔여물 <span class="highlight">(Behavioral Residue)</span></h2>
+          <p class="slide-subtitle">우리가 일상적으로 하는 행동들이 남긴 흔적들로, 가장 정직한 단서가 될 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">의식적 행동의 흔적</h3>
+              <p>어떤 목적을 가지고 한 행동의 결과물입니다. 예를 들어, 가지런히 정리된 책상은 성실함을 보여줄 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">무의식적 습관의 흔적</h3>
+              <p>특별한 의도 없이 반복적인 습관이 남긴 결과물입니다. 예를 들어, 바닥에 뒹구는 커피 컵은 그 사람의 생활 패턴을 암시합니다.</p>
+            </div>
+          </div>
+           <p class="mt-8 font-bold">이 흔적들은 의도적으로 꾸미기 어렵기 때문에 그 사람의 실제 성격을 파악하는 데 매우 유용합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3: OCEAN 모델</p>
+          <h2 class="slide-title">성격의 5가지 차원 <span class="highlight">OCEAN</span> 🌊</h2>
+          <p class="slide-content">현대 심리학에서 가장 널리 인정받는 성격 이론인 '5대 성격 특성(Big Five)' 모델입니다. 스누핑을 통해 발견한 단서들을 이 5가지 차원에 대입하여 체계적으로 분석할 수 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Openness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">O: 경험에 대한 개방성 <span class="highlight">(Openness)</span></h2>
+          <p class="slide-subtitle">새로운 경험, 지적 호기심, 상상력, 예술적 감수성 등에 대해 열려 있는 정도입니다.</p>
+          <div class="slide-content">
+              <h3 class="font-bold text-lg mb-2">개방성이 높은 사람의 공간 🎨</h3>
+              <ul>
+                  <li>다양한 장르의 책, 음악, 영화 컬렉션을 가지고 있습니다.</li>
+                  <li>독특하고 창의적인 예술 작품이나 장식품이 많습니다.</li>
+                  <li>새로운 아이디어나 추상적인 개념에 대한 책을 즐겨 읽습니다.</li>
+                  <li>전통적이지 않고 독특한 방식으로 공간을 꾸미는 경향이 있습니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Conscientiousness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">C: 성실성 <span class="highlight">(Conscientiousness)</span></h2>
+          <p class="slide-subtitle">체계적이고 책임감 있으며, 목표 지향적이고 자기 통제력이 강한 정도입니다.</p>
+          <div class="slide-content">
+              <h3 class="font-bold text-lg mb-2">성실성이 높은 사람의 공간 🗓️</h3>
+              <ul>
+                  <li>공간이 매우 깨끗하고 정리가 잘 되어 있습니다.</li>
+                  <li>달력, 플래너, 할 일 목록(To-do list) 등을 잘 활용합니다.</li>
+                  <li>책이나 CD 등이 특정 기준(알파벳순, 장르순 등)에 따라 정돈되어 있습니다.</li>
+                  <li>모든 물건이 제자리에 있으며 효율적으로 배치되어 있습니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Extraversion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">E: 외향성 <span class="highlight">(Extraversion)</span></h2>
+          <p class="slide-subtitle">사교적이고 활동적이며, 타인과의 상호작용에서 에너지를 얻는 정도입니다.</p>
+          <div class="slide-content">
+              <h3 class="font-bold text-lg mb-2">외향성이 높은 사람의 공간 🎉</h3>
+              <ul>
+                  <li>여러 사람이 함께 찍은 사진이 많습니다.</li>
+                  <li>공간이 사람들을 초대하고 어울리기 편하게 꾸며져 있습니다. (예: 여러 개의 의자)</li>
+                  <li>활동적인 취미나 스포츠와 관련된 용품들이 눈에 띕니다.</li>
+                  <li>밝고 활기찬 분위기의 장식이나 색상을 선호합니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Agreeableness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">A: 우호성 <span class="highlight">(Agreeableness)</span></h2>
+          <p class="slide-subtitle">타인에게 친절하고 협조적이며, 이타적이고 신뢰가 깊은 정도입니다.</p>
+          <div class="slide-content">
+              <h3 class="font-bold text-lg mb-2">우호성이 높은 사람의 공간 😊</h3>
+              <ul>
+                  <li>따뜻하고 환영하는 분위기를 자아냅니다.</li>
+                  <li>긍정적인 메시지가 담긴 인용문이나 장식품이 있을 수 있습니다.</li>
+                  <li>방문객을 위한 배려가 돋보이는 물건들(예: 여분의 간식)이 있습니다.</li>
+                  <li>전반적으로 부드럽고 편안한 느낌을 줍니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Neuroticism -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">N: 신경성 <span class="highlight">(Neuroticism)</span></h2>
+          <p class="slide-subtitle">불안, 우울, 분노와 같은 부정적 감정을 쉽게 느끼는 경향성입니다. (정서적 불안정성)</p>
+          <div class="slide-content">
+              <h3 class="font-bold text-lg mb-2">신경성이 높은 사람의 공간 😥</h3>
+              <ul>
+                  <li>불안감을 드러내거나 혹은 극복하려는 메시지가 담긴 물건(예: 자기계발서)이 있습니다.</li>
+                  <li>때로는 공간이 혼란스럽거나 정돈되지 않은 모습을 보일 수 있습니다. (단, 이것만으로 판단하기는 어려움)</li>
+                  <li>염세적이거나 비판적인 내용의 책이나 영화를 선호할 수 있습니다.</li>
+                  <li>감정의 기복을 반영하는 다양한 물건들이 혼재할 수 있습니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 17: OCEAN Chart -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">OCEAN 모델 <span class="highlight">한눈에 보기</span></h2>
+          <div class="slide-content overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr>
+                  <th class="border-b-2 p-4">특성</th>
+                  <th class="border-b-2 p-4">높은 점수 특징</th>
+                  <th class="border-b-2 p-4">낮은 점수 특징</th>
+                  <th class="border-b-2 p-4">관련 단서</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-4 border-b"><b>O</b>penness (개방성)</td>
+                  <td class="p-4 border-b">창의적, 호기심 많음</td>
+                  <td class="p-4 border-b">현실적, 전통적</td>
+                  <td class="p-4 border-b">다양한 책/음악, 예술품</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-4 border-b"><b>C</b>onscientiousness (성실성)</td>
+                  <td class="p-4 border-b">체계적, 신중함</td>
+                  <td class="p-4 border-b">즉흥적, 무질서함</td>
+                  <td class="p-4 border-b">정리된 공간, 달력, 계획표</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-4 border-b"><b>E</b>xtraversion (외향성)</td>
+                  <td class="p-4 border-b">사교적, 활동적</td>
+                  <td class="p-4 border-b">내성적, 조용함</td>
+                  <td class="p-4 border-b">여러 사람과 찍은 사진, 초대장</td>
+                </tr>
+                 <tr class="hover:bg-gray-50">
+                  <td class="p-4 border-b"><b>A</b>greeableness (우호성)</td>
+                  <td class="p-4 border-b">협조적, 신뢰로움</td>
+                  <td class="p-4 border-b">비판적, 경쟁적</td>
+                  <td class="p-4 border-b">따뜻한 분위기, 긍정적 메시지</td>
+                </tr>
+                 <tr class="hover:bg-gray-50">
+                  <td class="p-4 border-b"><b>N</b>euroticism (신경성)</td>
+                  <td class="p-4 border-b">불안함, 감정적</td>
+                  <td class="p-4 border-b">안정적, 차분함</td>
+                  <td class="p-4 border-b">자기계발서, 불안 관련 인용구</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 스누핑 실전</p>
+          <h2 class="slide-title">공간과 사물에서 <span class="highlight">사람 읽기</span> 🛋️</h2>
+          <p class="slide-content">이론을 실제 상황에 적용해 봅시다. 대학생의 기숙사 방부터 직장인의 사무 공간, 그리고 온라인 프로필까지, 다양한 장소에서 어떻게 단서를 찾고 해석할 수 있을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: Case Study - Dorm Room -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구 1: <span class="highlight">대학생 기숙사</span></h2>
+          <p class="slide-subtitle">젊은 성인들의 개성이 가장 솔직하게 드러나는 공간입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">A학생의 방 🪐 (개방성↑)</h3>
+              <p>스타워즈 컬렉션, 다양한 장르의 음악 CD, 벽과 천장을 가득 채운 포스터들. 이 방은 주인이 상상력이 풍부하고 새로운 경험에 열려 있음을 시사합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">B학생의 방 🐻 (우호성↑)</h3>
+              <p>곰돌이 푸와 친구들 장식, 깔끔하게 정돈된 공간, 친구들과 찍은 사진들. 이 방은 주인이 따뜻하고 사교적이며, 관계를 중요하게 생각함을 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Case Study - Office Desk -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구 2: <span class="highlight">사무 공간</span></h2>
+          <p class="slide-subtitle">개인의 성격뿐만 아니라 일하는 방식과 조직 문화에 대한 태도까지 엿볼 수 있습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">💡 무엇을 봐야 할까?</h3>
+            <p class="mt-2"><b>정돈 상태:</b> 성실성과 체계성을 보여주는 가장 직접적인 단서입니다.</p>
+            <p class="mt-2"><b>개인적 물건:</b> 가족 사진, 여행 기념품 등은 개인의 가치관과 삶의 우선순위를 보여줍니다.</p>
+            <p class="mt-2"><b>장식 스타일:</b> 외향적인 사람은 더 화려하고 눈에 띄게, 내향적인 사람은 더 미니멀하게 꾸미는 경향이 있습니다.</p>
+            <p class="mt-2"><b>책상 위 책이나 잡지:</b> 관심사와 전문 분야를 알 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 21: Case Study - Music Playlist -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구 3: <span class="highlight">음악 취향</span> 🎧</h2>
+          <p class="slide-subtitle">음악은 감정을 조절하는 중요한 도구이자, 성격을 반영하는 거울입니다.</p>
+          <div class="slide-content">
+            <p>책에서는 음악 취향과 5대 성격 특성 사이의 흥미로운 연관성을 보여줍니다.</p>
+            <ul class="mt-4">
+              <li><b>개방성 높은 사람:</b> 클래식, 재즈, 포크 음악 등 복잡하고 성찰적인 장르를 선호.</li>
+              <li><b>외향성 높은 사람:</b> 팝, 힙합, 댄스 음악 등 신나고 사교적인 장르를 선호.</li>
+              <li><b>우호성 높은 사람:</b> 대중적인 컨트리, 팝 음악 등 편안한 음악을 선호.</li>
+              <li><b>성실성 높은 사람:</b> 특정 장르에 대한 뚜렷한 선호보다는 배경 음악처럼 활용.</li>
+            </ul>
+            <p class="mt-4 font-bold">음악 취향은 단순한 '취향'을 넘어 그 사람의 인지적, 감정적 스타일을 드러냅니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 22: Case Study - Online Profiles -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구 4: <span class="highlight">온라인 공간</span> (SNS)</h2>
+          <p class="slide-subtitle">디지털 세상 속에서 우리는 또 다른 '공간'을 만들고 그 안에 흔적을 남깁니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">이상적 자기 (Ideal Self)</h3>
+              <p>SNS 프로필은 종종 우리의 실제 모습보다는 우리가 '되고 싶은' 모습을 반영합니다. 이는 자기 정체성 주장의 한 형태입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">실제 자기 (Actual Self)</h3>
+              <p>하지만 글쓰기 스타일, 사용하는 단어, 사진의 내용 등을 자세히 분석하면 행동의 잔여물을 발견할 수 있습니다. 예를 들어, 부정적인 단어를 자주 사용하는 것은 신경성과 관련될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5: 스누핑의 함정</p>
+          <h2 class="slide-title">잘못된 판단을 <span class="highlight">피하는 방법</span> ⚠️</h2>
+          <p class="slide-content">스누핑은 강력한 도구이지만, 잘못 사용하면 심각한 오해를 낳을 수 있습니다. 정확한 판단을 방해하는 몇 가지 함정을 알아봅시다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 24: Pitfall - Stereotypes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">함정 1: <span class="highlight">고정관념</span>의 덫</h2>
+          <p class="slide-subtitle">우리는 종종 특정 집단에 대한 고정관념을 바탕으로 성급한 결론을 내립니다.</p>
+          <div class="slide-content">
+            <p>예를 들어, '모든 공대생은 내성적일 것이다' 또는 '클래식 음악을 들으면 교양이 있을 것이다'와 같은 생각은 위험합니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg text-red-800">🚨 주의!</h3>
+              <p class="mt-2">단서는 개인을 이해하기 위한 출발점일 뿐, 그 사람을 특정 틀에 가두는 데 사용되어서는 안 됩니다. 항상 <span class="highlight">개별적인 증거</span>에 집중해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Pitfall - Deception -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">함정 2: 의도된 <span class="highlight">속임수</span></h2>
+          <p class="slide-subtitle">사람들은 때때로 타인에게 좋은 인상을 주기 위해 자신의 공간을 의도적으로 꾸밉니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">읽지 않는 책</h3>
+              <p>지적으로 보이기 위해 어려운 책들을 책장에 꽂아둘 수 있습니다. 책이 새것처럼 깨끗하다면 의심해볼 만합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">연출된 사진</h3>
+              <p>SNS에 올라온 사진들은 대부분 행복하고 성공적인 순간만을 보여주기 위해 세심하게 연출된 것일 수 있습니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 font-bold">이러한 '자기 정체성 주장'이 진실인지, 아니면 연출된 것인지 구별하는 것이 중요합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 26: Pitfall - Context is Key -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">함정 3: <span class="highlight">맥락</span>의 부재</h2>
+          <p class="slide-subtitle">하나의 단서만으로 그 사람 전체를 판단해서는 안 됩니다.</p>
+          <div class="slide-content">
+            <p>어지러운 책상은 그 사람이 게으르다는 의미일 수도 있지만, 마감이 임박한 창의적인 프로젝트에 몰두하고 있다는 의미일 수도 있습니다. 방금 이사 온 사람의 텅 빈 방을 보고 그 사람을 미니멀리스트라고 단정할 수는 없습니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">🧩 퍼즐 맞추기</h3>
+              <p class="mt-2">여러 단서들을 종합하고, 그것들이 놓인 <span class="highlight">전체적인 맥락</span> 속에서 의미를 해석해야 합니다. 스누핑은 하나의 증거로 범인을 잡는 것이 아니라, 여러 조각의 퍼즐을 맞춰 전체 그림을 완성하는 과정과 같습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 27: State vs. Trait -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상태(State) vs. 특성(Trait) <span class="highlight">구별하기</span></h2>
+          <p class="slide-subtitle">일시적인 '상태'를 영구적인 '특성'으로 오해하지 않도록 주의해야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">상태 (State) 🚦</h3>
+              <p>일시적인 기분이나 상황을 반영합니다. 예를 들어, 파티 다음 날 아침의 어지러운 거실은 일시적인 상태입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">특성 (Trait) 🌳</h3>
+              <p>오랜 기간에 걸쳐 나타나는 꾸준하고 안정적인 성격적 경향입니다. 예를 들어, 항상 정돈되지 않은 방은 무질서한 성격 특성을 나타낼 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Section 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6: 결론</p>
+          <h2 class="slide-title">스누핑을 통한 <span class="highlight">진정한 인간 이해</span> 🤝</h2>
+          <p class="slide-content">스누핑은 타인을 더 깊이 이해하고 공감하는 데 도움을 주는 강력하고 과학적인 도구입니다. 단순히 사람을 판단하는 것을 넘어, 관계를 발전시키는 열쇠가 될 수 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Final Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">우리의 공간과 사물은 '말 없는 자기소개서'입니다. 스누핑은 그 자기소개서를 과학적으로 읽어내는 기술입니다. 이 기술을 통해 우리는 첫인상 너머의 <span class="highlight">입체적인 인간</span>을 발견하고, 더 나은 관계를 맺을 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">정확하게 관찰하고, 신중하게 추론하며, 따뜻하게 이해하십시오.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+      <!-- Additional content slides to meet the length requirement -->
+      
+      <!-- Slide 31 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심화: 첫인상의 <span class="highlight">강력한 힘</span></h2>
+          <p class="slide-subtitle">'첫인상 고정 효과(Anchoring Effect)'는 스누핑에서 가장 주의해야 할 함정 중 하나입니다.</p>
+          <div class="slide-content">
+            <p>우리는 처음에 얻은 정보(예: 깔끔한 첫인상)를 '기준점'으로 삼고, 이후의 정보를 그 기준에 맞춰 해석하려는 경향이 있습니다. 스누퍼(Snooper)는 이러한 함정을 인지하고, 의식적으로 새로운 증거에 마음을 열어야 합니다. 첫 번째 단서가 항상 가장 중요한 것은 아닙니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심화: 문화적 <span class="highlight">차이의 이해</span></h2>
+          <p class="slide-subtitle">단서의 의미는 문화에 따라 달라질 수 있습니다.</p>
+          <div class="slide-content">
+            <p>예를 들어, 개인 공간에 가족 사진을 많이 두는 것은 어떤 문화에서는 가족 중심적인 가치관을 의미하지만, 다른 문화에서는 당연한 것으로 여겨져 특별한 의미를 갖지 않을 수 있습니다. 마찬가지로, 신발을 신고 실내에 들어가는 문화권에서의 '행동의 잔여물'은 다른 문화권과 다르게 해석되어야 합니다. 성공적인 스누핑은 <span class="highlight">문화적 맥락</span>에 대한 이해를 필요로 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심화: 익명의 공간 <span class="highlight">엿보기</span></h2>
+          <p class="slide-subtitle">책에서는 유명인과 무명인의 이름을 맞히는 테스트를 소개합니다.</p>
+          <div class="slide-content">
+            <p>이 테스트는 우리가 유명인에 대해서는 많은 정보를 알고 있지만, 이름만 들어서는 알 수 없는 사람에게는 점수를 거의 주지 못함을 보여줍니다. 이는 우리가 사람을 판단할 때 얼마나 많은 <span class="highlight">사전 정보와 편견</span>에 의존하는지를 드러냅니다. 진정한 스누핑은 이러한 사전 정보 없이, 오직 눈앞의 단서만으로 추론하는 훈련에서 시작됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 종류의 <span class="highlight">정리정돈</span></h2>
+          <p class="slide-subtitle">모든 '깔끔함'이 같은 성실성을 의미하는 것은 아닙니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">실용적 정리</h3>
+              <p>효율성과 기능성을 중시하는 정리입니다. 물건들이 사용하기 편하게 배치되어 있습니다. 이는 높은 성실성과 관련이 깊습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">장식적 정리</h3>
+              <p>미적인 측면을 강조하는 정리입니다. 물건들이 보기 좋게 진열되어 있지만, 실제 사용에는 불편할 수 있습니다. 이는 성실성보다는 다른 특성(예: 개방성)과 관련될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가장 강력한 단서: <span class="highlight">쓰레기통</span> 🗑️</h2>
+          <p class="slide-subtitle">윌리엄 래스제의 '쓰레기학(Garbology)'은 사람들이 버린 것을 통해 그들의 실제 생활을 연구합니다.</p>
+          <div class="slide-content">
+            <p>사람들은 설문조사에서는 건강한 음식을 먹는다고 답하면서도, 그들의 쓰레기통에서는 패스트푸드 포장지가 발견됩니다. 쓰레기통은 사람들이 의식적으로 숨기거나 스스로도 인지하지 못하는 <span class="highlight">가장 솔직한 행동의 잔여물</span>을 담고 있는 보고(寶庫)입니다. 스누핑의 대가들은 쓰레기통을 결코 무시하지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">디지털 흔적: <span class="highlight">이메일 서명</span></h2>
+          <p class="slide-subtitle">이메일 서명은 디지털 세계에서의 '자기 정체성 주장'입니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">서명으로 보는 성격</h3>
+            <p class="mt-2"><b>간결한 서명 (이름, 직책):</b> 실용적이고 간결함을 중시하는 성격일 수 있습니다.</p>
+            <p class="mt-2"><b>화려한 서명 (이미지, 여러 색상):</b> 자신을 드러내고 싶어하는 외향적이거나 개방적인 성격일 수 있습니다.</p>
+            <p class="mt-2"><b>철학적 인용문:</b> 자신의 가치관을 중요하게 생각하고 공유하고 싶어하는 사람일 가능성이 높습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">옷차림의 <span class="highlight">심리학</span></h2>
+          <p class="slide-subtitle">옷은 움직이는 '자기 정체성 주장'이자 '감정 조절 장치'입니다.</p>
+          <div class="slide-content">
+            <p>우리는 기분에 따라 옷을 선택하고(감정 조절), 특정 이미지를 연출하기 위해 옷을 입습니다(정체성 주장). 편안함을 추구하는지, 최신 유행을 따르는지, 특정 브랜드에 대한 충성도를 보이는지 등을 통해 그 사람의 가치관과 성격을 엿볼 수 있습니다. 예를 들어, 고가의 명품 시계는 성공과 지위를 상징하는 강력한 단서가 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">거주 공간의 <span class="highlight">두 가지 기능</span></h2>
+          <p class="slide-subtitle">우리의 집은 외부 세계와 소통하는 '앞마당'과 내면을 위한 '뒷마당'으로 나뉩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">앞마당 (Front Yard) ဧည့်ခန်း</h3>
+              <p>거실, 응접실처럼 손님에게 공개되는 공간입니다. 이곳은 주로 연출된 '이상적 자기'를 보여주는 경향이 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">뒷마당 (Back Yard) 침실</h3>
+              <p>침실, 서재, 옷방처럼 사적인 공간입니다. 이곳에서는 보다 솔직한 '실제 자기'와 행동의 잔여물을 발견할 가능성이 높습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자동차: <span class="highlight">움직이는 영토</span> 🚗</h2>
+          <p class="slide-subtitle">자동차의 종류, 색상, 내부 상태, 범퍼 스티커는 모두 중요한 단서입니다.</p>
+          <div class="slide-content">
+            <p>실용적인 차를 선택하는 사람은 합리적인 성격일 수 있고, 화려한 스포츠카를 타는 사람은 과시적인 성향일 수 있습니다. 차 내부에 쓰레기가 가득하다면 성실성이 낮을 가능성이 있습니다. 범퍼 스티커는 가장 직접적인 자기 정체성 주장 중 하나로, 정치적 성향이나 신념을 명확하게 드러냅니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심화: <span class="highlight">과잉주장(Over-claiming)</span> 테스트</h2>
+          <p class="slide-subtitle">자신을 실제보다 더 잘 아는 것처럼 부풀리는 경향을 측정하는 방법입니다.</p>
+          <div class="slide-content">
+            <p>실제 존재하는 항목들 사이에 가상의 항목(예: 존재하지 않는 역사적 인물, 가짜 전문 용어)을 섞어 놓고 얼마나 아는 체하는지 테스트합니다. 이 테스트에서 높은 점수를 받은 사람들은 자기기만적이거나 남에게 잘 보이고 싶어하는 욕구가 강한 경향이 있습니다. 이는 스누핑에서 <span class="highlight">'거짓 단서'</span>를 가려내는 데 중요한 시사점을 줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">책장의 비밀: <span class="highlight">읽은 책 vs. 가진 책</span></h2>
+          <p class="slide-subtitle">책장에 꽂힌 책이 모두 주인이 읽은 책은 아닙니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🕵️‍♀️ 단서 찾기</h3>
+              <p class="mt-2"><b>책의 상태:</b> 손때가 묻고, 페이지 모서리가 접혀 있으며, 밑줄이 그어져 있다면 실제로 여러 번 읽었을 가능성이 높습니다.</p>
+              <p class="mt-2"><b>책의 배치:</b> 자주 읽는 책은 손이 닿기 쉬운 곳에 있습니다. 먼지가 쌓인 채 구석에 있는 책은 장식용일 수 있습니다.</p>
+              <p class="mt-2"><b>책의 일관성:</b> 한 저자의 책이 여러 권 있거나 특정 주제의 책들이 모여 있다면, 그 분야에 대한 진정한 관심사일 확률이 높습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">냉장고를 열면 <span class="highlight">보이는 것들</span></h2>
+          <p class="slide-subtitle">냉장고는 그 사람의 식습관, 건강에 대한 관심, 생활 패턴을 보여주는 작은 우주입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">계획적인 사람 🍎</h3>
+              <p>신선한 채소와 과일, 직접 요리하기 위한 식재료들이 잘 정리되어 있습니다. 건강과 계획성을 중시하는 사람일 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">즉흥적인 사람 🍕</h3>
+              <p>배달 음식, 즉석 식품, 다양한 종류의 음료수와 소스가 가득합니다. 편리함과 즉각적인 만족을 추구하는 사람일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 43 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">반려동물이 말해주는 것 🐾</h2>
+          <p class="slide-subtitle">반려동물의 종류와 그들을 대하는 방식은 주인의 성격을 반영합니다.</p>
+          <div class="slide-content">
+            <p>활동적인 개를 키우는 사람은 외향적일 가능성이 있고, 독립적인 고양이를 선호하는 사람은 내향적이거나 개방성이 높을 수 있습니다. 또한, 반려동물을 위해 얼마나 많은 공간과 물품을 할애하는지를 통해 그 사람의 애정과 책임감을 엿볼 수 있습니다. 반려동물 용품은 그 자체로 중요한 스누핑 단서가 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신의 스마트폰 <span class="highlight">홈 화면</span></h2>
+          <p class="slide-subtitle">오늘날 가장 개인적인 공간은 스마트폰 화면일지도 모릅니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">📱 앱으로 보는 성격</h3>
+              <p class="mt-2"><b>폴더 정리:</b> 앱들을 기능별로 깔끔하게 정리해 놓았다면 성실성이 높을 가능성이 있습니다.</p>
+              <p class="mt-2"><b>앱의 종류:</b> 뉴스/학습 앱이 많은지, 게임/SNS 앱이 많은지에 따라 관심사와 시간 사용 방식을 알 수 있습니다.</p>
+              <p class="mt-2"><b>배경화면:</b> 기본 배경화면을 그대로 쓰는지, 개인적인 사진이나 예술 작품으로 설정했는지에 따라 개성을 표현하는 정도를 짐작할 수 있습니다.</p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 45 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">여행 기념품의 <span class="highlight">두 가지 의미</span></h2>
+          <p class="slide-subtitle">여행지에서 가져온 물건은 단순한 장식품 그 이상입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">경험의 증거 (자기 정체성)</h3>
+              <p>"나는 이런 곳에 다녀온 사람이야"라고 말하는 자기 정체성 주장의 역할을 합니다. 특히 이국적이거나 흔하지 않은 기념품은 개방성을 드러냅니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">추억의 매개체 (감정 조절)</h3>
+              <p>특정 기념품을 보며 즐거웠던 여행의 기억을 떠올리고 감정을 환기하는 감정 조절 장치의 역할을 합니다. 이런 물건들은 주로 개인적인 공간에 놓입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">스누핑의 윤리: <span class="highlight">어디까지 괜찮을까?</span></h2>
+            <p class="slide-subtitle">타인의 공간을 엿보는 행위에는 책임이 따릅니다.</p>
+            <div class="slide-content">
+                <p>이 책에서 말하는 '스누핑'은 불법적인 염탐이 아닙니다. 우리에게 자연스럽게 공개된 정보(초대받은 집, 공개된 사무실, 온라인 프로필 등)를 바탕으로 상대를 더 잘 이해하려는 노력입니다. 중요한 것은 <span class="highlight">존중하는 태도</span>입니다. 서랍이나 개인 일기장을 몰래 열어보는 것은 스누핑이 아니라 사생활 침해입니다. 스누핑의 목적은 비난이나 평가가 아닌, 이해와 공감에 있어야 합니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">성격은 <span class="highlight">변하는가?</span></h2>
+            <p class="slide-subtitle">스누핑으로 파악한 성격은 영원히 고정된 것이 아닙니다.</p>
+            <div class="slide-content">
+                <p>성격의 기본 골격은 상당히 안정적이지만, 인생의 중요한 경험(결혼, 이직, 큰 성공이나 실패 등)을 통해 변화할 수 있습니다. 따라서 스누핑은 '현재 시점'의 그 사람을 보여주는 스냅샷과 같습니다. 시간이 지나면서 그 사람의 공간과 사물이 어떻게 변하는지를 관찰하는 <span class="highlight">장기적인 스누핑</span>은 성격의 변화와 성장을 이해하는 데 도움을 줄 수 있습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+       <!-- Slide 48 -->
+       <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">의도적으로 <span class="highlight">공간 바꾸기</span></h2>
+            <p class="slide-subtitle">자신의 공간을 바꾸는 것은 성격과 행동을 변화시키는 데 영향을 줄 수 있습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">긍정적 변화 유도하기 🌱</h3>
+              <p class="mt-2"><b>더 성실해지고 싶다면:</b> 책상을 정리하고, 눈에 잘 띄는 곳에 달력과 계획표를 두십시오.</p>
+              <p class="mt-2"><b>더 개방적이 되고 싶다면:</b> 평소에 접하지 않던 새로운 장르의 책을 사거나, 이국적인 장식품을 놓아보십시오.</p>
+              <p class="mt-2"><b>더 외향적이 되고 싶다면:</b> 다른 사람이 편히 앉을 수 있는 의자를 추가하고, 밝은 조명을 설치하십시오.</p>
+              <p class="mt-2">공간의 변화는 우리의 행동과 마음에 생각보다 큰 영향을 미칩니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">가장 중요한 단서: <span class="highlight">일관성</span></h2>
+            <p class="slide-subtitle">여러 단서들이 공통적으로 하나의 특성을 가리킬 때, 그 추론은 신뢰도가 높습니다.</p>
+            <div class="slide-content">
+                <p>책상도 깔끔하고, 옷장도 잘 정리되어 있으며, 사용하는 앱도 체계적으로 분류되어 있다면 그 사람이 '성실하다'는 판단은 매우 정확할 가능성이 높습니다. 반면, 어떤 단서는 외향성을, 다른 단서는 내향성을 가리키는 등 단서들이 서로 모순된다면, 그 사람은 복합적인 성격을 가졌거나 특정 상황에 따라 다르게 행동하는 사람일 수 있습니다. <span class="highlight">일관성과 모순</span>을 모두 살펴보는 것이 중요합니다.</p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 50 -->
+       <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">당신도 <span class="highlight">스누퍼가 될 수 있다</span></h2>
+            <p class="slide-subtitle">스누핑은 특별한 사람만 할 수 있는 기술이 아닙니다.</p>
+            <div class="slide-content">
+                <p>이 책에서 제시하는 원칙과 방법들을 꾸준히 연습하면 누구나 더 나은 스누퍼가 될 수 있습니다.</p>
+                 <ul class="mt-4">
+                  <li><b>1단계:</b> 주변 사람의 공간을 의식적으로 관찰하기 시작하십시오.</li>
+                  <li><b>2단계:</b> 발견한 단서들을 3가지 종류(정체성, 감정, 행동)로 분류해 보십시오.</li>
+                  <li><b>3단계:</b> OCEAN 모델에 대입하여 어떤 성격 특성과 관련이 있을지 가설을 세워보십시오.</li>
+                  <li><b>4단계:</b> 여러 단서들을 종합하여 결론을 내리고, 실제 그 사람의 모습과 비교하며 자신의 추론을 검증하십시오.</li>
+                </ul>
+                <p class="mt-4 font-bold">가장 중요한 것은 편견 없는 호기심과 사람에 대한 따뜻한 관심입니다.</p>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

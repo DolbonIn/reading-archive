@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>생각은 어떻게 행동이 되는가 (On Task)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠 → 🏃</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">생각은 어떻게 행동이 되는가</h1>
+          <p class="text-xl md:text-2xl text-gray-700">목표를 세우고 성취하는 <span class="highlight">인지조절</span>의 뇌과학</p>
+          <p class="text-lg md:text-xl text-gray-500 mt-6">데이비드 바드르 (David Badre) 저</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: About the Author -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자 소개: <span class="highlight">데이비드 바드르</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+              <div class="md:col-span-2">
+                <p class="mb-4">브라운 대학교의 인지과학·언어학·심리학 교수이자 카르니뇌연구소의 연구원입니다.</p>
+                <p class="mb-4">MIT에서 인지신경과학으로 박사 학위를 받았으며, 미국 국립보건원의 인지·지각 연구 분과장을 역임했습니다.</p>
+                <p>그의 연구팀은 인간이 상황에 맞는 적절한 행동을 골라 실행하는 능력, 즉 뇌의 <span class="highlight">인지조절</span>과 관련된 신경과학 분야에서 선구적인 연구를 진행하고 있습니다.</p>
+              </div>
+              <div class="text-center">
+                <i class="fas fa-user-tie text-9xl text-gray-300"></i>
+                <p class="mt-4 font-bold text-lg">David Badre</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-3 columns-2">
+            <p><b>1. 아는 것과 행동하는 것</b></p>
+            <p><b>2. 인지조절의 탄생</b></p>
+            <p><b>3. 안정성과 유연성의 딜레마</b></p>
+            <p><b>4. 머릿속의 위계 구조</b></p>
+            <p><b>5. 멀티태스킹의 비밀</b></p>
+            <p><b>6. 정지와 억제</b></p>
+            <p><b>7. 인지조절의 비용과 이익</b></p>
+            <p><b>8. 기억과 정보의 인출</b></p>
+            <p><b>9. 인지조절과 생애주기</b></p>
+            <p><b>10. 후기: 우리에게 주어진 과제</b></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">아는 것과 <span class="highlight">행동하는 것</span> 사이의 간극</h2>
+          <p class="slide-content">우리는 어떻게 목표를 세우고, 계획하며, 과제를 완수하는 걸까요? 이 책의 첫 부분에서는 '아는 것'이 어떻게 '행동'으로 변환되는지, 그리고 그 과정에서 뇌가 어떤 역할을 하는지 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: The Mystery of a Cup of Coffee -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">커피 한 잔의 <span class="highlight">신비</span> ☕</h2>
+          <p class="slide-subtitle">평범한 아침의 커피 한 잔에는 우리가 어떻게 과제를 해내는지에 대한 거대한 미스터리가 담겨 있습니다.</p>
+          <div class="slide-content">
+            <p>커피를 내리는 것과 같은 간단한 목표를 정할 때, 뇌는 그 목표에 도달하는 데 필요한 구체적인 행동들을 어떻게 계획하고 수행할까요? </p>
+            <p class="mt-4">과학자들은 아직 커피 한 잔이 완성되기까지 거치는 수많은 단계가 사람의 뇌에서 어떻게 성공적으로 조율되는지 완벽하게 설명하지 못합니다. 이것이 바로 이 책의 핵심 질문입니다: <b class="highlight">우리는 어떻게 과제를 해내는가?</b></p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 6: Definition Block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 개념 정의</h2>
+          <p class="slide-subtitle">우리의 생각을 행동으로 옮기는 정신적 과정을 이해하기 위한 두 가지 중요한 용어입니다.</p>
+          <div class="slide-content space-y-6">
+            <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">인지조절 (Cognitive Control)</h3>
+              <p class="mt-2">목표를 이루기 위해 생각과 행동을 조절하는 뇌의 능력입니다. 계획을 세우고, 주의를 기울이고, 충동을 억제하는 등의 기능을 포함합니다.</p>
+            </div>
+            <div class="p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">집행기능 (Executive Function)</h3>
+              <p class="mt-2">인지조절과 거의 같은 의미로 사용되며, 목표 지향적 행동을 관리하고 통제하는 고차원적인 인지 과정의 집합을 말합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: The Prefrontal Cortex -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">우리 뇌의 CEO: <span class="highlight">전전두피질</span></h2>
+            <p class="slide-subtitle">인지조절과 집행기능을 담당하는 뇌의 핵심 영역입니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p>전전두피질(Prefrontal Cortex, PFC)은 뇌의 가장 앞쪽에 위치하며, 계획, 의사결정, 문제 해결, 자기 통제 등 가장 복잡하고 고차원적인 정신 기능을 수행합니다.</p>
+                    <p class="mt-4">이 영역이 손상되면 지능이나 언어 능력은 정상이더라도 <span class="highlight">계획을 세우고 실행하는 데</span> 심각한 어려움을 겪을 수 있습니다.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-brain text-9xl text-gray-300"></i>
+                    <p class="mt-2 text-sm text-gray-500">전전두피질은 뇌의 '총사령관' 역할을 합니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Case Study 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: <span class="highlight">펜필드의 누나</span></h2>
+          <p class="slide-subtitle">전두엽 종양 수술 후, 그녀의 삶은 어떻게 변했을까요?</p>
+          <div class="slide-content">
+            <p class="mb-4">신경외과 의사 와일더 펜필드의 누나는 전두엽 종양 제거 수술을 받았습니다. 수술 후, 그녀는 지적 능력이나 기억력에는 큰 문제가 없었지만 일상적인 활동을 계획하고 실행하는 데 극심한 어려움을 겪었습니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">저녁 식사 준비의 실패</h3>
+              <p class="mt-2">손님을 초대해 저녁 만찬을 준비하던 날, 그녀는 온종일 애썼지만 요리들을 조화롭게 조율하지 못했습니다. 각 요리를 언제 시작하고, 동시에 여러 요리를 어떻게 관리해야 할지 계획하는 능력을 상실한 것입니다. 이는 지식의 문제가 아닌, <span class="highlight">수행과 조절의 문제</span>였음을 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Case Study 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: <span class="highlight">환자 EVR</span></h2>
+          <p class="slide-subtitle">높은 IQ, 그러나 망가진 삶. 무엇이 문제였을까요?</p>
+          <div class="slide-content">
+            <p class="mb-4">환자 EVR은 전두엽 종양 제거 수술 후, IQ 테스트에서는 최상위 레벨을 기록했지만 현실 세계에서의 삶은 완전히 무너졌습니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="font-bold text-lg text-red-600">수술 후의 삶 📉</h3>
+                <ul class="list-disc list-inside mt-2">
+                  <li>체계적으로 일하지 못해 해고됨</li>
+                  <li>무모한 사업으로 전 재산을 잃음</li>
+                  <li>결혼 생활 파탄, 반복된 이혼</li>
+                  <li>간단한 일상생활(예: 외출 준비)도 제대로 못 함</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-green-600">시사점 💡</h3>
+                <p class="mt-2">EVR의 사례는 <span class="highlight">지식(IQ)과 그 지식을 행동으로 옮기는 능력(인지조절)이 별개</span>임을 극적으로 보여줍니다. 그는 무엇이 좋은 결정인지 알았지만, 그 지식을 이용해 실제 행동을 계획하고 실행하지 못했습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Knowing vs. Acting -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아는 것 vs. <span class="highlight">행동하는 것</span></h2>
+          <p class="slide-subtitle">전두엽 환자들은 규칙을 말할 수는 있지만, 그 규칙을 따르지 못하는 경우가 많습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">위스콘신 카드 분류 검사</h3>
+              <p>환자들은 분류 규칙(예: 색깔 기준)을 잘 배웁니다. 하지만 규칙이 갑자기 '모양 기준'으로 바뀌면, "틀렸다"는 피드백을 계속 받으면서도 이전의 '색깔 기준'을 고수하는 <b class="highlight">보속증(perseveration)</b>을 보입니다.</p>
+              <p class="mt-2">놀라운 점은, 그들이 "이제 모양을 봐야 하는군요"라고 말하면서도 여전히 색깔로 분류한다는 것입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">지식과 행동의 분리</h3>
+              <p>이 현상은 '규칙을 아는 것'과 '그 지식을 이용해 자신의 행동을 고치는 것' 사이에 간극이 있음을 명확히 보여줍니다. 이는 지식과 행동을 연결하는 <span class="highlight">인지조절 체계</span>의 손상을 의미합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Automatic vs. Controlled Behavior -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자동적 행동 vs. <span class="highlight">통제된 행동</span></h2>
+          <p class="slide-subtitle">우리의 행동은 항상 의식적인 통제하에 있는 것이 아닙니다.</p>
+          <div class="slide-content space-y-6">
+            <div class="p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">자동 행동 (반사 행동) 🤖</h3>
+              <p class="mt-2">특정 자극에 의해 촉발되어 생각 없이 자동으로 일어나는 행동입니다. (예: 의사가 안경 쓰는 흉내를 내자, 환자가 무의식적으로 테이블의 안경을 집어 씀). 습관과 유사하며, 계획이나 목표와 무관하게 일어날 수 있습니다.</p>
+            </div>
+             <div class="p-6 bg-yellow-50 rounded-lg">
+              <h3 class="font-bold text-lg">통제된 행동 (조절된 행동) 🧑‍⚖️</h3>
+              <p class="mt-2">목표를 이루기 위해 의식적으로 계획하고, 선택하고, 관찰하는 행동입니다. 자동 행동을 억제하고 상황에 맞게 행동을 조절하기 위해서는 <span class="highlight">인지조절</span>이 필요합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: The TOTE Model -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">컴퓨터처럼 생각하기: <span class="highlight">TOTE 모델</span></h2>
+          <p class="slide-subtitle">인간의 행동 제어 구조를 컴퓨터 프로그램에 빗대어 설명한 초기 인지심리학 모델입니다.</p>
+          <div class="slide-content text-center">
+            <div class="flex justify-center items-center space-x-4 text-lg font-bold">
+                <div class="p-4 bg-blue-100 rounded-lg">TEST<br/>(테스트)</div>
+                <i class="fas fa-arrow-right"></i>
+                <div class="p-4 bg-yellow-100 rounded-lg">OPERATE<br/>(작업)</div>
+                <i class="fas fa-arrow-right"></i>
+                <div class="p-4 bg-blue-100 rounded-lg">TEST<br/>(테스트)</div>
+                <i class="fas fa-arrow-right"></i>
+                <div class="p-4 bg-green-100 rounded-lg">EXIT<br/>(종료)</div>
+            </div>
+            <p class="mt-6"><b>Test (테스트):</b> 현재 상태가 목표 상태와 일치하는지 확인합니다.</p>
+            <p class="mt-2"><b>Operate (작업):</b> 불일치할 경우, 상태를 바꾸기 위한 행동을 수행합니다.</p>
+            <p class="mt-2"><b>Exit (종료):</b> 테스트 결과 상태가 일치하면, 루프를 종료합니다.</p>
+            <p class="mt-4 font-bold">예: 배가 고픈가?(Test) → 바나나를 먹는다(Operate) → 배가 부른가?(Test) → 먹기를 멈춘다(Exit)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Hierarchy in TOTE -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">행동의 <span class="highlight">위계 구조</span></h2>
+            <p class="slide-subtitle">TOTE 모델은 더 큰 목표 안에 작은 목표들이 포함되는 행동의 계층적 구조를 설명할 수 있습니다.</p>
+            <div class="slide-content text-center">
+                <div class="p-6 bg-gray-100 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-bold">[TOTE: 바나나 먹기]</h3>
+                    <div class="flex justify-center mt-4 space-x-2">
+                        <div class="p-3 bg-yellow-200 rounded-md"><b>Sub-TOTE 1:</b><br/>베어 물기</div>
+                        <i class="fas fa-arrow-right self-center"></i>
+                        <div class="p-3 bg-yellow-200 rounded-md"><b>Sub-TOTE 2:</b><br/>씹기</div>
+                        <i class="fas fa-arrow-right self-center"></i>
+                        <div class="p-3 bg-yellow-200 rounded-md"><b>Sub-TOTE 3:</b><br/>삼키기</div>
+                    </div>
+                </div>
+                <p class="mt-6">"바나나를 먹는다"는 하나의 '작업(Operate)'은 '베어 물기', '씹기', '삼키기'와 같은 여러 개의 하위 TOTE들로 분해될 수 있습니다. 심지어 '씹기'는 '턱 벌리기'와 '턱 다물기'라는 더 작은 서브-서브-TOTE로 나뉠 수 있습니다.</p>
+                <p class="mt-4">이처럼 <span class="highlight">행동을 위계적으로 조절하는 능력</span>은 모든 제어 시스템의 핵심 특징입니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Challenges for a Theory -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인지조절 이론의 <span class="highlight">과제들</span></h2>
+          <p class="slide-subtitle">단순한 모델을 넘어 현실 세계의 복잡한 행동을 설명하기 위해 이론이 해결해야 할 문제들입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-red-50 rounded-lg">
+                <h3 class="font-bold text-lg">차원의 저주 🔮</h3>
+                <p class="text-sm mt-1">세상에는 무수히 많은 특징(차원)이 존재합니다. 뇌는 이 중에서 행동과 관련된 중요한 정보를 어떻게 가려낼까요?</p>
+            </div>
+            <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-bold text-lg">자유도의 문제 🤸</h3>
+                <p class="text-sm mt-1">같은 목표를 달성하는 방법은 여러 가지입니다. 뇌는 수많은 가능한 행동 방법 중 어떻게 하나를 선택하여 실행할까요?</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+                <h3 class="font-bold text-lg">시간적 추상화 ⏳</h3>
+                <p class="text-sm mt-1">우리의 과제는 실험실처럼 단편적이지 않고, 시간에 따라 길게 펼쳐집니다. 뇌는 장시간에 걸쳐 목표를 어떻게 유지하고 관리할까요?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">인지조절의 <span class="highlight">탄생</span></h2>
+          <p class="slide-content">인간의 독특한 인지조절 능력은 언제, 왜, 그리고 어떻게 진화했을까요? 고고학적 증거와 진화의 관점에서 그 기원을 추적합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 16: Boxgrove Man -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">50만 년 전의 계획: <span class="highlight">주먹도끼 제작자</span></h2>
+          <p class="slide-subtitle">영국 박스그로브 유적에서 발견된 석기 제작의 흔적은 초기 인류의 인지 능력을 엿보게 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">계획과 목표 지향적 행동</h3>
+              <p>하이델베르크인은 정교한 주먹도끼라는 최종 목표를 미리 예상하고, 재료를 선택하고, 순차적으로 돌을 깨뜨려 도구를 만들었습니다. 이는 복잡하고 목표 지향적인 행동의 초기 증거입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">초기 멀티태스킹?  multitask</h3>
+              <p>도끼를 만드는 주된 과제 외에도, 제작 과정에서 떨어져 나온 <span class="highlight">쓸 만한 돌조각(파편)을 따로 모아두었습니다.</span> 이는 '도끼 다듬기'와 '유용한 파편 찾기'라는 두 가지 목표를 동시에 추구했음을 시사하는 초기 멀티태스킹의 증거로 해석될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Human vs. Animal/AI -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간의 독특함: <span class="highlight">범용성</span>과 <span class="highlight">구성성</span></h2>
+          <p class="slide-subtitle">거미가 정교한 집을 짓고, AI가 게임을 정복하지만, 인간의 인지조절은 근본적으로 다릅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">특화된 지능 🕷️/🤖</h3>
+              <p>거미의 집짓기는 유전자에 각인된 규칙을 따르는 자동적 행동입니다. 특정 게임에 특화된 AI는 규칙이 조금만 바뀌어도 제대로 적응하지 못합니다. 이들은 새로운 목표를 상상하지 못합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">인간의 범용 지능 🧑‍🚀/🎨</h3>
+              <p>인간은 <b>경험해보지 않은 새로운 미래와 목표를 상상</b>할 수 있습니다. 또한, 기존의 지식과 행동 조각들을 <b class="highlight">새롭게 조합(구성)하여</b> 그 목표를 달성할 계획을 세울 수 있습니다. (예: 브레이크아웃 게임을 배운 사람이 퐁 게임도 금방 배움)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Episodic Future Thought -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미래로의 시간 여행: <span class="highlight">일화적 미래 사고</span></h2>
+          <p class="slide-subtitle">과거의 경험 조각들을 재조합하여 생생하고 구체적인 미래 시나리오를 마음속에 그려보는 능력입니다.</p>
+          <div class="slide-content">
+            <p>이 능력은 과거의 특정 사건을 기억하는 <b class="highlight">일화 기억(Episodic Memory)</b>과 밀접하게 연결되어 있으며, 동일한 뇌 신경망(특히 해마와 전전두피질)을 공유합니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">기억은 미래를 위한 것! 🚀</h3>
+              <p class="mt-2">기억 체계는 과거를 정확하게 기록하기 위해서가 아니라, 그 기록을 바탕으로 <span class="highlight">그럴듯한 미래를 모델링</span>하고 생존에 유리한 계획을 세우기 위해 진화했다는 것이 핵심 아이디어입니다. "거짓 기억"은 이러한 생산적인 기억 시스템의 대가일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Co-evolution -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화의 파트너: <span class="highlight">미래 사고와 행동 조절</span></h2>
+          <p class="slide-subtitle">풍부한 미래를 상상하는 능력과 그 상상을 현실로 만드는 구성적 행동 조절 능력은 함께 진화했습니다.</p>
+          <div class="slide-content flex items-center justify-center text-center">
+            <div class="p-6 border-2 border-dashed rounded-full">
+              <span class="text-3xl font-bold">일화적 미래 사고</span><br/>
+              <span class="text-sm">(새로운 목표 설정)</span>
+            </div>
+            <div class="mx-8 text-4xl">🤝</div>
+            <div class="p-6 border-2 border-dashed rounded-full">
+              <span class="text-3xl font-bold">구성적 행동 조절</span><br/>
+              <span class="text-sm">(계획 및 실행)</span>
+            </div>
+          </div>
+          <p class="slide-content mt-8 text-center">이 두 능력의 조합은 인류가 한 번도 해본 적 없는 과제(예: 추운 환경에 대비해 동물의 가죽으로 옷 만들기)를 상상하고 실행할 수 있게 하여, 급격한 환경 변화에 적응하고 전 세계로 퍼져나갈 수 있는 원동력이 되었습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">안정성 vs. 유연성: <span class="highlight">딜레마 해결하기</span></h2>
+          <p class="slide-content">한 가지 목표에 집중하는 '안정성'과 새로운 상황에 맞춰 목표를 바꾸는 '유연성' 사이에서 뇌는 어떻게 균형을 잡을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 21: Stability vs. Flexibility -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인지조절의 <span class="highlight">핵심 딜레마</span></h2>
+          <p class="slide-subtitle">우리는 한편으로는 목표를 꾸준히 유지해야 하고, 다른 한편으로는 중요한 변화에 대응해야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg text-center">안정성 (Stability) 🛡️</h3>
+              <p class="mt-2">현재의 목표나 과제를 방해 요소로부터 보호하고 집중을 유지하는 능력. <br/>(예: 이메일 알림을 무시하고 보고서 작성에 집중)</p>
+            </div>
+            <div class="p-6 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg text-center">유연성 (Flexibility) 🤸</h3>
+              <p class="mt-2">상황의 변화에 따라 현재의 목표를 버리고 더 중요하거나 시급한 새로운 목표로 신속하게 전환하는 능력. <br/>(예: 보고서 작성을 멈추고 서버에 불이 났다는 소식에 대응)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Working Memory Gating -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">해결책: <span class="highlight">작업기억 게이트</span> 🚪</h2>
+          <p class="slide-subtitle">뇌는 '게이트(문)'를 여닫는 메커니즘을 통해 작업기억에 어떤 정보를 들여보내고 유지할지, 또 언제 행동으로 내보낼지를 조절합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">입력 게이트 (Input Gate)</h3>
+              <p><b>닫혔을 때 (안정성):</b> 관련 없는 정보(방해 자극)가 작업기억으로 들어오는 것을 막아 현재 목표를 보호합니다. <br/> <b>열렸을 때 (유연성):</b> 새롭고 중요한 정보가 작업기억을 업데이트하도록 허용합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">출력 게이트 (Output Gate)</h3>
+              <p><b>닫혔을 때 (안정성):</b> 작업기억에 있는 정보가 아직 행동으로 표현되지 않도록 보류합니다. <br/> <b>열렸을 때 (유연성):</b> 적절한 때에 작업기억 속의 목표/규칙이 행동 경로에 영향을 미치도록 허용합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Neural Basis of Gating -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">게이트의 신경 기반: <span class="highlight">피질-기저핵 회로</span></h2>
+          <p class="slide-subtitle">작업기억 게이팅은 본래 움직임을 선택하고 억제하던 뇌의 오래된 운동 제어 회로에서 진화했습니다.</p>
+          <div class="slide-content">
+            <p>기저핵(Basal Ganglia)은 특정 행동을 '실행(Go)'할지 또는 '멈출(NoGo)'지를 결정하는 게이트 역할을 합니다.</p>
+            <p class="mt-4">이 피질-기저핵-시상 루프는 원래 운동 제어를 위해 사용되었지만, 진화 과정에서 전전두피질과 연결되면서 생각과 기억 같은 <span class="highlight">추상적인 정보의 흐름을 제어</span>하는 '작업기억 게이트'로 그 기능이 확장되었습니다.</p>
+            <p class="mt-4">결국, 움직임을 제어하는 원리가 기억을 제어하는 원리로 재사용된 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">머릿속의 <span class="highlight">위계 구조</span></h2>
+          <p class="slide-content">우리의 목표와 계획은 단순한 목록이 아니라, 더 큰 목표 아래 작은 목표들이 종속되는 복잡한 계층 구조를 이룹니다. 뇌는 이 위계를 어떻게 처리할까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 25: Hierarchy of Goals -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">목표의 위계: <span class="highlight">커피를 마시기까지</span></h2>
+            <div class="slide-content">
+                <div class="p-4 bg-gray-200 rounded-lg">
+                    <p class="font-bold text-xl">L4: 커피 마시기 (최상위 목표)</p>
+                    <div class="flex justify-center mt-2"><i class="fas fa-arrow-down"></i></div>
+                    <div class="grid grid-cols-2 gap-4 mt-2">
+                        <div class="p-3 bg-gray-100 rounded-md">
+                            <p class="font-bold text-lg">L3: 커피숍 가기</p>
+                            <div class="flex justify-center mt-1"><i class="fas fa-arrow-down"></i></div>
+                            <p class="text-sm">L2: 옷 입기</p>
+                        </div>
+                        <div class="p-3 bg-gray-100 rounded-md">
+                            <p class="font-bold text-lg">L3: 주문하기</p>
+                            <div class="flex justify-center mt-1"><i class="fas fa-arrow-down"></i></div>
+                            <p class="text-sm">L2: 줄 서기, 계산하기</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-2"><i class="fas fa-arrow-down"></i></div>
+                    <p class="font-bold">L1: 걷기, 팔 뻗기, 말하기 (구체적 행동)</p>
+                </div>
+                <p class="mt-6">우리의 행동은 더 추상적이고 장기적인 목표(상위)에서 더 구체적이고 즉각적인 목표(하위)로 점차 세분화되는 위계 구조를 따릅니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Rostro-Caudal Hierarchy in PFC -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌 속 위계의 지도: <span class="highlight">문측-미측 축</span></h2>
+          <p class="slide-subtitle">전전두피질(PFC)은 추상화 수준에 따라 조직화된 위계적 구조를 가집니다.</p>
+          <div class="slide-content text-center">
+             <div class="p-4 bg-gray-100 rounded-lg font-bold text-lg flex justify-between items-center">
+                <span>[후방] 미측 (Caudal) 🧠</span>
+                <i class="fas fa-long-arrow-alt-right text-3xl mx-4"></i>
+                <span>문측 (Rostral) [전방]</span>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg text-lg flex justify-between items-center mt-2">
+                <span>구체적 / 감각-운동 제어</span>
+                <i class="fas fa-long-arrow-alt-right text-3xl mx-4"></i>
+                <span>추상적 / 장기적 목표</span>
+            </div>
+            <p class="mt-6">전전두피질의 <b class="highlight">뒤쪽(미측)</b>에 가까운 영역은 '버튼을 누른다'와 같은 구체적이고 즉각적인 규칙을 처리합니다.</p>
+            <p class="mt-4">반면, <b class="highlight">앞쪽(문측)</b>으로 갈수록 '게임의 전체 전략'과 같이 더 추상적이고, 장기적이며, 상위의 맥락을 처리합니다. 이 구조 덕분에 뇌는 복잡한 과제를 효율적으로 관리할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5</p>
+          <h2 class="slide-title">멀티태스킹의 <span class="highlight">비밀</span></h2>
+          <p class="slide-content">우리는 정말로 여러 가지 일을 동시에 할 수 있을까요? 멀티태스킹의 신경과학적 한계와 그 비용을 파헤칩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 28: The Myth of Multitasking -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">멀티태스킹은 <span class="highlight">환상이다</span></h2>
+          <p class="slide-subtitle">우리의 뇌는 한 번에 여러 가지 일에 주의를 기울이도록 설계되지 않았습니다. 우리가 하는 것은 실제로는 '빠른 과제 전환'입니다.</p>
+          <div class="slide-content text-center">
+            <div class="text-6xl mb-4">🤯</div>
+            <p class="mb-4">두 가지 이상의 과제를 동시에 수행하려고 하면, 각 과제의 수행 속도가 느려지고 실수가 늘어납니다. 이를 <b class="highlight">'멀티태스킹 비용'</b>이라고 합니다.</p>
+            <p>알파벳과 숫자를 번갈아 말하는 간단한 테스트("A-1, B-2, C-3...")만 해봐도 각각을 따로 할 때보다 훨씬 오래 걸리고 어렵다는 것을 알 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: The Central Bottleneck -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌의 병목 현상: <span class="highlight">중앙 병목</span></h2>
+          <p class="slide-subtitle">뇌의 정보 처리 능력에는 한계가 있어, 특정 단계에서는 한 번에 하나의 정보만 처리할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>주의를 기울여야 하는 두 가지 과제가 동시에 주어지면, 뇌의 특정 처리 단계(예: 반응 선택)에서 병목이 발생합니다. 마치 차선이 하나뿐인 좁은 길에 두 대의 차가 동시에 진입하려는 것과 같습니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">심리적 불응기 (PRP) 효과</h3>
+              <p class="mt-2">첫 번째 과제에 대한 처리가 끝날 때까지 두 번째 과제에 대한 처리가 지연되는 현상입니다. 이는 뇌의 <span class="highlight">인지조절 네트워크(특히 전두-두정 네트워크)</span>가 한 번에 하나의 과제 규칙만 활성화할 수 있기 때문에 발생하는 것으로 보입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Task Switching Cost -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전환의 대가: <span class="highlight">과제 전환 비용</span></h2>
+          <p class="slide-subtitle">한 과제에서 다른 과제로 전환할 때 발생하는 시간적, 정신적 비용입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">왜 비용이 발생할까?</h3>
+              <p><b>1. 재구성 시간:</b> 새로운 과제의 규칙(마음 갖춤새, mental set)으로 뇌의 설정을 바꾸는 데 시간이 걸립니다.</p>
+              <p class="mt-4"><b>2. 이전 과제의 간섭:</b> 이전에 하던 과제의 규칙이 완전히 비활성화되지 않고 남아, 현재 과제 수행을 방해합니다 ( proactive interference).</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">유진 오닐의 해결책</h3>
+              <p>극작가 유진 오닐은 두 희곡을 동시에 집필할 때, 각 작품을 위한 <span class="highlight">별도의 책상과 물리적 환경</span>을 마련했습니다. 이는 과제 간의 맥락을 완전히 분리하여, 과제 전환 시 발생하는 간섭을 최소화하려는 매우 효과적인 전략이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Section 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6</p>
+          <h2 class="slide-title">멈춤의 기술: <span class="highlight">정지와 억제</span></h2>
+          <p class="slide-content">행동을 멈추고, 생각을 억제하고, 충동을 제어하는 것은 인지조절의 핵심 기능입니다. 뇌는 어떻게 브레이크를 밟을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Stop-Signal Task -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">실험실의 브레이크: <span class="highlight">정지-신호 과제</span></h2>
+          <p class="slide-subtitle">행동 억제 능력을 측정하기 위해 고안된 고전적인 실험 방법입니다.</p>
+          <div class="slide-content">
+              <p><b>Go! (시작 신호):</b> 화면에 나타나는 화살표 방향(→ 또는 ←)에 맞춰 최대한 빨리 버튼을 누릅니다.</p>
+              <p class="mt-4"><b>Stop! (정지 신호):</b> 가끔 시작 신호 직후 '삐' 소리 같은 정지 신호가 들리면, 이미 시작된 버튼 누르기 행동을 즉시 멈춰야 합니다.</p>
+              <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                <h3 class="font-bold text-lg">말들의 경주 🐎 vs 🐎</h3>
+                <p class="mt-2">이 과제는 '가려는 운동 명령'과 '멈추려는 정지 신호' 사이의 경주로 비유할 수 있습니다. 정지 신호가 운동 명령을 따라잡으면 행동이 억제되고, 그렇지 못하면 실수가 발생합니다. 이 경주 모델을 통해 우리는 눈에 보이지 않는 <span class="highlight">억제 과정의 속도</span>를 추정할 수 있습니다.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Two Brake Systems -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">뇌의 두 가지 <span class="highlight">브레이크 시스템</span></h2>
+            <p class="slide-subtitle">우리의 뇌는 상황에 따라 다른 억제 메커니즘을 사용합니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-red-50 rounded-lg">
+                    <h3 class="font-bold text-lg text-center">빠르고 전면적인 정지 🚨</h3>
+                    <p class="mt-2"><b>(시상하핵 경로)</b><br/>예상치 못한 위험(예: 갑자기 튀어나오는 차)에 반응하여 모든 행동을 즉각적으로, 전면적으로 멈추는 빠른 '비상 브레이크' 시스템입니다. 선택적이지 않고 모든 것을 일단 정지시킵니다.</p>
+                </div>
+                <div class="p-6 bg-green-50 rounded-lg">
+                    <h3 class="font-bold text-lg text-center">느리고 선택적인 정지 🤔</h3>
+                    <p class="mt-2"><b>(선조체 게이팅 경로)</b><br/>여러 행동 대안들 중 특정 행동을 선택적으로 억제하는 더 느리고 정교한 시스템입니다 (NoGo 경로). 이는 경쟁하는 다른 행동을 선택하는 과정의 일부입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Thought Suppression -->
+      <div class="slide">
+          <div class="slide-container text-center">
+              <h2 class="slide-title">생각을 멈출 수 있을까?</h2>
+              <p class="slide-subtitle">"지금부터 <span class="highlight">북극곰을 생각하지 마세요!</span>"</p>
+              <div class="text-7xl mb-6">🐻‍❄️</div>
+              <div class="slide-content max-w-4xl mx-auto">
+                  <p>아이러니하게도, 특정 생각을 억제하려는 노력은 오히려 그 생각을 더 자주 떠오르게 만듭니다. (대니얼 웨그너의 '백곰 효과')</p>
+                  <p class="mt-4">하지만 '생각하기/생각하지 않기' 과제 연구에 따르면, 사람들은 훈련을 통해 원치 않는 기억의 인출을 <span class="highlight">적극적으로 억제</span>할 수 있으며, 이는 나중에 그 기억을 떠올리는 것을 더 어렵게 만듭니다. 이 과정에는 운동 억제와 유사한 전두엽 네트워크가 관여합니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 35: Section 7 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 7</p>
+          <h2 class="slide-title">인지조절의 <span class="highlight">비용과 이익</span></h2>
+          <p class="slide-content">인지조절을 사용하는 것은 정신적 '노동'이며 비용이 따릅니다. 뇌는 언제, 얼마나 많은 노력을 투입할지 어떻게 결정할까요? 그 경제학을 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 36: Akinesia Mutism Case -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">사례 연구: <span class="highlight">무동무언증</span></h2>
+              <p class="slide-subtitle">움직일 수는 있지만, 움직이려는 '욕구'를 잃어버린 상태.</p>
+              <div class="slide-content">
+                  <p>전대상피질(anterior cingulate cortex) 손상 환자인 엘시 닉스는 의식은 있었지만 말하거나 움직이려는 의욕이 거의 없는 상태에 빠졌습니다. 초콜릿을 주어도 먹는 둥 마는 둥 했고, 아픈 자극에도 최소한으로만 반응했습니다.</p>
+                  <p class="mt-4">이 사례는 행동의 선택과 실행이 단지 기술적인 메커니즘의 문제가 아니라, <b class="highlight">욕구, 동기, 그리고 행동을 통해 얻을 이득</b>과 깊이 관련되어 있음을 보여줍니다. 즉, 인지조절은 동기에 의존합니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 37: Effort as a Cost -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정신적 노력은 <span class="highlight">비용</span>이다 💸</h2>
+          <p class="slide-subtitle">우리는 본능적으로 인지적 노력이 많이 드는 과제를 피하려는 경향이 있습니다.</p>
+          <div class="slide-content">
+            <p>사람들은 더 적은 보상을 받더라도 정신적으로 더 쉬운 과제를 선택하는 경향을 보입니다. 이는 뇌가 <span class="highlight">비용-편익 분석</span>을 수행하고 있음을 시사합니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <h3 class="font-bold text-lg">기회비용 (Opportunity Cost)</h3>
+                <p class="mt-2">정신적 노력의 비용을 설명하는 한 가설은 '기회비용'입니다. 어려운 과제에 집중하는 동안에는 다른 잠재적으로 보상적인 활동(드라마 보기, 친구와 대화하기 등)을 할 수 있는 기회를 놓치게 됩니다. 이 놓쳐버린 가치가 바로 노력의 비용으로 경험된다는 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: The Role of the ACC -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">비용-편익 계산기: <span class="highlight">전대상피질(ACC)</span></h2>
+              <p class="slide-subtitle">ACC는 인지조절의 비용과 예상되는 이익을 저울질하여 얼마나 많은 노력을 투입할지 결정하는 데 핵심적인 역할을 합니다.</p>
+              <div class="slide-content">
+                  <p>전대상피질(Anterior Cingulate Cortex)은 단순히 갈등을 감지하는 것을 넘어, 특정 행동에 필요한 <b class="highlight">예상 노력(비용)</b>과 그 행동을 통해 얻을 수 있는 <b class="highlight">예상 보상(이익)</b>을 계산합니다.</p>
+                  <p class="mt-4">이 계산 결과(조절의 기대 가치, Expected Value of Control)를 바탕으로, ACC는 다른 조절 네트워크(예: 전두-두정 네트워크)에 신호를 보내 실제 투입할 노력의 수준을 조절합니다. 보상이 클수록, 우리는 더 많은 노력을 기꺼이 감수하게 됩니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 39: Dopamine's Role -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">가치와 동기의 화폐: <span class="highlight">도파민</span></h2>
+              <p class="slide-subtitle">도파민은 '보상 예측 오류' 신호를 통해 가치를 학습하고, 조절 시스템의 균형을 맞춥니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">보상 예측 오류 📈/📉</h3>
+                      <p>예상보다 더 큰 보상을 받으면 도파민이 분출되고(+), 예상보다 적은 보상을 받으면 분비가 감소(-)합니다. 이 신호는 뇌가 미래의 보상을 더 정확하게 예측하도록 학습하는 데 사용됩니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">안정성-유연성 조절</h3>
+                      <p>도파민은 피질과 선조체에 다르게 작용하여 안정성과 유연성의 균형을 맞춥니다. 피질에서는 <span class="highlight">안정성</span>을 높여 현재 목표를 유지하게 하고, 선조체에서는 <span class="highlight">유연성</span>을 높여 새로운 행동으로 전환하기 쉽게 만듭니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 40: Section 8 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 8</p>
+          <h2 class="slide-title">기억과 <span class="highlight">정보의 인출</span></h2>
+          <p class="slide-content">우리의 기억은 도서관이 아니라 검색 엔진과 같습니다. 필요할 때, 어떻게 적절한 정보를 효율적으로 '검색'하고 '꺼내' 쓸까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 41: Memory as Information Retrieval -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기억은 기록이 아닌 <span class="highlight">인출</span>의 문제</h2>
+          <p class="slide-subtitle">인간의 기억은 과거를 그대로 저장하는 것이 아니라, 미래의 결정을 돕기 위해 정보를 유연하게 제공하도록 진화했습니다.</p>
+          <div class="slide-content">
+            <p>성공적인 인출 가능성을 판단하는 두 가지 핵심 요소:</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>과거 사용 빈도:</b> 과거에 자주 사용했던(인출했던) 기억일수록 미래에도 유용할 확률이 높습니다. (연습의 중요성!)</li>
+                <li><b>현재 맥락과의 관련성:</b> 현재 상황(장소, 과제, 감정 등)과 유사한 맥락에서 저장된 기억일수록 인출될 확률이 높습니다.</li>
+            </ul>
+            <p class="mt-4">뇌는 이 두 요소를 바탕으로 가장 관련성 높은 정보를 자동으로 인출하지만, 이것이 실패할 때 <span class="highlight">'조절된 인출'</span>, 즉 의식적인 인출 계획이 필요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Two Paths of Memory Control -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기억 조절의 <span class="highlight">두 가지 경로</span></h2>
+          <p class="slide-subtitle">기억을 통제하는 과정은 인출 전과 인출 후, 두 단계로 나눌 수 있으며 각기 다른 뇌 네트워크가 관여합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg text-center">조절된 인출 🔍<br/>(Controlled Retrieval)</h3>
+              <p class="mt-2">인출하기 전에, 목표에 맞춰 검색 범위를 좁히는 과정. 구체적인 단서(검색어)를 만들어 목표 정보에 더 쉽게 접근하도록 돕습니다. <br/> (<b>복측-전두-측두 네트워크</b>가 관여)</p>
+            </div>
+            <div class="p-6 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg text-center">인출 후 조절 ✅<br/>(Post-retrieval Control)</h3>
+              <p class="mt-2">일단 기억에서 인출된 정보들 중에서 현재 목표와 관련된 것을 선택하고, 관련 없는 것을 걸러내는 과정. 작업기억 게이팅과 밀접하게 관련됩니다. <br/> (<b>배측 전두-두정 네트워크</b>가 관여)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Section 9 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 9</p>
+          <h2 class="slide-title">인지조절과 <span class="highlight">생애주기</span></h2>
+          <p class="slide-content">인지조절 능력은 고정되어 있지 않습니다. 유년기에 발달하고, 청장년기에 정점을 찍고, 노년기에 쇠퇴하는 역동적인 과정입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 44: Development in Childhood -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이들의 뇌: <span class="highlight">발달 과정</span></h2>
+          <p class="slide-subtitle">아이들의 충동적이고 비일관적인 행동은 결함이 아니라, 인지조절 체계가 발달하고 학습하는 정상적인 과정입니다.</p>
+          <div class="slide-content">
+            <p>뇌, 특히 전전두피질은 20대 초반까지 계속해서 발달합니다. 이 긴 발달 기간은 인지조절이 고정된 기능이 아니라, <span class="highlight">경험을 통해 최적화되고 맞춤화</span>되어야 하는 기능임을 시사합니다.</p>
+            <p class="mt-4">아이들은 다양한 놀이와 경험, 그리고 실패를 통해 스스로 상황에 맞는 조절 방침(게이팅 정책)을 학습합니다. 과도한 개입이나 구조화된 환경은 이러한 <b class="highlight">자율적인 학습 기회</b>를 박탈할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: Changes in Aging -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노화와 <span class="highlight">인지 능력의 변화</span></h2>
+          <p class="slide-subtitle">나이가 들면서 모든 인지 능력이 쇠퇴하는 것은 아닙니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">쇠퇴하는 능력 📉</h3>
+              <p><b>유동적 지능 (Fluid Intelligence):</b> 새로운 문제를 해결하고, 빠르게 적응하고, 정보를 처리하는 속도. 인지조절과 밀접하며, 30대부터 점진적으로 감소합니다. (예: 기억력, 반응 속도)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">유지/향상되는 능력 📈</h3>
+              <p><b>결정화된 지능 (Crystallized Intelligence):</b> 축적된 지식, 경험, 어휘력. 나이가 들어도 유지되거나 오히려 향상될 수 있습니다. 또한, 감정 조절 능력이나 삶의 지혜 등은 더 발달하는 경향이 있습니다.</p>
+            </div>
+          </div>
+          <p class="mt-6 slide-content text-center">뇌 부피, 특히 전두엽의 부피 감소와 도파민 시스템의 변화가 노화에 따른 인지조절 저하의 주요 원인으로 꼽힙니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 46: Scaffolding and Reserve -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노년의 지혜: <span class="highlight">보완과 보상</span></h2>
+          <p class="slide-subtitle">노인들은 뇌의 변화에 수동적으로 굴복하지 않고, 적극적으로 대처하고 보완합니다.</p>
+          <div class="slide-content space-y-6">
+            <div class="p-6 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg">비계 이론 (STAC Model) 🏗️</h3>
+              <p class="mt-2">노화로 인해 특정 뇌 회로의 효율이 떨어지면, 뇌는 이를 보완하기 위해 다른 뇌 영역(특히 인지조절 네트워크)을 추가로 동원하여 '비계(scaffolding)'를 세웁니다. 젊은 사람보다 더 넓은 뇌 영역을 활성화하여 과제를 수행하는 현상입니다.</p>
+            </div>
+            <div class="p-6 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">인지 비축 (Cognitive Reserve) 🧠+</h3>
+              <p class="mt-2">교육, 직업, 다양한 경험 등을 통해 쌓아온 정신적 자원. 인지 비축이 높은 사람은 뇌의 손상이나 노화가 진행되더라도 인지 기능을 더 잘 유지하는 경향이 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Is Brain Training Possible? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌 훈련은 <span class="highlight">가능한가?</span> 🏋️‍♂️</h2>
+          <p class="slide-subtitle">특정 게임이나 과제를 훈련하면 인지조절 능력이 전반적으로 향상될 수 있을까요?</p>
+          <div class="slide-content">
+            <p><b>근전이 (Near Transfer):</b> 훈련한 과제와 매우 유사한 과제에서의 성능 향상은 나타납니다. (예: 특정 공간 기억 게임 훈련 후, 다른 공간 기억 게임 점수 향상)</p>
+            <p class="mt-4"><b>원전이 (Far Transfer):</b> 하지만 훈련한 과제와 관련 없는 다른 인지 능력(예: 유동적 지능, 학업 성적)까지 전반적으로 향상된다는 <span class="highlight">일관되고 강력한 증거는 아직 부족합니다.</span></p>
+            <p class="mt-4">특정 기술은 훈련될 수 있지만, 범용적인 '인지조절 근육'을 단련하는 것은 현재로서는 어려워 보입니다. 인지 능력을 유지하는 가장 좋은 방법은 <b class="highlight">새로운 기술을 배우고, 다양한 경험을 하며 뇌를 계속 사용하는 것</b>입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: Section 10 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Epilogue</p>
+          <h2 class="slide-title">우리에게 주어진 <span class="highlight">과제</span></h2>
+          <p class="slide-content">인지조절에 대한 이해는 개인의 삶을 넘어 기후 변화와 같은 인류가 직면한 거대한 문제를 해결하는 데 중요한 통찰을 줍니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 49: The Knowing-Doing Gap in Society -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사회적 차원의 <span class="highlight">앎-행동 간극</span></h2>
+          <p class="slide-subtitle">"왜 많은 사람이 기후 변화를 믿으면서도 아무것도 하지 않을까?"</p>
+          <div class="slide-content">
+            <p>기후 변화 문제는 '아는 것'과 '행동하는 것' 사이의 거대한 간극을 보여주는 사회적 사례입니다. 사람들은 문제의 심각성을 알지만, 실제 행동 변화로 이어지기는 어렵습니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>비용-편익의 문제:</b> 행동 변화(예: 채식, 여행 자제)의 <span class="highlight">비용(노력, 불편함)은 즉각적</span>이지만, 그로 인한 <span class="highlight">이익(기후 변화 완화)은 멀고 추상적</span>입니다.</li>
+                <li><b>공유지의 비극:</b> 개인의 희생이 전체의 결과에 미치는 영향이 미미하다고 느낄 때, 행동할 동기가 약해집니다.</li>
+            </ul>
+            <p class="mt-4">이 문제를 해결하기 위해서는 단순히 지식을 전달하는 것을 넘어, 행동의 비용-편익 구조를 바꾸는 <b class="highlight">조절적 개입(예: 탄소세)</b>이 필요할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인지조절은 우리가 가상의 미래를 상상하고, 그 상상을 현실로 만들기 위해 앎과 행동 사이의 간극을 메우는 역동적인 과정입니다. 이는 고정된 능력이 아니라, 경험을 통해 학습하고, 비용과 이익을 계산하며, 평생에 걸쳐 변화하는 뇌의 핵심 기능입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800"><span class="highlight">인지조절은 우리에게 선택권을 줍니다.</span> 우리는 제약된 존재이지만, 미래를 상상하고 그 미래를 실현할 줄 압니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

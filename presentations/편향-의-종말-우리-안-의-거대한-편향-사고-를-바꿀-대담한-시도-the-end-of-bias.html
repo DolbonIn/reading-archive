@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>편향의 종말 (The End of Bias) Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠💥</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">편향의 종말</h1>
+          <p class="text-xl md:text-2xl text-gray-700">우리 안의 거대한 <span class="highlight">편향 사고</span>를 바꿀 대담한 시도</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>들어가며:</b> 편향의 종말은 곧 희망의 시작이다</p>
+            <p><b>1부:</b> 편향은 어떻게 차별과 혐오를 낳는가</p>
+            <p><b>2부:</b> 마음의 습관을 무너뜨리다</p>
+            <p><b>3부:</b> 시스템을 어떻게 바꿀 것인가</p>
+            <p><b>결론:</b> 우리 모두를 위한 위대한 도전</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Section Title Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">들어가며</p>
+          <h2 class="slide-title">편향의 종말은 곧 <span class="highlight">희망의 시작이다</span></h2>
+          <p class="slide-content">이 책은 무의식적인 편향과 차별이라는 난제에 대한 혁신적이고 심층적인 탐구의 결과물입니다. 개인의 경험과 과학적 연구를 통해 편향의 작동 방식을 이해하고, 그것을 넘어설 수 있는 길을 제시합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Ben Barres Story 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학자 벤 바레스의 이야기 👨‍🔬</h2>
+          <p class="slide-subtitle">신경생물학자 벤 바레스는 여성에서 남성으로 성전환한 후, 세상이 자신을 대하는 방식이 극적으로 변하는 것을 경험했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-center">바버라 바레스였을 때 (여성)</h3>
+              <p class="mt-2">뛰어난 연구 성과에도 불구하고, 그의 능력은 종종 의심받고 저평가되었습니다. MIT 대학원 시절, 어려운 수학 문제를 풀자 교수는 "남자 친구가 풀어준 모양이지?"라고 말했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-center">벤 바레스가 된 후 (남성)</h3>
+              <p class="mt-2">성전환 후, 사람들은 그의 말을 더 유심히 들었고 그의 권위에 의문을 품지 않았습니다. 한 과학자는 그의 연구가 "그의 누이(즉, 바버라)의 것보다 훨씬 낫다"고 말하기까지 했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Ben Barres Story 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보이지 않던 편향의 발견 💡</h2>
+          <p class="slide-subtitle">바레스의 경험은 동일한 사람, 동일한 능력이 단지 <span class="highlight">성별이라는 인식</span> 하나만으로 어떻게 다르게 평가받는지를 보여주는 과학적 실험과도 같았습니다.</p>
+          <div class="slide-content">
+            <p>그는 이전에는 자신이 성차별을 거의 겪지 않았다고 생각했습니다. 하지만 남성이 된 후에야 비로소 자신이 여성으로서 겪었던 미묘하고 교묘한 저평가와 편견을 명확하게 인식하게 되었습니다.</p>
+            <p class="mt-4 font-bold">"그저 내가 그걸 보지 못했던 거지요."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Author's Experience -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자의 실험: 제시카 vs. J.D. ✍️</h2>
+          <p class="slide-subtitle">저자 제시카 노델 또한 비슷한 경험을 합니다. 언론계 진출을 위해 기사를 제안했지만 번번이 거절당했습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">결정적 변화</h3>
+            <p class="mt-2">낙담한 그녀는 'J.D.'라는 남성 이름으로 똑같은 기사를 다시 보냈습니다. 몇 시간 만에 답장이 왔고 기사는 채택되었습니다. <span class="highlight">제시카가 몇 달간 실패했던 일을 J.D.는 하루 만에 성공했습니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: The Nature of Bias -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">편향이란 무엇인가? 🤔</h2>
+          <p class="slide-subtitle">편향은 단순히 나쁜 생각이 아닙니다. 그것은 우리가 세상을 인식하고 판단하는 방식에 깊이 뿌리내린 <span class="highlight">마음의 습관</span>이자 문화적 산물입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+              <li><b>무의식적 편향:</b> 우리가 의식하지 못하는 사이에 작동하는 고정관념.</li>
+              <li><b>문화적 산물:</b> 미디어, 역사, 신화, 통계 등을 통해 사회 전체가 공유하는 기대치.</li>
+              <li><b>인간 형상을 한 백일몽:</b> 편향을 통해 우리는 실제 상대를 보는 것이 아니라, 우리가 기대하는 허상을 봅니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Section Title Part 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1부</p>
+          <h2 class="slide-title">편향은 어떻게 <span class="highlight">차별과 혐오</span>를 낳는가</h2>
+          <p class="slide-content">1부에서는 우리 안에 내재된 편향적 사고의 기원과 작동 방식을 추적합니다. 인간의 뇌가 어떻게 '우리'와 '그들'을 분류하고, 이것이 어떻게 차별로 이어지는지 탐구합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Chapter 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">1부 - 1장</p>
+            <h2 class="slide-title">우리 안의 편향 사고를 <span class="highlight">추적하다</span> 🗺️</h2>
+        </div>
+      </div>
+
+      <!-- Slide 10: Prejudice Paradox -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">편견 패러독스 (Prejudice Paradox) ⁉️</h2>
+          <p class="slide-subtitle">1980년대 심리학자들은 한 가지 모순에 당혹해했습니다. 대부분의 백인 미국인들은 인종주의에 반대한다고 말했지만, 실제 행동에서는 여전히 <span class="highlight">인종차별적 방식</span>으로 행동하는 경향이 있었습니다.</p>
+          <div class="slide-content">
+            <p><b>기존의 결론:</b> 사람들은 자신의 진짜 신념을 숨기고 거짓말을 하고 있다.</p>
+            <p class="mt-4"><b>퍼트리샤 드바인의 의문:</b> 정말 모든 사람이 거짓말을 하고 있는 걸까? 혹시 우리 마음속에서 다른 일이 벌어지고 있는 것은 아닐까?</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Devine's Experiment Setup -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">드바인의 실험: 도널드 이야기 👨‍💼</h2>
+          <p class="slide-subtitle">심리학자 퍼트리샤 드바인은 이 패러독스를 풀기 위해 독창적인 실험을 설계했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1단계: 잠재의식 프라이밍</h3>
+              <p>참가자들에게 '흑인'과 관련된 단어들(예: 할렘, 아프로)을 자신도 모르게(잠재의식적으로) 노출시켰습니다. 참가자들은 단어를 인지하지 못했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2단계: 인상 평가</h3>
+              <p>인종이 명시되지 않은 '도널드'라는 인물의 모호한 행동(예: 환불 요구)에 대한 이야기를 들려주고, 그의 행동이 얼마나 '적대적인지' 평가하게 했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Devine's Experiment Results -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">놀라운 실험 결과 📊</h2>
+          <p class="slide-subtitle">드바인은 인종적 편견이 '높은' 사람들만 '도널드'를 적대적으로 볼 것이라 예측했습니다. 그러나 결과는 예상과 달랐습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">핵심 발견</h3>
+            <p class="mt-2">편견 수준이 높든 낮든, '흑인' 관련 단어에 잠재의식적으로 노출된 <span class="highlight">모든 참가자</span>가 도널드를 더 적대적으로 평가했습니다. 이는 우리 의식과 상관없이 문화적 고정관념이 자동으로 활성화됨을 시사합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Two Systems of Thought -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 마음: 신조와 연상 🤔</h2>
+          <p class="slide-subtitle">드바인의 발견은 인간의 마음에 두 가지 상이한 작동 양식이 공존한다는 것을 보여주었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">의도적 생각 (신조, Beliefs)</h3>
+              <p>느리고, 노력이 필요하며, 우리가 의식적으로 통제하는 생각. "나는 평등을 믿는다"와 같은 가치관과 신념.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">자동적 생각 (연상, Associations)</h3>
+              <p>빠르고, 무의식적이며, 문화 속에서 스팸메일처럼 흡수된 생각. 특정 집단에 대한 고정관념과 편견. 이것이 바로 <span class="highlight">'암묵적 편향'</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Implicit Bias Explained -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">암묵적 편향: <span class="highlight">마음의 습관</span> 🧠</h2>
+          <p class="slide-subtitle">평등주의자라고 믿는 사람조차도 내면에는 문화적으로 학습된 편향적 '연상'을 가질 수 있습니다. 이는 개인의 의도와 무관하게 행동에 영향을 미치는 '마음의 습관'과 같습니다.</p>
+          <div class="slide-content">
+            <p>이것이 바로 '편견 패러독스'의 해답입니다. 사람들은 거짓말을 한 것이 아니라, 자신의 의식적 신념(평등)과 자동적 반응(편향) 사이에서 내적 투쟁을 겪고 있었던 것입니다. 차별은 의도 없이, 심지어 무의식적으로도 행해질 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Chapter 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">1부 - 2장</p>
+            <h2 class="slide-title">우리와 그들을 <span class="highlight">분류하는 본능</span> 👥</h2>
+        </div>
+      </div>
+
+      <!-- Slide 16: The Brain's Need to Categorize -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">범주화: 생존을 위한 지름길  shortcuts</h2>
+          <p class="slide-subtitle">인간의 뇌는 세상을 이해하기 위해 끊임없이 정보를 범주화합니다. 이는 생존에 필수적인 능력입니다. '사자'와 '할머니'를 구분하는 것처럼 말이죠.</p>
+          <div class="slide-content">
+            <p>그러나 이 능력은 사회적 맥락에서 위험해집니다. 우리는 사람들을 성별, 인종, 종교 등 다양한 범주로 분류하고, 그 범주가 중요하다고 학습합니다. "굿모닝, 보이스 앤드 걸스"라는 단순한 인사말조차 성별이라는 범주를 강화합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Bigler's T-shirt Experiment -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비글러의 실험: <span class="highlight">파란 셔츠</span>와 <span class="highlight">노란 셔츠</span> 👕</h2>
+          <p class="slide-subtitle">레베카 비글러는 아이들에게 무작위로 다른 색 셔츠를 입히고, 한 그룹에서는 교사가 셔츠 색으로 아이들을 구분하게 했습니다(예: "노란 셔츠 팀 먼저 줄 서세요").</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">결과</h3>
+            <p class="mt-2">단 몇 주 만에, 셔츠 색으로 구분된 아이들은 다른 색 셔츠를 입은 아이들에 대해 부정적인 고정관념을 형성하고 자신의 그룹을 더 선호하기 시작했습니다. <span class="highlight">단순히 범주를 강조하는 것만으로 편견이 싹튼 것입니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Essentialism and Stereotyping -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">본질화와 고정관념의 탄생 🧬</h2>
+          <p class="slide-subtitle">범주가 중요하다고 인식하면, 뇌는 그 범주에 속한 모든 구성원이 보이지 않는 <span class="highlight">근본적인 본질</span>을 공유한다고 추론하는 '본질화' 경향을 보입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+              <li><b>범주화:</b> 저 사람은 노란 셔츠 그룹이다.</li>
+              <li><b>본질화:</b> 노란 셔츠 그룹은 뭔가 근본적으로 우리와 다르다.</li>
+              <li><b>고정관념:</b> 따라서, 모든 노란 셔츠 그룹은 '이러이러할' 것이다.</li>
+            </ul>
+            <p class="mt-4">이 과정은 뇌가 복잡한 세상을 단순화하는 방식이며, 고정관념의 심리적 기초가 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Stereotype Confirmation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고정관념 확인의 '쾌감' 🍿</h2>
+          <p class="slide-subtitle">뇌는 불확실한 결과를 올바르게 예측했을 때 쾌감을 느낍니다. 고정관념은 세상을 예측하는 도구 역할을 하며, 그 예측이 맞았을 때 우리는 <span class="highlight">기묘한 만족감</span>을 느낍니다.</p>
+          <div class="slide-content">
+            <p>영화 "스트레이트 아웃 오브 컴턴"의 마케팅은 이를 잘 보여줍니다. 페이스북은 사용자 인종에 따라 다른 예고편을 보여주었습니다. 백인에게는 N.W.A.가 사회적 억압에 맞서는 이야기(백인 구원자 등장)를, 흑인에게는 그들의 출신 지역과 정체성에 초점을 맞춘 버전을 보여주었습니다. 각 그룹의 고정관념을 확인시켜주며 영화의 성공을 이끌었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Section Title Part 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2부</p>
+          <h2 class="slide-title">마음의 습관을 <span class="highlight">무너뜨리다</span></h2>
+          <p class="slide-content">편향이 자동적인 마음의 습관이라면, 우리는 이 습관을 의식적으로 깨뜨릴 수 있습니다. 2부에서는 개인적 차원에서 편향에 맞서는 구체적인 전략과 훈련법을 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 4 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">2부 - 4장</p>
+            <h2 class="slide-title">습관의 장벽을 깨는 <span class="highlight">다양성 훈련</span> 💪</h2>
+        </div>
+      </div>
+
+      <!-- Slide 22: The Madison Workshop -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">매디슨 워크숍: 편견 깨기 훈련 💡</h2>
+          <p class="slide-subtitle">퍼트리샤 드바인과 윌 콕스는 편향을 '깨뜨릴 수 있는 습관'으로 보고, 인지 행동 요법에 기반한 워크숍을 개발했습니다.</p>
+          <div class="slide-content">
+            <p>이 워크숍의 목표는 사람들을 비난하는 것이 아니라, 그들이 자신의 자동적 반응을 방해하고 새로운 반응으로 대체할 수 있도록 돕는 것입니다. 이는 세 가지 핵심 요소로 구성됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Three Pillars of the Workshop -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">워크숍의 세 가지 기둥 🏛️</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-2xl mb-2">1. 인식</h3>
+              <p>사람들이 자신도 모르게 편향적으로 행동할 수 있다는 사실을 과학적 증거를 통해 인식시킵니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl mb-2">2. 동기</h3>
+              <p>편향된 행동을 멈추고 싶다는 내적 동기를 구축합니다. 자신의 가치관과 행동 사이의 불일치를 깨닫게 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl mb-2">3. 전략</h3>
+              <p>편견을 극복하기 위한 구체적인 정신적 도구를 제공합니다. (예: 고정관념 대체하기, 관점 취하기 등)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Strategy - Stereotype Replacement -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전략 1: <span class="highlight">고정관념 대체하기</span> 🔄</h2>
+          <p class="slide-subtitle">고정관념적 생각이 떠오를 때, 그것을 인지하고 의식적으로 반박하는 것입니다.</p>
+          <div class="slide-content">
+            <p><b>예시:</b> '저 여성은 리더십이 부족할거야' 라는 생각이 들 때,</p>
+            <p class="mt-4 pl-4 border-l-4 border-gray-800">"그 생각은 고정관념일 뿐이야. 그 사람의 실제 능력과는 관계 없어. 성공한 여성 리더들을 떠올려보자." 와 같이 생각의 방향을 바꿉니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Strategy - Perspective Taking -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전략 2: <span class="highlight">관점 취하기</span> 👀</h2>
+          <p class="slide-subtitle">편견의 대상이 되는 그룹의 입장에서 세상을 상상해보는 것입니다.</p>
+          <div class="slide-content">
+            <p>상대방이 겪을 수 있는 어려움이나 감정을 상상함으로써 공감 능력을 키우고, 자동적인 편견 반응을 줄일 수 있습니다. 연구에 따르면 이는 다른 사람을 돕는 행동으로 이어질 가능성을 높입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Mindfulness for Bias -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음챙김과 편향 극복 🧘</h2>
+          <p class="slide-subtitle">만성 스트레스는 뇌의 감정 제어 능력을 떨어뜨려 편향적 행동을 악화시킵니다. 마음챙김은 <span class="highlight">스트레스 반응을 조절</span>하고, 자신의 생각과 감정을 관찰하는 능력을 키워줍니다.</p>
+          <div class="slide-content">
+            <p>마음챙김 훈련을 받은 경찰관들은 스트레스 상황에서 덜 충동적으로 행동하고, 감정 관리를 더 잘하게 되었습니다. 이는 자동적인 '공포' 반응(예: 필란도 카스틸 사건)을 멈추고, 더 신중하게 판단할 수 있는 정신적 공간을 만들어줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: The Power of Contact -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">접촉의 힘: 편견을 넘어서 🤝</h2>
+          <p class="slide-subtitle">다른 집단과의 긍정적인 접촉은 편견을 줄이는 가장 강력한 방법 중 하나입니다. 그러나 모든 접촉이 효과적인 것은 아닙니다.</p>
+          <div class="slide-content">
+            <h3 class="font-bold text-lg">성공적인 접촉의 조건 (고든 앨포트)</h3>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+              <li><b>대등한 지위:</b> 서로를 동등한 위치에서 만나야 합니다.</li>
+              <li><b>공동의 목표:</b> 함께 협력하여 달성해야 할 목표가 있어야 합니다.</li>
+              <li><b>협력:</b> 목표 달성을 위해 서로 협력해야 합니다.</li>
+              <li><b>제도적 지원:</b> 리더나 기관의 지지가 있어야 합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Section Title Part 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3부</p>
+          <h2 class="slide-title">시스템을 어떻게 <span class="highlight">바꿀 것인가</span></h2>
+          <p class="slide-content">개인의 노력만으로는 부족합니다. 편향을 유발하고 강화하는 환경과 시스템 자체를 재설계해야 합니다. 3부에서는 제도적, 구조적 해결책을 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 29: Chapter 7 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">3부 - 7장</p>
+            <h2 class="slide-title">인간의 한계를 넘어서는 <span class="highlight">선택 설계</span> 🏛️</h2>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Choice Architecture -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">선택 설계 (Choice Architecture) 🏗️</h2>
+          <p class="slide-subtitle">사람들의 행동은 그들이 선택을 내리는 <span class="highlight">맥락과 환경</span>에 의해 큰 영향을 받습니다. 행동을 바꾸는 가장 효과적인 방법은 설득이 아니라 설계를 바꾸는 것입니다.</p>
+          <div class="slide-content">
+            <p><b>예시:</b> 학생들에게 채소를 더 먹게 하려면 '채소가 몸에 좋다'고 설득하는 것보다, 가장 배고픈 순간인 식당 입구에 당근 컵을 놓아두는 것이 훨씬 효과적입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Johns Hopkins Checklist -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 1: 존스 홉킨스의 <span class="highlight">점검 목록</span> ✅</h2>
+          <p class="slide-subtitle">의사들이 혈전 예방 대책을 누락하는 비율이 높다는 것을 발견했습니다. 이는 의사들의 편향이나 능력 부족 때문이 아니었습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">해결책: 선택 설계</h3>
+            <p class="mt-2">환자 입원 시 혈전 위험 요인을 평가하고 적절한 예방 조치를 권고하는 <span class="highlight">컴퓨터화된 점검 목록</span>을 도입했습니다. 의사의 판단 과정을 구조화하여 실수를 줄인 것입니다. 그 결과, 예방 가능한 혈전 발생이 거의 사라졌고, 성별에 따른 치료 불평등도 해소되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Broward County's Gifted Program -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 2: 브로워드 카운티의 <span class="highlight">영재 선발</span> 🎓</h2>
+          <p class="slide-subtitle">기존의 영재 선발 방식은 교사나 부모의 추천에 의존하여 백인, 부유층 학생들에게 편중되어 있었습니다.</p>
+          <div class="slide-content">
+            <p><b>문제:</b> 교사와 부모의 무의식적 편향이 특정 학생들을 추천 과정에서부터 배제시켰습니다.</p>
+            <p class="mt-4 font-bold">해결책: 모든 2학년 학생에게 비언어적 인지 능력 테스트를 실시하는 <span class="highlight">'보편적 심사(Universal Screening)'</span>를 도입했습니다. 추천이라는 인간 판단의 개입을 제거한 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Results of Universal Screening -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보편적 심사의 놀라운 결과 ✨</h2>
+          <p class="slide-subtitle">시스템을 바꾸자, 이전에는 보이지 않던 재능들이 드러나기 시작했습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+              <li>흑인 및 히스패닉계 영재 학생의 수가 <span class="highlight">3배</span>로 증가했습니다.</li>
+              <li>새로 선발된 영재 학생의 80%가 저소득층 또는 비영어권 학생이었습니다.</li>
+              <li>이는 그 아이들에게 재능이 없었던 것이 아니라, 그들을 찾아내려는 시스템이 없었을 뿐임을 증명합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Blind Auditions -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 3: 오케스트라의 <span class="highlight">블라인드 오디션</span> 🎻</h2>
+          <p class="slide-subtitle">1970년대까지 세계적인 오케스트라는 거의 전적으로 남성으로 구성되었습니다. 여성 연주자들은 실력이 부족하다는 편견에 시달렸습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">해결책: 정보 제거</h3>
+            <p class="mt-2">연주자와 심사위원 사이에 스크린을 설치하여, 심사위원이 연주자의 성별을 알 수 없게 만들었습니다. 이는 여성 연주자가 다음 라운드에 진출할 확률을 <span class="highlight">50%</span>나 높였습니다. 오늘날 대부분의 오케스트라에서 여성 단원의 비율은 40%에 육박합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: The Limits of Choice Architecture -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">선택 설계의 한계 🚧</h2>
+          <p class="slide-subtitle">선택 설계는 강력하지만, 만병통치약은 아닙니다. 더 큰 <span class="highlight">가치 시스템</span>의 지원 없이는 취약할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>브로워드 카운티의 보편적 심사 프로그램은 예산 삭감으로 중단된 후, 영재 학생의 인종 불균형은 이전 수준으로 돌아갔습니다. 구조적 변화는 그것을 뒷받침하는 조직의 문화와 가치가 함께 변할 때 지속 가능합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: MIT's Transformation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 4: MIT 기계공학부의 <span class="highlight">변화</span> 🔧</h2>
+          <p class="slide-subtitle">여성 교수가 거의 없던 MIT 기계공학부는 '임계 수준(Critical Mass)'의 여성 교수를 확보하기 위해 채용 전략을 근본적으로 바꾸었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">전략 변화</h3>
+              <p>특정 세부 전공의 최고 전문가를 찾던 방식에서, 탁월한 자격을 갖춘 여성 후보를 먼저 찾고 그들의 연구 의제를 부서의 우선순위로 삼는 방식으로 전환했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">결과</h3>
+              <p>여성 교수진이 늘어나자, 여학생들에게 강력한 롤 모델이 생겼고, 기계공학을 전공하는 여학생 비율이 32.5%에서 <span class="highlight">50.4%</span>로 급증했습니다. 문화가 변하기 시작한 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: The Role of Role Models -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">롤 모델의 힘: <span class="highlight">"존재 증명"</span> 🌟</h2>
+          <p class="slide-subtitle">롤 모델은 '사회적 백신'과 같은 역할을 합니다. 자신과 같은 배경을 가진 사람이 특정 분야에서 성공하는 것을 보는 것은 "나도 할 수 있다"는 가능성을 열어줍니다.</p>
+          <div class="slide-content">
+            <p>인도의 한 연구에서는 여성 지도자를 할당한 마을의 여자아이들이 교육적 열망이 더 높고, 남녀 간 학업 격차가 줄어드는 것을 발견했습니다. 롤 모델은 단순히 영감을 주는 것을 넘어, 사람들의 인식을 바꾸고 곤경을 없애는 역할을 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: The Danger of Homogeneity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">동종성(Homogeneity)의 위험 ⚠️</h2>
+          <p class="slide-subtitle">트위터, 페이스북 같은 테크 기업들은 초기에 젊은 백인 남성이라는 동종적 집단에 의해 만들어졌습니다. 그 결과, 그들은 자신들이 겪어보지 않은 <span class="highlight">온라인 폭력과 괴롭힘</span>의 가능성을 예측하지 못했습니다.</p>
+          <div class="slide-content">
+            <p>조직의 동종성은 '맹점'을 만듭니다. 다양한 배경과 경험을 가진 사람들이 부재하면, 제품이나 정책 설계 시 잠재적인 문제와 위험을 예측하기 어렵습니다. 이는 단순히 공급선(인재 풀)의 문제가 아니라, 조직 내부의 포용성 문제입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Three Frameworks for Diversity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다양성을 보는 세 가지 관점 🌈</h2>
+          <p class="slide-subtitle">조직이 다양성을 추구하는 방식은 그 성과에 결정적인 영향을 미칩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div>
+              <h3 class="font-bold text-lg">1. 차별과 공정성</h3>
+              <p>"우리는 모두 같다"는 관점. 차이를 무시하고 동화를 강조하여 오히려 갈등을 억압할 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 접근과 정당성</h3>
+              <p>다양한 고객에게 접근하기 위한 '비즈니스적' 관점. 소수 집단 직원을 특정 시장 공략 도구로만 활용할 위험이 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-green-700">3. 학습과 효과성</h3>
+              <p>차이를 학습과 성장의 원천으로 보는 관점. 다양한 관점을 통해 조직 전체가 더 현명해지고 발전할 수 있다고 믿습니다. 이것이 가장 효과적입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Learning and Effectiveness in Practice -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">학습으로서의 다양성: <span class="highlight">타즈 로펌</span> ⚖️</h2>
+          <p class="slide-subtitle">CEO 지안마르코 몬셀라토는 '늙은 신사들의 클럽'이었던 로펌을 바꾸기 위해 '학습과 효과성' 관점을 도입했습니다.</p>
+          <div class="slide-content">
+            <p>그는 단순히 여성을 고용하는 것을 넘어, 평가, 승진, 업무 방식 등 조직의 모든 시스템을 공정하게 재설계했습니다. 그는 차이와 갈등을 회피하지 않고, 그것이 조직을 더 강하게 만드는 원천이라고 믿었습니다.</p>
+            <p class="mt-4 font-bold">결과: 여성 파트너 비율이 20%에서 50%로 증가했고, 회사 수입은 12년간 70% 상승했습니다. 조직 문화가 포용적으로 변하자 직원 만족도와 생산성이 함께 올라갔습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Creating Inclusive Cultures -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수학 교실의 변화 🧮</h2>
+          <p class="slide-subtitle">수학자 페데리코 아딜라는 전통적인 경쟁적이고 마초적인 수학 문화를 바꾸기 위해 자신의 교실을 재설계했습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+              <li><b>새로운 규범:</b> '능동적이고, 인내심 있고, 관대한 역할'을 강조.</li>
+              <li><b>문화적 연결:</b> 튀긴 콩 깡통의 부피를 구하는 등 학생들의 문화적 배경과 수학을 연결.</li>
+              <li><b>안전한 공간:</b> 학생들이 자신의 정체성을 드러내고 편안하게 질문할 수 있는 환경 조성.</li>
+            </ul>
+            <p class="mt-4">결과적으로, 소수 집단 학생들의 수학계 진출 비율이 폭발적으로 증가했습니다. 포용적인 문화가 사람들의 잠재력을 어떻게 이끌어내는지를 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Beyond Gender Neutrality -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스웨덴 유치원의 실험 🇸🇪</h2>
+          <p class="slide-subtitle">스웨덴의 '에갈리아' 유치원은 '남자', '여자'라는 범주를 강조하지 않고, 아이들이 성별 고정관념에서 벗어나 자유롭게 자신을 탐색하도록 합니다.</p>
+          <div class="slide-content">
+            <p>이곳의 아이들은 여전히 성별을 구별할 수 있지만, 특정 성별과 특정 장난감이나 행동을 연결하는 <span class="highlight">고정관념은 훨씬 덜</span> 가집니다. 이는 젠더 개념을 없애는 것이 아니라, 젠더에 부여된 '편향된 의미'를 바꾸는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Freedom From Bias -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">편향으로부터의 자유 🕊️</h2>
+          <p class="slide-subtitle">이 책이 말하는 자유는 두 가지입니다: <span class="highlight">무엇을 할</span> 자유와 <span class="highlight">무엇으로부터의</span> 자유.</p>
+          <div class="slide-content">
+            <p>아이들에게 성장하고, 탐구하고, 선택할 자유를 주려면, 그들을 옭아매는 타인의 기대와 고정관념이라는 그물망으로부터 자유로워질 수 있도록 도와야 합니다. 이는 모든 교류, 모든 순간에 존재하는 가능성입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: The Role of Media -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미디어의 역할: 표준의 변화 📺</h2>
+          <p class="slide-subtitle">미디어는 사람들에게 무엇을 생각할지 지시하기보다, 다른 사람들이 무엇을 생각하는지(즉, 사회적 표준)를 알려줍니다. 르완다의 라디오 드라마 <span class="highlight">〈신새벽〉</span>은 이를 잘 보여줍니다.</p>
+          <div class="slide-content">
+            <p>이 드라마는 인종 학살 이후, 다른 민족 간의 화해와 협력을 다루었습니다. 드라마를 청취한 사람들은 통혼에 대한 개인적 신념은 바뀌지 않았지만, "그래도 (화해를 위해) 그렇게 해야 해"라고 생각하게 되었습니다. 즉, 바람직한 행동에 대한 사회적 표준이 변했음을 인지하고, 더 협동적으로 행동하게 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Positive Representation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">단순한 긍정성을 넘어서 🖼️</h2>
+          <p class="slide-subtitle">단순히 긍정적인 이미지를 보여주는 것만으로는 충분하지 않을 수 있습니다. 프랑스에서 진행된 한 연구는 더 효과적인 방법을 제시합니다.</p>
+          <div class="slide-content">
+            <p>아랍 출신 사람들의 '긍정적'인 모습만 담은 포스터보다, '낙천적', '인색함' 등 <span class="highlight">다양한 개인적 특성</span>을 보여주는 포스터가 편견 감소에 더 효과적이었습니다.</p>
+            <p class="mt-4 font-bold">핵심: 집단의 '획일성'이라는 고정관념 자체를 깨뜨리고, 그들 역시 다양한 개인들로 이루어진 집단임을 보여주는 것이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Conclusion Part 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결론: 무엇을 할 것인가 🎯</h2>
+          <p class="slide-subtitle">편향을 극복하는 것은 개인의 내적 변화와 시스템의 외적 변화가 함께 이루어져야 하는 <span class="highlight">거대한 도전</span>입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+                <li><b>개인적 차원:</b> 자신의 편향적 반응을 알아차리고, 마음챙김과 의식적인 전략을 통해 습관을 바꿉니다.</li>
+                <li><b>조직적 차원:</b> 인간의 판단이 개입되는 지점을 찾아내고, 선택 설계를 통해 편향이 작동하기 어려운 시스템을 만듭니다.</li>
+                <li><b>문화적 차원:</b> 미디어와 교육을 통해 다양성을 존중하고, 차이를 학습의 기회로 삼는 문화를 구축합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Conclusion Part 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간성을 향한 여정 ❤️</h2>
+          <p class="slide-subtitle">궁극적으로 편향과의 싸움은 우리 자신과 타인을 <span class="highlight">온전한 인간</span>으로 보기 위한 노력입니다.</p>
+          <div class="slide-content">
+            <p>편향은 우리를 단순한 범주로 축소시키고, 서로의 복잡하고 독특한 인간성을 보지 못하게 합니다. 편향을 걷어낼 때, 우리는 비로소 상대방의 온전한 모습을 볼 수 있고, 더 깊고 진정한 관계를 맺을 수 있습니다. 이것이 바로 편향의 종말이 희망의 시작인 이유입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: The Takeaway -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🚀</div>
+            <h2 class="slide-title">핵심 메시지</h2>
+            <p class="slide-content max-w-4xl mx-auto">차별의 둑을 터뜨리는 것은 '설득'이 아니라 <span class="highlight">'설계'</span>다!</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">우리는 더 나은 시스템을 설계하고 더 나은 습관을 만들 수 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 49: Thank You -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+        </div>
+      </div>
+      
+      <!-- Slide 50: Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">❓</div>
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Q&A</h1>
+            <p class="text-xl md:text-2xl text-gray-600">질문 있습니까?</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

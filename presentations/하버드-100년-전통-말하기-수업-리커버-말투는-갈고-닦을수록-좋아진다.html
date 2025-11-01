@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>하버드 100년 전통 말하기 수업</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8fafc; /* Lighter gray background */
+      background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 1.5rem; /* More rounded corners */
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e3a8a; /* A deep blue for part titles */
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #4b5563;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #374151;
+    }
+    .highlight {
+      background-color: #fef08a; /* Lighter, softer yellow */
+      padding: 0 0.25em;
+      border-radius: 0.25rem;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #1e40af; /* A rich blue */
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    .btn-secondary {
+      background-color: #e5e7eb;
+      color: #374151;
+    }
+    .btn-secondary:hover {
+      background-color: #d1d5db;
+      transform: translateY(-2px);
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #e5e7eb;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e5e7eb;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #1e40af; /* Same rich blue */
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-item {
+        border-left: 4px solid #dbeafe;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        transition: all 0.2s ease;
+    }
+    .toc-item:hover {
+        border-left-color: #1e40af;
+        background-color: #f3f4f6;
+    }
+    ul.custom-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    ul.custom-list li {
+        position: relative;
+        padding-left: 2em;
+        margin-bottom: 0.75em;
+    }
+    ul.custom-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #1e40af;
+        font-weight: bold;
+        font-size: 1.2em;
+        line-height: 1.2;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🎙️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">하버드 100년 전통 말하기 수업</h1>
+          <p class="text-xl md:text-2xl text-gray-700">인생을 바꾸는 <span class="highlight">불변의 법칙</span></p>
+          <p class="mt-4 text-gray-500">류리나 지음 | 리드리드출판</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+            <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 1. 같은 말이라도 하는 사람에 따라 다르다</p>
+              <p class="text-gray-600">말하기의 기본 원칙과 자기 점검</p>
+            </div>
+            <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 2. 3초 인사로 첫인상 바꾸기</p>
+              <p class="text-gray-600">관계의 시작, 인사와 첫인상의 기술</p>
+            </div>
+            <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 3. 상대가 말하고 싶게 자극하라</p>
+              <p class="text-gray-600">적극적인 소통과 경청의 힘</p>
+            </div>
+            <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 4. 망설이지 말고 자신을 이야기하라</p>
+              <p class="text-gray-600">대화 속 영향력과 자기표현</p>
+            </div>
+             <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 5. 설득하면 당신을 거절할 수 없다</p>
+              <p class="text-gray-600">마음을 움직이는 설득의 기술</p>
+            </div>
+             <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 6. 문제될 만한 화제는 피하라</p>
+              <p class="text-gray-600">갈등 관리와 효과적인 불만 전달</p>
+            </div>
+            <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 7. 의견이 나뉠 때 공통점을 찾아라</p>
+              <p class="text-gray-600">분열을 해결하는 대화 전략</p>
+            </div>
+            <div class="toc-item">
+              <p class="font-bold text-lg text-gray-800">Part 8. 말에 논리가 있어야 지지를 받는다</p>
+              <p class="text-gray-600">논리적인 말하기의 구조와 방법</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Prologue Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">하버드 교수와 동문들이 집약한 <span class="highlight">100년 전통 말하기 비법</span></h2>
+          <p class="slide-content">말하기는 타고나는 것이 아니라, 후천적인 연습과 기술 습득을 통해 누구나 발전시킬 수 있는 능력입니다. 이 책은 당신의 말하기 능력을 키우기 위한 첫걸음이 될 것입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Prologue Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">평범한 소년에서 <span class="highlight">위대한 연설가</span>로 🗣️</h2>
+              <p class="slide-subtitle">버락 오바마의 사례를 통해 본 말하기 능력의 중요성</p>
+              <div class="slide-content space-y-4">
+                  <p>오바마의 "희망이 있으면 두려울 것이 없다"는 연설은 그를 정계의 다크호스로 만들었습니다. 고교 시절 말을 잘하지 못했던 평범한 소년이었던 그를 대통령으로 이끈 힘은 무엇이었을까요?</p>
+                  <p>그 원인은 8명의 미국 대통령을 탄생시킨 <span class="font-bold">'하버드 대학'</span>에서 찾을 수 있습니다. 하버드 출신들은 단어 선택, 표정, 동작까지 집약된 말하기 방식을 통해 세계의 이목을 부담이 아닌 기회로 삼습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 5: Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title text-5xl">같은 말이라도 <br> <span class="highlight">하는 사람</span>에 따라 다르다</h2>
+          <p class="slide-subtitle mt-6">말하기의 기본 원칙과 자기 점검의 중요성</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Part 1 - Finding Problems -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">말하기 문제점 찾기 🔍</h2>
+          <p class="slide-subtitle">하버드 말하기 수업의 시작은 '자기 말의 특징'을 찾는 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="font-bold text-lg text-blue-800">👍 장점 파악</h3>
+              <p class="mt-2">자신의 장점을 명확히 알면 실전에서 십분 발휘할 수 있습니다. 내가 어떤 상황에서, 어떤 주제로 말할 때 자신감이 생기는지 파악해야 합니다.</p>
+            </div>
+            <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+              <h3 class="font-bold text-lg text-red-800">👎 단점 파악</h3>
+              <p class="mt-2">자신의 단점을 분명하게 알면 타인과의 대화에서 실수하지 않습니다. 무의식적으로 상대를 불쾌하게 만드는 습관이 있는지 점검해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Part 1 - Conversation Flow -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대화는 <span class="highlight">부드럽게</span> 이어가야 한다 🌊</h2>
+          <p class="slide-subtitle">"말하기는 리듬이고, 대화는 운동이다." - 오스틴 로프트 (하버드 협상전문가)</p>
+          <div class="slide-content">
+            <p>잘못된 말하기 방식은 상대를 불쾌하게 만들고 대화를 단절시킵니다. 대화가 즐겁지 않았다면, 자신의 말투가 상대에게 고통의 원인이 되지는 않았는지 돌이켜봐야 합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 핵심 원칙</h3>
+              <p class="mt-2">말할 줄 아는 것과 <span class="font-bold">대화할 줄 아는 것</span>은 다릅니다. 일방적인 토로가 아닌, 쌍방의 교류가 있어야 진정한 대화가 이루어집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Part 1 - Vicious Cycle of Conversation -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">대화의 <span class="highlight">악순환</span>에 빠져있나요? 🌀</h2>
+              <p class="slide-subtitle">오스틴 로프트가 정리한 대화 악순환의 전형적인 패턴들</p>
+              <ul class="slide-content custom-list">
+                  <li><b>항상 똑같은 화제 꺼내기:</b> 상대방은 새로운 자극을 원합니다. 반복되는 업무 이야기는 듣는 사람을 피곤하게 만듭니다.</li>
+                  <li><b>상대방이 꺼리는 화제 꺼내기:</b> 신체, 나이, 사생활 등 상대의 상처를 건드리는 화제는 대화의 욕구를 소멸시킵니다.</li>
+                  <li><b>갑자기 말문 막히게 하기:</b> 가벼운 대화에서 반대 의견을 내세워 상대를 이기려 할 필요는 없습니다.</li>
+                  <li><b>자신이 관심 있는 일만 이야기하기:</b> 상대방은 자신의 이야기도 들어주기를 원합니다.</li>
+                  <li><b>상대방을 얕보는 듯한 대화 방식:</b> 상대방은 자신을 인정해주길 원합니다. 성별, 학력 등으로 상대를 무시하면 안 됩니다.</li>
+                  <li><b>듣기만 하거나 말하기만 하는 사람:</b> 쌍방향 소통이 진정한 교류의 밑바탕이 됩니다.</li>
+              </ul>
+          </div>
+      </div>
+
+      <!-- Slide 9: Part 1 - Safe Topics -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">안전지대: <span class="highlight">불편함 없는 화제</span> ☀️</h2>
+          <p class="slide-subtitle">상대방을 불편하게 할 가능성이 거의 없는 대화 주제들입니다.</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-sky-100 rounded-lg shadow-sm">
+                <p class="text-4xl">🌦️</p>
+                <p class="font-bold mt-2">날씨</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg shadow-sm">
+                <p class="text-4xl">🏞️</p>
+                <p class="font-bold mt-2">고향</p>
+            </div>
+            <div class="p-4 bg-yellow-100 rounded-lg shadow-sm">
+                <p class="text-4xl">🎭</p>
+                <p class="font-bold mt-2">연예인 가십거리</p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg shadow-sm">
+                <p class="text-4xl">📺</p>
+                <p class="font-bold mt-2">최신 TV 프로그램/영화</p>
+            </div>
+            <div class="p-4 bg-red-100 rounded-lg shadow-sm">
+                <p class="text-4xl">📰</p>
+                <p class="font-bold mt-2">모두가 아는 공공의 사건</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Part 1 - Flexible Conversation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">탄력적인 대화란? 🤸</h2>
+          <p class="slide-subtitle">주고받는 대화의 즐거움은 탁구 랠리와 같습니다.</p>
+          <div class="slide-content">
+            <p>승부가 목적이라면 강한 스매싱을 날리면 되지만, 즐거움이 목적이라면 상대가 받아칠 수 있도록 공을 넘겨주어야 합니다. 대화도 마찬가지입니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border-t-4 border-blue-400 rounded-lg">
+                <h3 class="font-bold text-lg">탄력적 대화의 7가지 특징</h3>
+                <ol class="list-decimal list-inside mt-2 space-y-1">
+                    <li>가볍고 유쾌한 대화</li>
+                    <li>본인도 이야기하고 상대의 말도 듣는 대화</li>
+                    <li>적절한 피드백을 하는 대화</li>
+                    <li>상대의 말을 긍정하고 받아들이는 대화</li>
+                    <li>정직하고 솔직한 대화</li>
+                    <li>반응이 좋지 않을 때 즉각 화제를 바꾸는 대화</li>
+                    <li>문제가 발생했을 때 즉각 다음 화제로 넘어가는 대화</li>
+                </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Part 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title text-5xl">3초 인사로 <br> <span class="highlight">첫인상</span> 바꾸기</h2>
+          <p class="slide-subtitle mt-6">관계의 시작, 인사와 첫인상의 기술</p>
+        </div>
+      </div>
+
+      <!-- Slide 12: Part 2 - Greeting Preparation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언제든지 인사할 수 있도록 <span class="highlight">준비하라</span> 🤝</h2>
+          <p class="slide-subtitle">"좋은 아침!"이라는 인사말은 서로에게 편안한 느낌을 줍니다.</p>
+          <div class="slide-content space-y-4">
+            <p>인사는 많은 말이 필요 없습니다. 불과 몇 초의 시간을 들여 건네는 "안녕" 한 마디로 소통은 원만해질 수 있습니다. 인사는 인간관계를 구축하는 첫걸음입니다.</p>
+            <p class="font-bold">능동적인 "안녕하세요!"는 "제가 당신을 인식했습니다."라는 정보를 전달합니다. 먼저 인사를 건네는 일을 한 달만 지속해도 당신의 인간관계는 크게 변화할 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Part 2 - Benefits of Greeting -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">인사의 좋은 점 세 가지 🌟</h2>
+              <p class="slide-subtitle">인사는 영혼을 소통시키는 방식으로 감정의 연결고리를 더욱 조이는 역할을 합니다.</p>
+              <div class="slide-content space-y-6">
+                  <div class="flex items-start">
+                      <div class="text-3xl mr-4">1️⃣</div>
+                      <div>
+                          <h3 class="font-bold text-xl">정확한 감정/생각 전달</h3>
+                          <p>자신의 감정과 생각을 정확하게 상대방에게 전달할 수 있습니다.</p>
+                      </div>
+                  </div>
+                  <div class="flex items-start">
+                      <div class="text-3xl mr-4">2️⃣</div>
+                      <div>
+                          <h3 class="font-bold text-xl">상호 생각 교환</h3>
+                          <p>서로의 생각을 자유롭게 주고받을 수 있는 통로를 엽니다.</p>
+                      </div>
+                  </div>
+                  <div class="flex items-start">
+                      <div class="text-3xl mr-4">3️⃣</div>
+                      <div>
+                          <h3 class="font-bold text-xl">소통 장애물 제거</h3>
+                          <p>상대방과의 소통에 존재하는 보이지 않는 장애물을 없앨 수 있습니다.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 14: Part 2 - How to Greet -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인사의 기술: <span class="highlight">3가지 핵심</span> 🔑</h2>
+          <div class="slide-content space-y-6">
+            <div>
+                <h3 class="font-bold text-lg">1. 눈 마주침과 동시에 하라 👀</h3>
+                <p>가장 인사하기 좋을 때는 상대방과 눈이 마주친 그 순간입니다. 이는 상대를 중요하게 생각하는 마음과 만나서 기쁜 마음을 효과적으로 전달합니다. 첫인상은 단 몇 초의 인사로 결정됩니다.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg">2. 관심을 담아 인사하라 ❤️</h3>
+                <p>웃는 표정으로 상대의 눈을 바라보며 만남에 대한 기쁜 감정을 전달해야 합니다. 상대방의 이름을 부르거나 상황에 맞는 인사말을 사용하고, 유효한 피드백을 줄 수 있는 어조를 사용하는 것이 좋습니다.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg">3. 인사도 연습이 중요하다 🏋️‍♀️</h3>
+                <p>처음부터 직속 상사에게 연습하는 것은 효과적이지 않습니다. 회사 경비원처럼 이해관계가 얽혀있지 않은 사람에게 먼저 연습해보세요. 실패해도 부담이 없습니다. 인사는 당신에 대한 인상과 관계의 시작을 결정합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Part 2 - Overturning Evaluations -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">잘못된 평가는 <span class="highlight">뒤집을 수 있다</span> 🔄</h2>
+          <p class="slide-subtitle">"부정적으로 정의되는 것은 무서운 일이다. 하지만 더 무서운 일은 이런 정의를 바꾸려 하지 않는 것이다." - 브룩 윅스</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">부정적 낙인의 원인</h3>
+              <p>'인사할 줄 모르는 사람'이라는 꼬리표는 사실 자신감 부족이나 심리적 긴장 때문일 수 있습니다. 말을 잘못해서 비웃음거리가 되거나 상대방을 화나게 할까 봐 두려워 입을 닫게 되고, 이는 부정적인 인식을 심어줄 뿐입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">극복하는 방법</h3>
+              <ul class="list-disc list-inside mt-2 space-y-2">
+                <li><b>상황 상상하기:</b> 출근길, 사무실, 엘리베이터 등 다양한 상황을 상상하고 어떻게 인사할지 미리 준비해두면 어색함을 줄일 수 있습니다.</li>
+                <li><b>재미있을 필요는 없다:</b> 98%의 사람들은 성실한 인사를 합니다. 개성을 거스르며 억지로 재미있게 대화하려 하면 오히려 신뢰를 얻기 어렵습니다.</li>
+                <li><b>한 마디 덧붙이기:</b> "좋은 아침입니다!" 뒤에 "오늘 아주 일찍 오셨네요!"와 같이 간단한 말을 덧붙이면 대화를 이어가기 훨씬 수월해집니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Part 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title text-5xl">상대가 말하고 싶게 <br> <span class="highlight">자극하라</span></h2>
+          <p class="slide-subtitle mt-6">적극적인 소통과 경청, 그리고 비언어적 표현의 힘</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: Part 3 - Self-Disclosure -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자기 노출: <span class="highlight">관계의 4단계</span> 🪜</h2>
+          <p class="slide-subtitle">친밀도에 따라 말의 깊이는 달라져야 합니다. 자기 노출의 단계를 이해하고 적용해보세요.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 bg-gray-100 rounded-lg"><b>1단계: 의례적인 질문</b><br>"안녕하세요!", "요즘 잘 지내요?" 등 낯선 사람과의 안부 인사.</div>
+              <div class="p-4 bg-gray-100 rounded-lg"><b>2단계: 기본 정보 대화</b><br>"어디 사람이에요?", "무슨 일 하세요?" 등 개인 정보를 교환하며 공통점을 찾는 단계.</div>
+              <div class="p-4 bg-gray-100 rounded-lg"><b>3단계: 취미, 관점, 태도 밝히기</b><br>동료나 친구 사이에서 자신의 가치관, 목표 등을 솔직하게 이야기하며 관계를 발전시키는 단계.</div>
+              <div class="p-4 bg-gray-100 rounded-lg"><b>4. 민감한 화제와 인생 히스토리</b><br>절친이 될 준비를 하는 단계. 공포, 사랑, 희망 등 사적인 감정이나 개인사를 공유하며 깊은 신뢰를 쌓는 단계.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Part 3 - SOFTEN Rule -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몸짓으로 하는 말: <span class="highlight">SOFTEN 법칙</span> ✨</h2>
+          <p class="slide-subtitle">비언어적 교류는 총 정보의 65%를 차지합니다. SOFTEN 법칙으로 긍정적인 대화 분위기를 만드세요.</p>
+          <ul class="slide-content custom-list">
+            <li><b>S (Smile):</b> 미소는 열정과 우호의 상징입니다.</li>
+            <li><b>O (Open):</b> 개방적인 자세(활짝 편 어깨)는 교류를 환영한다는 신호입니다.</li>
+            <li><b>F (Forward Lean):</b> 몸을 앞으로 기울이면 '당신 이야기에 집중하고 있다'는 뜻을 전달합니다.</li>
+            <li><b>T (Touch):</b> 악수와 같은 접촉은 긴장을 풀고 존중의 분위기를 만듭니다.</li>
+            <li><b>E (Eye):</b> 시선 교류는 '당신과 친구가 되고 싶다'는 적극적인 신호입니다.</li>
+            <li><b>N (Nod):</b> 고개 끄덕임은 동의뿐 아니라 '계속 이야기하세요'라는 격려의 의미를 갖습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Slide 19: Part 3 - Responding Actively -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상대방의 말에 <span class="highlight">적극 호응하라</span> 📣</h2>
+          <p class="slide-subtitle">적극적인 대화 분위기는 교류에 대한 열정에서 비롯됩니다. 막힌 대화를 푸는 핵심은 '핵심 단어'를 낚아채는 것입니다.</p>
+          <div class="slide-content space-y-4">
+            <p>대화가 막혔을 때 "무슨 말을 해야 할까?" 걱정할 필요 없이, "상대방이 무슨 말을 하는가?"에 집중하세요.相手의 말 속 핵심 단어를 캐치하고 질문을 던지는 것이 대화를 발전시키는 비결입니다.</p>
+            <div class="mt-4 p-6 bg-yellow-50 border-l-4 border-yellow-400">
+                <h3 class="font-bold text-lg">관심을 보이는 질문들</h3>
+                <ul class="list-disc list-inside mt-2">
+                    <li>"...은 무슨 뜻인가요?"</li>
+                    <li>"...에 대해 왜 그렇게 생각하나요?"</li>
+                    <li>"그래서 결국 어떻게 되었죠?"</li>
+                    <li>"예를 들어 설명해주실 수 있나요?"</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Part 4 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title text-5xl">망설이지 말고<br> <span class="highlight">자신을 이야기하라</span></h2>
+          <p class="slide-subtitle mt-6">대화 속 영향력과 명확한 자기표현의 기술</p>
+        </div>
+      </div>
+
+       <!-- Slide 21: Part 4 - 7/38/55 Rule -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">말의 영향력: <span class="highlight">7/38/55 법칙</span> 📊</h2>
+          <p class="slide-subtitle">스티븐 주버트 교수가 발표한 정보 전달 과정의 영향력 요소입니다.</p>
+          <div class="slide-content text-center space-y-4">
+            <div class="flex justify-around items-center pt-8">
+              <div class="w-1/3">
+                <p class="text-5xl font-black text-blue-600">7%</p>
+                <p class="font-bold mt-2">말의 내용</p>
+              </div>
+              <div class="w-1/3">
+                <p class="text-6xl font-black text-purple-600">38%</p>
+                <p class="font-bold mt-2">목소리 (말투, 톤)</p>
+              </div>
+              <div class="w-1/3">
+                <p class="text-7xl font-black text-teal-600">55%</p>
+                <p class="font-bold mt-2">비언어 (외모, 표정, 태도)</p>
+              </div>
+            </div>
+            <p class="pt-6">말투에서 실점하면 소통의 효과가 크게 감소합니다. 목소리는 성격, 정서, 분위기 세 가지 정보를 동시에 전달하는 강력한 도구입니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 22: Part 4 - Concise Speaking -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">최소한의 말에 <span class="highlight">최대한의 의미</span>를 담아라 💎</h2>
+          <p class="slide-subtitle">간결하고 명쾌한 언어는 복잡한 연설보다 흡입력이 뛰어납니다. 처칠의 연설이 그 대표적인 예입니다.</p>
+          <div class="slide-content">
+            <p>2차 세계대전 당시, 처칠은 단 세 마디로 영국군의 사기를 높였습니다. </p>
+            <div class="my-6 p-6 text-center bg-gray-800 text-white rounded-lg shadow-lg">
+                <p class="text-4xl font-black tracking-wider">“절대 포기하지 마라!”</p>
+                <p class="text-sm mt-2">(Never give in!)</p>
+            </div>
+            <h3 class="font-bold text-lg mt-6">간결한 말하기를 위한 팁</h3>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>계획 세우기:</b> 말하기 전, 머릿속에서 핵심 내용을 정리합니다.</li>
+                <li><b>중복 피하기:</b> 같은 말을 반복하면 영향력이 감소합니다.</li>
+                <li><b>다양한 단어 사용하기:</b> 한정된 단어만 사용하면 말이 지루해집니다.</li>
+                <li><b>말버릇 줄이기:</b> "내 생각엔", "절대" 등 불필요한 추임새를 제거합니다.</li>
+                <li><b>저속한 단어, 전문 용어 피하기:</b> 상대와 상황에 맞는 언어를 사용합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Part 4 - Defending Yourself -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">어려운 순간, <span class="highlight">자기를 변호하라</span> 🛡️</h2>
+              <p class="slide-subtitle">까다로운 질문이나 비난에 대처하는 것은 값을 헤아릴 수 없는 자산입니다.</p>
+              <div class="slide-content space-y-4">
+                  <p>오바마 대통령은 토크쇼에서 까다로운 질문을 받았을 때, 직접적으로 답하지 않고 화제를 상대방의 입장으로 이끌어 질문의 부당함을 드러냈습니다.</p>
+                  <h3 class="font-bold text-lg mt-4">공격에 대처하는 방법</h3>
+                  <ul class="custom-list">
+                      <li><b>공격으로 방어하고 반문하라:</b> "어떤 대답을 듣고 싶으세요?"라고 반문하면 상대방은 스스로 입장을 설명해야 합니다.</li>
+                      <li><b>초점을 상대방에게 옮겨라:</b> "그렇게 말하는 이유가 뭔가요?"라고 물어 상대가 자신의 주장에 대한 근거를 밝히게 하세요.</li>
+                      <li><b>모든 논쟁을 피하라:</b> 마음에 들지 않는 질문은 다른 질문으로 바꿔 대답하세요. 상대는 당신이 화제를 돌렸다는 것을 눈치채지 못합니다.</li>
+                      <li><b>생각할 시간을 벌어라:</b> "왜 자신도 답을 알지 못하는 일을 질문했나요?"와 같은 '대화 바리케이드'를 활용해 잠시 생각할 시간을 확보하세요.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 24: Part 5 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 5</p>
+          <h2 class="slide-title text-5xl">설득하면 당신을 <br> <span class="highlight">거절할 수 없다</span></h2>
+          <p class="slide-subtitle mt-6">마음을 움직이는 설득의 과학과 기술</p>
+        </div>
+      </div>
+
+      <!-- Slide 25: Part 5 - Make them your ally -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상대를 <span class="highlight">당신 편</span>으로 만들어라 🧲</h2>
+          <p class="slide-subtitle">설득은 예술이 아니라 과학적인 행동입니다. 조직행동학에 기반한 4가지 설득의 기술.</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 사회적 규범 활용:</b> "미국인 10명 중 9명이 성실 납세자입니다"와 같이 다수의 행동을 보여주어 설득력을 높입니다.</p>
+            <p><b>2. 주고받는 전략:</b> 청구서를 줄 때 사탕을 함께 주면 팁을 더 많이 받는 것처럼, 작은 호의는 긍정적 반응을 유도합니다.</p>
+            <p><b>3. 잠재적 손실 강조:</b> "이 기회를 놓치면 50달러 손해입니다"는 "50달러를 벌 수 있습니다"보다 두 배 더 효과적입니다.</p>
+            <p><b>4. 공통점으로 동지 되기:</b> 상대방과의 공통점을 찾으면 성공 확률이 배가 됩니다. 서로 같은 편이라는 인식이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Part 5 - Persuasion vs Coercion -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">설득과 강요를 <span class="highlight">혼동하지 마라</span> ⚖️</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">설득 (Persuasion)</h3>
+              <div class="bg-green-100 p-4 rounded-lg">
+                <p>상대방이 스스로 당신의 논리에 수긍하고 의견을 따르게 만드는 과정입니다. 부드러운 태도와 우호적인 권유를 통해 이루어집니다.<br>
+                <span class="font-bold">"이 부분은 한번 생각해보실 만합니다."</span></p>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">강요 (Coercion)</h3>
+              <div class="bg-red-100 p-4 rounded-lg">
+                <p>권력이나 공포감을 이용해 상대방이 당신의 생각을 따르도록 압박하는 것입니다. 반감을 일으키고 관계에 불리하게 작용합니다.<br>
+                <span class="font-bold">"무조건 받아들여!"</span></p>
+              </div>
+            </div>
+          </div>
+           <p class="slide-content mt-8">사람들은 자신의 결정을 스스로 내리고 싶어합니다. 훌륭한 설득은 상대가 강요받는다고 느끼지 않게 하는 것입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 27: Part 5 - Persuasion Types -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">설득의 세 가지 유형 🗂️</h2>
+              <p class="slide-subtitle">리어 찰스(하버드 협상전문가)가 제시한 상황별 설득 유형입니다.</p>
+              <div class="slide-content space-y-6">
+                  <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                      <div class="text-3xl mr-4">🗣️</div>
+                      <div>
+                          <h3 class="font-bold text-xl">주장형 설득</h3>
+                          <p>자신의 의견을 논리적으로 주장하며 상대를 이끄는 방식입니다.<br>
+                          <span class="text-sm text-gray-600">적합 상황: 교섭, 변론, 토론</span></p>
+                      </div>
+                  </div>
+                  <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                      <div class="text-3xl mr-4">🙋‍♂️</div>
+                      <div>
+                          <h3 class="font-bold text-xl">제안형 설득</h3>
+                          <p>상대에게 새로운 아이디어나 방법을 제시하며 선택을 유도하는 방식입니다.<br>
+                          <span class="text-sm text-gray-600">적합 상황: 설명회, 프레젠테이션</span></p>
+                      </div>
+                  </div>
+                  <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                      <div class="text-3xl mr-4">🤝</div>
+                      <div>
+                          <h3 class="font-bold text-xl">유도형 설득</h3>
+                          <p>질문이나 공감을 통해 상대가 스스로 결론에 도달하도록 이끄는 방식입니다.<br>
+                          <span class="text-sm text-gray-600">적합 상황: 업무 조정, 관념 주입</span></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+       <!-- Slide 28: Part 5 - Add Emotion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음을 울리는 <span class="highlight">감정</span>을 더하라 ❤️‍🔥</h2>
+          <p class="slide-subtitle">결정의 90%는 감정적입니다. 논리로만 설득하려 하면 이길 가능성은 낮습니다.</p>
+          <div class="slide-content space-y-4">
+              <p>상대방의 마음을 움직이지 못하면 당신의 의견은 받아들여지지 않습니다. 위험한 사랑에 빠진 사람에게 논리적으로 그 무모함을 설명해도 소용없는 것과 같습니다.</p>
+              <h3 class="font-bold text-lg mt-4">감정적 설득의 3단계</h3>
+              <ul class="custom-list">
+                  <li><b>감정의 연결고리 만들기:</b> "같이 커피 한잔할래요?"처럼 함께 시간을 보내며 신뢰와 유대감을 형성합니다.</li>
+                  <li><b>상대에게 맞춤형 근거 제시:</b> 돈에 예민한 사람에게는 금전적 이득을, 명예를 중시하는 사람에게는 평판의 변화를 설명합니다.</li>
+                  <li><b>상대방을 추켜세워라:</b> 사람들은 자신이 낸 의견에 더 적극적으로 반응합니다. 상대방의 의견이 당신의 의견과 부합한다고 느끼게 만드세요.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Part 6 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 6</p>
+          <h2 class="slide-title text-5xl">문제될 만한 화제는 <br> <span class="highlight">피하라</span></h2>
+          <p class="slide-subtitle mt-6">갈등 관리와 효과적인 불만 전달, 그리고 지혜로운 대처법</p>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Part 6 - Self-deprecation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자신의 잘못을 스스로 <span class="highlight">조롱하라</span> 😄</h2>
+          <p class="slide-subtitle">자조(自嘲)는 자신을 낮추는 방식으로 자신을 보호하는 현명한 기술입니다.</p>
+          <div class="slide-content">
+            <p>조롱을 피하는 가장 좋은 방법은 자조를 배우는 것입니다. 누군가 당신을 조롱할 때 화를 내면 더 큰 조롱을 부를 뿐입니다. 자조는 교착 상태나 난처한 상황을 유머로 반전시키는 힘이 있습니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border-l-4 border-blue-500">
+              <h3 class="font-bold text-lg">💡 자조의 철칙</h3>
+              <p class="mt-2">자조는 <span class="font-bold">성공한 사람의 겸손함</span>일 때 매력적입니다. 지위나 능력이 없는 사람의 자조는 자기 비하로 비칠 뿐입니다. 자신의 강점을 알고 있을 때, 약점을 유머로 승화시킬 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 31: Part 6 - Complaining Effectively -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원망하는 말도 <span class="highlight">효과적으로</span> 전달하라 🎯</h2>
+          <p class="slide-subtitle">원망은 새로운 문제 해결 방법이 될 수 있습니다. 침묵은 당신의 이익에 손해를 끼칠 뿐입니다.</p>
+          <div class="slide-content space-y-3">
+              <p><b>1. 관련 자료 수집:</b> "월급이 적은 것 같아요"보다는 구체적인 영업 실적, 수치 자료를 통해 월급 인상의 당위성을 증명해야 합니다.</p>
+              <p><b>2. 정확한 대상 찾기:</b> 월급 문제는 상사에게, 상품 불만은 고객센터에 이야기해야 합니다. 동료에게 하는 원망은 해결책이 될 수 없습니다.</p>
+              <p><b>3. 정확하고 구체적으로 말하기:</b> "남편이 옷을 잘못 세탁했다"는 사실보다 "세탁 전에 라벨을 확인하지 않았다"는 '행동'에 초점을 맞춰야 합니다.</p>
+              <p><b>4. 대안을 먼저 생각하기:</b> 원망을 말하기 전에 해결책을 함께 제시하면 상대가 핵심에 더 집중하게 됩니다.</p>
+              <p><b>5. 예의를 갖춰 시작하기:</b> "혹시 아셨을지 모르겠지만..."과 같이 질문 형식으로 부드럽게 시작하면 상대의 부정적인 반응을 줄일 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Part 6 - Flattery vs. Compliment -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아부와 칭찬을 <span class="highlight">구분하라</span> 🧐</h2>
+          <p class="slide-subtitle">칭찬은 진실이고 아부는 거짓입니다. 적절한 칭찬은 관계를 발전시키지만, 과도한 아부는 반감을 삽니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+              <h3 class="font-bold text-lg text-red-800">아부 (Flattery) 👄</h3>
+              <p class="mt-2">입으로 떠벌리는 말로 결국 자신의 이익을 위해 하는 것입니다. 과도하면 상대가 당신을 얕잡아보거나 의도를 의심하게 만듭니다.</p>
+            </div>
+            <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+              <h3 class="font-bold text-lg text-green-800">칭찬 (Compliment) 💖</h3>
+              <p class="mt-2">마음에서 우러나오는 사심 없는 말입니다. 진실과 사실에 근거해야 하며, 상대가 원하는 칭찬을 해주는 것이 효과적입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Part 6 - Apologizing -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">당신을 위해서 <span class="highlight">성의 있게</span> 사과하라 🙏</h2>
+              <p class="slide-subtitle">정확한 사과는 잘못을 효과적으로 바로잡고, 관계를 보완하며, 잃어버린 위신을 되찾아주는 특효약입니다.</p>
+              <h3 class="font-bold text-lg">효과적인 사과의 3원칙</h3>
+              <ul class="slide-content custom-list">
+                  <li><b>책임을 져라:</b> "차가 막혀서..."와 같은 핑계를 대지 마세요. "당신의 시간을 존중하지 못한 점 사과드립니다"와 같이 자신의 책임을 인정해야 합니다.</li>
+                  <li><b>결과를 먼저 생각하고 사과하라:</b> 상대의 감정을 미리 완화하는 것이 중요합니다. "지금 몹시 화가 났다는 것을 알고 있습니다"와 같이 상대의 감정을 먼저 인지해주세요.</li>
+                  <li><b>보완하는 것도 당신 몫이다:</b> 잘못에 대한 보상 계획을 세우고, "어떻게 하면 다시 믿어줄 수 있을까요?"라고 물으며 해결 의지를 보여주세요.</li>
+              </ul>
+          </div>
+      </div>
+      
+      <!-- Slide 34: Part 7 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 7</p>
+          <h2 class="slide-title text-5xl">의견이 나뉠 때는 <br> <span class="highlight">공통점</span>을 찾아라</h2>
+          <p class="slide-subtitle mt-6">분열을 기회로 바꾸는 대화의 전략</p>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Part 7 - Common Ground -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">분열을 해결하는 <span class="highlight">4가지 큰 공통점</span> 🔍</h2>
+          <p class="slide-subtitle">대립하는 상황에서 쌍방이 함께 바라볼 수 있는 공통의 목표, 요구, 관심을 명확히 하면 대화는 교착 상태를 벗어날 수 있습니다.</p>
+          <div class="slide-content space-y-4">
+              <div class="p-4 bg-gray-50 rounded-lg"><b>🎯 공동의 목표:</b> 수익, 안전 보장, 관련 인원들의 긍정적인 변화 등 '우리'가 함께 얻을 수 있는 것.</div>
+              <div class="p-4 bg-gray-50 rounded-lg"><b>🤝 공동의 요구:</b> 분열을 해결한 후 우리 관계가 긍정적으로 발전하는 것.</div>
+              <div class="p-4 bg-gray-50 rounded-lg"><b>👀 공동의 관심:</b> 쌍방이 함께 관심을 갖고 집중하는 일, 공동의 경쟁자, 공동의 취향 등.</div>
+              <div class="p-4 bg-gray-50 rounded-lg"><b>👺 공공의 적:</b> 의견 대립을 멈추고 힘을 합쳐야 할 외부의 위협이나 문제.</div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 36: Part 7 - Power of Silence -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">침묵은 <span class="highlight">초강력 무기다</span> 🤫</h2>
+          <p class="slide-subtitle">"내가 입을 다무는 법을 배우고 나서 오히려 더 많은 명망과 영향력을 얻었다네." - 앤디 워홀</p>
+          <div class="slide-content">
+            <p>끊임없이 말하는 것만이 영향력을 발휘하는 것은 아닙니다. 때로는 침묵이 더 강력한 설득력을 가집니다.</p>
+            <h3 class="font-bold text-lg mt-6">언제 침묵해야 하는가?</h3>
+            <ul class="list-disc list-inside mt-2 space-y-2">
+                <li><b>상대의 의도를 모를 때:</b> 침묵은 상대방이 자신의 의도를 더 명확하게 설명하게 만듭니다.</li>
+                <li><b>다른 사람이 당신에 대해 이야기할 때:</b> 반박 대신 침묵하면, 당신을 반대하던 사람도 설득될 수 있습니다.</li>
+                <li><b>스캔들이나 비밀에 대해 이야기할 때:</b> 불필요한 가십에 동참하지 않는 것은 당신의 품격을 지켜줍니다.</li>
+                <li><b>갈등이 심화될 때:</b> 감정적인 상황에서 침묵은 상황을 진정시키고 더 나은 해결책을 찾을 시간을 줍니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Part 8 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 8</p>
+          <h2 class="slide-title text-5xl">말에 논리가 있어야 <br> <span class="highlight">지지를 받는다</span></h2>
+          <p class="slide-subtitle mt-6">논리적인 말하기의 구조와 방법</p>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Part 8 - Logic Criteria -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">논리의 세 가지 기준 🏛️</h2>
+          <p class="slide-subtitle">노암 촘스키 박사가 제시한, 당신의 말에 논리가 있는지 판단하는 기준입니다.</p>
+          <div class="slide-content space-y-6 text-center">
+              <div class="p-6 bg-blue-100 rounded-lg shadow-sm">
+                  <p class="text-2xl font-bold">1. 공정하고 합리적인가?</p>
+                  <p>당신의 주장이 한쪽에 치우치지 않고 객관적인 사실에 기반하고 있는가?</p>
+              </div>
+              <div class="p-6 bg-green-100 rounded-lg shadow-sm">
+                  <p class="text-2xl font-bold">2. 간결하고 이해하기 쉬운가?</p>
+                  <p>자신의 생각을 간단명료하게 상대방이 이해할 수 있도록 전달하고 있는가?</p>
+              </div>
+              <div class="p-6 bg-yellow-100 rounded-lg shadow-sm">
+                  <p class="text-2xl font-bold">3. 전체적인 내용에 부합하는가?</p>
+                  <p>당신의 말이 전달하려는 핵심 주제에서 벗어나지 않고 일관성을 유지하는가?</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Part 8 - Triangle Script -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삼각 대본 말하기가 답이다 🔺</h2>
+          <p class="slide-subtitle">'압축 3부 구성법'을 활용하여 간결하고 논리적으로 말하는 기술입니다.</p>
+          <div class="slide-content">
+              <img src="https://i.imgur.com/K1f0z9B.png" alt="삼각 대본 다이어그램" class="mx-auto my-4 w-2/3">
+              <div class="text-left space-y-2 mt-4">
+                  <p><b>① 하고 싶은 말 (결론):</b> 가장 먼저 당신의 핵심 주장을 명확하게 밝힙니다.</p>
+                  <p><b>② 주요 내용 (본론):</b> 주장을 뒷받침하는 3가지 정도의 구체적인 항목을 제시합니다.</p>
+                  <p><b>③ 이유와 근거 (사례):</b> 한두 가지의 구체적인 실제 사례나 데이터로 신뢰도를 높입니다.</p>
+              </div>
+              <p class="mt-4">이 순서로 말하면 주제가 명확하게 드러나고, 듣는 사람이 끝까지 집중하게 됩니다. 순서를 거꾸로 하면 논리성과 간결함이 대폭 감소합니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 40: Part 8 - AREA Method -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사고의 논리성 강화: <span class="highlight">AREA 법칙</span></h2>
+          <p class="slide-subtitle">주제를 중심으로 논리적으로 말하는 또 다른 효과적인 방식입니다.</p>
+           <div class="slide-content space-y-4">
+              <div class="p-4 bg-gray-100 rounded-lg"><b>A (Assertion - 주장):</b> 가장 앞자리에 약 20자로 당신이 주장하고 싶은 것을 명확하게 설명합니다.</div>
+              <div class="p-4 bg-gray-100 rounded-lg"><b>R (Reason - 이유):</b> 당신의 주장에 대해 상대방이 가질 수 있는 의문점에 대해 설명합니다.</div>
+              <div class="p-4 bg-gray-100 rounded-lg"><b>E (Evidence/Example - 증거/예시):</b> 실제적이고 구체적인 예시나 데이터를 들어 보충 설명합니다.</div>
+              <div class="p-4 bg-gray-100 rounded-lg"><b>A (Assertion - 주장):</b> 다시 처음의 주장으로 돌아와 앞서 말한 내용을 정리하고 자신의 말을 강조합니다.</div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 41: Part 8 - Easy Speaking Order -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이해하기 쉬운 말하기 순서 📜</h2>
+          <p class="slide-subtitle">'뼈대 우선 구성법'을 통해 전체에서 부분으로, 큰 그림에서 세부사항으로 내용을 전개하세요.</p>
+          <div class="slide-content">
+              <h3 class="font-bold text-lg">'주제라는 나무'의 가지 나누기 방법</h3>
+              <ol class="list-decimal list-inside mt-2 space-y-2">
+                  <li><b>주제 (나무의 몸통):</b> 대화의 시작이자 핵심.</li>
+                  <li><b>대항목 (큰 가지):</b> 주제를 구성하는 3개의 큰 카테고리.</li>
+                  <li><b>중항목 (중간 가지):</b> 각 대항목을 설명하는 2~3개의 세부 항목.</li>
+                  <li><b>소항목 (작은 가지):</b> 각 중항목을 보충하는 0~1개의 구체적인 사례.</li>
+              </ol>
+              <p class="mt-4">주제와 관련 없는 가지들은 과감히 잘라내야 합니다. 이 방식은 언제나 내용의 주제가 흐트러지지 않게 하여, 무논리의 발생을 막아줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 말하기는 <span class="highlight">만들어진다</span></h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">말하기는 타고난 재능이 아니라, 끊임없는 학습과 훈련을 통해 발전하는 <span class="font-bold">기술</span>입니다. 상대방을 이해하고, 논리를 갖추고, 감정을 더하는 것이 핵심입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">이제 당신의 말하기 능력을 키우기 위한 첫걸음을 뗄 시간입니다!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+      <!-- MORE SLIDES FOR EACH PART TO REACH 50+ -->
+      
+      <!-- Part 1 More -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Part 1</p>
+              <h2 class="slide-title">논쟁은 <span class="highlight">피할수록 좋다</span> 🕊️</h2>
+              <p class="slide-subtitle">"논쟁에서 승리하는 가장 좋은 방법은 단 하나, 논쟁을 피하는 것이다." - 밋 롬니</p>
+              <div class="slide-content">
+                  <p>말을 너무 좋아하는 사람은 논쟁 벌이기를 좋아하고, 온갖 방법으로 상대방을 이기려 합니다. 하지만 논쟁에서의 승리는 아무런 의미도 가치도 없습니다. 왜냐하면 당신은 영원히 상대방의 호감을 살 수 없기 때문입니다.</p>
+                  <div class="mt-6 p-6 bg-yellow-50 border-l-4 border-yellow-400">
+                      <h3 class="font-bold text-lg">💡 선택의 기로</h3>
+                      <p class="mt-2">당신은 실질적 의미 없는 표면적 <span class="font-bold">승리</span>를 추구할 것인가, 아니면 한 사람의 <span class="font-bold">호감</span>을 얻기 위해 노력할 것인가? 한 번에 두 가지를 모두 얻기는 힘듭니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Part 1</p>
+              <h2 class="slide-title">대화의 방해요소 없애기 🚫</h2>
+              <p class="slide-subtitle">친밀감과 공감을 형성하는 것을 방해하는 부정적인 말과 행동을 조심해야 합니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">❌ 부정적인 말</h3>
+                      <ul class="list-disc list-inside space-y-2 mt-2">
+                          <li>"그러면 안 돼요!" (직접적 부정)</li>
+                          <li>"제가 다 말했잖아요!" (상대방 탓하기)</li>
+                          <li>"어떻게 벌써 까먹을 수 있죠?" (능력 무시)</li>
+                          <li>"정말 바보 같은 짓이에요!" (인격 모독)</li>
+                      </ul>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">❌ 부정적인 행동</h3>
+                      <ul class="list-disc list-inside space-y-2 mt-2">
+                          <li>대화 중 갑자기 화제 돌리기</li>
+                          <li>눈을 감거나 팔짱을 낀 채 듣기</li>
+                          <li>아무 말 없이 작은 소리로 중얼거리기</li>
+                          <li>과도하게 말에 끼어들거나 말 끊기</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Part 2 More -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Part 2</p>
+              <h2 class="slide-title">엘리베이터 스피치 🏢</h2>
+              <p class="slide-subtitle">짧은 시간 안에 자신을 각인시키는 대화법</p>
+              <div class="slide-content space-y-4">
+                  <p>짧은 시간 안에 중요한 사람과 교류하지 못하는 것은 말하기의 단점입니다. 엘리베이터 스피치의 목표는 문이 열리더라도 상대가 멈춰 서서 당신의 이야기를 마저 듣게 만드는 것입니다.</p>
+                  <h3 class="font-bold text-lg mt-4">핵심 접근법</h3>
+                  <ul class="custom-list">
+                      <li><b>공적인 이익에서 접근하라:</b> 사적인 취미나 날씨 얘기는 금물입니다. 모두가 흥미를 가질 만한 일적인 영역의 주제가 좋습니다.</li>
+                      <li><b>인상을 남기는 것이 목표:</b> 당신의 모든 것을 알리려 하지 마세요. 상대의 기억에 남아 다음 만남으로 이어지게 하는 것이 중요합니다.</li>
+                      <li><b>가급적 빨리 친해져라:</b> 상대에 대한 사전 정보를 바탕으로 '내가 누구인가', '무엇을 하는가', '상대와 어떤 관련이 있는가'를 자연스럽게 전달하세요.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 2</p>
+            <h2 class="slide-title">신뢰감을 주는 사람 되기 🌟</h2>
+            <p class="slide-subtitle">자신감 넘치는 사람보다 '신뢰할 수 있는 사람'에게 더 적극적인 피드백을 보냅니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="bg-gray-100 p-6 rounded-lg">
+                <h3 class="font-bold text-lg">강력함 vs. 신뢰</h3>
+                <p class="mt-2">지나치게 자신감을 내보이면 상대는 경계 태세를 갖추고 당신을 '깊은 교류' 명단에서 지워버립니다. 최대한 자신감을 나타내되, 상대가 위협을 느끼지 않도록 조절해야 합니다.</p>
+              </div>
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h3 class="font-bold text-lg">신뢰를 전달하는 첫인사</h3>
+                <p class="mt-2">공통된 히스토리에 근거해 질문을 건네세요. "이 행사의 주최자를 어떻게 알게 되셨나요?"와 같은 질문은 '나는 위협적이지 않다'는 인식을 심어줍니다. 단, 자기 자랑이나 지적은 금물입니다.</p>
+              </div>
+            </div>
+            <p class="slide-content mt-8 font-bold text-center">대화는 '이익 전쟁'이 아니라 '이해'의 과정입니다.</p>
+        </div>
+      </div>
+
+      <!-- Part 3 More -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 3</p>
+            <h2 class="slide-title">화제를 <span class="highlight">전환</span>하는 기술 ↪️</h2>
+            <p class="slide-subtitle">대화가 막히거나 흥미가 떨어질 때, 자연스럽게 화제를 돌려 분위기를 환기시키세요.</p>
+            <div class="slide-content">
+                <h3 class="font-bold text-lg">전환의 신호들</h3>
+                <ul class="list-disc list-inside mt-2 space-y-2">
+                    <li>"~라고 하니 말인데..."</li>
+                    <li>"방금 ~에 대해서 말하지 않았어?"</li>
+                    <li>"그 문제도 중요하지만, 제가 듣기로는..."</li>
+                    <li>상대방의 말 속 세부 내용 하나를 짚어 질문하기 (ex: "돈을 안 낸다고? 그때 어디서 밥 먹었는데?")</li>
+                </ul>
+                <div class="mt-6 p-4 bg-red-100 border-l-4 border-red-500 rounded-r-lg">
+                    <p><span class="font-bold">주의:</span> 상대방이 겨우 한두 단어만 말했는데 화제를 바꾸는 것은 금물입니다. 상대가 단답형으로만 대답한다면, 당신에게 관심이 없다는 신호일 수 있습니다. 그럴 땐 과감히 작별하세요.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Part 4 More -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 4</p>
+            <h2 class="slide-title">목소리 <span class="highlight">강약 조절</span>의 힘 🎤</h2>
+            <p class="slide-subtitle">목소리의 음량, 음질, 속도, 강약은 당신의 영향력을 결정하는 중요한 요소입니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="font-bold text-lg">음량 조절</h3>
+                <p>청중과 장소, 말의 내용을 고려해야 합니다. 중요한 정보를 전달하거나 격려할 때는 힘있게, 위로하거나 설득할 때는 부드럽게 말해야 합니다.</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">말하기 속도</h3>
+                <p>가장 효과적인 속도는 분당 120~160자입니다. 너무 빠르면 신뢰감을 잃고, 너무 느리면 지루함을 유발합니다. 말의 속도는 감정과 정서의 변화를 반영합니다.</p>
+              </div>
+            </div>
+            <div class="mt-6 p-6 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg text-center">강조하고 싶은 단어의 음을 높여보세요!</h3>
+              <p class="text-center mt-2">"나는 <span class="text-blue-600 font-bold text-xl">'정말'</span> 미국에서 태어났어요." (사실임을 강조)</p>
+              <p class="text-center mt-1">"나는 정말 <span class="text-blue-600 font-bold text-xl">'미국'</span>에서 태어났어요." (장소를 강조)</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Part 5 More -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 5</p>
+            <h2 class="slide-title">소수가 다수를 <span class="highlight">이끌 수 있다</span> 💡</h2>
+            <p class="slide-subtitle">의견이 소수파에 속하더라도, 올바른 전략을 사용하면 다수의 의견을 바꿀 수 있습니다.</p>
+            <div class="slide-content">
+                <h3 class="font-bold text-lg">소수파의 설득 전략</h3>
+                <ul class="custom-list">
+                    <li><b>일치성 유지:</b> 처음부터 끝까지 일관된 의견을 고수하면 예상 밖의 수확을 얻게 됩니다. 확고한 말하기 방식은 당신의 믿음을 보여줍니다.</li>
+                    <li><b>유연함 유지:</b> 새로운 정보나 변화를 무시해서는 안 됩니다. "흥미로운 생각이네요. 생각해볼 시간을 주세요."라고 말하며 열린 태도를 보여주세요.</li>
+                    <li><b>지지자 늘리기:</b> 내부에서부터 당신의 지지자를 늘려나가세요. 각개 전투 전략을 사용해 한 명씩 설득하는 것이 효과적입니다.</li>
+                    <li><b>호감 유지:</b> 당신의 의견이 다수에게 장점이 된다는 사실을 알려주어 호감을 잃지 않도록 합니다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+      <!-- Part 6 More -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 6</p>
+            <h2 class="slide-title">언어폭력에 <span class="highlight">지혜롭게</span> 대처하라 🛡️</h2>
+            <p class="slide-subtitle">언어폭력은 정신적으로 큰 상처를 줍니다. 자기 보호 충동을 억제하고 지혜롭게 대응해야 합니다.</p>
+            <div class="slide-content">
+                <p>상대방이 언어폭력을 행사할 때, "어떻게 나에게 그렇게 말할 수 있죠?"라고 반응하는 것은 문제를 '나'의 것으로 만드는 것입니다. 대신, 중점을 상대방에게 옮겨야 합니다.</p>
+                <div class="my-6 p-6 bg-gray-100 rounded-lg border-l-4 border-gray-500">
+                  <p class="font-bold">❌ 잘못된 대응:</p>
+                  <p>"내 잘못도 아닌데 나한테 왜 그래!"</p>
+                  <p class="font-bold mt-4">✔️ 지혜로운 대응:</p>
+                  <p>"오늘 기분이 별로 좋지 않은가 보네요. 무슨 일 있어요?" (문제를 상대의 것으로 유지)</p>
+                </div>
+                <p>상대의 문제를 받아들이지 않으면, 그것은 당신의 문제가 되지 않습니다. 이로써 당신은 상처받지 않고 상황을 주도할 수 있습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+       <!-- Part 7 More -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 7</p>
+            <h2 class="slide-title">하나를 둘로 나누면 <span class="highlight">갈등이 줄어든다</span> 쪼개기</h2>
+            <p class="slide-subtitle">두 가지 주장이 공존하는 쪽을 선택해, 일치하는 부분은 취하고 그렇지 않은 부분은 보류하는 지혜가 필요합니다.</p>
+            <div class="slide-content">
+                <p>상대방의 노력을 인정하면서 자신의 입장을 전달하면, 상대는 거절을 불쾌하게 여기지 않고 당신의 노력을 인정하게 됩니다.</p>
+                <div class="mt-6 p-6 bg-green-100 rounded-lg">
+                    <h3 class="font-bold text-lg">대화 예시:</h3>
+                    <p>"자기야, 나를 위해 이런 멋진 계획(주말 여행)을 세워줘서 정말 감동이야. 그런데 마침 그날 회사에서 내 프로젝트 성공 파티를 열어준대. 혹시 여행을 하루만 미뤄서 다음 날 가면 어떨까?"</p>
+                </div>
+                <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500">
+                    <p class="font-bold">DESC 모델 활용하기</p>
+                    <p><b>D</b>escribe(묘사), <b>E</b>xplain(설명), <b>S</b>pecify(제안), <b>C</b>onsequences(결과)의 4단계로 분열을 인식하고 해결책을 찾아보세요.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Part 8 More -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 8</p>
+            <h2 class="slide-title">편견은 아무런 <span class="highlight">도움이 되지 않는다</span> 👓</h2>
+            <p class="slide-subtitle">'사고의 오류'는 자신의 경험에 따라 다른 사람의 생각과 느낌을 추측할 때 발생합니다.</p>
+            <div class="slide-content">
+                <p>우리는 무의식적으로 편견을 만들고, 그 편견은 우리의 눈과 귀를 막아 세상을 제대로 보지 못하게 합니다. 이런 사고의 오류를 극복하기 위한 방법입니다.</p>
+                <ul class="list-disc list-inside mt-4 space-y-2">
+                    <li><b>알아야 피할 수 있다:</b> 이전의 경험이 잘못되었을 수도 있다는 사실을 항상 의식해야 합니다.</li>
+                    <li><b>모르는 것을 먼저 파악하라:</b> "나는 무엇을 모르는지 알고 있다"는 자세로 자신의 맹점을 발견하려 노력해야 합니다.</li>
+                    <li><b>자료를 수집하고 환경을 재인식하라:</b> 직감이 아닌, 시스템화된 방식으로 자신의 관점을 점검하고, 과거의 경험이 아닌 현재의 환경 변화를 관찰해야 합니다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

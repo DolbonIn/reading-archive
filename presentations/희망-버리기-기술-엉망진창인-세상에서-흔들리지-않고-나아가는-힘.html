@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>희망 버리기 기술 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e9ecef;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd900;
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-secondary {
+      background-color: #f8f9fa;
+      color: #343a40;
+      border-color: #dee2e6;
+    }
+    .btn-secondary:hover {
+      background-color: #e9ecef;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #e9ecef;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-item {
+        padding: 1rem;
+        border-radius: 8px;
+        transition: background-color 0.2s;
+    }
+    .toc-item:hover {
+        background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full max-w-5xl">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🎈</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">희망 버리기 기술</h1>
+          <p class="text-xl md:text-2xl text-gray-700">엉망진창인 세상에서 <span class="highlight">흔들리지 않고</span> 나아가는 힘</p>
+          <p class="mt-4 text-lg text-gray-500">마크 맨슨 (Mark Manson)</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📖 목차</h2>
+          <div class="slide-content text-lg space-y-2">
+            <p class="toc-item"><b>1부. 희망의 역학:</b> 왜 모든 것이 좋아졌는데, 우리는 최악의 기분을 느낄까?</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 1장: 불편한 진실</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 2장: 환상 속의 통제</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 3장: 뉴턴의 감정 법칙</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 4장: 고통을 선택하는 법</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 5장: 희망은 파괴적이다</p>
+            <p class="toc-item"><b>2부. 희망 너머의 세상:</b> 희망 없이 더 나은 삶을 사는 방법은 무엇인가?</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 6장: 인간성 공식</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 7장: 고통은 보편 상수</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 8장: 감정 경제</p>
+            <p class="toc-item"> &nbsp; &nbsp; • 9장: 최후의 종교</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">역설의 시대 🤔</h2>
+          <p class="slide-subtitle">역사상 가장 풍요로운 시대에 살고 있지만, 우리는 왜 더 불안하고 불행할까?</p>
+          <div class="slide-content">
+            <p>물질적으로 모든 것이 나아졌습니다. 굶주림과 질병에서 벗어났고, 과거 어느 때보다 안전합니다. 하지만 우리는 우울과 불안에 시달리고 있습니다. 이 책은 이 <span class="highlight">진보의 역설</span>을 파헤칩니다. 어쩌면 문제의 원인은 우리가 그토록 갈망하는 '희망' 그 자체에 있을지도 모릅니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎢</div>
+          <p class="slide-part-title">1부</p>
+          <h2 class="slide-title">희망의 역학</h2>
+          <p class="slide-subtitle">우리의 감정과 행동을 지배하는 보이지 않는 힘</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장: 불편한 진실</p>
+          <h2 class="slide-title">세상은 좋아지는데 <span class="highlight">나는 왜 힘들까?</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-blue-600">📈 물질적 진보</h3>
+              <p>빈곤 감소, 수명 연장, 폭력 감소, 교육 수준 향상. 데이터는 세상이 더 나은 곳이 되었다고 말합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-red-600">📉 정신적 위기</h3>
+              <p>우울증, 불안 장애, 스트레스, 외로움은 전 세계적으로 증가하고 있습니다. 풍요 속의 빈곤입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Chapter 1 - Pilecki -->
+      <div class="slide">
+        <div class="slide-container">
+           <h2 class="slide-title">불편한 진실 속 <span class="highlight">희망의 역할</span></h2>
+           <p class="slide-subtitle">아우슈비츠에 스스로 잠입한 남자, 비톨트 필레츠키 이야기</p>
+           <div class="slide-content">
+            <p>최악의 상황 속에서도 인간을 버티게 하는 것은 무엇일까요? 필레츠키에게는 나치 만행을 세상에 알려야 한다는 '이유', 즉 <span class="highlight">희망</span>이 있었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 희망의 본질</h3>
+              <p class="mt-2">희망은 더 나은 미래에 대한 믿음입니다. 하지만 이 믿음이 현재를 고통스럽게 만들고, 우리를 파괴할 수도 있습니다. 우리는 '좋은 희망'과 '나쁜 희망'을 구별해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Chapter 2 Title -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장: 환상 속의 통제</p>
+          <h2 class="slide-title">당신을 움직이는 것은 <span class="highlight">당신이 아니다</span></h2>
+          <p class="slide-content">우리는 이성적 존재라는 착각 속에 산다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: Chapter 2 - Two Brains -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자동차 안의 두뇌 🧠🚗</h2>
+          <p class="slide-subtitle">우리의 마음은 자동차와 같습니다. 운전자는 둘입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="text-center">
+                <div class="text-6xl">🤔</div>
+                <h3 class="font-bold text-lg mt-4">생각하는 뇌 (운전사)</h3>
+                <p>이성, 논리, 계획을 담당합니다. 올바른 길로 가려고 노력합니다.</p>
+            </div>
+            <div class="text-center">
+                <div class="text-6xl">🤪</div>
+                <h3 class="font-bold text-lg mt-4">느끼는 뇌 (조수석의 바보)</h3>
+                <p>감정, 충동, 욕망을 담당합니다. 핸들을 마구잡이로 돌리며 운전을 방해합니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center font-bold text-xl">문제는, 대부분의 경우 <span class="highlight">'느끼는 뇌'가 운전대를 잡고 있다</span>는 것입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 9: Chapter 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장: 뉴턴의 감정 법칙</p>
+          <h2 class="slide-title">감정에도 <span class="highlight">물리학 법칙</span>이 있다?</h2>
+          <p class="slide-content">우리의 감정 세계를 지배하는 세 가지 법칙</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 3 - 1st Law -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">⚖️ 제 1법칙: 감정의 작용-반작용</h2>
+          <p class="slide-subtitle">모든 긍정적 감정에는 그에 상응하는 부정적 감정이 따른다.</p>
+          <div class="slide-content">
+            <p>큰 기쁨 뒤에는 허무함이, 뜨거운 사랑 뒤에는 고통스러운 이별이 올 수 있습니다. 고통을 피하려는 시도는 역설적으로 더 큰 고통을 낳습니다. <span class="highlight">고통은 삶의 일부이며, 피할 수 없습니다.</span></p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <p><b>예시:</b> 큰 성공을 거둔 후 찾아오는 공허함, 즐거운 파티 다음 날의 숙취와 외로움.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 11: Chapter 3 - 2nd Law -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📊 제 2법칙: 자기 가치의 총합</h2>
+          <p class="slide-subtitle">우리의 자기 가치는 특정 시점의 감정이 아닌, 오랜 기간 축적된 감정의 총합과 같다.</p>
+          <div class="slide-content">
+            <p>한두 번의 실패나 성공에 일희일비할 필요가 없습니다. 중요한 것은 장기적인 감정의 추세입니다. 고통을 회피하면 단기적으로는 기분이 나아질 수 있지만, 장기적으로는 자기 가치를 갉아먹게 됩니다. <span class="highlight">어려움을 극복하는 경험</span>이 자기 가치를 높입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Chapter 3 - 3rd Law -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🎭 제 3법칙: 정체성과 감정</h2>
+          <p class="slide-subtitle">당신의 정체성은 당신이 그것과 반대되는 감정을 느끼고 행동하기 전까지 변하지 않는다.</p>
+           <div class="slide-content">
+            <p>'나는 게으른 사람이야'라고 믿는다면, 그 믿음과 반대되는 행동(예: 운동, 공부)을 했을 때 느끼는 <span class="highlight">불편한 감정</span>을 마주해야만 정체성을 바꿀 수 있습니다. 변화는 항상 고통을 동반합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Chapter 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장: 모든 꿈을 실현하는 법</p>
+          <h2 class="slide-title">고통을 <span class="highlight">선택하는 방법</span></h2>
+          <p class="slide-content">삶의 의미는 '어떤 고통을 감수할 것인가'에서 나온다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 4 - Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신이 원하는 것은 무엇인가?</h2>
+          <p class="slide-subtitle">정확히는, "당신은 어떤 고통을 기꺼이 감수할 수 있는가?"</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">❌ 잘못된 질문</h3>
+              <p>"나는 무엇을 즐기고 싶은가?"<br>"나는 무엇을 성취하고 싶은가?"</p>
+              <p class="mt-2 text-sm text-gray-500">이 질문들은 결과에만 초점을 맞춥니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">✔️ 올바른 질문</h3>
+              <p>"나는 어떤 고통을 견딜 수 있는가?"<br>"나는 무엇을 위해 기꺼이 희생할 수 있는가?"</p>
+              <p class="mt-2 text-sm text-gray-500">이 질문들이 당신의 <span class="highlight">진정한 가치</span>를 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Chapter 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장: 희망을 믿었어?</p>
+          <h2 class="slide-title">희망은 <span class="highlight">자기 파괴적이다</span></h2>
+          <p class="slide-content">미래에 대한 희망이 어떻게 현재를 망가뜨리는가.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Chapter 5 - Nietzsche -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">니체의 철학: <span class="highlight">아모르 파티</span> (Amor Fati)</h2>
+          <p class="slide-subtitle">"네 운명을 사랑하라."</p>
+          <div class="slide-content">
+            <p>희망은 '지금 여기'가 아닌 더 나은 미래를 갈망하게 만듭니다. 이는 현재의 삶을 부정하는 태도로 이어질 수 있습니다. 니체는 고통, 실패, 좌절을 포함한 삶의 모든 순간을 긍정하고 사랑하라고 말합니다. 그것이 진정한 힘입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p>희망은 거래다: <span class="highlight">현재의 고통을 감수하는 대가로 미래의 행복을 약속받는 것.</span> 하지만 그 약속은 지켜지지 않을 수 있다. 희망을 버리는 것은 현재를 온전히 살아가는 것을 의미한다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Part 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🌱</div>
+          <p class="slide-part-title">2부</p>
+          <h2 class="slide-title">희망 너머의 세상</h2>
+          <p class="slide-subtitle">가치와 원칙으로 살아가는 삶</p>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장: 인간성 공식</p>
+          <h2 class="slide-title">칸트의 <span class="highlight">정언명령</span></h2>
+          <p class="slide-content">흔들리지 않는 삶의 유일한 규칙.</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: Chapter 6 - Kant's Formula -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간성 공식 🧑‍🤝‍🧑</h2>
+          <p class="slide-subtitle">"너 자신과 다른 모든 사람을 단순한 수단으로 취급하지 말고, 언제나 목적으로 대하라."</p>
+          <div class="slide-content">
+            <p>이것이 희망을 대체할 수 있는 유일한 원칙입니다. 다른 사람을 당신의 목적을 위한 도구로 사용하지 마세요. 모든 인간은 그 자체로 존엄한 목적입니다. 이것이 성숙한 어른의 행동 방식입니다.</p>
+             <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">수단 vs. 목적</h3>
+              <p class="mt-2"><b>수단으로 대하는 것:</b> 감정, 이득을 위해 다른 사람을 이용하는 것.<br><b>목적으로 대하는 것:</b> 그 사람의 존재 자체를 존중하고 신뢰하는 것.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Chapter 7 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7장: 고통은 보편 상수</p>
+          <h2 class="slide-title">고통의 상대성 이론 💥</h2>
+          <p class="slide-content">우리가 인식하는 위협의 수는 언제나 일정하다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 21: Chapter 7 - Pain is Constant -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고통 총량의 법칙</h2>
+          <p class="slide-subtitle">삶이 좋아지든 나빠지든, 고통은 언제나 존재한다.</p>
+          <div class="slide-content">
+            <p>우리의 뇌는 문제를 찾도록 설계되었습니다. 큰 문제가 해결되면, 사소한 문제를 큰 문제처럼 느끼기 시작합니다. 비극이 사라지면 우리는 사소한 불편함을 비극으로 인식합니다. 이것이 <span class="highlight">'파란 점 효과'</span>입니다. 그러므로 고통에서 벗어나려는 시도는 무의미합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Chapter 8 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">8장: 감정 경제</p>
+          <h2 class="slide-title">자유는 불편함을 <span class="highlight">요구한다</span></h2>
+          <p class="slide-content">선택지가 많을수록 우리는 더 불행해진다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Chapter 8 - Freedom -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진정한 자유란? 🕊️</h2>
+          <p class="slide-subtitle">더 많은 선택이 아닌, 의미 있는 '제한'을 선택하는 것.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">가짜 자유 (Fake Freedom)</h3>
+              <p>더 많은 선택지, 더 많은 기회, 모든 가능성을 열어두는 것. 이는 결국 결정 장애와 공허함으로 이어진다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">진짜 자유 (Real Freedom)</h3>
+              <p>하나를 위해 다른 것들을 기꺼이 포기하는 <span class="highlight">헌신(Commitment)</span>. 관계, 일, 가치에 헌신할 때 삶은 의미를 갖는다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Chapter 9 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">9장: 최후의 종교</p>
+          <h2 class="slide-title">AI가 우리의 <span class="highlight">신</span>이 된다면?</h2>
+          <p class="slide-content">희망 이후의 시대를 지배할 새로운 질서.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Chapter 9 - AI -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인공지능과 인류의 미래 🤖</h2>
+          <p class="slide-subtitle">AI는 인류의 주관적 믿음과 가치 체계를 대체할 '객관적 진실'을 제공할 수 있다.</p>
+          <div class="slide-content">
+            <p>인류는 항상 종교, 이데올로기, 국가와 같은 '희망'을 주는 서사에 의존해왔습니다. 만약 AI가 우리보다 더 정확하게 '올바른 삶'에 대한 답을 제시한다면 어떻게 될까요? 인류는 AI를 새로운 형태의 '신'으로 받아들이고, 우리의 자유의지를 기꺼이 맡기게 될지도 모릅니다. 이것이 인류의 <span class="highlight">마지막 종교</span>가 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 희망을 버려라</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">더 나은 미래를 희망하지 마세요. 희망은 우리를 현재로부터 도망치게 만듭니다. 대신, <span class="highlight">원칙</span>을 가지고 현재를 살아가세요.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">고통을 피하지 말고, 감수할 고통을 선택하라.<br>타인을 수단이 아닌 목적으로 대하라.<br>그리고 당신의 운명을 사랑하라.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+      <!-- Add more slides here to reach 50+ by expanding on each chapter -->
+      
+      <!-- Slide 28: More on Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장 심화</p>
+          <h2 class="slide-title">왜 우리는 <span class="highlight">희망이 필요한가</span></h2>
+          <p class="slide-subtitle">희망은 고통을 견디게 하는 동력이다.</p>
+          <div class="slide-content">
+            <p>인간은 의미를 추구하는 동물입니다. 고통 그 자체보다 '의미 없는 고통'을 더 견디기 힘들어합니다. 희망은 우리의 고통에 <span class="highlight">'이유'와 '의미'</span>를 부여합니다. "이 고통이 결국 더 나은 무언가로 이어질 것이다"라는 믿음은 우리가 현재의 역경을 헤쳐나갈 힘을 줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: More on Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장 심화</p>
+          <h2 class="slide-title">가치관은 어떻게 형성되는가?</h2>
+          <p class="slide-subtitle">우리의 모든 선택은 '느끼는 뇌'의 경험에 의해 좌우된다.</p>
+          <div class="slide-content">
+             <p>생각하는 뇌는 느끼는 뇌를 설득하려고 노력하지만, 느끼는 뇌는 과거의 경험(특히 감정적 경험)에 따라 행동합니다. 긍정적 경험은 '더 가까이' 가게 하고, 부정적 경험은 '더 멀리' 피하게 만듭니다. 우리의 가치관과 신념은 이러한 <span class="highlight">감정적 경험의 축적</span>으로 만들어진 서사입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: More on Chapter 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가치관의 위계 🪜</h2>
+          <p class="slide-subtitle">모든 가치는 평등하지 않다.</p>
+          <div class="slide-content">
+            <p>우리는 무의식적으로 가치관에 순위를 매깁니다. '정직'이 '편안함'보다 중요할 수도 있고, '성공'이 '가족'보다 중요할 수도 있습니다. 감정 법칙에 따르면, 더 높은 가치를 위해 낮은 가치를 희생할 때(즉, 고통을 감수할 때) 우리는 성장하고 더 나은 사람이 됩니다. <span class="highlight">당신의 가치관 위계는 어떻게 되어 있습니까?</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: More on Chapter 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성장의 5단계 🌱</h2>
+          <p class="slide-subtitle">자기 파괴에서 자기 초월까지</p>
+          <div class="slide-content">
+            <p>1. 쾌락 추구: 즉각적인 만족을 원한다.</p>
+            <p>2. 거래: 고통을 피하기 위해 무엇이든 한다.</p>
+            <p>3. 원칙: 고통스럽더라도 올바른 것을 선택한다.</p>
+            <p>4. 진리: 고통의 필연성을 받아들인다.</p>
+            <p>5. 초월: <span class="highlight">고통 속에서 의미와 목적을 찾는다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: More on Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">희망의 종류 (Two-column)</h2>
+          <p class="slide-subtitle">모든 희망이 나쁜 것은 아니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-red-600">💀 파괴적 희망</h3>
+              <p>현실을 부정하고, 고통을 회피하며, 외부의 구원만을 바라는 희망. "언젠가 모든 게 괜찮아질 거야."</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-blue-600">💪 건설적 희망</h3>
+              <p>현실을 직시하고, 고통을 감수하며, 자신의 행동을 통해 더 나은 결과를 만들려는 희망. "고통스럽겠지만, 나는 이걸 해낼 수 있어."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: More on Chapter 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왜 '인간성 공식'이 중요한가?</h2>
+          <p class="slide-subtitle">희망이 무너진 세상의 유일한 나침반</p>
+          <div class="slide-content">
+            <p>희망(미래에 대한 약속)은 종종 우리를 비인간적으로 만듭니다. 더 큰 선을 위한다는 명목으로 현재의 인간을 수단으로 삼게 합니다. 하지만 칸트의 공식은 <span class="highlight">결과와 상관없이</span>, 지금 이 순간 타인과 나 자신을 존중하라고 요구합니다. 이것이 바로 희망 너머의 세상에서 우리가 가져야 할 유일한 도덕률입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: More on Chapter 7 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스트레스는 강해지는 시스템 🦾</h2>
+          <p class="slide-subtitle">안티프래질(Antifragile) 시스템의 이해</p>
+          <div class="slide-content">
+            <p>스트레스와 충격을 받으면 깨지는 것이 '프래질(Fragile)'입니다. 충격을 받아도 그대로인 것이 '로버스트(Robust)'입니다. 반면, 충격을 받을수록 더 강해지는 것이 바로 <span class="highlight">'안티프래질'</span>입니다. 우리의 정신과 육체는 안티프래질 시스템입니다. 고통과 스트레스를 피하면 우리는 오히려 약해집니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: More on Chapter 8 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현대 사회의 위기: <span class="highlight">'수단 vs 목적'</span></h2>
+          <p class="slide-subtitle">모든 것이 수단이 되어버린 세상</p>
+          <div class="slide-content">
+            <p>현대 민주주의와 자본주의는 '사람들이 원하는 것을 제공하는 것'을 최고의 가치로 삼습니다. 이는 모든 것을 '수단'으로 취급하는 경향을 낳습니다. 사람, 관계, 심지어 가치까지도 나의 만족을 위한 수단이 됩니다. 이것이 우리가 외롭고 불안한 근본적인 이유입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: More on Chapter 9 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">알고리즘이 지배하는 세상</h2>
+          <p class="slide-subtitle">당신의 선택은 정말 당신의 것인가?</p>
+          <div class="slide-content">
+            <p>우리는 이미 AI의 지배하에 살고 있습니다. 추천 알고리즘은 우리가 볼 영화, 들을 음악, 만날 사람까지 제안합니다. 이것이 바로 '데이터 종교'입니다. 이 종교의 신은 데이터이며, 신도들은 알고리즘의 선택을 따릅니다. 이 안에서 <span class="highlight">개인의 주체성</span>은 점점 사라집니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Epilogue Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🏁</div>
+          <h2 class="slide-title">에필로그</h2>
+          <p class="slide-subtitle">최후의 인간이 되는 법</p>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Epilogue Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그럼에도 불구하고 <span class="highlight">행동하라</span></h2>
+          <p class="slide-subtitle">희망이 없기에, 모든 행동은 더 순수해진다.</p>
+          <div class="slide-content">
+            <p>희망은 보상을 바라는 마음입니다. 희망 없이 행동하는 것은 행동 그 자체를 목적으로 삼는 것입니다. 더 나은 미래를 기대해서가 아니라, 그것이 옳기 때문에 행동하는 것. 이것이 <span class="highlight">희망 너머의 세상</span>에서 우리가 발견할 수 있는 진정한 용기이자 자유입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Book Quote 1 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="text-3xl leading-relaxed font-serif italic text-gray-700">"고통을 피하는 법을 배우는 것이 아니라,<br>잘 고통받는 법을 배우는 것이 중요하다."</p>
+        </div>
+      </div>
+
+      <!-- Slide 40: Book Quote 2 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="text-3xl leading-relaxed font-serif italic text-gray-700">"성숙이란 당신이 신경 쓸 가치가 있는 것만을<br>선택하여 신경 쓰는 능력이다."</p>
+        </div>
+      </div>
+
+      <!-- Slide 41: Actionable Step 1 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">적용하기 1: 당신의 고통 선택하기</h2>
+            <p class="slide-subtitle">당신의 삶에서 기꺼이 감수하고 싶은 '좋아하는 고통'은 무엇입니까?</p>
+            <div class="slide-content">
+                <p>1. <b>건강:</b> 운동의 고통 vs. 건강 악화의 고통</p>
+                <p>2. <b>성장:</b> 공부의 고통 vs. 무지의 고통</p>
+                <p>3. <b>관계:</b> 솔직한 대화의 불편함 vs. 피상적인 관계의 외로움</p>
+                <p class="mt-4 font-bold">하나의 고통을 선택하는 것은 다른 고통을 피하는 길입니다. <span class="highlight">당신의 선택은 무엇입니까?</span></p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Actionable Step 2 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">적용하기 2: '아니오'라고 말하기 연습</h2>
+            <p class="slide-subtitle">무엇을 거절해야 당신의 삶이 더 의미 있어질까요?</p>
+            <div class="slide-content">
+                <p>진정한 자유는 모든 것에 '예'라고 말하는 것이 아니라, 중요하지 않은 대부분의 것에 '아니오'라고 말하는 능력에서 나옵니다.</p>
+                <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <p>이번 주, 당신의 가치와 맞지 않는 <span class="highlight">세 가지</span>에 '아니오'라고 말해보세요.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Paradox of Hope -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">희망의 역설 🔄</h2>
+              <p class="slide-subtitle">희망을 가질수록, 현재에 만족하기 어려워진다.</p>
+              <div class="slide-content">
+                  <p>더 나은 내일을 꿈꾸는 것은 아름답지만, 그 꿈이 '오늘'을 단지 '내일'을 위한 과정으로 전락시킬 때 문제가 됩니다. 희망이 클수록 현재의 결핍이 더 크게 느껴지기 때문입니다. 역설적으로, 희망을 버릴 때 우리는 비로소 현재를 온전히 살 수 있게 됩니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 44: Final Message from Author -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">작가의 메시지 ✍️</h2>
+              <p class="slide-subtitle">희망에 대한 희망을 버려라.</p>
+              <div class="slide-content">
+                  <p>우리가 찾아야 할 것은 고통이 없는 삶에 대한 희망이 아닙니다. 고통에도 불구하고 의미 있는 삶을 살 수 있다는 <span class="highlight">믿음</span>입니다. 그것은 희망이 아니라, 가치와 행동에 기반한 현실입니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 45 to 50: Additional chapter summaries or key takeaways -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정체성은 어떻게 만들어지는가?</h2>
+          <p class="slide-subtitle">당신의 이야기가 당신을 만든다.</p>
+          <div class="slide-content">
+            <p>우리는 우리 자신에 대한 이야기를 만듭니다. '나는 ~한 사람이다.' 이 이야기는 우리의 행동을 결정하고, 우리의 감정을 해석합니다. 이 서사를 바꾸는 유일한 방법은 그 서사와 모순되는 행동을 하고, 그로 인한 불편함을 감수하는 것입니다. <span class="highlight">행동이 이야기를 바꿉니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">민주주의의 위기</h2>
+          <p class="slide-subtitle">감정 경제가 민주주의를 위협하는 방식</p>
+          <div class="slide-content">
+            <p>민주주의는 이성적 토론을 기반으로 하지만, 현대 사회는 감정적 반응을 우선시합니다. 우리는 나와 다른 의견을 가진 사람을 '틀린' 사람이 아닌 '나쁜' 사람으로 간주합니다. 이것이 감정 경제가 낳은 양극화이며, 민주주의의 근간을 흔들고 있습니다. 필요한 것은 더 많은 공감이 아니라, <span class="highlight">서로의 인간성을 인정하는 원칙</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Pain vs. Suffering 🤕</h2>
+          <p class="slide-subtitle">고통과 괴로움의 차이</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">고통 (Pain)</h3>
+              <p>삶의 자연스러운 일부. 피할 수 없는 생물학적, 심리적 현실입니다. (예: 부상, 이별)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">괴로움 (Suffering)</h3>
+              <p>고통에 대한 우리의 <span class="highlight">저항</span>에서 비롯됩니다. "왜 나에게 이런 일이?"라고 저항할 때 고통은 괴로움이 됩니다.</p>
+            </div>
+          </div>
+           <p class="mt-8 text-center font-bold text-xl">아모르 파티는 고통을 받아들임으로써 괴로움을 없애는 기술입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'가짜 희망'의 특징들</h2>
+          <p class="slide-subtitle">당신의 희망은 건강합니까?</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+              <li><b>비현실적이다:</b> 노력 없이 모든 것이 좋아질 것이라 믿는다.</li>
+              <li><b>수동적이다:</b> 외부의 구원(로또, 백마 탄 왕자)을 기다린다.</li>
+              <li><b>현재를 부정한다:</b> "여기만 벗어나면..." 이라고 생각한다.</li>
+              <li><b>고통을 악으로 규정한다:</b> 불편한 감정을 느끼는 것을 실패라고 여긴다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성숙의 과정 🚶➡️🧍</h2>
+          <p class="slide-subtitle">수단에서 목적으로</p>
+          <div class="slide-content">
+            <p>어린아이는 세상을 자신을 위한 '수단'으로 봅니다. (엄마는 밥을 주는 사람, 장난감은 나를 즐겁게 하는 것) 성숙의 과정은 세상과 타인을 그 자체의 '목적'으로 인식하게 되는 과정입니다. 이는 희망(나의 욕망 충족)을 버리고, 원칙(타인의 존엄성 존중)을 받아들일 때 가능해집니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">당신에게 남기는 마지막 질문</h2>
+          <p class="slide-subtitle text-3xl leading-relaxed font-serif italic text-gray-700">"만약 희망이 없다면,<br>당신은 무엇을 위해 살 것인가?"</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

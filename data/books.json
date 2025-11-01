@@ -1,5 +1,35 @@
 [
   {
+    "slug": "희망-버리기-기술-엉망진창인-세상에서-흔들리지-않고-나아가는-힘",
+    "title": "희망 버리기 기술 엉망진창인 세상에서 흔들리지 않고 나아가는 힘",
+    "author": "Mark Manson; 한재호",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/희망-버리기-기술-엉망진창인-세상에서-흔들리지-않고-나아가는-힘.html",
+    "cover": "assets/covers/희망-버리기-기술-엉망진창인-세상에서-흔들리지-않고-나아가는-힘.jpg"
+  },
+  {
+    "slug": "하버드-100년-전통-말하기-수업-리커버-말투는-갈고-닦을수록-좋아진다",
+    "title": "하버드 100년 전통 말하기 수업 (리커버) - 말투는 갈고 닦을수록 좋아진다",
+    "author": "류리나; 이에스더",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/하버드-100년-전통-말하기-수업-리커버-말투는-갈고-닦을수록-좋아진다.html",
+    "cover": "assets/covers/하버드-100년-전통-말하기-수업-리커버-말투는-갈고-닦을수록-좋아진다.jpg"
+  },
+  {
+    "slug": "편향-의-종말-우리-안-의-거대한-편향-사고-를-바꿀-대담한-시도-the-end-of-bias",
+    "title": "편향 의 종말 우리 안 의 거대한 편향 사고 를 바꿀 대담한 시도 = The end of bias",
+    "author": "제시카 노델",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/편향-의-종말-우리-안-의-거대한-편향-사고-를-바꿀-대담한-시도-the-end-of-bias.html",
+    "cover": "assets/covers/편향-의-종말-우리-안-의-거대한-편향-사고-를-바꿀-대담한-시도-the-end-of-bias.jpg"
+  },
+  {
     "slug": "철학의_근본_문제에_관한_10가지_성찰",
     "title": "철학의_근본_문제에_관한_10가지_성찰",
     "author": "나이젤 워버턴",
@@ -8,6 +38,26 @@
     "description": "",
     "presentation": "presentations/철학의_근본_문제에_관한_10가지_성찰.html",
     "cover": "assets/covers/철학의_근본_문제에_관한_10가지_성찰.jpg"
+  },
+  {
+    "slug": "진화심리학-마음과-행동을-탐구하는-새로운-과학",
+    "title": "진화심리학 마음과 행동을 탐구하는 새로운 과학",
+    "author": "데이비드 버스",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/진화심리학-마음과-행동을-탐구하는-새로운-과학.html",
+    "cover": "assets/covers/진화심리학-마음과-행동을-탐구하는-새로운-과학.jpg"
+  },
+  {
+    "slug": "인생의-태도-행복한-이기주의자로-평생-살아보니-알게-된-것들",
+    "title": "인생의 태도 - 행복한 이기주의자로 평생 살아보니 알게 된 것들",
+    "author": "웨인 다이어",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/인생의-태도-행복한-이기주의자로-평생-살아보니-알게-된-것들.html",
+    "cover": "assets/covers/인생의-태도-행복한-이기주의자로-평생-살아보니-알게-된-것들.jpg"
   },
   {
     "slug": "원칙",
@@ -38,6 +88,56 @@
     "description": "",
     "presentation": "presentations/왜-일하는가-지금-당신이-가장-뜨겁게-물어야-할-첫-번째-질문.html",
     "cover": "assets/covers/왜-일하는가-지금-당신이-가장-뜨겁게-물어야-할-첫-번째-질문.jpg"
+  },
+  {
+    "slug": "스눕-상대를-꿰뚫어-보는-힘-snoop",
+    "title": "스눕 상대를 꿰뚫어 보는 힘 = Snoop",
+    "author": "Sam Gosling, Sun Ah Kim",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/스눕-상대를-꿰뚫어-보는-힘-snoop.html",
+    "cover": "assets/covers/스눕-상대를-꿰뚫어-보는-힘-snoop.jpg"
+  },
+  {
+    "slug": "소통의-온도-일-관계-삶을-바꾸는-따뜻한-말-한마디",
+    "title": "소통의 온도 - 일, 관계, 삶을 바꾸는 따뜻한 말 한마디",
+    "author": "김진이",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/소통의-온도-일-관계-삶을-바꾸는-따뜻한-말-한마디.html",
+    "cover": "assets/covers/소통의-온도-일-관계-삶을-바꾸는-따뜻한-말-한마디.jpg"
+  },
+  {
+    "slug": "소중한-것은-모두-일상-속에-있다-일상을-정갈하게-마음을-고요하게",
+    "title": "소중한 것은 모두 일상 속에 있다 일상을 정갈하게 마음을 고요하게",
+    "author": "야마시타 히데코; 오노코로 신페이; 이소담",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/소중한-것은-모두-일상-속에-있다-일상을-정갈하게-마음을-고요하게.html",
+    "cover": "assets/covers/소중한-것은-모두-일상-속에-있다-일상을-정갈하게-마음을-고요하게.jpg"
+  },
+  {
+    "slug": "생각은-어떻게-행동이-되는가-목표를-세우고-성취하는-인지조절의-뇌과학",
+    "title": "생각은 어떻게 행동이 되는가 - 목표를 세우고 성취하는 인지조절의 뇌과학",
+    "author": "데이비드 바드르",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/생각은-어떻게-행동이-되는가-목표를-세우고-성취하는-인지조절의-뇌과학.html",
+    "cover": "assets/covers/생각은-어떻게-행동이-되는가-목표를-세우고-성취하는-인지조절의-뇌과학.jpg"
+  },
+  {
+    "slug": "내-회사-차리는-법-양장본-hardcover",
+    "title": "내 회사 차리는 법(양장본 HardCover)",
+    "author": "마이클 E 거버",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/내-회사-차리는-법-양장본-hardcover.html",
+    "cover": "assets/covers/내-회사-차리는-법-양장본-hardcover.jpg"
   },
   {
     "slug": "공정하다는-착각",

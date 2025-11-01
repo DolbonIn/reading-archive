@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 회사 차리는 법 (The E-Myth) 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #F8F9FA;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid #E9ECEF;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0077b6;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #343A40;
+    }
+    .highlight {
+      background-color: #FFF3BF;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #0077b6;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #005f8e;
+    }
+    .btn-secondary {
+      background-color: #F1F3F5;
+      color: #343A40;
+    }
+    .btn-secondary:hover {
+      background-color: #E9ECEF;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #0077b6;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-item {
+      font-size: 1.25rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .toc-item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-50 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center !py-20">
+          <div class="text-7xl mb-8">💡</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">내 회사 차리는 법</h1>
+          <p class="text-xl md:text-2xl text-gray-700">사업에 고용되지 말고, <span class="highlight">사업을 지배하라!</span></p>
+          <p class="mt-4 text-gray-600">The E-Myth Revisited by Michael E. Gerber</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">들어가며: 왜 개인사업은 <span class="highlight">대부분 실패</span>로 끝나는가?</h2>
+          <p class="slide-subtitle">이 책은 한 가지 치명적인 오해에서 시작합니다. 바로 '기술'만 있으면 사업도 성공할 것이라는 믿음입니다.</p>
+          <div class="slide-content text-lg space-y-4">
+            <p>🤔 대부분의 창업가들은 자신이 하던 일(기술)을 좋아해서 사업을 시작합니다. 파이를 잘 만드는 사람은 파이 가게를 엽니다.</p>
+            <p>💥 하지만 사업은 기술만으로 성공할 수 없습니다. 기술자는 갑자기 관리자, 경영자, 마케터 등 모든 역할을 해야만 합니다.</p>
+            <p>📉 결국 자신이 가장 좋아하던 '일'마저 싫어하게 되고, 사업은 통제 불능 상태에 빠져 실패하게 됩니다. 이 책은 이 문제를 해결하는 방법을 제시합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content space-y-3">
+            <p class="toc-item"><b>Part 1. 사라네 파이 가게:</b> 개인 사업가들과 그들이 꿈꾸는 신화</p>
+            <p class="toc-item"><b>Part 2. 턴키 혁명:</b> 사업을 보는 새로운 관점</p>
+            <p class="toc-item"><b>Part 3. 나 없이도 알아서 잘 굴러가는 회사 만들기</b></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center !py-24 bg-blue-50">
+          <p class="text-2xl font-bold text-blue-800">Part 1</p>
+          <h2 class="text-5xl font-black text-blue-900 mt-2">사라네 파이 가게 🥧</h2>
+          <p class="slide-subtitle mt-4 !mb-0 max-w-2xl mx-auto">개인 사업가들과 그들이 꿈꾸는 신화, 그리고 왜 그 신화가 깨지는지에 대한 이야기</p>
+        </div>
+      </div>
+      
+      <!-- Slide 5: Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Chapter 1</p>
+            <h2 class="slide-title">창업 열병이 찾아오다 🔥</h2>
+            <p class="slide-subtitle">모든 것은 '치명적 착각'에서 시작됩니다.</p>
+            <div class="slide-content">
+                <p>어느 날 갑자기, 우리는 창업 열병에 걸립니다. "내가 사장보다 이 일을 더 잘 알아! 내가 차리면 훨씬 잘할 수 있을 거야!"</p>
+                <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+                    <h3 class="font-bold text-lg text-red-800">🚨 치명적 착각 (The Fatal Assumption)</h3>
+                    <p class="mt-2 text-red-700">"어떤 일의 <span class="highlight">기술적인 부분</span>을 이해하고 있다면, 그 기술을 바탕으로 한 <span class="highlight">사업</span>도 이해하고 있다"는 착각입니다. 이것이 대부분의 소기업이 실패하는 근본적인 이유입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 2</p>
+          <h2 class="slide-title">우리 안의 세 가지 인격: <span class="highlight">사업가, 관리자, 기술자</span></h2>
+          <p class="slide-subtitle">성공적인 사업가는 이 세 가지 인격의 균형을 맞출 줄 압니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">🚀 사업가 (The Entrepreneur)</h3>
+              <p class="mt-2 text-sm">미래를 꿈꾸는 비전가. "만약 ~하면 어떨까?"를 상상하며 새로운 기회를 찾습니다. 과거가 아닌 미래에 삽니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">📋 관리자 (The Manager)</h3>
+              <p class="mt-2 text-sm">질서를 갈망하는 현실주의자. 사업가가 만들어낸 것들을 깔끔하게 정리하고 시스템을 만듭니다. 미래가 아닌 과거와 현재에 삽니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">🔧 기술자 (The Technician)</h3>
+              <p class="mt-2 text-sm">직접 일하는 것을 좋아하는 실행가. "일은 제대로 끝내려면 남에게 맡기면 안돼."라고 생각합니다. 현재에 삽니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 7: The Imbalance -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">문제는 <span class="highlight">불균형</span>입니다</h2>
+          <p class="slide-subtitle">대부분의 창업가는 세 인격이 심각한 불균형 상태에 있습니다.</p>
+          <div class="slide-content text-center">
+            <p class="text-2xl mb-6">일반적인 개인 사업가의 내면</p>
+            <div class="flex items-end justify-center space-x-4 h-64">
+                <div class="bg-red-400 text-white p-2 rounded-t-lg" style="height: 10%;">
+                    <span class="font-bold">10%</span><br>사업가
+                </div>
+                <div class="bg-yellow-400 text-white p-2 rounded-t-lg" style="height: 20%;">
+                    <span class="font-bold">20%</span><br>관리자
+                </div>
+                <div class="bg-blue-400 text-white p-2 rounded-t-lg" style="height: 70%;">
+                    <span class="font-bold">70%</span><br>기술자
+                </div>
+            </div>
+            <p class="mt-6">결국 사업가는 비전을 잃고, 관리자는 혼란을 방치하며, <span class="font-bold">기술자만이 남아 모든 일을 처리하다 지쳐 쓰러지게 됩니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Chapter 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 3</p>
+          <h2 class="slide-title">사업의 성장 단계 1: <span class="highlight">유아기 (Infancy)</span></h2>
+          <p class="slide-subtitle">기술자의 시기. 사업주가 곧 사업인 단계입니다.</p>
+          <div class="slide-content space-y-4">
+            <p>👶 <b>특징:</b> 사업주와 사업이 분리되지 않습니다. "사라의 파이 가게"가 아니라 그냥 "사라"입니다. 사업주가 없으면 사업은 즉시 멈춥니다.</p>
+            <p>💪 <b>장점:</b> 주인의식이 투철하고, 일에 대한 열정이 넘치며, 고객과 직접 소통합니다. 초반에는 빠르게 성장할 수 있습니다.</p>
+            <p>🥵 <b>위기:</b> 일이 감당할 수 없을 만큼 많아집니다. 하루 12시간, 14시간, 16시간... 일에 파묻혀 번아웃이 오고, 사업의 성장이 멈추거나 무너지기 시작합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Chapter 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 4</p>
+          <h2 class="slide-title">사업의 성장 단계 2: <span class="highlight">청년기 (Adolescence)</span></h2>
+          <p class="slide-subtitle">외부의 도움이 필요한 시기. 하지만 도움을 받는 것은 생각보다 어렵습니다.</p>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🤝 도움 요청</h3>
+              <p>혼자서는 더 이상 감당할 수 없음을 깨닫고 직원을 고용하기 시작합니다. 회계, 생산, 영업 등 자신이 싫어하거나 못하는 일을 맡길 사람을 찾습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-red-600">🌪️ 새로운 혼란</h3>
+              <p>하지만 이것은 '관리의 포기(Management by Abdication)'로 이어지기 쉽습니다. 일을 맡겨놓고 신경쓰지 않다가, 문제가 터지면 다시 모든 일을 자신이 직접 처리하려 합니다. 사업은 다시 유아기로 퇴행하거나 더 큰 혼란에 빠집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 10: Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 5</p>
+          <h2 class="slide-title">안전지대를 넘어서다 (Beyond the Comfort Zone)</h2>
+          <p class="slide-subtitle">청년기의 사업은 사업주의 '안전지대' 한계에 부딪힙니다.</p>
+          <div class="slide-content">
+            <p>안전지대란 사업주가 개인적으로 모든 것을 통제할 수 있는 한계점을 의미합니다. 이 한계를 넘어서면 사업은 위기에 봉착합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">청년기의 갈림길  crossroads</h3>
+                <p class="mt-2"><b>1. 유아기로의 회귀:</b> 다시 규모를 줄여 혼자 모든 것을 통제할 수 있는 상태로 돌아갑니다. (가장 흔한 선택)</p>
+                <p class="mt-2"><b>2. 무모한 성장 (Go for Broke):</b> 통제 불능 상태로 계속 성장하다가 결국 자멸합니다.</p>
+                <p class="mt-2"><b>3. 성숙기로의 도약:</b> 사업을 체계화하고 시스템을 만들어 안전지대를 넘어섭니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 11: Chapter 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 6</p>
+          <h2 class="slide-title">사업의 성장 단계 3: <span class="highlight">성숙기 (Maturity)</span></h2>
+          <p class="slide-subtitle">사업가의 시기. 사업이 어떻게 돌아가야 하는지에 대한 명확한 비전과 모델을 가집니다.</p>
+          <div class="slide-content space-y-4">
+            <p>🌟 <b>특징:</b> 성숙한 기업은 처음부터 끝을 생각하고 시작합니다. 맥도날드, 페덱스, 디즈니 같은 기업들이 그 예입니다.</p>
+            <p>🎯 <b>핵심:</b> 사업가적 관점을 가집니다. 즉, '어떻게 하면 이 사업이 나 없이도 잘 돌아갈까?'를 고민합니다.</p>
+            <p>⚙️ <b>결과:</b> 사업은 사람에게 의존하는 것이 아니라, 잘 짜여진 <span class="font-bold">시스템</span>에 의해 운영됩니다. 누가 하든 일관된 결과를 만들어냅니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Part 2 Title -->
+       <div class="slide">
+        <div class="slide-container text-center !py-24 bg-green-50">
+          <p class="text-2xl font-bold text-green-800">Part 2</p>
+          <h2 class="text-5xl font-black text-green-900 mt-2">턴키 혁명 🔑</h2>
+          <p class="slide-subtitle mt-4 !mb-0 max-w-2xl mx-auto">사업을 보는 새로운 관점: 사업 그 자체를 '제품'으로 만들어라</p>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Chapter 7 & 8 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 7 & 8</p>
+          <h2 class="slide-title">프랜차이즈 <span class="highlight">프로토타입</span></h2>
+          <p class="slide-subtitle">성공적인 사업 모델의 핵심은 '프랜차이즈'처럼 생각하는 것입니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">레이 크록이 맥도날드에서 본 것은 햄버거가 아니라, '돈 버는 기계', 즉 완벽한 사업 시스템이었습니다.</p>
+            <p>핵심은 실제 프랜차이즈 사업을 하라는 것이 아니라, <span class="font-bold">내 사업을 마치 5,000개의 복제점을 열 수 있는 프로토타입(시제품)처럼 생각하고 설계</span>하라는 것입니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border rounded-lg">
+              <h3 class="font-bold">프로토타입의 규칙</h3>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>고객에게 예측 가능하고 일관된 가치를 제공해야 한다.</li>
+                <li>가장 낮은 수준의 기술을 가진 사람도 운영할 수 있어야 한다.</li>
+                <li>완벽한 질서와 청결을 유지해야 한다.</li>
+                <li>모든 업무가 문서화(매뉴얼)되어 있어야 한다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 9 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 9</p>
+          <h2 class="slide-title">사업에 고용되지 말고, <span class="highlight">사업을 지배하라</span></h2>
+          <p class="slide-subtitle">Work ON Your Business, Not just IN it.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="p-6 bg-red-50 text-red-800 border-l-4 border-red-400 rounded-r-lg">
+              <h3 class="font-bold text-xl">❌ 사업 안에서 일하기 (Working IN it)</h3>
+              <p class="mt-2">기술자처럼 직접 파이를 굽고, 전화를 받고, 청소하는 등 실무를 처리하는 것입니다. 당신이 없으면 사업이 멈춥니다. 당신은 직업을 가진 것이지, 사업을 소유한 것이 아닙니다.</p>
+            </div>
+            <div class="p-6 bg-green-50 text-green-800 border-l-4 border-green-400 rounded-r-lg">
+              <h3 class="font-bold text-xl">✅ 사업 위에서 일하기 (Working ON it)</h3>
+              <p class="mt-2">사업가처럼 한 걸음 물러나, 사업 전체를 하나의 시스템으로 보고 설계하고 개선하는 것입니다. 당신이 없어도 사업이 돌아가도록 만듭니다. 이것이 진정한 사업 소유입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Part 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center !py-24 bg-purple-50">
+          <p class="text-2xl font-bold text-purple-800">Part 3</p>
+          <h2 class="text-5xl font-black text-purple-900 mt-2">나 없이도 잘 굴러가는 회사 만들기 ⚙️</h2>
+          <p class="slide-subtitle mt-4 !mb-0 max-w-2xl mx-auto">사업 개발 프로세스를 통해 당신의 사업을 시스템으로 만드는 방법</p>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Chapter 10 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 10</p>
+          <h2 class="slide-title">사업 개발 프로세스의 3요소</h2>
+          <p class="slide-subtitle">시스템을 만드는 과정은 세 가지 핵심 활동으로 이루어집니다.</p>
+          <div class="slide-content space-y-6">
+            <div class="flex items-start">
+              <div class="text-3xl mr-4">💡</div>
+              <div>
+                <h3 class="font-bold text-lg">혁신 (Innovation)</h3>
+                <p>고객과 직원을 위해 더 나은 방법을 끊임없이 찾는 활동입니다. 제품뿐만 아니라, 고객 응대 방식, 유니폼 색깔 등 모든 것이 혁신의 대상이 될 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="text-3xl mr-4">📊</div>
+              <div>
+                <h3 class="font-bold text-lg">정량화 (Quantification)</h3>
+                <p>혁신의 결과를 숫자로 측정하는 것입니다. "인사말을 바꿨더니 고객 방문율이 16% 증가했다" 와 같이 모든 것을 숫자로 파악해야 합니다.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="text-3xl mr-4">🎶</div>
+              <div>
+                <h3 class="font-bold text-lg">통합 (Orchestration)</h3>
+                <p>혁신과 정량화를 통해 검증된 가장 좋은 방법을 문서화하고, 모든 사람이 예외 없이 그 방법을 따르도록 만드는 것입니다. "이곳에서는 이 방식으로 합니다."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Chapter 11 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 11</p>
+          <h2 class="slide-title">사업 개발 프로그램: <span class="highlight">7단계</span></h2>
+          <p class="slide-subtitle">당신의 사업 프로토타입을 만들기 위한 체계적인 7가지 단계입니다.</p>
+          <div class="slide-content text-lg space-y-2">
+            <p>1. 주요 목표 (Your Primary Aim)</p>
+            <p>2. 전략적 목표 (Your Strategic Objective)</p>
+            <p>3. 조직 전략 (Your Organizational Strategy)</p>
+            <p>4. 관리 전략 (Your Management Strategy)</p>
+            <p>5. 인사 전략 (Your People Strategy)</p>
+            <p>6. 마케팅 전략 (Your Marketing Strategy)</p>
+            <p>7. 시스템 전략 (Your Systems Strategy)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 12 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1단계</p>
+          <h2 class="slide-title">주요 목표: 사업보다 중요한 것은 <span class="highlight">나 자신</span>이다</h2>
+          <p class="slide-subtitle">사업은 당신의 삶을 위해 존재해야 합니다. 삶이 사업을 위해 존재해서는 안 됩니다.</p>
+          <div class="slide-content">
+              <p>가장 먼저 스스로에게 질문해야 합니다. "나는 어떤 삶을 원하는가?"</p>
+              <div class="mt-6 p-6 bg-gray-50 border rounded-lg">
+                  <h3 class="font-bold">장례식장의 나를 상상해보라</h3>
+                  <p class="mt-2">내 인생의 마지막 날, 나는 내 삶에 대해 뭐라고 말하고 싶은가? 이 질문에 대한 답이 당신의 '주요 목표'입니다. 사업은 이 목표를 달성하기 위한 도구일 뿐입니다.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Chapter 13 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2단계</p>
+          <h2 class="slide-title">전략적 목표: 우리의 사업은 <span class="highlight">어떤 모습</span>인가?</h2>
+          <p class="slide-subtitle">주요 목표를 이루기 위해 사업이 어떤 모습이어야 하는지를 구체적인 기준으로 정의합니다.</p>
+          <div class="slide-content">
+              <p>사업은 그 자체로 하나의 '상품'입니다. 이 상품이 어떤 가치를 가져야 할까요?</p>
+              <ul class="list-disc list-inside mt-4 space-y-2">
+                  <li><b>총 매출:</b> 7년 후 우리 회사의 연 매출은 얼마인가?</li>
+                  <li><b>고객 유형:</b> 우리의 이상적인 고객은 누구인가? (인구통계학적, 심리학적)</li>
+                  <li><b>사업 범위:</b> 지역 사업인가, 전국적인 사업인가?</li>
+                  <li><b>판매 후 가치:</b> 7년 후 이 사업을 얼마에 팔 수 있는가?</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Chapter 14 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3단계</p>
+          <h2 class="slide-title">조직 전략: 조직보다 <span class="highlight">차트</span>가 먼저다</h2>
+          <p class="slide-subtitle">사람을 중심으로 조직을 짜는 것이 아니라, 이상적인 조직도를 먼저 그리고 사람을 배치합니다.</p>
+          <div class="slide-content">
+              <p>대부분의 소기업은 사람(성격, 감정)에 따라 업무가 결정됩니다. 이는 혼란을 야기합니다.</p>
+              <div class="mt-6 p-6 bg-blue-50 border-l-4 border-blue-400">
+                  <h3 class="font-bold">올바른 순서</h3>
+                  <p class="mt-2">1. 미래의 완성된 회사에 필요한 모든 직책(CEO, COO, 마케팅 이사, 생산부장 등)을 담은 조직도를 그립니다.</p>
+                  <p class="mt-2">2. 각 직책에 대한 책임과 역할을 명시한 '직무 계약'을 작성합니다.</p>
+                  <p class="mt-2">3. 처음에는 창업자 본인이 모든 직책의 이름을 쓰고 그 역할을 수행합니다. 그리고 사업이 성장함에 따라 적합한 사람을 찾아 빈칸을 채워나갑니다.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Chapter 15 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4단계</p>
+          <h2 class="slide-title">관리 전략: <span class="highlight">시스템</span>이 해답이다</h2>
+          <p class="slide-subtitle">관리의 목적은 예측 가능한 결과를 만드는 것입니다. 이를 위해선 사람에게 의존하는 것이 아니라 시스템에 의존해야 합니다.</p>
+          <div class="slide-content">
+              <p>뛰어난 관리자가 없어도 평범한 사람들이 뛰어난 결과를 낼 수 있도록 만드는 것이 '관리 시스템'입니다.</p>
+              <p class="mt-4">이것은 체크리스트, 스크립트, 매뉴얼 등의 형태로 나타납니다. 호텔의 예시처럼, 고객이 무엇을 원하는지, 어떻게 응대해야 하는지 모든 과정이 시스템화되어 있습니다.</p>
+              <p class="mt-6 font-bold text-center text-lg">"사람이 시스템을 운영하고, 시스템이 사업을 운영한다."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Chapter 16 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5단계</p>
+          <h2 class="slide-title">인사 전략: 사업이라는 <span class="highlight">게임의 법칙</span></h2>
+          <p class="slide-subtitle">직원들이 당신의 비전을 이해하고 따르게 만드는 방법입니다.</p>
+          <div class="slide-content">
+            <p>직원들에게 '일'을 시키는 것이 아니라, 의미 있는 '게임'에 참여시킨다고 생각해야 합니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border rounded-lg">
+                <h3 class="font-bold text-lg">훌륭한 게임의 조건 룰</h3>
+                <ul class="list-disc list-inside mt-2 space-y-2">
+                    <li>사장인 당신이 먼저 이 게임이 중요하다고 진심으로 믿어야 합니다.</li>
+                    <li>직원들이 이길 수 있는 게임이어야 합니다.</li>
+                    <li>규칙이 명확하고, 모두에게 공정하게 적용되어야 합니다.</li>
+                    <li>게임을 하는 목적과 의미를 직원들이 충분히 이해해야 합니다.</li>
+                </ul>
+            </div>
+            <p class="mt-4">직원 채용은 단순히 일손을 구하는 것이 아니라, "우리와 함께 이 게임을 할 사람"을 찾는 과정입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Chapter 17 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6단계</p>
+          <h2 class="slide-title">마케팅 전략: 고객의 <span class="highlight">언어를 읽는 법</span></h2>
+          <p class="slide-subtitle">고객은 이성적으로 구매를 결정하지 않습니다. 그들의 무의식에 집중해야 합니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">👥 인구통계학 (Demographics)</h3>
+              <p>당신의 고객은 누구인가? (나이, 성별, 소득, 지역 등) 고객의 객관적인 프로필을 파악하는 것입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🧠 사회심리학 (Psychographics)</h3>
+              <p>그들은 왜 구매하는가? (가치관, 욕구, 라이프스타일 등) 고객의 내면적인 동기를 파악하는 것입니다. 이것이 더 중요합니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center font-bold">궁극적으로 당신이 파는 것은 제품이 아니라, 고객이 느끼는 '감정'과 '경험'입니다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 24: Chapter 18 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7단계</p>
+          <h2 class="slide-title">시스템 전략: 세 가지 필수 시스템</h2>
+          <p class="slide-subtitle">사업을 구성하는 세 가지 종류의 시스템을 이해하고 통합해야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 border rounded-lg shadow-sm">
+                <h3 class="font-bold text-lg">🔩 하드 시스템 (Hard Systems)</h3>
+                <p class="mt-2 text-sm">컴퓨터, 계산대, 가게의 인테리어 등 눈에 보이는 무생물 시스템입니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg shadow-sm">
+                <h3 class="font-bold text-lg">🧠 소프트 시스템 (Soft Systems)</h3>
+                <p class="mt-2 text-sm">판매 스크립트, 당신의 아이디어, 직원의 태도 등 눈에 보이지 않는 살아있는 시스템입니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg shadow-sm">
+                <h3 class="font-bold text-lg">📈 정보 시스템 (Information Systems)</h3>
+                <p class="mt-2 text-sm">재고 관리, 고객 데이터, 매출 분석 등 하드 시스템과 소프트 시스템 사이의 상호작용을 측정하고 관리하는 시스템입니다.</p>
+            </div>
+          </div>
+          <p class="mt-6 text-center">이 세 가지 시스템이 조화롭게 통합될 때, 사업은 비로소 완전한 유기체로 작동합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 25: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">성공적인 사업을 만들기 위한 여정은 기술자에서 벗어나 <span class="highlight">진정한 사업가</span>로 거듭나는 과정입니다.</p>
+            <p class="mt-4">당신의 사업을 당신의 삶을 위한 도구로 만드십시오. 당신이 없어도 완벽하게 작동하는 시스템을 구축하십시오. 당신의 사업을 누구나 사고 싶어하는 최고의 상품으로 만드십시오.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">지금 바로, 당신의 사업 '위에서' 일하기 시작하십시오.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center !py-24">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    // Adjust the selector to match the actual slides
+    const slides = document.querySelectorAll('#slides-container > .slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
