@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결국 해내는 사람들의 원칙</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border: 1px solid #f0f0f0;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🎯</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">결국 해내는 사람들의 원칙</h1>
+          <p class="text-xl md:text-2xl text-gray-700">목표를 쥐고, 이미지화하고, <span class="highlight">입으로 내뱉어라!</span></p>
+          <p class="text-lg text-gray-500 mt-6">앨런 피즈·바바라 피즈 지음</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">들어가며: 인생의 참맛 🚀</h2>
+          <p class="slide-subtitle">인생의 참맛은 무덤까지 안전하고 단정하게 당도하는 데 있지 않다.</p>
+          <div class="slide-content">
+            <p class="text-center text-2xl italic p-6 bg-gray-50 rounded-lg">"완전히 기진맥진해서 잔뜩 흐트러진 몰골로 ‘꺅! 끝내줬어!’라는 비명과 함께 먼지 구름 속으로 슬라이딩해 들어와야 제맛이다."</p>
+            <p class="text-right mt-2 text-gray-600">- 헌터 S. 톰슨</p>
+            <p class="mt-8">이 책은 우리가 인생에서 <span class="highlight">원하는 것을 얻는 방법</span>을 다룹니다. 아이디어에 우선순위를 매기고, 인생의 주도권을 잡고, 남들의 의견에 좌우되지 않고 내가 선택한 길을 가는 비결이 이 책에 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-lg">
+            <p><b>1. 망상활성계(RAS)의 비밀:</b> 뇌 속의 목표 탐색 시스템</p>
+            <p><b>2. 무엇을 원할지 결정하라:</b> 당신의 진짜 욕망 찾기</p>
+            <p><b>3. 목표를 명확하게 정의하라:</b> 추상을 구체로 바꾸기</p>
+            <p><b>4. 데드라인의 힘:</b> 계획을 행동으로 전환하기</p>
+            <p><b>5. 누가 뭐라든 밀고 나가라:</b> 외부의 소음 극복하기</p>
+            <p><b>6. 내 인생의 최고 결정자:</b> 100% 책임과 주도권</p>
+            <p><b>7. 시각화 기법:</b> 마음으로 먼저 성공하기</p>
+            <p><b>8. 확언의 힘:</b> 말이 씨가 된다</p>
+            <p><b>9. 버릇 바꾸기:</b> 성공하는 습관 만들기</p>
+            <p><b>10. 확률게임:</b> 숫자로 성공 예측하기</p>
+            <p><b>11. 웃음이 만병통치약:</b> 유머의 과학</p>
+            <p><b>12. 두려움과 걱정 극복:</b> 거짓 공포에서 벗어나기</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 1: RAS -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">뇌 속의 내비게이션: <span class="highlight">망상활성계(RAS)</span>의 비밀 🧠</h2>
+          <p class="slide-content">우리 뇌가 가동하는 기막힌 소원 성취 시스템을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">RAS란 무엇인가?</h2>
+          <p class="slide-subtitle">뇌의 관제센터, 동기부여 센터, 그리고 게이트키퍼입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">📥 정보 필터링</h3>
+              <p>RAS는 척수를 타고 올라오는 방대한 감각정보를 취사선택해 대뇌피질로 보내는 신경망입니다. 1초에 4억 비트의 정보 중 단 <span class="highlight">2,000비트</span>만 의식으로 들여보냅니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🎯 목표 집중</h3>
+              <p>RAS는 당신이 중요하다고 생각하는 정보, 목표와 관련된 정보를 우선적으로 인식하게 만듭니다. 당신의 '관심사'에 맞춰 세상을 보여주는 필터와 같습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">RAS의 작동 방식: <span class="highlight">GPS</span>와 <span class="highlight">검색엔진</span> 🛰️</h2>
+          <p class="slide-subtitle">목적지를 입력하면, 가는 길은 RAS가 찾아줍니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">GPS처럼 길을 찾습니다</h3>
+              <p>목표('어디로 갈지')만 명확히 설정하면, RAS는 그 목표에 도달하는 데 필요한 정보, 기회, 사람들을 알아서 선별하고 당신의 주의를 끕니다. '어떻게' 갈지는 걱정할 필요가 없습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">열 추적 미사일처럼</h3>
+              <p>소란스러운 공항에서도 내 이름이나 항공편 번호가 방송되면 바로 알아차리는 것과 같습니다. RAS는 당신이 설정한 목표와 관련된 정보를 정확히 포착합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">차가 갑자기 많아진 이유 🚗</h2>
+          <p class="slide-subtitle">특정 차종을 사기로 마음먹으면, 갑자기 그 차가 도로에 흔하게 보입니다.</p>
+          <div class="slide-content">
+            <p>자동차가 실제로 늘어난 것이 아닙니다. 당신의 RAS가 그 차종을 <span class="highlight">'중요한 정보'</span>로 인식하고 다른 차들을 걸러낸 채 당신의 의식에 계속 보여주기 때문입니다. 임신을 하면 유난히 임산부가 많이 보이는 것도 같은 원리입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 핵심 원리</h3>
+              <p class="mt-2">RAS는 당신의 생각과 믿음에 부합하는 패턴을 외부 환경에서 찾아냅니다. 긍정적인 생각에 집중하면 긍정적인 정보가, 부정적인 생각에 집중하면 부정적인 정보가 눈에 띄게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">RAS 프로그래밍: <span class="highlight">생각이 현실을 만든다</span></h2>
+          <p class="slide-subtitle">우리는 우리 의도대로 RAS를 설정할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>나폴레온 힐의 주장은 사실로 밝혀졌습니다. 우리는 자기대화(self-talk)나 기대요법으로 RAS를 프로그래밍할 수 있습니다. 긍정적인 기대를 하면, RAS는 긍정적 정보를 찾고 부정적 정보는 차단하라는 명령을 자동 설정합니다.</p>
+            <p class="mt-4 font-bold text-xl text-center p-4 bg-yellow-100 rounded-md">"우리는 스스로의 현실을 창조할 수 있습니다. 이것이 RAS라는 생체학적 여과장치의 작용입니다."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 2: Decide What You Want -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">무엇을 원할지 <span class="highlight">결정하라</span> 🤔</h2>
+          <p class="slide-content">인생에서 성취감을 얻지 못하는 이유는 원하는 것이 무엇인지 결정한 적이 없기 때문입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">멕시코 어부 이야기 🎣</h2>
+          <p class="slide-subtitle">하버드 MBA 졸업생과 멕시코 어부의 대화.</p>
+          <div class="slide-content space-y-4">
+            <p><b>MBA:</b> "왜 더 오래 고기를 잡지 않나요? 돈을 더 벌어서 배를 더 사고, 회사를 차리고, 상장해서 부자가 될 수 있잖아요!"</p>
+            <p><b>어부:</b> "그렇게 부자가 된 다음에는 뭘 하는데요?"</p>
+            <p><b>MBA:</b> "은퇴해서 작은 바닷가 마을에서 늦잠 자고, 낚시 좀 하고, 가족과 놀고, 친구들과 한잔하며 기타 치고 놀면 되죠!"</p>
+            <p><b>어부:</b> <span class="highlight">"전 지금 그렇게 살고 있는데요."</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리는 어떻게 프로그래밍되는가? 💾</h2>
+          <p class="slide-subtitle">어릴 때부터 우리의 RAS는 어른들의 말로 끊임없이 프로그래밍됩니다.</p>
+          <div class="slide-content">
+            <p>갓난아기는 원하는 것이 분명하고 그것을 얻기 위해 모든 것을 합니다. 하지만 자라면서 우리는 다음과 같은 말을 듣습니다:</p>
+            <div class="mt-6 grid grid-cols-2 gap-4 text-center text-gray-700">
+                <span class="p-3 bg-gray-100 rounded-lg">"나잇값 좀 해라."</span>
+                <span class="p-3 bg-gray-100 rounded-lg">"창피한 줄 알아라."</span>
+                <span class="p-3 bg-gray-100 rounded-lg">"주는 대로 받아."</span>
+                <span class="p-3 bg-gray-100 rounded-lg">"인생은 원래 불공평해."</span>
+            </div>
+            <p class="mt-6">그 결과, 우리는 타인의 요구에 순응하고 자신의 꿈을 억제하거나 소멸시킨 채, 안전하고 '합리적인' 경로를 택하게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목표 목록 만들기: 스파게티 원칙 🍝</h2>
+          <p class="slide-subtitle">엉켜있는 생각 덩어리를 종이에 옮겨 하나씩 분리하고 숙고하는 과정입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-3">
+              <li>하고 싶거나 이루고 싶은 것들을 <span class="highlight">종이에 쭉 적어보세요.</span> 사소한 것도, 어릴 적 꿈도 좋습니다.</li>
+              <li>최소 10~20개의 항목을 확보하세요. 마음을 끄는 모든 것을 적습니다.</li>
+              <li>이 목록은 당신 자신에 대한 것입니다. 꿈 도둑에게 보여주지 마세요.</li>
+              <li>목록에 적는다고 반드시 해야 하는 것은 아닙니다. 현재 당신의 관심사를 기록하는 것뿐입니다.</li>
+              <li>연구에 따르면, 목표를 <span class="highlight">손으로 쓰는 사람</span>은 그렇지 않은 사람보다 목표를 이룰 가능성이 42%나 높습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">백만장자와 억만장자의 <span class="highlight">차이</span> 💰</h2>
+          <p class="slide-subtitle">1970년대 부자들을 대상으로 한 연구 결과.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">공통점</h3>
+              <p>두 그룹 모두 자신이 원하는 것을 정확히 알고 있다는 강한 공통점을 가졌습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">결정적 차이점</h3>
+              <p>억만장자들에게는 자신의 아이디어와 목표, 목적을 <span class="highlight">손으로 쓴 목록</span>이 있었습니다. 두 그룹을 가르는 가장 극명한 차이는 바로 '손으로 쓴 목록'의 존재 여부였습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신의 인생 미션 찾기 ✨</h2>
+          <p class="slide-subtitle">스스로에게 이 질문을 던져보세요.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-8 bg-blue-50 border border-blue-200 rounded-lg text-center">
+              <p class="text-2xl italic">"보수 없이도 하고 싶을 만큼 좋고, 동시에 보수를 받고 할 만큼 잘할 자신이 있는 것을 한 가지 꼽는다면?"</p>
+            </div>
+            <p class="mt-8">이 질문에 대한 답이 당신의 인생 미션 또는 진정한 커리어입니다. 돈이 따르지 않아도 하고 싶을 만큼 좋아하는 일을 직업으로 밀고 나간 사람들이 결국 성공합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 3: Define Goals Clearly -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">목표를 <span class="highlight">명확하게</span> 정의하라 ✍️</h2>
+          <p class="slide-content">인생이 만족스럽지 않다면, 목표가 충분히 명확하게 정의되지 않았기 때문입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목표를 수치화하고 구체화하라</h2>
+          <p class="slide-subtitle">모호한 목표는 RAS가 알아먹지 못합니다. 명확한 표적이 필요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 border-l-4 border-red-400 bg-red-50">
+              <h3 class="font-bold text-lg text-red-700">❌ 모호한 목표</h3>
+              <p class="mt-2">"언젠가 부자가 되는 것"</p>
+              <p class="mt-1">"근사한 집을 갖는 것"</p>
+            </div>
+            <div class="p-4 border-l-4 border-green-400 bg-green-50">
+              <h3 class="font-bold text-lg text-green-700">✅ 구체적인 목표</h3>
+              <p class="mt-2">"5년 후 8월 15일까지 순자산 100만 달러를 확보하고 부채는 없는 상태가 된다."</p>
+              <p class="mt-1">"3년 안에, 바닷가에서 100미터 떨어진 곳에 위치한 침실 4개짜리 남향 벽돌집을 장만한다."</p>
+            </div>
+          </div>
+          <p class="mt-8">목표를 세세히 수치화하고 명확히 묘사할수록, RAS는 즉각 발동하여 목표를 이룰 방법을 찾기 시작하고 추진력도 높아집니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">긍정의 연필로 목표를 쓰라 ✏️</h2>
+          <p class="slide-subtitle">RAS는 부정형 이미지를 보지 못하고, 긍정형 이미지만 볼 수 있습니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="text-lg">"~하지 않겠다"라고 말하는 것은 RAS에게 시각화할 수 없는 것을 상상하라고 명령하는 것과 같습니다.</p>
+              <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><span class="text-red-600">"담배를 끊는다"</span> ➡️ 뇌는 '담배' 이미지를 떠올립니다.</li>
+                <li><span class="text-green-600">"나는 비흡연자가 된다"</span> ✅ 뇌는 건강한 비흡연자의 이미지를 형성합니다.</li>
+                <li><span class="text-red-600">"10킬로그램을 뺀다"</span> ➡️ 뇌는 현재의 100kg 이미지에 집중합니다.</li>
+                <li><span class="text-green-600">"나는 6월 20일까지 90킬로그램이 된다"</span> ✅ 뇌는 90kg의 모습을 형상화하고, 그 목표를 향해 당신을 몰아갑니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목표를 <span class="highlight">실감하라</span>: 가상 체험의 힘</h2>
+          <p class="slide-subtitle">목표에 부합하는 이미지에 물리적, 정서적으로 접근할수록 목표에 빨리 다다릅니다.</p>
+          <div class="slide-content space-y-4">
+            <p>🚗 <b>사고 싶은 차가 있나요?</b> 사진만 보지 말고 직접 시운전을 나가보세요. 낡은 차로 돌아왔을 때, 새 차를 사겠다는 의지가 한층 불타오를 것입니다. 가상 체험의 질이 수직 상승하며 목표와 강하게 밀착됩니다.</p>
+            <p>🏫 <b>자녀를 일류 학교에 보내고 싶나요?</b> 글만 읽지 말고 학교 견학을 예약해서 분위기를 직접 느껴보세요. 학비 걱정은 나중에 RAS가 알아서 해결하도록 놔두세요.</p>
+            <p>💖 <b>완벽한 배우자를 만나고 싶나요?</b> 원하는 짝의 이미지를 마음에 그리고, 그 기준에 부합하는 사람과만 데이트하세요. 간단하지만 의외로 실천하는 사람이 드뭅니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">죽음을 앞둔 사람들의 <span class="highlight">5가지 후회</span></h2>
+          <p class="slide-subtitle">호스피스 간호사 브로니 웨어가 시한부 환자들을 돌보며 발견한 공통적인 후회들입니다.</p>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 왜 행복하려고 하지 않았을까?</b> (변화의 공포 때문에 행복한 척하며 살았다)</p>
+            <p><b>2. 친구들과 연락하고 살걸.</b> (사는 데 급급해 소중한 교우관계를 흘려보냈다)</p>
+            <p><b>3. 내 감정에 솔직하지 못했다.</b> (주위와 원만하게 지내려 감정을 억누르고 살았다)</p>
+            <p><b>4. 그렇게까지 열심히 일할 필요가 없었다.</b> (일 때문에 아이들의 성장과 배우자와의 관계를 놓쳤다)</p>
+            <p><b>5. 내 인생이 아닌 타인의 기대에만 충실했다.</b> (자신의 꿈을 존중하며 살지 못했다)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 4: Deadlines -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">데드라인이 없는 계획은 <span class="highlight">계획이 아니다</span> 🗓️</h2>
+          <p class="slide-content">마감은 계획에 추진력을 부여하고, 생각을 행동으로 바꾸는 스위치입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마감의 강력한 힘</h2>
+          <p class="slide-subtitle">휴가를 떠나기 직전, 당신의 업무 효율은 최고조에 달합니다. 마감이 초능력을 부르기 때문입니다.</p>
+          <div class="slide-content">
+            <p>마감을 정하면 계획에 발동이 걸립니다. 마감이 가까워지면 급한 마음에 없던 영감도 생기고, 말라가던 집중력도 강해집니다. RAS가 작동하기 때문입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🎯 마감의 역할</h3>
+              <p class="mt-2">마감은 목표의 최종 결과에 집중하게 하고, 진행을 막는 장애물과 주위의 부정적 언급에 대한 <span class="highlight">저항력을 높입니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">코끼리를 먹는 방법: <span class="highlight">잘게 쪼개라</span> 🐘</h2>
+          <p class="slide-subtitle">"코끼리를 먹는 방법은? 한 번에 한입씩!"</p>
+          <div class="slide-content">
+            <p>벅찬 목표도 한입 크기로 잘게 나눌 필요가 있습니다. 작게 나누면 거대한 목표도 만만해 보입니다.</p>
+            <ul class="list-disc list-inside space-y-3 mt-4">
+                <li><b>1년 목표 100만 달러 벌기</b> ➡️ 1주에 2만 달러 (휴가 2주 제외) ➡️ 하루에 4천 달러 (주 5일 근무)</li>
+                <li><b>결과:</b> 거대해 보였던 '100만 달러' 목표가 '하루 4천 달러 매출'이라는 심리적으로 감당 가능한 작은 단계로 쪼개집니다.</li>
+                <li>최종 목표에서 거꾸로 짚어 내려오면서 중간 목표들을 더 작은 목표들로 계속 쪼개면 구체적인 과제와 시간표가 생깁니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부정적 생각에 <span class="highlight">데드라인을 긋자</span></h2>
+          <p class="slide-subtitle">앨런과 바바라의 실화: 재정 파탄 후 2년간의 우울증을 극복한 방법.</p>
+          <div class="slide-content">
+            <p>2년간의 부정적인 생각과 자기비판에 빠져있던 앨런에게 바바라는 "데드라인을 정해!"라고 외쳤습니다. 부정적인 생각도 습관이 될 수 있습니다.</p>
+            <p class="mt-4"><b>결심:</b> 화요일 아침, 다음 주 금요일 오후 4시를 데드라인으로 정했습니다. 그 이후로는 '일어났으면 하는 것만' 생각하기로 했습니다.</p>
+            <div class="mt-6 p-6 bg-green-50 rounded-lg text-center">
+              <p class="text-xl font-bold">"됐어. 나 돌아왔어! 오늘부터 우리는 우리가 할 수 있는 것만 생각하는 거야."</p>
+              <p class="mt-2">그 순간 해방감과 함께 평온하고 낙관적인 기분이 들었고, '결정권자'의 자리로 복귀했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5: Ignore Naysayers -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 5</p>
+          <h2 class="slide-title">누가 뭐라고 하든 <span class="highlight">밀고 나가라</span> 🛡️</h2>
+          <p class="slide-content">꿈을 터놓을 상대를 신중히 고르자. 나를 진심으로 응원하는 사람은 많지 않다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남들이 당신의 꿈을 말리는 <span class="highlight">3가지 이유</span></h2>
+          <p class="slide-subtitle">주변 사람들이 당신의 새로운 도전을 반대하는 진짜 속마음.</p>
+          <div class="slide-content space-y-6">
+            <div>
+              <h3 class="font-bold text-xl">1. 걱정이 앞서서 (선의)</h3>
+              <p>진심으로 당신을 염려하기 때문입니다. 돈 낭비, 건강 문제, 실패의 위험 등 당신이 잘못될까 봐 걱정하는 마음에서 비롯됩니다. "아프리카 봉사활동? 그러다 병 걸리면 어떡해?"</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl">2. 비교되기 싫어서 (시기)</h3>
+              <p>주위에서 누군가 적극적으로 인생을 개척하면 상대적으로 자신이 뒤처지는 기분이 듭니다. 그래서 앞서나가는 사람을 끌어내리려는 하향평준화 욕구가 발동합니다. "지금 창업은 위험해. 그냥 하던 일이나 잘해."</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl">3. 기죽기 싫어서 (자기방어)</h3>
+              <p>성공하는 사람은 주위 사람들에게 위기감을 줍니다. 자신의 무능과 소극성이 부각되기 때문입니다. 그래서 현실 안주를 강조하며 당신의 도전을 막으려 합니다. "인생 별거 있어? 그냥 편하게 살아."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비판에 대처하는 기술 💬</h2>
+          <p class="slide-subtitle">논쟁 없이, 감정을 상하게 하지 않으면서도 자신의 입장을 고수하는 방법입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">방법 1: 사실을 사실로 인정한다</h3>
+              <p>상대가 내놓은 '사실'에 동의한 후, 당신의 입장을 다시 말합니다.</p>
+              <p class="mt-3 p-3 bg-gray-50 rounded-lg"><b>A:</b> "직장 그만두는 건 위험해!"<br><b>B:</b> <span class="highlight">"맞아, 아무 보장이 없지.</span> 하지만 잘할 자신이 있고 이 기회를 놓치고 싶지 않아!"</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">방법 2: 의견을 말할 권리를 인정한다</h3>
+              <p>상대의 의견에는 반대하더라도, 그들이 의견을 가질 권리는 인정합니다.</p>
+              <p class="mt-3 p-3 bg-gray-50 rounded-lg"><b>A:</b> "집 팔고 아파트 두 채를 산다고? 후회할걸!"<br><b>B:</b> <span class="highlight">"그렇게 생각할 수도 있지.</span> 하지만 난 서른 전에 100만 달러를 모을 거야. 이건 그걸 위한 첫걸음이고."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 6: The Ultimate Decision Maker -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 6</p>
+          <h2 class="slide-title">내 인생의 <span class="highlight">최고 결정자</span>는 바로 나 👑</h2>
+          <p class="slide-content">당신의 현재 상황과 형편 뒤에 숨은 진짜 원흉을 알고 싶다면, 거울 앞에 서보세요.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">100% 나의 책임, 100% 나의 주도권</h2>
+          <p class="slide-subtitle">내 인생과 현 상황을 100퍼센트 내 책임으로 인식하는 것은 자책이 아니라, 강력한 정신에너지를 발휘하겠다는 뜻입니다.</p>
+          <div class="slide-content">
+            <p>내 형편이 이렇게 된 것은 모두 내 책임입니다. 좋은 것도 내 덕분이고, 나쁜 것도 내 탓입니다. 과거에 내가 해온 생각과 선택, 행동의 귀결입니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔑 책임과 주도권의 관계</h3>
+              <p class="mt-2">내 상황을 100% 내 책임 아래 두는 것은 내 인생의 주도권을 전적으로 내가 가지는 것입니다. 내가 운전대를 잡았으니, 내가 원하는 곳으로 차를 몰 수 있습니다. <span class="highlight">책임이 있는 곳에 주도권이 따라옵니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핑계 없는 무덤: <span class="highlight">핑계를 멈춰라</span></h2>
+          <p class="slide-subtitle">'제한인자'가 정말로 제한인자라면 세상에 성공할 사람은 하나도 없습니다.</p>
+          <div class="slide-content">
+            <p>정부, 성별, 학력, 피부색, 옛날 애인, 상사, 경제상황, 건강... 우리는 수많은 핑계를 댑니다. 빌 게이츠, 스티브 잡스가 정부 정책, 가족, 날씨 탓을 했다면 마이크로소프트와 애플은 없었을 것입니다.</p>
+            <ul class="list-disc list-inside space-y-3 mt-6">
+              <li>나를 지금의 처지에 있게 한 것은 내가 한 행동과 생각들입니다.</li>
+              <li>과거의 선택과 그 이유는 이제 더 이상 중요하지 않습니다. 과거일 뿐입니다.</li>
+              <li>오늘부터 시작되는 미래는 <span class="highlight">내가 오늘부터 선택하는 생각과 행동들</span>로 결정됩니다.</li>
+              <li>그 선택은 100퍼센트 내 소관입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 7: Visualization -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 7</p>
+          <h2 class="slide-title">시각화 기법: <span class="highlight">마음으로 먼저 성공하기</span> 🖼️</h2>
+          <p class="slide-content">뇌는 상상과 현실을 구분하지 못합니다. 그래서 몸이 상상에 물리적으로 반응합니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌를 속이는 기술: <span class="highlight">시각화</span></h2>
+          <p class="slide-subtitle">마음은 글로 생각하지 않고, 그림으로 생각합니다.</p>
+          <div class="slide-content">
+            <p>시각화란, 눈을 감고 내가 세운 목표가 달성되는 모습을 생생히 그려보는 것입니다. 목표를 이룬 나는 어떤 모습일지, 무엇을 하고 있을지, 어떤 기분일지 상상하는 것입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🧠 뇌의 착각</h3>
+              <p class="mt-2">뇌는 당신이 달리는 상상을 하는 것과 실제로 달리는 것을 구분하지 못합니다. 그래서 꿈속에서 식은땀을 흘리는 등 실제 신체 반응이 일어납니다. 이 원리를 이용해 긍정적인 '가상 체험'을 반복하면 실제 수행 능력이 극적으로 향상됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">운동선수의 시각화 훈련 🏀</h2>
+          <p class="slide-subtitle">상상 연습도 실제 연습만큼 야무진 효과를 냅니다.</p>
+          <div class="slide-content">
+            <p>호주 심리학자 앨런 리처드슨의 농구 자유투 실험:</p>
+            <ul class="list-disc list-inside space-y-4 mt-4">
+              <li><b>그룹 A (실제 연습):</b> 20일간 매일 자유투 연습 ➡️ <span class="font-bold text-green-600">24% 향상</span></li>
+              <li><b>그룹 B (연습 안 함):</b> 첫날과 마지막 날만 연습 ➡️ <span class="font-bold text-gray-500">향상 없음</span></li>
+              <li><b>그룹 C (시각화 훈련):</b> 매일 20분씩 마음속으로 자유투를 성공시키는 상상 ➡️ <span class="font-bold text-blue-600">23% 향상</span></li>
+            </ul>
+            <p class="mt-6">실제 연습을 전혀 하지 않은 그룹 C가 매일 연습한 그룹 A만큼 실력이 향상되었습니다. 이는 시각화를 통해 뇌가 몸에 '성공하는 방법'을 지시하기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 8: Affirmations -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 8</p>
+          <h2 class="slide-title">확언의 힘: <span class="highlight">말이 씨가 된다</span> 🌱</h2>
+          <p class="slide-content">확언은 목표와 목적에 대해 스스로에게 발행하는 보험증서와 같습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">확언 만드는 법: 구체적인 긍정문</h2>
+          <p class="slide-subtitle">확언이 제대로 먹히려면 긍정형 표현으로 서술되고 언명되어야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">1. '나는 ~이다/한다' 형태</h3>
+              <p>막연한 다짐보다 현재형 서술이 효과적입니다.</p>
+              <p class="mt-3 p-3 bg-gray-50 rounded-lg">❌ "살을 빼자"<br>✅ "나는 90킬로그램 나가는 사람이다" 또는 "나는 7월 1일까지 90킬로그램이 된다"</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">2. 구체적인 표현</h3>
+              <p>불확실한 확언은 결과를 내지 못합니다.</p>
+              <p class="mt-3 p-3 bg-gray-50 rounded-lg">❌ "나는 점점 날씬해진다"<br>✅ "나는 90킬로그램 나가는 사람이 된다"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 9: Habits -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 9</p>
+          <h2 class="slide-title">버릇 바꾸기: <span class="highlight">성공하는 습관</span> 만들기 💡</h2>
+          <p class="slide-content">인간 행동의 80% 이상이 습관에서 나옵니다. 우리는 별 생각 없이 무심히 반복하는 행동들로 채워져 있습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">서커스 코끼리와 보이지 않는 감옥 🐘</h2>
+          <p class="slide-subtitle">아기 코끼리는 쇠사슬을 끊으려 노력하지만 실패합니다. 다 자란 코끼리는 허술한 말뚝에 묶여도 탈출을 시도조차 하지 않습니다.</p>
+          <div class="slide-content">
+            <p>'탈출은 불가능하다'고 믿도록 정신적으로 길들여졌기 때문입니다. 우리도 마찬가지입니다. 태어나는 날부터 부모, 교사, 사회, 미디어 등 다양한 '트레이너'들에게 정신적으로 길들여집니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p>"나는 못해"라는 믿음의 노예가 되는 것입니다. 이런 부정적이고 반복적인 길들이기는 우리의 잠재력을 누르고 성공을 방해합니다. <span class="highlight">나를 가두는 것은 내가 스스로 쌓은 벽뿐입니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성공 습관 vs 실패 습관 🔄</h2>
+          <p class="slide-subtitle">당신의 습관은 어느 쪽에 가깝습니까?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-2">
+              <h3 class="font-bold text-lg text-green-600">✅ 성공하는 습관</h3>
+              <p>남들 칭찬하기</p>
+              <p>남들 용서하기</p>
+              <p>매일 책 읽기</p>
+              <p>변화 환영하기</p>
+              <p>아이디어를 화제로 삼기</p>
+              <p>실패의 책임 인정하기</p>
+            </div>
+            <div class="space-y-2">
+              <h3 class="font-bold text-lg text-red-600">❌ 성공을 막는 습관</h3>
+              <p>남들 흉보기</p>
+              <p>적의를 품기</p>
+              <p>매일 TV 보기</p>
+              <p>변화 두려워하기</p>
+              <p>사람을 화제로 삼기</p>
+              <p>남 탓하기</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 10: Probability -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 10</p>
+          <h2 class="slide-title">숫자로 성공하기: <span class="highlight">확률게임</span> 🎲</h2>
+          <p class="slide-content">모든 일은 일정한 빈도와 비율로 일어납니다. 그 수치를 알아내면 성공의 비결이 됩니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">평균의 법칙: 나의 성공 비율 찾기</h2>
+          <p class="slide-subtitle">11세 때 고무 스펀지 방문판매를 하던 앨런의 성공 비율은 10:7:4:2였습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-3">
+              <li><b>10곳</b>의 문을 두드리면</li>
+              <li><b>7곳</b>에서 문을 열어주고</li>
+              <li><b>4곳</b>에서 상품 설명을 들어주고</li>
+              <li><b>2곳</b>에서 스펀지를 구매한다!</li>
+            </ul>
+            <p class="mt-6"><b>결론:</b> 10곳당 40센트를 법니다. 즉, 문을 한 번 두드릴 때마다 <span class="highlight">4센트</span>를 버는 셈입니다. 결과에 대한 걱정이 사라지고, '문을 두드리는 행위' 자체에 집중하게 됩니다. 이것이 강력한 동기부여 요인이 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">80/20 법칙 (파레토 법칙)</h2>
+          <p class="slide-subtitle">소수의 원인이 대부분의 결과를 만들어냅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">원리</h3>
+              <p>전체 투입량의 <span class="highlight">20%</span>가 전체 산출량의 <span class="highlight">80%</span>를 만듭니다. 당신의 노력과 활동 20%가 행복과 성과 80%를 좌우합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">적용</h3>
+              <p>내게 80%의 성과를 만들어내는 20%의 활동이 무엇인지 파악하고 그곳에 주력하세요. 가치 없는 80%의 일에 시간과 노력을 낭비하고 있진 않나요?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 11: Laughter -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 11</p>
+          <h2 class="slide-title">웃음이 <span class="highlight">만병통치약</span> 😂</h2>
+          <p class="slide-content">유머와 웃음이 우리 인체에 미치는 놀라운 과학적 효과.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">웃음의 과학: '자연 흥분상태'</h2>
+          <p class="slide-subtitle">웃을 때 뇌는 불안 해소와 진통 작용을 하는 '엔도르핀'을 분비합니다.</p>
+          <div class="slide-content">
+            <p>한참 격렬하게 웃으면 마약 없이도 일시적으로 마약에 '취한' 상태가 됩니다. 웃음은 몸에 진통과 진정 효과를 주고, 면역기능을 강화해 질병을 예방합니다.</p>
+            <ul class="list-disc list-inside space-y-3 mt-4">
+              <li>혈압 강하, 스트레스 호르몬 감소</li>
+              <li>항원(T세포)과 항체(B세포) 수치를 높여 면역기능 향상</li>
+              <li>장운동 촉진, 뇌 산소량 증가</li>
+              <li>노먼 커즌스의 사례: 10분간의 박장대소는 2시간의 천연 진통 효과를 냄.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 12: Fear -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Part 12</p>
+          <h2 class="slide-title">두려움과 걱정 <span class="highlight">극복하기</span> 💪</h2>
+          <p class="slide-content">걱정하는 것은 원치 않는 것을 비는 것과 같습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">걱정의 실체: 87%는 일어나지 않는다</h2>
+          <p class="slide-subtitle">연구 결과에 따르면 우리가 걱정하는 것의 대부분은 현실이 되지 않습니다.</p>
+          <div class="slide-content text-center space-y-4">
+            <p class="text-3xl font-bold text-blue-600">87%는 결코 일어나지 않는다.</p>
+            <p class="text-3xl font-bold text-yellow-600">7%는 실제로 일어난다 (하지만 어찌할 수 없는 일).</p>
+            <p class="text-3xl font-bold text-green-600">6%는 내가 영향을 미칠 수 있다.</p>
+            <p class="mt-8 text-xl">따라서 걱정은 지극히 비생산적인 활동입니다. 결과가 나빠 봐야 얼마나 나쁘겠어? 라고 생각하며 두려움을 거리를 두고 볼 필요가 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두려움을 이기는 <span class="highlight">3가지 방법</span></h2>
+          <p class="slide-subtitle">공포와 불안을 극복하는 즉각적인 행동 지침.</p>
+          <div class="slide-content space-y-6">
+            <div>
+              <h3 class="font-bold text-xl">1. 잠시 휴식을 취한다 🧘</h3>
+              <p>겁나고 주눅 들 때, 최소 15분간 일에서 손을 떼고 산책, 샤워, 차 한잔 등 심신을 진정시키는 활동을 합니다. 두려움에 가득찬 상태에서는 명료한 사고가 불가능합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl">2. 상식적으로 생각한다 🤔</h3>
+              <p>최악의 시나리오를 상상하는 대신, 과거의 장애 극복 사례를 떠올립니다. '전에도 이겨냈으니 이번에도 이겨낼 수 있다'고 생각하며 현실적으로 상황을 분석합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl">3. 기본으로 돌아간다  fundamental</h3>
+              <p>불안을 떨치기 위해 마약이나 알코올에 의지하는 것은 상황을 악화시킬 뿐입니다. <span class="highlight">숙면, 즐거운 식사, 산책</span>은 불안과 긴장에 대한 최고의 3대 치료법입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎉</div>
+          <h2 class="slide-title">총정리: 당신의 성공 원칙</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">성공은 재능이 아닌 <span class="highlight">계획과 실행</span>의 문제입니다. 성공의 가장 결정적인 단계는 '무엇을' 원하는지 결정하는 것입니다. 방법은 당신의 RAS가 찾아줄 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">명확한 목표를 세우고, 데드라인을 정하고, 긍정적으로 시각화하고, 확언하고, 실패를 두려워 말고, 끝까지 밀고 나가세요. 당신 인생의 주인은 당신입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
