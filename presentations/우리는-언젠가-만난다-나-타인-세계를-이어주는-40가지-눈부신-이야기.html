@@ -1,656 +1,604 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>우리는 언젠가 만난다 - 채사장</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: #1a202c;
-            color: #e2e8f0;
-            overscroll-behavior: none;
-        }
-        .slide {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            padding: 4vw;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-            page-break-after: always;
-        }
-        .slide.active {
-            display: flex;
-            opacity: 1;
-        }
-        h1, h2, h3 {
-            font-family: 'Noto Serif KR', serif;
-            font-weight: 700;
-        }
-        .title-accent {
-            color: #4ade80; /* green-400 */
-        }
-        .slide-content {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            text-align: left;
-        }
-        .callout {
-            background-color: rgba(74, 222, 128, 0.1);
-            border-left: 4px solid #4ade80;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: left;
-            border-radius: 0 8px 8px 0;
-        }
-        blockquote {
-            font-style: italic;
-            border-left: 4px solid #4ade80;
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .nav-arrow {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3rem;
-            height: 3rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: background-color 0.2s;
-        }
-        .nav-arrow:hover {
-            background-color: rgba(74, 222, 128, 0.5);
-        }
-        #prev { left: 1rem; }
-        #next { right: 1rem; }
-        #slide-counter {
-            position: fixed;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0,0,0,0.5);
-            color: #a0aec0;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            z-index: 10;
-        }
-
-        @media print {
-            body { background-color: white; color: black; }
-            .slide { 
-                display: flex !important; 
-                opacity: 1 !important; 
-                height: 100vh;
-                position: relative;
-                page-break-inside: avoid;
-            }
-            .nav-arrow, #slide-counter { display: none; }
-            .callout { background-color: #f0fdf4; }
-            h1, h2, h3, .title-accent, blockquote { color: black !important; border-color: #22c55e !important; }
-        }
-        @media (max-width: 768px) {
-            .slide { padding: 8vw; }
-            .two-column { grid-template-columns: 1fr; }
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
-            .nav-arrow { width: 2.5rem; height: 2.5rem; }
-            #prev { left: 0.5rem; }
-            #next { right: 0.5rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우리는 언젠가 만난다 - 채사장</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2f81f7;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #f0f6fc;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #8b949e;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #c9d1d9;
+    }
+    .highlight {
+      color: #58a6ff;
+      font-weight: 500;
+    }
+    .quote-block {
+      margin-top: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 4px solid #30363d;
+      font-style: italic;
+      color: #8b949e;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid #30363d;
+    }
+    .btn-primary {
+      background-color: #238636;
+      color: white;
+      border-color: #2ea043;
+    }
+    .btn-primary:hover {
+      background-color: #2ea043;
+    }
+    .btn-secondary {
+      background-color: #21262d;
+      color: #c9d1d9;
+    }
+    .btn-secondary:hover {
+      border-color: #8b949e;
+      background-color: #30363d;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #30363d;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #30363d;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #2f81f7;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-item {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    .toc-item span {
+        font-weight: 300;
+        color: #8b949e;
+        margin-left: 0.75rem;
+    }
+  </style>
 </head>
-<body>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
-    <!-- Slide 1: Title -->
-    <div class="slide active" style="background: #111827 url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><path fill=\"%234ade80\" fill-opacity=\"0.05\" d=\"M50 0 L61.8 38.2 L100 38.2 L69.1 61.8 L80.9 100 L50 76.4 L19.1 100 L30.9 61.8 L0 38.2 L38.2 38.2 Z\" /></svg>') no-repeat center center; background-size: cover;">
-        <div class="slide-content">
-            <h2 class="text-2xl md:text-3xl font-light text-gray-300 mb-4">우리는 언젠가 만난다</h2>
-            <h1 class="text-4xl md:text-6xl mb-6 leading-tight">나, 타인, 세계를 이어주는<br><span class="title-accent">40가지 눈부신 이야기</span></h1>
-            <p class="text-xl md:text-2xl text-gray-400">채사장 지음</p>
+  <div class="w-full">
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8"><i class="fa-solid fa-star text-yellow-400"></i></div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-100 mb-6">우리는 언젠가 만난다</h1>
+          <p class="text-xl md:text-2xl text-gray-400">나, 타인, 세계를 이어주는 40가지 눈부신 이야기</p>
+          <p class="mt-8 text-lg text-gray-500">채사장 지음</p>
         </div>
-    </div>
+      </div>
+      
+      <!-- Slide 2: 저자의 말 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">저자의 말</p>
+          <h2 class="slide-title">모든 관계는 내 안에서 별을 이룬다</h2>
+          <p class="slide-content">타인에게 다가서는 건 낯설고 두려운 일이다. 언젠가부터 나는 그들에게 할 말이 없어졌고, 그들의 말도 내 밖을 떠돌았다. 사소한 고리로 이어지는 것마저 나는 버거워했다.</p>
+          <div class="quote-block">
+            <p>만약 네가 짐승들에게 말을 걸지 않는다면 너는 그들에 대해 알지 못할 것이다.</p>
+            <p>너는 네가 알지 못하는 것에 대해 두려움을 느낄 것이다.</p>
+            <p>사람은 두려움을 느끼는 것을 파괴한다.</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Slide 2: Author Introduction -->
-    <div class="slide">
-        <div class="slide-content text-left max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-8 text-center">저자 <span class="title-accent">채사장</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">우리 시대 가장 뜨거운 인문학 작가. <br><br>대표작 『지적 대화를 위한 넓고 얕은 지식』은 2015년 국내 출판계에 인문학 열풍을 일으켰습니다. 팟캐스트 <지대넓얕>, <시민의 교양>, <열한 계단> 등을 통해 깊이 있는 인문학을 쉽고 따뜻하게 전달하며 수많은 독자들의 사랑을 받고 있습니다.</p>
-            <div class="flex justify-center space-x-8 mt-12">
-                <div class="text-center">
-                    <p class="text-2xl font-bold title-accent">150만 부+</p>
-                    <p class="text-gray-400">누적 판매</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-2xl font-bold title-accent">밀리언셀러</p>
-                    <p class="text-gray-400">작가</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-2xl font-bold title-accent">지대넓얕</p>
-                    <p class="text-gray-400">팟캐스트 1위</p>
-                </div>
+      <!-- Slide 3: 저자의 말 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">저자의 말</p>
+          <h2 class="slide-title">왜 관계에 대해 말해야 하는가?</h2>
+          <p class="slide-subtitle">타인과 세계의 심연을 들여다봄으로써 거기에 비친 자아의 진정한 의미를 비로소 확인할 수 있기 때문이다.</p>
+          <p class="slide-content">나 자신에 대한 심오한 물음들, 나는 누구이고 어디에서 왔으며 어디로 가는지에 대한 해답은 자기 안에서 발견되지 않는다. 뜻하지 않게 던져진 이 세계와, 이곳에서 우연처럼 만나 손잡은 타인들로부터 우리는 천천히 해답에 다가가게 될 것이다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차: 관계의 네 가지 장</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p class="toc-item"><b>1. 타인</b> <span>'나'와 '타인'의 관계를 다룬다.</span></p>
+            <p class="toc-item"><b>2. 세계</b> <span>'나'와 '세계'의 관계를 다룬다.</span></p>
+            <p class="toc-item"><b>3. 도구</b> <span>관계를 가능하게 해주는 '도구'들을 다룬다.</span></p>
+            <p class="toc-item"><b>4. 의미</b> <span>자아와 타인, 세계의 의미를 이해하는 '죽음'을 다룬다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 1: 타인 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="text-5xl mb-6"><i class="fa-solid fa-users"></i></p>
+            <p class="slide-part-title">PART 1</p>
+            <h2 class="text-6xl font-black text-gray-100">타인</h2>
+            <p class="slide-subtitle mt-4">나와 타인의 관계</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">별에 대하여</p>
+          <h2 class="slide-title">모든 지식은 언젠가 만난다</h2>
+          <p class="slide-subtitle">지식은 책 속에 있고, 내가 그것을 읽음으로써 얻는다고 믿는다. 하지만 실제로는 그렇지 않다.</p>
+          <div class="mt-8 p-6 bg-gray-800 border border-gray-700 rounded-lg">
+            <h3 class="font-bold text-lg text-blue-400">어느 선생님의 가르침</h3>
+            <p class="mt-2">"별 모양의 지식을 얻으려면 어떻게 해야 할까요? 별이 담긴 책을 읽으면 될까요? 아닙니다. <span class="highlight">삼각형</span>이 그려진 책, <span class="highlight">사각형</span>이 그려진 책, <span class="highlight">원</span>이 그려진 책. 이런 책들을 다양하게 읽었을 때, 그것들이 내 머릿속에 들어와 비로소 별을 만드는 것입니다."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">별에 대하여</p>
+          <h2 class="slide-title">궁극의 지식, 삶에 대한 이해</h2>
+          <p class="slide-content">무엇인가를 이해하려면 그것 밖으로 걸어 나가서, 그것에서 벗어난 뒤, 다른 것을 둘러보아야 한다. 모든 지식은 그것을 이해하기 위해서 그것이 아닌 것들로부터 시작해야만 한다.<br><br>궁극의 지식, 즉 삶에 대한 이해는 몇몇의 책에서 단번에 얻을 수 있는 것이 아니다. 인생 전체에 흩뿌려진 모든 지식, 즉 어린 시절의 오해, 노년의 오만, 무수한 시행착오와 상실, 작은 행복과 사랑하는 이의 손길 속에서 우리는 삼각형과 사각형을 얻는다. 그리고 마침내 인생의 마지막에 이르렀을 때, <span class="highlight">삶이라는 별이 무엇을 의미하는지 비로소 이해하게 될 것이다.</span></p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">관계에 대하여</p>
+          <h2 class="slide-title">우리는 타인에게 닿을 수 있는가</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-blue-400 mb-2"><i class="fa-solid fa-earth-asia mr-2"></i> 자아와 세계의 관계</h3>
+              <p>비교적 덜 어려운 문제. 세계는 내 마음에 의해 재구성된 것일 뿐, 그 실체에 접근할 수 없다. 나는 세계의 '실체'가 아닌 '그림자'를 본다. 모든 인간은 자신의 마음 안에 갇혀 산다.</p>
             </div>
-        </div>
-    </div>
-    
-    <!-- Slide 3: Preface 1 -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">저자의 말</h2>
-            <h3 class="text-4xl md:text-5xl title-accent">모든 관계는<br>내 안에서 별을 이룬다</h3>
-            <p class="text-lg md:text-xl mt-8 leading-relaxed">타인에게 다가서는 건 낯설고 두려운 일이다. 언젠가부터 나는 그들에게 할 말이 없어졌고, 그들의 말도 내 밖을 떠돌았다. 사소한 고리로 이어지는 것마저 나는 버거워했다.</p>
-        </div>
-    </div>
-    
-    <!-- Slide 4: Preface 2 - Quote -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <blockquote class="text-2xl md:text-3xl leading-relaxed">
-                "만약 네가 짐승들에게 말을 걸지 않는다면<br>
-                너는 그들에 대해 알지 못할 것이다.<br>
-                너는 네가 알지 못하는 것에 대해 두려움을 느낄 것이다.<br>
-                사람은 두려움을 느끼는 것을 파괴한다."
-            </blockquote>
-            <p class="text-lg md:text-xl mt-8 leading-relaxed">타인에 대한 공포. 어쩌면 그것은 처음부터 내 마음 속에만 있었던 것인지 모른다. 말을 걸지 않고 귀를 기울이지 않고 그와 관계 맺지 않았기에. 오해와 의심은 나의 내면을 잠식했다.</p>
-        </div>
-    </div>
-
-    <!-- Slide 5: Preface 3 - The Core Question -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-             <h2 class="text-3xl md:text-4xl mb-6">관계에 대하여 말해야만 한다</h2>
-             <p class="text-lg md:text-xl mt-8 leading-relaxed">우리는 인생의 여정 중에 반드시 관계에 대해 말해야만 한다. 내가 타인과 맺고 있는 관계에 대해서, 내가 세계와 맺고 있는 관계에 대해서. 왜냐하면 타인과 세계의 심연을 들여다봄으로써 거기에 비친 자아의 진정한 의미를 비로소 확인할 수 있기 때문이다.</p>
-             <p class="text-lg md:text-xl mt-8 leading-relaxed">이 책은 그 때문에 관계에 대해 말한다. 내 마음에 자리 잡은 관계의 꼬인 실타래를 풀어 타인을 만나고, 세계와 재회하기 위해.</p>
-        </div>
-    </div>
-
-    <!-- Slide 6: Table of Contents -->
-    <div class="slide">
-        <div class="slide-content max-w-5xl text-left">
-            <h2 class="text-4xl md:text-5xl mb-10 text-center">목차 (Contents)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-lg">
-                <div>
-                    <h3 class="text-2xl title-accent mb-4 border-b-2 border-green-400 pb-2">1부. 타인</h3>
-                    <ul class="space-y-2 list-disc list-inside">
-                        <li>별에 대하여</li>
-                        <li>관계에 대하여</li>
-                        <li>이별에 대하여</li>
-                        <li>연애에 대하여</li>
-                        <li>소년병 이야기 1-5</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-2xl title-accent mb-4 border-b-2 border-green-400 pb-2">2부. 세계</h3>
-                    <ul class="space-y-2 list-disc list-inside">
-                        <li>인생에 대하여</li>
-                        <li>노력에 대하여</li>
-                        <li>시간에 대하여</li>
-                        <li>던져진 세계에 대하여</li>
-                        <li>나의 이야기 1-5</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-2xl title-accent mb-4 border-b-2 border-green-400 pb-2">3부. 도구</h3>
-                    <ul class="space-y-2 list-disc list-inside">
-                        <li>통증에 대하여</li>
-                        <li>이야기에 대하여</li>
-                        <li>진리에 대하여</li>
-                        <li>현실에 대하여</li>
-                        <li>언어에 대하여 1-5</li>
-                    </ul>
-                </div>
-                 <div>
-                    <h3 class="text-2xl title-accent mb-4 border-b-2 border-green-400 pb-2">4부. 의미</h3>
-                    <ul class="space-y-2 list-disc list-inside">
-                        <li>꿈에 대하여</li>
-                        <li>죽음에 대하여</li>
-                        <li>노화에 대하여</li>
-                        <li>영원에 대하여</li>
-                        <li>결론을 향하여 1-5</li>
-                    </ul>
-                </div>
+            <div>
+              <h3 class="font-bold text-lg text-blue-400 mb-2"><i class="fa-solid fa-user-friends mr-2"></i> 자아와 타인의 관계</h3>
+              <p>가장 어려운 문제. 내가 외부의 타인에게 닿을 수 있는지를 의심한다. 나는 어차피 타인에게 닿지 못하고, 타인은 어차피 나에게 닿지 못한다. 우리는 그림자를 보며 이야기하는 것일지도 모른다.</p>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 7: Part 1 Header -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2 class="text-2xl md:text-3xl text-gray-400">Part 1</h2>
-            <h1 class="text-5xl md:text-7xl title-accent mt-2">타인 (Others)</h1>
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">이별에 대하여</p>
+            <h2 class="slide-title">사랑은 떠나고 세계는 남는다</h2>
+            <p class="slide-subtitle">만남이란 놀라운 사건이다. 너와 나의 만남은 단순히 사람과 사람의 만남을 넘어선다. 그것은 차라리 <span class="highlight">세계와 세계의 충돌</span>에 가깝다.</p>
+            <p class="slide-content">너를 안는다는 것은 나의 둥근 원 안으로 너의 원이 침투해 들어오는 것을 감내하는 것이며, 너의 세계의 파도가 내 세계의 해안을 잠식하는 것을 견뎌내야 하는 것이다.<br><br>그래서 헤어짐이 반드시 안타까운 것은 아니다. 그의 세계가 남겨놓은 시간과 이야기와 성숙과 이해가 조개껍질이 되어 내 세계의 모래사장을 보석처럼 빛나게 하고 있을 테니.</p>
         </div>
-    </div>
-    
-    <!-- Slide 8: Part 1 Quote -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <blockquote class="text-xl md:text-2xl leading-relaxed">
-                "만남이란 놀라운 사건이다. 너와 나의 만남은 단순히 사람과 사람의 만남을 넘어선다. 그것은 차라리 세계와 세계의 충돌에 가깝다. 너를 안는다는 것은 나의 둥근 원 안으로 너의 원이 침투해 들어오는 것을 감내하는 것이며, 너의 세계의 파도가 내 세계의 해안을 잠식하는 것을 견뎌내야 하는 것이다.”
-            </blockquote>
-        </div>
-    </div>
+      </div>
 
-    <!-- Slide 9: P1 - All Knowledge Meets Someday -->
-    <div class="slide">
-        <div class="slide-content max-w-5xl text-left">
-            <h2 class="text-3xl md:text-4xl mb-6"><span class="title-accent">모든 지식은</span> 언젠가 만난다</h2>
-            <p class="text-lg leading-relaxed mb-6">지식은 책을 읽는다고 얻어지는 것이 아니다. 별 모양의 지식을 얻으려면, 별이 그려진 책만 읽어서는 안 된다. 삼각형, 사각형, 원이 그려진 다양한 책들을 읽었을 때, 그것들이 내 머릿속에 들어와 비로소 별을 만드는 것이다.</p>
-            <div class="flex justify-center items-center mt-8">
-                <img src="https://i.imgur.com/47WpWlU.png" alt="Shapes forming a star in a head" class="w-2/3 md:w-1/2 rounded-lg bg-white p-4">
-            </div>
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">연애에 대하여</p>
+            <h2 class="slide-title">화장실 세면대를 붙잡고 울어본 적 있는가</h2>
+            <p class="slide-subtitle">세상은 녹록지 않다. 나라는 존재는 거대한 집단 속 하나의 구성원일 뿐이다. 사회는 우리를 대중으로 남아 있으라 다그친다.</p>
+            <p class="slide-content">연애가 놀라운 까닭은 여기에 있다. 가슴이 무너진 날, 그 사람에게로 가자. 그의 손을 잡고 이 밤을 보내는 거다. 바로 그 순간 나는 세상의 주인공이 된다. <span class="highlight">세계는 나를 중심으로 회전하고 일상의 하찮음은 주변부로 사라진다.</span> 사랑하는 이를 품에 안는다는 것은 그래서 그렇게도 놀라운 일이다.</p>
         </div>
-    </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">흔적에 대하여</p>
+            <h2 class="slide-title">그에게는 오카리나가 남았다</h2>
+            <p class="slide-subtitle">인생이 생각보다 살아가기 어려운 것은 혼자 사는 것이 아니기 때문일 테다.</p>
+            <p class="slide-content">실제 세상에는 나의 세계 전체를 뒤흔드는 타인이 있어 언제나 예상치 못한 방향으로 흐르고 만다. 그것을 간신히 수습해가면 결국 나의 삶은 누더기가 되어 있을 것이다.<br><br>그래서가 아닐까. 우리가 하나의 의식으로 존재하는 것이 아니라 무수히 많은 독립된 의식으로 분화되어 만난 이유가. 단조로운 단색의 창백함에서 벗어나 <span class="highlight">서로에게 의지한 다채로운 색상으로 세상을 드러내기 위해서.</span></p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">소년병 이야기 1</p>
+            <h2 class="slide-title">맑은 겨울 아침, 그는 떠난다고 말했다</h2>
+            <p class="slide-subtitle">"모든 규칙이 그러하듯 장작이 모두 태워 없어질 때까지만 이곳에 남아 있겠다."</p>
+            <p class="slide-content">소년병은 여인의 삶에 새로운 규칙을 만들었다. 오랜 시간 여인의 집을 보호하던 질서와 평화는 깨어졌다. 하지만 여인은 새로운 규칙을 받아들였다. 그것이 모든 만남에서 언제나 찾아오는 하나의 과정임을 그녀가 이해하고 있었기 때문이다.<br><br>여인은 겨울의 언덕에 섰다. 배웅을 위해서다. 저 멀리 지평선을 향해 나그네가 걸어가고 있기 때문에. <span class="highlight">그의 모습이 희미해질 때까지 그녀는 그 자리를 지키고 있었다.</span></p>
+        </div>
+      </div>
 
-    <!-- Slide 10: P1 - The Ultimate Knowledge -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">궁극의 지식, <span class="title-accent">삶에 대한 이해</span></h2>
-            <div class="text-left text-lg md:text-xl leading-relaxed space-y-4">
-                <p>궁극의 지식, 즉 '삶에 대한 이해'는 몇 권의 책으로 단번에 얻을 수 있는 것이 아니다.</p>
-                <p>어린 시절의 오해, 노년의 오만, 무수한 시행착오와 상실, 고통 속에서 피어나는 작은 행복, 사랑하는 이의 부드러운 손길과 깊은 눈동자... 이것들이 바로 우리가 삶이라는 별을 이해하기 위해 모아야 할 삼각형과 사각형이다.</p>
-                <p>그렇게 인생 전체에 흩뿌려진 모든 지식은, 내 안에서 언젠가 만난다.</p>
-            </div>
+      <!-- Part 2: 세계 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="text-5xl mb-6"><i class="fa-solid fa-globe"></i></p>
+            <p class="slide-part-title">PART 2</p>
+            <h2 class="text-6xl font-black text-gray-100">세계</h2>
+            <p class="slide-subtitle mt-4">나와 세계의 관계</p>
         </div>
-    </div>
-    
-    <!-- Slide 11: P1 - Can We Reach Others? -->
-    <div class="slide">
-        <div class="slide-content max-w-5xl">
-            <h2 class="text-3xl md:text-4xl mb-6">우리는 타인에게 <span class="title-accent">닿을 수 있는가?</span></h2>
-             <div class="two-column text-lg">
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">인생에 대하여</p>
+            <h2 class="slide-title">여행할 시간 30년이 주어진다면</h2>
+            <p class="slide-subtitle">고대 이집트 유물에는 영웅이나 선지자의 이야기가 아닌, 평범한 사람들의 삶이 담겨있다.</p>
+            <p class="slide-content">만약 타임머신을 타고 고대 이집트로 가 30년을 보내고 돌아와야 한다면 무엇을 할 것인가? 열심히 노동하고, 재산을 모으고, 이를 기록하며 만족하고 아쉬워할 것인가?<br><br>아마도 아닐 것이다. 당신은 여행을 떠날 것이다. 광활한 사막과 푸르른 하늘, 생명 같은 강줄기와 그 속에서 삶을 꾸려나가는 수많은 사람들을 만나면서. <span class="highlight">경험을 쌓고, 추억을 만들고, 돌아가는 날 가져갈 자신만의 이야기를 준비하면서.</span><br><br>당신은 어떤가? 당신은 이곳에서 어떤 여행을 하고 있는가?</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">노력에 대하여</p>
+            <h2 class="slide-title">열심히 살아도 괜찮은가</h2>
+             <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h3 class="text-2xl mb-4">자아와 세계의 관계</h3>
-                    <p>세계와의 관계는 흥미롭고 익숙하다. 세계는 내 외부에 있는 것이 아니라, 나의 감각기관과 뇌가 그려주는 '그림자'이며, 나의 내면에 있다. 모든 의식적 존재는 자신의 마음 안에 갇혀 산다.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl mb-4">자아와 타인의 관계</h3>
-                    <p>반면 타인과의 관계는 어렵다. 내가 외부의 타인에게 닿을 수 있는지를 의심한다. 타인 또한 세계의 일부이므로, 결국 나의 내면에 있는 '그림자'일 뿐이다. 나는 그림자를 보며 이야기하는 것일지도 모른다.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 12: P1 - The Loneliness of Relationship -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">관계의 아득함, <span class="title-accent">외로움의 본질</span></h2>
-            <div class="callout">
-                <p class="text-lg">타인에게 닿을 수 없다는 진실을 인정하고 외로워지거나, 닿을 수 있을 것이라고 스스로를 속이며 매번 좌절하거나. 우리는 선택해야 하는 것인지 모른다.</p>
-            </div>
-            <p class="text-lg md:text-xl leading-relaxed">이 책은 가장 어려운 분야인 '타인과의 관계'에 대한 탐구 결과이며, 고독한 무인도에서 허황된 기대와 함께 띄워 보내는 유리병 속의 편지다. 이것이 당신에게 가 닿기를.</p>
-        </div>
-    </div>
-
-    <!-- Slide 13: P1 - Love Leaves, the World Remains -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">사랑은 떠나고 <span class="title-accent">세계는 남는다</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">상식적으로 우리는 '세계'가 먼저 존재하고 '나'는 그 후에 태어났다고 생각한다. 하지만 정말 그러한가? 세계는 단 한 번도 나의 시야를 벗어난 적이 없다. 단적으로 말해, 세계는 '자아'라는 그릇 안에 담긴다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">'세계'는 언제나 '자아의 세계'다. 객관적이고 독립된 세계는 나에게 결코 드러나지 않는다. 나는 내가 해석한 세계에 갇혀 산다. 이 자아의 주관적 세계를 '지평(horizon)'이라 부른다.</p>
-        </div>
-    </div>
-
-    <!-- Slide 14: P1 - The Encounter of Worlds -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">만남은 <span class="title-accent">세계의 충돌</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">너와 나의 만남은 단순히 사람과 사람의 만남을 넘어, 세계와 세계의 충돌에 가깝다. 폭풍 같은 시간을 함께하고 다시 혼자가 된 사람의 눈동자가 더 깊어진 까닭은, 그의 세계가 휩쓸고 지나간 다른 세계의 흔적들을 고스란히 담아내 더 풍요로워졌기 때문이다.</p>
-            <blockquote class="mt-6 text-xl">헤어짐이 반드시 안타까운 것은 아니다. 그것은 실패도, 낭비도 아니다.</blockquote>
-        </div>
-    </div>
-
-    <!-- Slide 15: P1 - About Romance -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">연애에 대하여</h2>
-            <h3 class="text-2xl md:text-3xl title-accent">화장실 세면대를 붙잡고 울어본 적 있는가</h3>
-            <p class="text-lg md:text-xl mt-8 leading-relaxed">연애가 놀라운 까닭은 여기에 있다. 가슴이 무너진 날, 그 사람에게로 가자. 그의 손을 잡고 이 밤을 보내는 거다. 바로 그 순간, 나는 세상의 주인공이 된다. 세계는 나를 중심으로 회전하고 일상의 하찮음은 주변부로 사라진다.</p>
-            <p class="text-lg md:text-xl mt-8 leading-relaxed">연애는 단순히 사람과 사람이 만나는 표면적인 사실을 넘어선다. 연애는 세계의 문제다.</p>
-        </div>
-    </div>
-    
-    <!-- Slide 16: Part 2 Header -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2 class="text-2xl md:text-3xl text-gray-400">Part 2</h2>
-            <h1 class="text-5xl md:text-7xl title-accent mt-2">세계 (World)</h1>
-        </div>
-    </div>
-
-    <!-- Slide 17: Part 2 Quote -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <blockquote class="text-xl md:text-2xl leading-relaxed">
-                "세상에는 끊임없이 새로운 존재가 태어나고 어쩔 수 없이 자기만의 시간을 고스란히 지내야만 한다. 오랜 시간 세상을 살아가며 얻게 된 소중한 경험과 이해는 오래 산 존재들과 함께 침묵 속으로 사라지고, 세상은 이 세상이 처음인 싱싱한 존재들이 장악한다. 그래서 아름다운 게 아니겠는가. 세상이 이렇게 치열하고 다채롭고 활력 넘치는 이유가."
-            </blockquote>
-        </div>
-    </div>
-
-    <!-- Slide 18: P2 - 30 Years to Travel -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6"><span class="title-accent">여행할 시간 30년</span>이 주어진다면</h2>
-            <p class="text-lg md:text-xl leading-relaxed">만약 타임머신을 타고 고대 이집트로 가서 30년을 보내고 돌아와야 한다면 무엇을 할 것인가? 열심히 노동하고 재산을 모으고 기록할 것인가? 아닐 것이다. 당신은 여행을 떠날 것이다. 수많은 사람을 만나고, 경험을 쌓고, 추억을 만들고, 돌아갈 날 가져갈 자신만의 이야기를 준비할 것이다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">이곳에서의 여행도 마찬가지 아닐까? 인생이 30년, 40년 남았다면 무엇을 해야 할까. 더 어른스러워지고, 더 현명해지고, 더 많은 노동의 결과물을 모으기 전에, 여행을 시작해보라고 말해주고 싶다.</p>
-        </div>
-    </div>
-
-    <!-- Slide 19: P2 - Is It Okay to Live Diligently? -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">열심히 살아도 <span class="title-accent">괜찮은가?</span></h2>
-             <div class="two-column text-lg">
-                <div>
-                    <h3 class="text-2xl mb-4">하나에 모든 것을 거는 사람들</h3>
-                    <p>한 가지 목표에 모든 것을 거는 것은 가장 쉬운 일이다. 그것은 강인해서가 아니라, 현실의 복잡함을 감당하기 어려운 나약함 때문이다. 이들은 필연적으로 실패한다. 한 가지 전략으로 대응하는 적처럼 우스워 보이기 때문이다.</p>
+                  <h3 class="font-bold text-lg text-blue-400 mb-2">한 가지에 모든 것을 거는 사람들</h3>
+                  <p>이들은 강인한 의지의 소유자가 아니라, 반대로 나약하기에 한 가지에 몰두한다. 현실의 복잡함을 감당하기 어려울 때, 분명해 보이는 것을 선택하고 집중하는 전략을 세운다. 이들은 필연적으로 실패한다.</p>
                 </div>
                 <div>
-                    <h3 class="text-2xl mb-4">선택의 여지 남기기</h3>
-                    <p>첫 단추를 제대로 꿸 가능성은 없다. 따라서 다른 길과 가능성을 마음에 품은 채 느슨하게 출발해야 한다. 자신을 아끼면서, 주위를 둘러보면서, 풍경을 감상하며 걸어온 사람만이 '계속 갈 것인가, 쉴 것인가, 다른 길로 갈 것인가'를 선택할 수 있다.</p>
+                  <h3 class="font-bold text-lg text-blue-400 mb-2">어떻게 해야 하는가?</h3>
+                  <p>첫 단추를 잘 꿰는 것은 불가능하다. 따라서 다른 길과 가능성을 마음에 품은 채 느슨하게 출발해야 한다. 길가를 둘러보며 여유 있게 걷는 것. 그것은 한눈을 파는 것이 아니라 <span class="highlight">제대로 가기 위해 신중히 걷는 것이다.</span></p>
                 </div>
             </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 20: P2 - The Traveler's Gaze -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">세상은 <span class="title-accent">들판처럼 열려 있다</span></h2>
-             <div class="callout">
-                <p class="text-lg">당신 앞에 세상은 하나의 좁은 길이 아니라 들판처럼 열려 있고, 당신이 보아야 할 것은 보이지 않는 어딘가의 목표점이 아니라 지금 딛고 서 있는 그 들판이다. 발아래 풀꽃들과 주위의 나비들과 시원해진 바람과 낯선 풍경들. 이제 여행자의 눈으로 그것들을 볼 시간이다.</p>
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">개에 대하여</p>
+            <h2 class="slide-title">세상은 왜 새롭고 아름다운가</h2>
+            <p class="slide-subtitle">새끼에게 젖을 물리는 개의 눈빛은 무엇인가를 이해한 듯했다.</p>
+            <p class="slide-content">세상에 대해, 원래 세상이란 반복되는 것이고, 이러한 반복 속에 눈부신 만남을 경험하게 된다는 것에 대해. 나는 그녀가 그렇게 느끼고 있음을 알 수 있었다.<br><br>원래 그런 거다. 세상에는 끊임없이 새로운 존재가 태어나고 어쩔 수 없이 자기만의 시간을 고스란히 지내야만 한다. 오랜 시간 세상을 살아가며 얻게 된 소중한 경험과 이해는 오래 산 존재들과 함께 침묵 속으로 사라지고, <span class="highlight">세상은 이 세상이 처음인 싱싱한 존재들이 장악한다.</span> 그래서 아름다운 게 아니겠는가.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">던져진 세계에 대하여</p>
+            <h2 class="slide-title">왜 나는 나에게 집착하는가</h2>
+            <p class="slide-subtitle">우리가 세계에 던져졌다고 할 때, 그 세계는 지구가 아니라 바로 '나 자신'이다.</p>
+            <p class="slide-content">우리는 나 자신에게 던져졌다. 당신은 당신에게, 나는 나에게. 그래서 그것은 신비한 일이다. 왜 나는 당신이 아니라 나에게 던져졌는가? <br><br>이것이 비극이 되는 이유는 <span class="highlight">집착</span> 때문이다. 나의 신체와 내가 가진 것에 마음이 쏠려 한시도 잊지 못하고 매달리기 때문이다. 나의 몸과 나에게 연결된 것들은 너무나 소중하고 유일해서, 그것이 어찌 될까 봐 조마조마해 하고, 움켜쥐려 하고, 끝내 감싸 안으려 하기 때문이다. 그래서 고통이 된다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">시간에 대하여</p>
+            <h2 class="slide-title">부재를 사는 사람, 존재를 사는 사람</h2>
+            <p class="slide-subtitle">자아의 내면세계에서 시간은 하나의 방향으로 흘러가지 않는다.</p>
+            <p class="slide-content">사람은 자기만의 시간 방식대로 살아간다. 어떤 이는 현재에 살지만 다른 이는 과거에 살고, 또 다른 이는 미래에 산다.<br><br>나는 <span class="highlight">과거</span>에 사는 사람들을 만난다: 후회 속을 살아가거나, 그리움 속을 살아간다. 그의 과거는 현재와 미래를 잠식하고, 인생 전체는 하나의 과거가 된다.<br>나는 <span class="highlight">미래</span>에 사는 사람들을 만난다: 희망 속을 살아가거나, 불안 속을 살아간다. 그의 미래는 현재와 과거를 잠식하고, 인생 전체는 하나의 미래가 된다.<br><br>당신은 어떤 사람인가? 당신은 어떤 시간을 살고 있는가?</p>
+        </div>
+      </div>
+      
+       <!-- Part 3: 도구 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="text-5xl mb-6"><i class="fa-solid fa-wrench"></i></p>
+            <p class="slide-part-title">PART 3</p>
+            <h2 class="text-6xl font-black text-gray-100">도구</h2>
+            <p class="slide-subtitle mt-4">관계를 맺어주는 매개</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">통증에 대하여</p>
+            <h2 class="slide-title">모든 관계는 통증이다</h2>
+            <p class="slide-subtitle">통증은 자아와 신체가 관계 맺는 방식이다. 나는 통증을 통해 비로소 내 신체의 내면을 보고, 신체는 통증을 통해 내면을 보는 나를 본다.</p>
+            <p class="slide-content">만약 그렇다면, 통증은 나의 아픔이라는 주관적 상태를 넘어 보편적 지위를 획득한다. 내가 타자와 관계 맺는 방식도 넓은 의미의 통증인 것이다.<br><br>나와 타인도 통증을 통해 관계를 맺고 서로의 존재를 확인한다. 나는 통증을 통해 비로소 신체의 껍질 안쪽으로 펼쳐진 <span class="highlight">타인의 내면을 보고</span>, 타인은 통증을 통해 <span class="highlight">자신의 내면을 보는 나를 본다.</span></p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">이야기에 대하여</p>
+            <h2 class="slide-title">세계와 나를 맺어주는 도구</h2>
+            <p class="slide-subtitle">이야기는 나와 세계를 관계 맺게 하는 도구다. 우리는 날것 그대로의 세계를 볼 수 없다.</p>
+            <p class="slide-content">어떤 안경이 되었든 반드시 집어 들어야 하고, 그 안경의 색깔이 만들어내는 명도와 채도 안에서만 세계를 받아들일 수 있다. 종교는 신과 인간의 계약이라는 이야기로, 자본주의는 수요와 공급으로, 과학은 인과의 법칙이라는 이야기로 세계를 설명한다.<br><br>결국 나의 삶 또한 객관적 사실과 데이터로만 이해되지 않는다. 내 인생의 소중한 기억들은 나 스스로에 의해 선별되어 마음의 앨범 속에 배열되고, <span class="highlight">하나의 이야기로 서술된다.</span> 그리고 그 이야기는 결국 우리를 깨닫게 한다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">믿음에 대하여</p>
+            <h2 class="slide-title">낡은 벤치를 지키는 두 명의 군인 이야기</h2>
+            <p class="slide-subtitle">새로 부임한 대대장은 수풀 속 낡은 벤치 하나를 두 명의 병사가 지키고 있는 이상한 광경을 발견했다.</p>
+            <p class="slide-content">아무도 그 이유를 몰랐다. 아주 오래전부터 내려온 임무였다. 진실은 이것이다. 아주 오래 전, 부대 창설 초기, 페인트가 마르지 않은 벤치에 병사들이 앉지 못하도록 한 명의 보초를 세웠다. 얼마 후, 경계근무는 2인 1조로 하라는 상부의 명령이 내려왔다. <span class="highlight">시간이 흘러 사람과 시대는 변했지만, 부대의 규칙과 질서는 반복되고 이어졌다.</span><br><br>이것이 낡은 벤치가 두 명의 병사에 의해 지켜진 이유였다. 당신은 지금 어떤 벤치를 지키고 있는가?</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">진리에 대하여</p>
+            <h2 class="slide-title">진리는 어떻게 폭력이 되는가</h2>
+            <p class="slide-subtitle">하나의 확고한 진리가 세상에 등장하면 그것이 어떻게 타인을 향한 폭력으로 전이되는지를 분명히 보았다.</p>
+             <div class="mt-8 p-6 bg-gray-800 border border-gray-700 rounded-lg">
+                <h3 class="font-bold text-lg text-blue-400">진리의 폭력성</h3>
+                <p class="mt-2">하나의 부분집합 A가 스스로를 '진리'로 규정한다. 진리는 보편성을 내포하므로, A는 '모든 것이 A여야 한다'고 믿는다. 그러나 현실에는 A가 아닌 B, C, D가 존재한다. A에게 이들은 'A가 아닌 것들'일 뿐이다. 이제 A에게는 <span class="highlight">'A가 아닌 것들'을 제거해야 할 의무</span>가 발생하고, 이것이 회유, 유인, 강제, 억압의 폭력으로 나타난다.</p>
             </div>
         </div>
-    </div>
-
-    <!-- Slide 21: P2 - Why Am I Obsessed with Myself? -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">왜 나는 나에게 <span class="title-accent">집착하는가?</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">우리가 세계에 던져졌다고 할 때, 그 세계는 지구가 아니라 바로 '나 자신'이다. 우리는 나 자신에게 던져졌다. 당신은 당신에게, 나는 나에게. 그래서 그것은 신비한 일이다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">이것은 극복하기 어려운 한계이자 비극이 된다. 나의 신체와 내가 가진 것에 마음이 쏠려 한시도 잊지 못하고 매달리기 때문이다. 그래서 고통이 된다. 살아간다는 것이 버겁고, 내 삶이 남의 삶보다 고된 이유, 내가 손에 쥔 것이 남이 가진 것처럼 쉽게 얻을 수 없었던 이유, 모든 것은 그래서였다.</p>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">현실에 대하여</p>
+            <h2 class="slide-title">자본주의가 빼앗아가는 것들</h2>
+            <p class="slide-subtitle">자본주의는 우리에게서 '생산자로서의 지위'를 빼앗아간다.</p>
+            <p class="slide-content">자본주의는 생산자와 소비자의 역할을 엄격히 구분한다. 우리는 특정 분야의 제한된 역할만을 수행하도록 강요받는다.<br><br>우리는 <span class="highlight">춤과 노래</span>를 빼앗겼다. 전문가인 연예인이 생산하고 우리는 소비한다.<br>우리는 <span class="highlight">말과 대화</span>를 빼앗겼다. 전문가인 방송인이 생산하고 우리는 소비한다.<br>우리는 <span class="highlight">사유와 지식</span>을 빼앗겼다. 전문가인 학자가 생산하고 우리는 소비한다.<br><br>결국 우리는 놀지 못하고, 관계 맺지 못하고, 생각할 줄 모르는, 다만 소비해야 하는 존재로 밀려나고 만다.</p>
         </div>
-    </div>
-
-    <!-- Slide 22: P2 - My Story: Floating in Reality -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">현실에서 <span class="title-accent">부유하는 사람들</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">아버지는 현실에 적응하지 못했다. 항상 떠날 거라는 말을 입에 붙이고 살았다. 어린 나는 그 말이 실현되기를, 이 불안이 끝나기만을 바랐다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">이제 당시 아버지의 나이가 되어서야 나는 그의 마음을 상상해본다. 무엇이 그를 그렇게 불안하게 했을까. 왜 현실에 안착하지 못하고 도망치려 했을까.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">그리고 이제는 나 또한 사람들에게 말하고 다닌다. 언젠가 티벳에 가겠다고. 그것은 나에게 주어진 의무 같다며, 내 안의 불안을 옮겨 붙인다.</p>
-        </div>
-    </div>
-
-    <!-- Slide 23: Part 3 Header -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2 class="text-2xl md:text-3xl text-gray-400">Part 3</h2>
-            <h1 class="text-5xl md:text-7xl title-accent mt-2">도구 (Tools)</h1>
-        </div>
-    </div>
-
-    <!-- Slide 24: Part 3 Quote -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <blockquote class="text-xl md:text-2xl leading-relaxed">
-                "이야기는 나와 세계를 관계 맺게 하는 도구다. 우리는 날것 그대로의 세계를 볼 수 없다. 어떤 안경이 되었든 반드시 집어 들어야 하고, 그 안경의 색깔이 만들어내는 명도와 채도 안에서만 세계를 받아들일 수 있다. 세계의 거대함은 이야기를 통해 나에게 의존하고, 나는 이야기를 통해 세계의 거대함을 포용한다."
-            </blockquote>
-        </div>
-    </div>
-
-    <!-- Slide 25: P3 - All Relationships are Pain -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">모든 관계는 <span class="title-accent">통증이다</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">통증은 신체가 나에게 건네는 '말'이다. 입이 없는 신체가 자신이 존재하고 있음을 알리는 유일한 방법이다. 그런 의미에서 통증은 자아와 신체가 관계 맺는 방식이다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">만약 그렇다면, 통증은 나의 아픔에 한정되지 않고 보편적 지위를 획득한다. 내가 타자와 관계 맺는 방식도 넓은 의미의 통증이다. 첫 만남, 애착, 설렘, 익숙함, 오해, 권태, 이별, 그리움... 그와 함께한다는 것은 모든 순간이 자극이고 통증이었다.</p>
-        </div>
-    </div>
-    
-    <!-- Slide 26: P3 - Story is Another Name for Pain -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">'이야기'는 <span class="title-accent">통증의 다른 이름</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">세계의 거대한 통증은 우리와 완전히 단절되지 않는다. 직접적이고 원초적인 방식은 아니지만, 간접적이고 서사적인 방식을 통해 우리에게 전해진다.</p>
-            <div class="callout">
-                <p class="text-lg">'이야기'는 통증의 다른 이름이다. 그것은 완화된 방식으로 우리가 세계의 고통을 이해할 수 있게 하고, 비로소 작은 개인을 거대한 세계와 관계 맺게 한다.</p>
-            </div>
-            <p class="text-lg md:text-xl mt-6">많은 책을 읽고, 다양한 분야를 탐구하고, 낯선 영화를 보고, 여러 음악을 듣는 것은 나의 감각을 확장하고, 결국 세계의 고통을 내가 감지하게 한다.</p>
-        </div>
-    </div>
-
-    <!-- Slide 27: P3 - How Truth Becomes Violence -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">진리는 어떻게 <span class="title-accent">폭력이 되는가</span></h2>
-            <div class="two-column text-lg">
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">언어에 대하여</p>
+            <h2 class="slide-title">언어의 두 가지 방향</h2>
+            <p class="slide-subtitle">언어의 한계를 극복하는 방법은 두 가지 방향으로 나아간다.</p>
+             <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <p>하나의 확고한 진리(집합 A)가 세상에 등장하면, 그것은 스스로를 보편적이라 규정한다.</p>
-                    <p class="mt-4">세상의 모든 것(전체집합 U)이 A여야만 한다. 하지만 현실에는 A가 아닌 것들(여집합 B, C, D)이 존재한다.</p>
+                  <h3 class="font-bold text-lg text-blue-400 mb-2"><i class="fa-solid fa-book mr-2"></i> 양적 증가: 책</h3>
+                  <p>개인의 거대한 사유를 타인에게 전달하기 위해 잘게 부수어 비좁은 통로(언어)로 밀어 넣는 과정. 사유가 거대할수록 책의 부피는 커진다. 독자는 쏟아지는 언어를 받아 조립하며 의미를 재구성한다.</p>
                 </div>
                 <div>
-                    <p>A에게 B, C, D는 인정될 수 없다. 그들은 그저 'A가 아닌 것들'로 규정된다.</p>
-                    <p class="mt-4">A가 진리이기 위해 'A가 아닌 것들'에 대한 제거가 필연적으로 요구된다. 이것이 폭력(회유, 유인, 강제, 억압)의 시작이다.</p>
+                  <h3 class="font-bold text-lg text-blue-400 mb-2"><i class="fa-solid fa-feather-pointed mr-2"></i> 양적 감소: 시</h3>
+                  <p>거대한 사유를 통로에 맞게 다듬고 압축하여 온전히 굴려 보내는 과정. 사유가 거대할수록 언어는 농축되고 무거워진다. 독자는 단단한 언어의 표면을 배회하며 의미를 추측해낸다.</p>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Slide 28: P3 - Two Directions of Language -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">언어의 <span class="title-accent">두 가지 방향</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">언어의 한계를 극복하는 방법은 두 가지 방향으로 나아간다: 언어의 양을 늘리는 방향과 줄이는 방향.</p>
-            <div class="mt-8 flex justify-around items-center text-center">
-                <div class="w-1/2">
-                    <h3 class="text-2xl title-accent">양적 증가 → 책</h3>
-                    <p class="mt-2 text-lg">개인의 사유를 타인에게 전달하기 위해 언어를 잘게 쪼개어 비좁은 통로로 밀어 넣는다. 사유가 거대할수록 책의 부피는 커진다.</p>
-                </div>
-                <div class="w-1/2">
-                    <h3 class="text-2xl title-accent">양적 감소 → 시</h3>
-                    <p class="mt-2 text-lg">통로에 적합한 크기로 사유를 다듬고 압축하여 온전히 굴려 보낸다. 사유가 거대할수록 언어는 농축되고 시의 길이는 짧아진다.</p>
-                </div>
+      </div>
+      
+      <!-- Part 4: 의미 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="text-5xl mb-6"><i class="fa-solid fa-infinity"></i></p>
+            <p class="slide-part-title">PART 4</p>
+            <h2 class="text-6xl font-black text-gray-100">의미</h2>
+            <p class="slide-subtitle mt-4">자아, 타인, 세계의 궁극적 의미</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">꿈에 대하여</p>
+            <h2 class="slide-title">꿈이 삶을 가르친다</h2>
+            <p class="slide-subtitle">꿈과 현실이라는 두 가지 세계는 동일한 것일지 모른다.</p>
+            <p class="slide-content">꿈속에서 마음 썼던 감정들이 꿈에서 깨어남과 동시에 아무것도 아닌 것이 되는 것처럼, 현실에서 집착하던 감정들은 죽음과 함께 아무것도 아닌 것으로 사라지고 말 것이다.<br><br>이 견고한 현실 세계는 어쩌면 꿈처럼 처음부터 없었던 것일지도 모른다. <span class="highlight">꿈은 매일 우리를 가르친다. 아무것도 없음을. 실체도, 기반도, 남는 것은 없다고.</span></p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">죽음에 대하여</p>
+            <h2 class="slide-title">상실과 소멸이 우리를 일으켜준다</h2>
+            <p class="slide-subtitle">죽음이 안타까운 건 개체의 소멸 때문이 아니라, 관계의 끊어짐 때문이다.</p>
+            <p class="slide-content">자본주의는 죽음을 사회에서 몰아낸다. 죽음의 그림자로부터 벗어나 위안을 얻게 한다. 하지만 그 동안 우리는 죽음의 필연적 도래를 망각하고, 끝과 소멸에서부터 들려오는 나의 목소리를 듣지 못하게 된다.<br><br>그래서 문제가 된다. 나의 죽음과 끝과 소멸이 비로소 나를 깨우치고 일으켜 세워주기 때문에. <span class="highlight">나와 타자, 나와 세계가 어떻게 관계 맺고 어떤 의미를 갖는지가 죽음을 통해서야 비로소 드러나기 때문이다.</span></p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">노화에 대하여</p>
+            <h2 class="slide-title">죽음이 무르익어가는 과정을 지켜본다는 것</h2>
+            <p class="slide-subtitle">죽음은 하나의 지점이 아니라 과정이다. 삶이 끝나고 죽음이 오는 것이 아니라, 매우 길고 지루한 시간 동안 삶 위로 죽음이 쌓이고 중첩되어 무르익어가는 것이다.</p>
+            <p class="slide-content">날이 저무는 것을 지켜보는 것도 생각보다 괜찮을지 모른다. 노을이 지는 것도, 움켜쥐었던 강물이 손가락 사이를 빠져나가는 것도, 쌓아올린 모래성이 바람에 야위어가는 것도, 약속이라도 한 듯 모든 것을 하나둘 잃어가는 것도 <span class="highlight">생각보다 가치 있고 의미 있는 과정일지 모른다.</span></p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">환생에 대하여</p>
+            <h2 class="slide-title">팔라우의 해파리로 산다는 것</h2>
+            <p class="slide-subtitle">"다시 태어난다면 팔라우 섬의 해파리로 태어나고 싶다."</p>
+            <p class="slide-content">독성 하나 갖지 않은 연약한 몸뚱아리. 그것 안쪽으로 우리에게 결코 드러나지 않을 깊은 내면세계. 아침 해를 따라 동쪽으로, 저녁 해를 따라 서쪽으로 떠다니는 단순하고 심오한 일과. 그들은 우리가 상상할 수 없는 화려하고 격정적인 세계를 경험하고 있을지 모른다.<br><br>그래서 그렇게 대답한 것이다. 누구도 공격하지 않고, 위협하지 않고, 다만 <span class="highlight">자신의 찬란한 내면세계 속에서 짧은 시간이나마 격정적으로 살아내고 싶었기에.</span></p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">영원에 대하여</p>
+            <h2 class="slide-title">끝나지 않을 노래를 부른다는 것</h2>
+            <div class="quote-block text-center text-lg">
+              <p>살아 있는 동안, 빛나라.</p>
+              <p>그대여 결코 슬퍼하지 말라.</p>
+              <p>인생은 찰나와도 같고,</p>
+              <p>시간이 마지막을 청하게 되니.</p>
+              <p class="text-sm mt-2">- 세이킬로스의 비문</p>
             </div>
+            <p class="slide-content text-center mt-8">모든 것은 죽고, 모든 것은 사라진다. 하지만 기억은 비석 위에 새겨지고, 비석과 함께 영원히 존재할 것이다.</p>
         </div>
-    </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">결론을 향하여 1</p>
+            <h2 class="slide-title">철학에서 가장 중요한 문제</h2>
+            <p class="slide-subtitle">노년의 철학 교수는 말했다. "주체와 객체의 문제. 그것이 철학에서 가장 중요한 문제입니다."</p>
+            <p class="slide-content">많은 시간이 지나서야 조금은 이해할 것 같다. 철학에서 가장 중요한 문제는 <span class="highlight">주체와 객체의 문제</span>였고, 동시에 <span class="highlight">의식의 문제</span>였다. 주체로서의 나와 객체로서의 세계의 문제. 즉, 의식의 장에서 드러나는 나와 세계의 관계.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">결론을 향하여 2</p>
+            <h2 class="slide-title">나는 누구인가</h2>
+            <p class="slide-subtitle">"나는 누구인가?" 라는 질문은 답변의 가능성을 '사람'에 한정한다. 우리는 이렇게 물어야 한다. "나는 무엇인가?"</p>
+            <p class="slide-content">현실의 나와 꿈속의 나는 무엇을 공유하는가? 육체, 정신, 정서, 기억, 정체성 모든 것이 다르다. 공유하는 것은 단 하나, '보고 있음'이라는 그 상태다. 현실의 나를 중심으로 세계를 보고 있고, 꿈속의 인물을 중심으로 세계를 보고 있다. 바로 그 시점, 관점, 펼쳐진 세계의 중심점. <br><br>이것이 자아의 본질이고, 존재하는 유일한 실체다. 나는 <span class="highlight">'관조자(觀照者)', 즉 지켜보는 존재</span>다.</p>
+        </div>
+      </div>
 
-    <!-- Slide 29: P3 - The Word of Others -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">타인의 말</h2>
-            <p class="text-lg md:text-xl leading-relaxed">바다로 가려는 청년이 있었다. 그는 '바다로 가는 길을 아는 아이'를 만났지만, '믿을 만한 사람을 찾아가라'는 소몰이꾼의 충고를 듣는다. 결국 청년은 소몰이꾼이 소개해준 성공한 장사꾼을 따라 '성공으로 가는 길'을 걷는다.</p>
-            <blockquote class="mt-6 text-xl">이 이야기는 행복하게 끝난다. 하지만 잊지 말아야 할 것이 있다. 그것은 청년이 그렇게도 보고 싶어 했던 바다를 보지 못했다는 것이다.</blockquote>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">어른들은 우리에게 행복이 아니라 다른 것을 찾아야 한다고 가르쳤다. 훌륭한 사람, 가치 있는 사람, 성공한 사람이 되어야 한다고. 우리는 타인의 말을 헤치고, 내가 처음 가고자 했던 길을 묵묵히 걸어가야 한다.</p>
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">결론을 향하여 3</p>
+            <h2 class="slide-title">세계란 무엇인가</h2>
+            <p class="slide-subtitle">세계가 물리적 대상이 아님을 보여주는 가장 강력한 사례는 '빛'의 문제다.</p>
+            <p class="slide-content">세계는 빛이다. 이 빛은 어디에서 오는가? 외부의 광원인가? 우리는 눈을 감아도, 꿈을 꿀 때도, 상상만으로도 빛을 본다. 이 빛은 외부의 광자가 아니라 내면의 특성이다. 그렇다면 내 내면은 무엇인가? 그것은 '관조자'였다.<br><br><span class="highlight">'세계란 무엇인가? 그것은 빛이다. 그리고 빛은 관조자의 특성이다.'</span><br>혹은,<br><span class="highlight">'나란 무엇인가? 그것은 관조자다. 그리고 관조자의 특성은 빛이다.'</span></p>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 30: Part 4 Header -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2 class="text-2xl md:text-3xl text-gray-400">Part 4</h2>
-            <h1 class="text-5xl md:text-7xl title-accent mt-2">의미 (Meaning)</h1>
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">결론을 향하여 4</p>
+            <h2 class="slide-title">우리는 왜 존재하는가</h2>
+            <p class="slide-subtitle">우리가 이 세상에 온 이유는 바로 이러한 질문을 던지기 위해서입니다.</p>
+            <p class="slide-content">최초의 완전한 의식은 자신에게 질문했다. '나는 왜 존재하는가?' 답을 얻는 유일한 방법은 소멸을 경험하는 것이었다. 그래서 스스로 분화하기 시작했다. 그 무수히 많은 의식의 파편이 바로 당신이고, 나이고, 우리다.<br><br>결론은 이것이다. <span class="highlight">우리는 왜 존재하는가? 바로 이 질문을 던지기 위해서입니다.</span></p>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 31: Part 4 Quote -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <blockquote class="text-xl md:text-2xl leading-relaxed">
-                "여행자. 그래서 이것이 모든 나라는 존재의 숙명이다. 여기에 이유나 목적이 있는지는 알 수 없다. 다만 확실한 것은 우리가 상상할 수도 없이 지루하고도 긴 무한이라는 시간 동안 이 우주에서 저 우주로 눈뜨고 휘둘리며 여행할 것이라는 점이다. 우리는 얼마나 많은 세계를 여행하다 이곳에서 이렇게 만나게 된 것일까.”
-            </blockquote>
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">결론을 향하여 5</p>
+            <h2 class="slide-title">자기 안에 우주를 담고 있는 수많은 존재에 대하여</h2>
+            <p class="slide-subtitle">우리는 여행자다. 이것이 모든 나라는 존재의 숙명이다.</p>
+            <p class="slide-content">신체적 죽음 이후에 우리의 의식은 소멸하지 않는다. 외부 관찰자에게는 발생과 소멸의 단절적 과정으로 보이겠지만, 자아의 시선에서는 끊임없이 연결된다. 죽음은 문이 되고 통로가 된다. <br><br><span class="highlight">'네가 그것이다(Tat Tvam Asi).'</span> 네가 너의 본질인 아트만이고, 동시에 우주의 본질인 브라흐만이다. 네가 바로 그것이다. 우리는 자기 안에 우주를 담고 있는 영원한 존재임을 안다. 헤어짐도, 망각도, 죽음도, 아쉬운 것은 없다. <br><br>우리는 운명처럼 언젠가 다시 만나게 될 테니.</p>
         </div>
-    </div>
+      </div>
+      
+      <!-- Slide: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6"><i class="fa-solid fa-hands-holding-circle text-blue-400"></i></div>
+          <h2 class="slide-title">우리는 언젠가 만난다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">나, 타인, 세계. 이 세 가지의 관계를 이해하는 여정은 결국 '나'라는 존재의 본질을 깨닫는 과정입니다. 우리는 모두 각자의 우주를 가진 채, 영원의 시간 속을 여행하는 <span class="highlight">관조자</span>입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-200">모든 만남은 세계의 충돌이며, 모든 지식과 경험은 우리 안에서 별을 이룹니다. 우리는 결국 다시 만나게 될 운명입니다.</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Slide 32: P4 - Dreams Teach Life -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">꿈이 <span class="title-accent">삶을 가르친다</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">꿈과 현실이라는 두 가지 세계는 동일한 것일지 모른다. 꿈속에서 마음 썼던 감정들이 꿈에서 깨어남과 동시에 아무것도 아닌 것이 되는 것처럼, 현실에서 집착하던 감정들은 죽음과 함께 아무것도 아닌 것으로 사라지고 말 것이다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">꿈이 매일 우리를 가르친다. 아무것도 없음을. 실체도, 기반도, 남는 것은 없음을. 삶이라는 꿈에서 깨어나는 순간, 이곳과는 다른 곳에서 꿈은 또 다시 이어질 것이다.</p>
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8"><i class="fa-solid fa-seedling text-green-400"></i></div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-100 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-400">Q&A</p>
         </div>
-    </div>
-    
-    <!-- Slide 33: P4 - Loss and Extinction Raise Us -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">상실과 소멸이 <span class="title-accent">우리를 일으켜준다</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">죽음이 안타까운 건 개체의 소멸 때문이 아니라, 관계의 끊어짐 때문이다. 인생이라는 시간 동안 한 올 한 올 정성스레 짜낸 관계의 직물은 죽음과 동시에 올올이 풀리고 흩어져 사라지고 만다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">자본주의는 죽음을 사회에서 몰아낸다. 우리는 죽음을 보지 않고, 끝과 소멸에서 들려오는 나의 목소리를 듣지 못하게 된다. 그래서 문제가 된다. 나의 죽음과 끝과 소멸이 비로소 나를 깨우치고 일으켜 세워주기 때문에.</p>
-        </div>
-    </div>
-    
-    <!-- Slide 34: P4 - Towards the Conclusion 1: The Most Important Problem -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">결론을 향하여 1: <span class="title-accent">철학의 가장 중요한 문제</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">"주체와 객체의 문제. 그것이 철학에서 가장 중요한 문제입니다."</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">많은 시간이 지난 지금에서야 조금은 이해할 것 같다. 철학에서 가장 중요한 문제는 주체와 객체의 문제였고, 동시에 의식의 문제였다. 주체로서의 '나'와 객체로서의 '세계'의 문제. 즉, 의식의 장에서 드러나는 나와 세계의 관계.</p>
-        </div>
-    </div>
-    
-    <!-- Slide 35: P4 - Towards the Conclusion 2: Who Am I? -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">결론을 향하여 2: <span class="title-accent">나는 누구인가?</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">"나는 누구인가?" 라는 질문은 답변의 가능성을 '사람'에 한정한다. 질문을 수정해야 한다. "나는 무엇인가?"</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">현실의 나와 꿈속의 내가 공유하는 것은 무엇인가? 육체, 정신, 정서적 특징은 모두 다르다. 유일한 공통분모는 '보고 있음'이라는 그 상태, 즉 시점이다.</p>
-            <blockquote class="mt-6 text-xl">나는 무엇인가? <br> <span class="title-accent">그것은 관조자(觀照者)다.</span> 지켜보는 존재. 이것이 자아의 본질이다.</blockquote>
-        </div>
-    </div>
-    
-    <!-- Slide 36: P4 - Towards the Conclusion 3: What is the World? -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">결론을 향하여 3: <span class="title-accent">세계란 무엇인가?</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">세계는 물리적 대상이 아니다. 세계의 실체는 빛이다. 이 빛은 어디에서 오는가? 외부의 광자가 아니라 내면을 구성하는 조건으로서의 빛이다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">내면의 빛은 무엇인가? 그것은 '관조자'의 특성이다. 결국 두 질문은 같은 것을 묻는다.</p>
-            <div class="callout mt-8">
-                <p class="text-lg">'세계란 무엇인가? 그것은 빛이다. 그리고 빛은 관조자의 특성이다.'</p>
-                <p class="text-lg mt-2">'나란 무엇인가? 그것은 관조자다. 그리고 관조자의 특성은 빛이다.'</p>
-            </div>
-        </div>
-    </div>
+      </div>
 
-    <!-- Slide 37: P4 - Towards the Conclusion 4: Why Do We Exist? -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">결론을 향하여 4: <span class="title-accent">우리는 왜 존재하는가?</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">"우리가 이 세상에 온 이유는 바로 이러한 질문을 던지기 위해서입니다."</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">최초의 의식은 '나는 왜 존재하는가?'라는 질문에 답을 얻기 위해 스스로를 무수히 많은 의식의 파편으로 분화하여 생성과 소멸을 반복한다. 그것이 바로 당신이고, 나이고, 우리이다. 우리는 거대한 의식의 한 부분이다.</p>
-        </div>
     </div>
+  </div>
 
-    <!-- Slide 38: P4 - Towards the Conclusion 5: Tat Tvam Asi -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-3xl md:text-4xl mb-6">결론을 향하여 5</h2>
-            <h3 class="text-4xl md:text-5xl title-accent">네가 바로 그것이다 (Tat Tvam Asi)</h3>
-            <p class="text-lg md:text-xl mt-8 leading-relaxed">네가 너의 본질인 아트만이고, 동시에 우주의 본질인 브라흐만이다. 나는 이제 우리가 자기 안에 우주를 담고 있는 영원한 존재임을 안다. 당신이, 그리고 내가 바로 그것임을 안다.</p>
-            <p class="mt-6 text-lg md:text-xl leading-relaxed">헤어짐도, 망각도, 죽음도, 아쉬운 것은 없다.<br>우리는 운명처럼 언젠가 다시 만나게 될 테니.</p>
-        </div>
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
     </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-400 font-medium text-sm"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
 
-    <!-- Slide 39: Conclusion -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <h2 class="text-4xl md:text-5xl mb-8">결론: <span class="title-accent">관계의 인문학</span></h2>
-            <p class="text-lg md:text-xl leading-relaxed">『우리는 언젠가 만난다』는 '관계'라는 거대한 주제를 통해 나, 타인, 세계의 의미를 탐구합니다.</p>
-            <ul class="text-left list-disc list-inside mt-6 space-y-3 text-lg md:text-xl">
-                <li><strong class="title-accent">타인:</strong> 만남은 세계의 충돌이며, 이별을 통해 우리의 세계는 더욱 풍요로워집니다.</li>
-                <li><strong class="title-accent">세계:</strong> 세상은 정해진 길이 아니라 들판이며, 우리는 그 위를 걷는 여행자입니다.</li>
-                <li><strong class="title-accent">도구:</strong> 언어와 이야기는 불완전하지만, 세계와 관계 맺는 유일한 통로입니다.</li>
-                <li><strong class="title-accent">의미:</strong> '나'는 세계를 비추는 '관조자'이며, 우리는 모두 언젠가 다시 만날 우주적 존재입니다.</li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- Slide 40: Final Quote -->
-    <div class="slide">
-        <div class="slide-content max-w-4xl">
-            <blockquote class="text-2xl md:text-4xl leading-relaxed">
-                "만남, 그것은 차라리 세계와 세계의 충돌에 가깝다."
-            </blockquote>
-        </div>
-    </div>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
 
-    <!-- Slide 41: Thank You & Q&A -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2 class="text-4xl md:text-5xl mb-4">감사합니다</h2>
-            <p class="text-2xl md:text-3xl text-gray-300">Q & A</p>
-             <p class="text-lg text-gray-400 mt-12">언젠가 어느 곳에서 당신과 만나<br>이야기 나누게 되기를</p>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <div id="prev" class="nav-arrow">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-    </div>
-    <div id="next" class="nav-arrow">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-    </div>
-    <div id="slide-counter"></div>
-
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        const slideCounter = document.getElementById('slide-counter');
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + totalSlides) % totalSlides;
-            slides[currentSlide].classList.add('active');
-            updateCounter();
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
         }
-        
-        function updateCounter() {
-            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
-        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
 
-        document.getElementById('prev').addEventListener('click', () => {
-            showSlide(currentSlide - 1);
-        });
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
 
-        document.getElementById('next').addEventListener('click', () => {
-            showSlide(currentSlide + 1);
-        });
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                showSlide(currentSlide + 1);
-            } else if (e.key === 'ArrowLeft') {
-                showSlide(currentSlide - 1);
-            }
-        });
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+        window.scrollTo(0, 0);
+      }
+    });
 
-        // Initialize
-        updateCounter();
-    </script>
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+        window.scrollTo(0, 0);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
 </body>
 </html>
