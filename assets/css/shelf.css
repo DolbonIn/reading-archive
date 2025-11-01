@@ -441,6 +441,42 @@ body {
 
 body.is-mobile #app {
   perspective: none;
+  overflow: visible;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  padding: 24px 0 80px;
+}
+
+body.is-mobile {
+  overflow-y: auto;
+}
+
+body.is-mobile .header-bar {
+  position: sticky;
+  top: 16px;
+  left: 0;
+  right: 0;
+  transform: none;
+  justify-content: center;
+  margin: 0 16px;
+  width: auto;
+  padding: 12px 18px;
+  border-radius: 22px;
+  order: 0;
+  align-self: center;
+}
+
+body.is-mobile .header-bar h1 {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+body.is-mobile .header-bar .chip {
+  display: none;
 }
 
 body.is-mobile .parallax,
@@ -449,11 +485,13 @@ body.is-mobile .stage-shadow {
 }
 
 body.is-mobile .bookshelf-wrapper {
+  order: 1;
   position: static;
   inset: auto;
   display: block;
-  margin: 120px auto 200px;
+  margin: 0 auto;
   width: calc(100% - 32px);
+  pointer-events: auto;
 }
 
 body.is-mobile .shelf-stage {
@@ -522,11 +560,94 @@ body.is-mobile .info-panel.visible {
 body.is-mobile .controls {
   position: static;
   transform: none;
-  margin: 18px auto 40px;
+  margin: 0 16px 40px;
   width: calc(100% - 32px);
   pointer-events: auto;
+  order: 3;
 }
 
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
+  #app {
+    perspective: none;
+    overflow: visible;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px 0 80px;
+  }
+
+  .header-bar {
+    position: sticky;
+    top: 16px;
+    left: 0;
+    right: 0;
+    transform: none;
+    justify-content: center;
+    margin: 0 16px;
+    width: auto;
+    padding: 12px 18px;
+    border-radius: 22px;
+    align-self: center;
+    order: 0;
+  }
+
+  .header-bar h1 {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .header-bar .chip {
+    display: none;
+  }
+
+  .bookshelf-wrapper {
+    position: static;
+    inset: auto;
+    display: block;
+    margin: 0 auto;
+    width: calc(100% - 32px);
+    pointer-events: auto;
+    order: 1;
+  }
+
+  .shelf-stage {
+    width: 100%;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .controls {
+    position: static;
+    transform: none;
+    margin: 0 16px 40px;
+    width: calc(100% - 32px);
+    pointer-events: auto;
+    order: 3;
+  }
+
+  .info-panel {
+    position: relative;
+    transform: none !important;
+    margin: 24px 16px 0;
+    width: auto;
+    order: 2;
+  }
+
+  .info-panel.visible {
+    transform: none !important;
+  }
+
+  #empty-state {
+    order: 1;
+  }
+}
 @keyframes floatGlow {
   0%, 100% {
     transform: translateZ(-500px) scale(1.05) translate(0, 0);
