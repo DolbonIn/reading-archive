@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principles: A Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 2rem;
+    }
+    li {
+        margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">📖</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">원칙 (Principles)</h1>
+          <p class="text-xl md:text-2xl text-gray-700">레이 달리오의 <span class="highlight">인생과 일</span>의 원칙</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 들어가는 글:</b> 원칙의 중요성</p>
+            <p><b>2. 제1부 나의 인생 여정:</b> 경험을 통한 배움</p>
+            <p> &nbsp; &nbsp; • 1장: 모험을 향한 결단 (1949-1967)</p>
+            <p> &nbsp; &nbsp; • 2장: 한계를 넘어 (1967-1979)</p>
+            <p> &nbsp; &nbsp; • 3장: 인생의 나락 (1979-1982)</p>
+            <p> &nbsp; &nbsp; • 4장: 시련의 길 (1983-1994)</p>
+            <p><b>3. 제2부 인생의 원칙:</b> 핵심 원칙 요약</p>
+            <p><b>4. 결론:</b> 핵심 메시지</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title: Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Section 1</p>
+          <h2 class="slide-title">들어가는 글: <span class="highlight">원칙</span>의 중요성</h2>
+          <p class="slide-content">원칙은 왜 필요하며, 어떻게 자신만의 원칙을 만들고 활용할 수 있는지에 대한 레이 달리오의 서문입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Intro - Humility -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"나는 잘 모르는 바보" 🤔</h2>
+          <p class="slide-subtitle">성공은 아는 것보다 '알지 못하는 것'에 어떻게 대응하는가에서 비롯됩니다.</p>
+          <div class="slide-content">
+            <p>레이 달리오는 자신의 성공 비결이 <span class="highlight">자신이 모른다는 사실을 아는 것</span>에서 시작되었다고 말합니다. 이것이 그가 원칙에 근거한 삶의 접근법을 만들게 된 계기입니다.</p>
+            <p class="mt-4">가장 중요한 배움은 '무엇이 진실이고, 무엇을 해야 하는가'를 발견하는 데 도움이 되는 원칙을 찾는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: Intro - What are Principles? -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">원칙이란 무엇인가? 📜</h2>
+            <p class="slide-subtitle">원칙은 인생에서 원하는 것을 얻도록 만들어주는 행동의 기초가 되는 근본적인 진리입니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-blue-600">원칙이 없다면?</h3>
+                    <p>우리는 매일 수많은 상황에 마주칩니다. 원칙이 없다면 모든 상황을 마치 처음 경험하는 것처럼 대응해야 합니다. 이는 비효율적이고 더 나쁜 결정을 내리게 만듭니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-green-600">원칙이 있다면?</h3>
+                    <p>상황을 유형별로 분류하고, 그에 맞는 훌륭한 원칙을 적용하면 <span class="highlight">더 빠르고 더 좋은 결정</span>을 내릴 수 있습니다. 이는 결국 더 좋은 삶으로 이어집니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Intro - My First Principle -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나의 첫 번째 원칙 ☝️</h2>
+          <div class="slide-content">
+            <div class="p-8 bg-gray-50 border border-gray-200 rounded-lg text-center">
+                <p class="text-xl mb-4">1) 무엇을 원하는지</p>
+                <p class="text-xl mb-4">2) 무엇이 진실인지</p>
+                <p class="text-xl">그리고 3) 2번의 관점에서 1번을 성취하기 위해 무엇을 해야 하는지 결정하기 위해 <span class="highlight">스스로 생각하라.</span></p>
+            </div>
+            <p class="mt-6">다른 사람의 원칙을 그대로 받아들이는 것은 위험합니다. 자신의 목표와 본성에 맞지 않는 방식으로 행동하게 될 수 있습니다. 냉철한 머리와 열린 마음으로 스스로 생각하고 실행할 용기를 가져야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Intro - The Loop -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">나의 원칙과 배움의 과정 🔄</h2>
+            <img src="https://storage.googleapis.com/gemini-prod/images/05c87ab5-c6fe-4f1e-8120-1e5b706c62c2.png" alt="The Loop of Progress" class="mx-auto my-4 rounded-lg shadow-md max-w-lg">
+            <p class="slide-content max-w-3xl mx-auto">
+                인생은 <span class="highlight">실패, 변화, 성공, 그리고 더 원대한 목표 추구</span>의 연속선입니다. 저는 원대한 목표를 추구하고, 실패의 고통을 겪으며, 그 실수를 반복하지 않기 위한 원칙을 배우고, 다시 변화를 추구하는 과정을 반복했습니다.
+            </p>
+        </div>
+      </div>
+
+      <!-- Slide 8: Intro - Decision Making -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">의사결정 시스템화 ⚙️</h2>
+          <p class="slide-subtitle">고통스러운 실수를 통해 의사결정 방법을 찾아냈습니다.</p>
+          <div class="slide-content space-y-6">
+            <div>
+              <h3 class="font-bold text-lg"><i class="fa-solid fa-scale-balanced mr-2"></i> 신뢰도에 가중치를 두는 의사결정</h3>
+              <p>"내가 옳다는 것을 어떻게 아는가?" 라는 질문을 통해 겸손을 배우고, 현명한 사람들의 다른 관점을 탐구했습니다. 이를 통해 더 다양한 측면에서 사물을 보게 되었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg"><i class="fa-solid fa-sitemap mr-2"></i> 의사결정의 체계화</h3>
+              <p>의사결정 기준을 알고리즘 형태로 컴퓨터에 입력했습니다. 두 개의 의사결정 시스템(나의 뇌, 컴퓨터)을 함께 운영하며 컴퓨터가 더 나은 결정을 내릴 수 있음을 깨달았습니다. 이는 <span class="highlight">집단 의사결정의 수준</span>을 향상시켰습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Section Title: Part 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제1부</p>
+          <h2 class="slide-title">나의 인생 여정 🗺️</h2>
+          <p class="slide-content">제가 살아오면서 의사결정의 지침이 되는 원칙들을 발견하도록 이끌어준 몇 가지 경험들(특히 나의 실수들)을 공유합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: Part 1 - Chapter 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white p-12 rounded-lg">
+          <p class="slide-part-title text-gray-400">1장</p>
+          <h2 class="slide-title text-white">모험을 향한 결단 🚀</h2>
+          <p class="text-2xl font-bold">(1949-1967)</p>
+        </div>
+      </div>
+
+      <!-- Slide 11: Part 1, Ch 1 - Early Life -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">평범한 아이, 남다른 호기심 🧒</h2>
+            <p class="slide-subtitle">롱아일랜드의 평범한 중산층 가정에서 자랐지만, 나쁜 암기력과 지시를 따르기 싫어하는 성향을 가졌습니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">약점 👎</h3>
+                    <ul>
+                        <li>나쁜 암기력: 전화번호나 이유를 이해하지 못하는 사실 암기를 못함.</li>
+                        <li>지시 따르기 싫어함: 학교에 가는 것을 좋아하지 않음.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">강점 👍</h3>
+                    <ul>
+                        <li>강한 호기심.</li>
+                        <li>스스로 알아내는 것을 좋아함.</li>
+                        <li>8살부터 신문 배달, 캐디 등 돈을 벌기 위해 열심히 일함.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Part 1, Ch 1 - First Investment -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">12살의 첫 주식 투자 💰</h2>
+          <p class="slide-subtitle">캐디로 일하며 번 돈으로 첫 주식 투자를 시작했습니다.</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">첫 투자: 노스이스트 항공 ✈️</h3>
+              <p class="mt-2">들은 회사 중 유일하게 주가가 <span class="highlight">5달러 이하</span>였던 회사. 더 많이 살수록 더 많은 돈을 벌 것이라는 단순한 생각으로 매수했습니다.</p>
+              <p class="mt-2 font-bold text-green-700">결과는? 투자한 돈의 3배를 벌었습니다! 🚀</p>
+              <p class="mt-2 text-sm text-gray-600">(사실은 회사가 파산 직전 다른 회사에 인수되면서 운이 좋았던 것이었습니다.)</p>
+            </div>
+            <p class="mt-6">이 경험으로 주식 시장에서 돈 버는 것이 쉽다고 생각했고, 본격적으로 주식 투자에 빠져들었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Part 1, Ch 1 - Learning about Markets -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시장에 대한 탐구 📈</h2>
+          <p class="slide-subtitle">포천 500대 기업의 연례 보고서를 모두 신청해 투자 자료집을 만들기 시작했습니다.</p>
+          <div class="slide-content">
+            <p>당시 시장은 계속 상승세였고, 사람들은 주식투자로 돈을 벌고 있었습니다. 투자는 무엇인가를 사서 가격이 오르기를 기다리는 것처럼 단순하게 보였습니다.</p>
+            <p class="mt-4">상식적으로 경제 관리 기술이 발전함에 따라 주식 시장은 계속 상승할 것이라고 생각했습니다. 1966년, 고등학교 3학년 때 미국 증시는 <span class="highlight">최고 정점</span>에 달했습니다. 하지만 저는 그 사실을 몰랐습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Part 1 - Chapter 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white p-12 rounded-lg">
+          <p class="slide-part-title text-gray-400">2장</p>
+          <h2 class="slide-title text-white">한계를 넘어 🧗</h2>
+          <p class="text-2xl font-bold">(1967-1979)</p>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Part 1, Ch 2 - Lessons from Crashes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">경제 충격과 새로운 깨달음 💥</h2>
+          <p class="slide-subtitle">1967년에서 1979년 사이, 예상치 못한 경제 충격들로 자산 가격이 하락하며 중요한 교훈을 얻었습니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>미래는 현재와 <span class="highlight">완전히 다를 수 있다</span>는 사실을 배웠습니다.</li>
+              <li>시장이 하락해도 주식을 계속 매수하며 돈을 잃었습니다.</li>
+              <li><b>핵심 깨달음:</b> 가격은 사람들의 '기대'를 반영한다. 실제 결과가 기대보다 좋을 때 가격은 상승하고, 나쁠 때 하락한다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Part 1, Ch 2 - College & Meditation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대학 생활과 명상 🧘‍♂️</h2>
+          <p class="slide-subtitle">C.W. Post 대학에서 재무학을 전공하며 관심 있는 것을 배우는 즐거움을 느꼈습니다.</p>
+          <div class="slide-content">
+            <p>1968년 비틀스가 인도를 방문했을 때 초월 명상법을 배웠습니다. 명상은 제 인생에 큰 도움이 되었습니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">명상의 효과 ✨</h3>
+              <p class="mt-2">평온하고 열린 마음을 갖게 함으로써 <span class="highlight">더 분명하고 창의적으로 생각</span>하는 데 도움을 주었습니다.</p>
+            </div>
+            <p class="mt-6">이 시기 상품선물(Commodity Futures)에 대해 배우기 시작했습니다. 적은 증거금으로 큰 거래를 할 수 있다는 점이 매력적이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Part 1, Ch 2 - Bretton Woods Collapse -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">금본위제 붕괴 (1971년) 💵≠🥇</h2>
+            <p class="slide-subtitle">1971년 8월 15일, 닉슨 대통령은 달러를 금으로 바꿔주겠다는 약속을 파기했습니다.</p>
+            <div class="slide-content">
+                <p>저는 이 사건을 통해 정부 관리들이 하는 말을 그대로 믿어서는 안 된다는 것을 깨달았습니다. 그들은 평가절하는 없을 것이라 약속했지만, 정반대의 조치를 취했습니다.</p>
+                <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+                    <h3 class="font-bold text-lg">시장의 반응은? 🤔</h3>
+                    <p class="mt-2">저는 대혼란과 주가 폭락을 예상했습니다. 하지만 월요일 아침, 주식 시장은 폭락 대신 <span class="highlight">4%나 폭등</span>했습니다. 이 예상치 못한 사건을 이해하기 위해 과거의 통화 평가절하 사례들을 연구하기 시작했습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Part 1, Ch 2 - Harvard & First Oil Shock -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">하버드 경영대학원과 첫 번째 오일 쇼크 🛢️</h2>
+          <p class="slide-subtitle">하버드에서 사례 연구를 통해 문제 해결 능력을 길렀고, 세상의 똑똑한 친구들을 만났습니다.</p>
+          <div class="slide-content">
+            <p>하버드 복귀 후 첫 번째 오일 쇼크가 발생했고, 기름 가격이 4배로 상승했습니다. 1973년 주식 시장은 폭락했습니다.</p>
+            <p class="mt-4">이 사건들의 논리적 인과관계를 추론하며 <span class="highlight">역사적으로 반복되는 패턴</span>이 있음을 파악하기 시작했습니다. 거의 모든 사건은 과거에 발생했던 유사한 사건의 다른 버전이라는 것을 깨달았습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Part 1, Ch 2 - Founding Bridgewater -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">브리지워터의 탄생 (1975) 🌉</h2>
+          <p class="slide-subtitle">시어슨(Shearson)에서 해고된 후, 고객들의 조언 요청에 힘입어 자신의 회사를 설립했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">자유분방한 영혼</h3>
+              <p>저는 너무 자유분방해서 시어슨의 조직 문화와 맞지 않았습니다. 학술대회에서 스트립쇼를 하도록 주선하고, 상사의 얼굴을 때리는 등의 일로 결국 해고당했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">고객들의 신뢰</h3>
+              <p>하지만 저를 해고한 사람들을 포함한 중개인들과 고객들은 저를 좋아했고, 계속해서 조언해주기를 원했습니다. 그들은 자문 비용을 기꺼이 지급했고, 그 결과 1975년, 침실 두 개짜리 아파트에서 <span class="highlight">브리지워터 어소시에이츠</span>를 설립했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Part 1 - Chapter 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white p-12 rounded-lg">
+          <p class="slide-part-title text-gray-400">3장</p>
+          <h2 class="slide-title text-white">인생의 나락 📉</h2>
+          <p class="text-2xl font-bold">(1979-1982)</p>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Part 1, Ch 3 - The Prediction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대공황을 예측하다 (그러나 틀렸다) 🔮</h2>
+          <p class="slide-subtitle">1981년, 저는 미국 경제가 공황을 향해가고 있다고 확신했고, 의회와 TV에 출연해 이를 단언했습니다.</p>
+          <div class="slide-content">
+            <p>1982년 8월 멕시코가 채무 불이행을 선언하자, 저는 제 예상이 맞았다고 생각했습니다. 많은 나라들이 멕시코의 뒤를 따를 것이고, 미국 은행들은 파산할 것이며, 주식 시장은 붕괴할 것이라고 믿었습니다.</p>
+            <div class="mt-6 p-6 bg-red-100 border border-red-300 rounded-lg">
+              <h3 class="font-bold text-lg text-red-800">하지만... 나의 예상은 완전히 틀렸다. ❌</h3>
+              <p class="mt-2">연방준비제도는 돈을 공급하여 경제 붕괴를 막았고, 주식 시장은 기록적으로 상승하기 시작했습니다. 이후 미국 경제는 18년간 물가 상승 없이 지속적인 성장을 기록했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Part 1, Ch 3 - The Crash -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">💸</div>
+            <h2 class="slide-title">모든 것을 잃다</h2>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="mb-4">이 잘못된 예측으로 저는 제가 이룩한 모든 것을 잃었습니다. 너무 큰 손해를 봐서 직원들에게 월급을 줄 수 없었고, 결국 해고해야 했습니다. 브리지워터에는 저 혼자만 남게 되었습니다.</p>
+                <p class="mt-8 font-bold text-xl text-gray-800">생활비를 충당하기 위해 아버지에게 4,000달러를 빌려야 할 정도로 파산 상태였습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Part 1, Ch 3 - Rock Bottom -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">바닥을 치는 경험의 교훈 💥</h2>
+          <p class="slide-subtitle">이 실패는 너무나 고통스러웠지만, 제 인생 최고의 사건 중 하나가 되었습니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">핵심 교훈: <span class="highlight">고통 + 성찰 = 발전</span></h3>
+              <p class="mt-2">이 경험은 저의 맹목적인 자신감을 꺾고, 공격성을 조절하는 데 필요한 <span class="highlight">겸손함</span>을 가르쳐주었습니다. 틀리는 것에 대한 커다란 두려움을 배우게 되었습니다.</p>
+            </div>
+            <p class="mt-6">사고방식이 ‘내가 옳다’에서 ‘내가 옳다는 것을 어떻게 알 수 있을까?’로 바뀌었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Part 1, Ch 3 - New Principles -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">실패로부터 얻은 새로운 원칙 ✨</h2>
+          <p class="slide-subtitle">성공으로 가는 새로운 길을 발견했습니다.</p>
+          <div class="slide-content space-y-4 text-lg">
+            <p><b>1. 나와 생각이 다른 가장 똑똑한 사람들을 찾아 그들의 생각을 이해하려고 노력하라.</b></p>
+            <p><b>2. 의견을 밝히지 말아야 하는 때를 알아야 한다.</b></p>
+            <p><b>3. 시간에 구애받지 않는 보편적인 원칙들을 개발하고, 시험하고, 체계화하라.</b></p>
+            <p><b>4. 큰 이익을 지키고 손실을 줄이는 방법으로 위험의 균형을 유지하라. (<span class="highlight">위험 분산</span>)</b></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Part 1 - Chapter 4 Title -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white p-12 rounded-lg">
+          <p class="slide-part-title text-gray-400">4장</p>
+          <h2 class="slide-title text-white">시련의 길 🚧</h2>
+          <p class="text-2xl font-bold">(1983-1994)</p>
+        </div>
+      </div>
+
+      <!-- Slide 26: Part 1, Ch 4 - Rebirth -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">브리지워터의 부활 🌱</h2>
+          <p class="slide-subtitle">파산에서 벗어나 고객 수를 늘리며 팀을 새롭게 확대했습니다.</p>
+          <div class="slide-content">
+            <p>가장 가치 있었던 것은 <span class="highlight">컴퓨터</span>였습니다. 컴퓨터가 없었다면 브리지워터는 지금처럼 성공하지 못했을 것입니다. 저는 컴퓨터를 활용하여 경제가 어떻게 움직이는지 분석하고, 경제 데이터에 통계와 연산 능력을 적용했습니다.</p>
+            <p class="mt-4">"세계의 모든 사실을 입력하고 처리할 수 있는 컴퓨터가 있고, 그 관계를 수학적으로 표현하는 완벽한 프로그램이 있다면, 미래를 완벽하게 예측할 수 있다."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Part 1, Ch 4 - Systemized Approach -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시스템화된 접근법 🤖</h2>
+          <p class="slide-subtitle">직관을 논리적으로 표현하고, 과거 데이터에 적용하여 결정의 성과를 검증했습니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>100년 이상 과거로 돌아가 모든 국가를 상대로 시스템을 검증했습니다.</li>
+              <li>시간에 상관없이 보편적인 의사결정 기준을 만들었습니다.</li>
+              <li>실시간 데이터를 시스템에 입력하여, 마치 저의 두뇌가 결정하는 것처럼 컴퓨터를 작동시켰습니다.</li>
+              <li>그 결과 브리지워터의 <span class="highlight">금리, 주식, 통화, 귀금속 분석 시스템</span>이 탄생했습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Part 1, Ch 4 - World Bank & Kodak -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 도약의 기회 🏛️📸</h2>
+          <p class="slide-subtitle">세계은행과 코닥을 고객으로 확보하며 기관 투자 사업에서 큰 도약을 이루었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">세계은행 (World Bank)</h3>
+              <p>1985년, 우리는 운영 자산이나 과거 실적이 없었음에도 불구하고 힐다 오초아 최고투자책임자를 설득하여 500만 달러 규모의 미국 채권 계좌를 운영하게 되었습니다. 이는 오늘날 브리지워터를 만든 전환점이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">코닥 (Kodak)</h3>
+              <p>1990년, 코닥의 연금펀드 최고투자책임자인 러스티 올슨이 투자 문제 해법을 찾기 위해 방문했습니다. 우리는 코닥의 포트폴리오를 분석하여 '포트폴리오 공학'이라는 아이디어에 기반한 해법을 제시했고, 1억 달러의 계좌를 운영하게 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Part 1, Ch 4 - Holy Grail -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">투자의 성배를 발견하다 🏆</h2>
+          <p class="slide-subtitle">수익 감소 없이 위험을 줄이는 방법, 즉 '적절한 분산투자'의 핵심을 깨달았습니다.</p>
+          <div class="slide-content">
+            <p>상관관계가 없는(<span class="highlight">Uncorrelated</span>) 15개에서 20개의 좋은 수익 흐름(return streams)을 조합하면, 기대수익을 낮추지 않으면서 위험을 크게 줄일 수 있다는 것을 발견했습니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">이것이 바로 '투자의 성배 (Holy Grail of Investing)' 💎</h3>
+              <p class="mt-2">단순히 좋은 투자 자산을 선택하는 것보다, 수익 흐름을 어떻게 조합하는지를 아는 것이 훨씬 더 중요하다는 원칙입니다. 이것이 브리지워터 성공의 비밀입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Part 1, Ch 4 - Pure Alpha -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">퓨어 알파 (Pure Alpha) 펀드 💡</h2>
+          <p class="slide-subtitle">투자의 성배 원칙을 적용한 첫 번째 투자 상품.</p>
+          <div class="slide-content">
+            <p>제대로 균형이 잡히고 위험이 분산된, 상관관계가 낮은 투자를 하는 것은 예측할 수 없는 위험에 노출되지 않고 수익을 올리는 가장 확실한 방법입니다.</p>
+            <p class="mt-4">이 새로운 접근법은 하나의 위험 단위(unit of risk) 당 3배에서 5배 높은 수익을 가져다주었습니다. 우리는 이 새로운 투자 상품을 시장의 상승/하강(베타)에 따른 편향성을 배제하고 순수하게 시장 초과 수익(알파)으로만 구성했다는 의미에서 <span class="highlight">'퓨어 알파'</span>라고 불렀습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Part 1 - Chapter 5 Title -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white p-12 rounded-lg">
+          <p class="slide-part-title text-gray-400">5장</p>
+          <h2 class="slide-title text-white">최고의 선물 🎁</h2>
+          <p class="text-2xl font-bold">(1995-2010)</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Part 1, Ch 5 - Growth -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비약적인 성장 🚀</h2>
+          <p class="slide-subtitle">1995년, 브리지워터의 직원 수는 42명, 운용 자산은 41억 달러로 성장했습니다.</p>
+          <div class="slide-content">
+            <p>10여 년 전 직원이 저 혼자였던 시절을 생각하면 기대 이상의 성과였습니다. 하지만 우리는 여전히 처음과 똑같은 방식으로 일했습니다.</p>
+            <ul>
+              <li>시장과 싸우고, 독립적이고 창의적으로 생각한다.</li>
+              <li>실수를 하면 공개하고, 근본 원인을 분석한다.</li>
+              <li>새롭고 더 좋은 방법을 고안하고, 체계적으로 변화를 실행한다.</li>
+              <li>그리고 또 새로운 실수를 하는 <span class="highlight">과정의 반복</span>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Part 1, Ch 5 - All Weather -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전천후 포트폴리오 (All Weather) 🌦️</h2>
+          <p class="slide-subtitle">어떤 경제 환경 속에서도 부를 보존할 수 있는 최고의 자산 배분 조합을 찾기 시작했습니다.</p>
+          <div class="slide-content">
+            <p>저는 제 가족을 위한 신탁 계좌를 만들면서, 제가 사망한 후에도 재산이 사라지는 것을 원치 않았습니다. 모든 경제 환경에서 실적이 좋은 투자 전문가는 없기 때문에, <span class="highlight">모든 환경에서 유효한 자산 조합</span>을 만들어야 했습니다.</p>
+            <p class="mt-4">저는 성장과 인플레이션이라는 두 가지 주요 변수를 고려하여 4가지 종류의 투자 전략을 발견했고, 이를 통해 자산의 균형을 맞추는 '전천후 포트폴리오'를 만들었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Part 1, Ch 5 - Idea Meritocracy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이디어 성과주의 문화 💡🏆</h2>
+          <p class="slide-subtitle">투자 업계의 판도를 바꾼 상품을 개발한 것은 훌륭한 직원들과 독특한 기업 문화 덕분이었습니다.</p>
+          <div class="slide-content">
+            <p>2000년, 브리지워터의 자산은 320억 달러로 5년 전보다 8배나 증가했습니다. 회사가 성장하면서 '어떤 기업이 될 것인가'라는 중요한 선택에 직면했습니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">선택: 진정한 투자기관으로의 성장</h3>
+              <p class="mt-2">저는 소규모 자산 운용사가 아닌, 안정적이고 영속적인 기업으로 성장하기를 원했습니다. 이를 위해 <span class="highlight">원칙을 구체화</span>하고 공유하며 아이디어 성과주의 문화를 체계적으로 만들어나갔습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Part 1, Ch 5 - Tools for Culture -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">문화를 위한 도구들 🛠️</h2>
+          <p class="slide-subtitle">투명성과 아이디어 성과주의를 실현하기 위해 다양한 도구와 시스템을 개발했습니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>모든 회의 녹화:</b> 투명성을 보장하고 모든 사람이 볼 수 있도록 했습니다. 이는 교육 자료로도 활용되었습니다.</p>
+            <p><b>심리측정 검사:</b> MBTI 등을 활용해 사람들이 어떻게 다르게 생각하는지 이해하고, 이를 통해 갈등과 생각의 차이를 더 잘 이해하게 되었습니다.</p>
+            <p><b>야구 카드(Baseball Cards):</b> 직원들의 강점, 약점, 성향 등 특성을 기록하여 적합한 업무에 배치하는 데 활용했습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Part 1, Ch 5 - 2008 Crisis Prediction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2008년 금융위기 예측 🌊</h2>
+          <p class="slide-subtitle">2000년대 초, '불황측정지수'를 시스템에 포함하여 채무위기나 불황의 위험을 감지했습니다.</p>
+          <div class="slide-content">
+            <p>2007년, 시스템은 채무의 거품이 터질 것 같다는 신호를 보냈습니다. 금리가 거의 0에 가까워 중앙은행이 경기를 부양할 여력도 없었습니다. 이는 과거에 불황으로 이어진 공식이었습니다.</p>
+            <p class="mt-4">1979-82년의 실패 경험 때문에 확신은 약해졌지만, 모든 자료는 불황을 가리키고 있었습니다. 우리는 최악의 시나리오를 다시 확인하고 고객들의 포트폴리오를 조정했습니다.</p>
+            <p class="mt-4 font-bold">결과적으로, 다른 투자자들이 30% 이상의 손실을 본 2008년에 브리지워터의 대표 펀드는 <span class="highlight">14%가 넘는 수익</span>을 기록했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Section Title: Part 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제2부</p>
+          <h2 class="slide-title">인생의 원칙 🌟</h2>
+          <p class="slide-content">모든 것에 대한 접근법의 기본이 되는 가장 중요한 원칙들입니다. 이 책에서 가장 중요한 부분입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Part 2, P1 - Embrace Reality -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1. 현실을 <span class="highlight">수용</span>하고 대응하라</h2>
+          <p class="slide-subtitle">현실이 어떻게 작동하는지, 그리고 그 현실에 어떻게 대응해야 하는지를 이해하는 것보다 더 중요한 것은 없습니다.</p>
+          <div class="slide-content">
+            <p>인생은 풀어야 할 수수께끼 게임과 같습니다. 수수께끼를 풀면서 미래에 동일한 문제를 피할 수 있도록 도와주는 '원칙'이라는 보석을 얻게 됩니다. 이 보석들을 모아두면 의사결정 과정이 발전하고, 더 높은 수준의 게임을 할 수 있게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Part 2, P1 - Be a Hyperrealist -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1.1 극사실주의자가 돼라 👁️</h2>
+          <p class="slide-subtitle">현실을 수용하고, 이해하고, 함께 일하는 것은 실용적이고 아름답습니다.</p>
+          <div class="slide-content">
+            <div class="p-8 bg-gray-800 text-white rounded-lg text-center text-2xl font-bold">
+              <p>꿈 + 현실 + 결단력 = 성공적인 인생</p>
+            </div>
+            <p class="mt-6">성공하는 사람들은 현실을 지배하는 인과관계를 잘 이해하고, 원하는 것을 얻기 위해 그 인과관계를 활용하는 원칙을 가지고 있습니다. 반대로, 현실에 기반을 두지 않은 이상주의자들은 문제만 일으킬 뿐입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Part 2, P1 - Radical Open-mindedness -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1.3 극단적으로 열린 생각을 갖고 극단적으로 투명해져라 💎</h2>
+          <p class="slide-subtitle">빠른 학습과 효과적인 변화를 위해 매우 유용합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">개방적인 사고</h3>
+              <p>자신이 무엇을, 왜 하는지를 다른 사람들에게 명확하게 알려 오해가 없도록 만듭니다. 이는 피드백 과정의 효율성을 높입니다. 더 개방적이 될수록, 자신을 덜 속이게 되고, 다른 사람들로부터 솔직한 피드백을 받을 확률이 높아집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">극단적 투명성</h3>
+              <p>자신이 생각하는 것을 숨기는 대신 공개적으로 알리면 오해가 줄어들고, 세상이 더 효율적이 되며, 모두가 진실을 파악하는 데 더 가까워집니다. 이는 의사결정과 관계 개선에 엄청난 영향을 미칩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Part 2, P1 - Evolve or Die -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1.4 & 1.5 진화하라, 그렇지 않으면 죽는다 🦋</h2>
+          <p class="slide-subtitle">진화는 우주에서 가장 위대한 힘이며, 모든 것의 원동력입니다.</p>
+          <div class="slide-content">
+            <p>진화의 주기는 사람뿐만 아니라 국가, 기업, 경제 등 모든 것에 적용됩니다. 진화는 부분이 아니라 전체로서의 <span class="highlight">자기 수정(self-correction)</span> 과정입니다.</p>
+            <p class="mt-4">가장 중요한 것은 실패하고 배우고 빠르게 발전하는 것입니다. 지속적으로 배우고 발전한다면 진화 과정은 위로 향하게 될 것입니다. 하지만 그렇지 못하면 쇠퇴하거나 더 나빠질 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Part 2, P1 - Pain + Reflection -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">1.7 고통 + 자기성찰 = 발전 🧠</h2>
+            <p class="slide-subtitle">고통은 당신이 해법을 찾아야 하고, 그 결과 발전할 수 있다는 신호입니다.</p>
+            <div class="p-10 bg-blue-100 rounded-lg shadow-inner">
+                <p class="text-2xl font-bold text-blue-800">
+                    고통을 피하는 대신, 고통에 대해 깊이 생각하게 만드는 자기성찰을 하라.<br/> 그러면 고통은 빠른 학습과 발전으로 이어질 것이다.
+                </p>
+            </div>
+            <p class="mt-8 slide-content max-w-3xl mx-auto">
+                고통을 경험할 때 자신을 잘 되돌아볼 수 있다면 그것은 정말 훌륭한 일입니다. 당신이 직면하는 도전은 당신을 시험하고 강하게 만들 것입니다.
+            </p>
+        </div>
+      </div>
+
+      <!-- Slide 43: Principles Summary 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 원칙 요약 (1/5) 📝</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>🤔 극사실주의자가 돼라:</b> 현실을 있는 그대로 받아들이고, 꿈과 현실, 결단력을 통해 성공적인 삶을 만들어라.</p>
+            <p><b>💎 극단적 개방성과 투명성:</b> 실수와 약점을 인정하고, 다른 사람의 관점을 통해 배우는 것이 빠른 학습과 변화의 핵심이다.</p>
+            <p><b>🦋 진화하라, 그렇지 않으면 죽는다:</b> 모든 것은 진화의 과정에 있다. 적응하고 발전하지 않으면 도태된다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Principles Summary 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 원칙 요약 (2/5) 📝</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>🧠 고통 + 성찰 = 발전:</b> 고통을 성장의 신호로 받아들이고, 성찰을 통해 교훈을 얻어라.</p>
+            <p><b>🎯 5단계 과정:</b> 목표 설정 -> 문제 파악 -> 진단 -> 계획 -> 실행의 순환 과정을 통해 원하는 것을 성취하라.</p>
+            <p><b>🧠🧠 뇌의 작동 방식을 이해하라:</b> 감정적인 '저차원 자아'와 논리적인 '고차원 자아'의 싸움을 이해하고, 고차원 자아가 통제하도록 훈련하라.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Principles Summary 3 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">5단계 과정 🔄</h2>
+            <p class="slide-subtitle">원하는 것을 얻기 위한 반복적인 프로세스.</p>
+            <div class="slide-content text-xl space-y-3 p-8 bg-gray-50 rounded-lg">
+                <p><b>1. 목표 설정:</b> 분명한 목표를 설정하라.</p>
+                <p><b>2. 문제 파악:</b> 목표 달성을 방해하는 문제를 찾아내고 용인하지 마라.</p>
+                <p><b>3. 진단:</b> 문제의 근본적 원인을 정확하게 진단하라.</p>
+                <p><b>4. 계획:</b> 문제를 해결할 계획을 세워라.</p>
+                <p><b>5. 실행:</b> 계획을 완수하고 성과를 이루기 위해 필요한 것을 실천하라.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Principles Summary 4 -->
+      <div class="slide">
+          <h2 class="slide-title">사람에 대한 이해 🧑‍🤝‍🧑</h2>
+          <p class="slide-subtitle">사람들의 뇌는 서로 다르게 작동한다는 것을 이해하라.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                  <h3 class="font-bold text-lg">사고방식의 차이</h3>
+                  <p>사람마다 내향/외향, 직관/감각, 생각/감정, 계획/인식 등 다양한 특성을 가진다. 이러한 차이를 이해하는 것이 효과적인 협력의 시작이다.</p>
+              </div>
+              <div>
+                  <h3 class="font-bold text-lg">적재적소에 배치</h3>
+                  <p>사람의 특성을 파악하여 그들에게 가장 적합한 역할을 부여하는 것이 목표 달성의 비결이다. 사람에게 조직을 맞추는 것이 아니라, 조직에 맞는 사람을 찾아야 한다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 47: Principles Summary 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">효율적인 의사결정 🎯</h2>
+          <p class="slide-subtitle">최선의 결정을 내리기 위한 방법.</p>
+          <div class="slide-content space-y-4">
+            <p><b>• 신뢰도 가중치:</b> 모든 의견을 동일하게 보지 말고, 해당 주제에 대해 신뢰할 수 있는 사람들의 의견에 더 큰 가중치를 두어라.</p>
+            <p><b>• 시스템화:</b> 원칙을 알고리즘으로 만들고 컴퓨터와 함께 결정하라. 감정을 배제하고 더 많은 정보를 처리할 수 있다.</p>
+            <p><b>• 종합적 판단:</b> 현재 상황뿐만 아니라 시간의 경과에 따른 변화를 함께 보며 종합적으로 판단하라. 80/20 규칙을 기억하고 핵심에 집중하라.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: Work Principles Title -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">제3부</p>
+              <h2 class="slide-title">일의 원칙 🏢</h2>
+              <div class="slide-content">
+                  <div class="p-8 bg-gray-50 rounded-lg">
+                      <p class="text-xl font-bold mb-4">아이디어 성과주의 =</p>
+                      <p class="text-xl ml-4">극단적 진실 +</p>
+                      <p class="text-xl ml-4">극단적 투명성 +</p>
+                      <p class="text-xl ml-4">신뢰도 가중치 의사결정</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 49: Work Principles 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">올바른 문화를 만드는 방법 🏛️</h2>
+          <p class="slide-subtitle">조직은 문화와 사람이라는 두 개의 중요한 부품으로 구성된 기계이다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 극단적 진실과 극단적 투명성을 믿어라:</b> 진실을 두려워하지 말고, 모든 것을 투명하게 공개하여 신뢰를 구축하라.</p>
+            <p><b>2. 의미 있는 일과 의미 있는 관계를 구축하라:</b> 공동의 임무에 충실하고, 서로를 위하는 관계를 만들어라.</p>
+            <p><b>3. 실수는 용인하되, 교훈을 얻지 못하는 것은 용납하지 마라:</b> 실패를 학습 과정의 일부로 인정하고, 실수를 통해 성찰하는 문화를 만들어라.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50: Work Principles 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">올바른 인재를 구하는 방법 🙋‍♂️</h2>
+          <p class="slide-subtitle">'누구'인가가 '무엇'보다 더 중요하다는 것을 기억하라.</p>
+          <div class="slide-content space-y-4">
+            <p><b>• 계획에 맞춰 사람을 뽑아라:</b> 당신이 찾고 있는 가치관, 능력, 기술이 무엇인지 명확히 하고, 과학적이고 체계적인 방식으로 사람을 찾아라.</p>
+            <p><b>• 잘못된 채용의 대가는 막대하다:</b> 업무에만 적합한 사람이 아니라, 인생을 함께하고 싶은 사람을 고용하라.</p>
+            <p><b>• 사람들을 끊임없이 교육하고 평가하라:</b> 개인의 발전 과정을 지속적으로 돕고, 정확하게 평가하며, 안 되면 떠나게 하라.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 당신만의 원칙을 만들어라</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인생에서 무엇을 얻고 싶고, 무엇을 주고 싶은지를 결정하는 것은 당신에게 달려 있습니다. 이 책의 원칙들은 당신이 자신만의 원칙을 만들고, 어려움을 극복하며 발전하는 데 <span class="highlight">영감과 도움</span>을 주기 위한 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신이 열심히 고군분투하고 인생에서 얻을 수 있는 모든 즐거움을 성취하는 데 이 원칙들이 도움이 되기를 바랍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

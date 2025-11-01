@@ -1,5 +1,15 @@
 [
   {
+    "slug": "원칙",
+    "title": "원칙",
+    "author": "레이 달리오",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/원칙.html",
+    "cover": "assets/covers/원칙.jpg"
+  },
+  {
     "slug": "우리는-언젠가-만난다-나-타인-세계를-이어주는-40가지-눈부신-이야기",
     "title": "우리는 언젠가 만난다 - 나, 타인, 세계를 이어주는 40가지 눈부신 이야기",
     "author": "채사장",
