@@ -1,6 +1,7 @@
 (function initBookshelf() {
-  const shelf = document.getElementById('bookshelf');
-  const wrapper = document.querySelector('.bookshelf');
+  const shelfStack = document.getElementById('bookshelf');
+  const stackWrapper = document.querySelector('.shelf-stack');
+  const parallax = document.querySelector('.parallax');
   const infoPanel = document.getElementById('info-panel');
   const infoCover = document.getElementById('info-cover');
   const infoTitle = document.getElementById('info-title');
@@ -10,9 +11,24 @@
   const infoButton = document.getElementById('info-button');
   const emptyState = document.getElementById('empty-state');
 
-  if (!shelf) {
+  if (!shelfStack) {
     return;
   }
+
+  let currentActiveCard = null;
+
+  const mobileQuery = window.matchMedia('(max-width: 768px)');
+  let motionInitialized = false;
+
+  const handleMobileChange = (event) => {
+    document.body.classList.toggle('is-mobile', event.matches);
+    if (!event.matches && !motionInitialized) {
+      setupMotion();
+    }
+  };
+
+  handleMobileChange(mobileQuery);
+  mobileQuery.addEventListener('change', handleMobileChange);
 
   fetch('data/books.json', { cache: 'no-cache' })
     .then((res) => res.json())
@@ -41,53 +57,116 @@
 
   function renderBooks(books) {
     const fragment = document.createDocumentFragment();
+    const perRow = books.length <= 3 ? books.length : books.length <= 6 ? 3 : 4;
+    const rows = [];
     books.forEach((book, index) => {
-      const card = document.createElement('article');
-      card.className = 'book-card';
-      card.style.setProperty('--twist', `${randomRange(-3, 3)}deg`);
-      card.setAttribute('role', 'button');
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('aria-label', `${book.title || '책'} 보기`);
+      if (index % perRow === 0) {
+        rows.push([]);
+      }
+      rows[rows.length - 1].push(book);
+    });
 
-      const coverSrc = book.cover || 'assets/covers/default.svg';
-      const img = document.createElement('img');
-      img.src = coverSrc;
-      img.alt = book.title ? `${book.title} 표지` : '책 표지';
-      img.loading = 'lazy';
+    rows.forEach((rowBooks, rowIndex) => {
+      const row = document.createElement('div');
+      row.className = 'shelf-row';
+      const depth = (rows.length - rowIndex - 1) * 55;
+      row.style.setProperty('--depth', `${depth}px`);
 
-      const reflection = document.createElement('span');
-      reflection.className = 'reflection';
+      rowBooks.forEach((book, cardIndex) => {
+        const card = document.createElement('article');
+        card.className = 'book-card';
+        const depthOffset = (rows.length - rowIndex - 1) * 8 + (cardIndex % 2 === 0 ? 0 : 10);
+        card.style.setProperty('--depth-offset', `${depthOffset}px`);
+        card.style.setProperty('--twist', `${randomRange(-3, 3)}deg`);
+        card.style.setProperty('--yaw', `${randomRange(-4, 4)}deg`);
+        card.style.animationDelay = `${(rowIndex * 0.45 + cardIndex * 0.18).toFixed(2)}s`;
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `${book.title || '책'} 보기`);
 
-      card.appendChild(img);
-      card.appendChild(reflection);
+        const body = document.createElement('div');
+        body.className = 'book-card__body';
 
-      const showInfo = () => updateInfoPanel(book);
-      const openPresentation = () => {
-        if (book.presentation) {
-          const url = book.presentation.startsWith('http') ? book.presentation : `${book.presentation}`;
-          window.open(url, '_blank');
-        }
-      };
+        const cover = document.createElement('div');
+        cover.className = 'book-card__cover';
+        const img = document.createElement('img');
+        img.src = book.cover || 'assets/covers/default.svg';
+        img.alt = book.title ? `${book.title} 표지` : '책 표지';
+        img.loading = 'lazy';
+        cover.appendChild(img);
 
-      card.addEventListener('mouseenter', showInfo);
-      card.addEventListener('focus', showInfo);
-      card.addEventListener('click', openPresentation);
-      card.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          openPresentation();
-        }
+        const back = document.createElement('div');
+        back.className = 'book-card__back';
+
+        const topEdge = document.createElement('div');
+        topEdge.className = 'book-card__top';
+
+        const bottomEdge = document.createElement('div');
+        bottomEdge.className = 'book-card__bottom';
+
+        const edge = document.createElement('div');
+        edge.className = 'book-card__edge';
+
+        const shine = document.createElement('div');
+        shine.className = 'book-card__shine';
+
+        card.append(body, cover, back, topEdge, bottomEdge, edge, shine);
+
+        const activate = () => {
+          if (currentActiveCard && currentActiveCard !== card) {
+            currentActiveCard.classList.remove('is-active');
+          }
+          currentActiveCard = card;
+          card.classList.add('is-active');
+        };
+
+        const showInfo = () => {
+          activate();
+          updateInfoPanel(book);
+        };
+        const openPresentation = () => {
+          if (book.presentation) {
+            const url = book.presentation.startsWith('http') ? book.presentation : `${book.presentation}`;
+            window.open(url, '_blank');
+          }
+        };
+
+        card.addEventListener('mouseenter', showInfo);
+        card.addEventListener('focus', showInfo);
+        card.addEventListener('touchstart', showInfo, { passive: true });
+        card.addEventListener('click', openPresentation);
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openPresentation();
+          }
+        });
+
+        row.appendChild(card);
       });
 
-      fragment.appendChild(card);
+      fragment.appendChild(row);
     });
-    shelf.innerHTML = '';
-    shelf.appendChild(fragment);
+
+    shelfStack.innerHTML = '';
+    shelfStack.appendChild(fragment);
+
+    const firstCard = shelfStack.querySelector('.book-card');
+    if (firstCard && books[0]) {
+      currentActiveCard = firstCard;
+      currentActiveCard.classList.add('is-active');
+      updateInfoPanel(books[0]);
+    }
+
   }
 
   function updateInfoPanel(book) {
     if (!infoPanel) return;
     if (!book) {
+      if (currentActiveCard) {
+        currentActiveCard.classList.remove('is-active');
+        currentActiveCard = null;
+      }
       infoPanel.classList.remove('visible');
       return;
     }
@@ -133,39 +212,55 @@
   }
 
   function setupMotion() {
-    if (!wrapper) return;
+    if (!stackWrapper || document.body.classList.contains('is-mobile')) {
+      return;
+    }
+    if (motionInitialized) {
+      return;
+    }
     let rafId = null;
-    let targetX = 8;
+    let targetX = 10;
     let targetY = 0;
     let currentX = targetX;
     let currentY = targetY;
+    let glowTilt = { x: 0, y: 0 };
 
     const animate = () => {
       currentX += (targetX - currentX) * 0.08;
       currentY += (targetY - currentY) * 0.08;
-      wrapper.style.setProperty('--tilt-x', `${currentX}deg`);
-      wrapper.style.setProperty('--tilt-y', `${currentY}deg`);
+      stackWrapper.style.setProperty('--tilt-x', `${currentX}deg`);
+      stackWrapper.style.setProperty('--tilt-y', `${currentY}deg`);
+      const lift = Math.max(0, 6 - Math.abs(currentY)) * 1.2;
+      stackWrapper.style.setProperty('--lift', `${lift}px`);
+
+      if (parallax) {
+        glowTilt.x += (targetY * 0.3 - glowTilt.x) * 0.06;
+        glowTilt.y += (targetX * -0.4 - glowTilt.y) * 0.06;
+        parallax.style.transform = `rotateY(${glowTilt.x}deg) rotateX(${glowTilt.y}deg)`;
+      }
+
       rafId = requestAnimationFrame(animate);
     };
 
     const updateTarget = (event) => {
-      const rect = wrapper.getBoundingClientRect();
+      const rect = stackWrapper.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width;
       const y = (event.clientY - rect.top) / rect.height;
-      targetY = (x - 0.5) * 20;
-      targetX = 6 - (y - 0.5) * 10;
+      targetY = (x - 0.5) * 18;
+      targetX = 9 - (y - 0.5) * 14;
     };
 
     const resetTarget = () => {
-      targetX = 8;
+      targetX = 10;
       targetY = 0;
     };
 
-    window.addEventListener('mousemove', updateTarget);
-    window.addEventListener('mouseleave', resetTarget);
+    stackWrapper.addEventListener('pointermove', updateTarget);
+    stackWrapper.addEventListener('pointerleave', resetTarget);
     window.addEventListener('blur', resetTarget);
 
     animate();
+    motionInitialized = true;
   }
 
   function randomRange(min, max) {

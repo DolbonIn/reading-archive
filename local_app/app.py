@@ -19,6 +19,7 @@ import os
 import secrets
 from pathlib import Path
 from typing import List
+import re
 
 import datetime as dt
 
@@ -51,6 +52,19 @@ def parse_tags(raw: str | None) -> List[str]:
     return [t.strip() for t in raw.split(",") if t.strip()]
 
 
+_FILENAME_ALLOW = re.compile(r"[^0-9A-Za-z가-힣_-]+")
+
+
+def safe_filename(original: str) -> str:
+    name = Path(original).name
+    stem = Path(name).stem
+    suffix = Path(name).suffix.lower()
+    clean_stem = _FILENAME_ALLOW.sub("-", stem).strip("-_")
+    if not clean_stem:
+        clean_stem = "upload"
+    return f"{clean_stem}{suffix}"
+
+
 def to_bool(value: str | None) -> bool:
     return (value or "").lower() in TRUE_SET
 
@@ -73,7 +87,7 @@ def upload():
     if not file.filename.lower().endswith(".pdf"):
         return jsonify({"ok": False, "message": "PDF 파일만 업로드할 수 있습니다."}), 400
 
-    safe_name = file.filename.replace(" ", "_")
+    safe_name = safe_filename(file.filename)
     dest_path = UPLOADS_DIR / safe_name
     file.save(dest_path)
 
