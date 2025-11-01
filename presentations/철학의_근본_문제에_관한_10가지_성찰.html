@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>철학의 근본문제에 관한 10가지 성찰</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      text-align: left;
+      background-color: #ffffff;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transform: scale(0.95);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .slide.active {
+      display: flex;
+      transform: scale(1);
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 2rem 3rem;
+    }
+    .slide-part-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-bottom: 0.5rem;
+    }
+    .slide-title {
+      font-size: 2.75rem;
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #4b5563;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #374151;
+    }
+    .highlight {
+      background-color: rgba(79, 70, 229, 0.1);
+      padding: 0.1em 0.3em;
+      border-radius: 0.3em;
+      font-weight: 700;
+      color: #4f46e5;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #4f46e5;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #4338ca;
+    }
+    .btn-secondary {
+      background-color: #e5e7eb;
+      color: #374151;
+    }
+    .btn-secondary:hover {
+      background-color: #d1d5db;
+    }
+     .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #e5e7eb;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e5e7eb;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #4f46e5;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease-out;
+    }
+    .content-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32 bg-gray-100">
+
+  <div class="w-full max-w-7xl">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-6">🤔</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">철학의 근본문제에 관한 10가지 성찰</h1>
+          <p class="text-xl md:text-2xl text-gray-700">PHILOSOPHY: THE BASICS</p>
+          <p class="mt-8 text-lg text-gray-600">나이절 워버턴 지음</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📜 목차: 철학적 탐구의 여정</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-lg">
+            <p><b>1. 신은 존재하는가?</b></p>
+            <p><b>2. 악은 왜 존재하는가?</b></p>
+            <p><b>3. 무엇이 옳고 그른가?</b></p>
+            <p><b>4. 옳고 그름의 의미는?</b></p>
+            <p><b>5. 자유와 평등</b></p>
+            <p><b>6. 우리의 인식은 믿을 수 있나?</b></p>
+            <p><b>7. 외부 세계를 어떻게 인식하는가?</b></p>
+            <p><b>8. 과학적 방법이란 무엇인가?</b></p>
+            <p><b>9. 우리의 마음은 물질적인가?</b></p>
+            <p><b>10. 예술이란 무엇인가?</b></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Preface 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">머리말</p>
+          <h2 class="slide-title">🤔 왜 철학을 공부하는가?</h2>
+          <p class="slide-subtitle">철학은 단순히 난해한 질문을 던지는 것이 아니라, 우리 삶의 근본 가정을 검토하는 활동입니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 검토되지 않은 삶:</b> "검토되지 않은 삶은 살 가치가 없다." 소크라테스의 이 말처럼, 철학은 우리 존재의 의미에 관한 근본적 물음을 다룹니다.</p>
+            <p><b>2. 사고의 확장과 명료화:</b> 철학적 사고 훈련은 폭넓은 문제에 대해 더 명료하게 생각하는 법을 가르쳐주며, 이는 삶의 모든 영역에 유용합니다.</p>
+            <p><b>3. 지적 즐거움:</b> 복잡한 철학적 문제에 도전하고 답을 찾아가는 과정은 그 자체로 큰 지적 즐거움을 줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Preface 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">머리말</p>
+          <h2 class="slide-title">🗺️ 이 책의 접근법: 역사 vs. 주제</h2>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">📜 역사적 접근</h3>
+              <p>소크라테스부터 현대 철학자까지, 시간 순서에 따라 사상가들의 공헌을 검토하는 방식입니다. 철학사의 큰 흐름을 이해하는 데 유용합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">💡 주제별 접근 (이 책의 선택)</h3>
+              <p>개별적인 <span class="highlight">철학적 물음 자체</span>에 초점을 맞춥니다. 신, 도덕, 인식, 예술 등 핵심 주제를 중심으로 논의를 탐구하여 문제의 핵심에 직접 다가갑니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 1: Does God Exist? -->
+      <!-- Slide 5: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 1</p>
+          <h2 class="text-6xl font-black text-gray-900">신은 존재하는가?</h2>
+           <p class="slide-subtitle mt-4">🙏 믿음과 이성의 교차점에서 신의 존재 증명을 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1-1. 설계자로서의 신: <span class="highlight">디자인 논증</span></h2>
+          <p class="slide-subtitle">자연 세계의 복잡성과 질서는 지적인 설계자의 존재를 암시합니다.</p>
+          <div class="slide-content">
+            <p>시계를 보면 시계 제작자가 있음을 알 수 있듯이, 복잡한 인간의 눈이나 자연의 질서를 보면 <span class="highlight">신성한 설계자</span>(Devine Watchmaker)를 떠올리게 됩니다. 이것은 결과(정교한 세계)로부터 원인(설계자)을 추론하는 유비 논증입니다.</p>
+             <div class="content-box">
+              <h3 class="font-bold text-lg">🔍 유비 논증 (Argument from Analogy)</h3>
+              <p class="mt-2">두 대상이 여러 측면에서 유사하다면, 다른 측면에서도 유사할 것이라고 추론하는 방식입니다. (시계 : 눈 = 시계공 : 신)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">디자인 논증에 대한 <span class="highlight">비판</span></h2>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">👎 비판 1: 약한 유비</h3>
+              <p>시계와 같은 인공물과 눈과 같은 자연물이 본질적으로 유사하다고 볼 수 있는가? 둘 사이의 유비가 약하므로 논증의 설득력이 떨어집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">ევოლუცია 비판 2: 진화론적 설명</h3>
+              <p>찰스 다윈의 <span class="highlight">자연 선택</span>에 의한 진화론은 신의 개입 없이도 생명체의 복잡성과 적응을 설명하는 강력한 대안을 제시합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">❓ 비판 3: 신답지 못한 신</h3>
+              <p>세계에 존재하는 결함(질병, 자연재해 등)을 볼 때, 설계자는 전능하거나 완벽하지 않을 수 있습니다. 이는 우리가 생각하는 '신'의 모습과 다릅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1-2. 제1원인으로서의 신: <span class="highlight">우주론적 논증</span></h2>
+          <p class="slide-subtitle">세상의 모든 것에는 원인이 있으며, 이 원인들의 연쇄를 거슬러 올라가면 최초의 원인, 즉 신에 도달합니다.</p>
+          <div class="slide-content space-y-4">
+            <p>이 논증은 경험적 관찰(우주가 존재한다)에서 시작하지만, 개별 현상이 아닌 <span class="highlight">존재 자체</span>에 대한 근본 원인을 묻습니다.</p>
+            <p><b>주요 비판:</b></p>
+            <ul class="list-disc list-inside space-y-2">
+              <li><b>신의 원인은 무엇인가?</b> 모든 것에 원인이 있다면 신의 원인은 무엇인가? 신을 예외로 둔다면, 왜 우주 자체는 예외가 될 수 없는가?</li>
+              <li><b>왜 무한 퇴행은 안 되는가?</b> 원인의 연쇄가 무한히 계속될 수는 없는가?</li>
+              <li><b>신답지 못한 신:</b> 이 논증이 증명하는 것은 단지 '최초의 원인'일 뿐, 그것이 전지전능하고 자비로운 신이라는 보장은 없습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1-3. 정의상 존재하는 신: <span class="highlight">존재론적 논증</span></h2>
+          <p class="slide-subtitle">경험이 아닌 '신'이라는 개념의 정의 자체로부터 신의 존재를 증명하려는 선험적(a priori) 논증입니다.</p>
+          <div class="slide-content">
+            <p>성 안셀무스는 신을 "<span class="highlight">그보다 더 위대한 것을 생각할 수 없는 존재</span>"로 정의했습니다. 만약 이런 존재가 생각 속에만 있다면, 실제로 존재하는 더 위대한 존재를 생각할 수 있으므로 모순입니다. 따라서 신은 실제로 존재해야만 합니다.</p>
+            <div class="content-box">
+              <h3 class="font-bold text-lg">주요 비판</h3>
+              <p class="mt-2"><b>1. 존재는 속성이 아니다:</b> 칸트의 비판. '존재한다'는 것은 대상의 속성(크다, 붉다 등)을 추가하는 것이 아닙니다. 상상 속의 100달러와 실제 100달러는 개념적으로는 같지만, 존재 여부가 다릅니다. 신의 개념에 '존재'를 포함시킬 수 없습니다.</p>
+               <p class="mt-2"><b>2. 악의 존재:</b> 전지, 전능, 지선한 신의 존재는 세상에 존재하는 악과 양립하기 어렵습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 2: Why Does Evil Exist? -->
+      <!-- Slide 10: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 2</p>
+          <h2 class="text-6xl font-black text-gray-900">악은 왜 존재하는가?</h2>
+          <p class="slide-subtitle mt-4">👼 vs. 😈 전지전능하고 선한 신이 다스리는 세상에 어떻게 악이 존재할 수 있을까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 11 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">악의 문제: <span class="highlight">두 종류의 악</span></h2>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">😈 도덕적 악 (Moral Evil)</h3>
+              <p>인간의 의도적인 행위로 인해 발생하는 고통과 불행입니다. (예: 전쟁, 학살, 고문, 증오)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🌋 자연적 악 (Natural Evil)</h3>
+              <p>인간의 의지와 무관하게 자연 현상으로 인해 발생하는 고통입니다. (예: 지진, 질병, 기근)</p>
+            </div>
+          </div>
+           <div class="content-box">
+             <h3 class="font-bold text-lg">논리적 딜레마</h3>
+             <p class="mt-2">신이 <span class="highlight">전능하다면</span> 악을 막을 수 있고, <span class="highlight">지선하다면</span> 악을 막으려 할 것입니다. 그러나 악은 존재합니다. 이 세 가지 명제는 동시에 참일 수 없습니다.</p>
+           </div>
+        </div>
+      </div>
+
+      <!-- Slide 12 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2-1. 악은 더 커다란 선을 낳는다?</h2>
+          <p class="slide-subtitle">악의 존재가 연민, 용기, 인내와 같은 더 큰 선(2차적 선)을 가능하게 한다는 주장입니다.</p>
+          <div class="slide-content">
+             <p>질병이 없다면 의사의 헌신도, 전쟁이 없다면 군인의 용기도 존재할 수 없습니다. 즉, 악은 더 높은 차원의 도덕적 선을 위한 필요조건이라는 것입니다.</p>
+            <p class="mt-4 font-bold text-red-600">🚨 비판:</p>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+              <li>고통의 정도가 너무 극심합니다. 홀로코스트와 같은 끔찍한 악이 과연 어떤 선을 위해 필요했을까요?</li>
+              <li>이 논리에 따르면, 더 많은 악이 더 많은 선을 낳는다는 결론에 이를 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2-2. 악은 <span class="highlight">자유의지</span>의 결과이다</h2>
+          <p class="slide-subtitle">신은 인간에게 선과 악을 선택할 수 있는 자유의지를 주었으며, 도덕적 악은 인간이 악을 선택한 결과라는 주장입니다.</p>
+          <div class="slide-content space-y-4">
+            <p>자유의지가 없는 세상은 프로그래밍된 로봇의 세상과 같습니다. 자유의지가 있는 세상이 비록 악의 가능성을 포함하더라도 더 가치 있는 세상입니다.</p>
+            <p class="font-bold text-red-600">🚨 비판:</p>
+             <ul class="list-disc list-inside space-y-2 mt-2">
+              <li><b>악 없는 자유의지:</b> 왜 신은 자유의지를 가지면서도 항상 선을 선택하는 인간을 만들지 못했는가?</li>
+              <li><b>신의 개입:</b> 신은 왜 끔찍한 악이 발생할 때 개입하지 않는가?</li>
+               <li><b>자연적 악:</b> 이 주장은 인간의 선택과 무관한 자연적 악을 설명하지 못합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2-3. 기적은 신의 존재를 증명하는가?</h2>
+          <p class="slide-subtitle">기적, 즉 자연법칙의 위배는 신의 개입을 보여주는 직접적인 증거가 될 수 있습니다.</p>
+          <div class="slide-content">
+            <p>데이비드 흄은 이에 대해 강력한 회의론적 비판을 제기했습니다.</p>
+             <div class="content-box">
+              <h3 class="font-bold text-lg">🔍 흄의 비판</h3>
+              <p class="mt-2"><b>1. 증거의 무게:</b> 기적이 일어났다는 증언보다, 자연법칙이 유지되었다는 증거(수많은 반복 관찰)가 언제나 압도적으로 더 강력합니다. 합리적인 사람이라면 더 강한 증거를 믿어야 합니다.</p>
+               <p class="mt-2"><b>2. 인간의 심리:</b> 인간은 놀랍고 경이로운 이야기를 믿으려는 심리적 경향이 있습니다.</p>
+              <p class="mt-2"><b>3. 상충되는 기적:</b> 서로 다른 종교에서 각자의 신을 증명하는 상충되는 기적들을 주장합니다. 이들은 서로를 상쇄시킵니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2-4. 도박사의 논증: <span class="highlight">파스칼의 내기</span></h2>
+          <p class="slide-subtitle">신의 존재를 증명할 수 없다면, 어느 쪽에 거는 것이 더 합리적인 '도박'일까요?</p>
+          <div class="slide-content grid md:grid-cols-2 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🎲 신이 존재한다에 걸 경우</h3>
+              <p class="mb-2"><b>맞으면:</b> 영생 (무한한 이득)</p>
+              <p><b>틀리면:</b> 약간의 손해 (세속적 쾌락 포기)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🎲 신이 존재하지 않는다에 걸 경우</h3>
+               <p class="mb-2"><b>맞으면:</b> 약간의 이득 (세속적 쾌락)</p>
+               <p><b>틀리면:</b> 영원한 지옥 (무한한 손해)</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center text-xl font-bold">결론: <span class="highlight">이성적으로 볼 때, 신의 존재를 믿는 것이 압도적으로 유리합니다.</span></p>
+          <p class="mt-4 text-center font-bold text-red-600">🚨 비판: 진정한 믿음은 계산적인 이득이 아닌 진실함에서 비롯되어야 하지 않는가?</p>
+        </div>
+      </div>
+
+      <!-- Chapter 3: What is Right and Wrong? -->
+      <!-- Slide 16: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 3</p>
+          <h2 class="text-6xl font-black text-gray-900">무엇이 옳고 무엇이 그른가?</h2>
+          <p class="slide-subtitle mt-4">⚖️ 도덕적 판단의 기준은 어디에 있는가? 의무, 결과, 그리고 덕을 탐구합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 17 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3-1. 의무에 기초한 이론: <span class="highlight">의무론</span></h2>
+          <p class="slide-subtitle">어떤 행위는 결과와 상관없이 그 자체로 옳거나 그릅니다.</p>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">📜 기독교 윤리학</h3>
+              <p>'살인하지 말라'와 같은 신의 절대적인 명령(십계명)에 따르는 것이 도덕의 기준입니다. 옳음은 신의 의지에 부합하는 것이고, 그름은 그것에 반하는 것입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🧠 칸트 윤리학</h3>
+              <p>이성에 기반한 보편적인 도덕 법칙을 따르는 것이 중요합니다. 감정이나 결과가 아닌 순수한 <span class="highlight">의무감</span>에서 비롯된 행위만이 도덕적 가치를 지닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">칸트의 <span class="highlight">정언명령</span></h2>
+          <p class="slide-subtitle">모든 이성적 존재에게 무조건적으로 적용되는 절대적인 도덕 법칙입니다.</p>
+          <div class="slide-content space-y-4">
+            <div>
+              <h3 class="font-bold text-lg">📜 제1 정식: 보편화 가능성</h3>
+              <p>"네 행위의 준칙이 보편적 법칙이 되기를 바랄 수 있는, 오직 그러한 준칙에 따라서만 행위하라." <br> (예: '거짓말을 하라'는 준칙은 모든 사람이 거짓말을 하면 사회 신뢰가 무너지므로 보편화될 수 없습니다.)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🤝 제2 정식: 인간성의 목적</h3>
+              <p>"너 자신과 다른 모든 사람의 인격을 결코 수단으로만 대하지 말고, 언제나 동시에 목적으로 대하도록 행위하라."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 19 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">의무론에 대한 <span class="highlight">비판</span></h2>
+          <div class="slide-content space-y-4">
+            <p><b>1. 공허함:</b> 칸트의 이론은 너무 형식적이어서 실제 도덕적 딜레마 상황에서 구체적인 지침을 주기 어렵습니다.</p>
+            <p><b>2. 비도덕적 행위의 보편화:</b> '나의 이익을 위해 모든 사람을 해쳐라'와 같은 비도덕적 준칙도 논리적으로는 보편화가 가능해 보입니다.</p>
+            <p><b>3. 결과의 무시:</b> 선의를 가진 의사가 실수로 환자를 죽게 한 경우, 결과의 심각성을 고려하지 않는 것은 비합리적으로 보입니다. (예: 살인마에게 친구의 위치를 정직하게 말해주는 경우)</p>
+            <p><b>4. 감정의 배제:</b> 동정심, 공감과 같은 자연스러운 인간 감정을 도덕과 무관한 것으로 보는 것은 비현실적입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3-2. 결과에 기초한 이론: <span class="highlight">결과주의</span></h2>
+          <p class="slide-subtitle">행위의 옳고 그름은 그 행위가 가져오는 결과에 따라 판단됩니다. 대표적인 이론은 공리주의입니다.</p>
+          <div class="content-box">
+            <h3 class="font-bold text-xl"> utilitarianism 공리주의</h3>
+            <p class="mt-2">"최대 다수의 최대 행복" (The Greatest Happiness for the Greatest Number)<br>
+            가장 도덕적인 행위는 가장 많은 사람에게 가장 큰 행복(쾌락)을 가져다주고 고통을 최소화하는 행위입니다. (제러미 벤담, 존 스튜어트 밀)</p>
+          </div>
+          <p class="mt-4 font-bold text-red-600">🚨 비판: 무고한 한 사람을 희생시켜 다수를 구할 수 있다면, 그것은 도덕적으로 옳은가? 공리주의는 소수의 권리나 정의의 원칙을 침해할 위험이 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 21 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3-3. 인격에 기초한 이론: <span class="highlight">덕 윤리</span></h2>
+          <p class="slide-subtitle">개별 행위의 규칙보다 "어떤 사람이 되어야 하는가?"에 초점을 맞춥니다. 아리스토텔레스에서 비롯되었습니다.</p>
+          <div class="slide-content space-y-4">
+            <p>도덕적 삶이란 용기, 관대함, 정직, 지혜와 같은 <span class="highlight">덕(virtue)</span>을 함양하고 실천하는 삶입니다. 올바른 행위는 유덕한 사람이 그 상황에서 자연스럽게 할 법한 행위입니다.</p>
+            <p>덕은 지성과 감정, 습관이 조화된 성품의 상태이며, 좋은 삶(에우다이모니아, eudaimonia)을 위한 필수 요소입니다.</p>
+            <p class="font-bold text-red-600">🚨 비판: 어떤 것이 '덕'인지에 대한 문화적, 개인적 차이가 클 수 있습니다. 또한, 덕 있는 사람이라도 어려운 도덕적 딜레마 앞에서 어떻게 행동해야 할지 명확한 지침을 주지 못할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4: Meaning of Right and Wrong -->
+      <!-- Slide 22: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 4</p>
+          <h2 class="text-6xl font-black text-gray-900">옳음과 그름의 의미는 무엇인가?</h2>
+          <p class="slide-subtitle mt-4">🗣️ '...은 옳다'라는 말은 사실을 말하는 것일까요, 감정을 표현하는 것일까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 23 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">메타 윤리학: 도덕 언어의 탐구</h2>
+          <div class="slide-content grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🌿 자연주의</h3>
+              <p>도덕적 속성('좋음')은 행복, 쾌락과 같은 자연적/경험적 속성과 동일하다고 봅니다. (예: '좋음' = '최대 행복을 낳는 것')</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🌍 도덕적 상대주의</h3>
+              <p>옳고 그름은 절대적인 기준이 없으며, 각 사회나 문화의 가치에 따라 상대적으로 결정됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">😲 이모티비즘 (정서주의)</h3>
+              <p>도덕적 판단은 사실에 대한 진술이 아니라, 단지 화자의 감정 표현이나 태도를 나타내는 것입니다. (예: '살인은 나쁘다' = '살인, 우웩!')</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 5: Freedom and Equality -->
+      <!-- Slide 24: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 5</p>
+          <h2 class="text-6xl font-black text-gray-900">자유와 평등은 어떻게 성취할 수 있는가?</h2>
+          <p class="slide-subtitle mt-4">🗽⚖️ 정의로운 사회의 두 기둥, 자유와 평등의 의미와 갈등을 살펴봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 25 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">평등: <span class="highlight">무엇을 평등하게?</span></h2>
+          <div class="slide-content space-y-4">
+            <p><b>1. 재산의 평등:</b> 모든 사람이 똑같은 재산을 소유해야 한다는 주장. 현실적으로 실현이 어렵고, 개인의 노력과 필요의 차이를 무시한다는 비판을 받습니다.</p>
+            <p><b>2. 기회의 평등:</b> 모든 사람이 자신의 능력과 노력을 발휘할 동등한 기회(특히 고용, 교육)를 가져야 한다는 주장. 현대 사회에서 널리 받아들여지는 원칙입니다.</p>
+            <p><b>3. 역차별을 통한 불평등 시정:</b> 과거에 차별받았던 집단(여성, 소수 인종 등)에게 특혜를 줌으로써 결과의 평등을 추구하는 정책. '반평등주의적'이라는 비판과 사회적 갈등을 유발할 수 있다는 우려가 있습니다.</p>
+            <p><b>4. 정치 참여의 평등:</b> 모든 국민이 정치 과정에 참여할 수 있어야 한다는 민주주의의 기본 원리입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 26 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자유: <span class="highlight">두 가지 개념</span></h2>
+           <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🚫 소극적 자유 (Negative Liberty)</h3>
+              <p>타인의 강제나 간섭으로부터의 자유. '...로부터의 자유'. 국가의 개입을 최소화하고 개인의 선택 영역을 보호하는 것을 강조합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">💪 적극적 자유 (Positive Liberty)</h3>
+              <p>자신의 삶을 스스로 통제하고 자아를 실현할 수 있는 능력. '...을 향한 자유'. 국가가 교육, 복지 등을 통해 개인이 잠재력을 실현할 수 있도록 도와야 한다고 봅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 6: How Far Can We Trust Our Perception? -->
+      <!-- Slide 27: Section 6 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 6</p>
+          <h2 class="text-6xl font-black text-gray-900">우리의 인식은 어디까지 믿을 수 있나?</h2>
+          <p class="slide-subtitle mt-4">👀 우리가 보고 듣는 세상은 정말 있는 그대로의 모습일까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 28 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">회의론의 도전: <span class="highlight">상식적 실재론을 향한 의심</span></h2>
+          <p class="slide-subtitle">우리의 감각이 때때로 우리를 속인다는 사실에서 출발하여, 감각 경험 전체의 신뢰성에 의문을 제기합니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 착각 논증 (Illusion Argument):</b> 물속에 잠긴 막대는 굽어 보이고, 멀리 있는 건물은 작아 보입니다. 감각은 종종 착각을 일으키므로, 감각을 통해 세계를 있는 그대로 알 수 있다고 확신할 수 없습니다.</p>
+            <p><b>2. 꿈 논증 (Dream Argument):</b> 지금 이 순간이 생생한 꿈이 아니라고 어떻게 100% 확신할 수 있는가? 꿈과 현실을 구분할 명확한 기준이 없다면, 우리는 항상 꿈속에 있을 가능성을 배제할 수 없습니다.</p>
+             <p><b>3. 통 속의 뇌 (Brain in a Vat):</b> 만약 우리가 실제로는 몸이 없는 '통 속의 뇌'이고, 사악한 과학자가 뇌에 전기 자극을 주어 현실 세계에 대한 모든 경험을 만들어내고 있다면? 우리는 이 가능성을 결코 반증할 수 없습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">회의론에 대한 응답: <span class="highlight">데카르트의 코기토</span></h2>
+           <p class="slide-subtitle">"나는 생각한다, 고로 나는 존재한다." (Cogito, ergo sum)</p>
+           <div class="slide-content">
+            <p>르네 데카르트는 모든 것을 의심하는 극단적인 회의론의 과정 속에서, 결코 의심할 수 없는 단 하나의 확실한 진실을 발견했습니다.</p>
+            <p class="mt-4">세상의 모든 것이 환각이나 꿈이라 할지라도, 그 모든 것을 <span class="highlight">의심하고 생각하고 있는 '나' 자신</span>의 존재만큼은 의심할 수 없습니다. 의심한다는 행위 자체가 생각하는 주체의 존재를 증명하기 때문입니다.</p>
+             <div class="content-box">
+              <p>코기토는 외부 세계의 존재가 아닌, '사고하는 실체'로서의 나의 존재만을 확실하게 보장해주는 출발점입니다.</p>
+            </div>
+           </div>
+        </div>
+      </div>
+
+      <!-- Chapter 7: How Do We Perceive the External World? -->
+      <!-- Slide 30: Section 7 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 7</p>
+          <h2 class="text-6xl font-black text-gray-900">우리는 외부 세계를 어떻게 인식하는가?</h2>
+          <p class="slide-subtitle mt-4">🍎 마음속의 사과와 실제 사과는 어떻게 연결될까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 31 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지각에 대한 이론들</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🖼️ 대표 실재론 (Representative Realism)</h3>
+              <p>우리는 외부 세계를 직접 인식하는 것이 아니라, 마음속에 있는 세계의 '대표물'(관념, 표상)을 인식합니다. (존 로크)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🤔 관념론 (Idealism)</h3>
+              <p>물리적 대상은 존재하지 않으며, 오직 마음과 마음속의 관념만이 존재합니다. "존재하는 것은 지각되는 것이다." (조지 버클리)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🎬 현상론 (Phenomenalism)</h3>
+              <p>물리적 대상이란 '가능한 감각 경험의 묶음'에 불과합니다. 대상은 실제 감각 경험 또는 가언적 감각 경험으로 환원될 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">➡️ 인과 실재론 (Causal Realism)</h3>
+              <p>외부 세계의 대상이 우리의 감각 기관에 인과적으로 작용하여 지각 경험을 일으킨다고 보는 현대적인 견해입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 8: What is the Scientific Method? -->
+      <!-- Slide 32: Section 8 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 8</p>
+          <h2 class="text-6xl font-black text-gray-900">과학적 방법이란 무엇인가?</h2>
+          <p class="slide-subtitle mt-4">🔬 관찰, 귀납, 그리고 반증. 과학은 어떻게 지식을 만들어낼까요?</p>
+        </div>
+      </div>
+
+       <!-- Slide 33 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">귀납의 문제 (Problem of Induction)</h2>
+          <p class="slide-subtitle">"지금까지 관찰한 모든 까마귀가 검다고 해서, 앞으로 볼 모든 까마귀도 검을 것이라고 어떻게 확신할 수 있는가?"</p>
+          <div class="slide-content">
+            <p>과학은 종종 <span class="highlight">귀납</span>(개별적인 관찰들로부터 일반적인 법칙을 이끌어내는 추론)에 의존합니다. 그러나 귀납적 추론은 논리적으로 필연적인 결론을 보장하지 않습니다.</p>
+            <p class="mt-4">과거의 경험이 미래에도 반복될 것이라는 우리의 믿음 자체를 정당화하기 어렵다는 것이 데이비드 흄이 제기한 '귀납의 문제'입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">칼 포퍼의 해결책: <span class="highlight">반증주의</span></h2>
+          <p class="slide-subtitle">과학은 '입증'을 통해 발전하는 것이 아니라 '반증'을 통해 발전합니다.</p>
+          <div class="slide-content">
+            <p>과학 이론은 결코 최종적으로 증명될 수 없습니다. 과학의 진정한 특징은 <span class="highlight">반증 가능성(falsifiability)</span>에 있습니다. 어떤 이론이 과학적이려면, 그 이론이 틀렸음을 증명할 수 있는 잠재적인 관찰이나 실험이 존재해야 합니다.</p>
+            <div class="content-box">
+              <h3 class="font-bold text-lg">과학의 과정</h3>
+              <p class="mt-2">과감한 가설 제시 ➡️ 엄격한 반증 시도 ➡️ 오류 제거 ➡️ 더 나은 가설 제시 ...<br>
+              이 과정을 통해 과학은 점진적으로 진리에 가까워집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 9: Is Our Mind a Material Thing? -->
+      <!-- Slide 35: Section 9 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 9</p>
+          <h2 class="text-6xl font-black text-gray-900">우리의 마음은 물질적인가?</h2>
+          <p class="slide-subtitle mt-4">👻 기계 속의 유령? 마음과 몸의 관계를 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 36 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음-몸 문제: 주요 이론들</h2>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">👻 심신 이원론 (Mind-Body Dualism)</h3>
+              <p>마음(정신)과 몸(물질)은 서로 다른 두 종류의 실체라고 봅니다. (데카르트)<br>
+              <b>문제점:</b> 비물질적인 마음이 어떻게 물질적인 몸과 상호작용하는가?</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🧠 물질주의 (Materialism)</h3>
+              <p>모든 것은 물질로 이루어져 있으며, 마음 역시 두뇌의 물리적 과정에 불과합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">물질주의의 세부 이론들</h2>
+          <div class="slide-content space-y-4">
+            <p><b>1. 행동주의 (Behaviorism):</b> 마음은 단지 특정 방식으로 행동하려는 '성향'일 뿐, 내적인 정신 상태는 존재하지 않습니다. (예: '고통' = '소리 지르고 움츠리는 행동 경향')</p>
+            <p><b>2. 유형 동일론 (Type Identity Theory):</b> 특정 유형의 정신 상태는 특정 유형의 두뇌 상태와 동일합니다. (예: '고통' = 'C-섬유의 활성화')</p>
+            <p><b>3. 기능주의 (Functionalism):</b> 정신 상태는 그것이 만들어진 '재료'가 아니라, 그것이 수행하는 '기능'에 의해 정의됩니다. 마음은 하드웨어(두뇌)에서 실행되는 소프트웨어(프로그램)와 같습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 38 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">타인의 마음 문제</h2>
+          <p class="slide-subtitle">나는 내 마음을 직접 경험하지만, 다른 사람의 마음은 오직 그들의 행동을 통해서만 추론할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>다른 사람들도 나와 같은 내적 의식, 감각질(qualia)을 가지고 있다고 어떻게 확신할 수 있을까요? 어쩌면 그들은 감정 없이 인간처럼 행동하도록 프로그래밍된 '철학적 좀비'일지도 모릅니다.</p>
+            <p class="mt-4"><span class="highlight">유비 논증</span>이 일반적인 해결책입니다: "나와 유사한 신체를 가지고 나와 유사하게 행동하는 다른 사람들도 나와 유사한 마음을 가지고 있을 것이다." 그러나 이것은 엄격한 증명은 아닙니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 10: What is Art? -->
+      <!-- Slide 39: Section 10 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 10</p>
+          <h2 class="text-6xl font-black text-gray-900">예술이란 무엇인가?</h2>
+          <p class="slide-subtitle mt-4">🎨 변기, 벽돌, 그리고 침묵. 무엇이 어떤 것을 예술로 만드는가?</p>
+        </div>
+      </div>
+      
+       <!-- Slide 40 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예술 정의의 어려움: <span class="highlight">가족 유사성</span></h2>
+          <p class="slide-subtitle">비트겐슈타인은 '게임'처럼 예술도 모든 예술 작품이 공유하는 단 하나의 본질적 속성은 없다고 주장했습니다.</p>
+          <div class="slide-content">
+            <p>모든 게임(축구, 체스, 카드놀이...)에 공통된 특징이 없듯이, 예술(회화, 음악, 문학...)도 마찬가지입니다. 예술 작품들은 서로 겹치고 교차하는 <span class="highlight">유사성의 복잡한 네트워크</span>, 즉 '가족 유사성'을 공유할 뿐입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예술에 대한 주요 이론들</h2>
+          <div class="slide-content space-y-4">
+            <p><b>1. 의미있는 형식 이론 (Significant Form):</b> 모든 진정한 예술 작품은 감상자에게 '미적 정서'를 불러일으키는 '의미있는 형식'이라는 특별한 속성을 가지고 있습니다. (클라이브 벨)</p>
+            <p><b>2. 예술 관념론 (Idealism):</b> 실제 예술 작품은 물리적 대상이 아니라 예술가의 마음속에 있는 감정이나 관념입니다. 물리적 작품은 단지 그 표현일 뿐입니다. (콜링우드)</p>
+            <p><b>3. 예술 제도론 (Institutional Theory):</b> 어떤 인공물이 '예술계'(작가, 큐레이터, 비평가 등)에 의해 예술 작품의 지위를 부여받을 때 그것은 예술이 됩니다. (조지 디키)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Slides -->
+      <!-- Slide 42: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🏁</div>
+          <h2 class="slide-title">결론: 끝없는 탐구</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">철학은 명확한 '정답'을 제공하기보다, 우리가 당연하게 여겼던 것들에 대해 <span class="highlight">더 깊고 명료하게 사유하는 방법</span>을 제시합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">이 책에서 다룬 10가지 주제는 철학적 탐구의 시작점이며, 우리의 삶과 세계를 이해하려는 끝없는 여정의 초대장입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+      <!-- Additional Slides to meet the count -->
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">철학이란 무엇인가? 활동으로서의 철학</h2>
+          <p class="slide-subtitle">철학은 지식의 집합이 아니라, 질문하고, 분석하고, 논증하는 '활동'입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-3">
+              <li><b>개념 분석:</b> '정의', '지식', '자유'와 같은 개념의 의미를 명확히 합니다.</li>
+              <li><b>논증 구성:</b> 자신의 주장을 뒷받침하기 위해 논리적 근거를 제시합니다.</li>
+              <li><b>비판적 평가:</b> 다른 사람의 논증을 분석하고 강점과 약점을 평가합니다.</li>
+              <li><b>근본 가정 탐색:</b> 우리 생각의 바탕에 깔린 숨겨진 가정들을 드러냅니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신 존재 증명의 분류</h2>
+          <p class="slide-subtitle">신의 존재를 증명하려는 시도는 크게 두 가지로 나뉩니다.</p>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2"> posteriori 경험적/후험적 증명</h3>
+              <p>세상에 대한 관찰과 경험에 근거한 논증입니다. 세계가 특정 방식으로 존재한다는 사실에서 출발하여 신의 존재를 추론합니다.<br><span class="highlight">예: 디자인 논증, 우주론적 논증</span></p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2"> priori 이성적/선험적 증명</h3>
+              <p>경험과 무관하게, 이성적 사유와 개념 분석에만 의존하는 논증입니다.<br><span class="highlight">예: 존재론적 논증</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신의 속성과 악의 문제</h2>
+          <p class="slide-subtitle">전통적인 유신론에서 신은 세 가지 핵심 속성을 가집니다.</p>
+           <div class="slide-content">
+             <div class="flex items-center justify-around text-center p-4">
+                <div><h3 class="text-2xl font-bold">전지 (Omniscient)</h3><p>모든 것을 앎</p></div>
+                <div><h3 class="text-2xl font-bold">전능 (Omnipotent)</h3><p>모든 것을 할 수 있음</p></div>
+                <div><h3 class="text-2xl font-bold">지선 (Omnibenevolent)</h3><p>완전하게 선함</p></div>
+            </div>
+            <div class="content-box mt-8">
+                <h3 class="font-bold text-lg">논리적 충돌 💥</h3>
+                <p>만약 신이 <b>전지</b>하다면, 그는 악의 존재를 압니다. <br>만약 신이 <b>전능하다면</b>, 그는 악을 제거할 수 있습니다. <br>만약 신이 <b>지선하다면</b>, 그는 악을 제거하기를 원할 것입니다. <br><b>그러나 악은 존재합니다.</b> 이 모순이 바로 '악의 문제'의 핵심입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">도덕 이론의 핵심 질문</h2>
+          <div class="slide-content grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-xl mb-2">의무론 (Deontology)</h3>
+              <p class="text-2xl mb-2">📜</p>
+              <p>나의 <b>의무</b>는 무엇인가? 어떤 규칙을 따라야 하는가?</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">결과주의 (Consequentialism)</h3>
+              <p class="text-2xl mb-2">⚖️</p>
+              <p>어떤 <b>결과</b>가 가장 좋은가? 어떻게 행복을 극대화할 수 있는가?</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">덕 윤리 (Virtue Ethics)</h3>
+              <p class="text-2xl mb-2">👤</p>
+              <p>나는 어떤 <b>사람</b>이 되어야 하는가? 어떤 성품을 길러야 하는가?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">규칙 공리주의 vs. 행위 공리주의</h2>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🏃‍♂️ 행위 공리주의 (Act Utilitarianism)</h3>
+              <p>개별적인 행위 각각이 최대의 행복을 가져오는지 계산하여 판단합니다. '거짓말'이 더 좋은 결과를 낳는다면, 그 상황에서는 거짓말이 옳은 행위가 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">📜 규칙 공리주의 (Rule Utilitarianism)</h3>
+              <p>개별 행위가 아닌, '그 행위를 허용하는 규칙'이 최대의 행복을 가져오는지 판단합니다. '거짓말을 하지 말라'는 규칙이 사회 전체적으로 행복을 증진시키므로, 개별 상황의 결과와 상관없이 규칙을 따라야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정치철학의 기본 문제</h2>
+          <p class="slide-subtitle">국가와 개인의 관계는 어떻게 설정되어야 하는가?</p>
+          <div class="slide-content space-y-4">
+            <p><b>권위의 정당성:</b> 국가는 어떤 근거로 개인에게 복종을 요구할 수 있는가?</p>
+            <p><b>권리의 범위:</b> 개인이 국가로부터 침해받지 않아야 할 기본 권리는 무엇인가?</p>
+            <p><b>분배의 정의:</b> 사회의 자원(부, 기회, 권력)은 어떻게 분배되어야 정의로운가?</p>
+            <p><b>시민 불복종:</b> 부당한 법이나 정책에 대해 시민은 어디까지 저항할 수 있는가?</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">처벌의 정당화 근거</h2>
+          <div class="slide-content grid grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">⚖️ 응보주의 (Retributivism)</h3>
+              <p>처벌은 범죄에 대한 마땅한 대가('눈에는 눈')이기 때문에 정당합니다. 과거의 잘못에 대한 보복에 초점을 둡니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">➡️ 결과주의 (Consequentialism)</h3>
+              <p>처벌은 미래의 좋은 결과를 가져오기 때문에 정당합니다. 범죄를 예방(억제)하고, 범죄자를 교화하며, 사회를 보호하는 효과에 초점을 둡니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">로크의 제1성질과 제2성질</h2>
+          <p class="slide-subtitle">대표 실재론의 핵심 개념으로, 대상의 속성을 두 가지로 구분합니다.</p>
+           <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🧊 제1성질 (Primary Qualities)</h3>
+              <p>관찰자와 무관하게 대상 자체에 내재하는 객관적인 속성입니다.<br><span class="highlight">예: 크기, 모양, 운동, 수</span></p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🎨 제2성질 (Secondary Qualities)</h3>
+              <p>대상이 관찰자의 마음에 특정 감각을 일으키는 힘(power)입니다. 대상 자체의 속성이 아니라, 대상과 관찰자의 상호작용의 결과입니다.<br><span class="highlight">예: 색깔, 냄새, 맛, 소리</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학과 사이비 과학의 구획 문제</h2>
+          <p class="slide-subtitle">칼 포퍼에 따르면, 과학과 비과학(또는 사이비 과학)을 구분하는 기준은 <span class="highlight">반증 가능성</span>입니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>✔️ 과학적 이론 (예: 아인슈타인의 상대성 이론):</b> "만약 특정 조건에서 특정 현상이 관찰되지 않는다면, 이 이론은 틀린 것이다"와 같이 명확한 예측을 하고 반증될 위험을 감수합니다.</p>
+            <p><b>❌ 사이비 과학적 이론 (예: 점성술, 정신분석):</b> 어떤 관찰 결과가 나오더라도 사후에 그럴듯하게 설명할 수 있으며, 결코 결정적으로 반박되지 않습니다. (예: "당신은 겉으로는 사교적이지만 속으로는 불안함을 느낀다" -> 맞으면 이론이 입증되고, 틀리면 저항의 표현으로 해석)</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음의 철학: 감각질(Qualia) 문제</h2>
+          <p class="slide-subtitle">물질주의는 '경험의 주관적인 질'을 설명하는 데 어려움을 겪습니다.</p>
+          <div class="slide-content">
+            <p>감각질(Qualia)이란, '빨간색을 볼 때의 그 빨간 느낌', '초콜릿 아이스크림을 먹을 때의 그 맛', '고통을 느낄 때의 그 아픔'과 같이 경험의 주관적이고 질적인 측면을 말합니다.</p>
+            <p class="mt-4">두뇌의 신경 활동에 대해 모든 것을 물리적으로 알게 되더라도, 그것이 '빨간색을 경험하는 것'이 어떤 느낌인지를 설명해 줄 수 있을까요? 이 간극이 바로 <span class="highlight">'설명의 공백(Explanatory Gap)'</span>이며, 물질주의의 가장 큰 난제 중 하나입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예술 비평과 작가의 의도</h2>
+          <p class="slide-subtitle">작품을 해석할 때 작가의 원래 의도를 얼마나 고려해야 할까요?</p>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">✍️ 의도주의 (Intentionalism)</h3>
+              <p>작품의 올바른 해석은 작가가 의도한 의미를 찾아내는 것입니다. 작가의 전기, 편지, 인터뷰 등이 중요한 해석의 단서가 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🚫 반의도론 (Anti-intentionalism)</h3>
+              <p>작품이 완성되고 세상에 나오는 순간, 그것은 작가의 손을 떠난 독립적인 존재가 됩니다. 작품의 의미는 작가의 의도가 아닌 <span class="highlight">텍스트 자체</span>의 구조와 공개적인 증거를 통해서만 찾아야 합니다. (의도론적 오류)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
