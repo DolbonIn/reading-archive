@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading Archive · AI Bookshelf</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+  <link rel="stylesheet" href="assets/css/shelf.css" />
+  <meta name="description" content="AI가 자동으로 생성한 HTML 프레젠테이션을 책장 형태로 전시합니다." />
+</head>
+<body>
+  <div id="app">
+    <canvas id="shelf-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+
+    <div class="header-bar">
+      <h1>READING ARCHIVE</h1>
+      <span class="chip">AI GENERATED BOOKSHELF</span>
+    </div>
+
+    <div id="empty-state" style="display:none;"></div>
+
+    <aside id="info-panel" class="info-panel">
+      <div class="cover">
+        <img id="info-cover" src="assets/covers/default.svg" alt="책 표지" />
+      </div>
+      <h2 id="info-title">책 제목</h2>
+      <p id="info-meta">저자 · 날짜</p>
+      <p id="info-description" class="description"></p>
+      <div id="info-tags" class="tags"></div>
+      <a id="info-button" class="view-button" href="#" target="_blank" rel="noopener">AI 프레젠테이션 열기</a>
+    </aside>
+
+    <div class="controls">
+      <span>마우스를 움직여 책장을 회전하세요</span>
+      <span>클릭하면 AI 프레젠테이션 페이지로 이동합니다</span>
+    </div>
+  </div>
+
+  <script src="assets/js/shelf.js"></script>
+</body>
+</html>

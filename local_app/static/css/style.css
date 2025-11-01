@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+:root {
+  --bg: #0b0f1c;
+  --panel: rgba(18, 24, 42, 0.7);
+  --accent: #ffb774;
+  --accent-strong: #e5814d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at 15% 0%, rgba(255, 174, 107, 0.18), transparent 55%),
+              radial-gradient(circle at 80% -5%, rgba(124, 214, 255, 0.16), transparent 60%),
+              linear-gradient(160deg, #040710, #0b0f1c 55%, #060910 100%);
+  color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.container {
+  width: min(960px, 94vw);
+  background: var(--panel);
+  border-radius: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(32px, 4vw, 48px);
+  box-shadow: 0 40px 120px rgba(5, 9, 18, 0.65);
+  backdrop-filter: blur(20px);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+header p {
+  margin: 8px 0 0;
+  max-width: 420px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 185, 116, 0.22), rgba(229, 129, 77, 0.28));
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.upload-area {
+  margin-top: 40px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.dropzone {
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 32px;
+  padding: 38px 28px;
+  text-align: center;
+  background: rgba(12, 18, 34, 0.55);
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.dropzone.active {
+  border-color: var(--accent);
+  background: rgba(29, 36, 58, 0.72);
+  transform: translateY(-2px);
+}
+
+.dropzone h2 {
+  margin: 18px 0 10px;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.dropzone p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.95rem;
+}
+
+form {
+  display: grid;
+  gap: 18px;
+}
+
+label span {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 14, 26, 0.75);
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(255, 183, 116, 0.8);
+  box-shadow: 0 0 0 3px rgba(255, 183, 116, 0.25);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.switches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.switches label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: rgba(19, 24, 40, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+}
+
+button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #1a0d05;
+  cursor: pointer;
+  box-shadow: 0 24px 48px rgba(229, 129, 77, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 30px 60px rgba(229, 129, 77, 0.55);
+}
+
+.status {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(12, 18, 34, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: none;
+}
+
+.status.active {
+  display: block;
+}
+
+.status.pending {
+  border-color: rgba(255, 200, 160, 0.2);
+  color: rgba(255, 220, 190, 0.9);
+}
+
+.status.success {
+  border-color: rgba(124, 255, 196, 0.28);
+  color: rgba(160, 255, 210, 0.92);
+}
+
+.status.error {
+  border-color: rgba(255, 140, 140, 0.35);
+  color: rgba(255, 183, 183, 0.92);
+}
+
+.status .progress-log {
+  margin-top: 14px;
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.status a {
+  color: rgba(255, 212, 164, 0.92);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 680px) {
+  .container {
+    padding: 28px 22px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .upload-area {
+    grid-template-columns: 1fr;
+  }
+}

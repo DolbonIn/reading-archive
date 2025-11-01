@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reading Archive · 로컬 업로더</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <span class="badge">Local Pipeline</span>
+        <h1>AI가 만들어주는 책장</h1>
+        <p>PDF를 업로드하면 Gemini 2.5 Pro가 자동으로 Tailwind HTML 프레젠테이션을 생성하고, 책장에 꽂을 준비를 마칩니다.</p>
+      </div>
+      <div>
+        <p>필요 환경 변수: <code>GOOGLE_API_KEY</code></p>
+        <p>생성된 파일은 <code>presentations/</code>, <code>assets/covers/</code>, <code>data/books.json</code>에 반영됩니다.</p>
+      </div>
+    </header>
+
+    <section class="upload-area">
+      <div class="dropzone" id="dropzone">
+        <div class="emoji" style="font-size: 2.4rem;">📚</div>
+        <h2>책 PDF 끌어놓기</h2>
+        <p>또는 클릭하여 파일 선택</p>
+        <p class="dropzone-filename" style="margin-top:12px; color:rgba(255,255,255,0.55);">PDF 한 개만 업로드하세요.</p>
+      </div>
+
+      <form id="upload-form">
+        <input type="file" id="pdf-input" name="pdf" accept="application/pdf" hidden />
+
+        <label>
+          <span>제목</span>
+          <input type="text" name="title" placeholder="PDF 메타데이터 사용 시 비워두세요" />
+        </label>
+
+        <label>
+          <span>저자</span>
+          <input type="text" name="author" placeholder="저자 이름" />
+        </label>
+
+        <label>
+          <span>등록 날짜</span>
+          <input type="date" name="date" value="{{ today }}" />
+        </label>
+
+        <label>
+          <span>태그 (쉼표 구분)</span>
+          <input type="text" name="tags" placeholder="예: 생산성, 집중, 자기계발" />
+        </label>
+
+        <label>
+          <span>설명</span>
+          <textarea name="description" placeholder="짧은 설명을 입력해주세요"></textarea>
+        </label>
+
+        <div class="switches">
+          <label><input type="checkbox" id="dry-run" name="dry_run" /> Gemini 호출 없이 테스트</label>
+          <label><input type="checkbox" id="commit" name="commit" /> 자동 commit</label>
+          <label><input type="checkbox" id="push" name="push" /> 자동 push</label>
+        </div>
+
+        <button id="submit-button" type="submit">AI 프레젠테이션 생성</button>
+
+        <div id="status-box" class="status">
+          <div id="status-message"></div>
+          <div id="status-progress" class="progress-log"></div>
+          <div id="status-link" style="margin-top: 12px;"></div>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>

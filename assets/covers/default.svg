@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 840">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb774" />
+      <stop offset="100%" stop-color="#c46b3c" />
+    </linearGradient>
+    <linearGradient id="edge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff6e2" />
+      <stop offset="100%" stop-color="#f3d7b5" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="840" rx="48" ry="48" fill="url(#grad)" />
+  <rect x="60" y="60" width="480" height="720" rx="36" ry="36" fill="rgba(0,0,0,0.08)" />
+  <rect x="520" y="60" width="28" height="720" rx="14" ry="14" fill="url(#edge)" />
+  <g fill="#fff7ed">
+    <text x="100" y="300" font-size="92" font-weight="700" letter-spacing="6">READING</text>
+    <text x="100" y="410" font-size="92" font-weight="700" letter-spacing="6">ARCHIVE</text>
+  </g>
+  <g fill="#ffe3ca">
+    <text x="100" y="520" font-size="34" letter-spacing="10">AI GENERATED MEMOIR</text>
+    <text x="100" y="580" font-size="34" letter-spacing="10">DIGITAL BOOKSHELF</text>
+  </g>
+</svg>
