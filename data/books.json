@@ -48,5 +48,15 @@
     "description": "",
     "presentation": "presentations/공정하다는-착각.html",
     "cover": "assets/covers/공정하다는-착각.jpg"
+  },
+  {
+    "slug": "the-smol-training-playbook-the-secrets-to-building-world-class-llms",
+    "title": "The Smol Training Playbook: The Secrets to Building World-Class LLMs",
+    "author": "huggingface",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/the-smol-training-playbook-the-secrets-to-building-world-class-llms.html",
+    "cover": "assets/covers/the-smol-training-playbook-the-secrets-to-building-world-class-llms.jpg"
   }
 ]
