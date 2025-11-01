@@ -1,7 +1,6 @@
-/* global THREE */
-
 (function initBookshelf() {
-  const canvas = document.getElementById('shelf-canvas');
+  const shelf = document.getElementById('bookshelf');
+  const wrapper = document.querySelector('.bookshelf');
   const infoPanel = document.getElementById('info-panel');
   const infoCover = document.getElementById('info-cover');
   const infoTitle = document.getElementById('info-title');
@@ -11,11 +10,7 @@
   const infoButton = document.getElementById('info-button');
   const emptyState = document.getElementById('empty-state');
 
-  if (!canvas || !window.THREE) {
-    console.warn('Three.js not available.');
-    if (emptyState) {
-      emptyState.textContent = 'Three.js를 불러오지 못했습니다.';
-    }
+  if (!shelf) {
     return;
   }
 
@@ -33,214 +28,147 @@
       if (emptyState) {
         emptyState.style.display = 'none';
       }
-      runThreeScene(books);
+      renderBooks(books);
+      setupMotion();
     })
-    .catch((err) => {
-      console.error(err);
+    .catch((error) => {
+      console.error(error);
       if (emptyState) {
         emptyState.style.display = 'flex';
         emptyState.textContent = '책 데이터를 불러오는 데 실패했습니다.';
       }
     });
 
-  function runThreeScene(books) {
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  function renderBooks(books) {
+    const fragment = document.createDocumentFragment();
+    books.forEach((book, index) => {
+      const card = document.createElement('article');
+      card.className = 'book-card';
+      card.style.setProperty('--twist', `${randomRange(-3, 3)}deg`);
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `${book.title || '책'} 보기`);
 
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x080b16, 0.16);
+      const coverSrc = book.cover || 'assets/covers/default.svg';
+      const img = document.createElement('img');
+      img.src = coverSrc;
+      img.alt = book.title ? `${book.title} 표지` : '책 표지';
+      img.loading = 'lazy';
 
-    const camera = new THREE.PerspectiveCamera(36, canvas.clientWidth / canvas.clientHeight || 1, 0.1, 100);
-    camera.position.set(0, 2.4, 9);
+      const reflection = document.createElement('span');
+      reflection.className = 'reflection';
 
-    const ambient = new THREE.AmbientLight(0xffffff, 0.75);
-    const keyLight = new THREE.DirectionalLight(0xfff1cb, 1.2);
-    keyLight.position.set(8, 11, 6);
-    keyLight.castShadow = true;
-    keyLight.shadow.mapSize.set(1024, 1024);
-    const fillLight = new THREE.DirectionalLight(0x88aaff, 0.5);
-    fillLight.position.set(-6, 6, -5);
-    const rimLight = new THREE.DirectionalLight(0xff9f6a, 0.6);
-    rimLight.position.set(0, 4, 10);
-    scene.add(ambient, keyLight, fillLight, rimLight);
+      card.appendChild(img);
+      card.appendChild(reflection);
 
-    const shelfGroup = new THREE.Group();
-    scene.add(shelfGroup);
+      const showInfo = () => updateInfoPanel(book);
+      const openPresentation = () => {
+        if (book.presentation) {
+          const url = book.presentation.startsWith('http') ? book.presentation : `${book.presentation}`;
+          window.open(url, '_blank');
+        }
+      };
 
-    const perShelf = Math.max(7, Math.ceil(books.length / 3));
-    const shelfCount = Math.min(3, Math.ceil(books.length / perShelf));
-
-    const shelfMaterial = new THREE.MeshStandardMaterial({
-      color: 0x372214,
-      roughness: 0.65,
-      metalness: 0.08,
-    });
-
-    for (let i = 0; i < shelfCount; i += 1) {
-      const width = perShelf * 0.68 + 1.8;
-      const board = new THREE.Mesh(new THREE.BoxGeometry(width, 0.12, 2.6), shelfMaterial);
-      board.position.set(0, 1.4 - i * 1.8, -0.4);
-      board.receiveShadow = true;
-      shelfGroup.add(board);
-    }
-
-    const textureLoader = new THREE.TextureLoader();
-    textureLoader.crossOrigin = 'anonymous';
-
-    const spineColors = [0xf1c27d, 0xf4b183, 0xe0a15a, 0xd48255, 0xbb643a];
-
-    const bookMeshes = books.map((book, index) => {
-      const width = THREE.MathUtils.randFloat(0.46, 0.62);
-      const height = THREE.MathUtils.randFloat(1.35, 1.55);
-      const depth = THREE.MathUtils.randFloat(0.22, 0.32);
-      const geometry = new THREE.BoxGeometry(width, height, depth);
-
-      const spineColor = new THREE.Color(spineColors[index % spineColors.length] || 0xd58c5c);
-      const sideMaterial = new THREE.MeshStandardMaterial({
-        color: spineColor,
-        roughness: 0.52,
-        metalness: 0.08,
+      card.addEventListener('mouseenter', showInfo);
+      card.addEventListener('focus', showInfo);
+      card.addEventListener('click', openPresentation);
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openPresentation();
+        }
       });
-      const topMaterial = new THREE.MeshStandardMaterial({ color: 0xfdf5e3, roughness: 0.35 });
-      const coverMaterial = new THREE.MeshStandardMaterial({ color: 0xf7e4d4, roughness: 0.42 });
 
-      const materials = [sideMaterial, sideMaterial, topMaterial, topMaterial, coverMaterial, coverMaterial];
-      const mesh = new THREE.Mesh(geometry, materials);
-      mesh.castShadow = true;
-      mesh.receiveShadow = true;
-
-      const shelfIndex = Math.floor(index / perShelf);
-      const positionInShelf = index % perShelf;
-      const spread = Math.max(perShelf - 1, 1) * 0.68;
-      mesh.position.x = positionInShelf * 0.68 - spread / 2;
-      mesh.position.y = 1.48 - shelfIndex * 1.8;
-      mesh.position.z = THREE.MathUtils.randFloat(-0.2, 0.25);
-      mesh.rotation.y = THREE.MathUtils.degToRad(THREE.MathUtils.randFloat(-8, 8));
-
-      const coverUrl = book.cover || '/assets/covers/default.svg';
-      textureLoader.load(
-        coverUrl,
-        (tex) => {
-          tex.colorSpace = THREE.SRGBColorSpace;
-          tex.anisotropy = 8;
-          materials[4] = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.34, metalness: 0.12 });
-          materials[5] = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.38, metalness: 0.1 });
-          mesh.material = materials;
-        },
-        undefined,
-        () => {
-          mesh.material = materials; // keep fallback colors
-        }
-      );
-
-      mesh.userData = book;
-      shelfGroup.add(mesh);
-      return mesh;
+      fragment.appendChild(card);
     });
+    shelf.innerHTML = '';
+    shelf.appendChild(fragment);
+  }
 
-    const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2();
-    let hovered = null;
-
-    function resizeRenderer() {
-      const width = canvas.clientWidth || window.innerWidth;
-      const height = canvas.clientHeight || window.innerHeight;
-      renderer.setSize(width, height, false);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
+  function updateInfoPanel(book) {
+    if (!infoPanel) return;
+    if (!book) {
+      infoPanel.classList.remove('visible');
+      return;
     }
-
-    function updateInfoPanel(book) {
-      if (!infoPanel) return;
-      if (!book) {
-        if (infoDescription) {
-          infoDescription.textContent = '';
-        }
-        infoPanel.classList.remove('visible');
-        return;
-      }
-      const cover = book.cover || '/assets/covers/default.svg';
-      if (infoCover) {
-        infoCover.src = cover;
-        infoCover.alt = book.title || '책 표지';
-      }
-      if (infoTitle) {
-        infoTitle.textContent = book.title || '제목 미상';
-      }
-      if (infoMeta) {
-        const bits = [];
-        if (book.author) bits.push(book.author);
-        if (book.date) bits.push(book.date);
-        infoMeta.textContent = bits.join(' · ');
-      }
-      if (infoDescription) {
-        infoDescription.textContent = book.description || '';
-        infoDescription.style.display = book.description ? 'block' : 'none';
-      }
-      if (infoTags) {
-        infoTags.innerHTML = '';
-        if (Array.isArray(book.tags)) {
-          book.tags.forEach((tag) => {
-            const chip = document.createElement('span');
-            chip.textContent = `#${tag}`;
-            infoTags.appendChild(chip);
-          });
-        }
-      }
-      if (infoButton) {
-        infoButton.href = book.presentation || '#';
-        infoButton.target = book.presentation ? '_blank' : '_self';
-        infoButton.dataset.slug = book.slug || '';
-      }
-      infoPanel.classList.add('visible');
+    const cover = book.cover || 'assets/covers/default.svg';
+    if (infoCover) {
+      infoCover.src = cover;
+      infoCover.alt = book.title ? `${book.title} 표지` : '책 표지';
     }
-
-    function onPointerMove(event) {
-      const rect = canvas.getBoundingClientRect();
-      pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    if (infoTitle) {
+      infoTitle.textContent = book.title || '제목 미상';
     }
-
-    function onClick() {
-      if (hovered && hovered.object && hovered.object.userData) {
-        const { presentation } = hovered.object.userData;
-        if (presentation) {
-          window.open(presentation, '_blank');
-        }
+    if (infoMeta) {
+      const bits = [];
+      if (book.author) bits.push(book.author);
+      if (book.date) bits.push(book.date);
+      infoMeta.textContent = bits.join(' · ');
+    }
+    if (infoDescription) {
+      infoDescription.textContent = book.description || '';
+      infoDescription.style.display = book.description ? 'block' : 'none';
+    }
+    if (infoTags) {
+      infoTags.innerHTML = '';
+      if (Array.isArray(book.tags)) {
+        book.tags.forEach((tag) => {
+          const chip = document.createElement('span');
+          chip.textContent = `#${tag}`;
+          infoTags.appendChild(chip);
+        });
       }
     }
-
-    function render() {
-      shelfGroup.rotation.y += 0.0025;
-
-      raycaster.setFromCamera(pointer, camera);
-      const intersects = raycaster.intersectObjects(bookMeshes);
-      if (intersects.length) {
-        const match = intersects[0];
-        if (!hovered || hovered.object !== match.object) {
-          if (hovered && hovered.object) hovered.object.scale.set(1, 1, 1);
-          hovered = match;
-          hovered.object.scale.set(1.05, 1.06, 1.05);
-          updateInfoPanel(hovered.object.userData);
-          canvas.style.cursor = 'pointer';
-        }
-      } else if (hovered) {
-        hovered.object.scale.set(1, 1, 1);
-        hovered = null;
-        updateInfoPanel(null);
-        canvas.style.cursor = 'default';
+    if (infoButton) {
+      if (book.presentation) {
+        const href = book.presentation.startsWith('http') ? book.presentation : `${book.presentation}`;
+        infoButton.href = href;
+        infoButton.target = '_blank';
+      } else {
+        infoButton.href = '#';
+        infoButton.removeAttribute('target');
       }
-      renderer.render(scene, camera);
-      requestAnimationFrame(render);
     }
+    infoPanel.classList.add('visible');
+  }
 
-    window.addEventListener('resize', resizeRenderer);
-    canvas.addEventListener('pointermove', onPointerMove);
-    canvas.addEventListener('click', onClick);
+  function setupMotion() {
+    if (!wrapper) return;
+    let rafId = null;
+    let targetX = 8;
+    let targetY = 0;
+    let currentX = targetX;
+    let currentY = targetY;
 
-    resizeRenderer();
-    render();
+    const animate = () => {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      wrapper.style.setProperty('--tilt-x', `${currentX}deg`);
+      wrapper.style.setProperty('--tilt-y', `${currentY}deg`);
+      rafId = requestAnimationFrame(animate);
+    };
+
+    const updateTarget = (event) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      targetY = (x - 0.5) * 20;
+      targetX = 6 - (y - 0.5) * 10;
+    };
+
+    const resetTarget = () => {
+      targetX = 8;
+      targetY = 0;
+    };
+
+    window.addEventListener('mousemove', updateTarget);
+    window.addEventListener('mouseleave', resetTarget);
+    window.addEventListener('blur', resetTarget);
+
+    animate();
+  }
+
+  function randomRange(min, max) {
+    return Math.random() * (max - min) + min;
   }
 })();

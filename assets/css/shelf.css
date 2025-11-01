@@ -14,12 +14,45 @@ body {
 #app {
   position: relative;
   min-height: 100vh;
+  perspective: 1800px;
 }
 
-#shelf-canvas {
-  display: block;
-  width: 100vw;
-  height: 100vh;
+.bookshelf-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1120px, 88vw);
+  height: min(640px, 70vh);
+  pointer-events: none;
+}
+
+.bookshelf {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: clamp(18px, 3vw, 32px);
+  padding: clamp(32px, 3vw, 48px);
+  border-radius: 32px;
+  background: linear-gradient(160deg, rgba(18, 24, 42, 0.85), rgba(12, 16, 30, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 45px 90px rgba(5, 10, 20, 0.55);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-x, 8deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.25s ease;
+  pointer-events: auto;
+}
+
+.shelf-shadow {
+  position: absolute;
+  inset: 0;
+  transform: translateY(30%) scale(0.92, 0.3);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.45), transparent 60%);
+  filter: blur(18px);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .gradient-overlay {
@@ -188,6 +221,62 @@ body {
   white-space: nowrap;
 }
 
+.book-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 6 / 9;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transform: translateZ(0px) rotateZ(var(--twist, 0deg));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 28px 52px rgba(6, 12, 24, 0.4);
+}
+
+.book-card::before {
+  content: '';
+  position: absolute;
+  inset: -18% -18% auto -18%;
+  height: 70%;
+  background: linear-gradient(135deg, rgba(255, 200, 134, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.book-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05);
+}
+
+.book-card:hover,
+.book-card:focus-visible {
+  transform: translateZ(12px) rotateZ(var(--twist, 0deg)) scale(1.03);
+  border-color: rgba(255, 199, 134, 0.45);
+  box-shadow: 0 40px 70px rgba(24, 18, 8, 0.55);
+}
+
+.book-card:hover::before,
+.book-card:focus-visible::before {
+  opacity: 0.8;
+}
+
+.book-card .reflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), transparent 55%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.book-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 200, 134, 0.35), 0 40px 70px rgba(24, 18, 8, 0.55);
+}
+
 #empty-state {
   position: absolute;
   inset: 0;
@@ -210,6 +299,18 @@ body {
   .header-bar h1 {
     font-size: 1rem;
     letter-spacing: 0.08em;
+  }
+
+  .bookshelf-wrapper {
+    position: static;
+    transform: none;
+    margin: 120px auto 180px;
+    height: auto;
+    width: calc(100% - 32px);
+  }
+
+  .bookshelf {
+    transform: none !important;
   }
 
   .info-panel {

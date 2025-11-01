@@ -4,14 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading Archive · AI Bookshelf</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r161/three.min.js" integrity="sha512-qf4x9C2P/4KbYHdMlAbfQpIJ+5y2jMVk0D9PH9Rbcp0xUSYdZPONA7Z5j0S0y0Ij4LiF/uMh1amSv/1SrqPEdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="assets/css/shelf.css" />
   <meta name="description" content="AI가 자동으로 생성한 HTML 프레젠테이션을 책장 형태로 전시합니다." />
 </head>
 <body>
   <div id="app">
-    <canvas id="shelf-canvas"></canvas>
+    <div class="bookshelf-wrapper">
+      <div id="bookshelf" class="bookshelf" aria-live="polite"></div>
+      <div class="shelf-shadow"></div>
+    </div>
     <div class="gradient-overlay"></div>
 
     <div class="header-bar">
@@ -33,11 +35,11 @@
     </aside>
 
     <div class="controls">
-      <span>마우스를 움직여 책장을 회전하세요</span>
-      <span>클릭하면 AI 프레젠테이션 페이지로 이동합니다</span>
+      <span>마우스를 움직이면 책장이 기울어집니다</span>
+      <span>책을 클릭하면 프레젠테이션이 열립니다</span>
     </div>
   </div>
 
-  <script src="assets/js/shelf.js"></script>
+  <script defer src="assets/js/shelf.js"></script>
 </body>
 </html>

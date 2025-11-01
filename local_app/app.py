@@ -56,6 +56,11 @@ def to_bool(value: str | None) -> bool:
 
 
 @app.get("/")
+def bookshelf():
+    return send_from_directory(str(ROOT), "index.html")
+
+
+@app.get("/upload")
 def index():
     return render_template("index.html", today=dt.date.today().isoformat())
 
