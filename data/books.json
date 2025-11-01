@@ -28,5 +28,15 @@
     "description": "",
     "presentation": "presentations/왜-일하는가-지금-당신이-가장-뜨겁게-물어야-할-첫-번째-질문.html",
     "cover": "assets/covers/왜-일하는가-지금-당신이-가장-뜨겁게-물어야-할-첫-번째-질문.jpg"
+  },
+  {
+    "slug": "공정하다는-착각",
+    "title": "공정하다는 착각",
+    "author": "마이클 샌델",
+    "date": "2025-11-01",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/공정하다는-착각.html",
+    "cover": "assets/covers/공정하다는-착각.jpg"
   }
 ]

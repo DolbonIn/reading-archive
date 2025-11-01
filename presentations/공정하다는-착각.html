@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공정하다는 착각 - 마이클 샌델</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 8rem; /* Space for navigation */
+    }
+    .slide.active {
+      display: flex;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      min-height: 70vh;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e9ecef;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #6c757d;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: rgba(255, 229, 102, 0.7);
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background-color: #f8f9fa;
+      color: #343a40;
+      border: 1px solid #dee2e6;
+    }
+    .btn-secondary:hover {
+      background-color: #e9ecef;
+      transform: translateY(-2px);
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .special-block {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: #f8f9fa;
+      border-left: 5px solid #007bff;
+      border-radius: 8px;
+    }
+    ul.custom-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul.custom-list li {
+      position: relative;
+      padding-left: 1.75em;
+      margin-bottom: 0.75em;
+    }
+    ul.custom-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">⚖️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">공정하다는 착각</h1>
+          <p class="slide-subtitle mt-4">능력주의는 모두에게 같은 기회를 제공하는가?</p>
+          <p class="text-xl md:text-2xl text-gray-700">마이클 샌델 (Michael J. Sandel)</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg space-y-3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+            <p><b>서론:</b> 대학 입시와 능력주의</p>
+            <p><b>1장:</b> 승자와 패자</p>
+            <p><b>2장:</b> "선량하니까 위대하다"</p>
+            <p><b>3장:</b> 사회적 상승의 포장법</p>
+            <p><b>4장:</b> 최후의 편견, 학력주의</p>
+            <p><b>5장:</b> 성공의 윤리</p>
+            <p><b>6장:</b> '인재 선별기'로서의 대학</p>
+            <p><b>7장:</b> 일의 존엄성</p>
+            <p><b>결론:</b> 능력, 그리고 공동선</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Intro -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">서론</p>
+          <h2 class="slide-title">대학 입시와 <span class="highlight">능력주의</span></h2>
+          <p class="slide-subtitle">2019년 미국을 떠들썩하게 한 입시 부정 스캔들은 능력주의의 감춰진 문제를 드러내는 상징적 사건이었습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">입시의 세 가지 문 🚪</h2>
+          <p class="slide-subtitle">대학 입학에는 세 가지 문이 있다고 이야기됩니다. 이 스캔들은 이 문들의 의미를 다시 생각하게 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="font-bold text-xl text-center mb-2">① 정문 (Front Door)</h3>
+              <p class="text-center">오직 <span class="highlight">능력과 실력</span>으로만 입학하는 길. 대부분의 사람들이 공정하다고 믿는 방식입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl text-center mb-2">② 뒷문 (Back Door)</h3>
+              <p class="text-center">거액의 <span class="highlight">기부금</span>을 통해 입학하는 합법적이지만 논란이 많은 길입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl text-center mb-2">③ 옆문 (Side Door)</h3>
+              <p class="text-center">입시 브로커 윌리엄 싱어가 사용한 <span class="highlight">뇌물과 성적 조작</span> 등 불법적인 방식입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'정문'은 정말 공정한가? 🤔</h2>
+          <p class="slide-subtitle">표면적으로 가장 공정해 보이는 '정문'조차 부모의 경제적 우위에 따라 크게 좌우됩니다.</p>
+          <div class="slide-content">
+            <ul class="custom-list">
+                <li><b>SAT 점수와 소득의 비례:</b> 부유한 집 학생일수록 SAT 점수가 높은 경향이 뚜렷합니다. 고액 과외, 사설 카운슬링 등이 영향을 미칩니다.</li>
+                <li><b>'스펙' 만들기:</b> 펜싱, 스쿼시, 요트 등 엘리트 체육이나 해외 봉사활동 같은 '돈이 많이 드는 일들'이 명문대 입학에 유리한 스펙으로 작용합니다.</li>
+                <li><b>결과:</b> 아이비리그 대학생의 2/3 이상이 소득 상위 20% 가정 출신이며, 이는 <span class="highlight">능력주의가 실제로는 부모의 특권을 대물림하는 통로</span>가 되고 있음을 보여줍니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">능력주의의 그림자: <span class="highlight">오만과 굴욕</span></h2>
+            <p class="slide-subtitle">치열한 입시 경쟁은 승자에게는 오만을, 패자에게는 굴욕감을 안겨줍니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">심리적 부담 😥</h3>
+              <p class="mt-2">성공한 학생들은 '모든 것은 내 노력의 결과'라는 <span class="highlight">'능력주의적 오만'</span>에 빠지기 쉽습니다. 이는 감사와 겸손을 배우기 어렵게 만들고, 자신보다 덜 성공한 사람들을 깔보는 태도로 이어질 수 있습니다.</p>
+              <p class="mt-4">반면, 실패한 학생들은 '모든 것은 내 잘못'이라는 깊은 패배감과 <span class="highlight">굴욕감</span>을 느끼게 됩니다. 이는 개인에게 지나친 부담을 지우며 시민적 연대를 해치는 원인이 됩니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Section: Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">CHAPTER 1</p>
+          <h2 class="slide-title">승자와 패자 🏆</h2>
+          <p class="slide-subtitle">지난 40년간의 세계화는 어떻게 '승자'와 '패자'를 나누고, 정치적 분열을 심화시켰는가?</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">포퓰리즘적 분노의 진단 🌋</h2>
+            <p class="slide-subtitle">트럼프 현상과 브렉시트는 단순한 경제적 불만이나 인종주의의 표출이 아닙니다.</p>
+            <div class="slide-content">
+              <p>이는 수십 년간 지속된 <span class="highlight">시장주도적 세계화</span>와 <span class="highlight">기술관료적 통치</span>의 결과입니다. 이 과정에서 많은 노동계급 사람들은 경제적 어려움뿐만 아니라, 자신의 일과 삶이 사회적으로 존중받지 못한다는 <span class="highlight">'모욕감'</span>과 <span class="highlight">'굴욕감'</span>을 느꼈습니다.</p>
+              <p class="mt-4">주류 정당들은 이러한 도덕적, 문화적 불만을 제대로 다루지 못했고, 이 공백을 포퓰리스트들이 파고들었습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">두 가지 정치: <span class="highlight">부정의 vs. 조롱</span></h2>
+            <p class="slide-subtitle">노동자들이 느끼는 감정은 '부정의의 정치'를 넘어 '조롱의 정치'로 심화되었습니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl mb-2">부정의의 정치 (Politics of Injustice)</h3>
+                    <p>분배가 공정하지 않다고 느끼는 분노입니다. "부자들이 너무 많이 가져간다"는 인식이 중심입니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl mb-2">조롱의 정치 (Politics of Humiliation)</h3>
+                    <p>자신의 기여가 사회적으로 인정받지 못하고, 엘리트로부터 경멸당하고 있다는 느낌입니다. "그들은 우리를 무시한다"는 <span class="highlight">모욕감</span>이 핵심이며, 포퓰리즘적 반격의 강력한 동력이 됩니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가장 깊은 균열: <span class="highlight">학력</span> 🎓</h2>
+          <p class="slide-subtitle">오늘날 미국 정치를 가르는 가장 큰 균열은 '대학 나온 사람 vs. 안 나온 사람'입니다.</p>
+          <div class="slide-content">
+            <p>2016년 미국 대선에서 트럼프는 비대졸자 백인 유권자의 압도적 지지를 받았고, 클린턴은 고등교육 이수자들 사이에서 압승했습니다. 이는 영국 브렉시트 투표에서도 유사하게 나타났습니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">엘리트의 오만</h3>
+              <p class="mt-2">힐러리 클린턴이 패배 후 "나는 GDP의 2/3를 생산하는 지역에서 이겼다"고 발언한 것은, 생산성과 교육 수준이 낮은 지역의 유권자들을 무시하는 <span class="highlight">능력주의적 오만</span>의 한 단면을 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">CHAPTER 2</p>
+          <h2 class="slide-title">"선량하니까 위대하다" ✨</h2>
+          <p class="slide-subtitle">능력주의 도덕의 짧은 역사: 성공은 미덕의 증표인가?</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">섭리론과 능력주의 📜</h2>
+          <p class="slide-subtitle">성공한 사람은 그럴 만해서 성공했다는 믿음은 신학적 뿌리를 갖고 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">성서적 능력주의 (우주적 능력주의)</h3>
+              <p>부는 재능과 노력의 상징이며, 가난은 나태의 상징이라는 생각. 성공을 신의 축복, 실패를 신의 징벌로 여기는 경향입니다. 욥기는 이러한 단순한 인과응보적 세계관에 대한 강력한 반론을 제기합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">프로테스탄트 윤리</h3>
+              <p>칼뱅의 예정론은 역설적으로 치열한 <span class="highlight">직업 윤리</span>를 낳았습니다. 세속적 성공은 구원의 '조건'은 아니지만, 구원받았다는 '증표'로 여겨지게 되면서, 성공을 통해 자신의 구원을 확인하려는 심리가 작동했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현대의 세속적 섭리론 💸</h2>
+          <p class="slide-subtitle">신학적 믿음이 약해진 현대 사회에서도 섭리론적 사고는 다른 형태로 남아있습니다.</p>
+          <div class="slide-content">
+            <ul class="custom-list">
+              <li><b>번영의 복음 (Prosperity Gospel):</b> 신이 믿는 자에게 부와 건강을 내리신다는 믿음. 건강과 부를 미덕의 증표로, 질병과 가난을 덕 없음의 증거로 해석하며 개인의 책임을 극도로 강조합니다.</li>
+              <li><b>'역사의 옳은 편'이라는 수사:</b> "미국은 선하기 때문에 위대하다"와 같은 구호는 국가적 성공을 도덕적 우월성의 증거로 여기는 <span class="highlight">국가 단위의 섭리론</span>입니다. 이는 성공한 국가는 그럴 자격이 있다는 오만으로 이어질 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Chapter 3 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">CHAPTER 3</p>
+          <h2 class="slide-title">사회적 상승을 어떻게 <span class="highlight">말로 포장</span>하는가 🗣️</h2>
+          <p class="slide-subtitle">'하면 된다'는 수사학의 진화와 그 이면</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상승의 수사학: 기회와 책임</h2>
+          <p class="slide-subtitle">지난 40년간, 정치인들은 불평등 문제에 대한 해답으로 '사회적 상승'과 '개인 책임'을 강조해왔습니다.</p>
+          <div class="slide-content">
+              <p>레이건부터 클린턴, 오바마에 이르기까지, 당파를 막론하고 정치 담론의 중심에는 "누구나 재능과 노력이 허용하는 한도까지 출세할 수 있어야 한다"는 메시지가 있었습니다. </p>
+              <p class="mt-4">이는 복지 제도에 대한 태도 변화로 이어졌습니다. 복지 수혜 자격을 '자신의 실수가 아닌 일로' 어려움에 처한 사람에게만 제한하려는 경향이 강해졌고, 이는 <span class="highlight">가난한 사람들을 '자격 있는 자'와 '자격 없는 자'로 구분</span>하는 가혹한 잣대가 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과연 "하면 된다"가 맞나? 📉</h2>
+          <p class="slide-subtitle">'열심히 일하면 성공한다'는 믿음은 현실과 점점 더 멀어지고 있습니다.</p>
+          <div class="special-block">
+            <h3 class="font-bold text-lg">무너지는 아메리칸 드림</h3>
+            <p class="mt-2">실제 데이터는 미국의 사회적 이동성이 캐나다, 덴마크 등 다른 유럽 국가들보다 훨씬 낮다는 것을 보여줍니다. 가난한 부모에게서 태어난 미국인이 부자가 될 확률은 매우 희박합니다.</p>
+            <p class="mt-4">이러한 현실에도 불구하고, 미국인들은 유럽인들보다 사회적 상승 가능성을 훨씬 더 <span class="highlight">낙관</span>하는 경향이 있습니다. 이 믿음과 현실 사이의 괴리는 능력주의 수사학이 공허하게 들리는 주된 이유입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Chapter 4 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">CHAPTER 4</p>
+          <h2 class="slide-title">최후의 면책적 편견, <span class="highlight">학력주의</span></h2>
+          <p class="slide-subtitle">대학 간판은 어떻게 새로운 계급의 무기가 되었나</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">교육이 불평등의 해답? 📚</h2>
+            <p class="slide-subtitle">정치인들은 불평등, 임금 정체, 제조업 붕괴의 해답으로 '교육'을 제시했습니다. 하지만 이것이 문제의 본질을 가렸습니다.</p>
+            <div class="slide-content">
+                <p>문제의 원인을 글로벌 경제의 구조적 변화에서 찾기보다, 노동자 개인의 <span class="highlight">학력 부족</span>으로 돌리는 경향이 나타났습니다.</p>
+                <p class="mt-4">"대학에 가라"는 메시지는 선의로 포장되었지만, 결과적으로는 대학 학위가 없는 대다수 노동자들의 존엄성을 훼손하고, 그들의 어려움이 마치 '스스로 노력하지 않은 탓'인 것처럼 만들었습니다. 이는 <span class="highlight">학력주의 편견</span>을 조장하는 결과를 낳았습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">마지막으로 용납되는 편견</h2>
+            <p class="slide-subtitle">인종이나 성차별주의는 비판받지만, 저학력자에 대한 편견은 엘리트 사이에서 공공연하게 용납됩니다.</p>
+            <div class="slide-content">
+                <p>연구에 따르면, 교육 수준이 높은 엘리트들은 다른 어떤 집단보다도 <span class="highlight">교육 수준이 낮은 사람들</span>에 대해 더 강한 편견을 가지고 있으며, 이를 부끄러워하지도 않습니다.</p>
+                <div class="special-block">
+                    <h3 class="font-bold text-lg">능력주의적 해석</h3>
+                    <p class="mt-2">그들은 낮은 학력이 개인의 노력 부족 탓이라고 여기기 때문에, 이러한 편견이 정당하다고 생각합니다. 이는 능력주의가 성공뿐만 아니라 실패에 대한 개인의 책임을 강조하는 논리의 자연스러운 귀결입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">기술관료적 통치와 민주주의</h2>
+            <p class="slide-subtitle">정치적 문제를 '스마트하냐 우둔하냐'의 기술적 문제로 축소시키는 경향은 민주주의를 위협합니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl mb-2">전문가 정치 🧑‍🏫</h3>
+                    <p>복잡한 사회 문제는 고도의 교육을 받은 전문가들이 해결해야 한다는 믿음. 이는 일반 시민들을 공적 토론에서 배제하고 무력하게 만듭니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl mb-2">민주주의의 위기 🗳️</h3>
+                    <p>정치가 도덕적, 이념적 논쟁의 장이 아니라 기술적 관리의 영역이 될 때, 공동선에 대한 시민들의 숙고 능력은 약화됩니다. 이것이 바로 기술관료적 능력주의의 위험입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Section: Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">CHAPTER 5</p>
+          <h2 class="slide-title">성공의 윤리 🧐</h2>
+          <p class="slide-subtitle">완벽하게 공정한 능력주의 사회는 과연 정의로운가?</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">재능은 온전히 내 것인가? 🎁</h2>
+            <p class="slide-subtitle">능력주의의 근본적인 질문: 우리는 우리의 타고난 재능에 대해 도덕적 자격이 있는가?</p>
+            <div class="slide-content">
+                <p>내가 특별한 재능을 갖고 태어난 것은 나의 노력이 아니라 <span class="highlight">행운</span>의 결과입니다. 복권에 당첨된 것을 내 능력의 성과라고 주장할 수 없는 것과 마찬가지입니다.</p>
+                <p class="mt-4">또한, 나의 재능을 높이 평가하고 보상해주는 사회에 태어난 것 역시 또 다른 종류의 행운입니다. 르네상스 시대 피렌체에 태어난 르브론 제임스는 지금과 같은 부와 명예를 누리지 못했을 것입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정의에 대한 두 가지 견해</h2>
+          <p class="slide-subtitle">자유시장주의자 하이에크와 평등주의적 자유주의자 롤스는 서로 다른 정치적 입장을 가졌지만, 한 가지 중요한 점에서 의견을 같이했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">하이에크 (Hayek)</h3>
+              <p>시장에서의 보상은 <span class="highlight">가치(수요와 공급)</span>에 의해 결정될 뿐, 능력이나 도덕적 자격(merit)과는 무관하다고 주장했습니다. 그는 이를 통해 재분배 요구를 차단하고자 했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">롤스 (Rawls)</h3>
+              <p>재능의 분배는 도덕적 관점에서 볼 때 <span class="highlight">임의적(arbitrary)</span>이므로, 그로 인한 소득과 부의 분배가 도덕적 자격에 근거한다고 볼 수 없다고 주장했습니다. 그는 이를 통해 재분배를 옹호하고자 했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">권리 vs. 자격 ⚖️</h2>
+          <p class="slide-subtitle">롤스는 '도덕적 자격(desert)'과 '정당한 기대에 대한 권리(entitlement)'를 구분합니다.</p>
+          <div class="slide-content">
+            <p>정의로운 사회에서는 규칙에 따라 경쟁에서 이긴 사람이 상을 받을 <span class="highlight">권리</span>가 있습니다. 하지만 그가 그 상을 받을 만한 <span class="highlight">도덕적 자격</span>이 본질적으로 있다는 의미는 아닙니다.</p>
+            <p class="mt-4">우리는 게임 규칙이 공정하기 때문에 승자의 권리를 인정하는 것이지, 승자가 본질적으로 더 우월한 사람이기 때문이 아닙니다. 이는 능력주의가 승자에게 부여하는 '도덕적 우월감'을 비판하는 핵심 논리입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Chapter 6 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">CHAPTER 6</p>
+          <h2 class="slide-title">'인재 선별기'로서의 대학 🏛️</h2>
+          <p class="slide-subtitle">대학은 어떻게 사회적 명망을 배분하고 능력주의적 폭정을 강화하는가</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">능력주의 쿠데타</h2>
+          <p class="slide-subtitle">하버드 총장 제임스 코넌트는 20세기 중반, 세습 엘리트 체제를 무너뜨리고 재능 있는 인재를 배경에 상관없이 선발하는 '능력주의 혁명'을 주도했습니다.</p>
+          <div class="slide-content">
+            <p>그는 SAT와 같은 표준화된 시험을 통해 전국의 인재를 발굴하고, 그들에게 최고의 교육 기회를 제공하여 새로운 리더 집단을 만들고자 했습니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">의도와 결과</h3>
+              <p class="mt-2">그의 비전은 사회적 이동성을 높이는 것이었지만, 결과적으로는 대학을 <span class="highlight">'인재 선별기'이자 '명망 배분기'</span>로 만들어 버렸습니다. 대학 서열화가 심화되고, 명문대 입학이 성공의 보증수표처럼 여겨지게 된 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상처 입은 승리자들 🤕</h2>
+          <p class="slide-subtitle">명문대 입시라는 초고도 경쟁은 승자들에게도 깊은 상처를 남깁니다.</p>
+          <div class="slide-content">
+            <p>과도한 경쟁은 10대 시절부터 엄청난 스트레스와 불안, 완벽주의를 강요합니다. 이로 인해 많은 명문대생들은 우울증, 불안장애 등 정신적 어려움을 겪습니다.</p>
+            <p class="mt-4">그들은 '스스로의 힘으로 모든 것을 쟁취했다'고 믿지만, 그 과정에서 입은 <span class="highlight">심리적 상처</span>는 그들의 삶에 그림자를 드리웁니다. 이들은 성공했지만, 행복하지 않은 '상처 입은 승리자'가 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대안: 제비뽑기 입시 🎲</h2>
+          <p class="slide-subtitle">대학의 '선별' 기능을 완화하고 오만과 굴욕을 줄이기 위한 대담한 제안.</p>
+          <div class="slide-content">
+            <p>대학이 일정 수준 이상의 자격을 갖춘 지원자들을 먼저 추려낸 뒤, 최종 합격자는 <span class="highlight">제비뽑기(추첨)</span>로 선발하는 방식입니다.</p>
+            <ul class="custom-list mt-4">
+              <li><b>기대 효과 1:</b> 입시 과열을 완화하고 학생들의 심리적 부담을 줄여줍니다.</li>
+              <li><b>기대 효과 2:</b> 합격이 순전히 자신의 능력 덕분이 아니라 '운'의 결과임을 상기시켜, 승자의 오만을 줄여줍니다.</li>
+              <li><b>기대 효과 3:</b> 탈락자 역시 능력이 부족해서가 아니라 운이 없었을 뿐이라는 인식을 주어, 패자의 굴욕감을 덜어줍니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Chapter 7 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">CHAPTER 7</p>
+          <h2 class="slide-title">일의 존엄성 🛠️</h2>
+          <p class="slide-subtitle">우리는 어떻게 일의 가치를 되찾고, 모두가 존중받는 사회를 만들 수 있는가</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">존엄성의 하락과 <span class="highlight">절망 끝의 죽음</span></h2>
+          <p class="slide-subtitle">지난 수십 년간, 비대졸 노동자들은 임금 정체뿐 아니라 사회적 인정과 명망의 하락이라는 이중의 고통을 겪었습니다.</p>
+          <div class="slide-content">
+            <p>자살, 약물 과용, 알코올성 간질환으로 인한 사망률이 특히 학위가 없는 중년 백인 남성 사이에서 급증하는 현상(<span class="highlight">Deaths of Despair</span>)은 이러한 '존엄성의 위기'와 깊은 관련이 있습니다.</p>
+            <p class="mt-4">이는 단지 물질적 빈곤의 문제가 아니라, 자신의 일이 더 이상 사회에 필요한 기여로 존중받지 못한다는 느낌에서 비롯된 깊은 절망의 표현입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">만드는 자 vs. 가져가는 자</h2>
+          <p class="slide-subtitle">경제의 금융화는 사회적 기여가 적은 활동에 막대한 보상을 안겨주며 일의 가치를 왜곡했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">기여적 정의 (Contributive Justice)</h3>
+              <p>우리의 진정한 가치는 소비자가 아니라, <span class="highlight">생산자로서 공동선에 기여</span>하는 데서 나온다는 관점입니다. 사회는 동료 시민들이 필요로 하는 재화와 용역을 만들고 제공하는 일을 존중해야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">금융 투기의 문제</h3>
+              <p>초단타 매매와 같은 금융 투기는 실물 경제에 거의 기여하지 않으면서 막대한 부를 창출합니다. 이는 '우리가 버는 돈이 우리의 사회적 기여도를 반영한다'는 <span class="highlight">능력주의적 믿음이 거짓</span>임을 보여주는 대표적 사례입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일의 존엄성 되살리기 💡</h2>
+          <p class="slide-subtitle">소비자 복지를 넘어 생산자로서의 시민의 역할을 존중하는 정치 어젠다가 필요합니다.</p>
+          <div class="slide-content">
+            <ul class="custom-list">
+              <li><b>세제 개혁:</b> 노동에 대한 세금(급여세)을 줄이고, 투기적 금융거래나 탄소 배출, 소비에 대한 세금을 늘려 생산적인 노동의 가치를 높입니다.</li>
+              <li><b>임금 보조:</b> 저임금 노동자에게 정부가 임금을 보조하여, 시장 임금이 낮더라도 존엄한 생활을 유지할 수 있도록 지원합니다.</li>
+              <li><b>담론의 전환:</b> 경제 정책의 목표를 단순한 GDP 성장을 넘어, <span class="highlight">좋은 일자리를 창출하고 공동체에 기여하는 노동을 장려</span>하는 방향으로 전환해야 합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">결론</p>
+          <h2 class="slide-title">능력, 그리고 <span class="highlight">공동선</span></h2>
+          <p class="slide-subtitle">능력주의의 폭정을 넘어, 우리는 어떤 사회를 지향해야 하는가?</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기회의 평등을 넘어서 🕊️</h2>
+          <p class="slide-subtitle">좋은 사회는 단지 계층 이동의 사다리를 오를 기회만을 약속하는 사회가 아닙니다.</p>
+          <div class="slide-content">
+            <p>사회적 상승에만 집중하는 것은 민주주의가 요구하는 연대와 시민의식을 약화시킵니다. 중요한 것은 상승에 실패한 사람들도 자신의 자리에서 존엄하고 가치 있는 삶을 살 수 있도록 하는 <span class="highlight">'조건의 평등'</span>입니다.</p>
+            <p class="mt-4">이는 모든 시민이 사회적 존경을 받는 일에서 역량을 계발하고, 공적 문제에 대해 함께 숙의할 수 있는 공동의 공간과 문화를 만드는 것을 의미합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">민주주의와 <span class="highlight">겸손</span> 🙏</h2>
+          <p class="slide-subtitle">능력주의의 가장 큰 해악은 승자에게는 오만을, 패자에게는 굴욕을 안겨주어 우리를 분열시키는 것입니다.</p>
+          <div class="special-block">
+            <h3 class="font-bold text-lg">겸손의 정치</h3>
+            <p class="mt-2">우리 운명의 우연성을 제대로 인지할 때 겸손이 비롯됩니다. "신의 은총인지, 우연한 행운인지 몰라도 덕분에 나는 지금 여기 서 있다"는 겸손함은 우리를 갈라놓는 가혹한 성공 윤리에서 돌아설 수 있게 합니다.</p>
+            <p class="mt-4">이러한 겸손은 능력주의의 폭정을 넘어, 보다 덜 악의적이고 더 관대한 <span class="highlight">공동의 삶</span>으로 우리를 이끌어갈 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 59: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600 mt-8">Q&A</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
