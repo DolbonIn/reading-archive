@@ -1,1 +1,965 @@
 <!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>진화심리학 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">진화심리학</h1>
+          <p class="text-xl md:text-2xl text-gray-700">마음과 행동을 탐구하는 <span class="highlight">새로운 과학</span></p>
+          <p class="text-lg md:text-xl text-gray-500 mt-6">데이비드 버스 (David Buss) 원작 기반</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차: 마음의 기원과 설계</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 진화심리학의 기초:</b> 마음을 이해하는 새로운 기반</p>
+            <p><b>2. 생존 문제:</b> 자연의 적대적인 힘들과 맞서 싸우기</p>
+            <p><b>3. 성과 짝짓기 문제:</b> 남녀의 짝짓기 전략</p>
+            <p><b>4. 양육과 친족 문제:</b> 유전자는 물보다 진하다</p>
+            <p><b>5. 집단 생활의 문제:</b> 동맹, 적, 그리고 사회적 지위</p>
+            <p><b>6. 통합심리학:</b> 분절된 학문을 하나로 묶다</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title (Part 1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제1부: 진화심리학의 기초</p>
+          <h2 class="slide-title"><span class="highlight">마음</span>을 이해하는 새로운 기반</h2>
+          <p class="slide-content">심리학은 어디에서 왔으며, 왜 진화론적 접근이 필요한가? 이 장에서는 진화론의 역사와 심리학의 주요 흐름을 살펴보고, 어떻게 '진화심리학'이라는 새로운 과학이 탄생했는지 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Standard Content Slide (Ch 1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화적 사고의 역사</h2>
+          <p class="slide-subtitle">다윈 이전의 이론들: 라마르크와 퀴비에</p>
+          <div class="slide-content">
+            <p>생물이 변할 수 있다는 생각은 다윈 이전에도 존재했습니다.</p>
+            <p class="mt-4"><b>• 장 바티스트 라마르크:</b> '획득 형질의 유전'을 주장했습니다. 기린이 목을 뻗는 노력을 통해 얻은 긴 목이 다음 세대에 유전된다고 믿었습니다.</p>
+            <p class="mt-4"><b>• 조르주 퀴비에:</b> '격변설'을 주장했습니다. 주기적인 격변(예: 운석 충돌)으로 종이 멸종하고 다른 종으로 대체된다고 보았습니다.</p>
+            <p class="mt-4 font-bold">하지만 이 이론들에는 생물이 '왜' 그리고 '어떻게' 그토록 환경에 잘 적응하는지 설명하는 <span class="highlight">인과론적 기제</span>가 빠져 있었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Two Column Layout (Ch 1) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다윈의 <span class="highlight">두 가지</span> 핵심 이론</h2>
+          <p class="slide-subtitle">찰스 다윈은 생물학적 수수께끼를 풀 두 가지 핵심 기제를 제공했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 자연 선택론 (생존 선택)</h3>
+              <p>생존에 유리한 <span class="highlight">유전 가능한 변이</span>(변이, 유전, 선택)를 가진 개체가 더 많이 살아남아 번식하는 과정입니다. 이는 생존을 위한 '적응'을 만들어냅니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 성 선택론 (짝짓기 선택)</h3>
+              <p>생존에는 불리해 보여도(예: 공작의 꼬리) 짝짓기 성공률을 높이는 특성이 진화하는 과정입니다. <span class="highlight">동성 간 경쟁</span>과 <span class="highlight">이성 간 선택</span>(배우자 선택)을 통해 일어납니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Content with a special block (Ch 1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화론에 대한 <span class="highlight">보편적 오해</span> (1)</h2>
+          <p class="slide-subtitle">진화심리학은 종종 잘못된 비판에 직면합니다. 가장 큰 오해는 다음과 같습니다.</p>
+          <div class="slide-content">
+            <p>이러한 오해들은 진화 이론의 핵심을 이해하지 못한 데서 비롯됩니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">오해 1: 사람의 행동은 '유전자 결정론'에 따른다?</h3>
+              <p class="mt-2"><b>사실이 아닙니다.</b> 진화론은 진정한 <span class="highlight">상호작용주의</span>입니다. 굳은살이 피부 마찰(환경) 없이 생길 수 없듯이, 모든 행동은 (1) 진화한 적응과 (2) 그것을 촉발하는 환경의 입력이 <span class="highlight">결합</span>되어야만 일어납니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Two Column Layout (Ch 1) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화론에 대한 <span class="highlight">보편적 오해</span> (2)</h2>
+          <p class="slide-subtitle">두 가지 추가적인 오해와 그에 대한 반박입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">오해 2: 진화 때문이라면, 행동을 바꿀 수 없다?</h3>
+              <p><b>사실이 아닙니다.</b> 굳은살을 만드는 기제를 안다면, 마찰이 없는 환경을 만들어 굳은살 생성을 '방지'할 수 있습니다. 마찬가지로, 우리의 진화한 심리를 알면, 입력을 조절하여 <span class="highlight">바람직한 행동 변화</span>를 이끌어낼 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">오해 3: 현재의 기제는 '최적으로' 설계되었다?</h3>
+              <p><b>사실이 아닙니다.</b> 진화는 '최적'이 아닙니다. 두 가지 주요 제약이 따릅니다.
+              <br>1. <span class="highlight">진화의 시간적 간격</span>: 우리는 석기 시대의 뇌로 현대를 살아갑니다 (예: 지방에 대한 갈망).
+              <br>2. <span class="highlight">적응 비용</span>: 모든 적응에는 비용이 따릅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Standard Content Slide (Ch 1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심리학의 흐름: <span class="highlight">행동주의</span>의 지배</h2>
+          <p class="slide-subtitle">프로이트와 윌리엄 제임스는 본능을 강조하며 진화론에 영향을 받았지만, 20세기 심리학은 다른 길을 걸었습니다.</p>
+          <div class="slide-content">
+            <p><b>• 급진적 행동주의 (존 왓슨, B.F. 스키너):</b> 1920년대 이후 심리학계를 지배했습니다.</p>
+            <p class="mt-4"><b>• 핵심 가정:</b> 사람은 소수의 '영역 일반적 학습 기제'만을 가지고 태어난 <span class="highlight">'빈 서판(Blank Slate)'</span>과 같습니다.</p>
+            <p class="mt-4"><b>• 결론:</b> 강화 수반성을 조작하면 어떤 행동이든 쉽게 형성할 수 있다고 보았으며, '인간 본성'이라는 개념 자체를 거부했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Content with a special block (Ch 1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인지 혁명과 <span class="highlight">잃어버린 조각</span></h2>
+          <p class="slide-subtitle">행동주의의 가정들은 여러 경험적 발견으로 인해 무너지기 시작했습니다.</p>
+          <div class="slide-content">
+            <p>• <b>가르시아 효과:</b> 쥐는 구역질을 소리나 빛이 아닌 '맛'과 쉽게 연관 짓도록 <span class="highlight">'사전 프로그래밍'</span> 되어 있었습니다.</p>
+            <p>• <b>해리 할로의 원숭이 실험:</b> 새끼 원숭이는 먹이(강화)를 주는 '철사 어미'보다 <span class="highlight">'접촉 위안'</span>을 주는 '천 어미'에게 애착을 느꼈습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">인지 혁명의 한계</h3>
+              <p class="mt-2">인지 혁명은 마음이라는 '블랙 박스'를 다시 열었지만, '빈 서판'을 <span class="highlight">'범용 컴퓨터'</span>로 대체했을 뿐입니다. 마음이 어떤 종류의 정보 처리 문제를 풀도록 '설계'되었는지에 대한 질문은 여전히 답하지 못했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Section Title (Part 1 / Ch 2) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제1부: 진화심리학의 기초 (계속)</p>
+          <h2 class="slide-title"><span class="highlight">진화한 심리 기제</span>: 인간 본성의 핵심</h2>
+          <p class="slide-content">진화심리학은 마음이 단 하나의 범용 컴퓨터가 아니라, 수백만 년에 걸쳐 특정 적응 문제들을 해결하기 위해 진화한 <span class="highlight">다수의 전문화된 기제들</span>로 구성되어 있다고 봅니다. 이 기제들이 바로 '인간 본성'입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 11: Content with a special block (Ch 2) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심리 기제의 <span class="highlight">정의</span></h2>
+          <p class="slide-subtitle">진화한 심리 기제는 본질적으로 정보 처리 장치입니다.</p>
+          <div class="slide-content">
+            <p>이 기제는 우리의 조상들이 특정 생존 또는 생식 문제를 반복적으로 해결했기 때문에 지금의 형태로 존재합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">입력 → 결정 규칙 → 출력</h3>
+              <p class="mt-2"><b>1. 입력 (Input):</b> 아주 좁은 범위의 정보(예: 뱀의 꿈틀거리는 움직임)만을 받아들입니다.</p>
+              <p class="mt-2"><b>2. 결정 규칙 (Decision Rules):</b> "만약(if)... 라면(then)..." 절차를 통해 정보를 변환합니다. (예: 만약 뱀을 본다면, 두려움을 느끼고 피하라.)</p>
+              <p class="mt-2"><b>3. 출력 (Output):</b> 생리적 활동(예: 심박수 증가), 다른 심리 기제로의 정보 전달, 또는 겉으로 드러나는 행동(예: 도망)을 생성합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Two Column Layout (Ch 2) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기제의 중요한 <span class="highlight">성질</span></h2>
+          <p class="slide-subtitle">진화한 기제들은 어떻게 조직되어 있는가?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 문제 특정적 (Problem-Specific)</h3>
+              <p>'일반적인 적응 문제' 같은 것은 없습니다. 먹이 선택 문제의 해결책은 배우자 선택 문제의 해결책과 다릅니다. 각 문제에는 <span class="highlight">특정한 해결책</span>(전문 기제)이 필요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 무수히 많음 (Numerous)</h3>
+              <p>우리 조상들은 수천 가지의 적응 문제에 직면했습니다. 따라서 우리의 마음은 수천 개의 <span class="highlight">복잡하고 특수한 기제</span>들로 이루어져 있습니다. 이것이 바로 행동의 유연성을 제공합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Section Title (Part 2) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제2부: 생존 문제</p>
+          <h2 class="slide-title">자연의 <span class="highlight">적대적인 힘</span>과 맞서 싸우기</h2>
+          <p class="slide-content">생존은 번식의 가장 기본적인 전제 조건입니다. 인류는 식량 부족, 독소, 포식 동물, 질병, 기후 등 수많은 생존 문제에 직면했으며, 이에 대처하기 위한 복잡한 적응 기제들을 진화시켰습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 14: Standard Content Slide (Ch 3) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">식량 획득과 선택</h2>
+          <p class="slide-subtitle">잡식 동물의 딜레마: 무엇을 먹고, 무엇을 피할 것인가?</p>
+          <div class="slide-content">
+            <p>우리는 영양분을 섭취하는 동시에 독소를 피해야 하는 근본적인 문제에 직면했습니다. 이에 따라 다음과 같은 심리가 진화했습니다.</p>
+            <p class="mt-4">• <b>단맛 선호:</b> <span class="highlight">칼로리</span>와 당분이 풍부한 잘 익은 과일을 나타내는 신호입니다.</p>
+            <p class="mt-4">• <b>쓴맛과 신맛 회피:</b> 식물에 포함된 <span class="highlight">독소</span>를 나타내는 신호일 가능성이 높습니다.</p>
+            <p class="mt-4">• <b>새것 공포증 (Neophobia):</b> 낯선 음식을 거부하고 소량만 맛봄으로써, 치명적인 중독 위험을 피합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Content with a special block (Ch 3) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사냥, 채집, 그리고 <span class="highlight">과시</span></h2>
+          <p class="slide-subtitle">우리 조상들은 어떻게 식량을 구했는가?</p>
+          <div class="slide-content">
+            <p><b>• 사냥 가설:</b> 남자의 큰 짐승 사냥이 도구 제작, 큰 뇌, 언어, 남성 동맹, 남자의 높은 부모 투자를 촉진하는 핵심 동력이었다고 봅니다.</p>
+            <p class="mt-4"><b>• 채집 가설:</b> 여자의 식물 채집 활동이 석기 사용의 주된 원인이었으며, 대부분의 칼로리를 공급했다고 주장합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">과시 가설 (The Show-Off Hypothesis)</h3>
+              <p class="mt-2">남자들이 위험한 사냥을 하는 이유는 단지 가족을 부양하기 위해서가 아니라, 잡은 고기를 공동체에 <span class="highlight">과시</span>함으로써 사회적 지위와 평판을 높이고, 그 대가로 <span class="highlight">추가적인 짝짓기 기회</span>(혼외정사 등)를 얻기 위해서라는 가설입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Two Column Layout (Ch 3) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수렵-채집과 <span class="highlight">공간 능력</span>의 성차</h2>
+          <p class="slide-subtitle">오랜 성별 분업이 전문화된 인지 능력을 낳았는가?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">여자의 전문성: 채집 (Gathering)</h3>
+              <p>여자는 식물의 위치와 배열을 기억하는 <span class="highlight">'공간적 위치 기억'</span>(spatial location memory) 능력에서 남자보다 평균적으로 우위를 보입니다. 이는 견과류, 열매, 덩이줄기를 효율적으로 채집하는 데 도움이 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">남자의 전문성: 사냥 (Hunting)</h3>
+              <p>남자는 낯선 지형을 항행하고, 움직이는 물체를 맞추기 위해 창을 던지고, 지도를 읽는 데 필요한 <span class="highlight">'심적 회전'</span>(mental rotation) 능력에서 여자보다 평균적으로 우위를 보입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Content with a special block (Ch 3) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두려움의 <span class="highlight">적응적</span> 기능</h2>
+          <p class="slide-subtitle">두려움은 우리를 위험에서 보호하기 위해 진화한 '생존 신호'입니다.</p>
+          <div class="slide-content">
+            <p>우리의 두려움은 조상의 환경에 존재했던 위험을 정확하게 반영합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">왜 뱀은 무서워하고, 전기 콘센트는 안 무서워할까?</h3>
+              <p class="mt-2">뱀, 거미, 높은 곳, 어둠, 낯선 사람(특히 남자)에 대한 공포는 전 세계 문화에서 보편적으로, 그리고 예측 가능한 발달 시기에 나타납니다. 반면, 자동차나 전기 콘센트처럼 통계적으로 훨씬 위험한 <span class="highlight">현대의 위험</span>에 대한 진화한 공포는 없습니다. 이는 우리의 기제가 <span class="highlight">석기 시대</span>의 환경에 맞춰져 있음을 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Standard Content Slide (Ch 3) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다윈 의학: 질병에 맞서 싸우기</h2>
+          <p class="slide-subtitle">질병으로 간주되는 증상 중 일부는 사실 <span class="highlight">진화한 방어 기제</span>일 수 있습니다.</p>
+          <div class="slide-content">
+            <p><b>• 열 (Fever):</b> 바이러스와 세균에 대항하는 신체의 자연적이고 유용한 방어입니다. 해열제는 병을 더 오래 지속시킬 수 있습니다.</p>
+            <p class="mt-4"><b>• 임신한 여성의 입덧:</b> <span class="highlight">태아 보호 가설</span>. 임신 초기에 태아에게 해로운 독소(기형 유발 물질)가 든 음식을 섭취하지 못하게 막는 적응입니다. 입덧을 하는 여성이 유산할 확률이 더 낮습니다.</p>
+            <p class="mt-4"><b>• 항균 가설:</b> 양념(향신료) 사용은 음식의 미생물을 죽이고 식중독을 피하기 위한 적응입니다. 더운 기후일수록 더 맵고 강한 향신료를 사용합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Two Column Layout (Ch 3) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리는 왜 죽는가?</h2>
+          <p class="slide-subtitle">생존 기제가 있음에도 불구하고 죽음은 피할 수 없습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 노화 (Senescence)</h3>
+              <p><span class="highlight">다면 발현 이론(Pleiotropy)</span>: 젊을 때 번식에 이로운 효과를 내는 유전자(예: 높은 테스토스테론)가 늙어서는 해로운 효과(예: 전립선암)를 낳습니다. 자연 선택의 힘은 나이가 들수록 급격히 약해지기 때문에, 노년의 해로운 효과는 걸러지지 않습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 자살 (Suicide)</h3>
+              <p>진화의 관점에서 가장 큰 수수께끼 중 하나입니다. <span class="highlight">데 카탄사로의 가설</span>에 따르면, 자신의 장래 번식 잠재력이 급격히 떨어지고(예: 건강 악화, 짝짓기 실패) 유전적 친족에게 큰 부담이 된다고 지각할 때 자살 생각이 촉발될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Section Title (Part 3) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제3부: 성과 짝짓기 문제</p>
+          <h2 class="slide-title">짝짓기 전략의 <span class="highlight">진화</span></h2>
+          <p class="slide-content">짝짓기는 생존만큼이나 중요하며, 진화 과정의 핵심 엔진입니다. 남녀는 근본적으로 다른 적응 문제에 직면했으며, 그 결과 장기적 짝짓기와 단기적 짝짓기에서 서로 다른 심리와 전략을 진화시켰습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 21: Standard Content Slide (Ch 4) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">여자의 장기적 짝짓기 전략</h2>
+          <p class="slide-subtitle">핵심 원리: <span class="highlight">부모 투자 이론</span> (Parental Investment Theory)</p>
+          <div class="slide-content">
+            <p>여자는 남자에 비해 <span class="highlight">의무적인 초기 부모 투자</span>(임신, 수유)가 훨씬 큽니다. 이 최소 투자의 차이 때문에, 여자는 잠재적 짝짓기에서 잃을 것이 더 많습니다.</p>
+            <p class="mt-4">따라서, 자연 선택은 여자에게 배우자를 선택할 때 <span class="highlight">더 까다롭고 차별적인</span> 심리를 진화시켰습니다. 여자는 자원과 헌신을 제공할 수 있고, 또 기꺼이 제공하려는 남자를 선호해야 했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Content with a special block (Ch 4) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">여자는 무엇을 원하는가? (1): <span class="highlight">자원</span></h2>
+          <p class="slide-subtitle">여자의 선호는 남자가 자원을 제공할 '능력'이 있는지 평가하도록 설계되었습니다.</p>
+          <div class="slide-content">
+            <p><b>• 1. 좋은 재정적 전망:</b> 37개 문화권 연구에서, 여자들은 남자들보다 좋은 재정적 전망을 약 <span class="highlight">2배</span> 더 중요하게 여겼습니다.</p>
+            <p class="mt-4"><b>• 2. 높은 사회적 지위:</b> 지위는 자원에 대한 접근을 알려주는 보편적인 단서입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">자원과 관련된 다른 단서들</h3>
+              <p class="mt-2"><b>• 3. 더 많은 나이:</b> 나이는 자원, 지위, 성숙함과 관련이 있습니다. 여자들은 평균적으로 약 <span class="highlight">3.5세</span> 더 많은 남자를 선호합니다.</p>
+              <p class="mt-2"><b>• 4. 야망과 근면성:</b> 이는 미래의 자원 획득을 예측하는 훌륭한 지표입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Standard Content Slide (Ch 4) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">여자는 무엇을 원하는가? (2): <span class="highlight">헌신과 보호</span></h2>
+          <p class="slide-subtitle">자원을 가질 능력만으로는 충분하지 않습니다. 여자는 자원을 기꺼이 '제공할 의지'가 있는지도 평가해야 합니다.</p>
+          <div class="slide-content">
+            <p><b>• 5. 신뢰성과 안정성:</b> 자원이 불규칙하게 공급되거나 감정적으로 불안정한 남자는 장기적 관계에서 큰 비용을 초래합니다.</p>
+            <p class="mt-4"><b>• 6. 사랑과 헌신:</b> <span class="highlight">사랑</span>은 자신의 자원을 한 사람에게만 독점적으로 헌신하겠다는 가장 신뢰할 만한 신호 중 하나입니다.</p>
+            <p class="mt-4"><b>• 7. 자식에게 기꺼이 투자:</b> 남자가 아이와 긍정적으로 상호작용하는 모습은 장기적 배우자로서의 매력을 크게 높입니다 (단, 단기적 매력에는 영향 없음).</p>
+            <p class="mt-4"><b>• 8. 신체적 능력과 건강:</b> 키가 크고, 힘이 세고, 건강한 남자는 <span class="highlight">신체적 보호</span>와 '좋은 유전자'를 제공할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Standard Content Slide (Ch 5) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남자의 장기적 짝짓기 전략</h2>
+          <p class="slide-subtitle">남자는 왜 결혼을 하려고 하는가?</p>
+          <div class="slide-content">
+            <p>장기적 헌신은 남자에게도 큰 적응적 이득을 주었습니다.</p>
+            <p class="mt-4">1. <b>배우자 확보:</b> 여자가 헌신을 요구하기 때문에, 결혼은 짝짓기 시장에서 성공할 가능성을 높입니다.</p>
+            <p class="mt-4">2. <b>더 바람직한 배우자 유혹:</b> 지위가 높은 남자는 더 매력적인 여자를 유혹할 수 있습니다.</p>
+            <p class="mt-4">3. <b>부성 확실성 증가:</b> 결혼은 아내가 낳은 자식이 자신의 유전적 자식일 확률을 높입니다.</p>
+            <p class="mt-4">4. <b>자식의 생존율 증가:</b> 아버지의 투자는 자식의 생존과 번식 성공에 큰 도움이 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Content with a special block (Ch 5) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남자의 핵심 적응 문제: <span class="highlight">번식 가치</span> 평가</h2>
+          <p class="slide-subtitle">여자의 배란은 감춰져 있기 때문에, 남자는 여자의 번식 능력을 직접 알 수 없었습니다.</p>
+          <div class="slide-content">
+            <p>• <b>번식 가치 (Reproductive Value):</b> 특정 나이의 사람이 장래에 낳을 수 있는 아이의 수 (예: 15세 여자가 35세 여자보다 높음).</p>
+            <p>• <b>생식력 (Fertility):</b> 실제 번식 결과 (예: 20대 중반 여성이 가장 높음).</p>
+            <p>남자는 여자의 번식 가치와 생식력을 알려주는 <span class="highlight">관찰 가능한 단서</span>에 의존하도록 진화했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">두 가지 핵심 단서: 젊음과 건강</h3>
+              <p class="mt-2">이 두 가지 단서는 우리의 심리 기제에서 <span class="highlight">'육체적 매력'</span> 또는 '아름다움'이라는 기준으로 통합되어 인식됩니다. 미의 기준은 임의적이거나 문화적인 것이 아니라, 진화한 적응의 산물입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Two Column Layout (Ch 5) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남자는 무엇을 원하는가? (1): <span class="highlight">젊음과 아름다움</span></h2>
+          <p class="slide-subtitle">남자의 선호는 여자의 번식 가치를 나타내는 단서에 집중됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 젊음 (Youth)</h3>
+              <p>번식 가치를 가장 정확하게 예측하는 단서입니다. 37개 문화권 <span class="highlight">모두</span>에서 남자는 여자보다 어린 배우자를 선호했습니다. 남자는 나이가 들수록 점점 더 어린 여자를 선호합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 아름다움 (Beauty)</h3>
+              <p>젊음과 건강을 나타내는 단서들의 집합입니다.
+              <br>• <b>얼굴:</b> 깨끗한 피부, 맑은 눈, 두툼한 입술, 대칭성, 여성성.
+              <br>• <b>신체:</b> 낮은 허리-엉덩이 비율 (WHR, 약 0.70)은 건강, 생식력, <span class="highlight">임신하지 않았음</span>을 나타냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Standard Content Slide (Ch 5) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남자는 무엇을 원하는가? (2): <span class="highlight">부성 확실성</span></h2>
+          <p class="slide-subtitle">남자는 딴 남자의 자식을 키우는 데 자신의 자원을 낭비하지 않도록 진화했습니다.</p>
+          <div class="slide-content">
+            <p>이 적응 문제를 해결하기 위해, 남자는 여자의 <span class="highlight">성적 충실성</span>을 무엇보다 중요하게 여깁니다. 아내의 불륜은 남자에게 가장 큰 질투를 유발합니다.</p>
+            <p class="mt-4"><b>• 혼전 순결:</b> 과거에는 충실성을 예측하는 중요한 단서였지만, 문화에 따라 중요도가 크게 다릅니다 (예: 중국 vs. 스웨덴).</p>
+            <p class="mt-4"><b>• 성적 충실성:</b> 순결보다 훨씬 더 보편적으로 중요하게 여겨집니다. 남자는 성적으로 문란한 여자를 장기적 배우자로서 바람직하지 않다고 봅니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Standard Content Slide (Ch 6) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">단기적 성 전략</h2>
+          <p class="slide-subtitle">남자와 여자는 단기적 짝짓기에서 서로 다른 <span class="highlight">비용과 편익</span>에 직면합니다.</p>
+          <div class="slide-content">
+            <p><b>• 남자의 편익:</b> 최소한의 투자로 <span class="highlight">자식의 수를 직접적으로 늘릴</span> 수 있습니다 (가장 큰 편익).</p>
+            <p class-><b>• 여자의 편익:</b> 자원 획득, '좋은 유전자' 획득(섹시한 아들 가설), 배우자 교체(배우자 축출), 짝짓기 기술 습득 등이 있습니다.</p>
+            <p class="mt-4"><b>• 남자의 비용:</b> 성병, '난봉꾼' 평판, 질투하는 남편/친족의 보복, 자원 손실.</p>
+            <p class="mt-4"><b>• 여자의 비용:</b> 평판 손상 (남자의 평판 손상보다 더 심각함), 투자 없이 임신할 위험, 기존 배우자의 자원과 보호 상실.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Content with a special block (Ch 6) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남자의 <span class="highlight">단기적 짝짓기</span> 심리</h2>
+          <p class="slide-subtitle">적응 문제: 파트너의 수와 다양성을 어떻게 극대화하는가?</p>
+          <div class="slide-content">
+            <p>남자는 이 문제를 해결하기 위해 여러 심리 기제를 진화시켰습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">진화한 심리 기제들</h3>
+              <p class="mt-2"><b>1. 더 많은 섹스 파트너를 원하는 욕구:</b> 전 세계 모든 문화에서 남자가 여자보다 더 많은 파트너를 원합니다.</p>
+              <p class="mt-2"><b>2. 섹스에 동의하기까지 걸리는 시간 단축:</b> "만난 지 1시간 만에 섹스할래요?" -> 남자 75% "예", 여자 0% "예".</p>
+              <p class="mt-2"><b>3. 단기적 파트너에 대한 <span class="highlight">기준 낮추기</span>:</b> 장기적 배우자에게 요구하는 많은 기준(지위, 지능, 친절함 등)을 포기합니다.</p>
+              <p class="mt-2"><b>4. 성적 환상:</b> 남자의 환상은 더 잦고, 더 많은 파트너가 등장하며, 더 익명이고, 감정적 맥락이 없습니다.</p>
+              <p class="mt-2"><b>5. '문 닫는 시간 현상':</b> 술집 문 닫을 시간이 다가오면 (기회가 줄어들면) 이성이 더 매력적으로 보입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Two Column Layout (Ch 6) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">여자의 <span class="highlight">단기적 짝짓기</span></h2>
+          <p class="slide-subtitle">여자가 단기적 짝짓기에서 얻는 적응적 편익은 무엇인가?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 자원 가설</h3>
+              <p>즉각적인 물질적 이득(예: 식량, 선물)을 얻거나, 친부 혼란을 유도해 여러 남자에게 투자를 받아낼 수 있습니다.</p>
+              <h3 class="font-bold text-lg mt-4">2. 배우자 교체 가설</h3>
+              <p>현재 배우자보다 더 나은 상대를 찾거나, 현재 배우자와 헤어지기 위한 수단(배우자 축출)으로 사용합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">3. 좋은 유전자 가설</h3>
+              <p>정식 배우자보다 유전적으로 더 우월한 남자(예: 더 대칭적이거나 남성적인)와 섹스하여 자식에게 <span class="highlight">'섹시한 아들' 유전자</span>를 물려줍니다. 이는 특히 여자의 <span class="highlight">배란기</span>에 두드러집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Section Title (Part 4) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제4부: 양육과 친족 문제</p>
+          <h2 class="slide-title"><span class="highlight">유전자는</span> 물보다 진하다</h2>
+          <p class="slide-content">자식과 친족은 부모 유전자의 '운반 수단'입니다. 포괄 적합도 이론은 왜 우리가 가족에게 투자하고, 또 가족과 갈등을 겪는지 설명해줍니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Two Column Layout (Ch 7) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왜 어머니는 <span class="highlight">아버지보다</span> 더 많이 투자하는가?</h2>
+          <p class="slide-subtitle">동물계 전반에서 어미는 아비보다 자식을 더 많이 돌봅니다. 여기에는 두 가지 핵심 가설이 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 부성 불확실성 가설</h3>
+              <p>어미는 모성 확실성이 100%지만, 아비는 (체내 수정 때문에) 부성 확실성이 100% 미만입니다. 아비의 관점에서, 자식에게 투자하는 것은 <span class="highlight">남의 자식</span>에게 자원을 낭비할 위험을 안고 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 짝짓기 기회 비용 가설</h3>
+              <p>남자가 양육에 투자하는 <span class="highlight">기회 비용</span>(다른 짝짓기 기회 상실)이 여자보다 훨씬 큽니다. 남자는 양육 대신 다른 짝짓기 노력을 통해 번식 성공률을 더 높일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Standard Content Slide (Ch 7) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부모의 <span class="highlight">편애</span>: 투자의 세 가지 맥락</h2>
+          <p class="slide-subtitle">부모의 사랑은 무조건적이지 않습니다. 부모의 투자는 다음 세 가지 맥락에 민감하도록 진화했습니다.</p>
+          <div class="slide-content">
+            <p><b>1. 자식과의 유전적 근연도:</b>
+            <br>• <span class="highlight">'신데렐라 효과'</span>: 의붓자식은 친자식보다 학대 및 살해 위험이 40배에서 100배까지 높습니다.
+            <br>• 아버지는 자신을 닮은 자식에게 더 많이 투자하는 경향을 보입니다.</p>
+            <p class="mt-4"><b>2. 자식이 부모의 보살핌을 번식 성공으로 전환하는 능력:</b>
+            <br>• 부모는 (특히 자원이 부족할 때) 건강한 아이에게 더 많이 투자하는 경향이 있습니다.
+            <br>• 영아 살해 비율은 나이가 많은 아이보다 어린 아이(번식 가치가 낮은)에게서 더 높습니다.</p>
+            <p class="mt-4"><b>3. 자원의 대체 용도:</b>
+            <br>• 젊은 미혼모는 (미래 번식 기회가 많으므로) 나이 많은 기혼모보다 영아 살해 비율이 훨씬 높습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Content with a special block (Ch 7) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">부모-자식 간의 갈등</span> 이론</h2>
+          <p class="slide-subtitle">왜 가장 가까운 관계에서 갈등이 생기는가? 해답은 <span class="highlight">유전자</span>에 있습니다.</p>
+          <div class="slide-content">
+            <p>부모와 자식은 유전자를 50%만 공유합니다. 이 말은 유전자를 50%는 공유하지 <span class="highlight">않는다</span>는 뜻입니다. 자식은 자신에게 100% 관련이 있지만, 형제와는 50% 관련이 있습니다. 따라서, 자식은 부모가 주려는 것보다 <span class="highlight">더 많은</span> 자원을 원하도록 진화했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">갈등의 영역들</h3>
+              <p class="mt-2"><b>1. 자궁 내 갈등:</b> 태아는 어머니의 혈액에서 더 많은 영양분을 얻기 위해 hCG 호르몬을 분비해 어머니의 혈압을 높입니다. 이는 어머니의 자연 유산을 막기 위한 태아의 전략입니다.</p>
+              <p class="mt-2"><b>2. 젖떼기 갈등:</b> 부모는 다음 자식을 위해 젖을 일찍 떼려 하고, 자식은 더 오래 먹으려 합니다.</p>
+              <p class="mt-2"><b>3. 짝짓기 전략:</b> 부모는 자식(특히 딸)의 단기적 짝짓기를 통제하려 합니다 ('딸 보호').</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Standard Content Slide (Ch 8) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">친족 문제와 <span class="highlight">포괄 적합도</span> 이론</h2>
+          <p class="slide-subtitle">해밀턴 규칙: c < rb</p>
+          <div class="slide-content">
+            <p>이타성은 <span class="highlight">비용(c)</span>이 <span class="highlight">편익(b)</span>에 <span class="highlight">유전적 근연도(r)</span>를 곱한 값보다 적을 때 진화할 수 있습니다.</p>
+            <p class="mt-4">• <b>r = 0.50:</b> 부모, 자식, 형제자매
+            <br>• <b>r = 0.25:</b> 조부모, 손자, 삼촌/이모/고모, 조카
+            <br>• <b>r = 0.125:</b> 사촌</p>
+            <p class="mt-4">이 이론은 왜 우리가 생사가 달린 상황에서 친구(r=0)보다 사촌(r=0.125)을, 사촌보다 형제(r=0.50)를 먼저 구하려 하는지 설명해줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Content with a special block (Ch 8) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">차별적인 <span class="highlight">조부모의 투자</span></h2>
+          <p class="slide-subtitle">모든 조부모가 손자에게 똑같이 투자하지는 않습니다. 핵심 변수는 '부성 불확실성'입니다.</p>
+          <div class="slide-content">
+            <p>할머니는 모성 확실성이 100%이지만, 할아버지는 부성 불확실성을 겪습니다. 이 불확실성은 세대를 거치며 누적됩니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">투자 순위 (확실성 정도)</h3>
+              <p class="mt-2"><b>1. 외할머니 (어머니의 어머니):</b> 유전적 연관성이 가장 확실합니다 (확실성 2단계). <span class="highlight">가장 많은 투자를 합니다.</span></p>
+              <p class="mt-2"><b>2. 친할머니 (아버지의 어머니) & 외할아버지 (어머니의 아버지):</b> 유전적 연관성이 한 단계 불확실합니다 (확실성 1단계).</p>
+              <p class="mt-2"><b>3. 친할아버지 (아버지의 아버지):</b> 유전적 연관성이 두 단계 불확실합니다 (확실성 0단계). <span class="highlight">가장 적은 투자를 합니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Section Title (Part 5) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제5부: 집단 생활의 문제</p>
+          <h2 class="slide-title">동맹, 적, 그리고 <span class="highlight">사회적 지위</span></h2>
+          <p class="slide-content">사람은 고도로 사회적인 종입니다. 하지만 집단 생활은 단순히 협력만 하는 것이 아닙니다. 집단은 협력적 동맹, 공격과 전쟁, 위계 서열, 성적 갈등으로 가득 찬 복잡한 무대입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 38: Two Column Layout (Ch 9) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">협력적 동맹: <span class="highlight">비친족</span> 간의 이타성</h2>
+          <p class="slide-subtitle">유전적 친척이 아닌 사람을 돕는 이타성은 어떻게 진화했을까?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 상호적 이타성 이론</h3>
+              <p>"네가 내 등을 긁어주면, 나도 네 등을 긁어줄게." 내가 치르는 <span class="highlight">비용</span>보다 상대가 얻는 <span class="highlight">편익</span>이 크고, 이 관계가 미래에 <span class="highlight">보답</span>으로 이어진다면 협력이 진화할 수 있습니다 (예: 흡혈박쥐의 피 나누기).</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 죄수의 딜레마</h3>
+              <p>협력의 가장 큰 문제는 '사기꾼(cheater)'의 위협입니다. 둘 다 협력하는 것이 최선이지만, 나만 배신하는 것이 개인에게는 가장 큰 이익입니다. 반복되는 게임에서는 <span class="highlight">'받은 만큼 되돌려주기(Tit-for-Tat)'</span> 전략이 가장 효과적입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Content with a special block (Ch 9) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">사회 계약 이론</span>: 사기꾼 간파하기</h2>
+          <p class="slide-subtitle">우리의 마음은 논리 문제를 풀도록 설계된 것이 아니라, 사회적 교환에서 <span class="highlight">사기꾼을 간파</span>하도록 설계되었습니다.</p>
+          <div class="slide-content">
+            <p><b>• 추상적 문제 (Wason 과제):</b> "한쪽 면이 모음이면, 반대쪽 면은 짝수이다." [A] [B] [2] [3] -> 정답('A'와 '3')을 맞히는 비율은 25% 미만입니다.</p>
+            <p class="mt-4"><b>• 사회 계약 문제:</b> "술을 마시는 사람은 21세 이상이어야 한다." [맥주] [콜라] [25세] [16세] -> 정답('맥주'와 '16세')을 맞히는 비율은 75% 이상입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">결론</h3>
+              <p class="mt-2">사람의 추론 능력은 <span class="highlight">영역 특정적</span>입니다. 우리는 비용을 치르지 않고 편익을 얻으려는 '사기꾼'을 탐지하는 데 고도로 전문화된 심리 기제를 가지고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Content with a special block (Ch 9) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우정의 심리학: <span class="highlight">은행가의 역설</span></h2>
+          <p class="slide-subtitle">진정한 우정은 단순한 상호 교환(tit-for-tat)을 넘어서는 깊은 관여를 포함합니다.</p>
+          <div class="slide-content">
+            <p>하지만 우정에는 딜레마가 있습니다. 우리는 친구가 가장 도움이 절실할 때(예: 병에 걸리거나 자원을 잃었을 때) 그를 도와야 합니다. 하지만 이때는 친구가 우리에게 보답할 능력이 가장 낮은 시기이기도 합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">은행가의 역설 (The Banker's Paradox)</h3>
+              <p class="mt-2">은행은 돈이 가장 필요한 사람(신용 위험이 높은)에게 대출을 가장 꺼립니다. 마찬가지로, 우리는 도움이 가장 절실한 친구(보답할 능력이 낮은)를 돕는 것을 꺼릴 수 있습니다.</p>
+              <h3 class="font-bold text-lg mt-4">진화적 해결책: <span class="highlight">대체 불가능한 사람</span> 되기</h3>
+              <p class="mt-2">다른 사람이 제공할 수 없는 독특한 기술, 자질, 편익을 제공함으로써, 친구들에게 자신이 '없어서는 안 될 존재'가 되도록 합니다. 그러면 친구들은 내가 어려울 때 나를 버릴 가능성이 낮아집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Standard Content Slide (Ch 10) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">공격성의 진화</h2>
+          <p class="slide-subtitle">공격성은 맹목적인 충동이 아니라, 특정 <span class="highlight">적응 문제</span>를 해결하기 위한 맥락 특정적 전략입니다.</p>
+          <div class="slide-content">
+            <p><b>공격성의 6가지 적응적 기능:</b></p>
+            <p class="mt-4">1. <b>남의 자원 탈취:</b> 식량, 영역, 도구를 강제로 빼앗습니다.</p>
+            <p class="mt-4">2. <b>공격에 대한 방어:</b> 자신과 배우자, 친족을 보호합니다.</p>
+            <p class="mt-4">3. <b>동성 경쟁자에게 비용 치르게 하기:</b> 경쟁자를 위협하거나 제거하여 짝짓기 기회를 높입니다.</p>
+            <p class="mt-4">4. <b>지위와 평판 높이기:</b> 용감함과 힘을 과시하여 서열을 협상합니다.</p>
+            <p class="mt-4">5. <b>장래의 공격 억지:</b> 공격적이라는 평판은 다른 사람들의 도발을 막는 억지력으로 작용합니다.</p>
+            <p class="mt-4">6. <b>배우자의 불륜 억지:</b> 배우자의 성적 이탈을 막기 위한 수단으로 사용됩니다 (예: 성적 질투).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Content with a special block (Ch 10) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왜 남자가 여자보다 더 폭력적인가?</h2>
+          <p class="slide-subtitle">살인 통계는 보편적인 패턴을 보여줍니다: <span class="highlight">남자가 남자를 죽이는</span> 비율이 압도적으로 높습니다.</p>
+          <div class="slide-content">
+            <p><b>• 핵심 원인:</b> <span class="highlight">성 선택 이론</span>. 인류의 진화 역사를 통해, 남자는 여자보다 번식 성공률의 변동성이 훨씬 컸습니다 (일부다처제 경향).</p>
+            <p>• 어떤 남자는 많은 자식을 낳았지만, 많은 남자가 자식을 전혀 낳지 못했습니다. 반면, 여자는 대부분 자식을 낳았습니다.</p>
+            <p>• 이로 인해 남자들 사이의 <span class="highlight">동성 간 경쟁</span>이 극도로 치열해졌고, 번식의 '큰 성공'을 거두거나 '완전한 실패'를 피하기 위해 위험하고 폭력적인 전략(공격, 살인)이 선택되었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">젊은 남자 증후군 (Young Male Syndrome)</h3>
+              <p class="mt-2">이러한 위험하고 폭력적인 전략을 쓰는 경향은 짝짓기 경쟁이 가장 치열한 <span class="highlight">젊은 남자</span>(10대 후반에서 20대)에게서 가장 높게 나타납니다. 이 시기는 남자가 살인 피해자가 될 확률이 가장 높은 때이기도 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Standard Content Slide (Ch 11) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이성 간 갈등</h2>
+          <p class="slide-subtitle"><span class="highlight">전략적 간섭 이론</span> (Strategic Interference Theory)</p>
+          <div class="slide-content">
+            <p>남자와 여자는 주로 같은 자원을 놓고 경쟁하기 때문에 갈등하는 것이 아닙니다. 갈등은 한 성의 진화한 성 전략이 다른 성의 진화한 성 전략을 <span class="highlight">방해(간섭)</span>할 때 발생합니다.</p>
+            <p class="mt-4"><b>• 핵심 갈등 영역:</b> 성관계 시기와 빈도</p>
+            <p class="mt-4"><b>• 남자의 전략:</b> 최소한의 투자로 '빠른' 성적 접근을 원함 → 여자의 '성관계 미루기' 전략을 방해함.</p>
+            <p class="mt-4"><b>• 여자의 전략:</b> '장기적 헌신'의 증거로 성관계를 '미루'려 함 → 남자의 '빠른 접근' 전략을 방해함.</p>
+            <p class="mt-4">분노, 고통, 질투 같은 부정적 감정은 이러한 전략적 간섭을 감지하고 해결하기 위해 진화한 해결책입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Two Column Layout (Ch 11) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">갈등의 영역: <span class="highlight">질투</span></h2>
+          <p class="slide-subtitle">남자와 여자는 모두 질투를 느끼지만, 그들을 격분하게 만드는 '방아쇠'는 다릅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">남자의 질투: <span class="highlight">성적</span> 부정</h3>
+              <p>남자의 질투는 <b>부성 불확실성(paternity uncertainty)</b>이라는 적응 문제를 해결하기 위해 진화했습니다. 파트너가 다른 남자와 성관계를 맺는 것은 남자가 남의 자식을 키우는 데 자원을 낭비하는 최악의 적응적 결과를 초래할 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">여자의 질투: <span class="highlight">감정적</span> 부정</h3>
+              <p>여자의 질투는 <b>자원과 헌신의 이탈</b>이라는 적응 문제를 해결하기 위해 진화했습니다. 파트너가 다른 여자와 감정적으로 깊은 관계에 빠지는 것은 자신과 자식에게 돌아올 시간, 에너지, 자원, 보호가 다른 여자에게로 이탈할 수 있음을 시사합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Standard Content Slide (Ch 12) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지위, 명성, 사회적 지배성</h2>
+          <p class="slide-subtitle">모든 인간 집단에는 자원에 대한 차등적 접근을 특징으로 하는 <span class="highlight">서열</span>이 존재합니다.</p>
+          <div class="slide-content">
+            <p>지위는 두 가지 경로를 통해 얻을 수 있습니다:</p>
+            <p class="mt-4"><b>1. 지배성 (Dominance):</b> 힘이나 위협을 통해 지위를 얻습니다. 다른 사람들에게 <span class="highlight">두려움</span>을 유발하여 복종을 이끌어냅니다 (예: 학교 폭력 가해 학생, 독재자).</p>
+            <p class="mt-4"><b>2. 명성 (Prestige):</b> 집단이 가치 있게 여기는 특별한 기술, 지식, 관대함을 보여줌으로써 <span class="highlight">자발적인 존경</span>을 받습니다 (예: 뛰어난 사냥꾼, 현명한 조언자).</p>
+            <p class="mt-4">역사적으로 남자의 높은 지위는 더 많은 짝짓기 기회(더 많은 아내)와 직접적으로 연결되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Content with a special block (Ch 12) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지위와 감정: <span class="highlight">사회계기판 이론</span></h2>
+          <p class="slide-subtitle">우리의 감정은 사회 집단 내에서 우리의 지위와 평판을 추적하는 '계기판' 역할을 합니다.</p>
+          <div class="slide-content">
+            <p>자존감은 다른 사람들이 나를 얼마나 가치 있게 여기는지(사회적 주의 획득 잠재력, SAHP)를 측정하는 내부적 추적 장치입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">지위 변화와 감정</h3>
+              <p class="mt-2"><b>• 지위 상승 (Status Increase):</b> <span class="highlight">기분 고조</span>와 자존감 상승을 경험합니다. 다른 사람을 돕는 행동이 증가합니다.</p>
+              <p class="mt-2"><b>• 지위 하락 (Status Decrease):</b> 사회적 불안, <span class="highlight">수치심</span>, 분노, 질투, 우울증을 경험할 수 있습니다. 이러한 감정들은 복종을 보이거나, 보복을 하거나, 미래의 지위 상실을 피하도록 동기를 부여합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Section Title (Part 6) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제6부: 통합심리학</p>
+          <h2 class="slide-title"><span class="highlight">통합된</span> 심리 과학을 향해</h2>
+          <p class="slide-content">진화심리학은 인지, 사회, 발달, 성격, 임상, 문화 심리학 등 전통적으로 분절된 심리학의 분야들을 하나로 묶을 수 있는 유일한 과학적 <span class="highlight">메타 이론</span>을 제공합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 48: Two Column Layout (Ch 13) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">문화는 <span class="highlight">생물학</span>과 대립하는가?</h2>
+          <p class="slide-subtitle">아니요. 문화는 '생물학'과 대립하는 것이 아니라, 진화한 심리 기제를 기반으로 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 유발된 문화 (Evoked Culture)</h3>
+              <p>모든 사람이 보편적인 기제(예: 피부 색소 생성)를 가지고 있지만, <span class="highlight">환경적 입력</span>(예: 햇빛 노출량)이 다르면 다른 문화적 산물(예: 피부색 차이)이 나타납니다.
+              <br>• 예: 기생충이 많은 문화일수록 육체적 매력을 더 중시합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 전파된 문화 (Transmitted Culture)</h3>
+              <p>어떤 관념(소문, 패션, 믿음)이 다른 관념보다 더 쉽게 전파되는 이유는, 그것이 우리의 <span class="highlight">진화한 심리 기제</span>(예: 지위가 높은 사람을 모방하려는 심리)에 더 잘 부합하기 때문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: Standard Content Slide (Ch 13) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화성격심리학</h2>
+          <p class="slide-subtitle">개인차는 어떻게 진화했는가?</p>
+          <div class="slide-content">
+            <p>자연 선택은 변이를 제거하는 경향이 있지만, 성격 특성은 여전히 유전 가능합니다. 진화심리학은 이 개인차를 설명하는 여러 가설을 제공합니다.</p>
+            <p class="mt-4"><b>• 1. 대체 생태적 지위 선택:</b> 경쟁을 피하기 위해 다른 전략을 선택합니다. (예: 맏이는 보수적, 둘째는 반항적 성향)</p>
+            <p class="mt-4"><b>• 2. 반응적 유전 가능성:</b> 자신의 유전 가능한 체형(예: 근육질)을 평가하고, 그에 맞춰 공격성 같은 전략을 조절합니다.</p>
+            <p class="mt-4"><b>• 3. 빈도 의존성 선택:</b> 어떤 전략의 성공은 그 전략이 집단 내에서 얼마나 드문지에 달려 있습니다. (예: 소수의 '정신병질자'가 다수의 '협력자' 사이에서 번성하는 것)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Standard Content Slide (Ch 13) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화임상심리학</h2>
+          <p class="slide-subtitle">정신 장애는 기제가 <span class="highlight">고장 난</span> 것인가, 아니면 <span class="highlight">작동하는</span> 것인가?</p>
+          <div class="slide-content">
+            <p><b>• 1. 기제 실패:</b> 유전적 돌연변이나 발달 과정의 손상으로 기제가 제대로 작동하지 않을 때 (예: 정신분열병, 자폐증).</p>
+            <p class="mt-4"><b>• 2. 환경 불일치:</b> 기제는 정상 작동하지만, 조상의 환경과 다른 <span class="highlight">현대 환경</span> 때문에 부적응적 결과를 낳습니다 (예: 지방에 대한 갈망이 비만을 유발).</p>
+            <p class="mt-4"><b>• 3. 정상적 실수의 부산물:</b> 기제는 '평균적으로' 이익이 되도록 설계되었기 때문에 실수를 합니다 (예: 성적 과지각 편향).</p>
+            <p class="mt-4"><b>• 4. 고통스러운 적응:</b> 우울증이나 불안 같은 고통스러운 감정 자체는 적응적 기능을 할 수 있습니다 (예: 우울증은 손실을 입은 가망 없는 일에서 손을 떼도록 동기를 부여함).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인간의 마음은 <span class="highlight">빈 서판(Blank Slate)</span>이 아닙니다. 그것은 우리 조상들이 수백만 년에 걸쳐 직면했던 수많은 특정 적응 문제들을 해결하기 위해 자연 선택이 정교하게 빚어낸, 복잡하고 <span class="highlight">전문화된 심리 기제들의 집합체</span>입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">진화심리학은 이 모든 기제를 통합하여 '사람이란 무엇인가'에 대한 가장 강력한 과학적 설명을 제공합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+        window.scrollTo(0, 0); // Scroll to top on slide change
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+        window.scrollTo(0, 0); // Scroll to top on slide change
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

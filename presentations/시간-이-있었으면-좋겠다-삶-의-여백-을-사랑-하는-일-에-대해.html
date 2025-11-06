@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시간이 있었으면 좋겠다</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #d4e4ff;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">⏳</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">시간이 있었으면 좋겠다</h1>
+          <p class="text-xl md:text-2xl text-gray-700">삶의 <span class="highlight">여백</span>을 사랑하는 일에 대하여</p>
+          <p class="text-lg mt-4">김신지 에세이</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>프롤로그:</b> 아직 쓰지 않은 용기</p>
+            <p><b>1부:</b> 쉬운 미움 대신 어려운 사랑을</p>
+            <p><b>2부:</b> 삶이 결국 우리가 쓴 시간이라면</p>
+            <p><b>결론:</b> 우리의 시간에 대한 성찰</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title - Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">아직 쓰지 않은 <span class="highlight">용기</span></h2>
+          <p class="slide-content">잃어버린 '나의 시간'을 되찾고, 삶의 주인이 되기 위한 용기에 대한 이야기의 시작.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Prologue Content 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"시간이 있었으면 좋겠다" 💭</h2>
+          <p class="slide-subtitle">모든 것은 이 한 문장에서 시작되었습니다.</p>
+          <div class="slide-content">
+            <p>지난 몇 년간 마음의 벽에 붙어 있던 단 하나의 메모. 하루 24시간이 부족하게 느껴지던 시절, 잠자는 시간, 일하는 시간을 제외하고 '삶을 누릴 시간'이 사라졌음을 깨달았습니다. 우리는 언제부터 삶의 주인이 되는 법을 잊고 살았던 걸까요?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Prologue Content 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어린 시절의 <span class="highlight">생활계획표</span> 🗓️</h2>
+          <p class="slide-subtitle">모두에게 공평하게 주어진 동그라미, 나의 하루.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과거의 나</h3>
+              <p>방학 때마다 툇마루에 엎드려 생활계획표를 짜던 어린 시절. 이만큼 놀고, 이만큼 공부하고, 심부름도 하고, 책도 읽는 '균형' 잡힌 하루를 계획했습니다. 하루가 온전히 내 것이라는 사실을 의심하지 않았던 시절이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">현재의 나</h3>
+              <p>시간을 팔아 돈을 벌고, 그 돈으로 다시 시간을 사는 삶의 반복. 중요한 일에 치여 정작 소중한 것들을 뒤로 미루게 됩니다. 열심히 살수록 삶에 소홀해지는 모순 속에서, 나는 점점 나빠지고 있었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Prologue Content 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시간을 쓴다는 것, <span class="highlight">삶을 산다는 것</span></h2>
+          <p class="slide-subtitle">시간을 어떻게 쓸 것인가 하는 물음은 어떻게 살 것인가 하는 물음과 같습니다.</p>
+          <div class="slide-content">
+            <p>'내 시간'을 되찾는 것은 스스로 원하는 것을 선택하는 시간들로 하루를 채우는 것이었습니다. 이를 위해선 우선순위를 정해야 합니다. '선택'은 동시에 '포기'를 의미합니다. 나로 살기 위해 <span class="highlight">'선택하고 싶은 것'</span>과 <span class="highlight">'포기할 수 있는 것'</span>을 가려내자 삶이 단출해졌습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Prologue Content 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시간이 주는 <span class="highlight">희망</span> ✨</h2>
+          <p class="slide-subtitle">시간을 갖는 것만으로 우리는 나아질 수 있습니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">되찾은 삶의 풍경</h3>
+              <p class="mt-2">시간을 선택하자 삶이 천천히 바뀌기 시작했습니다. 오랫동안 '나의 문제'라 여겼던 것들이 시간의 너른 바다에 녹아 사라졌습니다. 바쁘다는 이유로 미뤄뒀던 가족, 타인들과 말을 걸고 곁에 머물 수 있게 되었습니다. <span class="highlight">삶의 여백</span>에 앉아서만 볼 수 있는 풍경이었습니다.</p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 8: Section Title - Part 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1부</p>
+          <h2 class="slide-title">쉬운 미움 대신 <span class="highlight">어려운 사랑</span>을</h2>
+          <p class="slide-content">관계와 세상 속에서 미움보다 사랑을 선택하는 것에 대한 따뜻한 시선과 성찰.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 9: I에게 쓰는 편지 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">I에게 쓰는 편지 💌: <span class="highlight">첫 만남</span></h2>
+          <p class="slide-subtitle">풋내 나는 스무 살, 수수하고 촌스러웠던 너의 첫인상.</p>
+          <div class="slide-content">
+            <p>사람들 이야기를 가만히 듣고 있지만, 주변을 항상 살피던 너. 누군가 떨어뜨린 젓가락을 줍고, 엎질러진 물잔을 닦던 모습. 흥건히 젖은 무릎을 보고 답답한 아이라 생각했지만, 어쩌면 그건 나의 꼬인 마음이었을지도 모릅니다. 속없이 착해 보이는 사람에게 막연히 화가 나던 시절이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: I에게 쓰는 편지 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나의 <span class="highlight">1호 팬</span></h2>
+          <p class="slide-subtitle">"네가 쓴 글이 좋아. 계속 써줘."</p>
+          <div class="slide-content">
+            <p>누군가 내 글을 기다린다고 말해준 건 네가 처음이었습니다. '나는 글을 쓰는 사람이 될 거야'라는 말을 꺼내기 어려웠던 시절, 너는 어떻게 알았을까요. 늘 누구에게든 들키고 싶던 마음으로 글쓰기를 좋아했던 나를. 내가 쓰는 사람이 된다면, 나를 가장 응원해 줄 사람은 너라는 것을 의심하지 않았습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: I에게 쓰는 편지 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"누가 올지도 모르잖아" 🍚</h2>
+          <p class="slide-subtitle">너의 낡은 전기밥솥에는 언제나 밥이 있었습니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">따뜻한 마음</h3>
+              <p class="mt-2">오늘처럼 내가 올 수도 있고, 다른 친구가 올 수도 있고, 집주인 할머니가 잠시 앉았다 갈 수도 있으니까. 그런 생각으로 밥을 짓는 사람이 있다는 사실에 충격을 받았습니다. 내 입에 들어가는 것도 챙기기 힘든 나이. 그건 나이의 문제가 아니라 <span class="highlight">마음의 문제</span>였음을 이제는 압니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: I에게 쓰는 편지 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">세상을 믿어볼 용기 💪</h2>
+          <p class="slide-subtitle">너를 믿는 만큼, 나는 세상을 믿어볼 수 있었어.</p>
+          <div class="slide-content">
+             <p>내어줄 것이 남아있는 이상 무엇이든 더 내어줄 준비가 되어있는 사람. 어떻게든 자기 것을 챙기려는 세상에서 너는 어쩌자고 사람을 믿는 걸까. 그런 너를 답답해하고 미워했던 날도 있었지만, 결국 나는 늘 네 옆에 있었습니다. 어둠 속에서 가장 먼저 빛을 찾아내는 너에게 의지하며.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: 그런 게 사람이죠 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그런 게 <span class="highlight">사람이죠</span> 🤔</h2>
+          <p class="slide-subtitle">어떤 밤에는 과거가 현재보다 가깝게 느껴집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">스무 살의 술집 🍻</h3>
+              <p>돈 없는 스무 살 시절, 친구들과 부대찌개 하나에 몰래 사 온 라면 사리를 넣어 새벽까지 소주를 마시던 허름한 술집. 사장님은 어쩌면 다 알고서도 모른 척 육수를 더 부어주셨을 겁니다. 자신의 스무 살을 겹쳐보면서 말이죠.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">소설 속의 사장님 🍊</h3>
+              <p>김금희 작가의 소설 《복자에게》에서 공짜 귤을 나눠주며 '비닐봉지 제공 불가'라고 써 붙였지만, 막상 달라는 사람에겐 "네네"하며 고개를 끄덕이는 사장님. 그리고 말합니다. "그런 사람들이 있고 그런 게 사람이죠."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: 그런 게 사람이죠 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쉬운 미움, <span class="highlight">어려운 사랑</span></h2>
+          <p class="slide-subtitle">누군가를 미워하는 건 쉬운 일이어서, 나는 자주 미워했습니다.</p>
+          <div class="slide-content">
+            <p>음료를 반이나 남겨 버리는 사람, '보리를 밟지 마세요' 표지판 옆에서 보리를 밟고 사진 찍는 사람들... 선을 긋고 '내 편'과 '저쪽'을 나누는 것은 간단합니다. 하지만 "그런 게 사람이죠"라는 마법의 문장을 떠올려 봅니다. 오늘 얼마나 피곤했으면 앉아가고 싶을까. 얼마나 먹고 싶었으면 욕심이 났을까. 그렇게 생각하면 마음이 편해집니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: 그런 게 사람이죠 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">운이 나빴던 도둑 😥</h2>
+          <p class="slide-subtitle">스물여섯, 자취방에 도둑이 들었던 적이 있습니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">텅 빈 자취방</h3>
+              <p class="mt-2">빠루로 문을 뜯고 들어왔지만, 중고로만 채운 방에는 가져갈 만한 것이 아무것도 없었습니다. 운도 없는 도둑. 만약 게임이었다면 '꽝'이 나오며 종료됐을 순간. 어쩌면 그는 돌이킬 수 없을 만큼 나쁜 사람은 아닐 수도 있겠다는 생각이 들었습니다. <span class="highlight">사는 내내 꽝만 뽑아버리는 바람에</span>, 이러려던 게 아닌데 이렇게 되어버린 사람일지도 모릅니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: 쓰게 하는 장면들 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쓰게 하는 <span class="highlight">장면들</span> ✍️</h2>
+          <p class="slide-subtitle">나의 책 출간은 집안의 작은 화제였습니다.</p>
+          <div class="slide-content">
+            <p>집안 최초 '작가'의 탄생. 둘째 이모는 서점으로 달려가 동명이인 시인의 시집을 사 오셨고, 막내 이모는 "네가 엄마의 한을 풀어줬다"며 눈가를 붉히셨습니다. 나의 책 출간은 어색했던 친척들 사이에 새로운 대화 거리가 되었습니다. 때로는 "작가님 힘내세요"라는 하얀 봉투를 받기도 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: 쓰게 하는 장면들 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아버지의 친구들 👨‍🦳</h2>
+          <p class="slide-subtitle">어느 겨울, 고향 마을에서 마주한 갑작스러운 '내 친구를 소개합니다' 타임.</p>
+          <div class="slide-content">
+            <p>아버지의 초등학교 동창 모임에 잠깐 들렀을 때의 일입니다. 저녁놀처럼 얼굴이 붉어진 아저씨들은 저마다의 직업과 삶을 소개하며 저를 환대해주셨습니다. "숙호 딸이 책을 냈다고 다들 얼마나 반가워했는지 아나!" 그 마음을 알아 "와아", "진짜요?" 하는 리액션을 잊지 않았습니다. 십시일반 모은 돈이라며 건네주신 구겨진 흰 봉투. 그날 '십시일반'의 뜻을 처음으로 만져보는 듯했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: 쓰게 하는 장면들 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나의 <span class="highlight">문학적 토양</span> 🌱</h2>
+          <p class="slide-subtitle">누군가 내게 글쓰기를 어디서 배웠냐고 묻는다면.</p>
+          <div class="slide-content">
+            <p>저는 밭두렁에서 콩알처럼 와르르 쏟아져 내려오던 그 얼굴들을 떠올릴 겁니다. 잘못 산 책을 든 채로 축하 인사를 준비한 사람의 얼굴, 손때 묻은 봉투 속 꼬깃꼬깃한 지폐들. 문학이 뭔지는 몰라도, 쓰고 싶게 만드는 장면들을 압니다. '우리 같은 사람들'과는 상관없다고 여겨지는 바로 그곳에 제자리처럼 깃드는 것. <span class="highlight">그게 내가 아는 문학</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: 아무런 셈도 없이 돕는 사람 1 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아무런 셈도 없이 <span class="highlight">돕는 사람</span> 🤝</h2>
+          <p class="slide-subtitle">엄마를 슬프게 하는 건 주름입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">깊어진 주름</h3>
+              <p>시장에서 "고생을 많이 해서 이 주름들 좀 봐"라는 인사를 들을 때마다 엄마는 속상해하십니다. 하루 종일 밭에서 비지땀을 흘리는 엄마에게 선크림을 권하는 건 맞지 않는 이야기. 괜찮다고 말해도 위로가 되지 않습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">손씨 할머니</h3>
+              <p>어느 여름날, 고추밭에서 엄마와 함께 일하던 작은 몸집의 '손씨 아지매'. 뙤약볕에도 아랑곳하지 않고 묵묵히 잡초를 뽑던 할머니는 아주 오래전부터 엄마 곁을 지켜온 사람이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: 아무런 셈도 없이 돕는 사람 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">한사코 도와주고, <span class="highlight">한사코 도망치던</span> 뒷모습</h2>
+          <p class="slide-subtitle">먼 옛날부터 길 가다 밭에서 혼자 일하는 엄마를 보면 밭둑을 올라와 일을 도와주던 사람이 바로 그 할머니였습니다.</p>
+          <div class="slide-content">
+            <p>혼자선 오래 걸릴 일을 반나절 만에 마친 엄마가 식혜나 찐 옥수수라도 드리려 부엌에 간 사이, 할머니는 늘 도망치듯 사라지곤 했습니다. 가족도 아닌 사람이 그렇게까지 엄마를 도울 수 있다는 것, 세상에 아직 그런 사람이 있다는 사실이 놀랍습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: 아무런 셈도 없이 돕는 사람 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내가 배우고 싶은 <span class="highlight">삶</span> 🧑‍🌾</h2>
+          <p class="slide-subtitle">그 삶은 강의실이나 도서관이 아닌, 이 들판과 산자락 아래에 있습니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">함께 돕는 존재</h3>
+              <p class="mt-2">아무런 셈도, 대가도 없이, 돕는다는 자각 없이도 돕는 할머니 곁에서 '사람이 사람을 도울 수 있다'는 당연한 사실을 배웁니다. 아픈 사람이 아픈 사람을, 힘든 사람이 힘든 사람을 돕습니다. 우리는 그렇게 서로를 도울 수 있는 존재입니다. <span class="highlight">누군가 이미 그렇게 살았다는 사실이 희망이 될 때가 있습니다.</span></p>
+            </div>
+        </div>
+      </div>
+      
+       <!-- Slide 22: 반딧불을 만나러 가는 밤 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">반딧불을 만나러 가는 밤 ✨</h2>
+          <p class="slide-subtitle">"가서 뭘 하면 돼?" "그냥 걸으면 돼."</p>
+          <div class="slide-content">
+            <p>제주 곶자왈로 반딧불을 보러 가는 길. 초여름 한 달 정도만 볼 수 있고, 습도가 높아야 하며, 경쟁률도 높다는 사실을 알게 됩니다. B가 나를 위해 준비해 준 이벤트라는 생각에, 가본 곳에 다시 같이 가고 해본 것을 다시 같이 하는 것이 우정의 다른 이름 같다고 생각했습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 23: 반딧불을 만나러 가는 밤 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고요 속으로의 <span class="highlight">산책</span> 🤫</h2>
+          <p class="slide-subtitle">숲에 들어가 우리가 해야 할 일은, 말없이 걷는 일뿐이었습니다.</p>
+          <div class="slide-content">
+            <p>반딧불은 예민한 생명체라 작은 빛이나 말소리에도 반응합니다. 휴대폰을 끄고, 대화를 멈추고, 걷기만 해달라는 안내. 칠흑 같은 어둠 속에서 앞이 보이지 않자 오히려 나머지 감각이 열리는 기분이었습니다. 사람들의 인기척, 흙길을 밟는 소리, 바람에 흔들리는 나뭇잎 소리, 그리고 이름 모를 꽃냄새.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: 반딧불을 만나러 가는 밤 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어둠이 주는 선물 🎁</h2>
+          <p class="slide-subtitle">철학자 조르주 디디 위베르만은 말합니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">《반딧불의 잔존》</h3>
+              <p class="mt-2">오늘날 반딧불이 사라진 것이 아니라 우리가 그것을 볼 수 있을 만큼 <span class="highlight">충분히 어두운 곳에 있지 못한 것</span>이라고. 어떤 것을 바라보기 위해 우리가 충분히 어두워져야만 한다는 이상한 말. 그 밤, 감각으로서의 어둠 속에서 서로를 비로소 볼 수 있게 해주는 어둠도 있다는 걸 느낄 수 있었습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: 그렇게 되면 낭만이 없지! 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그렇게 되면 <span class="highlight">낭만이 없지!</span> 낭만 실종 사건 🚂</h2>
+          <p class="slide-subtitle">"강릉까지 두 시간?!! 두 시간 만에 가면 그게 없지!" "뭐가요?" "낭만이 없죠!"</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">택시 기사님의 한탄</h3>
+              <p>KTX로 강릉이 두 시간이면 간다는 말에 기사님은 낭만이 없어졌다고 개탄하셨습니다. 옛날엔 밤 기차 타고 산맥을 넘어가며 창밖으로 손을 뻗어 대추도 따고 감도 땄다는 믿기 힘든 이야기. 이동 시간은 짧아졌지만, 확실히 그게 없어졌습니다. 낭만이.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">낭만은 어디에 있을까? 🤔</h3>
+              <p>낭만은 어쩌면 시간이 오래 걸려야만 생기는 일들 속에 있는지도 모릅니다. 속도를 얻은 대신, 어떤 '이야기'가 생길 가능성을 잃어버린 것은 아닐까요. 혹은 몸이 좀 힘들어지는 번거로운 일들 속에. 바다 수영, 캠핑, 록 페스티벌처럼요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: 그렇게 되면 낭만이 없지! 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진흙탕 속의 <span class="highlight">진주</span> ✨</h2>
+          <p class="slide-subtitle">기꺼이 진흙투성이가 되었던 순간을 떠올리면 기억은 어느새 10여 년 전 록 페스티벌에 이릅니다.</p>
+          <div class="slide-content">
+            <p>소나기로 진흙탕이 된 잔디밭. 땀과 비로 더러워진 상태였기에, 마음 놓고 더 더러워지기로 했습니다. 해 질 무렵, 냄새나는 생쥐 꼴을 한 채로 무대를 향해 뛰었습니다. 찰박이는 진흙, 꿉꿉한 신발 냄새, 진득한 노을... 그 순간 울려 퍼진 Vampire Weekend의 'Mansard Roof' 첫 소절. 동시에 '여름이었다...'하면 언제든 돌아갈 장면이 만들어지던 순간이었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Section Title - Part 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2부</p>
+          <h2 class="slide-title">삶이 결국 우리가 쓴 <span class="highlight">시간</span>이라면</h2>
+          <p class="slide-content">시간의 주인이 되어 하루하루를 충실하게 살아가는 것에 대한 깊은 고찰.</p>
+        </div>
+      </div>
+
+      <!-- Slide 28: 오늘 하루가 다 내 것이었으면 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오늘 하루가 다 <span class="highlight">내 것이었으면</span> ☀️</h2>
+          <p class="slide-subtitle">누군들 '사는 것처럼 살아보고 싶다'는 마음이 없을까요.</p>
+          <div class="slide-content">
+            <p>회사 화장실 칸에 앉아, 회의실에서 한숨을 돌리며 진짜 살아보고 싶은 삶을 마음속에만 숨겨두었습니다. 그건 일터의 고단함을 이겨내게 해주는 상비약과도 같았습니다. 스스로 선택한 지금의 시간을 잘 딛고서 다른 시간으로 건너가고 싶었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: 오늘 하루가 다 내 것이었으면 2 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무너지는 시간의 <span class="highlight">균형</span> ⚖️</h2>
+          <p class="slide-subtitle">연차가 쌓이고 책임이 늘어날수록 일에 써야 하는 시간도 비례해 늘어났습니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">사라진 저녁</h3>
+              <p class="mt-2">주말에도, 휴가지에서도 메신저를 꺼놓지 못했습니다. 팀장의 자리는 유능함을 증명하며 숫자를 보여줘야 했고, 동시에 팀원들의 마음을 살피고 문제를 해결해야 했습니다. 해낸 일은 당연한 것이고, 못한 부분만 크게 보였습니다. 최선을 다해도 늘 부족한 기분이었습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: 오늘 하루가 다 내 것이었으면 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"세상에 나를 망칠 만큼 <span class="highlight">중요한 일은 없어!</span>"</h2>
+          <p class="slide-subtitle">힘들어하던 친구에게 보낸 이 메시지는, 정작 나 자신에게는 하지 못했던 말이었습니다.</p>
+          <div class="slide-content">
+            <p>어느 평범한 아침, 창밖의 깨끗한 풍경을 보며 문득 이런 생각이 들었습니다. '아, 오늘 하루가 다 내 것이었으면...'. 하루는 원래 내 것인데, 나는 대체 이 하루를 누구의 것으로 여기며 살고 있는 걸까요? '오늘'을 온전히 내 것처럼 써본 지 너무 오래됐다는 생각이 들었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: 오늘 하루가 다 내 것이었으면 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시간을 정말 이렇게 써도 되는 걸까? 🕰️</h2>
+          <p class="slide-subtitle">정신없이 흘러가 버리는 하루로 인생이 채워지는 게 괜찮은 걸까?</p>
+          <div class="slide-content">
+            <p>퇴근 후 남은 세 시간. 내 뜻대로 보낼 수 있지만, 체력이 소진돼 무엇도 할 수 없는 시간. 예전엔 삶에 대한 통제권이 분명 내게 있다고 느꼈습니다. 쓰지 않은 자유가 내 손안에 있다고. 내려다본 빈손이 허전해진 건 언제부터였을까요. 바쁘다는 말로 모든 것을 미루던 나. 결국, 삶의 시간표를 새로 짜야 할 때였습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: 다른 삶이 가능하다는 희망 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다른 삶이 가능하다는 <span class="highlight">희망</span> 💖</h2>
+          <p class="slide-subtitle">일이 주는 것은 많지만, 잃는 게 더 크다고 느껴진다면 숨을 고르며 생각해 봐야 합니다.</p>
+          <div class="slide-content">
+            <p>'무엇 때문에' 이렇게까지 하는지, '왜'를 계속 물어야 합니다. 돈을 버는 것도, 일을 하는 것도 결국 나를 행복하게 해주기 위함이었습니다. 그 행복에는 소중한 사람들과 마주 보고 웃는 일도 포함되어 있었는데, 자꾸 그걸 잊고 있었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: 다른 삶이 가능하다는 희망 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">선택, 그리고 <span class="highlight">용기</span></h2>
+          <p class="slide-subtitle">변화를 원한다면 뭐든 해보면 되는데, 선택이 두려워 우리는 자꾸 점괘에 기댑니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">질문</h3>
+              <p>마음은 같은 곳을 가리켰습니다. 시간에 쫓기며 살고 싶지 않다. 주어진 삶의 시간을 누려보고 싶다. 회사 일 대신 내 일을 하고 싶다. 읽고 쓰는 일에 시간을 모두 양보해 보고 싶다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">결심</h3>
+              <p>나만이 할 수 있는 일은 '그저 살아가는 일'이었습니다. 내 삶이 재미도 있고 의미도 있기를 바란다면, 내가 적극적으로 찾아 나서야 했습니다. 아무도 나만큼은 내 인생을 신경 써주지 않으니까요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: 다른 삶이 가능하다는 희망 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내 삶의 <span class="highlight">오리지널리티</span></h2>
+          <p class="slide-subtitle">오랫동안 나는 나에게 선택권이 있다는 사실을 잊고 지냈습니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">단순한 자유</h3>
+              <p class="mt-2">내 삶을 내가 선택할 수 있다는 그 단순한 자유를 왜 그토록 오래 잊고 살았을까요? 20대 시절, '자기 삶을 복제하지 말고, 고유한 오리지널리티를 가지라'는 말을 들었을 때 자신만만했습니다. 하지만 어느새 '어쩔 수 없어'라는 말로 스스로에게 '어쩔 수 없는' 인생만을 쥐여주고 있었습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: 마침내, 여백 있는 하루 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마침내, <span class="highlight">여백 있는 하루</span> ☕</h2>
+          <p class="slide-subtitle">회사를 그만두며 해 떠 있는 시간이 온전히 비워졌습니다. 진짜 방학이 시작되었습니다.</p>
+          <div class="slide-content">
+            <p>누군가 하루 동안 쓸 자유이용권을 내민 것처럼, 갑자기 시간을 선물 받은 기분. 빈자리는 언젠가 천천히 채워지게 마련이므로, 자연스럽게 무엇이 차는지 시간을 두고 지켜보고 싶었습니다. "안녕하세요, 퇴사자입니다"라고 자기소개를 하고 싶을 정도의 심정이었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: 마침내, 여백 있는 하루 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 하루의 <span class="highlight">루틴</span> 🧘‍♀️</h2>
+          <p class="slide-subtitle">아침에 일어나고 싶을 때 일어나고, 자연의 리듬에 맞춰 사는 기분.</p>
+          <div class="slide-content">
+            <p>물 한 잔, 창문 열기, '오늘 도착한 아침' 기록하기. 어제와 별반 다른 게 없는 듯해도 숨은그림찾기를 하듯 디테일을 발견합니다. 요가 매트 위에서의 스트레칭, 샤워, 그리고 커피. 책상 옆 벽에 붙여둔 '환생 타임'을 지나 개운한 몸과 마음으로 하루를 시작합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: 마침내, 여백 있는 하루 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시간의 <span class="highlight">주인</span>이 된다는 것 👑</h2>
+          <p class="slide-subtitle">가장 좋은 것은 비로소 여백 있는 일상이 가능해진 것입니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">'나'라는 주어</h3>
+              <p class="mt-2">내가 어떻게 하느냐에 따라 여백이 늘어나기도 하고 줄기도 하는 삶. '나'라는 분명한 주어를 가지고 사는 삶입니다. 탓할 남도 없고 댈 핑계도 없습니다. 잘 보낸 하루도 못 보낸 하루도 온전히 나의 몫. 선택한 일을 잘 해내기 위해 애쓰는 삶입니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: 부족해서 계속되는 세계 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부족해서 <span class="highlight">계속되는 세계</span> 🔁</h2>
+          <p class="slide-subtitle">당분간 노는 게 제일 좋은 뽀로로의 심정으로 살고 싶었지만, 마감이라는 유일한 걸림돌이 있었습니다.</p>
+          <div class="slide-content">
+            <p>"다음 달 1일부터 새로 태어나겠다"는 말버릇. 5월은 6월로, 6월은 7월로 계속 바뀌었을 뿐. 결국 8월 1일 월요일, 더 이상 물러날 데가 없어지자 혼자서는 도저히 안 되겠다는 생각에 동료들과 '모글모글(모닝 글쓰기)'을 시작했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: 부족해서 계속되는 세계 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">글쓰기의 <span class="highlight">아이러니</span> 🎭</h2>
+          <p class="subtitle">글쓰기의 좋은 점은 바로 거기에 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">계속하게 하는 힘</h3>
+              <p>충분해서가 아니라 부족해서, 잘해서가 아니라 못해서 계속할 수 있다는 것. 나아지려고 계속해 보는 세계. 잘 쓰려고 애쓰는 세계. '아는 기쁨'을 다시 느끼고 싶어서 열 번의 '아는 실망'도 견디는 세계입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">0이 아닌 글</h3>
+              <p>쓰기 싫다는 마음의 순환을 반복하다 보면, 초고라고 부르기도 민망한 한 편의 글이 완성됩니다. 쓰지 않은 글보다 별로인 게 분명한 쓰고 만 글. 하지만 0은 아닌 글. 이 일이 나에게는 괴로우면서도 잘 해내고 싶은 일이기 때문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: 매일의 동그란 산책 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">매일의 동그란 <span class="highlight">산책</span> 🚶‍♀️</h2>
+          <p class="slide-subtitle">퇴사와 이사와 코로나 확진이 휘몰아친 시기를 보내고 정신을 차려보니 4월 중순이었습니다.</p>
+          <div class="slide-content">
+            <p>새집에서 맞는 아름다운 계절. 막바지 벚꽃과 연둣빛 새순을 흔드는 달콤한 바람. 전에 살던 집에선 벚꽃이 다 진 걸 아쉬워했는데, 새 동네에선 꽃잎이 날리고 있었습니다. 봄을 두 번 겪는 기분. 새로운 곳에서 다시 시작해 볼 용기를 주었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: 매일의 동그란 산책 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새 동네 <span class="highlight">탐험가</span> 🗺️</h2>
+          <p class="slide-subtitle">이사를 거듭할 때마다 내가 제일 좋아하며 기다리는 일은 모르는 길로만 이루어진 새 동네를 탐험하는 것입니다.</p>
+          <div class="slide-content">
+            <p>원두를 볶는 카페, 맛있는 김밥집, 집으로 오는 지름길, 산책로의 반환점을 정하는 일. 골목 구석구석 가게들을 마음에 그리며 가보고 싶은 곳에 별표를 칩니다. 낯선 여행지에 도착한 여행자의 심정이 되는 게 좋았습니다. 궁금하지 않은 골목은, 풍경은 하나도 없다는 듯이.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: 매일의 동그란 산책 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">태수의 <span class="highlight">마음</span> 🐾</h2>
+          <p class="slide-subtitle">"세상은 재미난 곳입니다. 왜 더 많이 밖에 나오지 않아요?"</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">산보일기</h3>
+              <p class="mt-2">나는 늘 태수의 마음입니다. 문밖에 세상이 늘 이렇게 있고 꼬박꼬박 매일이 주어지는데 이것들을 누리지 않을 이유가 없습니다. 좋으면 기록해야 하는 병에 걸린 나는 '산보일기' 계정을 만들었습니다. 걷는 동안 보고 듣고 만난 것들을 한군데 모아두고 싶어서. <span class="highlight">평생의 산책이 기록으로 남는다면 근사하겠지</span>, 생각하면서.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: 사는 일을 소분하다 보면 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사는 일을 <span class="highlight">소분하다 보면</span> 🔪</h2>
+          <p class="slide-subtitle">20대엔 감정 기복만큼이나 안정감의 조수간만 차가 컸습니다.</p>
+          <div class="slide-content">
+            <p>안정감이 밀물처럼 왔다가 썰물처럼 빠져나가는 작은 섬에 사는 기분. 30대 중반, 문득 그 섬을 떠나 본섬에 정착했다는 안정감이 찾아왔습니다. 그 정체는 '리빙 포인트' 유의 생활 지혜들이 쌓이며 생긴 자신감이었습니다. 마늘 쉽게 까는 법, 밥물 맞추는 법 같은 것들. 생활을 돌볼 수 있게 되자, 사는 일에도 자신감이 붙었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: 사는 일을 소분하다 보면 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일상의 <span class="highlight">힘</span> 💪</h2>
+          <p class="slide-subtitle">일상이야말로 마음의 네 귀퉁이를 붙들어주는 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과거의 나</h3>
+              <p>마음이 잡히면 일상도 잡힐 거라 믿으며 생활을 돌보는 일을 미뤘습니다. 희망을 미래에 걸었습니다. 일상이 엉망인 건 마음을 다스리지 못해서라고 생각했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">현재의 나</h3>
+              <p>설거지, 청소, 쓰레기 버리기, 빨래... 펄럭이는 마음이 허공에 날아가지 않도록 붙잡아주는 것은 언뜻 사소해 보이는 일과였습니다. 그것이 어디 가지 않고 '지금'을 살게 해주는 일임을 이제는 압니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: 오늘이란 계절 속에 있는 것들 1 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오늘이란 <span class="highlight">계절</span> 속에 있는 것들 🍂</h2>
+          <p class="slide-subtitle">새집에선 오랜 꿈이던 작업실이 생겼습니다.</p>
+          <div class="slide-content">
+            <p>이제 여기 앉아 근사한 글만 쓰면 된다고 여겼지만, 예상치 못한 복병은 바로 창밖 풍경이었습니다. 바람 부는 날이면 나무들이 일제히 흔들리며 숲이 일으키는 파도를 보는 것 같습니다. 매일 보면서도 매일 놀랍니다. 숲에도 윤슬이 있을 수 있구나 감탄하는 마음으로. 그러다 보니 열어둔 빈 문서 창에는 늘 커서만 깜빡입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: 오늘이란 계절 속에 있는 것들 2 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창밖의 <span class="highlight">세계</span> 🏞️</h2>
+          <p class="slide-subtitle">요즘 (양심껏) '실'에 삽니다. '실'에서 보이는 풍경을 더 설명해 볼까요.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">나만의 산방산</h3>
+              <p class="mt-2">창의 왼편에는 나 혼자 '산방산'이라 부르는 산이 있습니다. 노을 지는 하늘 위를 나는 비행기와 오름 사이로 보이는 풍경이 제주를 떠올리게 합니다. 맑은 날엔 잘 보이네, 비 오는 날엔 구름이 걸렸네, 하며 새로운 일상에 나만 아는 즐거움을 심어놓고 지켜보는 기분입니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47: 오늘이란 계절 속에 있는 것들 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일상의 <span class="highlight">재발견</span> 🔍</h2>
+          <p class="slide-subtitle">코로나 시대를 건너며 내가 바란 것은 오직 일상의 회복이었습니다.</p>
+          <div class="slide-content">
+            <p>‘당연했던 것’은 아무것도 없다는 사실을 피부로 느낀 3년. 동시에 좁아진 삶의 반경 안에서 내 곁에 원래 있었지만 이제야 발견하게 된 듯한 아름다움들을 자주 들여다보았습니다. 절박한 마음으로 '하루씩만 잘 살아보는 연습'을 했습니다. 어떤 말은 그렇게 시간을 돌아서 다시 내게 오기도 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: 어디든 갈 수 있어 무엇이든 될 수 있어 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어디든 갈 수 있어, <span class="highlight">무엇이든 될 수 있어</span> 🚀</h2>
+          <p class="slide-subtitle">늦은 밤 집으로 돌아올 때마다 듣는 노래, 영화 <월터의 상상은 현실이 된다> O.S.T.</p>
+          <div class="slide-content">
+            <p>하루 종일 세상일에 닳은 마음이 순식간에 압축되며 그 여백에 아름답고 광활한 풍경이 들어찹니다. 아이슬란드, 그린란드의 바다, 히말라야 설산... 앉은 채로 떠나는 여행 같기도 하고, 눈을 뜨고 꾸는 꿈 같기도 합니다. 듣는 것만으로 경이로운 풍경 속에 서있게 하는 노래가 있어서 참 다행이라고 생각합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: 어디든 갈 수 있어 무엇이든 될 수 있어 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">월터의 <span class="highlight">마음</span>, 우리의 마음</h2>
+          <p class="slide-subtitle">"우리가 우리 안에 있는 것들 가운데 아주 작은 부분만을 경험할 수 있다면, 나머지는 어떻게 되는 걸까?"</p>
+          <div class="slide-content">
+            <p>떠나기 전 월터의 마음을 압니다. 내가 나를 다 모른 채로 나의 일부만 경험하고 살게 될까 봐, 더 치열하게 살아볼 수도 있는데 망설이다가 이 삶을 덜 산 채로 남겨두게 될까 봐 두려웠습니다. 자꾸 낯선 곳으로 떠나려 했던 이유입니다. 다른 곳에서라면 다른 내가 될 수 있는지, 내가 어디까지 살아볼 수 있는 사람인지 시험해 보고 싶어서.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50: 어디든 갈 수 있어 무엇이든 될 수 있어 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">잊지 않아야 할 <span class="highlight">가능성</span> 🌟</h2>
+          <p class="slide-subtitle">노래를 들으며 내가 상기하는 것은 어떤 '가능성'입니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">자유를 손에 쥔 채</h3>
+              <p class="mt-2">너는 무엇이든 될 수 있어. 어디든 갈 수 있어. 자유를 손에 쥔 채 자신의 가능성을 잊지 않는 사람만이 진짜 자기 인생을 살 수 있다는 것. 내가 매 순간 여기에 도착하고 있으며, 동시에 여기에서 출발하고 있다는 사실. 그것을 잊지 않게 해주어서 나는 이 노래들이 좋습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 우리의 시간</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">이 책은 잃어버린 시간을 되찾고, 삶의 여백을 사랑하며, 일상의 소중한 순간들을 발견하는 여정에 대한 이야기입니다. 중요한 것은 속도가 아니라 <span class="highlight">우리 자신의 속도와 방향</span>을 찾는 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">결국 삶은 우리가 쓴 시간 그 자체입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

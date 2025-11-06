@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나의 아프고 아름다운 코끼리 - 발표 자료</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #E7B2F5; /* A soft magenta to match the book's aesthetic */
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🐘</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나의 아프고 아름다운 코끼리</h1>
+          <p class="text-xl md:text-2xl text-gray-700">무기력, 우울, 공허함 속에서도 <span class="highlight">오늘을 살아가는 법</span></p>
+          <p class="text-lg md:text-xl text-gray-500 mt-6">바바라 포어자머 지음</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>프롤로그:</b> ‘일어나는 법’에 관한 이야기</p>
+            <p><b>Part 1:</b> 코끼리와 함께 산다는 것</p>
+            <p><b>Part 2:</b> 삶은 침대 밖에 있으니까</p>
+            <p><b>Part 3:</b> 슬픔과 우울증은 다르다</p>
+            <p><b>Part 4:</b> 가끔 행복했고 자주 우울했던 이들에게</p>
+            <p><b>에필로그:</b> 다만 조금 불안정할 뿐이다</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Prologue Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">이것은 <span class="highlight">‘일어나는 법’</span>에 관한 이야기</h2>
+          <p class="slide-content">이 책은 우울증을 완전히 해결하는 비법서가 아닙니다. 대신, 우울과 무력함 속에서도 어떻게 계속해서 일어서고, 살아가야 하는지에 대한 저자의 솔직한 고백이자 희망의 기록입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Prologue - The Search for a Cure -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">완전한 <span class="highlight">해결책은 없었다</span></h2>
+          <p class="slide-subtitle">수많은 책을 읽었지만 어디서도 완전한 해결책을 찾을 수 없었습니다.</p>
+          <div class="slide-content">
+            <p>저자는 수십 년째 편두통 발작과 심한 우울증을 반복적으로 겪습니다. 약물, 심리치료 등 다양한 방법을 시도했지만, 완전한 해방은 없었습니다. 우울증은 일상의 배경 소음처럼 늘 그 자리에 있었습니다.</p>
+            <p class="mt-4 font-bold">"내게 지속적인 자기혐오, 잦은 자살 충동, 몇 개월간 지속되는 이유 없는 깊은 슬픔은 일상이다."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: Prologue - A Glimmer of Hope -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그럼에도 불구하고</h2>
+          <p class="slide-subtitle">이 책은 '일어나는 것'에 관한 책입니다. 일어나고 싶지도, 누워 있고 싶지도 않은 그런 상태에서도 말입니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">약속할 수 있는 것</h3>
+              <p>우울증이 언젠가 사라질 것이라는 것, 그리고 당신을 도울 방법은 있다는 것을 약속합니다. 이것만은 확실하게 말할 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">약속할 수 없는 것</h3>
+              <p>모든 고통을 사라지게 하고 마침내 삶을 제대로 시작하게 해주는 특정 방법이나 약물이 있다고 말하지는 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Part 1 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title"><span class="highlight">코끼리</span>와 함께 산다는 것</h2>
+          <p class="slide-content">우울증을 가슴 한가운데 자리 잡은 '코끼리'로 비유하며, 그 무거운 존재와 함께 살아가는 일상의 고통과 무력함을 이야기합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 7: The Elephant Metaphor -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무기력이 삶을 <span class="highlight">덮칠 때</span></h2>
+          <p class="slide-subtitle">"아침마다 잠에서 깨면 알람이 울리기 훨씬 전부터 코끼리가 이미 그곳에 앉아 있다."</p>
+          <div class="slide-content">
+            <p>침대에서 몸을 일으키는 것은 불가능합니다. 코끼리가 너무 무겁기 때문입니다. 어둠 속에 누워 모든 게 얼마나 어려운지, 인생은 얼마나 허무한지, 나 자신이 얼마나 하찮은지를 생각합니다. 다른 쪽으로 돌아누울 힘조차 없습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">우울한 아침의 사투 💭</h3>
+              <p class="mt-2">무언가를 결정해야 하는 상황은 최악입니다. 깊은 우울증에 빠진 나에게 그보다 어려운 일은 없습니다. 가끔은 어떤 바지를 입을지 결정하는 것도 너무나 버거워서 병가를 냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: History of Depression -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언제부터였을까?</h2>
+          <p class="slide-subtitle">우울증을 앓는다고 말하면 많은 사람이 언제부터였냐고 묻습니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">공식적인 진단 📝</h3>
+              <p>처음 진단받은 것은 2005년, 처음 약을 먹고 심리상담사를 찾은 것은 2006년이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">마음의 시작 💭</h3>
+              <p>하지만 어쩌면 늘 그래왔다고 답할 수도 있습니다. 어렸을 때부터 내 존재가 무가치하다고 느꼈고 더는 살고 싶지 않은 기분이 들었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Depression vs. Emotion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우울증과 감정의 관계</h2>
+          <p class="slide-subtitle">사람들은 우울증을 슬픔, 두려움, 자기 회의와 쉽게 혼동합니다.</p>
+          <div class="slide-content">
+            <p>우울증은 단순히 명상을 하거나 생각을 바꾼다고 사라지는 것이 아닙니다. 정신적 질환은 다른 모든 질환과 마찬가지로 전문의의 치료를 받는 것이 가장 중요합니다.</p>
+            <p class="mt-4">반면 불편한 감정은 약물치료나 상담치료 없이도 극복이 가능합니다. 우울한 상태에서 부정적인 감정이 들 때, 그 감정에 필요한 공간을 확보해주면 우울감에서 훨씬 쉽고 빠르게 벗어날 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: The Palette of Emotions -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정의 <span class="highlight">팔레트</span> 🎨</h2>
+          <p class="slide-subtitle">기본 감정은 기쁨, 슬픔, 놀람, 분노, 혐오감, 두려움의 여섯 가지로 분류됩니다.</p>
+          <div class="slide-content">
+             <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p>건강한 감정을 지닌 사람은 각종 색상이 제자리에 있고, 모든 조합이 가능하며, 여러 명암이 있는 무지갯빛을 띱니다.</p>
+              <p class="mt-2 font-bold">반면 우울증은 그림이 온통 검은색으로 보일 때까지 밀려드는 먹구름과 같습니다.</p>
+            </div>
+            <p class="mt-6">지금 막 어떤 감정에 사로잡혀 있을 때는 그 감정이 그저 어두운 색인 건지, 아니면 모든 빛을 삼켜버리는 검은 구름이 가득한 상태인 건지 구분하기 어렵습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Becoming a Mother -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">엄마가 되던 해, 2011년</h2>
+          <p class="slide-subtitle">세상은 내가 인생을 핑크빛으로 보길 기대했지만, 나는 정신의학과 응급병동에 입원해 있었습니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">몸의 신호</h3>
+              <p>출산 6개월 후, 몸무게가 거의 30킬로그램이나 줄었고, 음식을 삼킬 수 없었습니다. 주치의는 '정신적인 원인'일 거라고 조심스레 말했지만, 나는 그 사실을 마주하고 싶지 않았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">과거의 기록</h3>
+              <p>예전에도 항우울제를 복용하고 정신과 병동을 찾았던 기록 때문에, 의사들이 내 말을 믿지 않는다는 느낌을 받았습니다. 또다시 '정신적인 원인'일 거라는 사실을 마주하고 싶지 않았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Part 2 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">삶은 <span class="highlight">침대 밖에</span> 있으니까</h2>
+          <p class="slide-content">심리치료, 약물, 그리고 주변 사람들과의 관계를 통해 어떻게 다시 균형을 찾아 나가는지에 대한 여정을 다룹니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 13: What Psychotherapy Can/Cannot Do -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심리치료가 할 수 있는 것과 없는 것</h2>
+          <p class="slide-subtitle">치료가 마술처럼 모든 것을 바꿔줄 것이라는 믿음, 혹은 치료를 시작하면 잘못될 것이 없다는 생각은 모두 문제입니다.</p>
+          <div class="slide-content">
+            <p>15년간 받은 심리치료는 아무 소용이 없었을까요? 그저 약물에 몸을 맡겨야 할까요? 물론 그렇지 않습니다. 저자는 상담사들과 동료 환자들로부터 소중한 것들을 정말 많이 배웠습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">가장 큰 깨달음 ✨</h3>
+              <p class="mt-2">타인과의 관계가 내 정신 건강에 정말 필요하다는 것을 깨달았습니다. 다른 사람과 함께, 그들과의 관계 속에서만 건강해질 수 있음을 알게 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Is it Okay to Take Medicine? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">약을 먹어도 될까?</h2>
+          <p class="slide-subtitle">"약물은 나쁜 것이다. 정신과 약물은 더더욱 나쁘다. 사람을 중독시키고, 성격을 바꾸고, 좀비로 만든다." - 과거 저자의 생각</p>
+          <div class="slide-content">
+            <p>저자는 10년 넘게 매일 우울증 약을 복용하고 있습니다. 그동안 정신적 안정을 유지할 수 있었습니다. 이전에는 그렇지 못했습니다. 약물에 대한 오랜 비판적인 시각 때문에 우울증약은 고사하고 편두통약조차 먹고 싶지 않았습니다.</p>
+            <p class="mt-4 font-bold">이제는 환자로서 약에 대한 두려움을 가진 다른 사람들을 위해 글을 씁니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: The Role of Medication -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">약의 역할: <span class="highlight">안정과 고요함</span></h2>
+          <p class="slide-subtitle">흔히들 정신질환을 앓는 사람들은 일단 약을 복용해야 심리치료도 효과를 볼 수 있다고 말합니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">약이 하지 않는 것</h3>
+              <p>약은 나의 성격을 변화시키지 않았고, 슬픔에서 기쁨을 만들어내지도, 분노를 평화로 바꾸어놓지도 않았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">약이 하는 것</h3>
+              <p>감정을 인지할 수 있을 정도의 충분한 안정감과 내면의 고요를 가져왔습니다. 이를 통해 나의 감정을 건강하게 다루는 법을 배울 수 있었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: For Loved Ones -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">난 당신의 상담사가 아니야</h2>
+          <p class="slide-subtitle">우울한 사람들은 어떻게 상대해야 할까? 가족이나 친구의 입장에서 어떻게 도와주어야 할까?</p>
+          <div class="slide-content">
+            <p>정답은 '때마다 다르다' 입니다. 배우자로서, 친구로서 언제 상대를 조심스럽게 떠밀어야 하는지, 아니면 내버려둬야 하는지 알아차리는 것은 매우 어렵습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">가장 중요한 조언 💡</h3>
+              <p class="mt-2">가장 중요한 것은 의사와 상담사의 역할을 직접 떠맡지 않는 것입니다. 하지만 도움이 필요한 누군가를 그냥 내버려둬서도 안 됩니다. 전문가의 도움을 구하라고 계속 요구해야 합니다.</p>
+              <p class="mt-2 font-bold">"난 당신의 상담사가 아니야. 하지만 나는 기꺼이 당신을 상담사에게로 데려다줄 수 있어."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Part 3 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">슬픔과 <span class="highlight">우울증</span>은 다르다</h2>
+          <p class="slide-content">개인적인 경험, 특히 유산과 어머니의 죽음을 통해 슬픔이라는 자연스러운 감정과 우울증이라는 질병의 차이를 섬세하게 구분합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Miscarriage Experience -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유산의 경험: 감정에 공간을 내어줄 것</h2>
+          <p class="slide-subtitle">#notjustsad - 소셜 미디어에서 우울증을 이야기할 때 쓰는 해시태그는 '단지 슬프기만 한 게 아니다'라는 뜻입니다.</p>
+          <div class="slide-content">
+            <p>우울증은 날씨가 좋지 않아 기분이 처지는 것보다 혹독하고 고통스럽습니다. 슬픔, 좌절, 분노와는 달리 대부분 이유가 없습니다.</p>
+            <p class="mt-4 font-bold">하지만 때로는 이유가 있을 때도 있습니다. 견디기 힘든 일을 겪은 후 심리치료나 정신의학적 치료가 필요한 상태가 되는 것은 지극히 당연합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Grief vs. Depression -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">슬픔과 우울증의 차이</h2>
+          <p class="slide-subtitle">어머니가 돌아가셨을 때, 두 가지가 너무 비슷하게 느껴져서 깜짝 놀랐습니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">공통점: 심각성</h3>
+              <p>눈이 빠지도록 울고, 전신이 떨렸으며, 심각한 두통에 시달렸습니다. 가슴 위에는 묵직한 통증이 자리 잡았습니다. 견디기 어려운 상태였습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">결정적 차이: 움직임</h3>
+              <p>슬픔은 '소화'할 수 있습니다. 추도사를 쓰고, 어머니의 사진을 보고, 사람들과 이야기하며 감정을 바꿀 수 있었습니다. 반면 우울증은 움직이지 않습니다. 딱딱하고 견고합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: The Speed of Grief -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">검은색도 하나의 색이다: <span class="highlight">슬픔의 속도</span></h2>
+          <p class="slide-subtitle">슬픔은 고유의 속도를 가지고 있으며, 그 속도는 독일 장례법의 관료주의적 규칙과는 잘 맞지 않습니다.</p>
+          <div class="slide-content">
+            <p>고인의 얼굴을 다시 보거나 직접 추도사를 쓰는 것이 슬픔을 증폭시킬 거라는 생각은 오해입니다. 그런 행동을 하는 순간에는 고통이 특히 강하게 느껴지지만, 그 고통은 원래 그 자리에 있었습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">고통을 느껴야만 사라진다.</h3>
+              <p class="mt-2">고통은 느껴야만 사라집니다. 언젠가는 사라집니다. 추도사를 쓰고, 친구들과 통화하며 보낸 시간들은 고통스러웠지만 동시에 만족스러운 시간이었습니다. 슬픔을 소화하는 중요한 과정이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Part 4 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">가끔 행복했고 <span class="highlight">자주 우울했던</span> 이들에게</h2>
+          <p class="slide-content">우울증과 함께 살아가는 삶의 다양한 측면을 다루며, 자기 자신, 타인, 그리고 세상과 관계 맺는 법에 대한 깊은 성찰을 나눕니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Distance from Self -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나와의 거리 두기</h2>
+          <p class="slide-subtitle">"당신의 생각은 당신이 아니다." 혹은 "당신의 감정은 당신이 아니다."</p>
+          <div class="slide-content">
+            <p>마음챙김이나 명상은 불편한 감정이나 생각이 든다면, 그것과 거리를 두라고 말합니다. 이는 특히 우울한 시기에 매우 중요한 기술입니다.</p>
+            <p class="mt-4 font-bold">"어쩌면 내가 이렇게 생각하고 느낄지도 모르지. 하지만 그렇다고 해서 그 생각과 느낌이 나인 것은 아니야."</p>
+            <p class="mt-4">이러한 거리두기는 나와 지나치게 부정적인 내 생각 사이에 작은 틈을 만들어 줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Body Image -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나는 내 몸인가?</h2>
+          <p class="slide-subtitle">오래전부터 나의 외모로만 나를 규정하고 싶지 않았습니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과거의 생각</h3>
+              <p>나의 몸은 생각하고 느끼는 머리를 운반하기 위해 있는 것이라고 생각했습니다. 문제를 일으키지 않고 제 기능을 다하고, 너무 못생기지만 않으면 된다고 여겼습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">현재의 깨달음</h3>
+              <p>하지만 현실의 나는 나의 신체, 정신, 영혼으로 이루어져 있습니다. 몸과 장기, 지식과 생각, 감수성과 느낌으로 구성되어 있습니다. 나는 그 모든 것의 합입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: "I Can" vs "I Don't Want To" -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"할 수 있어" vs <span class="highlight">"하고 싶지 않아"</span></h2>
+          <p class="slide-subtitle">"'난 할 수 있어. 하지만 하고 싶지 않아.' 이렇게 이야기할 수 있어야 진정한 해방인 겁니다."</p>
+          <div class="slide-content">
+            <p>우리는 생각보다 훨씬 자유로운 존재입니다. '안 되는' 일은 정말 매우 드뭅니다. 많은 길을 선택하지 않는 이유는, 그것이 불가능해서가 아니라 내가 원하지 않기 때문입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">기다림의 중요성 ⏳</h3>
+              <p class="mt-2">무엇을 해야 할지 확실하지 않을 때는, 내가 뭘 원하는지 느껴지기 전까지 그냥 아무것도 하지 않는 게 좋습니다. 그 과정에서 기회를 놓치게 되더라도 어쩔 수 없습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Being a Mother with Depression -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우울증에 걸린 채 엄마가 된다는 것</h2>
+          <p class="slide-subtitle">"이런 상태의 사람들은 아이를 가지면 안 돼." - 과거 저자의 생각</p>
+          <div class="slide-content">
+            <p>저자는 약물과 상담치료 없이 제 기능을 하고 싶었고, 완전히 '치유'되지 않은 상태에서 가정을 이룬다는 게 두려웠습니다. 그때 남편은 "나도 있잖아." 라고 말했고, 부부는 용기를 냈습니다.</p>
+            <p class="mt-4 font-bold">결론적으로, 그 결정은 옳았습니다. 여전히 사라지지 않은 우울증과 편두통은, 우려했던 것보다 엄마로서의 삶에 별로 영향을 미치지 않았습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: The Importance of a Support System -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나 혼자만의 힘이 아니었다</h2>
+          <p class="slide-subtitle">우울증 진단을 받았음에도 순조롭게 엄마가 될 수 있었던 것은 내 덕분이 아닙니다.</p>
+          <div class="slide-content">
+            <p>매우 운 좋게도 주변에서 많은 지원을 받을 수 있었습니다. 책임감을 나누는 남편, 언제든 아이들을 돌봐줄 준비가 되어 있던 엄마, 그리고 아버지, 시부모님, 친구들, 전문 의료진까지.</p>
+            <p class="mt-4">이런 폭넓은 네트워크가 없었다면, 부모로서의 모험을 해낼 수 없었을 거라는 사실을 알고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: The Thought of Wanting to Die -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">죽고 싶다는 생각 🚩</h2>
+          <p class="slide-subtitle">자살 충동은 이미 몇 년째, 아니 오늘날까지도 내 머릿속을 어지럽히고 있습니다.</p>
+          <div class="slide-content">
+            <p>이제 저에게 자살 충동은 내가 괜찮은 상태인지 아니면 우울한 단계에 있는지 알려주는 '빨간 깃발' 같은 것입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">신호가 울릴 때</h3>
+              <p class="mt-2">내 머릿속에서 자살에 대한 생각이 점점 커지고 있다면, 그건 코로나로 인해 처진 기분 때문도, 슬픔 때문도, 스트레스 때문도 아닙니다. 정신과 의사나 심리상담사를 찾아가서 "다시 우울증이 생겼어요"라고 말해야 할 때입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Why Not to Choose Suicide -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자살하지 않는 이유</h2>
+          <p class="slide-subtitle">자살은 일종의 감정적인 원자 폭탄입니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">관계의 망</h3>
+              <p>모든 사람은 거미줄과 같은 관계의 망에 연결되어 있습니다. 자살은 이 망에 자연스러운 죽음과는 완전히 다른 방식의 큰 구멍을 남깁니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">남겨진 이들에게</h3>
+              <p>가까운 이의 자살은 "너는 내게 중요하지 않았어"라는 메시지와 같습니다. 아이에게는 정신적으로 가장 심각한 질환을 앓는 최악의 어머니라 할지라도 스스로 목숨을 끊은 어머니보다는 낫습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Epilogue Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">에필로그</p>
+          <h2 class="slide-title">다만 조금 <span class="highlight">불안정할 뿐</span>이다</h2>
+          <p class="slide-content">나에게는 우울증이 있습니다. 나는 정신질환을 앓고 있습니다. 내 상태는 좋지 않습니다. 하지만 15년 전과 달리, 이제 이 문장들을 입 밖으로 낼 수 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 30: What is Normal? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무엇이 정상일까?</h2>
+          <p class="slide-subtitle">정신질환의 경우 환자와 건강한 사람 사이에 선을 긋기가 매우 어렵습니다.</p>
+          <div class="slide-content">
+            <p>세계보건기구(WHO)는 건강을 "신체적, 정신적, 감정적, 사회적으로 평안한 상태"라고 정의합니다. 이 정의에 따르면, 5분 이상 연속으로 건강한 상태였던 적이 없습니다. 삶에서는 항상 무슨 일이든 일어나기 때문입니다.</p>
+            <p class="mt-4 font-bold">우리는 그냥 가끔 산만하거나, 게으르거나, 심술궂거나, 다른 방식으로 불완전합니다. 아파서가 아니라 인간이기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Final Message -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이것은 싸움이 아니다</h2>
+          <p class="slide-subtitle">"나는 내 질환을 전혀 통제하고 있지 않다. 그렇다고 해서 우울증에 지배당하지도 않는다."</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">대신 내게는 믿음이 있다.</h3>
+              <p class="mt-2">우울증 증상이 나타났을 때 그것을 다룰 수 있다는 믿음. 때가 되면 나와 내 상담사, 의사는 내게 무엇이 도움이 될지 떠올릴 수 있을 것이고, 언젠가는 그 증상이 다시 사라질 것이라는 믿음.</p>
+            </div>
+            <p class="mt-6 font-bold text-xl text-center text-gray-800">그리고 그사이에 살아내는 인생은 아름답다. 그 모든 것에도 불구하고.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more slides to reach 50 -->
+      <!-- Slide 32: The Author -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자: 바바라 포어자머</h2>
+          <p class="slide-subtitle">독일의 가장 영향력 있는 언론사 《쥐트도이체 차이퉁》 기자</p>
+          <div class="slide-content">
+            <p>촉망받는 정치 기자로 활약하던 중, 2008년 오바마 대통령 당선일에 정신과 병동에 입원해야 했습니다. 자신의 우울증을 마주하고 싶지 않아 과도하게 일에 매달린 결과였습니다.</p>
+            <p class="mt-4">이를 계기로 정신 건강, 가족, 여성 등 인간 내면에 대한 글을 쓰기 시작했고, "지극히 개인적인 이야기로 이 시대의 우울을 정확하게 포착해낸다"는 찬사를 받았습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Pain of Decision -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결정의 고통</h2>
+          <p class="slide-subtitle">"무언가를 결정해야 하는 상황은 최악이다."</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">사소한 마비</h3>
+              <p>아침에 어떤 옷을 입을지, 무엇을 먹을지와 같은 사소한 결정조차 거대한 산처럼 느껴집니다. 에너지가 고갈되고, 결국 아무것도 선택하지 못하는 상태에 이릅니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">회피와 결과</h3>
+              <p>결정을 피하기 위해 병가를 내고, 하루 종일 죽음에 대해 생각하기도 합니다. 이는 우울증이 사고 과정 자체를 어떻게 왜곡하고 마비시키는지를 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Alexithymia -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정표현불능증 (Alexithymia)</h2>
+          <p class="slide-subtitle">"당시 나의 상태는, 내 감정을 인지하기가 거의 불가능했다."</p>
+          <div class="slide-content">
+            <p>자신이 느끼는 감정이 슬픔인지, 우울함인지, 혹은 분노인지 분류하기 어려웠습니다. 표현할 수 있는 것은 오직 우는 것뿐이었습니다. </p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">배움의 과정 📚</h3>
+              <p class="mt-2">감정을 제대로 느끼지 못하는 사람이 감정에 대한 책을 쓰는 것은 역설적이지만, 그렇기에 더 적임자일 수 있습니다. 아무것도 모르는 상태에서 감정을 받아들이고 내버려두는 법을 배워야 했기 때문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Migraines and Pain -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">늘 편두통과 함께였다</h2>
+          <p class="slide-subtitle">심리 상태와 신체적 통증의 깊은 상관관계</p>
+          <div class="slide-content">
+            <p>저자는 수십 년간 심한 편두통에 시달렸습니다. 이는 단순한 두통이 아니라, 빛, 소음, 냄새에 극도로 예민해지고, 일상생활을 불가능하게 만드는 고통이었습니다.</p>
+            <p class="mt-4">이러한 신체적 통증은 정신적 고통과 얽혀 악순환을 만듭니다. 통증 때문에 우울해지고, 우울하기 때문에 통증에 더 취약해집니다. 이 책은 이 연결고리를 끊으려는 노력을 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: The "Trigger Analysis" -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">트리거 분석의 함정</h2>
+          <p class="slide-subtitle">통증의 원인을 찾으려는 필사적인 노력</p>
+          <div class="slide-content">
+            <p>편두통을 유발한 분노, 슬픔, 트라우마 등을 찾으려 애썼습니다. 통증, 음식, 활동을 기록하며 편두통을 일으키는 트리거를 집어내고, 미래에 피하려 했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">결론: 삶 자체가 원인이다</h3>
+              <p class="mt-2">하지만 편두통의 원인은 매우 다양하고, 대부분은 감정, 갈등, 음식, 날씨같이 피할 수 없는 '삶' 그 자체였습니다. 원인을 찾는 것보다 스트레스 수준을 낮게 유지하는 것이 더 중요하다는 것을 깨닫습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Seeking Help -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">도움을 청하는 여정</h2>
+          <p class="slide-subtitle">정신과와 심리상담에 대한 편견과 오해를 넘어서기까지</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">"나는 자격이 없어"</h3>
+              <p>큰 트라우마나 불행한 어린 시절이 없었기에, 자신이 정신질환을 앓을 자격이 없다고 느꼈습니다. 이는 증상을 인정하고 도움을 구하는 데 가장 큰 걸림돌이 되었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">"이 또한 지나가리라"</h3>
+              <p>"일단 ...만 하고 나면" 괜찮아질 것이라는 잘못된 믿음에 매달렸습니다. 석사 논문, 취업 등 다음 단계로 넘어가면 스트레스가 사라질 것이라 믿었지만, 상태는 변하지 않았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: The "What If" Game -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"만약"이라는 질문의 무게</h2>
+          <p class="slide-subtitle">우울증은 과거에 대한 끊임없는 질문을 던지게 합니다.</p>
+          <div class="slide-content">
+            <p>저자는 유산 후에 '리튬 때문이었을까?', '커피를 너무 많이 마셨나?'와 같은 자책 섞인 질문을 던졌습니다. 친구의 죽음 후에는 '내가 다른 행동을 했다면?' 하고 생각했습니다.</p>
+            <p class="mt-4">이러한 질문들은 원인을 찾으려는 시도이지만, 종종 죄책감과 후회로 이어집니다. 이 책은 과거의 원인을 찾는 것보다 현재의 감정을 다루는 것이 더 중요하다고 말합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Impostor Syndrome -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가면 증후군 (Impostor Syndrome)</h2>
+          <p class="slide-subtitle">"나는 내가 백 번, 천 번 성공한 일을 할 때도 어김없이 불안하다."</p>
+          <div class="slide-content">
+            <p>20년간 저널리스트로 일하고 상을 받았음에도, 기사를 제출할 때마다 자신의 글이 가치 있는지 의심합니다. 상사나 동료, 독자의 긍정적인 피드백을 받아야만 비로소 만족감을 느낍니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">우울증과 자존감</h3>
+              <p class="mt-2">이는 단순히 자신감이 부족한 것이 아닙니다. 어쩌면 우울증의 뿌리가 '자존감 결여'이며, 우울증 환자는 근본적으로 자기 자신을 견디지 못하기 때문일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: The Tightrope Walk -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">줄타기하는 삶</h2>
+          <p class="slide-subtitle">우울증에도 불구하고 삶을 살아가는 것은 마치 줄을 타는 느낌과 같습니다.</p>
+          <div class="slide-content">
+             <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p>상태가 좋을 때는 줄이 땅에 붙어 있는 느낌이라서, 균형 잡기는 그냥 땅 위를 걷는 것과 같습니다. '할 만하다'고 생각하는 순간들입니다.</p>
+              <p class="mt-2 font-bold">하지만 공중에 떠 있는 줄은 흔들릴 수밖에 없습니다. 이때 떨어지지 않으려면 내면의 안정성이 높아야 합니다. 그렇지 못할 때는 멈춰야 하고, 손을 잡아줄 누군가가 필요합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Pandemic & Depression -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">코로나 블루와 우울증</h2>
+          <p class="slide-subtitle">팬데믹은 우리에게 무엇을 남겼는가</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">멈춰버린 뺑뺑이</h3>
+              <p>팬데믹 이전의 삶은 자동으로 계속 돌아가는 '뺑뺑이' 같았습니다. 하지만 팬데믹이 갑자기 그것을 멈췄고, 많은 사람이 그 리듬을 완전히 되찾지 못했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">정당한 감정</h3>
+              <p>전 지구적인 팬데믹 때문에 두려움을 느끼고 불안해하고 압박에 시달린다면, 그것은 치료로 해결될 수 없는, 완전히 정당한 감정들입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: The Opposite of Depression -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">우울한 상태의 반대말은?</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4 text-2xl">‘우울한 상태’의 반대말이 꼭 <span class="highlight">‘인생을 즐기는 것’</span>은 아니기 때문이다.</p>
+            <p class="mt-8 font-bold text-3xl text-gray-800">‘우울한 상태’의 반대는 <br/>‘삶을 느끼는 것’이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Finding Your People -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나의 그룹을 찾아서</h2>
+          <p class="slide-subtitle">심리치료의 성공에 가장 큰 영향을 미치는 것은 '좋은 관계'입니다.</p>
+          <div class="slide-content">
+            <p>어떤 치료법을 사용하는지는 부차적인 문제입니다. 행동치료, 심층심리학, 정신분석 등 방법론보다 중요한 것은 당신 마음에 드는 사람, 그리고 당신 생각에 능력 있는 사람에게 가는 것입니다.</p>
+            <p class="mt-4">좋은 심리상담사는 당신에게 귀 기울여주고, 거울처럼 비춰주며, 당신의 생각과 감정을 정리하도록 도와주는 역할을 합니다. 때로는 친구, 배우자, 동료가 그 역할을 해줄 수도 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: The Stigma -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사라지는 낙인</h2>
+          <p class="slide-subtitle">낙인이 사라지면서, 정상적이거나 일시적인 스트레스로도 의사와 상담사를 찾는 사람이 늘어났습니다.</p>
+          <div class="slide-content">
+            <p>15년 전, 저자는 소수의 사람에게만 두근대는 가슴을 안고 우울증을 털어놓았습니다. 상담받는 것도 비밀로 했습니다.</p>
+            <p class="mt-4 font-bold">지금은 모두가 내 우울증을 압니다. 요즘은 우울증 때문에 회사에 못 가면 솔직히 이야기하고, 이웃을 만나면 왜 바쁜지 설명해줍니다. 그러면 "저도요"라는 대답이 점점 더 많이 돌아옵니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: What to Say, What Not to Say -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">주변 사람들을 위한 조언</h2>
+          <p class="slide-subtitle">우울증을 겪는 이에게 어떻게 다가가야 할까?</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">DO 👍</h3>
+              <p>계속해서 손을 내밀어주고, 가끔은 부드럽게 밀어주고, 어떤 때는 무언가를 덜어주세요. 무엇보다 전문가의 도움을 받도록 격려해주세요.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">DON'T 👎</h3>
+              <p>상담사 역할을 자처하지 마세요. "나의 고통이 너의 고통보다 크다"는 식의 비교를 하지 마세요. 쉽게 "다 괜찮아질 거야"라고 말하지 마세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: A Child's Rage -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">딸의 ADHD와 나의 분노</h2>
+          <p class="slide-subtitle">"나에겐 분노가 없다"고 믿었던 저자가 딸을 통해 자신의 감정을 마주하다.</p>
+          <div class="slide-content">
+            <p>저자는 자신의 분노를 표현하는 법을 배우지 못했습니다. 화가 나면 울거나 편두통을 앓았습니다. 반면, 딸 막달레나는 자신의 모든 감정을 매우 강렬한 색채로 표현했습니다.</p>
+            <p class="mt-4">딸의 성향이 ADHD 진단으로 이어졌을 때, 저자는 딸의 분노가 사실은 자신의 억압된 분노를 대신 표현하는 것이 아니었을까 자문합니다. 이는 감정이 다른 감정 뒤에 숨을 수 있음을 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: The Theory of Self -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나를 구성하는 것들</h2>
+          <p class="slide-subtitle">나는 우울증 환자인가, 아니면 우울증을 앓는 나인가?</p>
+          <div class="slide-content">
+            <p>진단은 결국 "나에게는 우울증이 있다"는 사실 외에는 알려줄 게 없습니다. 그것이 나라는 사람을 온전히 설명해주지는 못하는 하나의 단면일 뿐입니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">정체성의 모자이크</h3>
+              <p class="mt-2">나의 정체성은 하나의 조각이 아닌, 여러 조각이 모여 전체 그림을 이루는 모자이크와 같습니다. 나를 정의하는 것은 내 질병도, 사랑도, 분노도 아닙니다. 내가 쓰는 것, 말하는 것, 생각하는 것, 그리고 그 모든 것의 총합입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: The Power of Story -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이야기의 힘</h2>
+          <p class="slide-subtitle">자신의 경험을 이야기하는 것은 치유의 중요한 과정입니다.</p>
+          <div class="slide-content">
+            <p>어머니의 추도사를 준비하며 많은 사람과 어머니에 대해 이야기했던 시간, 유산의 경험을 인터넷에 공유하고 위로를 받았던 경험은 모두 감정에 공간을 내어주고 슬픔을 소화하는 과정이었습니다.</p>
+            <p class="mt-4">이야기를 통해 우리는 자신의 감정을 다른 사람들과 나눌 공간을 만들고, 혼자가 아님을 확인하며, 고통스러운 경험을 의미 있는 기억으로 바꾸어 나갈 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: The Final Word on Hope -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마지막으로, 희망에 대하여</h2>
+          <p class="slide-subtitle">"언젠가는 이토록 엄청나게 아프지 않고도 ‘우리 어머니는 너무 일찍 돌아가셨어’라고 덤덤하게 말할 수 있는 날이 올 거라는 걸 알아. 하지만 지금 이 순간만큼은 그게 가능할 거라는 게 상상조차 안 돼."</p>
+          <div class="slide-content">
+            <p class="mt-8 text-center text-2xl font-bold">이제는 시간이 흘러 그렇게 말하는 게 가능한 날이 왔습니다.</p>
+            <p class="mt-4 text-center">그리고 저자는 매우 의식적이고 집중적으로 애도 과정을 거쳤던 것이 그날이 오도록 도움을 주었다고 생각합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🐘✨</div>
+          <h2 class="slide-title">살아내는 인생은 아름답다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">이 책의 메시지는 우울증과의 싸움에서 이기는 것이 아닙니다. 오히려 싸움이 아니라고 말합니다. 질병을 통제하려 하기보다, <span class="highlight">그것과 함께 살아가는 법</span>을 배우는 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">그 모든 것에도 불구하고.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

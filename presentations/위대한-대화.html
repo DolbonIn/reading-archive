@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>위대한 대화: 인생의 언어를 찾아서</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ol { list-style-type: decimal; margin-left: 2rem; }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">📖</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">위대한 대화</h1>
+          <p class="text-xl md:text-2xl text-gray-700">김지수 인터뷰집 <span class="highlight">인생의 언어를 찾아서</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차</h2>
+          <div class="slide-content text-lg space-y-3">
+            <ol>
+              <li><b>프롤로그:</b> 인생 언어를 찾아 길 떠나는 당신에게</li>
+              <li><b>이어령:</b> 선한 사람이 이긴다는 것, 믿으세요</li>
+              <li><b>파스칼 브뤼크네르:</b> 사는 건 사랑하는 일입니다</li>
+              <li><b>찰스 핸디:</b> 삶에서 가장 중요한 건 친구입니다</li>
+              <li><b>강금실:</b> 아무도 억압하지 마세요</li>
+              <li><b>장명숙 (밀라논나):</b> 걸림돌이 결국은 디딤돌이 되더라고요</li>
+              <li><b>베른트 하인리히:</b> 항상 한 번에 한 걸음씩 나아가세요</li>
+              <li><b>다니엘 핑크:</b> 후회가 우리를 더 인간답게 만듭니다</li>
+              <li><b>수전 케인:</b> 감정의 디폴트는 편안한 슬픔입니다</li>
+              <li><b>결론 및 질의응답</b></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: 프롤로그</p>
+          <h2 class="slide-title">인생 언어를 찾아 <span class="highlight">길 떠나는</span> 당신에게</h2>
+          <p class="slide-content">저자 김지수는 이 책을 통해 우리 시대 최전선의 지혜자들이 내어놓은 힘 있는 언어를 부드러운 언어로 변환시키는 '언어의 다리' 역할을 하고자 합니다. 지혜자의 떨림과 독자의 울림을 잇는 여정입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">떨림과 <span class="highlight">울림</span></h2>
+          <p class="slide-subtitle">물리학자 김상욱은 '존재하는 모든 것은 떨고 있다'고 말했습니다. 우주가 떨림이라면, 인간은 울림입니다.</p>
+          <div class="slide-content">
+            <p>저자는 스스로를 보통 사람보다 더 자주 흔들리고 더 많이 떠는 '흔들리는 인간'으로 묘사합니다. 이 태생적 약점은 타인의 떨림을 더 잘 감지하는 재능의 씨앗이 되었습니다.</p>
+            <p class="mt-4">인터뷰는 온몸으로 파동을 기억하고 그 <span class="highlight">'떨림과 울림을 잇는 일'</span>입니다. 이 책은 바로 그 기록입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">코로나 시대, <span class="highlight">언어의 대변환</span></h2>
+           <p class="slide-subtitle">코로나바이러스는 인류의 지속 가능성에 경종을 울렸고, 지식 생태계에 대격변을 일으켰습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">사라진 언어들 썰물 🌊</h3>
+              <p>승리, 생산성, 기쁨, 행복, 번영, 자본과 같은 군림의 언어들이 힘을 잃었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">떠오른 언어들 밀물 🌊</h3>
+              <p>다정함, 안전, 우정, 친구, 슬픔, 반성, 후회 등 심리 자원의 근본을 파고드는 돌봄의 언어가 중요해졌습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: 이어령 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: 이어령</p>
+          <h2 class="slide-title">선한 사람이 이긴다는 것, <span class="highlight">믿으세요</span></h2>
+          <p class="slide-content">故 이어령 선생은 《이어령의 마지막 수업》을 통해 죽음이라는 상태를 관찰하고 온몸으로 감각화하는 데 최선을 다했습니다. 이 책의 대화는 그의 '넥스트 메시지'입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">컵의 비유: <span class="highlight">육체, 마음, 영혼</span></h2>
+          <p class="slide-subtitle">선생은 컵 하나로 인간의 세 가지 차원을 설명했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-lg mb-2">컵 🏺 (육체)</h3>
+              <p>우리의 몸. 언젠가는 깨어지는 유한한 존재입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">물 💧 (마음)</h3>
+              <p>컵에 담긴 욕망, 감정. 컵이 깨지면 쏟아져 사라집니다.</p>
+            </div>
+            <div>
+               <h3 class="font-bold text-lg mb-2">빈 공간 ✨ (영혼)</h3>
+              <p>원래 컵 안에 있던 빈 공간. 은하수까지 닿는 영성. 사라지지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'멍때리기'의 <span class="highlight">현대적 의미</span></h2>
+          <p class="slide-subtitle">과거의 '멍때리기'는 황홀경(엑스터시)에 가까웠지만, 오늘날의 의미는 다릅니다.</p>
+          <div class="slide-content">
+            <p>정보가 쏟아져 들어오니 생각을 멈추기 위해, 자기방어 기제로 쓰는 것이 요즘의 '멍때리기'입니다. 정보의 홍수 속에서 익사하기 직전, 노아의 방주처럼 자기만의 진공 상태를 만드는 것입니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 생각으로부터의 피난</h3>
+              <p class="mt-2">오늘날 생각하지 않는 사람은 사실 깊이 생각하는 사람입니다. 그런 사람이 새로운 능동형 인간이 되고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오징어 게임과 <span class="highlight">상징계</span></h2>
+          <p class="slide-subtitle">이어령 선생은 '오징어 게임'의 성공을 상징계와 법계의 충돌로 해석했습니다.</p>
+          <div class="slide-content">
+            <p>어린 시절 게임에서 "너 죽었다"는 상징계의 언어입니다. 다시 살아나면 그만입니다. 하지만 <오징어 게임>에서는 기관총으로 실제로 죽입니다. 상징계의 언어와 법계의 언어가 부딪히니 충격파가 그만큼 큰 것입니다.</p>
+            <p class="mt-4">그러나 최후의 승자는 어땠나요? 현실에서는 인정사정없는 사람이 이길 것 같지만, 상징계에서는 <span class="highlight">본성이 착한 사람이 이겼습니다.</span> 주인공 '성기훈'의 '성'이 Saint로 느껴졌다고 그는 말합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+           <h2 class="slide-title">마지막 메시지: <span class="highlight">인간은 선하다</span></h2>
+           <p class="slide-subtitle">죽음을 앞두고 그가 남긴 마지막 당부입니다.</p>
+           <div class="slide-content">
+             <div class="p-8 bg-gray-800 text-white rounded-lg">
+              <i class="fa-solid fa-star text-yellow-300 mr-2"></i>
+              <h3 class="font-bold text-xl inline-block">별을 보며 즐거웠어요.</h3>
+              <p class="mt-4">하늘의 별의 위치가 불가사의하게 질서정연하듯, 여러분의 마음의 별인 도덕률도 몸 안에서 그렇다는 걸 잊지 마세요. <span class="highlight">'인간이 선하다는 것'</span>을 믿으세요. 그 마음을 나누어 가지며 여러분과 작별합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: 파스칼 브뤼크네르 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3: 파스칼 브뤼크네르</p>
+          <h2 class="slide-title">사는 건 <span class="highlight">사랑하는</span> 일입니다</h2>
+          <p class="slide-content">프랑스의 철학자 파스칼 브뤼크네르는 나이 듦의 역동성에 대해 이야기합니다. 죽음보다 삶의 리듬에 맞춰 춤을 추고, 임종 전까지 '욕망할 것'을 권고합니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">청년과 노년은 <span class="highlight">욕망 앞에 평등하다</span></h2>
+          <p class="slide-subtitle">'어떻게 노년을 맞이할 것인가?'라는 질문에 대한 그의 대답은 관조가 아닌 '욕망의 주인공'이 되는 것이었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">이어령의 죽음 🌞</h3>
+              <p>정오의 분수처럼 죽음을 생의 한가운데로 초대해 감각하고 사유합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">파스칼의 사랑 ❤️‍🔥</h3>
+              <p>사랑과 일을 노년의 한가운데로 불러들여 임종 전까지 '욕망할 것'을 권고합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">10년 주기로 <span class="highlight">재구축하라</span></h2>
+          <p class="slide-subtitle">에너지를 쓰는 게 곧 삶입니다. 그는 10년 주기로 스스로를 거침없이 재구축해야 한다고 말합니다.</p>
+          <div class="slide-content">
+             <p>50, 60, 70, 80... 숫자가 바뀔 때마다 안주하지 말고, 위험을 무릅써도 됩니다. 자기로 사는 편안함과 자기일 수밖에 없는 불편함을 인지해야 '나'로 살 수 있습니다.</p>
+             <p class="mt-4 font-bold">만약 도전할 에너지가 없다면, 당신은 스스로의 생존을 증명하는 반짝거림을 잃어가는 중입니다. <span class="highlight">죽기도 전에 사라질 이유가 있나요?</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">메멘토 모리, <span class="highlight">그 해로운 독</span></h2>
+          <p class="slide-subtitle">'죽음을 기억하라'는 격언이 삶의 생기를 억누른다고 생각하는지요?</p>
+          <div class="slide-content">
+            <p>네. 앞서 말했듯, 메멘토 모리의 폐해는 우리의 진정한 기쁨과 즐거움을 해로운 독으로 파괴한다는 거죠. 우리는 언젠가 모두 죽습니다. 왜 우리의 가장 행복한 순간들을 죽음이라는 암울한 시각으로 망쳐야 하는 걸까요?</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">철학의 진짜 역할 🧐</h3>
+              <p class="mt-2">철학을 한다는 것은 마지막 숨을 거둘 때까지도 ‘어떻게 살아야 할지’ 배우는 것입니다. '어떻게 죽어야 할지' 배우는 것이 아닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">묘비에 새길 문장 묘비명 🪦</h2>
+          <p class="slide-subtitle">마지막으로 언젠가 당신의 묘비에 새길 문장을 묻자 그는 이렇게 답했습니다.</p>
+          <div class="slide-content text-center mt-8">
+            <p class="text-3xl font-bold text-gray-800 italic">"나는 인생을 사랑했고, 인생은 나에게 100배로 갚아주었다."</p>
+            <p class="text-lg mt-4">(I loved life, It rewarded me a hundredfold)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: 찰스 핸디 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 찰스 핸디</p>
+          <h2 class="slide-title">삶에서 가장 중요한 건 <span class="highlight">친구입니다</span></h2>
+          <p class="slide-content">세기의 경영사상가 찰스 핸디는 90세의 나이로 생의 마지막 몇 달을 남겨둔 채 인터뷰에 응했습니다. 그의 인생에서 가장 큰 깨달음은 '친구가 정말 중요하다'는 것이었습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생을 정의한다면?</h2>
+          <p class="slide-subtitle">인생을 한마디로 정의하면 무엇인가요? 그리고 그중 가장 중요한 것은 무엇인가요?</p>
+          <div class="slide-content">
+             <p><b>인생은 배움의 여정입니다.</b> 코너를 돌면 뭐가 있을지 전혀 알 수 없지만 무슨 일이 있더라도 반드시 배움이라는 보상이 따르지요.</p>
+             <p class="mt-4">그중 가장 중요한 것은 단연코 <b>'<span class="highlight">사랑할 사람</span>'</b>입니다. '좋은 친구'는 '연인'만큼 좋습니다. 운 좋게도 제 아내 엘리자베스는 최고의 친구였어요. 배움과 위로를 주는 '베프'였죠.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간은 <span class="highlight">자원</span>이 아니다</h2>
+          <p class="slide-subtitle">'인간은 관리되어야 하는 인적 자원이 아니다'라는 말이 충격적이었습니다.</p>
+          <div class="slide-content">
+            <p>사람은 자원이 아닙니다. 일하는 인간은 욕구와 자율성을 지닌 독특한 주체예요. 사물은 관리되어야 하지만 사람은 격려와 용기로 움직입니다. <span class="highlight">사람을 물건 취급하면 사람이 물건처럼 행동하게 되죠.</span></p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 리더의 역할 전환</h3>
+              <p class="mt-2">인사 담당자들은 하루빨리 '관리자'에서 '조력자'로 인식을 전환하기 바랍니다. 리더십은 적절한 사람을 뽑아 잘 해낼 수 있는 조건과 기준을 제시하고, 성취한 경우 보상하는 행위입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">숫자 vs <span class="highlight">셀 수 없는 것</span></h2>
+          <p class="slide-subtitle">숫자와 데이터가 중요한 시절, 당신이 숫자를 좋아하지 않는 이유가 무엇인가요?</p>
+          <div class="slide-content">
+            <p>숫자는 질이 아니라 양을 측정할 뿐입니다. 페이스북에서 받은 '좋아요'가 정말 당신을 좋아한다는 뜻일까요? 내가 센 단어의 수가 내 문장의 퀄리티를 보증하지 못했어요. 책의 판매 부수도 그 책이 당신에게 얼마나 도움이 될지 말해주지 않죠.</p>
+            <p class="mt-4 font-bold">셀 수 있는 것보다 셀 수 없는 것이 더 강합니다. 세상은 등수도 액수도 아닌 <span class="highlight">튼튼한 우정</span>에 기반을 두고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: 강금실 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5: 강금실</p>
+          <h2 class="slide-title">아무도 <span class="highlight">억압하지</span> 마세요</h2>
+          <p class="slide-content">대한민국 첫 여성 법무부장관이었던 강금실 변호사는 법과 정치의 최전선에서 '권력은 왜 그토록 수직적이고 억압적인가'라는 질문에 답하기 위해 생태와 영성 공부를 시작했습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+           <h2 class="slide-title">라쇼몽과 <span class="highlight">진실의 본질</span></h2>
+           <p class="slide-subtitle">법정이 아닌 법무부에서 그는 구로사와 아키라 감독의 영화 <라쇼몽>을 검사들에게 권했습니다.</p>
+          <div class="slide-content">
+            <p>'증인마다 진술이 다르고 진실이 복합적일 때 팩트를 어떻게 고정시키느냐'는 쉽지 않습니다. 수사의 목적은 범인을 잡는 게 아니라 진실을 발견하는 겁니다.</p>
+            <p class="mt-4">사법 제도의 본질은 진실을 밝히는 것입니다. <span class="highlight">진실 없이 평가가 이뤄지면, 사법 제도가 흔들립니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">선악과, <span class="highlight">인간의 과한 의도</span></h2>
+          <p class="slide-subtitle">법관도 '선악과'를 지키지 못했다고 생각합니까?</p>
+          <div class="slide-content">
+            <p>법으로 합의된 규범이 옳다고 주장하는 순간에도 제노사이드(집단학살)는 일어났습니다. 선을 행하려는 의도가 악이 되는 순간이 역사에 횡행했습니다. 사람을 가장 많이 죽인 직군이 정치인이었어요.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">핵심은 무엇인가? ⚖️</h3>
+              <p class="mt-2">인간이 의도하는 행위가 너무 과합니다. 필요한 건 '옳다, 그르다'가 아니라 <span class="highlight">반성과 성찰</span>입니다. 하나의 담론이 지배하지 않고 다양한 해석이 공존할 수 있어야 합니다. 의지와 성찰이 균형을 맞춰야죠.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: 장명숙 (밀라논나) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6: 장명숙 (밀라논나)</p>
+          <h2 class="slide-title">걸림돌이 결국은 <span class="highlight">디딤돌</span>이 되더라고요</h2>
+          <p class="slide-content">유튜버 '밀라논나' 장명숙은 '좋은 어른'에 대한 열망이 뜨거운 시대에 혜성처럼 나타났습니다. 그녀는 삶의 경쾌함과 깊이를 동시에 보여주며 많은 젊은이들의 멘토가 되었습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생의 <span class="highlight">첩첩산중</span> 넘기</h2>
+          <p class="slide-subtitle">70년 살아보니 인생이 평탄하고 싶어도 평탄하지가 않아요.</p>
+          <div class="slide-content">
+            <p>어느 날 멀쩡하던 제 자식이 중환자실에 들어가 뇌수술을 받았고, 이듬해엔 출근하던 삼풍백화점이 무너져 동료와 직장을 잃었습니다. 그런 일을 겪으면 인생관이 바뀝니다. 그래도 벌어진 일은 받아들여야 해요. 아무 일 없이 평탄했으면 내 인생 콘텐츠도 없었겠죠.</p>
+            <p class="mt-4">그래서 어느 순간 '<span class="highlight">오케이, 이 골짜기 넘으면 또 어떤 벼랑이 올까, 올 테면 와라, 내가 넘어줄게</span>'가 되는 거죠. 사는 게 다 그래요.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶에서 진짜 귀한 것, <span class="highlight">시간</span> 🕰️</h2>
+          <p class="slide-subtitle">시간의 본질은 무엇일까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">시간의 본질: 성실</h3>
+              <p>성실은 내 인생에 대한 예의입니다. 자존과도 연결되죠. 저는 제 영상을 보는 분들의 시간이 아깝지 않도록 매 순간 정성을 다해요.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">시간의 가치: 나눔</h3>
+              <p>삶의 진짜 가치는 내 시간을 누군가에게 내어주는 거예요. 그렇게 거창한 게 아니에요. 그저 받았으니 나누는 거죠.</p>
+            </div>
+          </div>
+           <p class="mt-8">몸의 뼈대 같은 루틴이 튼튼하면 일상이 무너지지 않아요. 루틴은 나를 함부로 하지 않겠다는 다짐 같은 거예요.</p>
+        </div>
+      </div>
+      
+      <!-- Section: 베른트 하인리히 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 7: 베른트 하인리히</p>
+          <h2 class="slide-title">항상 한 번에 <span class="highlight">한 걸음씩</span> 나아가세요</h2>
+          <p class="slide-content">'달리는 찰스 다윈'이라 불리는 80세 생물학자 베른트 하인리히. 그는 80년 내내 달리며 인생의 우연과 정직성을 믿게 되었습니다. </p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몸은 <span class="highlight">집과 같다</span> 🏠</h2>
+          <p class="slide-subtitle">건강을 위해 이제 그만 달려야겠다고 느낀 순간은 없었습니까?</p>
+          <div class="slide-content">
+            <p>노화는 사소하거나 심각한 문제가 천천히 쌓여가는 과정입니다. 달리기는 가벼운 상처를 통해 몸의 수리 메커니즘에 경고하는 자극이죠.</p>
+            <p class="mt-4">비유하자면 몸은 집과 같습니다. 모든 집은 결국 닳아서 뼈대만 남고 사라지죠. 하지만 집을 계속 사용하다 보면 망가지는 부분이 생기고 수리를 합니다. 지붕의 누수를 막고 창유리를 교체하는 등 더 튼튼하게 손을 보지요. 따라서 <span class="highlight">집을 더 많이 사용할수록 집은 원래의 상태를 더 잘 유지하게 됩니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생의 자세: <span class="highlight">한 걸음씩</span></h2>
+          <p class="slide-subtitle">80년을 달린 후 도달한 결론은 무엇인가요?</p>
+           <div class="slide-content">
+             <div class="p-8 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-xl">"모든 것은 다 상대적입니다."</h3>
+              <p class="mt-4">저는 항상 한 번에 한 걸음씩 나아가라고 조언합니다. 한 걸음 한 걸음이 모두 중요해요. 목표를 지나치게 높이 잡는 것은 좋지 못합니다. 분명 크게 실망할 테니까요. 이럴 때 달리기는 좋은 비유가 됩니다. 각자 자신의 수준을 선택할 수 있으니까요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: 다니엘 핑크 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 8: 다니엘 핑크</p>
+          <h2 class="slide-title">후회가 우리를 더 <span class="highlight">인간답게</span> 만듭니다</h2>
+          <p class="slide-content">미래학자 다니엘 핑크는 '후회 없는 삶'이라는 모토에 '인생을 망치는 헛소리'라고 일갈합니다. 그는 후회야말로 우리를 더 인간답게 만드는 능력이라고 말합니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">네 가지 핵심 후회 😥</h2>
+          <p class="slide-subtitle">전 세계 2만 2,000명의 후회를 수집하고 분석한 결과, 후회는 4가지로 정리되었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">① 기반성 후회</h3>
+              <p>삶의 안정적 인프라를 만들지 못한 것에 대한 후회.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">② 대담성 후회</h3>
+              <p>성장을 위해 위험을 감수하지 않은 것에 대한 후회.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">③ 도덕성 후회</h3>
+              <p>양심적이지 못한 일에 대한 도덕적 후회.</p>
+            </div>
+             <div>
+              <h3 class="font-bold text-lg">④ 관계성 후회</h3>
+              <p>더 사랑하고 손 내밀지 못한 관계에 대한 후회.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">후회 사용 설명서 📝</h2>
+          <p class="slide-subtitle">인생에 풍미를 더해가는 '후회 사용 팁'을 부탁합니다.</p>
+          <div class="slide-content">
+            <ol class="space-y-4">
+                <li><b>첫째,</b> 사람은 누구나 후회하게 마련이라는 사실을 이해하세요.</li>
+                <li><b>둘째,</b> 후회하는 자신을 경멸하지 말고 친절하게 대하세요.</li>
+                <li><b>셋째,</b> 신뢰하는 두세 사람과 팀을 이뤄 정기적으로 후회로부터 교훈을 이끌어 내세요.</li>
+                <li><b>넷째,</b> 미래의 후회에 대해서는, 실행하지 못한 것, 기회를 붙잡지 못한 것, 옳은 일을 하지 못한 것, 아끼는 사람에게 다가가지 못한 것을 후회하는 일이 없도록 노력하세요.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: 수전 케인 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 9: 수전 케인</p>
+          <h2 class="slide-title">감정의 디폴트는 <span class="highlight">편안한 슬픔</span>입니다</h2>
+          <p class="slide-content">《콰이어트》의 저자 수전 케인은 신작 《비터스위트》를 통해 우리가 부정적으로 여겨온 슬픔의 신비와 슬기로움에 대한 증거를 제시합니다. 달콤씁쓸함의 가치를 탐구합니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">멜랑콜리의 핵심: <span class="highlight">교감과 귀향</span></h2>
+          <p class="slide-subtitle">완전한 고향에 대한 그리움, 아름답고 눈물겨운 인간에 대한 애틋함… 이 감정의 핵심은 무엇인가요?</p>
+          <div class="slide-content">
+            <p>멜랑콜리의 핵심은 <span class="highlight">교감을 향한 열망</span>과 <span class="highlight">귀향을 향한 바람</span>입니다. 이것은 나약함이 아닙니다. 달콤씁쓸함은 고통에 대응하는 법을 알려줍니다. 슬픔을 창의성, 초월, 사랑으로 전환하죠.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">우울증과의 차이 💧</h3>
+              <p class="mt-2">우울증은 막힘입니다. 어둠, 상실, 절망에 꼼짝없이 막힌 기분이죠. 달콤씁쓸함은 어둠만이 아니라 빛도 의식합니다. 상실만이 아니라 사랑도 의식하죠. 이질적 상태를 동시에 볼 수 있기에 아름다움에 반응하고 호기심과 즐거움을 느낍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">적자생존이 아닌 <span class="highlight">선자생존</span></h2>
+          <p class="slide-subtitle">나의 슬픔이 어떻게 서로의 연민이 되나요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">연민은 본능입니다.</h3>
+              <p>인간은 서로의 어려움에 반응하도록 프로그래밍되어 있습니다. 가장 취약한 상태로 태어나는 아기를 돌보기 위해 인간은 연민을 키워야 했죠.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">다윈의 진정한 구호</h3>
+              <p>적자생존은 사회진화론자들이 사용한 말입니다. 다윈에게 더 맞는 구호는 '선자생존'입니다. 그는 연민 작용을 인류를 넘어 다른 종까지 확대하는 것이 인간의 가장 고귀한 일이라고 주장했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">✨</div>
+          <h2 class="slide-title">위대한 대화를 마치며</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">이 책은 결국 '자기 언어'의 동력으로 세상을 잇는 위대한 '대화자들'의 이야기입니다. 우리는 이들의 대화를 통해 각자의 '인생 언어'를 채굴해 갈 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800"><span class="highlight">타인의 좋은 언어가 나의 심장에 꽂힐 때 일어나는 미묘한 스파크</span>, 새로운 생명과 새 언어가 탄생하는 그 순간을 경험하시길 바랍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

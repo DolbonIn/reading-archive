@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>넷 포지티브 (Net Positive) 발표 자료</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+      border-color: #111;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: #333;
+      border-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+      border-color: #ddd;
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full max-w-7xl">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🌏</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">넷 포지티브 (Net Positive)</h1>
+          <p class="text-xl md:text-2xl text-gray-700">비누를 팔아 세상을 구하려는 유니레버의 <span class="highlight">ESG경영 전략</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🚀 넷 포지티브란 무엇인가?</h2>
+          <p class="slide-subtitle">기업이 세상에 미치는 피해를 최소화하는 것을 넘어, '순 긍정적' 영향을 창출하고 세상에 의미 있는 기여를 하는 새로운 경영 패러다임입니다.</p>
+          <div class="slide-content text-lg">
+            <p>'덜 나쁘게'가 아니라 <span class="highlight">'더 좋게'</span> 만드는 것을 목표로 합니다.</p>
+            <p class="mt-4">이는 성장을 추구하면서 사회, 환경, 경제에 긍정적인 영향을 미치려는 기업의 경영 전략을 의미합니다.</p>
+            <p class="mt-4">기업은 세상이 안고 있는 문제를 해결하는 과정에서 <span class="highlight">수익을 창출해야 합니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📜 목차</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-lg">
+            <p><b>1. 유니레버의 위기와 선택:</b> 3G캐피털의 인수 제안</p>
+            <p><b>2. 넷 포지티브 리더의 5가지 특징</b></p>
+            <p><b>3. 새로운 경영 패러다임:</b> 5가지 핵심 원칙</p>
+            <p><b>4. 목적을 전략으로:</b> 유니레버 USLP 사례</p>
+            <p><b>5. 한계 뛰어넘기:</b> 좁은 생각의 틀을 깨라</p>
+            <p><b>6. 신뢰의 힘:</b> 투명한 세상에서 살아남기</p>
+            <p><b>7. 협력의 마법:</b> 1+1=11</p>
+            <p><b>8. 시스템 변화와 편익</b></p>
+            <p><b>9. 눈감을 수 없는 9가지 쟁점</b></p>
+            <p><b>10. 넷 포지티브 문화 구축</b></p>
+            <p><b>11. 결론:</b> 물고기는 물을 떠나서 살 수 없다</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Section Title 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: 위기와 선택</p>
+          <h2 class="slide-title">유니레버가 워런 버핏의 <span class="highlight">164조 인수 제안</span>을 거절한 이유</h2>
+          <p class="slide-content">2017년, 크래프트하인즈(3G캐피털과 버크셔해서웨이)는 유니레버에 적대적 인수를 제안했습니다. 이는 두 가지 다른 경영 철학의 충돌이었습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Two Column Layout - Philosophy Clash -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">💼 두 경영 철학의 대결</h2>
+          <p class="slide-subtitle">단기 이익 극대화와 장기적 가치 창출, 두 모델은 어떻게 달랐을까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg text-red-800">3G캐피털 (크래프트하인즈)</h3>
+              <p class="mt-2">오로지 주주를 위한 이윤 창출, <span class="highlight">주주 우선주의(Shareholder Primacy)</span>의 완벽한 표본.</p>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>단기 수익 극대화</li>
+                <li>최대한의 비용 절감</li>
+                <li>차입금 활용 극대화</li>
+              </ul>
+            </div>
+            <div class="p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg text-green-800">유니레버</h3>
+              <p class="mt-2">더 나은 세상을 위해 다양한 집단의 이익에 부응하는 <span class="highlight">이해관계자 자본주의(Stakeholder Capitalism).</span></p>
+               <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>장기적 가치 창출</li>
+                <li>사회적 목적 달성을 통한 수익 창출</li>
+                <li>'지속가능성 덕분에' 수익 창출</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Result of the Clash -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📊 결과는 어땠을까?</h2>
+          <p class="slide-subtitle">유니레버는 제안을 거절했고, 이는 두 기업의 운명을 갈랐습니다.</p>
+          <div class="slide-content">
+            <p>결정 이후, 유니레버의 총 주주수익률(TSR)은 4배가 되었습니다. 이는 초기에 크래프트하인즈에 투자된 돈과 같은 금액이었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">📈 팬데믹과 금융위기 속에서 드러난 강점</h3>
+              <p class="mt-2">유니레버의 비즈니스 모델은 위기 속에서 <span class="highlight">회복력(Resilience)</span>이 더 강하다는 것을 증명했습니다. 강력한 재정, 직원, 지역사회, 정부와의 긴밀한 연결성이 이를 담보했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Section Title 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: 리더의 조건</p>
+          <h2 class="slide-title">👨‍💼 넷 포지티브 리더의 <span class="highlight">5가지 특징</span></h2>
+          <p class="slide-content">세상을 긍정적으로 바꾸는 리더는 어떤 자질을 갖추고 있을까요? 이 책은 다섯 가지 공통적인 특징을 제시합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: Leader Trait 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1. 기업의 <span class="highlight">목적</span>을 알고 있다 🎯</h2>
+          <p class="slide-subtitle">자신이 누구이며 왜 여기에 있는지 아는 것에서 시작합니다.</p>
+          <div class="slide-content">
+            <p>열정은 '자신'을 찾게 하지만, 목적은 '자기보다 더 큰 무언가'에 빠져 자신을 잃게 합니다. 넷 포지티브 리더는 수익을 넘어선 더 큰 사명에 복무합니다.</p>
+             <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 리더의 핵심 질문</h3>
+              <p class="mt-2">"더 나은 세상을 만들기 위해 내가 남들과 다르게 해야 할 일은 무엇인가?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Leader Trait 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2. 높은 수준의 <span class="highlight">공감 능력</span>이 있다 ❤️</h2>
+          <p class="slide-subtitle">다른 사람의 처지에 공감하고 연민의 마음을 갖는 능력을 길러야 합니다.</p>
+          <div class="slide-content">
+             <p>운이 좋았다는 사실을 인정하고, 운이 나쁜 다른 사람의 처지에 공감하는 것은 쉽지 않습니다. 오늘날의 리더는 불편하더라도 공감과 연민의 능력을 길러야 합니다.</p>
+             <p class="mt-4">존 롤스의 '무지의 장막' 사고 훈련은 공감 능력 개발에 도움이 됩니다. 내가 어떤 위치에 태어날지 모른다면, 어떤 사회 시스템을 설계하겠습니까?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Leader Trait 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 가장 큰 도전과제를 추구할 <span class="highlight">용기</span>가 있다 💪</h2>
+          <p class="slide-subtitle">용기는 모든 덕목 중에 가장 중요합니다. 용기 없이는 어떤 다른 덕목도 일관되게 실천할 수 없기 때문입니다. - 마야 안젤루</p>
+          <div class="slide-content">
+            <p>'courage'의 어원은 '마음'을 뜻하는 라틴어 'coeur'입니다. 공감과 목적의식을 지니면 불편함을 극복할 용기가 생깁니다.</p>
+            <p class="mt-4">넷 포지티브 리더는 단기적인 성과와 변혁을 위한 투자 사이에서 균형을 맞추는 용기를 보여줍니다. 중요한 쟁점에 대해 침묵하지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Leader Trait 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">4. <span class="highlight">도덕적 리더십</span>을 일관되게 발휘한다 ✨</h2>
+          <p class="slide-subtitle">리더의 책임은 사람들에게 공동의 목적을 불어넣고 단결시키는 것입니다.</p>
+          <div class="slide-content">
+            <p>언행이 일치하는 리더를 사람들은 더 신뢰하고 영감을 얻습니다. 이것이 바로 '리더의 그림자(shadow of a leader)'이며, 기업의 문화를 규정합니다.</p>
+            <p class="mt-4">투명성이 높은 오늘날에는 직장에서의 행동뿐만 아니라 사생활도 중요합니다. 리더는 일과 삶의 균형, 행복을 행동으로 보여주어야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Leader Trait 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">5. <span class="highlight">변혁적인 협력관계</span>를 찾아나선다 🤝</h2>
+          <p class="slide-subtitle">세상이 필요로 하는 것이 무엇인지 외부에서 바라보는 관점을 가져야 합니다.</p>
+          <div class="slide-content">
+            <p>혁신적인 변화를 이루려면 폭넓은 협력관계가 필수적입니다. 리더는 다른 사람, 다른 회사와 함께 일한다는 것을 명시적으로 보여줘야 합니다.</p>
+            <p class="mt-4">NGO, 비판자, 정부 등 다양한 집단과 협력하는 것이야말로 이 시대에 요구되는 리더십 기술입니다. '윈윈'의 해법을 찾는 것이 핵심입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Section Title 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3: 새로운 경영 패러다임</p>
+          <h2 class="slide-title">🌱 넷 포지티브 경영의 <span class="highlight">5가지 핵심 원칙</span></h2>
+          <p class="slide-content">기업 성과를 완전히 다른 차원으로 끌어올리는 다섯 가지 원칙은 무엇일까요? 이 원칙들은 서로를 강화하며 성과 높은 기업을 만듭니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 14: Principle 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: 모든 결과에 <span class="highlight">책임을 진다</span></h2>
+          <p class="slide-subtitle">기업은 공급망부터 제품 수명이 끝나는 시점까지, 사회에 미치는 모든 긍정적, 부정적 영향에 책임을 져야 합니다.</p>
+          <div class="slide-content">
+            <p>아웃소싱할 수 없는 것이 바로 '책임'입니다. 기업이 사회에 떠넘기는 환경 비용과 사회적 비용은 결국 부메랑이 되어 돌아옵니다.</p>
+            <p class="mt-4">이는 단지 부정적인 문제를 발견하는 것을 넘어, 효율성 증대, 비용 절감, 성장 혁신 등 모든 긍정적 영향을 더 엄격하게 살피는 기회이기도 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Principle 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 2: <span class="highlight">장기적인 이익</span>을 추구한다</h2>
+          <p class="slide-subtitle">단기적인 사고는 매혹적이지만, 복잡한 문제를 해결하고 지속가능한 가치를 창출하기 어렵게 만듭니다.</p>
+          <div class="slide-content">
+             <p>S&P 500 기업의 평균 수명은 1958년 61년에서 현재 18년으로 줄었습니다. 단기 수익에만 집중하는 추세의 결과입니다.</p>
+             <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">장기적 관점의 힘</h3>
+              <p class="mt-2">장기적 관점의 기업은 평균 매출액과 수익 증가율이 각각 <span class="highlight">47%, 36%</span> 더 높았고, 시가총액도 빠르게 늘어났습니다. 또한 힘든 시기를 더 잘 견뎌냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Principle 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 3: 모든 <span class="highlight">이해관계자</span>에게 수익을 안겨준다</h2>
+          <p class="slide-subtitle">기업의 존재 이유는 고객의 요구를 충족하고 삶을 더 낫게 만드는 것입니다. 이 논리를 직원, 지역사회, 더 나아가 지구로 확장해야 합니다.</p>
+          <div class="slide-content">
+             <p>이 원칙은 지구를 치유하고 생명체의 삶을 개선하는 새로운 제품과 서비스를 제공하는 문제와 연결됩니다. </p>
+             <p class="mt-4">모든 이해관계자에게 동시에, 동등하게 수익을 제공해야 한다는 뜻은 아닙니다. 때로는 직원 복지에, 때로는 소비자에게, 때로는 지역사회에 더 투자할 수 있습니다. 중요한 것은 장기적으로 모두에게 이익이 되어야 한다는 점입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Principle 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 4: 주주 가치 창출은 <span class="highlight">목표가 아닌 결과</span>다</h2>
+          <p class="slide-subtitle">"기업에게 수익은 산소와 같다. 수익이 없으면 도태된다. 그러나 인생이 숨 쉬는 것만이 아니듯, 기업의 존재 이유가 수익만은 아니다." - 피터 드러커</p>
+          <div class="slide-content">
+            <p>지난 50년간의 '주주 가치 극대화'라는 헛된 꿈에서 깨어나야 합니다. 주주 가치는 목표가 되어서는 안 됩니다. 세상에 공헌하는 장기적인 기업을 만드는 과정에서 따라오는 '결과'여야 합니다.</p>
+            <p class="mt-4">유니레버의 폴 폴먼은 CEO 취임 3주 만에 분기별 실적 보고를 폐지했습니다. 단기적 수익 추구라는 러닝머신에서 내려오기 위한 이례적인 조치였습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Principle 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 5: 시스템 변화를 위해 <span class="highlight">협력한다</span></h2>
+          <p class="slide-subtitle">어떤 기업도 거대한 시스템적 문제를 혼자 해결할 수 없습니다. 100% 해결을 위해서는 시스템 자체를 바꿔야 합니다.</p>
+          <div class="slide-content">
+            <p>플라스틱 쓰레기 문제는 한 기업의 노력만으로 해결되지 않습니다. 산업 전체에 걸친 광범위한 협력과 각국의 문화, 정부 정책의 변화가 필요합니다.</p>
+            <p class="mt-4">책임을 바라보는 넓은 관점은 오늘날 사업의 기본 전제조건입니다. 식품의 40%가 버려지고, 생산 과정에서 온실가스의 30%가 배출되는 문제를 해결하려면 네슬레, 켈로그, 테스코, 유니레버 등이 모두 참여해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Section Title 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: Case Study</p>
+          <h2 class="slide-title">목적을 전략으로: <span class="highlight">유니레버 USLP</span></h2>
+          <p class="slide-content">2010년, 유니레버는 '지속가능한 삶 계획(Unilever Sustainable Living Plan, USLP)'이라는 장기 경영 전략을 발표하며 목적을 기업의 핵심으로 삼았습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: USLP Goals -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🎯 USLP의 3가지 담대한 목표</h2>
+          <p class="slide-subtitle">USLP는 10년 안에 다음을 달성하겠다는 구체적인 목표를 세웠습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-gray-100 rounded-lg">
+              <div class="text-4xl mb-2">🧑‍🤝‍🧑</div>
+              <h3 class="font-bold text-lg">건강과 복지 개선</h3>
+              <p>10억 명 이상의 사람들이 건강과 복지를 개선하도록 돕는다.</p>
+            </div>
+            <div class="p-4 bg-gray-100 rounded-lg">
+              <div class="text-4xl mb-2">🌿</div>
+              <h3 class="font-bold text-lg">환경 영향 절반 감소</h3>
+              <p>환경에 미치는 영향을 절반으로 줄인다.</p>
+            </div>
+            <div class="p-4 bg-gray-100 rounded-lg">
+              <div class="text-4xl mb-2">💼</div>
+              <h3 class="font-bold text-lg">생계 수준 향상</h3>
+              <p>기업 성장을 통해 수백만 명의 생계 수준을 높인다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: USLP Success -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🏆 USLP의 성공</h2>
+          <p class="slide-subtitle">10년의 여정 끝에 USLP는 대부분의 목표를 달성하거나 초과 달성했습니다.</p>
+          <div class="slide-content">
+            <ul class="space-y-3 list-disc list-inside">
+                <li><span class="highlight">12억 유로 이상</span>의 비용 절감</li>
+                <li>13억 명의 보건 위생 개선 지원</li>
+                <li>생산 과정에서 <span class="highlight">100% 재생 가능 에너지</span> 사용</li>
+                <li>이산화탄소 발생량 65% 감소</li>
+                <li>여성 직원 비율 51%로 성 평등 실현</li>
+                <li>지속가능 원재료 사용 14% -> 67%로 확대</li>
+                <li>모든 공장에서 <span class="highlight">매립 쓰레기 제로</span> 달성</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: USLP Lessons -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📚 USLP의 교훈</h2>
+          <p class="slide-subtitle">성공의 과정에서 유니레버는 세 가지 중요한 교훈을 얻었습니다.</p>
+          <div class="slide-content space-y-4">
+            <div>
+              <h3 class="font-bold text-lg">1. 효과:</h3>
+              <p>"우리는 모든 정답을 갖고 있지 않다"고 말하며 협력관계를 구축했습니다. CSR이 아닌 전략의 일부로서, 성공은 기업의 성장과 직결되었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 필요했던 것:</h3>
+              <p>직원들과 이해관계자의 승인이 필수적이었습니다. 혼자서는 불가능하며, 협력관계와 일관성에서 비롯된 <span class="highlight">신뢰</span>가 반드시 필요했습니다.</p>
+            </div>
+             <div>
+              <h3 class="font-bold text-lg">3. 실수와 교훈:</h3>
+              <p>이해관계자와의 소통 장치를 과소평가했습니다. ESG와 가치 창출의 연관성을 입증하고 투자자들을 교육하는 데 더 많은 시간이 필요했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Section Title 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5: 핵심 쟁점</p>
+          <h2 class="slide-title">🐘 기업이 더는 눈감을 수 없는 <span class="highlight">9가지 핵심 쟁점</span></h2>
+          <p class="slide-content">기후변화라는 '코끼리' 외에도, 기업 리더들이 회피하고 있는 다른 문제들은 무엇일까요? 이 문제들은 시스템의 핵심 문제입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 24: 9 Issues (1-3) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 쟁점 1-3</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">1. 세금</h3>
+              <p>납세는 사회에 대한 투자입니다. 조세 회피는 넷 포지티브 기업이 될 수 없습니다. 투명하게 공개하고, 공정한 최소 세율 기준을 지지해야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">2. 부패</h3>
+              <p>부패는 사회를 지탱하는 돈을 빼돌립니다. 투명성이 최고의 도구입니다. 강력한 행동 수칙과 문화를 통해 부패에 맞서 싸워야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">3. 과도한 성과급</h3>
+              <p>CEO와 근로자 간의 임금 격차는 불평등과 불신을 심화시킵니다. 합리적인 수준의 보상 체계를 만들고, 회사 전반의 평균 임금을 높여야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: 9 Issues (4-6) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 쟁점 4-6</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">4. 주주 단기주의</h3>
+              <p>자사주 매입과 같은 단기적 주가 부양은 미래에 대한 투자를 희생시킵니다. 분기별 목표에서 벗어나 장기적인 관점으로 전환해야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">5. 역량 부족한 이사회</h3>
+              <p>이사회는 ESG, 기후변화 등 새로운 쟁점에 대한 지식과 역량이 부족합니다. 다양성을 확보하고, 이사들을 위한 필수 교육을 도입해야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">6. 노동 착취</h3>
+              <p>글로벌 공급망은 강제노동을 기반으로 존재합니다. 생활임금을 보장하고, 인권 실사를 수행하며, 협력업체와 깊은 관계를 구축해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: 9 Issues (7-9) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 쟁점 7-9</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">7. 동업자협회의 로비</h3>
+              <p>개별 기업의 강령과 업계 단체의 로비가 충돌하는 경우가 많습니다. 낡은 생각을 고수하는 단체와 관계를 끊고 변화를 주도해야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">8. 정치자금</h3>
+              <p>기업의 정치자금은 민주주의를 왜곡합니다. 정치적 기부를 중단하고, 모든 내역을 투명하게 공개하며, 돈의 영향력을 배제하는 개혁을 지지해야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">9. 다양성과 포용성 부족</h3>
+              <p>다양한 조직은 더 높은 수익을 냅니다. 다양성을 확보하고, 모든 사람이 잠재력을 발휘할 수 있는 포용적인 문화를 구축해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Section Title 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6: 문화 구축</p>
+          <h2 class="slide-title">🏛️ 넷 포지티브 <span class="highlight">기업 문화</span>를 구축하라</h2>
+          <p class="slide-content">"문화는 아침 식사로 전략을 먹는다"는 말이 있습니다. 그러나 넷 포지티브에서는 문화와 전략이 조화를 이룰 때 가장 강력해집니다. </p>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Culture Features -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">넷 포지티브 문화의 특징</h2>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">높은 직원 참여도</h3>
+              <p>직원들이 회사의 사명에 공감하고 주도적으로 참여합니다. 다양성과 포용성을 확보하여 상향식 문화 구축을 지원합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">직원 개개인의 목적</h3>
+              <p>조직의 잠재력은 직원 개개인의 목적을 알아내는 것에서 시작됩니다. 직원들이 개인의 목적과 회사의 목표를 연결하도록 돕습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">잘 짜여진 조직 인프라</h3>
+              <p>목적을 추구하는 문화가 사라지지 않도록 예산, R&D, M&A 등 핵심 영역에 넷 포지티브 사고를 녹여내야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">목적 지향적 브랜드</h3>
+              <p>제품에 의미를 녹여내는 문화가 정착되면, 목적은 살아있는 실체가 됩니다. 목적 지향적 브랜드는 더 빠르게 성장하고 더 높은 수익을 냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Section Title 7 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 7: 협력</p>
+          <h2 class="slide-title">🤝 함께하면 <span class="highlight">"1+1=11"</span>이 되는 마법</h2>
+          <p class="slide-content">넷 포지티브 기업은 다중이해관계자 모델을 기반으로 하기에, 생태계 안에서 동맹을 찾고 협력관계를 구축하는 것이 필수적입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 30: Two Types of Partnership -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 유형의 협력관계</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-purple-50 border border-purple-200 rounded-lg">
+              <h3 class="font-bold text-lg text-purple-800">1+1=11 (이해관계자 집단 차원)</h3>
+               <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>시스템:</b> 그 속에서 확장</li>
+                <li><b>협력관계:</b> 경쟁자와 더 많이 움직임</li>
+                <li><b>목표:</b> 산업 내 위험 해결</li>
+                <li><b>대상:</b> 특정 지역이나 공급망</li>
+                <li><b>실행:</b> 더 많은 '실천'</li>
+              </ul>
+              <p class="mt-2">경쟁사들이 공통의 기회와 위험을 해결하기 위해 협력하는 것을 의미합니다. (예: 재활용 포장재 공동 개발)</p>
+            </div>
+            <div class="p-6 bg-teal-50 border border-teal-200 rounded-lg">
+              <h3 class="font-bold text-lg text-teal-800">탱고를 추려면 세 사람이 필요하다 (시스템 차원)</h3>
+               <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>시스템:</b> 자체를 바꿈</li>
+                <li><b>협력관계:</b> 정책, 자금 등 더 많은 관계자 필요</li>
+                <li><b>목표:</b> 공동선을 구축</li>
+                <li><b>대상:</b> 전체 시스템</li>
+                <li><b>실행:</b> 더 많은 '참여 선언'</li>
+              </ul>
+              <p class="mt-2">민간, 정부, 시민사회라는 세 주체가 함께 사업 모델 변경을 통해 시스템 자체를 바꾸는 것을 의미합니다. (예: 순환경제 정책 지원)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Section Title 8 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 8: 시스템</p>
+          <h2 class="slide-title">💡 시스템을 바꾸면 나타나는 <span class="highlight">놀라운 편익</span></h2>
+          <p class="slide-content">우리가 해결해야 할 도전과제는 점점 더 복잡해지고 있습니다. 이제는 개별 기업이나 한 부문을 넘어 시스템 전체를 바꾸는 총체적인 행동이 필요합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 32: The Tango -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">💃 '탱고'를 추어라: 공공-민간-시민사회 협력</h2>
+          <p class="slide-subtitle">답은 공공 부문, 민간 부문, 시민사회라는 세 주체가 하나로 협력해서 '탱고'를 추는 것입니다.</p>
+          <div class="slide-content">
+            <p>기업은 더 이상 자기 잇속만 챙기는 로비를 넘어, 모든 사람에게 도움이 되는 정책을 마련하도록 <span class="highlight">'넷 포지티브 지지(Net Positive Advocacy)'</span>를 해야 합니다.</p>
+            <p class="mt-4">기업은 정부를 적대적 존재가 아닌, 더 나은 미래를 위한 협력자로 바라봐야 합니다. 그리고 자신의 정당성을 확보하기 위해 시민사회를 적극적으로 참여시켜야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: System Change Actions -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시스템 변화를 위한 행동들</h2>
+          <div class="slide-content">
+            <ul class="space-y-3 list-disc list-inside">
+              <li><b>적극적이고 총체적으로 지지하는가?:</b> 파리기후협약 사례처럼, 기업들은 중요한 사회적 의제에 대해 목소리를 높여야 합니다.</li>
+              <li><b>정책이 넷 포지티브 결과를 가져오도록 유도하는가?:</b> 기업은 자신에게 유리한 정책이 아닌, 사회 전체에 이익이 되는 정책(탄소세, 재생에너지 인센티브 등)을 제안하고 지지해야 합니다.</li>
+              <li><b>국가가 발전하도록 돕는가?:</b> 기업의 성공은 국가와 지역사회의 번영에 달려있습니다. 산업 생태계 구축, 공통 문제 해결 등에 적극적으로 투자해야 합니다.</li>
+              <li><b>사회적 과제를 떠맡았는가?:</b> 산림 파괴와 같은 복잡한 문제는 한 기업의 노력만으로 해결할 수 없습니다. 시스템 차원의 해결책을 위해 폭넓은 연대를 구축해야 합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Section Title 9 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 9: 결론</p>
+          <h2 class="slide-title">🐠 물고기는 물을 떠나서 <span class="highlight">살 수 없다</span></h2>
+          <p class="slide-content">기업은 사회라는 물을 떠나서는 존재할 수 없습니다. 사회와 지구의 건강이 곧 기업의 생존과 직결됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Redefining Growth & Success -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성공의 지표를 다시 생각하라</h2>
+          <p class="slide-subtitle">우리가 발전이나 성공을 바라보는 방식에는 심각한 결함이 있습니다. 이제 새로운 지표가 필요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">기존의 지표 (GDP, 주가)</h3>
+              <p>오로지 돈과 물건의 유통 속도만을 이야기합니다. 사회의 복지 수준, 교육의 질, 정신 건강, 자연 자본의 보호 등은 측정하지 못합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">새로운 지표</h3>
+              <p>진보지수(GPI), 인간개발지수(HDI), 국민총행복(GNH) 등 복지, 기쁨, 연결성, 의미와 같은 무형의 요소를 포함하는 더 광범위한 지표에 초점을 맞춰야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Call to Action -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지금이 바로 행동할 때입니다</h2>
+          <p class="slide-subtitle">모든 것이 가속화되고 있습니다. 기후변화, 불평등, 기술 발전... 그리고 넷 포지티브로의 전환도 마찬가지입니다.</p>
+          <div class="slide-content">
+            <p>넷 포지티브 세상을 만들기 위한 작업이 속도를 냄에 따라, 기차역을 빠져나가는 기차에 올라타지 않은 기업은 뒤처질 것입니다.</p>
+            <p class="mt-4">우리는 우리의 운명을 함께 선택해나가야 합니다. 더 많은 <span class="highlight">신뢰와 용기와 인간애</span>가 필요합니다. 넷 포지티브 세상으로 가야 하는 때는 바로 지금입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">기업은 더 이상 사회와 환경에 미치는 부정적 영향을 외면할 수 없습니다. 오히려 세상의 가장 큰 문제들을 해결함으로써 가장 큰 사업 기회를 찾고, 모든 이해관계자와 함께 번영하는 <span class="highlight">넷 포지티브 기업</span>이 되어야만 살아남고 성장할 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">이것은 선택이 아닌, 우리 모두의 생존을 위한 유일한 길입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

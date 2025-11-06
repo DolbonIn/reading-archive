@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>그레이트 마인드셋 | Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      min-height: 70vh;
+    }
+    .slide-part-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4A5568; /* gray-600 */
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #1A202C; /* gray-900 */
+      margin-bottom: 25px;
+      line-height: 1.2;
+    }
+    .slide-subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #2D3748; /* gray-700 */
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.2rem;
+      line-height: 1.9;
+      color: #4A5568; /* gray-600 */
+    }
+    .highlight {
+      background-color: #FFFBEB; /* yellow-50 */
+      color: #D97706; /* amber-600 */
+      padding: 0.1em 0.4em;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #2D3748; /* gray-800 */
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #1A202C; /* gray-900 */
+    }
+    .btn-secondary {
+      background-color: #EDF2F7; /* gray-200 */
+      color: #2D3748; /* gray-800 */
+    }
+    .btn-secondary:hover {
+      background-color: #E2E8F0; /* gray-300 */
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #E2E8F0; /* gray-300 */
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #E2E8F0; /* gray-300 */
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #2D3748; /* gray-800 */
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .special-block {
+        background-color: #f7fafc;
+        border-left: 5px solid #4299e1;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border-radius: 0 8px 8px 0;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center justify-center items-center">
+          <div class="text-8xl mb-8">🥚➡️🦅</div>
+          <h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-4">그레이트 마인드셋</h1>
+          <p class="text-xl md:text-2xl text-gray-700">당신의 위대한 순간은 아직 오지 않았다</p>
+          <p class="mt-8 text-lg text-gray-500">루이스 하우즈 지음</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 🧭</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>Part 1. 위대함의 발견:</b> 당신 안에 잠재된 위대함을 깨우는 첫걸음.</p>
+            <p><b>Part 2. 위대함의 적:</b> 의미 있는 사명을 가로막는 것은 무엇인가?</p>
+            <p><b>Part 3. 위대함의 장벽:</b> 우리를 멈추게 하는 4가지 두려움과 자기 의심.</p>
+            <p><b>Part 4. 그레이트 마인드셋:</b> 과거를 치유하고 새로운 정체성을 찾는 법.</p>
+            <p><b>Part 5. 위대함을 위한 게임 플랜:</b> 위대함을 실천하는 7가지 행동 계획.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 1 Slides -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white">
+          <p class="slide-part-title text-gray-400">Part 1</p>
+          <h2 class="slide-title text-6xl">위대함의 발견</h2>
+          <p class="slide-subtitle text-gray-300">"그럭저럭한 삶을 살고 싶은가? 위대한 삶을 살고 싶은가?"</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">모든 것의 시작 🛋️</h2>
+          <p class="slide-subtitle">저자의 이야기: 모든 것을 잃었던 순간</p>
+          <div class="slide-content">
+            <p>스물세 살, 프로 풋볼 선수의 꿈이 부상으로 좌절. 빈털터리로 누나 집 소파에서 잠을 자던 시절. 위대함과는 거리가 먼, 헛웃음조차 나오지 않는 현실.</p>
+            <p class="mt-6">그 암담한 나날 속에서도 한 가지 믿음은 꺾이지 않았습니다. <span class="highlight">"내 인생 이야기가 여기서 끝날 리 없다."</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">중요한 건 <span class="highlight">마인드셋</span></h2>
+          <p class="slide-subtitle">'그럭저럭 좋은 삶'에 만족하십니까?</p>
+          <div class="slide-content">
+            <p>많은 사람들이 남들이 보기에 좋은 직업, 괜찮은 수입, 사랑하는 가족이 있어도 내면의 공허함을 느낍니다. '이만하면 됐지'라고 생각하지만, 마음 한편에는 '뭔가 부족하다'는 생각이 듭니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg text-blue-700">진정한 질문 ❓</h3>
+              <p class="mt-2 text-gray-700">'그럭저럭 좋은 삶'이 정말 내가 원하는 삶인가? 그것이 정말로 미래의 내 이야기가 되기를 바라는가?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">위대함이란 무엇인가? 🌟</h2>
+          <p class="slide-subtitle">이 책에서 말하는 '위대함'의 정의</p>
+          <div class="slide-content text-center text-2xl font-semibold leading-relaxed p-8 bg-gray-50 rounded-lg">
+            <p>"자신의 <span class="highlight">고유한 재능과 선물</span>을 발견해 의미 있는 사명을 추구하고, 주변 사람들에게 최대한 <span class="highlight">긍정적인 영향</span>을 준다."</p>
+          </div>
+          <p class="slide-content mt-8">복잡하지 않습니다. 내가 누구인지 알고, 세상을 더 낫게 만들기 위해 나만이 할 수 있는 일을 알아내는 것입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">위대함을 선택하라 💪</h2>
+          <p class="slide-subtitle">네이비실 제이슨 레드먼의 이야기</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">시련의 순간</h3>
+              <p>2007년 이라크 파병 중, 적의 총격으로 얼굴과 팔에 치명상을 입고 쓰러졌습니다. 병실에 누워있을 때, 사람들이 자신을 동정하는 목소리를 듣게 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">의도적인 선택</h3>
+              <p>그는 포기하는 대신, 병실 문에 '긍정적인 마인드셋'을 요구하는 선언문을 붙입니다. 슬픔이나 동정 대신, 회복에 대한 강한 의지를 선택한 것입니다. 이것이 <span class="highlight">위대함을 향한 선택</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶의 세 가지 영역 🏆</h2>
+          <p class="slide-subtitle">위대함 코칭(Greatness Coaching) 자기 평가</p>
+          <div class="slide-content text-center space-y-6">
+            <p>위대함에 도달하려면 삶의 세 가지 핵심 영역에 집중해야 합니다. 이 세 명의 '선수'를 모두 성장시키는 것이 중요합니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div class="p-6 bg-blue-50 rounded-lg">
+                <div class="text-4xl">💼</div>
+                <h3 class="font-bold text-xl mt-2">일과 비즈니스</h3>
+              </div>
+              <div class="p-6 bg-green-50 rounded-lg">
+                <div class="text-4xl">❤️</div>
+                <h3 class="font-bold text-xl mt-2">관계</h3>
+              </div>
+              <div class="p-6 bg-yellow-50 rounded-lg">
+                <div class="text-4xl">🌿</div>
+                <h3 class="font-bold text-xl mt-2">건강</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 2 Slides -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white">
+          <p class="slide-part-title text-gray-400">Part 2</p>
+          <h2 class="slide-title text-6xl">위대함의 적</h2>
+          <p class="slide-subtitle text-gray-300">"앞으로 나아갈 길이 명확하지 않으면 절대로 앞으로 나아갈 수 없다."</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가장 큰 적: <span class="highlight">의미 있는 사명의 부재</span></h2>
+          <p class="slide-subtitle">드웨인 '더 락' 존슨의 이야기</p>
+          <div class="slide-content">
+            <p>풋볼 선수의 꿈이 좌절된 후, 주머니에 단 7달러를 쥐고 극심한 우울증에 시달렸습니다. 그는 자신의 '의미 있는 사명'이 무엇인지 명확하게 알지 못했을 때 좀처럼 앞으로 나아가지 못했습니다.</p>
+            <p class="mt-6">하지만 프로레슬러라는 새로운 사명을 마주한 후, 그는 위대함으로 나아가는 엄청난 추진력을 얻었습니다. <span class="highlight">명확한 사명</span>이 모든 것을 바꾸었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신의 '스위트 스폿' 찾기 🎯</h2>
+          <p class="slide-subtitle">열정, 강점, 그리고 문제의 교차점</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-4">
+              <div class="text-5xl mb-4">🔥</div>
+              <h3 class="font-bold text-xl mb-2">열정 (Passion)</h3>
+              <p>무엇이 당신의 가슴을 뛰게 하는가? 돈과 상관없이 하고 싶은 일은 무엇인가?</p>
+            </div>
+            <div class="p-4">
+              <div class="text-5xl mb-4">💪</div>
+              <h3 class="font-bold text-xl mb-2">강점 (Strength)</h3>
+              <p>당신이 남들보다 탁월하게 잘하는 것은 무엇인가? 당신의 고유한 재능은 무엇인가?</p>
+            </div>
+            <div class="p-4">
+              <div class="text-5xl mb-4">🌍</div>
+              <h3 class="font-bold text-xl mb-2">문제 (Problem)</h3>
+              <p>당신의 열정과 강점으로 해결하고 싶은 세상의 문제는 무엇인가?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연습: 완벽한 하루 일정 (PDI) ✍️</h2>
+          <p class="slide-subtitle">당신의 비전을 구체화하는 가장 강력한 연습</p>
+          <div class="slide-content">
+            <h3 class="font-bold text-lg mb-4">1단계: 완벽한 하루 그려보기</h3>
+            <p>꿈꿔왔던 이상형의 모습으로, 원하는 일을 하며, 원하는 사람들과 함께하는 하루를 반 페이지 분량으로 자유롭게 서술합니다.</p>
+            <h3 class="font-bold text-lg mt-8 mb-4">2단계: 상세 계획 세우기</h3>
+            <p>그 완벽한 하루를 시간대별로 상세하게 계획합니다. 아침 기상부터 잠자리에 들 때까지, 당신의 의무와 욕구를 구체적으로 나열합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연습: 나의 부고를 써라 ⚰️</h2>
+          <p class="slide-subtitle">당신의 삶이 남길 유산을 정의하는 시간</p>
+          <div class="slide-content">
+            <p>30분 동안 다음 질문에 대해 깊이 생각하고 답을 적어보세요. 이 내용은 오직 자신만 볼 것입니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li>얼마나 오래 살고 싶은가?</li>
+              <li>내가 죽기 전에 성취한 의미 있는 사명은 무엇인가?</li>
+              <li>사람들은 나의 가장 뛰어난 업적을 무엇이라고 할까?</li>
+              <li>사랑하는 사람들은 내 장례식에서 뭐라고 말할까?</li>
+            </ul>
+            <p class="mt-6">이 연습은 당신이 진정으로 원하는 것이 무엇인지 명확하게 알려줄 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3 Slides -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white">
+          <p class="slide-part-title text-gray-400">Part 3</p>
+          <h2 class="slide-title text-6xl">위대함의 장벽</h2>
+          <p class="slide-subtitle text-gray-300">"두려움을 느끼면서도 도전하고 주어진 삶을 최대한 활용하는 것, 그것이 위대함이다."</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">장벽 #1: 실패에 대한 두려움 📉</h2>
+          <p class="slide-subtitle">스팽스(SPANX) 창업자 사라 블레이클리의 교훈</p>
+          <div class="slide-content">
+            <p>그녀의 아버지는 매일 저녁 식사 때 "오늘 어떤 실패를 했니?"라고 물었습니다. 실패에 대한 이야기가 없으면 오히려 실망했습니다.</p>
+            <p class="mt-6">이 경험을 통해 그녀는 실패를 다르게 정의하는 법을 배웠습니다.</p>
+             <div class="special-block">
+              <h3 class="font-bold text-lg text-blue-700">실패의 새로운 정의 💡</h3>
+              <p class="mt-2 text-gray-700">"나에게 실패는 <span class="highlight">성과를 이루는 것이 아닌 노력하지 않는다는 뜻</span>이 되었어요. 실패는 도전하지 않는 것입니다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자기 의심 다이어그램 🕸️</h2>
+          <p class="slide-subtitle">세 가지 두려움이 어떻게 자기 의심을 만드는가</p>
+          <div class="flex justify-center items-center h-full">
+            <div class="relative w-80 h-80">
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-red-200 rounded-full flex items-center justify-center font-bold text-red-800">실패 두려움</div>
+              <div class="absolute bottom-0 left-0 w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center font-bold text-blue-800">성공 두려움</div>
+              <div class="absolute bottom-0 right-0 w-40 h-40 bg-yellow-200 rounded-full flex items-center justify-center font-bold text-yellow-800">타인의 시선</div>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gray-700 rounded-full flex items-center justify-center font-black text-white text-2xl">자기<br>의심</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">장벽 #2: 성공에 대한 두려움 📈</h2>
+          <p class="slide-subtitle">IT 코스메틱 창업자 제이미 컨 리마의 이야기</p>
+          <div class="slide-content">
+            <p>수많은 거절 끝에 사업은 12억 달러에 인수될 정도로 크게 성공했습니다. 하지만 그녀는 성공을 잃을지도 모른다는 두려움에 사로잡혔습니다.</p>
+            <p class="mt-6">성공 후에도 '가면 증후군'에 빠져 끊임없이 자신을 증명해야 한다는 압박감을 느꼈습니다. 이는 <span class="highlight">성공이 끝이 아니라는 두려움</span>에서 비롯됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">장벽 #3: 타인의 시선에 대한 두려움 👀</h2>
+          <p class="slide-subtitle">당신은 관중석에 앉아있습니까, 경기장에 있습니까?</p>
+          <div class="slide-content">
+            <p>우리는 다른 사람에게 어떻게 보일지, 그들이 나를 어떻게 생각할지 두려워합니다. 이 두려움 때문에 진정으로 원하는 선택을 하지 못합니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg text-blue-700">시어도어 루스벨트의 "경기장의 투사"</h3>
+              <p class="mt-2 text-gray-700">"중요한 것은 비판자가 아니다... 영광은 실제로 경기장에서 뛰며 먼지와 땀과 피로 얼룩진 사람에게 돌아간다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">궁극의 적: 자기 의심 👤</h2>
+          <p class="slide-subtitle">"세상에서 꿈을 가장 많이 죽이는 것은 바로 자기 의심이다."</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p>자기 의심은 우리가 충분하지 않다고, 자격이 없다고 속삭입니다. 이 내면의 목소리는 실패, 성공, 타인의 시선에 대한 두려움을 먹고 자라납니다.</p>
+               <p class="mt-4">이것을 이기는 유일한 방법은 <span class="highlight">내면의 코치</span>를 키우고, <span class="highlight">내면의 비판자</span>를 잠재우는 것입니다.</p>
+            </div>
+            <div class="text-center">
+              <div class="text-7xl">🤔</div>
+              <p class="mt-2 font-bold text-2xl text-red-500">Dream Killer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 4 Slides -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white">
+          <p class="slide-part-title text-gray-400">Part 4</p>
+          <h2 class="slide-title text-6xl">그레이트 마인드셋</h2>
+          <p class="slide-subtitle text-gray-300">"생각이 현실을 만든다. 특히 머릿속의 이야기가 그렇다."</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과거를 치유하라 ❤️‍🩹</h2>
+          <p class="slide-subtitle">내면의 아이와 마주하기</p>
+          <div class="slide-content">
+            <p>치유되지 않은 과거의 트라우마는 현재의 우리를 지배합니다. 우리는 상처받은 어린아이의 눈으로 세상을 보고, 건강하지 못한 방식으로 반응합니다.</p>
+            <p class="mt-6">치유의 여정은 내면의 아이를 만나 그 아이가 필요로 했던 것을 지금의 내가 주는 것에서 시작됩니다. "너는 사랑받고 있고, 그대로 충분한 존재야"라고 말해주는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정체성을 찾아라 🧭</h2>
+          <p class="slide-subtitle">당신은 누구입니까? 당신 이야기의 주인공은 당신입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">타인이 정의한 나</h3>
+              <p>우리는 종종 다른 사람의 기대나 사회적 압력에 맞춰 자신의 정체성을 만듭니다. 이는 결국 공허함으로 이어집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">내가 정의하는 나</h3>
+              <p>진정한 정체성은 <span class="highlight">내가 누구인지 스스로 답하는 과정</span>에서 만들어집니다. 과거를 치유하고, 의미 있는 사명을 향해 나아갈 때 진정한 나를 발견할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">움직이는 마인드셋 사이클 🔄</h2>
+          <p class="slide-subtitle">생각, 감정, 행동의 선순환</p>
+          <div class="flex justify-center items-center h-full">
+            <div class="text-center">
+              <div class="p-6 bg-blue-100 rounded-full font-bold text-xl">생각 🧠</div>
+              <div class="text-4xl my-4">↓ ↗</div>
+              <div class="flex justify-between items-center w-80">
+                <div class="p-6 bg-red-100 rounded-full font-bold text-xl">감정 ❤️</div>
+                <div class="text-4xl">↔️</div>
+                <div class="p-6 bg-green-100 rounded-full font-bold text-xl">행동 🏃</div>
+              </div>
+              <div class="text-4xl my-4">↖</div>
+            </div>
+          </div>
+          <p class="slide-content text-center mt-8">긍정적인 생각은 긍정적인 감정을 낳고, 긍정적인 행동으로 이어집니다. 이 선순환이 <span class="highlight">그레이트 마인드셋</span>입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 사이클: 결핍 vs 풍요</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 border-4 border-red-300 rounded-lg">
+              <h3 class="font-bold text-xl text-red-600 mb-2">💥 결핍의 사이클</h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li><b>생각:</b> '나는 부족해', '실패할 거야'</li>
+                <li><b>감정:</b> 불안, 두려움, 패배감</li>
+                <li><b>행동:</b> 포기, 회피, 자기 파괴</li>
+              </ul>
+            </div>
+            <div class="p-6 border-4 border-green-300 rounded-lg">
+              <h3 class="font-bold text-xl text-green-600 mb-2">✨ 풍요의 사이클</h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li><b>생각:</b> '나는 충분해', '성장할 수 있어'</li>
+                <li><b>감정:</b> 자신감, 안정감, 기대감</li>
+                <li><b>행동:</b> 도전, 실행, 창조</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 5 Slides -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-800 text-white">
+          <p class="slide-part-title text-gray-400">Part 5</p>
+          <h2 class="slide-title text-6xl">위대함을 위한 게임 플랜</h2>
+          <p class="slide-subtitle text-gray-300">"일을 끝내는 것은 단 한 사람, 바로 당신이기 때문이다."</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">게임 플랜 7단계 🚀</h2>
+          <p class="slide-subtitle">위대함을 현실로 만드는 구체적인 행동 계획</p>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 용기 있는 질문을 하라:</b> '어떻게'가 아닌 '무엇을, 왜'에 집중하라.</p>
+            <p><b>2. 자신에게 허락하라:</b> 원하는 사람이 되고, 거절하고, 감정을 표현할 자유를 허락하라.</p>
+            <p><b>3. 도전을 받아들여라:</b> 불편함 속에서 재미를 찾고, 도전을 성장의 기회로 삼아라.</p>
+            <p><b>4. 위대함의 목표를 정하라:</b> 명확하고 구체적인 목표가 집중력과 추진력을 만든다.</p>
+            <p><b>5. 지원군을 모아라:</b> 책임 파트너, 코치, 공동체의 힘을 활용하라.</p>
+            <p><b>6. 일을 끝내라:</b> 완벽함보다 실행이 낫다. 1퍼센트 법칙으로 꾸준히 나아가라.</p>
+            <p><b>7. 축하하라, 나는 충분하다!:</b> 작은 성공을 축하하며 여정을 즐겨라.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1. 용기 있는 질문을 하라 ❓</h2>
+          <p class="slide-subtitle">가능성을 여는 5가지 질문</p>
+          <div class="slide-content">
+            <ol class="list-decimal list-inside space-y-2">
+              <li><b>순수성 질문:</b> "100% 진정한 내가 된다면 무엇을 다르게 할 것인가?"</li>
+              <li><b>우선순위 질문:</b> "30일 안에 목표를 두 배로 늘려야 한다면 가장 먼저 무엇을 하겠는가?"</li>
+              <li><b>가능성 질문:</b> "만약 내가 __을 할 수 있다면 무엇이 가능할까?"</li>
+              <li><b>열정 질문:</b> "만약 내가 __을 할 수 있다면 어떤 느낌일까?"</li>
+              <li><b>번영 질문:</b> "만약 오늘 복권에 당첨된다면 무엇을 할 것인가?"</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2. 자신에게 허락하라 ✅</h2>
+          <p class="slide-subtitle">당신의 삶의 대장은 당신입니다</p>
+          <div class="slide-content">
+            <p>우리는 다른 사람의 허락을 구하는 데 너무 많은 시간을 씁니다. 하지만 위대함을 향한 여정에서 가장 중요한 허락은 스스로에게 내리는 것입니다.</p>
+            <ul class="list-disc list-inside mt-6 space-y-3">
+              <li><span class="highlight">원하는 사람이 되는 것</span>을 허락하세요.</li>
+              <li>당신의 사명에 맞지 않는 것들을 <span class="highlight">거절하는 것</span>을 허락하세요.</li>
+              <li>두려움, 슬픔, 기쁨 등 모든 <span class="highlight">감정을 표현하는 것</span>을 허락하세요.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 도전을 받아들여라 🧗</h2>
+          <p class="slide-subtitle">불편함 속에서 재미를 찾아라</p>
+          <div class="slide-content">
+            <p>새로운 도전을 할 때 불편함은 당연합니다. 그 불편함을 피하는 대신, 그것을 게임처럼 즐겨보세요.</p>
+            <p class="mt-4">저자는 발표 공포증을 극복하기 위해 일부러 전문 연사 모임에 나갔고, 살사 춤을 배우며 거절의 두려움과 맞섰습니다.</p>
+            <p class="mt-6 font-bold">"불편함에서 재미를 찾는다면, 두려움을 절반쯤 극복한 것이나 마찬가지이다."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">4. 위대함의 목표를 정하라 🎯</h2>
+          <p class="slide-subtitle">목표가 없으면 방황할 뿐입니다</p>
+          <div class="slide-content">
+            <p>명확한 목표는 우리가 가야 할 곳을 알려주는 <span class="highlight">내비게이션</span>과 같습니다. 목표는 집중력과 결단력을 제공합니다.</p>
+            <p class="mt-4">자신의 GPS(Greatness Performance System)를 만들어보세요.</p>
+            <ul class="list-disc list-inside mt-4">
+              <li><b>일, 관계, 건강</b> 세 영역에서 가장 중요한 목표 하나씩을 정합니다. (총 3개)</li>
+              <li>각 목표에 대해 '무엇을', '왜', '다음 단계는'을 자문합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">5. 지원군을 모아라 🤝</h2>
+          <p class="slide-subtitle">혼자서는 위대해질 수 없습니다</p>
+          <div class="slide-content">
+            <p>책임감은 세 가지 측면에서 필요합니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 text-center">
+              <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">나 자신에 대한 책임</h3>
+                <p class="text-sm mt-2">스스로 한 약속을 지키는 것.</p>
+              </div>
+              <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">다른 사람에 대한 책임</h3>
+                <p class="text-sm mt-2">목표 친구, 코치, 멘토의 지원.</p>
+              </div>
+              <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">공동체에 대한 책임</h3>
+                <p class="text-sm mt-2">그룹의 일원으로서 동기 부여.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">6. 일을 끝내라 🏁</h2>
+          <p class="slide-subtitle">"실행하는 것이 완벽한 것보다 낫다."</p>
+          <div class="slide-content">
+            <p>완벽주의는 위대함의 적입니다. 시작을 가로막는 변명일 뿐입니다. 완벽한 순간은 오지 않습니다. 지금 바로 행동하세요.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg text-blue-700">1퍼센트 법칙 💡</h3>
+              <p class="mt-2 text-gray-700">완벽을 추구하는 대신, 매일 <span class="highlight">1퍼센트씩 더 나아지는 것</span>에 집중하세요. 작은 개선이 쌓여 엄청난 변화를 만듭니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">7. 축하하라! 나는 충분하다! 🎉</h2>
+          <p class="slide-subtitle">성공은 결과가 아니라 과정입니다</p>
+          <div class="slide-content">
+            <p>우리는 성취에만 집중하느라 그 과정에서 이룬 작은 성공과 노력을 축하하는 것을 잊곤 합니다. 하지만 행복은 과정 속에 있습니다.</p>
+            <p class="mt-6">매일 밤 스스로에게 물어보세요:</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li>오늘 감사할 일은 무엇인가?</li>
+                <li>오늘 축하할 일은 무엇인가?</li>
+                <li>내일 또다시 감사하고 축하하고 싶은 행동은 무엇인가?</li>
+            </ul>
+            <p class="mt-6 font-bold">당신은 이미 충분하며, 그 이상이 되어가고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🚀</div>
+          <h2 class="slide-title">당신의 위대한 여정</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">그레이트 마인드셋은 목적지가 아니라 <span class="highlight">여정</span>입니다. 의미 있는 사명을 발견하고, 두려움의 장벽을 넘어서며, 과거를 치유하고, 매일의 행동으로 위대함을 실천하는 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신의 위대함이 기다리고 있습니다. 이제 시작입니다!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

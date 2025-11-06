@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스몰 트라우마 발표</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      position: absolute;
+      width: 100%;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      position: relative;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    /* Additional Styles for special blocks */
+    .quote-block {
+        background-color: #f8f9fa;
+        border-left: 4px solid #FFDD00;
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+        font-style: italic;
+        color: #555;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full relative">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">스몰 트라우마</h1>
+          <p class="text-xl md:text-2xl text-gray-700">삶의 면역을 기르는 자기 돌봄의 심리학</p>
+          <p class="mt-4 text-lg text-gray-600">"사소한 상처는 <span class="highlight">결코 사소하지 않다</span>"</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📋</h2>
+          <div class="slide-content text-lg space-y-3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+            <p><b>1. 들어가며:</b> 모든 게 잘못된 것처럼 느껴질 때</p>
+            <p><b>2. 1장:</b> 스몰 트라우마란 무엇인가?</p>
+            <p><b>3. 2장:</b> 행복해야 한다는 강박</p>
+            <p><b>4. 3장:</b> 무감각 상태가 편안한 사람들</p>
+            <p><b>5. 4장:</b> 스트레스와 불안은 어떻게 다른가</p>
+            <p><b>6. 5장:</b> 완벽주의의 역설</p>
+            <p><b>7. 6장:</b> 가면증후군과 미세공격</p>
+            <p><b>8. 7장:</b> 배가 터질 때까지 먹는 까닭</p>
+            <p><b>9. 8장:</b> 전쟁 같은 사랑</p>
+            <p><b>10. 9장:</b> 왜 이토록 잠들기 어려운가</p>
+            <p><b>11. 10장:</b> 인생의 다음 단계로 넘어가는 방법</p>
+            <p><b>12. 11장:</b> 삶을 위한 처방전</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: 감수의 글 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">감수의 글</p>
+          <h2 class="slide-title">스몰 트라우마의 <span class="highlight">독소가 넘쳐나는</span> 사회</h2>
+          <p class="slide-content">"작은 상처가 큰 병을 초래할 수 있다"는 이 책의 주장은 분명한 진실입니다. 이 책은 여러분의 삶을 조용히 무너뜨릴지 모르는 독소에 대한 해독제를 처방하고 함께 치유해나가기를 제안합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 4: 감수의 글 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스몰 트라우마의 <span class="highlight">정의</span></h2>
+          <p class="slide-subtitle">스몰 트라우마는 중요하지 않은 트라우마라는 뜻이 아닙니다. 오히려 우리 삶을 무너뜨리는 작은 상처가 '반복'되는 것을 말합니다.</p>
+          <div class="slide-content">
+            <p>작은 구멍 하나가 둑 전체를 무너뜨리듯이, 가랑비에 자신도 모르게 온몸이 젖듯이, 작지만 강한 독소를 지닌 상처가 누적되면 결국 우리는 무너지게 됩니다. 이 반복이 중단되지 않으면, 우리 삶은 송두리째 무너질 수 있습니다.</p>
+            <p class="mt-4 font-bold">애써 괜찮다고, 대단치 않다고 자신을 속이며 상처를 숨기고 있나요?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: 들어가며 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">들어가며</p>
+          <h2 class="slide-title">뭐가 문제인지 모르겠지만 <span class="highlight">모든 게 잘못된 것처럼</span> 느껴질 때</h2>
+          <p class="slide-content">별로 중요한 일도, 큰일도 아닙니다. 이유가 뭔지 딱히 짚지도 못하겠습니다. 그런데 왠지... 이상하게도... 기분이 '바닥'입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: 들어가며 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복하지 않은 <span class="highlight">나</span></h2>
+          <p class="slide-subtitle">가족, 직업, 친구들, 모든 것이 괜찮아 보입니다. 매슬로의 5단계 욕구단계설에 비춰 봐도 잘 살고 있는 편입니다. 그런데도 행복하지 않습니다.</p>
+          <div class="slide-content">
+            <p>마음속 깊은 곳에는 우울이 쌓여가고 사소하고 까칠한 불안이 넘실댑니다. 인스타그램 속 남들의 완벽한 삶을 탐닉하는 사이 조금씩, 그리고 자기도 모르게 <span class="highlight">공허</span>가 자리를 넓혀나갑니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: 들어가며 Two Column -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">빅 트라우마 vs. <span class="highlight">스몰 트라우마</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">빅 트라우마 💥</h3>
+              <p>성적/신체적 학대, 전쟁, 양육자의 죽음 등 심각한 심리적 외상. 불안이나 우울증처럼 명확히 진단 가능한 문제를 불러옵니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">스몰 트라우마 💧</h3>
+              <p>부모와 자녀 간의 정서적 조율 실패, 교우 관계 문제, 따돌림, 잦은 이직/전학으로 인한 불안정 등 더 미묘한 경험들. 감지하기도, 드러내기도 어렵지만 내면에 쌓여 행복에 영향을 미칩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Chapter 1 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">스몰 트라우마란 <span class="highlight">무엇인가?</span></h2>
+          <p class="slide-content">작은 정신적 상처들이 우리에게 어떤 영향을 끼치는지, 그리고 AAA 접근법을 통해 어떻게 정신적으로 굳건한 면역체계를 구축할 수 있는지 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Chapter 1 - 삶을 뒤흔드는 사건이 아니더라도 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶을 뒤흔드는 사건이 <span class="highlight">아니더라도</span></h2>
+          <p class="slide-subtitle">심리학은 최근까지 부정적인 사건에 주로 초점을 맞춰왔습니다. 하지만 일상적이고 흔한 사건들마저도 우리의 기능이나 정서에 문제를 일으킬 수 있습니다.</p>
+          <div class="slide-content">
+            <p>다행히 빅 트라우마를 경험하는 사람은 드뭅니다. 하지만 우리 모두는 사랑하는 사람을 잃거나, 이혼을 하거나, 심지어 결혼이나 출산 같은 즐거운 일에서도 극도의 스트레스를 받을 수 있습니다. 이것이 전부가 아닙니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 1 - 스몰 트라우마를 이해하기 위한 여정 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이해를 위한 <span class="highlight">여정</span> 🧭</h2>
+          <p class="slide-subtitle">저자(멕 애롤)는 '스몰 트라우마'라는 개념을 프랜신 샤피로 박사의 연구에서 처음 접했습니다.</p>
+          <div class="slide-content">
+            <p>샤피로 박사는 트라우마의 개념을 정서적 방치, 무관심, 사회적 망신 등 대부분의 사람이 겪는 경험까지 확대했습니다. 이는 빅 트라우마 기준은 충족하지 못하지만, 장기적으로 정서적, 신체적 어려움을 초래할 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">유레카의 순간! 💡</h3>
+              <p class="mt-2">과민성 대장증후군(IBS) 환자 연구에서, 증상을 유발하는 것은 빅 트라우마가 아닌 오히려 <span class="highlight">사소한 트라우마</span>였다는 사실을 발견했습니다. 스몰 트라우마는 실제로 중요했습니다!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Chapter 1 - 인생은 보트 비유 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생이라는 <span class="highlight">보트</span> ⛵</h2>
+          <p class="slide-subtitle">우리의 인생을 보트라고 비유해봅시다. 수년간 항해하며 보트는 암초에 부딪히고 폭풍에 마모됩니다.</p>
+          <div class="slide-content">
+            <p>이런 작은 손상은 큰 문제가 아닐 수 있습니다. 하지만 항해란 손이 많이 가는 일이고, 풍랑에 흔들리다 보면 때로는 물이 새는 것을 눈치채지 못합니다. 문제를 알아차릴 즈음이면 이미 곤경에 처해 있습니다.</p>
+            <p class="mt-4 font-bold">간단히 말해, 이것이 바로 스몰 트라우마입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Chapter 1 - 어린 시절의 스몰 트라우마 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어린 시절의 <span class="highlight">스몰 트라우마</span></h2>
+          <p class="slide-subtitle">유년기는 신경망이 형성되는 시기이므로, 이때의 경험은 특히 큰 영향을 미칠 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">부모의 굴레 (애착 유형)</h3>
+              <p>주 양육자와 형성하는 유대감은 '애착 유형'으로 이어집니다. 안정 애착 외의 유형(회피, 양가, 혼란형)은 성인이 된 후 인간관계에 영향을 주며, 불쾌한 감정을 느끼는 상황으로 이어질 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">학창 시절의 상처</h3>
+              <p>학교는 세상의 축소판입니다. 우리는 특정 범주로 구분되고 분류됩니다. 괴롭힘 같은 심각한 폭력 외에도, 덜 노골적인 무시나 이질감, 시험 스트레스 등 미묘한 상호작용이 스몰 트라우마가 될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Chapter 1 - 스몰 트라우마는 누적된다 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스몰 트라우마는 <span class="highlight">누적된다</span> 📈</h2>
+          <p class="slide-subtitle">이것이 빅 트라우마와 스몰 트라우마의 가장 큰 차이점입니다.</p>
+          <div class="slide-content">
+            <p>빅 트라우마는 뚜렷이 구분되고 쉽게 식별되는 사건입니다. 하지만 스몰 트라우마는 그보다 훨씬 작은 사건들의 조합이고, 특정한 맥락 속에 흩어져 있으며, 시간이 지남에 따라 더해져 쌓입니다.</p>
+            <div class="quote-block">
+                <p>음식은 그의 가족에게 큰 의미를 지녔고 애정과 편안함을 연상시켰습니다. 모는 몸무게가 불어날수록 웃기는 꼬마라는 페르소나를 발전시켰고, 그것은 그의 초능력과도 같았습니다. 가족 전체를 상처 주는 말과 행동으로부터 보호해주었기 때문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 1 - 심리적 면역체계 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심리적 <span class="highlight">면역체계</span> 🛡️</h2>
+          <p class="slide-subtitle">신체 면역체계처럼, 심리적 면역체계도 위협에 맞서 싸우는 경험을 통해 강해집니다.</p>
+          <div class="slide-content">
+            <p>어렸을 적 "안 돼!"라는 말을 들었을 때처럼, 안정적인 환경에서의 작은 심리적 시련은 '감정 항체'를 발달시킵니다. 이 경험을 통해 안정적인 심리적 경계를 형성하고, 공격받는다는 느낌 없이 세상을 살아갈 수 있게 됩니다.</p>
+            <p class="mt-4 font-bold">이것이 바로 해로운 스몰 트라우마와, 우리를 돕는 스몰 트라우마의 차이입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Chapter 1 - 수용 vs. 체념 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수용 vs. <span class="highlight">체념</span></h2>
+          <p class="slide-subtitle">AAA 접근법의 두 번째 단계인 '수용'은 수동적인 희생자의 마음가짐이나 포기가 아닙니다.</p>
+          <div class="slide-content">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="p-4 border">체념</th>
+                        <th class="p-4 border">수용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-4 border">심리적 경직</td><td class="p-4 border">심리적 유연</td></tr>
+                    <tr class="bg-gray-50"><td class="p-4 border">무력감, 억압감</td><td class="p-4 border">자율적으로 행동할 수 있는 자신감</td></tr>
+                    <tr><td class="p-4 border">자기비판, 자책</td><td class="p-4 border">깊은 자기연민</td></tr>
+                    <tr class="bg-gray-50"><td class="p-4 border">포기/단념</td><td class="p-4 border">긍정적으로 행동하기 위한 심리적 재조정</td></tr>
+                    <tr><td class="p-4 border">어려움 견디기</td><td class="p-4 border">어려움에서 배우기</td></tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Chapter 2 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">행복해야 한다는 <span class="highlight">강박</span></h2>
+          <p class="slide-content">언제나 끊임없이 행복하길 바라는 것은 헛된 일입니다. 쾌락의 쳇바퀴에 의존하지 않고도 깊은 안녕감을 키우는 방법을 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 2 - AAA 1단계: 인식 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">AAA 1단계: 인식 - <span class="highlight">행복이란?</span> 🤔</h2>
+          <p class="slide-subtitle">"진짜로 행복하다면 그걸 모를 수가 없잖아요." 애나의 이 질문에서 우리는 행복의 개념을 탐구하기 시작했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">쾌락주의 (Hedonism)</h3>
+              <p>순간의 즐거움과 같은 긍정적 감정에 기반합니다. 가능한 한 많은 시간을 행복하고 기쁘고 근심 없이 보내는 것을 목표로 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">행복주의 (Eudamonism)</h3>
+              <p>의미와 목적의식을 추구하는 데 더 중점을 둡니다. 야망을 성취하고 잠재력을 최대로 개발하는 자아실현에 초점을 맞춥니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Chapter 2 - 해로운 긍정성 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왜 나는 행복할 수 없지? — <span class="highlight">해로운 긍정성</span></h2>
+          <p class="slide-subtitle">애나는 건강 문제로 오랫동안 고생했고, 부모님은 늘 괜찮다고 다독이며 딸이 행복하기만을 바랐습니다.</p>
+          <div class="slide-content">
+             <p>애나는 '행복하고 명랑한 소녀'가 되어야 한다는 압박감에 시달렸습니다. 자신이 행복하지 않다는 사실 자체가 부모님을 실망시키는 것이라고 느꼈습니다. 이는 그의 '영원히 행복할 수 없는' 스몰 트라우마 주제의 일부로 작용했습니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg text-red-800">🚨 집중 탐구: 해로운 긍정성</h3>
+              <p class="mt-2 text-red-700">상황이 어찌됐든 긍정적이고 낙관적인 사고방식을 가져야 한다는 믿음입니다. 이는 힘들고 괴로운 경험을 공유하는 데 부끄러움을 느끼게 하여 정신 건강에 해로울 수 있습니다. 슬픔과 고통을 떨쳐내는 것만이 해답은 아닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Chapter 2 - 쾌락 적응 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나비 잡기: <span class="highlight">쾌락 적응</span> 🦋</h2>
+          <p class="slide-subtitle">항상 행복해지려고 노력하는 것은 그 자체로 스몰 트라우마가 될 수 있습니다. 행복은 환상이 아니라 진짜 경험이지만, 그 작동 방식을 아는 것이 중요합니다.</p>
+          <div class="slide-content">
+            <p><b>쾌락의 쳇바퀴(Hedonic Treadmill):</b> 우리는 높은 강도의 쾌락을 짧게 느낀 뒤, 다시금 기본적인 행복 수준으로 돌아가게 되어 있습니다. 게다가 쾌락의 근원이 반복되면 점점 익숙해져 행복의 강도가 옅어집니다.</p>
+            <p class="mt-4">복권 당첨자도 1년 뒤에는 이전과 행복 수준이 비슷하거나 오히려 불행해지기도 합니다. 우리는 삶의 변화가 주는 느낌을 과대평가하는 경향이 있습니다. <span class="highlight">'항상 행복할 수는 없다'</span>는 사실을 받아들이는 것이 자유의 시작입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Chapter 3 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title"><span class="highlight">무감각 상태</span>가 편안한 사람들</h2>
+          <p class="slide-content">"우울증은 아니에요." 정신적 쇠약이라 불리는 감정적 무감각 상태를 살펴보고, 우리의 감정생태계에 다시 영양분을 공급하는 방법을 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Chapter 3 - 우울증이란? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그건 우울증이 <span class="highlight">아닐까?</span></h2>
+          <p class="slide-subtitle">노아는 자신이 '무감각하다'고 표현했습니다. 우울증 진단 기준을 충족하지는 않았지만, 스몰 트라우마의 무감각 주제와 관련해 어려움을 겪고 있었습니다.</p>
+          <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg text-blue-800">🔎 고기능 우울증 체크리스트</h3>
+              <ul class="list-disc list-inside mt-2 text-blue-700 space-y-1">
+                <li>대부분의 시간 동안 슬프거나 공허한가?</li>
+                <li>예전에 즐겁던 활동에 흥미를 잃었는가?</li>
+                <li>평소보다 피곤하고 기운이 없는가?</li>
+                <li>집중하기 어렵고, 실패자 같다는 느낌이 드는가?</li>
+                <li>일상 활동을 수행하는 데 엄청난 노력이 필요한가?</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Chapter 3 - 정신적 웰빙 척도 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정신적 웰빙 <span class="highlight">스펙트럼</span></h2>
+          <p class="slide-subtitle">정신 건강과 정신 질환 사이에는 여러 단계가 존재합니다. 우리는 어디에 있을까요?</p>
+          <div class="slide-content text-center">
+            <p class="text-lg">정신질환 ↔ 정신적 쇠약 ↔ 타성 ↔ 번영 ↔ 정신 건강</p>
+            <div class="w-full bg-gray-200 rounded-full h-4 mt-4">
+              <div class="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 h-4 rounded-full" style="width: 100%"></div>
+            </div>
+            <p class="mt-4">노아는 자신이 '쇠약'과 '타성' 사이에 있다고 말했습니다. 이는 스몰 트라우마 구성을 분석하기 위한 중요한 시작점이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Chapter 3 - 왜 감정 표현이 어려울까? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왜 <span class="highlight">감정 표현</span>이 어려울까?</h2>
+          <p class="slide-subtitle">"남자답게 굴어", "호들갑 떨지 마" 같은 말들은 '부정적인' 감정을 느끼고 표현하는 것을 수치심과 연결시켜 스몰 트라우마를 형성합니다.</p>
+          <div class="slide-content">
+             <p>본질적으로 '좋거나 나쁜' 감정은 없습니다. 모든 감정은 유용한 정보입니다. 우리는 감정을 숨기지 않고 건전하게 처리하는 법을 배워야 합니다. 번영하는 삶과 실망스러운 삶의 차이는 감정을 배제하는 것이 아니라 <span class="highlight">관리하고 조절</span>하는 데서 나타납니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Chapter 3 - 감정생태계 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정생태계: <span class="highlight">다양성이 중요</span>하다 🌿</h2>
+          <p class="slide-subtitle">장내 미생물계처럼, 우리의 감정 소우주도 다양하고 폭넓은 감정을 경험하며 영양분을 공급받아야 합니다.</p>
+          <div class="slide-content">
+            <p>다양한 발효 음식이 장내 미생물 유기체의 번성을 돕듯, 다양한 감정을 경험하는 것은 '좋은' 감정과 '나쁜' 감정이 서로 조화를 이루며 살게 합니다. '나쁜' 감정 같은 것은 없습니다. 오히려 우리 몸이 배 속에 사는 수조에 달하는 유기체를 필요로 하듯, 우리에게는 다양한 감정이 필요합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Chapter 4 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">스트레스와 불안은 <span class="highlight">어떻게 다른가?</span></h2>
+          <p class="slide-content">스트레스와 불안의 미묘한 차이를 이해하는 것은 스몰 트라우마를 극복하는 데 중요합니다. 접근법이 서로 다르기 때문입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Chapter 4 - Stress vs Anxiety -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스트레스 vs. <span class="highlight">불안</span></h2>
+          <p class="slide-subtitle">둘의 근본적인 차이는 시간적 위치에 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">스트레스 (현재)  Gegenwart</h3>
+              <p>순간적인 위협과 관련이 있습니다. '스트레스 요인'에 의해 촉발됩니다. (예: 꽉 막힌 강의실에 대한 찰리의 즉각적인 반응)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">불안 (과거/미래) Vergangenheit/Zukunft</h3>
+              <p>일반적으로 과거나 미래 사건에서 기인하는 인식과 관련이 있습니다. (예: 강의실 경험이 미래에 미칠 영향에 대한 찰리의 걱정)</p>
+            </div>
+          </div>
+          <div class="quote-block">
+            <p>질문: '과거, 현재, 미래 중에서 내가 가장 많은 시간을 보내는 곳은 어디인가?'</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Chapter 4 - 조건화된 스트레스 반응 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">조건화된 <span class="highlight">스트레스 반응</span></h2>
+          <p class="slide-subtitle">파블로프의 개처럼, 우리도 특정 환경 단서와 스트레스 반응을 연합하여 학습합니다.</p>
+          <div class="slide-content">
+             <p>찰리는 어린 시절 학교 연극 무대에서 얼어붙었던 경험이 있었습니다. 이 스몰 트라우마는 '사람들 앞에 서는 것'이라는 환경과 스트레스 반응을 연결했습니다. 대학의 강의실은 좌석 배치, 크기 등이 당시 연극 무대와 비슷하여 자동적으로 스트레스 반응을 촉발시킨 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 4 - AAA 3단계: 행동 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행동: 스트레스 반응 <span class="highlight">멈추기</span> 🛑</h2>
+          <p class="slide-subtitle">스트레스 반응의 촉발 요인과 현재 위협에 대처하는 방법입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+                <li><b>감각 이용하기:</b> 얼음주머니(촉각), 시끄러운 음악(청각), 강한 냄새(후각), 레몬 조각(미각) 등을 이용해 주의를 신체 감각으로 돌립니다.</li>
+                <li><b>시야 넓히기:</b> 스트레스를 받으면 시야가 터널처럼 좁아집니다. 의식적으로 시야 주변에 무엇이 있는지 살펴봄으로써 부교감신경계를 활성화시킬 수 있습니다.</li>
+                <li><b>크게 하품하기:</b> 하품은 스트레스로 뜨거워진 뇌를 식히는 생리적 에어컨 역할을 합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Chapter 5 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">완벽주의의 <span class="highlight">역설</span></h2>
+          <p class="slide-content">습관적 미루기는 종종 실패에 대한 두려움과 완벽주의 때문에 발생합니다. 실수와 과오를 웃어넘기고 새로운 것을 배우는 기회로 삼는 법을 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Chapter 5 - 완벽주의의 종류 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 종류의 <span class="highlight">완벽주의</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">적응적 완벽주의 👍</h3>
+              <p>삶에 유용하고 목적에 부합합니다. 높은 기준을 설정하고 성취를 통해 만족감을 얻으며, 인생 전반에 도움이 된다고 믿습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">부적응적 완벽주의 👎</h3>
+              <p>무언가를 잘못할까 봐 두려워 심리적 긴장과 습관적 미루기로 이어집니다. 실수를 용납하지 않으며, 실수 하나에 엄청난 위험부담을 느끼게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Chapter 5 - 습관적 미루기 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">습관적 미루기: 게으름이 <span class="highlight">아니다</span></h2>
+          <p class="slide-subtitle">할 일을 꾸물거리는 사람은 대개 양심적인 이들입니다. 뭔가를 잘못할까 봐 걱정하기 때문입니다.</p>
+          <div class="slide-content">
+            <p>할 일을 놔두고 설거지를 하거나 서랍을 정리하는 것은 '내가 충분히 잘 해내지 못할까 봐 무섭다'는 답답한 마음에서 벗어나려는 행위입니다. 이는 당신이 완벽주의라는 연옥에 빠질 수 있다는 의미입니다.</p>
+            <div class="quote-block">
+                <p>질문: '이게 나한테 어떤 도움이 되지?' - 이 질문은 나의 행동이 적응적인지 부적응적인지 구분하는 데 도움을 줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Chapter 5 - 번아웃 신호 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">번아웃 신호 <span class="highlight">감지하기</span>  burnout</h2>
+          <p class="slide-subtitle">완벽주의와 미루기는 종종 번아웃으로 이어집니다. 이 신호를 미리 알아두는 것이 중요합니다.</p>
+          <div class="slide-content">
+              <ul class="list-disc list-inside space-y-2">
+                <li>계획이나 약속을 막판에 취소하는 일이 잦아진다.</li>
+                <li>어떤 일을 해도 완벽하게 해냈다는 느낌이 들지 않는다.</li>
+                <li>친구를 만나거나 취미를 즐길 시간이 없다고 느낀다.</li>
+                <li>사소한 일에 과민반응을 보이거나 지나치게 감정적이 된다.</li>
+                <li>집중력이 떨어지고, 수면의 질이 떨어진다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Chapter 6 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">가면증후군과 <span class="highlight">미세공격</span></h2>
+          <p class="slide-content">'본 모습을 들킨다'는 공포, 가면증후군. 그리고 이를 유발하는 미묘하고 은근한 미세공격에 대처하는 방법을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 34: Chapter 6 - 가면증후군이란? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'나는 가짜야'라고 속삭이는 <span class="highlight">목소리</span> 🎭</h2>
+          <p class="slide-subtitle">가면증후군(Imposter Syndrome)은 자신이 이룬 성공이 자신의 능력이 아닌 운이나 외부 요인 덕분이라고 느끼며, 언젠가 '들킬까 봐' 두려워하는 심리 상태입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+                <li>성공을 해도 안도하기보다 놀라고 충격을 받는다.</li>
+                <li>긍정적 피드백을 받으면 당황하거나 거부한다.</li>
+                <li>실패를 극도로 두려워하여 마지막 순간까지 일을 미룬다.</li>
+                <li>70%의 사람들이 생애 어느 단계에서든 이 현상을 경험합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Chapter 6 - 미세공격 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미세공격 <span class="highlight">스몰 트라우마</span></h2>
+          <p class="slide-subtitle">미세공격은 일상적인 상호작용 속에서 경험하는 작은 무시, 모욕, 비하 등 암묵적인 편견의 한 형태입니다.</p>
+          <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg text-yellow-800">미세공격의 예시</h3>
+              <ul class="list-disc list-inside mt-2 text-yellow-700">
+                <li>"네가 자란 배경을 생각하면 아주 잘하고 있는 거지."</li>
+                <li>"그런 상태인데도 XXX를 할 수 있다니 굉장하네요."</li>
+                <li>"난 피부색 같은 거 신경 안 써." (상대방의 정체성을 무시하는 발언)</li>
+              </ul>
+              <p class="mt-2">의도치 않았더라도 결과적으로는 차별과 비슷한 피해를 주며, 자기회의와 가면증후군으로 이어지게 만듭니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Chapter 7 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7장</p>
+          <h2 class="slide-title">배가 터질 때까지 <span class="highlight">먹는 까닭</span> 🍰</h2>
+          <p class="slide-content">음식은 자기위안, 보상, 정체성 등 다양한 형태로 스몰 트라우마와 연결됩니다. '무엇을' 먹느냐가 아니라 '왜' 먹는지가 더 중요합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Chapter 7 - 감정적 섭식 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정적 섭식 <span class="highlight">체크리스트</span></h2>
+          <p class="slide-subtitle">물리적으로 배가 고프지 않을 때에도 먹는 것이 핵심 판단 요인입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-1">
+                <li>속이 불편하거나 배가 아플 때까지 먹는다.</li>
+                <li>아무 생각 없이 좀비처럼 먹는다.</li>
+                <li>다른 작업을 하면서 끊임없이 먹는다.</li>
+                <li>슬픔, 죄책감, 외로움 등 불쾌한 감정에서 벗어나기 위해 먹는다.</li>
+                <li>스트레스, 걱정, 반추가 촉발될 때마다 먹는다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Chapter 7 - 사랑으로서의 음식 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑으로서의 <span class="highlight">음식</span> ❤️</h2>
+          <p class="slide-subtitle">우리는 어린 시절 받은 보살핌을 음식과 연합하고, 그 결과 안전과 안정감을 먹는 행위와 연결 짓게 됩니다.</p>
+          <div class="slide-content">
+            <p>모의 가족 이야기에서, 어머니는 아들들에게는 음식을 아낌없이 주었지만 딸에게는 엄격했습니다. 이는 음식이 단순한 영양 공급원을 넘어, 가족 내 역학 관계와 사회적 역할을 반영하는 애정 표현의 수단이었음을 보여줍니다.</p>
+            <p class="mt-4">음식-감정 일기를 써보면, 나의 섭식 패턴과 감정, 그리고 그 뒤에 숨은 스몰 트라우마 트리거 사이의 관계를 명확하게 규명할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Chapter 8 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">8장</p>
+          <h2 class="slide-title">전쟁 같은 <span class="highlight">사랑</span></h2>
+          <p class="slide-content">사랑이란 실로 모든 것과 연관되어 있습니다. 낭만적 사랑뿐만 아니라 모든 형태의 사랑과 관련된 스몰 트라우마를 인식하는 법을 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Chapter 8 - 사랑의 분류 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑의 <span class="highlight">네 가지 유형</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">에로스 (Eros) - 낭만적 사랑</h3>
+              <p>정열적이고 열렬한 사랑. 큐피드의 화살에 맞는 것과 같은 비이성적인 욕정과 소유욕을 동반할 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">필리아 (Philia) - 우정</h3>
+              <p>상대방이 잘되기를 바라는 우애를 기반으로 합니다. 평등하고 확고한 신뢰와 동지애에 바탕을 둡니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">스토르게 (Storge) - 가족애</h3>
+              <p>가족에 대한 사랑, 특히 부모가 자녀에게 갖는 무조건적인 사랑입니다. 종의 유지에 필수적입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">아가페 (Agape) - 인류애</h3>
+              <p>인류나 자연에 대한 보편적 사랑. 보답에 대한 기대 없이 타인을 돕는 이타적인 사랑입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Chapter 9 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">9장</p>
+          <h2 class="slide-title">왜 이토록 <span class="highlight">잠들기 어려운가</span> 😴</h2>
+          <p class="slide-content">수면 문제는 중요한 스몰 트라우마 주제 중 하나입니다. 수면장애의 원인을 인식하고 생체 시계를 다시 설정하는 전략을 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Chapter 9 - 수면의 단계 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">하룻밤의 수면 <span class="highlight">주기</span></h2>
+          <p class="slide-subtitle">우리는 하룻밤에 4~5번의 수면 주기를 반복하며, 각 주기마다 수면 단계의 양이 다릅니다.</p>
+          <div class="slide-content text-center">
+            <img src="https://i.imgur.com/uG9XJ1j.png" alt="Sleep Cycle Graph" class="mx-auto rounded-lg shadow-md">
+            <p class="mt-4">우리는 애초에 8시간 동안 깊이 잠들도록 설계되지 않았습니다. '깨어나면 안 된다'고 믿으면 문제가 발생하며, 각성 상태에서 반추와 걱정에 빠지면 다시 잠들기 어렵습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Chapter 9 - 수면 제한 요법 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수면의 질 향상시키기: <span class="highlight">수면 제한</span></h2>
+          <p class="slide-subtitle">수면 효율을 높여 생체 시계를 되돌리는 강력한 방법입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+                <li><b>1단계 (측정):</b> 평균 수면 시간과 잠자리에 누워있는 시간을 기록해 수면 효율을 계산합니다. (수면 시간 ÷ 누운 시간) x 100</li>
+                <li><b>2단계 (제한):</b> 실제 평균 수면 시간만큼만 침대에 누워 있도록 '문턱 시간'(취침)과 '고정 시간'(기상)을 정합니다.</li>
+                <li><b>3단계 (조정):</b> 일주일 후 수면 효율을 다시 계산하여 85% 이상이면 수면 시간을 15분 늘리고, 80% 미만이면 15분 줄입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Chapter 10 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">10장</p>
+          <h2 class="slide-title">인생의 <span class="highlight">다음 단계</span>로 넘어가는 방법</h2>
+          <p class="slide-content">전환은 누구나 거쳐야 하는 삶의 일부입니다. 삶의 다음 단계로 넘어가기 위해 예전의 나를 내려놓는 과정이 필요합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 45: Chapter 10 - 사회적 시계 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사회적 시계가 주는 <span class="highlight">압박</span> 🕰️</h2>
+          <p class="slide-subtitle">"나는 이 나이에 뭘 하고 있지?" 우리는 생물학적 시계뿐만 아니라 사회적 시계와도 경주하고 있습니다.</p>
+          <div class="slide-content">
+            <p>사회적 시계란 첫 취직, 연애, 결혼, 내 집 마련 등 주요 생애사건에 대해 연령대별로 갖는 사회적·문화적 기대를 의미합니다. 이 보이지 않는 선을 넘지 못하면 '기준에 못 미친다'는 느낌 자체가 스몰 트라우마가 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Chapter 10 - 전환의 양파 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연습활동: 전환의 <span class="highlight">양파</span> 🧅</h2>
+          <p class="slide-subtitle">현재 겪고 있는 전환의 경험에 어떤 것들이 영향을 끼쳤는지 시각적으로 탐구해봅니다.</p>
+          <div class="slide-content text-center">
+             <div class="relative w-96 h-96 mx-auto">
+                 <div class="absolute inset-0 rounded-full bg-gray-100 flex items-center justify-center"><span class="text-xs">내가 속한 사회</span></div>
+                 <div class="absolute inset-4 rounded-full bg-gray-200 flex items-center justify-center"><span class="text-xs">스몰 트라우마</span></div>
+                 <div class="absolute inset-8 rounded-full bg-gray-300 flex items-center justify-center"><span class="text-xs">애착과 유대감</span></div>
+                 <div class="absolute inset-12 rounded-full bg-gray-400 flex items-center justify-center text-white"><span class="font-bold">전환</span></div>
+             </div>
+             <p class="mt-4">중앙에 '전환'을 적고, 바깥으로 가면서 관계, 삶의 경험, 문화적 맥락 등 전환에 영향을 미치는 요소들을 겹겹이 추가합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47: Chapter 11 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">11장</p>
+          <h2 class="slide-title">응시하기보다 <span class="highlight">뛰어들어라</span></h2>
+          <p class="slide-content">삶을 위한 처방전. 이제까지 배운 것을 활용해 미지의 심연 속으로 뛰어들 시간입니다. 심연은 당신이 두려워하는 것만큼 무섭지 않습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 48: Chapter 11 - AAA 접근법 요약 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶에 대한 <span class="highlight">AAA 접근법</span> 요약</h2>
+          <div class="slide-content space-y-4">
+            <div>
+              <h3 class="font-bold text-lg">1. 인식 (Awareness)</h3>
+              <p>스몰 트라우마를 실질적이고 타당하며 실체적인 개념으로 인식하는 것만으로도 큰 도움이 됩니다. 내 삶의 목적과 가치를 탐색합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 수용 (Acceptance)</h3>
+              <p>체념이 아니라, 나쁜 일이 일어나는 것과 '나쁜 사람이 되는 것'을 혼동하지 않는 것입니다. 심리적 유연성을 통해 너그러워질 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">3. 행동 (Action)</h3>
+              <p>과거를 통제함으로써 현재를 온전히 수용하고, 단순한 생존을 넘어 번영하는 미래를 개척하는 것입니다. 햇볕 쬐기, 휴식, 움직임 등 일상적인 행동이 핵심입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49: Chapter 11 - 햇볕은 친구다 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">햇볕은 <span class="highlight">친구다</span> ☀️</h2>
+          <p class="slide-subtitle">정신 건강 분야에서 20년 동안 얻은 한 가지 통찰력은 자연과 더불어 살수록 안정감과 평온함을 더 많이 느낀다는 것입니다.</p>
+          <div class="slide-content">
+            <p>우리의 몸과 마음은 어두울 때 자고 밝은 낮에 활동할 때 최상으로 작동합니다. 인공조명은 뇌에 동일한 신호를 보내지 않으며, 일조량 부족은 다양한 정신 및 신체 건강 문제의 저해 요인이 될 수 있습니다.</p>
+            <p class="mt-4 font-bold">당장 오늘부터 하루 20분이라도 좋으니 매일 밖에 나가 기분을 좋게 만드는 비타민 D를 흡수해라!</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50: Chapter 11 - '하지만'을 '그리고'로 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스몰 트라우마에 갇히지 않는 <span class="highlight">말하기 연습</span></h2>
+          <p class="slide-subtitle">내면의 대화에서 '하지만'과 '왜냐하면'을 주의 깊게 사용해야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">'하지만' → '그리고'</h3>
+              <p>"친구랑 얘기하고 싶긴 <b>하지만</b>, 걔 때문에 마음이 상했어." 라는 말은 벽에 가로막힙니다. <br/>"친구랑 얘기하고 싶어. <b>그리고</b> 걔 때문에 마음이 상했지." 로 바꾸면, 복잡한 감정을 인정하면서도 앞으로 나아갈 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">'왜냐하면' → '그럼에도'</h3>
+              <p>"승진에 지원 안 할래. <b>왜냐하면</b> 예전에 안 좋은 경험을 했거든." 이라는 말은 과거에 묶입니다. <br/>"예전에 안 좋은 경험을 했지만 <b>그럼에도</b> 이번 승진에 지원하고 싶어." 로 바꾸면, 과거의 영향력을 약화시킬 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">스몰 트라우마는 결코 사소하지 않으며, 우리 삶의 모든 영역에 조용히, 그리고 깊숙이 영향을 미칩니다. 이를 <span class="highlight">인식하고, 수용하고, 행동으로</span> 옮길 때 우리는 비로소 삶의 면역력을 기르고 진정한 자기 돌봄을 시작할 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">자신을 사랑하지 않아도 괜찮습니다. 하지만 스스로에게 너그럽게 굴고, 지금 바로 시작하십시오.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideContainer = document.getElementById('slides-container');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    slideContainer.style.height = 'auto'; // Let it be determined by content initially
+    updateSlide();
+  </script>
+
+</body>
+</html>

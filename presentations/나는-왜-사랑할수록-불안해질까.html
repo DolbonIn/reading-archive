@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나는 왜 사랑할수록 불안해질까</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #E6D9FF;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #4A00E0;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #3b00b3;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #4A00E0;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 2em;
+    }
+    li {
+      margin-bottom: 0.75em;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">💡</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나는 왜 사랑할수록 불안해질까</h1>
+          <p class="text-xl md:text-2xl text-gray-700">이유 없이 상처받는 관계를 반복한다면, <span class="highlight">애착 유형 심리학</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Author Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자: <span class="highlight">제시카 바움</span> (Jessica Baum)</h2>
+          <div class="slide-content">
+            <ul>
+              <li>심리치료사이자 커플 및 가족 상담, 중독 치료 전문가.</li>
+              <li>팜비치인간관계연구소 설립자.</li>
+              <li>자신이 <span class="highlight">불안 애착 유형</span>임을 깨닫고, 과거의 상처와 잘못된 기대를 바로잡으며 불안에서 벗어난 경험을 바탕으로 이 책을 집필.</li>
+              <li>독자들이 자기 마음을 먼저 돌보고 안정적인 사람이 될 수 있도록 돕는 것을 목표로 함.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-purple-700">1부: 관계 안에서 길을 잃고 헤맨다면</h3>
+              <ul class="mt-2">
+                <li>1장: 우리는 사랑하도록 태어났다</li>
+                <li>2장: 당신이 아픈 건 그 사람 탓이 아니다</li>
+                <li>3장: 불안과 회피가 추는 춤</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-purple-700">2부: 나를 먼저 채우는 연습</h3>
+              <ul class="mt-2">
+                <li>4장: 심장의 메시지에 귀 기울이기</li>
+                <li>5장: 잘못된 감정은 없다</li>
+                <li>6장: 자기희생에서 자기 채움으로</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-purple-700">3부: 온전한 자신이 되어 사랑하기</h3>
+              <ul class="mt-2">
+                <li>7장: 유연하게 선 긋기</li>
+                <li>8장: 갈등이라는 파도를 헤쳐 나가는 법</li>
+                <li>9장: 내가 준비되면 인연은 찾아온다</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1부</p>
+          <h2 class="slide-title">관계 안에서 <span class="highlight">길을 잃고 헤맨다면</span></h2>
+          <p class="slide-content">우리 자신과 관계 속 행동을 더 깊이 이해하고, 스스로를 잘라내고 싶었던 부분에 연민을 느끼는 과정입니다. 이 인식과 수용이 변화의 토대가 됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Chapter 1 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">우리는 <span class="highlight">사랑하도록</span> 태어났다</h2>
+          <p class="slide-subtitle">관계를 맺고자 하는 우리의 욕구는 지극히 자연스럽습니다. 인간은 누구나 타인과 친밀한 관계를 맺도록 만들어졌습니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나도 <span class="highlight">불안 애착</span> 유형일까? 🤔</h2>
+          <p class="slide-subtitle">간단한 체크리스트로 자신의 성향을 점검해 봅시다.</p>
+          <div class="slide-content bg-gray-50 p-6 rounded-lg border">
+            <ul class="list-none p-0">
+              <li>✔️ 파트너에 대해 계속 생각한다.</li>
+              <li>✔️ 상대가 문자 메시지에 바로 답하지 않으면 불안감이 든다.</li>
+              <li>✔️ 빨리 답이 오지 않는 것의 의미를 자꾸 확대 해석한다.</li>
+              <li>✔️ 상대에게 쉽게 마음을 주고, 그 관계가 지속될지 불안해한다.</li>
+              <li>✔️ 갈등이 생기면 서둘러 관계를 봉합하려 한다.</li>
+              <li>✔️ 내가 원하는 만큼 관심을 주지 않으면 헤어지겠다고 겁을 준 적이 있다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">애착 이론이란?</h2>
+          <p class="slide-subtitle">1950년대 심리학자 <span class="highlight">존 볼비(John Bowlby)</span>가 처음 개척한 이론으로, 인간이 유아기에 관계를 맺는 방식에 관한 과학적 접근법입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg">불안형</h3>
+              <p class="mt-2">부모의 일관성 없는 관심으로 인해 버려질까 봐 두려워하며, 연애에 모든 에너지를 쏟는 경향</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">회피형</h3>
+              <p class="mt-2">감정적 욕구가 채워지지 않는 경험으로 독립성과 자급자족을 중시하며 친밀감을 피하는 경향</p>
+            </div>
+            <div class="p-4 bg-yellow-50 rounded-lg">
+              <h3 class="font-bold text-lg">안정형</h3>
+              <p class="mt-2">일관된 애정과 보살핌 속에서 '사랑받을 만한 사람'이라는 믿음을 갖고 건강한 관계를 기대</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가까워지려 할수록 <span class="highlight">멀어지는 관계</span></h2>
+          <p class="slide-subtitle">불안형과 회피형은 자석처럼 서로에게 끌리는 경우가 많습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">💔 불안형의 관점</h3>
+              <p>회피형이 줄 수 없는 <span class="highlight">안정감</span>을 애타게 갈구합니다. 상대가 멀어지는 것을 느끼면 공황 상태에 빠져 더 매달리게 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">💔 회피형의 관점</h3>
+              <p>자신이 피하려는 <span class="highlight">친밀함</span>을 간절히 원하는 불안형에게 매력을 느낍니다. 불안형의 집착과 감정 표현에 위협을 느껴 마음의 문을 닫습니다.</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8 text-center font-bold">이 격렬한 '밀고 당기기'는 처음부터 다시 반복되는 악순환을 만듭니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불안 애착 스위치가 <span class="highlight">켜질 때</span></h2>
+          <p class="slide-subtitle">전남편이 멀어질 때마다 나는 극단적 신체 반응을 느꼈습니다. 이것은 내 신경계가 사랑하는 사람과의 연결이 끊기는 것을 '위험 신호'로 인식했기 때문입니다.</p>
+          <div class="slide-content mt-6">
+            <p>'다중미주신경 이론(Polyvagal Theory)'에 따르면, 인간의 자율신경계는 안전함을 파악하고 타인과 연결 상태를 유지하려는 임무를 가집니다.</p>
+            <ul class="mt-4">
+              <li><b>배 측 상태 (안전)</b>: 상대의 말에 귀 기울이고, 목소리가 부드러워지며, 상호작용이 안전하다고 느낍니다.</li>
+              <li><b>교감신경 흥분 (위험)</b>: '투쟁-도피 반응'이 활성화됩니다. 위험을 감지하고, 문자 폭탄, 쫓아다니기 등 관심을 끌기 위한 행동으로 이어집니다.</li>
+              <li><b>등 측 상태 (생명의 위협)</b>: 극도의 무기력 상태. 에너지를 최소화하고 주변 세상과 연결을 끊는 '사라짐' 상태가 됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">낭만적 사랑과 결혼에 대한 <span class="highlight">오해</span></h2>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">❌ 잘못된 믿음</h3>
+              <p class="mt-2">낭만적 파트너만이 우리에게 안전과 사랑을 줄 수 있으며, 결혼이 모든 문제의 해결책이라는 사회적 환상.</p>
+            </div>
+             <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">✔️ 진실</h3>
+              <p class="mt-2">진정한 행복은 우선 <span class="highlight">'자기 자신'과 친밀해지고</span> 내면을 채운 후에야 찾아옵니다. 결혼은 관계의 질과 무관한 법적 결합일 뿐, 궁극적 목표가 아닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 2 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">당신이 아픈 건 <span class="highlight">그 사람 탓</span>이 아니다</h2>
+          <p class="slide-subtitle">고통스럽게 끝나는 연애를 반복했다면, 그건 당신이 또 잘못된 사람을 골랐다는 뜻이 아닙니다. 그저 자신이 어떤 사람인지, 무엇이 필요한지, 어디를 치유해야 하는지 더 알아봐야 한다는 뜻이죠.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내 마음속 어린아이, <span class="highlight">내면아이</span> 👶</h2>
+          <p class="slide-subtitle">우리 안의 어린아이인 '내면아이'는 불안정한 애착 유형에서 핵심 역할을 합니다.</p>
+          <div class="slide-content">
+            <p>어린 시절에 받은 핵심 상처와 지지는 뇌의 잠재의식 속에 기억으로 저장됩니다. 이렇게 체화된 기억은 어른이 된 뒤의 행동, 특히 인간관계에 커다란 영향을 미칩니다.</p>
+            <p class="mt-4">우리가 연애에서 자기도 모르게 같은 실수를 되풀이하는 것은, 어른 자아는 '나쁜 선택'이라고 판단하는 상황을 뇌의 다른 일부는 '익숙함'과 '사랑이란 원래 이런 것'이라고 믿기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신이 아픈 진짜 이유: <span class="highlight">핵심 상처</span></h2>
+          <p class="slide-subtitle">핵심 상처는 어린 시절, 하나 이상의 감정적 기본 욕구가 채워지지 않을 때 생겨나 뿌리를 내립니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">유기 공포와 감정 방치</h3>
+              <p><b>불안형</b>의 핵심 상처는 '버려진다'는 유기 공포입니다. 일관성 없는 관심 속에서 타인의 욕구에 극도로 민감해지도록 적응합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">감정 방치</h3>
+              <p><b>회피형</b>의 핵심 상처는 '감정 방치'와 관련 있습니다. 감정을 알아주지 않는 부모 밑에서 감정적 욕구와 역할 수행 사이에 벽을 세웁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 상처를 찾아내는 <span class="highlight">4단계</span></h2>
+          <p class="slide-subtitle">자신의 연애 패턴을 돌아보며 상처의 근원을 찾아봅시다.</p>
+          <div class="slide-content space-y-4">
+              <p><b>1단계: 당신이 끌리는 사람은?</b><br> 당신이 사귄 사람들의 비슷한 특징과 당신을 대하는 공통적인 방식을 분석합니다.</p>
+              <p><b>2단계: 당신이 소통하는 방식은?</b><br> 상대와의 대화에서 비어 있는 부분, 꺼내기 어려운 주제, 반복되는 부정적 감정을 파악합니다.</p>
+              <p><b>3단계: 과거 되돌아보기</b><br> 어린 시절 양육에서 부족했던 부분, 특정 사건, 그때의 신체적 변화와 그로 인해 생긴 신념을 탐색합니다.</p>
+              <p><b>4단계: 자기 패턴을 표로 만들기</b><br> 핵심 상처, 어린 시절의 예시, 학습된 신념, 현재 반복되는 방식을 표로 정리하여 패턴을 명확히 인식합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 3 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">불안과 회피가 추는 <span class="highlight">춤</span> 💃🕺</h2>
+          <p class="slide-subtitle">두 사람은 각자 자신을 보호하기 위해 상대방에게 의존하지만, 이런 방식은 양쪽을 더 큰 고통에 빠뜨릴 뿐입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자석 같은 끌림의 <span class="highlight">실체</span></h2>
+          <p class="slide-subtitle">불안형과 회피형은 '익숙한' 것을 '옳은' 것으로 착각하며 서로에게 끌립니다.</p>
+          <div class="slide-content">
+            <p>우리는 자기 잠재의식 속의 "사랑이란 원래 이런 거야"라는 신념을 더욱 확고하게 만드는 행동에 끌립니다. 이 '익숙함' 때문에 상대의 행동으로 인해 점점 더 안정감을 잃게 됩니다.</p>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+              <div class="p-4 rounded-lg bg-gray-100">
+                  <p><b>불안형 →</b> 더 처절하게 매달림</p>
+              </div>
+              <div class="p-4 rounded-lg bg-gray-100">
+                  <p><b>회피형 →</b> 감정을 아예 닫아 버림</p>
+              </div>
+            </div>
+             <p class="slide-content mt-8 text-center font-bold">결국 서로의 가장 큰 두려움(버려짐/통제당함)이 옳았음을 끊임없이 증명하는 관계가 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 유형의 전략 비교</h2>
+          <p class="slide-subtitle">관계 속에서 불안과 위협을 느낄 때, 두 유형은 정반대의 전략을 사용합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">불안형의 <span class="highlight">당기기 전략</span> (활성화 전략)</h3>
+              <ul class="mt-2">
+                <li>끊임없이 연락 시도 (문자, 전화)</li>
+                <li>상대방의 답장 시간으로 점수 매기기</li>
+                <li>하지도 않은 잘못에 사과하기</li>
+                <li>분노에 찬 비난, 협박</li>
+                <li>온라인 스토킹</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">회피형의 <span class="highlight">밀어내기 전략</span> (비활성화 전략)</h3>
+              <ul class="mt-2">
+                <li>전화나 문자에 답하지 않기</li>
+                <li>'사랑한다'는 말 피하기</li>
+                <li>물리적 거리 유지 (잠자리 피하기)</li>
+                <li>상대의 단점 지적하기</li>
+                <li>갑작스러운 잠수 또는 이별 통보</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">치명적 연인, <span class="highlight">나르시시스트</span></h2>
+          <p class="slide-subtitle">공감 능력이 뛰어난 불안형은 자신만을 사랑하는 나르시시스트를 끌어들일 위험이 있습니다.</p>
+          <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <h3 class="font-bold text-lg">나르시시스트의 특징</h3>
+            <p class="mt-2">자기중심적이며 공감 능력이 부족합니다. 상대의 욕구에 맞춰주며 '특별 대우'를 해주는 척하다가, 숭배를 받지 못하면 상대를 거부하고 탓으로 돌립니다. 이는 '간헐적 강화' 전략으로 상대를 벗어나지 못하게 만듭니다.</p>
+          </div>
+          <p class="slide-content mt-6"><span class="highlight">"필요로 하는 것 = 사랑받는 것"</span>이라고 믿는 불안형은 이런 관계에 쉽게 매달리며 '연애 중독'에 빠질 수 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Part 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2부</p>
+          <h2 class="slide-title">나를 먼저 <span class="highlight">채우는 연습</span></h2>
+          <p class="slide-content">자신의 가장 깊은 부분에 접근하는 방법을 배우는 여정입니다. 내면 환경을 안전하고 따뜻하게 정비하며 고통스러운 감정도 감당할 수 있는 용기를 기릅니다.</p>
+        </div>
+      </div>
+
+      <!-- Chapter 4 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">심장의 메시지에 <span class="highlight">귀 기울이기</span> 💖</h2>
+          <p class="slide-subtitle">자신을 이해하고 정서적 삶을 치유하는 작업은 심장의 메시지를 듣는 법을 익히는 데 달려 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">머리가 아니라 <span class="highlight">가슴으로</span> 안다는 것</h2>
+          <p class="slide-subtitle">우리 내면에는 세 가지 중요한 존재가 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-purple-50 rounded-lg">
+              <h3 class="font-bold text-lg">내면아이</h3>
+              <p class="mt-2">우리의 가장 순수한 부분. 충족되지 않은 욕구와 상처를 안고 있습니다.</p>
+            </div>
+            <div class="p-4 bg-purple-50 rounded-lg">
+              <h3 class="font-bold text-lg">내면 파수꾼</h3>
+              <p class="mt-2">우리를 보호하려는 목소리. 비판적이고 가혹하게 들릴 때가 많습니다.</p>
+            </div>
+            <div class="p-4 bg-purple-50 rounded-lg">
+              <h3 class="font-bold text-lg">내면 양육자</h3>
+              <p class="mt-2">우리를 보살피고 사랑을 주는 어른. 내면화된 긍정적 관계의 총합입니다.</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8">치유는 이 <span class="highlight">내면 양육자 공동체</span>와 접촉하고, 비판적인 파수꾼과 친구가 되어, 상처받은 내면아이를 돌보는 과정입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연습: <span class="highlight">심장 스캔</span> (Heart Scan)</h2>
+          <p class="slide-subtitle">신체, 에너지, 감정 측면에서 자신을 살피고 내면과 소통하는 방법입니다.</p>
+          <div class="slide-content">
+              <ul>
+                  <li><b>1. 편안한 장소 찾기:</b> 우선 편안하고 보호받는 느낌이 드는 조용한 장소를 찾습니다.</li>
+                  <li><b>2. 속도 늦추기:</b> 의식적으로 호흡과 움직임을 천천히 합니다.</li>
+                  <li><b>3. 심장 중심에 집중하기:</b> 눈을 감고 가슴 가운데에 주의를 집중하며 느낌(팽팽함, 넉넉함, 밝음 등)을 관찰합니다.</li>
+                  <li><b>4. 이미지/감정 관찰:</b> 떠오르는 이미지, 색깔, 감정, 기억 등을 판단 없이 그대로 관찰합니다.</li>
+                  <li><b>5. 평온한 이미지 떠올리기:</b> 산책, 반려동물 등 평온한 느낌을 주는 이미지를 떠올리며 몸의 반응을 느껴봅니다.</li>
+                  <li><b>6. 사랑받았던 순간 떠올리기:</b> 사랑받는다고 느꼈던 순간을 기억하거나 상상하며 심장의 변화를 주목합니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title"><span class="highlight">잘못된 감정</span>은 없다</h2>
+          <p class="slide-subtitle">모든 감정은 중요하고, 귀 기울일 가치가 있으며, 있는 그대로 받아들여져야 합니다. 고통스러운 감정을 재빨리 건너뛰어 버리면, 건강하게 감정을 헤쳐 나갈 기회가 사라집니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정 <span class="highlight">끌어안기</span> 🤗</h2>
+          <p class="slide-subtitle">모든 감정은 우리 안에서 무슨 일이 일어나는지 알려주는 중요한 의사소통 수단입니다. '좋은' 감정이나 '나쁜' 감정은 없습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">"어떤 감정이든 다 괜찮다"</h3>
+              <p class="mt-2">감정을 인정하는 가장 간단한 방법은 속상한 일을 떠올리고, 그때 떠오르는 감정에 이름을 붙인 뒤, 몸에서 느껴지는 감각을 감지하는 것입니다. 그리고 내면 양육자가 그 감정을 그대로 느껴도 괜찮다고 말해주는 것을 듣습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연습: 마음속 <span class="highlight">안전지대</span> 만들기</h2>
+          <p class="slide-subtitle">내적 시각을 활용해 양육자와 내면아이가 만날 안전한 장소를 만듭니다.</p>
+           <div class="slide-content">
+               <ul>
+                   <li>편안히 누워 호흡에 집중합니다.</li>
+                   <li>과거에 안전하다고 느꼈던 '안전지대'를 떠올립니다.</li>
+                   <li>그곳에 내면아이를 초대합니다.</li>
+                   <li>내면 양육자를 불러와 아이를 만나게 하고, 무엇이든 말해도 안전하다고 알려줍니다.</li>
+                   <li>내면아이가 느끼는 것을 묻고, 판단 없이 들어줍니다.</li>
+                   <li>대화가 끝나면, 내면아이를 심장 중심에 담아 항상 함께 있음을 알려줍니다.</li>
+               </ul>
+           </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 6 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">자기희생에서 <span class="highlight">자기 채움으로</span> 🌱</h2>
+          <p class="slide-subtitle">자기 욕구를 채우려는 것은 주제넘은 태도라고 생각했던 과거에서 벗어나, 내면의 사랑과 지지로 자신을 먼저 채우는 사람이 되는 과정입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자기희생 vs 자기중심 vs 자기 채움</h2>
+          <p class="slide-subtitle">우리는 환경에 따라 이 세 가지 상태를 오갑니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-lg">자기희생</h3>
+              <p class="mt-2">사랑받으려면 먼저 주어야 한다고 믿으며 자기 욕구를 인식하지 못합니다. 타인을 보살피느라 자신의 경계선을 무시하고 늘 기진맥진합니다.</p>
+            </div>
+            <div class="p-4 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg">자기중심</h3>
+              <p class="mt-2">자신을 채워줄 사람은 자기뿐이라고 믿습니다. 자기 욕구에만 집중하고, 타인에게 마음 열기를 두려워하며, 관계를 권력과 통제로 접근합니다.</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">자기 채움</h3>
+              <p class="mt-2">자신이 사랑받을 자격과 가치를 타고났다고 여깁니다. 자기 욕구를 효과적으로 채울 수 있으며, 타인에게 공감하면서도 자신을 잃지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑을 향한 굶주림: <span class="highlight">애정 폭식</span></h2>
+          <p class="slide-subtitle">자기희생 상태가 심해지면 '애정 굶주림'으로 나타날 수 있습니다.</p>
+          <div class="slide-content">
+            <p>사랑에 너무 굶주린 사람은 말 그대로 사랑의 대상을 '먹어 치우고' 싶다는 욕구를 느낍니다. 이는 마음속 공허함을 채우려는 신체적 '아픔'으로 나타납니다.</p>
+            <p class="mt-4">공허함이 감정적 과식으로 이어지듯, 애정 굶주림은 <span class="highlight">'연애 폭식'</span>으로 이어지기 쉽습니다. 하지만 이는 우리를 결코 완전히 채워주지 못합니다.</p>
+            <p class="mt-4 font-bold">진정한 채움은 내면 양육자의 보살핌을 통해 '자기 채움' 상태가 되었을 때만 가능합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3부</p>
+          <h2 class="slide-title">온전한 자신이 되어 <span class="highlight">사랑하기</span></h2>
+          <p class="slide-content">새로운 사랑법을 배우고, 자신을 완성해 줄 파트너를 기다리기보다 능동적으로 바람직한 관계를 만들어 가는 방법을 탐색합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Chapter 7 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7장</p>
+          <h2 class="slide-title">유연하게 <span class="highlight">선 긋기</span></h2>
+          <p class="slide-subtitle">건강한 '우리'를 이루려면 뚜렷한 '나'를 먼저 만들어야 합니다. 경계선은 사랑을 차단하는 벽이 아니라, 상호 존중에서 생겨나는 유연한 문입니다.</p>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">홀로서기가 아닌 <span class="highlight">함께 서기</span> 🤝</h2>
+          <p class="slide-subtitle">경계선 긋기의 목표는 고립이 아니라, 타인과 건강하고 '유연한' 관계를 맺는 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">공의존 (Codependence)</h3>
+              <p>두려움을 토대로 관계를 맺고, 상대에게만 의존하여 위안과 사랑을 얻으려 합니다. 관계는 금세 매력을 잃고 불만족스러워집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">상호의존 (Interdependence)</h3>
+              <p>어느 한쪽의 안녕을 위협하지 않으면서 각자 성장하고 발전할 공간을 제공합니다. 계속 친밀감을 더하며 오래도록 이어지는 관계의 기반이 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">선 잘 긋는 <span class="highlight">5단계 방법</span></h2>
+          <div class="slide-content space-y-3">
+            <p><b>1단계: 일시 정지 버튼 누르기.</b><br>요구를 받으면 반사적으로 '네'라고 대답하기 전에 "좀 생각해 보고 나중에 대답할게"라고 말하며 시간을 법니다.</p>
+            <p><b>2단계: 자기 내면과 대화하기.</b><br>내면의 안전지대에서 내면아이에게 '예'와 '아니요' 중 무엇을 원하는지 묻습니다.</p>
+            <p><b>3단계: 몸의 대답 확인하기.</b><br>두 가지 대답을 각각 떠올리며 몸(복부, 근육, 심장)이 어떻게 반응하는지 확인합니다.</p>
+            <p><b>4단계: 주체적 거절을 위한 준비.</b><br>'아니요'라고 말하는 장면을 상상하며 내면아이의 두려움과 그 이유를 살펴봅니다.</p>
+            <p><b>5단계: 경계선 표현하기.</b><br>차분하게 '아니요', 또는 조건이 붙은 '예'로 자신의 선택을 전달합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 8 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">8장</p>
+          <h2 class="slide-title">갈등이라는 <span class="highlight">파도를 헤쳐 나가는 법</span> 🌊</h2>
+          <p class="slide-subtitle">세상에 '완벽한' 연애는 없습니다. 갈등은 필연적이며, 오히려 관계를 더 튼튼하게 만드는 성장의 기회입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">누가 맞고 틀린지는 <span class="highlight">아무 의미 없다</span></h2>
+          <p class="slide-subtitle">관계의 치유는 자기주장을 증명하는 것이 아니라, 두 사람이 같은 팀이라는 것을 기억하는 데서 시작합니다.</p>
+          <div class="slide-content">
+            <p>말싸움에서 이기는 대신, 각자의 관점에서는 각자의 의견이 일리가 있다는 점을 기억해야 합니다. 우리는 상대방의 렌즈를 통해 상황을 보는 공감을 배워야 합니다.</p>
+            <div class="mt-8 p-6 bg-purple-50 rounded-lg">
+                <h3 class="font-bold text-lg">💡 휴대전화 비유</h3>
+                <p class="mt-2">두 사람이 휴대전화의 앞면과 뒷면을 각각 보고 있다면, 둘 다 진실을 말하고 있지만 묘사는 전혀 다를 것입니다. 누가 옳다고 싸울 필요 없이, 상대의 관점을 상상해보는 것이 중요합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">팀워크 키우기 연습 🧑‍🤝‍🧑</h2>
+          <p class="slide-subtitle">갈등 상황에서 팀으로서 함께 문제를 해결하는 방법입니다.</p>
+          <div class="slide-content">
+              <ul>
+                  <li><b>1. 마음 가라앉히기:</b> 먼저 각자 심장에 집중하며 "우리는 같은 팀이야"라고 되새깁니다.</li>
+                  <li><b>2. 감사 표현하기:</b> 상대에게 고맙게 여기는 점을 한 가지씩 말하며 대화를 시작합니다.</li>
+                  <li><b>3. '나 전달법'으로 말하기:</b> 3분 타이머를 맞추고, 주어를 '나'로 하여 자신의 마음을 털어놓습니다. (예: "나는 당신이 답이 없을 때 버려질까 봐 겁이 나.")</li>
+                  <li><b>4. 미러링(반영 경청):</b> 듣는 사람은 상대방이 한 말을 그대로 반복하며 제대로 들었는지 확인합니다.</li>
+                  <li><b>5. 역할 바꾸기:</b> 위 과정을 역할을 바꾸어 반복합니다.</li>
+                  <li><b>6. 해결책 모색:</b> 양쪽의 경험에 공감하고 인정한 뒤, 함께 해결책을 찾아봅니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 9 Start -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">9장</p>
+          <h2 class="slide-title">내가 준비되면 <span class="highlight">인연은 찾아온다</span></h2>
+          <p class="slide-subtitle">사랑은 절박하게 찾는 것이 아니라, 내면을 꼼꼼히 돌보고 내적 지혜에 귀 기울일 때 저절로 찾아오게 하는 인간 자석이 되는 것입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불안을 잠재우는 <span class="highlight">자연의 위로</span> 🌳</h2>
+          <p class="slide-subtitle">우리는 자연과도 공동 조절을 할 능력이 있습니다.</p>
+          <div class="slide-content">
+            <p>삼림욕은 혈압 저하, 스트레스 호르몬 감소, 수면 촉진, 분노 진정 등의 효과가 있습니다. 특히 불안 애착형에게 중요한 것은, 나무들 사이에 있으면 <span class="highlight">자율신경계가 차분해지는 효과</span>가 있다는 것입니다.</p>
+            <p class="mt-4">바다, 숲, 혹은 신발을 벗고 밟는 풀밭 등, 당신을 위로하고 보듬어 주는 자연과의 연결을 느껴보세요. 자연은 우리가 균형을 잡도록 언제나 우리 곁에서 에너지를 제공합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불안 애착의 <span class="highlight">장점</span> ✨</h2>
+          <p class="slide-subtitle">불안 애착은 치유의 과정을 거치면 놀라운 장점으로 변모할 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">뛰어난 공감 능력</h3>
+              <p>예민한 감각과 너그러운 마음은 타인에게 지혜와 너그러움이 담긴 보살핌을 줄 수 있는 능력으로 발전합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">변화에 대한 개방성</h3>
+              <p>도움을 청하는 데 익숙하여 치유 과정에서 타인의 도움을 잘 받아들입니다. 확장형 에너지 덕분에 공동 조절을 받아들이기 더 쉽습니다.</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8 text-center font-bold">안전을 위해 키웠던 바로 그 능력 덕분에, 불안형은 두려움만 줄이면 <span class="highlight">치유와 상호의존 관계를 위한 이상적인 파트너</span>가 될 수 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">핵심 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">진정한 사랑은 외부에서 찾는 것이 아니라, 자기 내면을 먼저 채우고, 자신의 모든 부분을 사랑으로 받아들일 때 시작됩니다. 이 <span class="highlight">자기 채움</span>의 여정은 당신이 건강하고 만족스러운 관계를 맺는 튼튼한 기반이 됩니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신은 조건 없이 사랑하고 사랑받을 권리가 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { // Space bar for next slide
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

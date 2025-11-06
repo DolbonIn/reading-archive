@@ -1,5 +1,445 @@
 [
   {
+    "slug": "그가-나에게-말하지-않는-것-로라-데이브-지음-김소정-옮김",
+    "title": "그가 나에게 말하지 않는 것",
+    "author": "로라 데이브 지음, 김소정 옮김",
+    "date": "2025-11-07",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/그가-나에게-말하지-않는-것-로라-데이브-지음-김소정-옮김.html",
+    "cover": "assets/covers/그가-나에게-말하지-않는-것-로라-데이브-지음-김소정-옮김.jpg"
+  },
+  {
+    "slug": "10배의-법칙-성공과-실패를-가르는-유일한-차이-그랜트-카돈",
+    "title": "10배의 법칙 - 성공과 실패를 가르는 유일한 차이",
+    "author": "그랜트 카돈",
+    "date": "2025-11-07",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/10배의-법칙-성공과-실패를-가르는-유일한-차이-그랜트-카돈.html",
+    "cover": "assets/covers/10배의-법칙-성공과-실패를-가르는-유일한-차이-그랜트-카돈.jpg"
+  },
+  {
+    "slug": "퓨처-셀프",
+    "title": "퓨처 셀프",
+    "author": "벤저민 하디 Benjamin Hardy",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/퓨처-셀프.html",
+    "cover": "assets/covers/퓨처-셀프.jpg"
+  },
+  {
+    "slug": "클루지-생각의-발견을-뒤집는-기막힌-발견",
+    "title": "클루지 - 생각의 발견을 뒤집는 기막힌 발견",
+    "author": "개리 마커스",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/클루지-생각의-발견을-뒤집는-기막힌-발견.html",
+    "cover": "assets/covers/클루지-생각의-발견을-뒤집는-기막힌-발견.jpg"
+  },
+  {
+    "slug": "카네기-인간관계론-행복한-성공의-바이블",
+    "title": "카네기 인간관계론 행복한 성공의 바이블",
+    "author": "데일 카네기",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/카네기-인간관계론-행복한-성공의-바이블.html",
+    "cover": "assets/covers/카네기-인간관계론-행복한-성공의-바이블.jpg"
+  },
+  {
+    "slug": "총-균-쇠",
+    "title": "총, 균, 쇠",
+    "author": "재레드 다이아몬드",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/총-균-쇠.html",
+    "cover": "assets/covers/총-균-쇠.jpg"
+  },
+  {
+    "slug": "챗gpt에게-묻는-인류의-미래",
+    "title": "챗GPT에게 묻는 인류의 미래",
+    "author": "김대식, 챗GPT",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/챗gpt에게-묻는-인류의-미래.html",
+    "cover": "assets/covers/챗gpt에게-묻는-인류의-미래.jpg"
+  },
+  {
+    "slug": "진짜-좋아하는-일만-하고-사는-법-데릭-시버스",
+    "title": "진짜 좋아하는 일만 하고 사는 법",
+    "author": "데릭 시버스",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/진짜-좋아하는-일만-하고-사는-법-데릭-시버스.html",
+    "cover": "assets/covers/진짜-좋아하는-일만-하고-사는-법-데릭-시버스.jpg"
+  },
+  {
+    "slug": "잘됐던-방법부터-버려라-돈-사랑-관계가-술술-풀리는-36가지-성공-법칙",
+    "title": "잘됐던 방법부터 버려라 돈, 사랑, 관계가 술술 풀리는 36가지 성공 법칙",
+    "author": "시이하라 다카시 지음, 김소영 옮김",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/잘됐던-방법부터-버려라-돈-사랑-관계가-술술-풀리는-36가지-성공-법칙.html",
+    "cover": "assets/covers/잘됐던-방법부터-버려라-돈-사랑-관계가-술술-풀리는-36가지-성공-법칙.jpg"
+  },
+  {
+    "slug": "일을-잘-맡기는-기술-일-잘하는-리더보다-일-잘-맡기는-리더가-되라",
+    "title": "일을 잘 맡기는 기술 - 일 잘하는 리더보다 일 잘 맡기는 리더가 되라",
+    "author": "모리야 도모타카",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/일을-잘-맡기는-기술-일-잘하는-리더보다-일-잘-맡기는-리더가-되라.html",
+    "cover": "assets/covers/일을-잘-맡기는-기술-일-잘하는-리더보다-일-잘-맡기는-리더가-되라.jpg"
+  },
+  {
+    "slug": "일류의-조건-사이토-다카시",
+    "title": "일류의 조건",
+    "author": "사이토 다카시",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/일류의-조건-사이토-다카시.html",
+    "cover": "assets/covers/일류의-조건-사이토-다카시.jpg"
+  },
+  {
+    "slug": "인간이-되다-인간의-코딩-오류-경이로운-문명을-만들다",
+    "title": "인간이 되다 - 인간의 코딩 오류, 경이로운 문명을 만들다",
+    "author": "루이스 다트넬",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/인간이-되다-인간의-코딩-오류-경이로운-문명을-만들다.html",
+    "cover": "assets/covers/인간이-되다-인간의-코딩-오류-경이로운-문명을-만들다.jpg"
+  },
+  {
+    "slug": "위대한-대화",
+    "title": "위대한 대화",
+    "author": "김지수",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/위대한-대화.html",
+    "cover": "assets/covers/위대한-대화.jpg"
+  },
+  {
+    "slug": "우리-모두의-마음속에는-길을-잃고-헤매는-이가-있다-양장본-hardcover",
+    "title": "우리 모두의 마음속에는 길을 잃고 헤매는 이가 있다(양장본 HardCover)",
+    "author": "곽 금주, author",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/우리-모두의-마음속에는-길을-잃고-헤매는-이가-있다-양장본-hardcover.html",
+    "cover": "assets/covers/우리-모두의-마음속에는-길을-잃고-헤매는-이가-있다-양장본-hardcover.jpg"
+  },
+  {
+    "slug": "역행자-확장판",
+    "title": "역행자 확장판",
+    "author": "자청",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/역행자-확장판.html",
+    "cover": "assets/covers/역행자-확장판.jpg"
+  },
+  {
+    "slug": "실리콘밸리에선-어떻게-일하나요",
+    "title": "실리콘밸리에선 어떻게 일하나요",
+    "author": "크리스 채",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/실리콘밸리에선-어떻게-일하나요.html",
+    "cover": "assets/covers/실리콘밸리에선-어떻게-일하나요.jpg"
+  },
+  {
+    "slug": "시간-이-있었으면-좋겠다-삶-의-여백-을-사랑-하는-일-에-대해",
+    "title": "시간 이 있었으면 좋겠다 삶 의 여백 을 사랑 하는 일 에 대해",
+    "author": "김 신지, author",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/시간-이-있었으면-좋겠다-삶-의-여백-을-사랑-하는-일-에-대해.html",
+    "cover": "assets/covers/시간-이-있었으면-좋겠다-삶-의-여백-을-사랑-하는-일-에-대해.jpg"
+  },
+  {
+    "slug": "스몰-트라우마-삶의-면역을-기르는-자기-돌봄의-심리학",
+    "title": "스몰 트라우마 - 삶의 면역을 기르는 자기 돌봄의 심리학",
+    "author": "멕 애럴",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/스몰-트라우마-삶의-면역을-기르는-자기-돌봄의-심리학.html",
+    "cover": "assets/covers/스몰-트라우마-삶의-면역을-기르는-자기-돌봄의-심리학.jpg"
+  },
+  {
+    "slug": "쇼펜하우어-인생수업-한-번뿐인-삶-이렇게-살아라",
+    "title": "쇼펜하우어 인생수업 - 한 번뿐인 삶 이렇게 살아라",
+    "author": "아르투어 쇼펜하우어",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/쇼펜하우어-인생수업-한-번뿐인-삶-이렇게-살아라.html",
+    "cover": "assets/covers/쇼펜하우어-인생수업-한-번뿐인-삶-이렇게-살아라.jpg"
+  },
+  {
+    "slug": "상실의-기쁨",
+    "title": "상실의 기쁨",
+    "author": "프랭크 브루니",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/상실의-기쁨.html",
+    "cover": "assets/covers/상실의-기쁨.jpg"
+  },
+  {
+    "slug": "사장학개론",
+    "title": "사장학개론",
+    "author": "김승호",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/사장학개론.html",
+    "cover": "assets/covers/사장학개론.jpg"
+  },
+  {
+    "slug": "사는-동안-한-번-은-팔아봐라",
+    "title": "사는 동안 한 번 은 팔아봐라",
+    "author": "서 과장",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/사는-동안-한-번-은-팔아봐라.html",
+    "cover": "assets/covers/사는-동안-한-번-은-팔아봐라.jpg"
+  },
+  {
+    "slug": "번아웃의-종말",
+    "title": "번아웃의 종말",
+    "author": "조나단 말레식",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/번아웃의-종말.html",
+    "cover": "assets/covers/번아웃의-종말.jpg"
+  },
+  {
+    "slug": "무엇이-나를-행복하게-만드는가-인생의-절반쯤-왔을-때-깨닫게-되는-것들-리처드-j-라이더-데이비드-a-샤피로",
+    "title": "무엇이 나를 행복하게 만드는가 - 인생의 절반쯤 왔을 때 깨닫게 되는 것들",
+    "author": "리처드 J 라이더,데이비드 A 샤피로",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/무엇이-나를-행복하게-만드는가-인생의-절반쯤-왔을-때-깨닫게-되는-것들-리처드-j-라이더-데이비드-a-샤피로.html",
+    "cover": "assets/covers/무엇이-나를-행복하게-만드는가-인생의-절반쯤-왔을-때-깨닫게-되는-것들-리처드-j-라이더-데이비드-a-샤피로.jpg"
+  },
+  {
+    "slug": "말에-구원받는다는-것-삶을-파괴하는-말들에-지지-않기",
+    "title": "말에 구원받는다는 것 - 삶을 파괴하는 말들에 지지 않기",
+    "author": "아라이 유키",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/말에-구원받는다는-것-삶을-파괴하는-말들에-지지-않기.html",
+    "cover": "assets/covers/말에-구원받는다는-것-삶을-파괴하는-말들에-지지-않기.jpg"
+  },
+  {
+    "slug": "마흔에-읽는-쇼펜하우어",
+    "title": "마흔에 읽는 쇼펜하우어",
+    "author": "강용수",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/마흔에-읽는-쇼펜하우어.html",
+    "cover": "assets/covers/마흔에-읽는-쇼펜하우어.jpg"
+  },
+  {
+    "slug": "마음이-아니라-뇌가-불안한-겁니다",
+    "title": "마음이 아니라 뇌가 불안한 겁니다",
+    "author": "다니엘 G 에이멘",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/마음이-아니라-뇌가-불안한-겁니다.html",
+    "cover": "assets/covers/마음이-아니라-뇌가-불안한-겁니다.jpg"
+  },
+  {
+    "slug": "똑똑한-사람은-어떻게-생각하고-질문하는가-이시한",
+    "title": "똑똑한 사람은 어떻게 생각하고 질문하는가",
+    "author": "이시한",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/똑똑한-사람은-어떻게-생각하고-질문하는가-이시한.html",
+    "cover": "assets/covers/똑똑한-사람은-어떻게-생각하고-질문하는가-이시한.jpg"
+  },
+  {
+    "slug": "다시-인생을-아이처럼-살-수-있다면",
+    "title": "다시 인생을 아이처럼 살 수 있다면",
+    "author": "존 오리어리",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/다시-인생을-아이처럼-살-수-있다면.html",
+    "cover": "assets/covers/다시-인생을-아이처럼-살-수-있다면.jpg"
+  },
+  {
+    "slug": "다산의-마지막-편지",
+    "title": "다산의 마지막 편지",
+    "author": "박석현",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/다산의-마지막-편지.html",
+    "cover": "assets/covers/다산의-마지막-편지.jpg"
+  },
+  {
+    "slug": "니체-인생수업-니체가-세상에-남긴-66가지-인생지혜",
+    "title": "니체 인생수업 - 니체가 세상에 남긴 66가지 인생지혜",
+    "author": "프리드리히 니체",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/니체-인생수업-니체가-세상에-남긴-66가지-인생지혜.html",
+    "cover": "assets/covers/니체-인생수업-니체가-세상에-남긴-66가지-인생지혜.jpg"
+  },
+  {
+    "slug": "넷-포지티브",
+    "title": "넷 포지티브",
+    "author": "폴 폴먼•앤드루 윈스턴 지음│이경식 옮김",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/넷-포지티브.html",
+    "cover": "assets/covers/넷-포지티브.jpg"
+  },
+  {
+    "slug": "내가-천-개의-인생에서-배운-것들-돈-명예-시간-그-무엇보다-소중한-것에-관하여",
+    "title": "내가 천 개의 인생에서 배운 것들 - 돈, 명예, 시간 그 무엇보다 소중한 것에 관하여",
+    "author": "김도윤",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/내가-천-개의-인생에서-배운-것들-돈-명예-시간-그-무엇보다-소중한-것에-관하여.html",
+    "cover": "assets/covers/내가-천-개의-인생에서-배운-것들-돈-명예-시간-그-무엇보다-소중한-것에-관하여.jpg"
+  },
+  {
+    "slug": "나의-아프고-아름다운-코끼리",
+    "title": "나의 아프고 아름다운 코끼리",
+    "author": "바바라 포어자머",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나의-아프고-아름다운-코끼리.html",
+    "cover": "assets/covers/나의-아프고-아름다운-코끼리.jpg"
+  },
+  {
+    "slug": "나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가",
+    "title": "나라는 착각 - 뇌는 어떻게 인간의 정체성을 발명하는가",
+    "author": "그레고리 번스",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.html",
+    "cover": "assets/covers/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.jpg"
+  },
+  {
+    "slug": "나는-죽을-때까지-재미있게-살고-싶다",
+    "title": "나는 죽을 때까지 재미있게 살고 싶다",
+    "author": "이근후",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나는-죽을-때까지-재미있게-살고-싶다.html",
+    "cover": "assets/covers/나는-죽을-때까지-재미있게-살고-싶다.jpg"
+  },
+  {
+    "slug": "나는-좌절의-스페셜리스트입니다",
+    "title": "나는 좌절의 스페셜리스트입니다",
+    "author": "백혜선",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나는-좌절의-스페셜리스트입니다.html",
+    "cover": "assets/covers/나는-좌절의-스페셜리스트입니다.jpg"
+  },
+  {
+    "slug": "나는-왜-사랑할수록-불안해질까",
+    "title": "나는 왜 사랑할수록 불안해질까",
+    "author": "제시카 바움 (Jessica Baum)",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나는-왜-사랑할수록-불안해질까.html",
+    "cover": "assets/covers/나는-왜-사랑할수록-불안해질까.jpg"
+  },
+  {
+    "slug": "그레이트-마인드셋",
+    "title": "그레이트 마인드셋",
+    "author": "루이스 하우즈",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/그레이트-마인드셋.html",
+    "cover": "assets/covers/그레이트-마인드셋.jpg"
+  },
+  {
+    "slug": "그들의-생각을-바꾸는-방법-극단의-시대-견고한-믿음에-균열을-내는-설득의-과학",
+    "title": "그들의 생각을 바꾸는 방법 극단의 시대, 견고한 믿음에 균열을 내는 설득의 과학",
+    "author": "데이비드 맥레이니",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/그들의-생각을-바꾸는-방법-극단의-시대-견고한-믿음에-균열을-내는-설득의-과학.html",
+    "cover": "assets/covers/그들의-생각을-바꾸는-방법-극단의-시대-견고한-믿음에-균열을-내는-설득의-과학.jpg"
+  },
+  {
+    "slug": "공부하고-있다는-착각-성적의-판도를-가르는-뇌-최적화의-기술",
+    "title": "공부하고 있다는 착각 - 성적의 판도를 가르는 뇌 최적화의 기술",
+    "author": "대니얼 T 윌링햄",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/공부하고-있다는-착각-성적의-판도를-가르는-뇌-최적화의-기술.html",
+    "cover": "assets/covers/공부하고-있다는-착각-성적의-판도를-가르는-뇌-최적화의-기술.jpg"
+  },
+  {
+    "slug": "공부하고-있다는-착각",
+    "title": "공부하고 있다는 착각",
+    "author": "대니얼 T. 윌링햄",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/공부하고-있다는-착각.html",
+    "cover": "assets/covers/공부하고-있다는-착각.jpg"
+  },
+  {
+    "slug": "거인의-노트",
+    "title": "거인의 노트",
+    "author": "김익한",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/거인의-노트.html",
+    "cover": "assets/covers/거인의-노트.jpg"
+  },
+  {
+    "slug": "개인주의자의-철학-수업",
+    "title": "개인주의자의 철학 수업",
+    "author": "마루야마 슌이치",
+    "date": "2025-11-05",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/개인주의자의-철학-수업.html",
+    "cover": "assets/covers/개인주의자의-철학-수업.jpg"
+  },
+  {
     "slug": "희망-버리기-기술-엉망진창인-세상에서-흔들리지-않고-나아가는-힘",
     "title": "희망 버리기 기술 엉망진창인 세상에서 흔들리지 않고 나아가는 힘",
     "author": "Mark Manson; 한재호",

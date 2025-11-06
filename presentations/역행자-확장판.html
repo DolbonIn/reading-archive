@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>역행자 | 7단계 인생 공략집</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      overflow: hidden; /* Prevent body scroll */
+    }
+    .slide-wrapper {
+        height: 100vh;
+        overflow-y: auto;
+        padding-bottom: 120px; /* Space for progress bar */
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .list-disc li {
+        margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4 md:p-8">
+
+  <div class="w-full h-screen">
+    <!-- Slides Container -->
+    <div id="slides-container" class="slide-wrapper">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🚀</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">역행자</h1>
+          <p class="text-xl md:text-2xl text-gray-700">돈·시간·운명으로부터 <span class="highlight">완전한 자유</span>를 얻는 7단계 인생 공략집</p>
+           <p class="text-lg md:text-xl text-gray-500 mt-6">자청 지음</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>서문:</b> 인생에도 공식이 있다</p>
+            <p><b>프롤로그:</b> 95%의 순리자와 5%의 역행자</p>
+            <p><b>1장:</b> 나는 어떻게 경제적 자유에 이르게 되었나</p>
+            <p><b>2장:</b> 역행자 1단계: <span class="highlight">자의식 해체</span></p>
+            <p><b>3장:</b> 역행자 2단계: <span class="highlight">정체성 만들기</span></p>
+            <p><b>4장:</b> 역행자 3단계: <span class="highlight">유전자 오작동 극복</span></p>
+            <p><b>5장:</b> 역행자 4단계: <span class="highlight">뇌 자동화</span></p>
+            <p><b>6장:</b> 역행자 5단계: <span class="highlight">역행자의 지식</span></p>
+            <p><b>7장:</b> 역행자 6단계: <span class="highlight">경제적 자유를 얻는 구체적 루트</span></p>
+            <p><b>8장:</b> 역행자 7단계: <span class="highlight">역행자의 쳇바퀴</span></p>
+            <p><b>결론:</b> 자유를 향한 여정</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Section Intro - Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">인생의 두 갈래 길: <span class="highlight">순리자</span> vs <span class="highlight">역행자</span></h2>
+          <p class="slide-content">인생에는 정해진 운명대로 살아가는 95%의 '순리자'와, 본성을 거슬러 완전한 자유를 쟁취하는 5%의 '역행자'가 있습니다. 당신은 어떤 길을 선택하시겠습니까?</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: 순리자 vs 역행자 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신은 어디에 속해 있나요? 🤔</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-2xl mb-4">순리자 (95%)</h3>
+              <p class="text-6xl mb-4">🐑</p>
+              <p>타고난 운명과 본능에 따라 살아갑니다. 유전자, 무의식, 자의식이라는 울타리 안에서 평범한 삶을 삽니다.</p>
+            </div>
+            <div class="p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-2xl mb-4">역행자 (5%)</h3>
+              <p class="text-6xl mb-4">🦁</p>
+              <p>본성을 거스르는 능력을 통해 운명의 꼭두각시에서 벗어나 인생의 자유, 경제적 자유를 누립니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: The Three Fences -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리를 가두는 <span class="highlight">3개의 울타리</span> ⛓️</h2>
+          <p class="slide-subtitle">인간의 삶은 닭장 속의 닭과 크게 다르지 않습니다. 눈에 보이지 않는 3개의 울타리가 우리의 운명을 결정합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-xl">유전자</h3>
+              <p>선사시대부터 내려온 본능적 명령들</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-xl">무의식</h3>
+              <p>과거의 경험과 학습으로 형성된 자동 반응</p>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-xl">자의식</h3>
+              <p>상처받기 싫어 변화를 거부하는 방어기제</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8">역행자는 '역행자 7단계 모델'이라는 예리한 검으로 이 울타리를 부수고 진정한 자유를 향해 나아갑니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 6: The Ultimate Freedom -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🏆</div>
+            <h2 class="slide-title">역행자가 마주하는 <span class="highlight">진정한 자유</span></h2>
+            <div class="slide-content max-w-4xl mx-auto flex justify-center items-center space-x-8 text-2xl font-bold">
+                <div class="p-6 rounded-lg bg-blue-100">💰 돈</div>
+                <div class="p-6 rounded-lg bg-green-100">⏳ 시간</div>
+                <div class="p-6 rounded-lg bg-purple-100">🧠 정신</div>
+            </div>
+            <p class="slide-subtitle mt-8">울타리를 탈출한 인간은 이 세 가지로부터의 완전한 자유를 얻습니다.<br>쇼펜하우어는 인생이 고통이라 했지만, 역행자에게 인생은 '<span class="highlight">끝내주는 놀이터</span>'입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Section Intro - Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">나는 어떻게 <span class="highlight">경제적 자유</span>에 이르게 되었나</h2>
+          <p class="slide-content">"역행자 7단계 모델을 따르면, 인생에서 완전한 자유를 얻을 수 있다."<br>이 말이 헛소리처럼 들리시나요? 저의 과거 이야기를 통해 당신의 무의식에 작은 균열을 내고자 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: The Three Walls -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">넘을 수 없었던 <span class="highlight">3개의 벽</span></h2>
+          <p class="slide-subtitle">학창 시절, 저의 인생은 3개의 거대한 벽으로 가로막혀 있었습니다. 저는 그 벽에 갇힌 좀비처럼 아무 생각 없이 살아갔습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 border-l-4 border-red-500 bg-red-50">
+              <h3 class="font-bold text-xl">공부 📚</h3>
+              <p>반에서 35등. 뭘 해도 안 된다는 좌절감.</p>
+            </div>
+            <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+              <h3 class="font-bold text-xl">외모 😥</h3>
+              <p>'우리 반에서 가장 혐오스러운 남자' 1위.</p>
+            </div>
+            <div class="p-4 border-l-4 border-green-500 bg-green-50">
+              <h3 class="font-bold text-xl">돈 💸</h3>
+              <p>안산의 가장 가난한 동네, 얼음장 같은 빌라.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: The Turning Point -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생의 <span class="highlight">터닝포인트</span>: 한 권의 책</h2>
+          <p class="slide-subtitle">스무 살 겨울, 히키코모리 게임 오타쿠였던 저는 인생을 바꿀 한 가지 깨달음을 얻게 됩니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6">
+                <li>아르바이트에서 왕따를 당하던 중, 인간관계에 대한 고민이 생겼습니다.</li>
+                <li>'사람들과 친하게 지내게 해주는 책 없나?'라는 생각에 도서관에서 <span class="highlight">대화법 책</span>을 읽기 시작했습니다.</li>
+                <li>책의 내용을 적용하자 사람들의 태도가 바뀌는 것을 경험했습니다.</li>
+                <li>그때 하나의 희망을 보았습니다. <strong>"게임처럼 인생에도 공략집이 있구나!"</strong></li>
+            </ul>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg text-center">
+                <p class="font-bold text-xl">인생의 공략집 = <span class="highlight">책</span> 📖</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: The Transformation Begins -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">2개월, 200권의 책, 그리고 <span class="highlight">변화의 시작</span></h2>
+              <p class="slide-subtitle">인생 공략집의 존재를 깨달은 저는 영화관 아르바이트를 그만두고 도서관에 박혀 자기계발서와 심리학책 200여 권을 읽었습니다.</p>
+              <div class="slide-content">
+                  <p class="mb-4">100가지가 넘는 성공 스토리를 읽으며 '나도 뭐든 해낼 수 있을 것 같다'는 자신감이 생겼고, 무의식이 점차 변하기 시작했습니다.</p>
+                  <p><b>결과:</b></p>
+                  <ul class="list-disc pl-6 mt-2">
+                      <li>늘어난 대화 스킬 덕분에 친구들과의 관계가 좋아졌습니다.</li>
+                      <li>'똑똑한 사람들과 대화하고 싶다'는 새로운 욕심과 함께 대학에 다시 가기로 결심했습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 11: The Second Failure -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">두 번째 실패와 <span class="highlight">깨달음</span></h2>
+              <p class="slide-subtitle">1년간의 독학 후, 수능에서 평균 4.5등급을 받으며 다시 실패했습니다. 책을 읽으며 쌓인 지식은 환상이었을 뿐, 3개의 벽은 여전히 저를 가로막고 있었습니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg text-red-600">실패 원인  분석</h3>
+                      <p>"책을 읽고 지식이 쌓이면서 '나는 대단한 사람이야'라고 <span class="highlight">착각</span>했을 뿐, 현실은 변하지 않았다."</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg text-green-600">새로운 전략: 22전략</h3>
+                      <p>재수 생활 후 전북대 철학과에 입학. "성공한 사람들은 모두 책 읽기와 글쓰기를 한다." → 하루 2시간 책 읽고 글을 쓰는 <span class="highlight">'22전략'</span>을 시작.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 12: Cracking the Walls -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">드디어 벽에 <span class="highlight">균열</span>이 가다</h2>
+          <p class="slide-subtitle">'22전략'이라는 단순한 믿음이 놀라운 효과를 발휘하기 시작했습니다.</p>
+          <div class="slide-content space-y-4">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">🎓 공부의 벽</h3>
+              <p>본질을 파악하는 능력이 향상되어 별다른 공부 없이도 철학 수업에서 장학금을 받았습니다. '평생 이길 수 없다'고 생각했던 친구와의 격차가 좁혀졌습니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">💰 돈의 벽</h3>
+              <p>'하위권 전문 과외'라는 독특한 컨셉으로 과외 시장을 공략, 월 150-200만 원의 수입을 올렸습니다. 시급 3천 원에서 2만 원으로, 삶의 밸런스가 잡히기 시작했습니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">👨‍🎨 외모의 벽</h3>
+              <p>천재적인 친구 '지한'의 도움으로 옷, 헤어스타일, 피부 등 모든 것을 바꾸며 자신감을 찾고 연애를 시작했습니다. 내면의 변화가 외면으로 드러났습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: From Rock Bottom to Rebirth -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생 최악의 위기, 그리고 <span class="highlight">재탄생</span></h2>
+          <p class="slide-subtitle">이별 상담 사업으로 월 3천만 원을 벌며 성공 가도를 달렸지만, 동업자와의 갈등, 배신, 군 입대 후 강직성척추염이라는 난치병까지 얻으며 인생의 밑바닥을 경험합니다.</p>
+          <div class="slide-content mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">병원에서의 깨달음 💡</h3>
+              <p class="mt-2">군 병원에서 읽은 『부자의 그릇』을 통해 자신의 실패가 불운이 아닌 '그릇'의 문제였음을 깨닫습니다. 경영, 회계, 세무 등 아는 것이 없었던 자신의 실력을 철저히 인정하고, 기본부터 다시 시작하기로 결심합니다.</p>
+              <p class="mt-4 font-bold">"남을 탓하기보다 내 문제에 집중하자."</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: The Finale: Complete Freedom -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🎉</div>
+            <h2 class="slide-title">피날레: 거슬러 오르기</h2>
+            <p class="slide-subtitle">제대 후, 무일푼의 백수였지만 수많은 경험치와 스킬을 가진 '역행자'가 되어 있었습니다.</p>
+            <div class="slide-content max-w-4xl mx-auto space-y-3 text-left">
+                <p><b>- 서른하나:</b> 일하지 않아도 월 5000만 원을 버는 자동 수익 구조 완성.</p>
+                <p><b>- 서른둘:</b> '이상한마케팅' 설립.</p>
+                <p><b>- 서른셋:</b> 유튜브 시작 6개월 만에 16만 구독자 달성 후 은퇴.</p>
+                <p><b>- 현재:</b> 6개의 사업체와 여러 지분 투자를 통해 완전한 경제적 자유를 이루고, '욕망의북카페' 등을 통해 자아실현에 집중하고 있습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Section Intro - Step 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">역행자 1단계</p>
+          <h2 class="slide-title">자의식 <span class="highlight">해체</span></h2>
+          <p class="slide-content">역행자 7단계 모델의 가장 중요하고 첫 번째 관문입니다. 이 부분이 해결되지 않으면 어떤 좋은 정보를 얻더라도 '난 못 해', '이건 헛소리야'라고 합리화하며 받아들이지 못해, 성장 가능성이 완전히 차단됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Ego Defense -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">"합리화"라는 이름의 감옥 🧱</h2>
+              <p class="slide-subtitle">자의식은 상처받는 것을 피하려는 인간의 본능적인 방어기제입니다. 하지만 과도한 자의식은 성장의 기회를 모두 튕겨내 버립니다.</p>
+              <div class="slide-content">
+                  <p><b>흔한 자의식의 목소리:</b></p>
+                  <ul class="list-disc pl-6 mt-2 bg-gray-50 p-4 rounded-lg">
+                      <li>"저 유명 사업가는 금수저였을 거야."</li>
+                      <li>"책 없이 부자 된 사람도 많던데, 난 책 안 읽을래."</li>
+                      <li>"부동산으로 돈 번 사람들은 모두 투기꾼이야."</li>
+                      <li>"나는 돈보다 중요한 가치가 있다고 생각해." (사실은 누구보다 돈을 원하면서)</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 17: Three Steps of Ego Deconstruction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자의식 해체의 <span class="highlight">3단계 프로세스</span></h2>
+          <p class="slide-subtitle">불편한 감정이 들 때마다 이 3단계를 기계적으로 떠올리는 연습을 해야 합니다.</p>
+          <div class="slide-content space-y-4">
+            <div class="p-4 rounded-lg border-l-4 border-blue-500 bg-blue-50">
+              <h3 class="font-bold text-lg">1. 탐색 (Explore) 🔎</h3>
+              <p>누군가를 만났을 때, 혹은 어떤 정보를 접했을 때 불편한 감정이 드는 원인을 탐색합니다. '내 어떤 열등감이 자극되었을까?'</p>
+            </div>
+            <div class="p-4 rounded-lg border-l-4 border-yellow-500 bg-yellow-50">
+              <h3 class="font-bold text-lg">2. 인정 (Acknowledge) 🙏</h3>
+              <p>자신의 질투, 열등감, 어리석음을 객관적으로 인정합니다. '내가 저 사람을 질투하는구나', '내가 이 분야에 대해 무지했구나'라고 솔직하게 받아들입니다.</p>
+            </div>
+            <div class="p-4 rounded-lg border-l-4 border-green-500 bg-green-50">
+              <h3 class="font-bold text-lg">3. 전환 (Convert) 💡</h3>
+              <p>불편한 감정을 성장의 계기로 전환합니다. '저 사람의 어떤 점이 인기 비결일까? 흡수하자', '이 분야를 회피해왔는데, 지금부터 뭘 해야 할까?' 액션 플랜을 세웁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Section Intro - Step 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">역행자 2단계</p>
+          <h2 class="slide-title">정체성 <span class="highlight">만들기</span></h2>
+          <p class="slide-content">자의식 해체를 통해 새로운 것을 받아들일 준비가 되었다면, 이제 새로운 자의식, 즉 '정체성'을 세워야 합니다. 정체성은 삶의 동기이자, 당신을 원하는 목표로 이끌어주는 강력한 연료입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: The Power of Identity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나는 내가 <span class="highlight">정의하는</span> 사람이 된다</h2>
+          <p class="slide-subtitle">"언어의 한계는 세계의 한계다." - 비트겐슈타인<br>마찬가지로, 정체성의 한계는 인간의 한계입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">기존의 정체성</h3>
+              <p>"나는 평범한 한국 사람이다."<br>→ 경제적 자유 가능성 0%</p>
+              <p class="mt-4">"나는 월 300 이상 버는 날은 영원히 오지 않을 거야."<br>→ 이 믿음이 현실이 됩니다.</p>
+            </div>
+            <div class="p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">새로운 정체성</h3>
+              <p>"나는 한 달에 1억 벌 수 있는 사람이다."<br>→ 가능성이 생겨납니다.</p>
+              <p class="mt-4">"나는 베스트셀러 작가가 될 거야."<br>→ 그 목표에 맞는 행동을 하게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: How to Build Identity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 소프트웨어 설치하기: <span class="highlight">정체성 설정 3가지 방법</span></h2>
+          <p class="slide-subtitle">결심만으로는 부족합니다. 뇌가 새로운 정체성을 자연스럽게 받아들이도록 '환경'을 설계해야 합니다.</p>
+          <div class="slide-content space-y-4">
+              <p><b>1. 책을 통한 간접 최면 📚:</b> 자수성가한 사람들의 책 20권을 읽으며 '나도 할 수 있다'는 믿음을 뇌에 심습니다. 거울 뉴런을 통해 그들의 성공을 나의 것처럼 느끼게 됩니다.</p>
+              <p><b>2. 환경 설계 📢:</b> 주변 사람들에게 "나는 OOO이 될 거야!"라고 선언합니다. 평판을 중요시하는 인간의 본능을 역이용하여, 뱉은 말을 지키기 위해 노력하게 만듭니다. (벌금 내기 등)</p>
+              <p><b>3. 집단 무의식 🤝:</b> 목표와 관련된 모임(독서 모임, 투자 스터디)에 참여합니다. 그 집단이 중요하게 여기는 가치를 자연스럽게 받아들이고, 그에 맞는 행동을 하게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Section Intro - Step 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">역행자 3단계</p>
+          <h2 class="slide-title">유전자 오작동 <span class="highlight">극복</span></h2>
+          <p class="slide-content">우리의 뇌는 수십만 년 전 원시시대 환경에 맞게 진화했습니다. 이 오래된 본능은 현대 사회에서 잘못된 판단을 내리게 하는 '클루지(Kluge)'로 작용합니다. 이 오작동을 이해하고 극복해야만 순리자의 삶에서 벗어날 수 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 22: What is Kluge? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과거의 생존 본능, 현대의 <span class="highlight">'클루지'</span></h2>
+          <p class="slide-subtitle">빛을 보고 날아드는 나방처럼, 과거에 생존에 유리했던 본능이 현대에는 오히려 우리를 해칩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">원시시대의 생존 전략 🍖</h3>
+              <ul class="list-disc pl-5 mt-2">
+                <li>음식을 보면 무조건 먹어둬야 생존에 유리했다.</li>
+                <li>새로운 도전은 위험했기에 안주하는 것이 안전했다.</li>
+                <li>집단에서의 평판이 나빠지면 곧 죽음이었다.</li>
+                <li>손실은 생존에 치명적이어서 극도로 회피했다.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">현대사회의 오작동 📱</h3>
+              <ul class="list-disc pl-5 mt-2">
+                <li>칼로리 과다로 인한 비만, 당뇨.</li>
+                <li>새로운 기회를 놓치고 도태된다.</li>
+                <li>악플, 남의 시선에 과도하게 스트레스를 받는다.</li>
+                <li>패닉 셀(Panic sell)로 투자에 실패한다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Section Intro - Step 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">역행자 4단계</p>
+          <h2 class="slide-title">뇌 <span class="highlight">자동화</span></h2>
+          <p class="slide-content">본능의 꼭두각시 끈을 잘라냈다 해도, 뇌 자체가 발달하지 않으면 자유를 얻을 수 없습니다. '뇌 최적화'와 '뇌 자동화'를 통해 뇌 근육을 키우고, 지능이 복리로 성장하는 시스템을 만들어야 합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Brain as a Compounding Asset -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌를 <span class="highlight">복리</span>로 성장시켜라 📈</h2>
+          <p class="slide-subtitle">지능은 타고나는 것이 아니라, 신경 가소성에 의해 후천적으로 개발될 수 있습니다. 뇌 최적화를 끝내면, 가만히 있어도 생각이 이어지고 지능이 눈덩이처럼 자동으로 높아지는 '뇌 자동화' 상태에 이릅니다.</p>
+          <div class="slide-content mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg text-center">뇌 최적화의 핵심: 22전략</h3>
+            <p class="mt-2 text-center text-xl">"2년간, 매일 2시간씩 <span class="highlight">책을 읽고 글을 쓰는 것</span>"</p>
+            <p class="mt-4">이것이 뇌의 코어 근육을 키우는 가장 효율적인 방법입니다. 독서는 뇌의 모든 영역을 활성화하는 '직접 경험'이며, 글쓰기는 지식을 완전한 내 것으로 만드는 과정입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Omok Theory -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">장기적 수를 두는 지혜: <span class="highlight">오목 이론</span></h2>
+          <p class="slide-subtitle">인생은 100년에 걸친 긴 오목 게임과 같습니다. 당장의 이득이 없더라도, 장기적으로 연결되어 거대한 성공을 만드는 '수'를 두어야 합니다.</p>
+          <div class="slide-content">
+              <p><b>저자의 오목:</b></p>
+              <ol class="list-decimal pl-6 mt-2">
+                  <li><b>첫 수 (22전략):</b> 지능을 높여 어떤 지식이든 쉽게 흡수할 기반을 닦았습니다.</li>
+                  <li><b>두 번째 수 (상담):</b> 인간의 감정을 깊이 이해하게 되었습니다.</li>
+                  <li><b>세 번째 수 (마케팅):</b> 사람의 마음을 움직이는 법을 터득했습니다.</li>
+                  <li><b>네 번째 수 (유튜브):</b> 거대한 인맥과 사업 확장 기회를 얻었습니다.</li>
+                  <li><b>다섯 번째 수 (책 출간):</b> 모든 경험이 집약되어, 또 다른 무한한 수로 연결되었습니다.</li>
+              </ol>
+              <p class="mt-4 font-bold">당장 돈이 되는 일보다, 당신의 다음 수를 가능하게 하는 <span class="highlight">장기적인 수</span>에 투자하십시오.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: 3 Ways to Boost Your Brain -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">게으른 뇌를 깨우는 <span class="highlight">3가지 방법</span></h2>
+          <p class="slide-subtitle">뇌 자동화 루틴에 뇌를 증폭시키는 자극을 더해주면 성장을 가속화할 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-gray-50 rounded-lg">
+                <p class="text-4xl mb-3">🧠</p>
+              <h3 class="font-bold text-lg">1. 안 쓰던 뇌 자극하기</h3>
+              <p>평소 관심 없던 분야(과학, 역사, 예술)의 유튜브를 보거나 책을 읽으며 뇌의 여러 영역을 연결합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+                <p class="text-4xl mb-3">🚶‍♂️</p>
+              <h3 class="font-bold text-lg">2. 안 가본 길 걷기</h3>
+              <p>새로운 장소를 산책하며 공간 지능과 신체 운동 지능을 자극합니다. 뇌 혈류량이 증가하며 창의성이 높아집니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+                <p class="text-4xl mb-3">😴</p>
+              <h3 class="font-bold text-lg">3. 충분한 수면</h3>
+              <p>잠은 그날의 경험을 장기기억으로 전환하는 핵심 과정입니다. 잠을 줄여 공부하는 것은 비효율의 극치입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Section Intro - Step 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">역행자 5단계</p>
+          <h2 class="slide-title">역행자의 <span class="highlight">지식</span></h2>
+          <p class="slide-content">뇌가 최적화되었다면, 이제 본능을 역행하는 '지식'들을 채워 넣을 차례입니다. 이 지식들은 당신의 의사 결정 확률을 극적으로 높여줄 것입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Giver Theory -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기버 이론: <span class="highlight">1을 받으면 2를 준다</span></h2>
+          <p class="slide-subtitle">『기브 앤 테이크』에 따르면 세상에는 3가지 유형의 사람이 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-lg">테이커 (Taker)</h3>
+              <p>받기만 하는 사람</p>
+            </div>
+            <div class="p-4 bg-yellow-50 rounded-lg">
+              <h3 class="font-bold text-lg">매처 (Matcher)</h3>
+              <p>받은 만큼만 돌려주는 사람</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">기버 (Giver)</h3>
+              <p>퍼주는 사람</p>
+            </div>
+          </div>
+           <p class="slide-content mt-8">가장 가난한 사람도, 가장 부자인 사람도 모두 <span class="highlight">기버</span>입니다. 단기적 손해를 감수하고 먼저 베푸는 '현명한 기버'가 되면, 결국 모든 좋은 기회와 인맥이 당신에게 모이게 됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Probability Game -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">확률 게임: 인생은 <span class="highlight">확률에 베팅하는 것</span></h2>
+          <p class="slide-subtitle">인생은 감정 게임이 아닌 확률 게임입니다. 포커 고수처럼, 감정을 배제하고 이길 확률이 높은 곳에 꾸준히 베팅해야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">순리자의 판단 (감정 게임) 😠</h3>
+              <ul class="list-disc pl-5 mt-2">
+                <li>쪽팔리기 싫어서 끝까지 베팅한다. (자의식)</li>
+                <li>'이번에는 이길 거야'라고 착각한다. (도박사의 오류)</li>
+                <li>화가 나서 이성적 판단 없이 감으로 베팅한다.</li>
+              </ul>
+            </div>
+            <div class="p-6 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg">역행자의 판단 (확률 게임) 🧐</h3>
+              <ul class="list-disc pl-5 mt-2">
+                  <li>승률이 55%라면 감정의 동요 없이 베팅한다.</li>
+                  <li>지더라도 '잘 베팅했어'라고 생각한다.</li>
+                  <li>장기적으로는 반드시 이긴다는 것을 안다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Titan's Tools -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">타이탄의 도구: <span class="highlight">상위 0.1%를 이기는 법</span></h2>
+          <p class="slide-subtitle">한 분야에서 상위 1%가 되는 것은 어렵습니다. 하지만 상위 20% 정도의 실력(B레벨)은 누구나 노력으로 얻을 수 있습니다. 이 '타이탄의 도구'들을 여러 개 조합하면, 천재를 이기는 괴물이 될 수 있습니다.</p>
+          <div class="slide-content p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p class="text-center font-bold">글쓰기(B) + 사업(B) + 유튜브(B) + 외모(B)<br>=<br>대체 불가능한 존재 (상위 0.01%)</p>
+              <p class="mt-4"><b>지금 당장 모을 수 있는 타이탄의 도구들:</b> 온라인 마케팅, 디자인, 동영상 편집 기술, PDF 책 제작, 프로그래밍 등</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Section Intro - Step 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">역행자 6단계</p>
+          <h2 class="slide-title">경제적 자유를 얻는 <span class="highlight">구체적 루트</span></h2>
+          <p class="slide-content">기초 근육을 모두 갖췄다면 이제 '실전'에 돌입할 차례입니다. 돈을 버는 근본 원리를 이해하고, 당신의 현재 위치에 맞는 테크트리를 따라가야 합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 32: The Core Principle of Making Money -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돈을 버는 <span class="highlight">근본 원리</span></h2>
+          <p class="slide-subtitle">모든 비즈니스는 이 두 가지로 수렴됩니다. 이 원칙을 무시하면 사기꾼이 되거나 아무것도 이루지 못합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-8 bg-blue-50 rounded-lg">
+              <p class="text-5xl mb-4">😌</p>
+              <h3 class="font-bold text-2xl">상대를 편하게 해주기</h3>
+              <p>(문제 해결)</p>
+            </div>
+            <div class="p-8 bg-green-50 rounded-lg">
+              <p class="text-5xl mb-4">😄</p>
+              <h3 class="font-bold text-2xl">상대를 행복하게 해주기</h3>
+              <p>(가치 제공)</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8 font-bold text-center">결국 돈을 버는 핵심은 '<span class="highlight">문제 해결력</span>'에 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Three Roles -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">경제적 자유라는 성을 공략하는 <span class="highlight">세 가지 역할</span></h2>
+          <p class="slide-subtitle">경제적 자유를 얻는 과정은 성을 함락시키는 것과 같습니다.</p>
+          <div class="slide-content space-y-4">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">병사 (Soldier) 👨‍🔧</h3>
+              <p>시간제로 돈을 버는 사람. 월급쟁이, 아르바이트생 등. 이 역할로는 평생 경제적 자유를 얻기 어렵습니다.</p>
+            </div>
+            <div class="p-4 bg-yellow-50 rounded-lg">
+              <h3 class="font-bold text-lg">장수 (General) 👨‍⚕️</h3>
+              <p>시간당 많은 돈을 버는 사람. 의사, 변호사 등 고소득 전문직. 여전히 자신의 시간을 투입해야 합니다.</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">부대지휘자 (Commander) 🤴</h3>
+              <p>병사와 장군을 지휘해 돈을 버는 사람. 잠을 자는 동안에도 돈을 버는 시스템(사업체, 부동산, 책, 주식 등)을 소유합니다. 진정한 자유는 이 역할에서 시작됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Your Route to Freedom -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신의 위치에서 시작하는 <span class="highlight">테크트리</span></h2>
+          <p class="slide-subtitle">어떤 상황에 있든 '부대지휘자'로 나아갈 수 있는 길은 존재합니다.</p>
+          <div class="slide-content space-y-4">
+              <p><b>🏢 직장인 그룹:</b> 종잣돈을 모아 투자를 시작하고, 그 경험을 바탕으로 사업으로 확장하는 루트 (예: 부동산 투자 → 스터디카페 창업)</p>
+              <p><b>🚶 무스펙 그룹:</b> 어떤 일이든 시작하여 종잣돈을 모으고, 5가지 공부법(정체성 변화, 20권의 법칙 등)을 통해 투자/사업으로 진입하는 루트</p>
+              <p><b>‍🔬 전문직 그룹:</b> 자신의 전문성에 마케팅 지식을 결합하여 사업을 시작하는 루트. 자의식만 해체하면 가장 빠르게 성공할 수 있습니다.</p>
+              <p><b>‍💼 사업자 그룹:</b> '본질 강화'와 '마케팅'에 집중하여 문제를 해결하고 사업을 시스템화, 자동화하는 루트</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Section Intro - Step 7 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">역행자 7단계</p>
+          <h2 class="slide-title">역행자의 <span class="highlight">쳇바퀴</span></h2>
+          <p class="slide-content">인생은 끝없는 문제 해결의 과정입니다. 순리자는 시시포스의 형벌처럼 이 과정을 고통으로 여기지만, 역행자는 이것을 '레벨업의 기회'로 만듭니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 36: The Sisyphus Myth -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시시포스의 형벌 vs 역행자의 성장</h2>
+          <p class="slide-subtitle">인간은 목표를 달성하면 도파민이 분비되고 행복을 느끼지만, 이내 새로운 목표를 갈망하며 다시 고통과 스트레스를 겪습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">시시포스 (순리자) 😩</h3>
+              <p>돌을 굴리는 과정을 형벌로 여깁니다. 실패하면 남 탓, 세상 탓을 하며 주저앉습니다. 성장이 멈추고 열등감에 사로잡힙니다.</p>
+            </div>
+            <div class="p-6 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">시시포스 (역행자) 💪</h3>
+              <p>돌을 굴리는 과정 자체에서 성장합니다. 실패를 '당연한 것'으로 여기고, '무엇을 보완할까?'를 고민하며 <span class="highlight">레벨업</span>합니다. 이 과정을 통해 '자유'라는 보상을 얻습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 37: Mindset Comparison -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">실패에 직면했을 때의 <span class="highlight">두 가지 반응</span></h2>
+            <div class="slide-content space-y-6">
+                <div class="p-6 bg-red-50 border-l-4 border-red-500 rounded-r-lg">
+                    <h3 class="font-bold text-xl mb-2">😭 순리자의 반응</h3>
+                    <p>"A 때문이야", "국가가 헬조선이야", "우리 부모님이 못났기 때문이야."</p>
+                    <p class="mt-2 text-gray-600">→ 자의식 방어, 남 탓, 합리화 → <span class="font-bold">레벨업 기회 상실</span></p>
+                </div>
+                <div class="p-6 bg-green-50 border-l-4 border-green-500 rounded-r-lg">
+                    <h3 class="font-bold text-xl mb-2">🤔 역행자의 반응</h3>
+                    <p>"더 높은 목표를 세웠으니 실패는 당연한 거야. 이제부터 뭘 보완하면 다음 레벨로 갈 수 있을까? 뇌 최적화부터 할까? 자의식부터 해체할까?"</p>
+                    <p class="mt-2 text-gray-600">→ 문제 직면, 자기 객관화, 해결책 모색 → <span class="font-bold">레벨업</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      <!-- Slide 38: Economic Freedom Timeline -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">경제적 자유는 <span class="highlight">언제 오는가?</span></h2>
+          <p class="slide-subtitle">7단계 모델을 반복하면 레벨이 오르고, 어느 순간 정신적으로 성숙해지며 세상이 다르게 보이기 시작합니다.</p>
+          <div class="slide-content">
+              <ul class="list-disc pl-6 space-y-2">
+                  <li><b>레벨 1~19:</b> 특별한 결과물은 없지만, 정신적으로 성숙해지고 세상을 읽는 해석 능력이 좋아집니다. 책 읽는 것에 재미를 느낍니다.</li>
+                  <li><b>레벨 20~:</b> 성과가 나오기 시작합니다. 직장에서는 좋은 평을 받고, 돈을 벌기 시작하며 수익이 늘어납니다. 여기서부터 관성에 따라 급성장합니다.</li>
+                  <li><b>레벨 50~:</b> 뒤돌아보면 이미 경제적 자유에 도달한 자신을 발견하게 됩니다.</li>
+              </ul>
+              <p class="mt-6 font-bold text-center">불평할 필요 없습니다. 순리자로 살았을 때보다 <span class="highlight">적어도 3배는 빨리</span> 성과를 낼 테니까요.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 당신도 역행자가 될 수 있다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">돈은 행복을 보장하지 않지만, <span class="highlight">인생의 자유를 보장할 확률을 높입니다.</span> 역행자 7단계 모델은 경제적 자유를 얻는 방법인 동시에, 행복으로 가는 가장 확실한 수단입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">타고난 운명을 벗어나 본능을 거스르는 역행자가 되어, 인생이라는 끝내주는 놀이터를 마음껏 즐기시길 바랍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideContainer = document.getElementById('slides-container');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      
+      // Scroll to the top of the slide container
+      slideContainer.scrollTop = 0;
+
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { // Space bar for next slide
+        e.preventDefault(); // Prevent page scroll
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

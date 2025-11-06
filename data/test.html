@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>무엇이 나를 행복하게 만드는가 — 40+장 요약 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(17,17,17,0.035) 0 2px, transparent 2px),
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 24px 24px, 30px 30px, 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active { display: flex; }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(3px);
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+    .slide-part-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #6366f1;
+      letter-spacing: .02em;
+      margin-bottom: 8px;
+      display: inline-flex; gap:8px; align-items:center;
+    }
+    .slide-title {
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.06rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight { background-color: #FFDD00; padding: 0 .25em; }
+    .badge {
+      display:inline-block; font-size:.85rem; padding:.3rem .6rem;
+      border-radius:9999px; background:#eef2ff; color:#3730a3; font-weight:700
+    }
+    .card {
+      background:#fff; border:1px solid #eee; border-radius:16px; padding:20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+    }
+    .quote {
+      border-left:4px solid #111; padding-left:16px; font-weight:600; color:#111
+    }
+    .progress-bar-container {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      padding: 16px 24px; background-color: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px); border-top: 1px solid #eee; z-index: 10;
+    }
+    .progress-bar { width: 100%; background-color: #eee; border-radius: 9999px; height: 8px; margin-bottom: 12px; }
+    .progress { background-color: #111; height: 100%; border-radius: 9999px; transition: width .3s ease; }
+    .btn {
+      padding: 12px 20px; border-radius: 10px; font-weight: 800; transition: all .2s ease; cursor: pointer; border: none;
+    }
+    .btn-primary { background-color: #111; color: #fff; }
+    .btn-primary:hover { background-color: #333; }
+    .btn-secondary { background-color: #F3F4F6; color: #111; }
+    .btn-secondary:hover { background-color: #E5E7EB; }
+    .grid-2 { display:grid; grid-template-columns: 1fr; gap:18px }
+    @media (min-width: 768px){ .grid-2 { grid-template-columns: repeat(2,1fr);} }
+    .kicker { color:#6b7280; font-weight:700; letter-spacing:.02em; text-transform:uppercase; font-size:.9rem }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <!-- 데이터 출처 메모: 본 프레젠테이션은 사용자가 업로드한 도서 PDF를 요약·재구성했습니다. -->
+  <!-- :contentReference[oaicite:0]{index=0} -->
+
+  <div class="w-full">
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-6xl md:text-7xl mb-6">🌙</div>
+          <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-4">무엇이 나를 <span class="highlight">행복</span>하게 만드는가</h1>
+          <p class="text-lg md:text-2xl text-gray-700 mb-4">인생의 절반쯤 왔을 때 깨닫는, <b>가방을 다시 꾸리는 법</b></p>
+          <div class="text-sm text-gray-500">리처드 J. 라이더 · 데이비드 A. 샤피로 | 요약·발췌 프레젠테이션</div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차</h2>
+          <div class="slide-content grid md:grid-cols-2 gap-4">
+            <ul class="list-disc pl-5 space-y-2">
+              <li>프롤로그: “내가 가진 모든 것이 나를 행복하게 해주는가?”</li>
+              <li>1장: 웃음을 되찾는 법 · 독창성</li>
+              <li>2장: 바람직한 삶의 4요소(장소·사랑·일·목적)</li>
+              <li>3장: 인생에는 <b>중요하지 않은 것</b>이 더 많다</li>
+              <li>4장: 왜 이 짐을 모두 짊어지는가</li>
+              <li>5장: 성공과 성취, 그리고 <b>소명</b></li>
+              <li>6장: 다목적 라이프스타일과 목적 탐색</li>
+            </ul>
+            <ul class="list-disc pl-5 space-y-2">
+              <li>7장: 평생 여정을 함께할 <b>관계 설계</b></li>
+              <li>8장: 이미 답은 내 안에 있다(자아개방)</li>
+              <li>9장: 장소 감각 · 하나의 문을 닫고 또 다른 문</li>
+              <li>10장: 경청의 자리 · 침묵 휴가</li>
+              <li>11장: 지금과 꼭 <b>다른 삶</b>을 살 필요는 없다</li>
+              <li>12장: <b>타임아웃</b>이 충만한 하루</li>
+              <li>13장: 길을 잃어야 새로운 길을 발견한다</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-location-dot"></i> Prologue</p>
+          <h2 class="slide-title">마사이 족장의 질문: <span class="highlight">“이 모든 것이 당신을 행복하게 해줍니까?”</span></h2>
+          <div class="slide-content">
+            <p>세렝게티에서 만난 족장 코이에의 한마디는 인생 가방을 열어 보는 촉발점이 된다. 우리는 많은 짐을 들고 다니지만, <b>정말 필요한 것은 얼마 안 된다.</b> 필요 없는 것을 비워야 ‘나’가 가벼워진다.</p>
+            <div class="card mt-5">
+              <div class="kicker mb-1">핵심</div>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>“무엇을 들고 다니며 <b>왜</b> 들고 다니는가”를 묻는다.</li>
+                <li>가방을 풀고(점검) → 덜고(비우기) → 다시 꾸린다(재설계).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: 1장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-face-laugh-beam"></i> Part 1</p>
+          <h2 class="slide-title">당신의 <span class="highlight">웃음</span>은 어디에 있나요?</h2>
+          <p class="slide-subtitle">재미가 사라진 게 아니라, 재미를 느끼는 감각을 잃었다.</p>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>독창성</b>은 활력의 연료다. 남의 라이프스타일을 ‘구매’하는 대신, 나만의 감각을 복원하라.
+            </div>
+            <div class="card">
+              파리 카페에서 개똥을 밟은 어느 날, 웃음이 돌아왔다. <b>사소한 사건도 시선을 바꾸면 선물이 된다.</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: 1장 액션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">웃음을 되찾는 <span class="highlight">작은 실험</span></h2>
+          <div class="slide-content grid-2">
+            <div>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><b>스마일 시즌</b> 정하기(1~4주): 코미디·밈·웃긴 일기를 매일 섭취.</li>
+                <li><b>옷장 해킹</b>: 우스꽝스러운 넥타이·양말로 혼자 웃기.</li>
+                <li><b>엉뚱한 일 10개</b>: 매일 사소한 비정상을 시도(다른 길로 출근 등).</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="kicker mb-2">메모</div>
+              웃음은 “젠체함”을 깨뜨리는 <b>심리적 리셋</b>이다. 유머가 있을 때 가방도 더 가볍게 다시 꾸려진다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: 2장 섹션 타이틀 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-compass"></i> Part 2</p>
+          <h2 class="slide-title">바람직한 삶은 <span class="highlight">깨달음의 과정</span>에 있다</h2>
+          <p class="slide-subtitle">장소·사랑·일·목적 — 네 가지가 어긋나면 균형이 무너진다.</p>
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="card">
+                <b>공식</b>: <u>장소</u>(Place) · <u>사랑</u>(Love) · <u>일</u>(Work) · <u>목적</u>(Purpose)<br/>
+                네 요소가 상호작용하며 삶의 질을 만든다.
+              </div>
+              <div class="card">
+                <b>두려움의 4종</b>과 매칭(책 02장, p.48 표):<br/>
+                무의미한 삶·외톨이·길을 잃음·죽음 ↔ <i>일·사랑·장소·목적</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: 2장 비교(2컬럼) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">네 가지 두려움</span>을 다루는 법</h2>
+          <div class="slide-subtitle">각 두려움은 삶의 한 축과 연결되어 있다.</div>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>무의미한 삶</b> → <u>일</u> 재정의<br/>
+              좋아하는 일·의미 있는 과업을 늘려 “기여” 감각 회복
+            </div>
+            <div class="card">
+              <b>외톨이가 되는 두려움</b> → <u>사랑</u><br/>
+              주기·받기·함께하기의 루틴 회복(주 1회 깊은 대화)
+            </div>
+            <div class="card">
+              <b>길을 잃는 두려움</b> → <u>장소</u><br/>
+              소속감을 주는 커뮤니티·공간 의식적으로 선택/창조
+            </div>
+            <div class="card">
+              <b>죽음에 대한 두려움</b> → <u>목적</u><br/>
+              ‘왜 일어나는가’의 응답을 현재형으로 명료화
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: 3장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-suitcase-rolling"></i> Part 3</p>
+          <h2 class="slide-title">인생에는 <span class="highlight">중요하지 않은 것</span>이 더 많다</h2>
+          <p class="slide-subtitle">가방 법칙: 들수록 무겁고, 비울수록 명료해진다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li><b>피터의 법칙 → 가방 버전</b>: 감당 못 할 때까지 채우는 습성 경계.</li>
+              <li><b>상충관계</b> 점검(자유 vs 안전, 물질 vs 시간, 가정 vs 직장 등).</li>
+              <li><b>세 가지 가방</b>: 서류가방(일) · 여행가방(사랑) · 트렁크(장소).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: 3장 체크리스트 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">여행 <span class="highlight">체크리스트</span>로 삶 점검</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>필수 7</b>: 여권(정체성), 티켓(다음 걸음), 지도(방향감각), 동반자(관계), 가이드(조언자), 자금(에너지), 손가방(가벼운 준비)
+            </div>
+            <div class="card">
+              <b>질문</b>:
+              <ul class="list-disc pl-5">
+                <li>“지금 여정의 목적은?”</li>
+                <li>“길은 보이는가, 보이지 않아도 한 걸음은 가능한가?”</li>
+                <li>“버릴수록 선명해지는가?”</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: 4장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-weight-hanging"></i> Part 4</p>
+          <h2 class="slide-title">도대체 왜 이 <span class="highlight">짐</span>을 모두 짊어지나요?</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>네 가지 이유(ABC D)</b><br/>
+              A 지금 즐거움 / B 타인에게 즐거움 / C 미래의 나 / D 미래의 타인을 위해
+            </div>
+            <div class="card">
+              <b>전략 5</b>: <i>나눠들기·내려놓기·바꿔들기·이유 묻기·도착지 제시</i><br/>
+              무게를 줄이면 시야가 열린다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: 4장 스페셜 블록 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">“왜”</span>가 분명하면 더 멀리 간다</h2>
+          <div class="slide-subtitle">“왜 이 일을 하는가?”를 써 붙여 두라.</div>
+          <div class="slide-content">
+            <div class="card">
+              <div class="kicker mb-2">메시지</div>
+              <p class="mb-2">이유를 명확히 적어 놓으면, 같은 짐도 <b>기꺼이</b> 짊어질 수 있다. 이유가 흐리면 가벼운 짐도 괴롭다.</p>
+              <p class="quote">“도착지가 보일 때 발걸음은 가벼워진다.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: 5장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-hammer"></i> Part 5</p>
+          <h2 class="slide-title">성공했는가, <span class="highlight">성취</span>했는가</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>성공</b>: 갖는 것 중심(외부) / <b>성취</b>: 되는 것 중심(내부).<br/>
+              장인은 ‘좋아하는 일’과 ‘잘하는 일’을 ‘누군가 필요한 일’과 접속한다.
+            </div>
+            <div class="card">
+              <b>재능 찾기</b> 프롬프트<br/>
+              “배운 적 없는데 아는 것?” “남들이 나를 보기 위해 모이는 솜씨?” “시간 가는 줄 모르는 몰입?”
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: 5장 2컬럼 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소명(Calling)을 <span class="highlight">듣는 법</span></h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>안쪽에서 들려온다</b>: 비교가 아닌 내면의 기쁨 신호.<br/>반쪽짜리 삶의 지표(권태·냉소·소진)를 감지하라.
+            </div>
+            <div class="card">
+              <b>작은 실험</b>: 90분×5회 미니 프로젝트로 <i>재능×기여</i>를 시험해보라(피드백 수집 → 확대/축소 결정).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: 6장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-diagram-project"></i> Part 6</p>
+          <h2 class="slide-title">다목적 라이프스타일 공식</h2>
+          <div class="slide-content grid-2">
+            <div class="card text-lg">
+              <b>(재능 + 열정 + 환경) × 꿈 = 라이프스타일</b>
+            </div>
+            <div class="card">
+              <ul class="list-disc pl-5">
+                <li><b>재능</b>: 신이 나는 기술/능력</li>
+                <li><b>열정</b>: 내가 더 알고·더 하고 싶은 문제</li>
+                <li><b>환경</b>: 잘 펴지는 무대/사람/리듬</li>
+                <li><b>꿈</b>: 위 셋을 묶어 가시화한 미래상</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: 6장 목적 탐색 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">목적</span>을 현재형으로 쓰자</h2>
+          <div class="slide-content">
+            <p class="mb-3">질문 1) <b>어떤 환경</b>에서 내가 가장 자연스러운가?<br/>질문 2) <b>나의 3대 재능</b>은 무엇인가?<br/>질문 3) <b>무엇에 열정</b>을 느끼는가?</p>
+            <div class="card">
+              <b>템플릿</b>: “나의 목적은 [환경]에서 [재능]을 발휘해 [열정 주제]를 돕는 것이다.” (현재형, 간결하게)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: 7장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-people-group"></i> Part 7</p>
+          <h2 class="slide-title">평생 여정을 함께할 <span class="highlight">관계</span></h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>친밀감=여행</b><br/>당일치기(맛보기) → 주말(깊은 대화) → 평생(위대한 대화).
+            </div>
+            <div class="card">
+              <b>문간의 가방</b>을 거둬라: 언제든 떠날 준비 상태를 해제하고, <i>함께 꾸리는</i> 루틴을 만든다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: 7장 당일/주말/평생 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">관계 설계를 위한 <span class="highlight">3가지 여행표</span></h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>당일치기</b>: 오늘 서로 무엇을 알게 되었나? 내일 다시 보고 싶은 한 가지?
+            </div>
+            <div class="card">
+              <b>주말</b>: 48시간, 꿈·두려움·계획을 “현재형”으로 이야기하기.
+            </div>
+            <div class="card">
+              <b>평생</b>: 정기적으로 <i>같은 길 위</i>에 서 있는지 점검(연 1~2회 리셋데이).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: 8장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-eye"></i> Part 8</p>
+          <h2 class="slide-title">이미 <span class="highlight">답</span>은 내 안에 있다</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>유리알 자아</b>: 깊이 드러낼수록 건강·활력이 오른다(자아개방).
+            </div>
+            <div class="card">
+              <b>경청</b>=사랑의 다른 이름. “말 줄이기 · 귀 열기” 루틴 지정(하루 10분).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: 9장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-house-chimney"></i> Part 9</p>
+          <h2 class="slide-title">장소 감각: 하나의 문을 닫고 또 다른 문을 연다</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              자연·황무지는 <b>영적 필수품</b>. 뿌리가 약해질수록 허전해진다.
+            </div>
+            <div class="card">
+              <b>상상 실습</b>: 어디서 살고, 누구와, 무엇을 하며, 어떤 리듬으로 살지 <i>생생히 묘사</i>하라.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: 10장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-ear-listen"></i> Part 10</p>
+          <h2 class="slide-title">경청의 자리 · <span class="highlight">침묵 휴가</span></h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>경청의 자리</b>: 도시든 숲이든, 내면의 소리가 또렷해지는 장소 하나.
+            </div>
+            <div class="card">
+              <b>침묵 24h</b> 실험: “시간의 질” 회복. 10가지 사색 항목 중 1~2개만 깊게.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: 11장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-list-check"></i> Part 11</p>
+          <h2 class="slide-title">지금과 꼭 <span class="highlight">다른 삶</span>을 살 필요는 없다</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>재고조사 4분류</b>: 없어선 안 됨 / 있으면 좋음 / 보류 / 제거
+            </div>
+            <div class="card">
+              <b>버그잡기</b> 사고: 처음부터 완벽 말고 → <i>작동 → 수정</i>의 반복.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: 12장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-hourglass-half"></i> Part 12</p>
+          <h2 class="slide-title"><span class="highlight">타임아웃</span>이 충만한 하루</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              빠름=좋음이 아니다. “클록 스피드”를 낮추면 창의·깊이가 복구된다.
+            </div>
+            <div class="card">
+              <b>안식년을 쪼개 쓰기</b>: 12~16주/년 타임아웃(학습·사색·여행).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: 12장 사례 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">타임아웃 <span class="highlight">실전 아이디어</span></h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <ul class="list-disc pl-5">
+                <li>매일 25분 “깊은 일” & “깊은 쉼” 교차</li>
+                <li>분기 1회 로컬 리트릿(3~6시간)</li>
+                <li>연 1~2회 “인생 리셋데이” (재고조사·목적 갱신)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <b>효과</b>: 에너지·창의·관계의 <i>질</i> 향상 → 가방을 다시 꾸릴 <b>힘</b>이 생긴다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: 13장 섹션 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title"><i class="fa-solid fa-route"></i> Part 13</p>
+          <h2 class="slide-title">길을 잃어야 <span class="highlight">새로운 길</span>을 발견한다</h2>
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="card">
+                <b>상실의 두려움</b>은 미지에서 온다 → <i>작은 모험</i>으로 길 찾기 근육을 단련.
+              </div>
+              <div class="card">
+                “성공했지만 성취하지 못했다면” 방향을 틀어라. <b>한 번의 과감한 실험</b>이 좌표를 바꾼다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: 섹션 리캡 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 요약 <span class="highlight">TOP 5</span></h2>
+          <div class="slide-content grid-2">
+            <div class="card">① 웃음과 독창성은 활력의 시작</div>
+            <div class="card">② 삶의 4요소(장소·사랑·일·목적)를 동시 점검</div>
+            <div class="card">③ 가방 법칙: <b>덜수록</b> 더 멀리 간다</div>
+            <div class="card">④ 성공보다 <b>성취</b>: 소명을 듣는 귀</div>
+            <div class="card">⑤ 타임아웃·경청의 자리: “시간의 질” 회복</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: 워크시트 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">워크시트 ① <span class="highlight">가방 재점검</span></h2>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li>이번 달에 <b>비울 3가지</b>, <b>채울 3가지</b>를 적는다.</li>
+              <li>상충관계(자유/안전·물질/시간·가정/직장)에서 <b>하나</b>를 선택해 “균형 재배치”를 시도한다.</li>
+              <li>세 가방(일/사랑/장소) 중 가장 무거운 가방 1개를 골라 20% 경량화 계획.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: 워크시트 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">워크시트 ② <span class="highlight">목적 한 줄</span></h2>
+          <div class="slide-content">
+            <div class="card">
+              <p class="mb-2">“나의 목적은 [환경]에서 [재능]을 발휘해 [열정 주제]를 돕는 것이다.”</p>
+              <ul class="list-disc pl-5">
+                <li>현재형으로, 20자 내외.</li>
+                <li>매일 아침 10초 낭독.</li>
+                <li>분기마다 업데이트.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: 워크시트 3 관계 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">워크시트 ③ <span class="highlight">당일·주말·평생</span> 여행 설계</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>당일</b>: 2시간 산책 & 카페 대화(오늘 느낀 3가지)
+            </div>
+            <div class="card">
+              <b>주말</b>: 48시간 로컬 리트릿(꿈·두려움·다음 걸음)
+            </div>
+            <div class="card">
+              <b>평생</b>: 연 1~2회 관계 리셋데이(비전 재확인)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: 미니실천 1주 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">1주 실천</span> 계획 (샘플)</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <ul class="list-disc pl-5">
+                <li>월: 재고조사(15분)</li>
+                <li>화: 목적 한 줄 작성(10분)</li>
+                <li>수: 스마일 시즌 콘텐츠 30분</li>
+              </ul>
+            </div>
+            <div class="card">
+              <ul class="list-disc pl-5">
+                <li>목: 경청의 자리 산책 20분</li>
+                <li>금: 관계 당일치기(2시간)</li>
+                <li>주말: 타임아웃(4시간) + 다음 주 1% 개선</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: 인용 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">짧은 인용</h2>
+          <div class="slide-content">
+            <p class="quote">“가방을 다시 꾸리는 일은, 나를 다시 발견하는 일이다.”</p>
+            <p class="mt-3 text-gray-600">— 책 전반의 메시지 요약</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: 체크포인트 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">체크포인트</span> 6</h2>
+          <div class="slide-content grid-2">
+            <div class="card">웃고 있는가?</div>
+            <div class="card">나는 어디에 속해 있는가?</div>
+            <div class="card">누구와 함께하는가?</div>
+            <div class="card">무엇을 하고 있는가?</div>
+            <div class="card">왜 일어나는가(목적)?</div>
+            <div class="card">이번 달에 무엇을 비울까?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: 도구 모음 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">도구 모음</h2>
+          <div class="slide-content grid-2">
+            <div class="card"><b>20% 규칙</b>: 일·사랑·장소 중 한 영역에서 20% 줄이고 10% 늘리기.</div>
+            <div class="card"><b>90·90·1</b>: 90일간 아침 90분, 단 하나의 중요한 일.</div>
+            <div class="card"><b>감사 3</b>: 잠들기 전 오늘의 감사 3가지.</div>
+            <div class="card"><b>피드백 루프</b>: 주 1회 셀프 리뷰(가볍게, 꾸준히).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: 케이스 힌트 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">케이스 힌트</h2>
+          <div class="slide-content grid-2">
+            <div class="card">전업 전, <b>작은 실험</b> 5회(무료/저위험) → 반응을 보고 축소·확대.</div>
+            <div class="card"><b>파트타임 안식년</b> 제도 제안(회사/팀 단위).</div>
+            <div class="card">관계는 <i>여행표</i>로: 당일·주말·평생을 캘린더에 고정.</div>
+            <div class="card"><b>장소 감각</b> 복원: 주 1회 자연 노출(숲·물·하늘).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: 실수 줄이기 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">실수</span>를 줄이는 방법</h2>
+          <div class="slide-content grid-2">
+            <div class="card">모든 결정을 “영구”로 보지 말 것(수정·회귀 전제).</div>
+            <div class="card">준거점: <b>에너지·의미·관계</b>의 질이 오르는가?</div>
+            <div class="card">한 번에 하나씩: 과감하지만 <b>작게</b>.</div>
+            <div class="card">“왜?”가 흐려질 때 멈추고 다시 쓴다.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: 네 가지 두려움 점검 카드 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">네 가지 두려움 <span class="highlight">점검 카드</span></h2>
+          <div class="slide-content grid-2">
+            <div class="card">무의미한 삶? → 오늘 ‘작은 기여’ 한 줄 기록</div>
+            <div class="card">외톨이? → 금요일 20분 전화/산책 약속</div>
+            <div class="card">길 상실? → 소속감 장소 1곳 라이팅</div>
+            <div class="card">죽음 두려움? → 목적 한 줄 현재형 갱신</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: 질문 모음 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나에게 던지는 <span class="highlight">큰 질문</span></h2>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li>나는 <b>무엇</b>을 들고 다니고, <b>왜</b> 들고 다니는가?</li>
+              <li>오늘 비울 수 있는 건 무엇인가?</li>
+              <li>어디에서, 누구와, 무엇을 하며 살 것인가?</li>
+              <li>지금 당장 가능한 “다음 1걸음”은?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: 체크리스트 10개 중 5개 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">침묵 휴가 · 10가지 사색(5)</h2>
+          <div class="slide-content grid-2">
+            <div class="card">① 감춰진 재능 재발견</div>
+            <div class="card">② 목적 되찾기</div>
+            <div class="card">③ 일을 새 시각으로</div>
+            <div class="card">④ 개인 이사회 구성</div>
+            <div class="card">⑤ 성장의 칼날 갈기</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: 나머지 5개 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">침묵 휴가 · 10가지 사색(나머지 5)</h2>
+          <div class="slide-content grid-2">
+            <div class="card">⑥ 인간관계 가방 다시 꾸리기</div>
+            <div class="card">⑦ 시간·돈 검토</div>
+            <div class="card">⑧ 바람직한 삶 재정의</div>
+            <div class="card">⑨ 매일 새로워지기</div>
+            <div class="card">⑩ 웃음을 되찾기</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: 미리보기 캘린더 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">90일 <span class="highlight">로드맵</span> (샘플)</h2>
+          <div class="slide-content grid-2">
+            <div class="card">
+              <b>1~4주</b>: 재고조사·목적·관계 당일치기·타임아웃<br/>
+              <b>5~8주</b>: 작은 실험(재능×기여), 피드백 루프
+            </div>
+            <div class="card">
+              <b>9~12주</b>: 경량화 20% 달성, 네 요소 균형 재배치, 다음 90일 설계
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: 회고 질문 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">회고</span> 질문 4</h2>
+          <div class="slide-content grid-2">
+            <div class="card">이번 4주 동안 무엇을 비웠는가?</div>
+            <div class="card">무엇을 채워 넣었는가?</div>
+            <div class="card">누구와 더 가까워졌는가?</div>
+            <div class="card">다음 1걸음은 무엇인가?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: 결론 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-5xl mb-6">🎯</div>
+          <h2 class="slide-title">결론</h2>
+          <div class="slide-content max-w-3xl mx-auto">
+            <p class="mb-3"><b>가방을 다시 꾸린다 = 나를 다시 디자인한다.</b> 웃음을 되찾고, 네 가지 축을 조율하고, 불필요한 것을 내려놓을 때, 인생의 오후는 오히려 <b>황금기</b>가 된다.</p>
+            <p class="font-bold text-gray-800 mt-4">오늘 비울 1가지를 정하고, 지금 가능한 다음 1걸음을 내딛자.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🙌</div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-lg md:text-xl text-gray-600">Q&A — 무엇을 비우고, 무엇을 채우시겠습니까?</p>
+          <div class="text-sm text-gray-500 mt-4">※ 본 자료는 도서 내용을 요약·재구성했습니다.</div>
+        </div>
+      </div>
+
+      <!-- 추가 보너스 슬라이드 (43~46) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보너스 ① <span class="highlight">문장 템플릿</span></h2>
+          <div class="slide-content">
+            <div class="card">
+              <p class="mb-2">“나는 [요일/시간]에 [장소]에서 [행동]을 하여 [목적]을 강화한다.”</p>
+              <ul class="list-disc pl-5">
+                <li>예: “나는 <b>금요일 오전</b>에 <b>공원</b>을 걸으며 <b>경청의 자리</b>를 회복한다.”</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보너스 ② <span class="highlight">관계 문장</span></h2>
+          <div class="slide-content card">
+            <p>“나는 [사람]과 [주기]로 [대화/산책/식사]를 하며 <b>평생여정</b>을 함께 걷는다.”</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보너스 ③ <span class="highlight">미니 리트릿</span> 체크리스트</h2>
+          <div class="slide-content grid-2">
+            <div class="card">📍 장소 1곳(실내/야외)</div>
+            <div class="card">🕰️ 시간 3~6h(오프라인 모드)</div>
+            <div class="card">📝 질문 3개(가방/목적/관계)</div>
+            <div class="card">🥤 물·가벼운 간식·노트</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">보너스 ④ <span class="highlight">오늘의 한 줄</span></h2>
+          <div class="slide-content">
+            <p class="text-xl">“오늘 나는 <b>—</b>을 비우고, <b>—</b>을 채우며, <b>—</b>으로 한 걸음 나아간다.”</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) slide.classList.add('active');
+      });
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) { currentSlide++; updateSlide(); }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) { currentSlide--; updateSlide(); }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextBtn.click();
+      else if (e.key === 'ArrowLeft') prevBtn.click();
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+</body>
+</html>

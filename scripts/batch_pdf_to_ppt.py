@@ -15,6 +15,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import fnmatch
 import json
 import re
@@ -28,11 +29,30 @@ if __package__ in (None, ""):
     SCRIPT_DIR = Path(__file__).resolve().parent
     if str(SCRIPT_DIR) not in sys.path:
         sys.path.append(str(SCRIPT_DIR))
-    from process_pdf import DATA_FILE, ROOT, run_pipeline, slugify  # type: ignore
+    from process_pdf import (  # type: ignore
+        COVERS_DIR,
+        DATA_FILE,
+        DEFAULT_COVER,
+        ROOT,
+        extract_cover,
+        run_pipeline,
+        slugify,
+        update_manifest,
+    )
 else:  # pragma: no cover - module import path
-    from .process_pdf import DATA_FILE, ROOT, run_pipeline, slugify  # type: ignore
+    from .process_pdf import (  # type: ignore
+        COVERS_DIR,
+        DATA_FILE,
+        DEFAULT_COVER,
+        ROOT,
+        extract_cover,
+        run_pipeline,
+        slugify,
+        update_manifest,
+    )
 
 DELIMITER = " -- "
+MAX_PDF_SIZE = 80 * 1024 * 1024  # 80MB limit
 
 
 def normalize_segment(text: str) -> str:
@@ -78,6 +98,55 @@ def should_skip(slug: str, existing: Dict[str, dict], force: bool) -> bool:
     return slug in existing
 
 
+def persist_entry(result: dict, existing: Dict[str, dict]) -> None:
+    """Ensure the manifest reflects the latest pipeline result."""
+    entry = {
+        key: result.get(key)
+        for key in ("slug", "title", "author", "date", "tags", "description", "presentation", "cover")
+        if key in result
+    }
+    if not entry.get("slug"):
+        return
+    update_manifest(entry)
+    existing[entry["slug"]] = entry
+
+
+def handle_large_pdf(
+    *,
+    pdf_path: Path,
+    title: str,
+    author: Optional[str],
+    slug: str,
+    existing: Dict[str, dict],
+) -> dict:
+    """Create manifest + cover entry without running Gemini for oversized PDFs."""
+    print(f"[스킵] 80MB 초과: {pdf_path.name} (표지 + manifest만 갱신)")
+    presentation_rel = f"presentations/{slug}.html"
+    cover_path = COVERS_DIR / f"{slug}.jpg"
+    cover_rel = DEFAULT_COVER
+
+    try:
+        extract_cover(pdf_path, cover_path)
+        cover_rel = cover_path.relative_to(ROOT).as_posix()
+    except Exception as exc:  # pragma: no cover - environment-specific
+        print(f"    [경고] 표지 추출 실패, 기본 이미지 사용: {exc}")
+        cover_rel = DEFAULT_COVER
+
+    entry = {
+        "slug": slug,
+        "title": title,
+        "author": author,
+        "date": dt.date.today().isoformat(),
+        "tags": [],
+        "description": "",
+        "presentation": presentation_rel,
+        "cover": cover_rel,
+    }
+    update_manifest(entry)
+    existing[slug] = entry
+    return entry
+
+
 def run_with_retries(
     *,
     pdf_path: Path,
@@ -87,7 +156,7 @@ def run_with_retries(
     dry_run: bool,
     commit: bool,
     push: bool,
-) -> Tuple[bool, Optional[Exception], int]:
+) -> Tuple[bool, Optional[Exception], int, Optional[dict]]:
     attempts = 0
     last_error: Optional[Exception] = None
 
@@ -110,14 +179,14 @@ def run_with_retries(
                 progress_callback=progress_callback,
             )
             print(f"    [완료] {result.get('presentation')}")
-            return True, None, attempts
+            return True, None, attempts, result
         except Exception as exc:  # pragma: no cover - runtime dependency
             last_error = exc
             print(f"    [경고] 시도 {attempts}회 실패: {exc}")
             if attempts > retries:
                 break
             time.sleep(1.0)
-    return False, last_error, attempts
+    return False, last_error, attempts, None
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
@@ -273,7 +342,24 @@ def main(argv: Optional[List[str]] = None) -> int:
         label = f"{title} / {author}" if author else title
         print(f"[진행] {pdf_path.name} → {label}")
 
-        ok, error, attempts = run_with_retries(
+        try:
+            size_bytes = pdf_path.stat().st_size
+        except OSError as exc:
+            print(f"  [경고] 파일 크기를 확인할 수 없습니다: {exc}")
+            size_bytes = 0
+
+        if size_bytes > MAX_PDF_SIZE:
+            entry = handle_large_pdf(
+                pdf_path=pdf_path,
+                title=title,
+                author=author,
+                slug=slug_candidate,
+                existing=existing,
+            )
+            successes.append(pdf_path)
+            continue
+
+        ok, error, attempts, result = run_with_retries(
             pdf_path=pdf_path,
             title=title,
             author=author,
@@ -285,6 +371,8 @@ def main(argv: Optional[List[str]] = None) -> int:
 
         if ok:
             successes.append(pdf_path)
+            if result:
+                persist_entry(result, existing)
         else:
             failures.append((pdf_path, error, attempts))
 

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation: Guns, Germs, and Steel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 90vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e9ecef;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd900;
+      padding: 0 0.25em;
+      border-radius: 0.25rem;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🌍</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">Guns, Germs, and Steel</h1>
+          <p class="text-xl md:text-2xl text-gray-700">The Fates of Human Societies by <span class="highlight">Jared Diamond</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 (Table of Contents)</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>Prologue:</b> Yali's Question 🤔</p>
+            <p><b>Part 1: From Eden to Cajamarca</b> - The World Before 11,000 BC</p>
+            <p><b>Part 2: The Rise and Spread of Food Production</b> - The Power of Farming 🌾</p>
+            <p><b>Part 3: From Food to Guns, Germs, and Steel</b> - The Proximate Factors</p>
+            <p><b>Part 4: Around the World</b> - Case Studies and Comparisons</p>
+            <p><b>Conclusion:</b> The Future of Human History as a Science 🔬</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Prologue Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Prologue</p>
+          <h2 class="slide-title">Yali's Question 🤔</h2>
+          <p class="slide-subtitle">The question that sparked the entire book, posed by a New Guinean politician named Yali.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Yali's Question Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"Why is it that you white people developed so much <span class="highlight">cargo</span>...?"</h2>
+          <div class="slide-content">
+            <p class="mb-4">"...and brought it to New Guinea, but we black people had little cargo of our own?"</p>
+            <p>This simple, yet profound question challenges common assumptions about human history. It's not about biological differences, but about the divergent paths societies took.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                <h3 class="font-bold text-lg">The Core Inquiry</h3>
+                <p class="mt-2">Why did wealth and power become distributed as they are now, and not in some other way? Why did Eurasians conquer or displace Native Americans, Australians, and Africans, and not the reverse?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: From Eden to Cajamarca</p>
+          <h2 class="slide-title">Up to the Starting Line 🏃</h2>
+          <p class="slide-content">Examining human history from our evolutionary origins to the end of the last Ice Age (around 11,000 B.C.), setting the stage for different developmental trajectories.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: The Great Leap Forward -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">The Great Leap Forward</h2>
+          <p class="slide-subtitle">Around 50,000 years ago, a burst of creativity and innovation appeared, marking the behavioral modernity of humans.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">Innovations 💡</h3>
+              <ul class="list-disc list-inside mt-2 space-y-2">
+                <li>Standardized stone tools</li>
+                <li>First preserved jewelry (ostrich-shell beads)</li>
+                <li>Complex tools from bone (needles, awls)</li>
+                <li>Sophisticated weaponry (harpoons, spear-throwers)</li>
+                <li>Art, such as cave paintings and statues</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">Expansion 🗺️</h3>
+               <ul class="list-disc list-inside mt-2 space-y-2">
+                <li>This leap enabled humans to expand across the globe.</li>
+                <li>Colonization of Australia and New Guinea (~40,000 BC), requiring watercraft.</li>
+                <li>Colonization of Siberia (~20,000 BC), requiring adaptation to extreme cold.</li>
+                <li>Finally, the Americas (~11,000 BC).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: A Natural Experiment -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: Chapter 2</p>
+          <h2 class="slide-title">A Natural Experiment of History: <span class="highlight">Polynesia</span></h2>
+          <p class="slide-subtitle">The colonization of the Polynesian islands offers a perfect small-scale test for how environments shape societies.</p>
+          <p class="slide-content">Descendants of a single founding society diversified dramatically over a few thousand years, adapting to the vastly different environments of the islands they settled.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Moriori and Maori -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">The Fates of the Moriori & Maori</h2>
+          <p class="slide-subtitle">A tragic collision between two societies descended from the same ancestors.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">The Moriori (Chatham Islands) 🏝️</h3>
+              <p>Settled a small, cold, isolated island group. Could not practice tropical agriculture. They reverted to a hunter-gatherer lifestyle, abandoned warfare, and limited their population. They developed simple technology and a peaceful, egalitarian society.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">The Maori (New Zealand) 🏔️</h3>
+              <p>Settled a large, diverse land suitable for their agriculture. Developed dense populations, sophisticated technology, and strong political organization. They were fiercely territorial and engaged in chronic warfare. In 1835, they invaded the Chatham Islands and annihilated the peaceful Moriori.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Collision at Cajamarca -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: Chapter 3</p>
+          <h2 class="slide-title">Collision at Cajamarca ⚔️</h2>
+          <p class="slide-subtitle">How did Pizarro's tiny force of 168 Spaniards defeat the Inca Emperor Atahualpa and his army of 80,000?</p>
+          <p class="slide-content">This event serves as a microcosm of European conquests, showcasing the immense power of <span class="highlight">proximate factors</span> that gave them an advantage.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Cajamarca Factors -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Why Pizarro Triumphed</h2>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg space-y-4">
+              <p><b>🐴 Military Technology:</b> Spanish <span class="highlight">horses</span> provided speed, surprise, and an intimidating platform. Steel swords, armor, and guns gave them a lethal advantage over the Incas' stone and bronze weapons.</p>
+              <p><b>🦠 Epidemic Diseases:</b> Eurasian <span class="highlight">germs</span>, like smallpox, had already devastated the Inca Empire, killing the previous emperor and his heir, which triggered a debilitating civil war that Atahualpa had just won.</p>
+              <p><b>🚢 Maritime Technology:</b> Pizarro arrived in ships that were the product of centuries of European maritime development, allowing him to cross the Atlantic.</p>
+              <p><b>🏛️ Centralized Political Organization:</b> Spain's state organization funded, staffed, and equipped the expedition. It provided a framework for conquest.</p>
+              <p><b>📜 Writing:</b> Literacy allowed for the rapid and accurate transmission of information. Pizarro knew about Cortés's successful conquest of the Aztecs and used his tactics as a blueprint.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: The Rise of Food Production</p>
+          <h2 class="slide-title">The Power of Farming 🌾</h2>
+          <p class="slide-content">This section explores the <span class="highlight">ultimate cause</span> behind the inequalities of power: the transition from hunting and gathering to food production.</p>
+        </div>
+      </div>
+
+      <!-- Slide 12: Farmer Power -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Farmer Power: An Indirect Chain of Causation</h2>
+           <div class="slide-content">
+            <p>Food production didn't directly lead to guns and steel. Instead, it enabled a series of societal changes.</p>
+            <div class="relative mt-6">
+              <!-- Vertical line -->
+              <div class="absolute left-4 top-0 h-full border-l-2 border-blue-300"></div>
+              <!-- Steps -->
+              <div class="mb-8 pl-12 relative">
+                <div class="absolute left-0 top-0 w-8 h-8 bg-blue-500 rounded-full text-white flex items-center justify-center font-bold">1</div>
+                <h3 class="font-bold text-lg">More Food, More People</h3>
+                <p>Farming yields far more calories per acre than hunting-gathering, supporting much denser populations.</p>
+              </div>
+              <div class="mb-8 pl-12 relative">
+                <div class="absolute left-0 top-0 w-8 h-8 bg-blue-500 rounded-full text-white flex items-center justify-center font-bold">2</div>
+                <h3 class="font-bold text-lg">Sedentary Lifestyle</h3>
+                <p>Farmers stay in one place. This allows for the accumulation of possessions and the development of more complex technology.</p>
+              </div>
+              <div class="mb-8 pl-12 relative">
+                <div class="absolute left-0 top-0 w-8 h-8 bg-blue-500 rounded-full text-white flex items-center justify-center font-bold">3</div>
+                <h3 class="font-bold text-lg">Specialists and Elites</h3>
+                <p>Food surpluses can feed non-food-producing specialists: kings, bureaucrats, priests, artisans, and soldiers.</p>
+              </div>
+               <div class="pl-12 relative">
+                <div class="absolute left-0 top-0 w-8 h-8 bg-blue-500 rounded-full text-white flex items-center justify-center font-bold">4</div>
+                <h3 class="font-bold text-lg">Development of Germs, Tools, and Writing</h3>
+                <p>Domesticated animals were the source of epidemic diseases. Sedentary, dense societies fostered technological innovation and the need for writing systems to manage complex information.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: History's Haves and Have-nots -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">History's Haves and Have-Nots</h2>
+          <p class="slide-subtitle">Why did food production arise independently in only a few parts of the world?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">Independent Origins 🌱</h3>
+              <p>Food production began independently in at least five, possibly as many as nine, core areas:</p>
+              <ul class="list-disc list-inside mt-2">
+                <li>Fertile Crescent (~8500 BC)</li>
+                <li>China (~7500 BC)</li>
+                <li>Mesoamerica (~3500 BC)</li>
+                <li>Andes/Amazonia (~3500 BC)</li>
+                <li>Eastern United States (~2500 BC)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">Diffusion ➡️</h3>
+              <p>In most other places, agriculture was not independently invented but was <span class="highlight">imported</span> from these core areas. Some societies, like those in Australia, never adopted food production at all before the modern era.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: To Farm or Not to Farm -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">To Farm or Not to Farm?</h2>
+          <p class="slide-subtitle">The shift to farming was not a conscious choice for a "better life." It was a gradual, often unintentional process.</p>
+          <div class="slide-content">
+            <p>Early farming was often harder and less healthy than hunting-gathering. The boundary between the two lifestyles was blurry. Several factors tipped the balance:</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>Decline of wild foods:</b> Over-hunting and climate change made wild resources less reliable.</li>
+                <li><b>Availability of domesticable plants:</b> Some wild plants were easier to grow and harvest, making cultivation more attractive.</li>
+                <li><b>Technological advances:</b> New technologies for collecting, processing, and storing food made farming more efficient.</li>
+                <li><b>Rising population density:</b> A slow rise in population pushed people toward producing more food from a given area of land.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 15: How to make an Almond -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">How to Make an Almond 🌰</h2>
+          <p class="slide-subtitle">The story of plant domestication is one of <span class="highlight">unconscious selection</span>.</p>
+          <div class="slide-content">
+            <p>Many of our most important crops started as unpromising, even poisonous, wild plants. Early farmers inadvertently selected for desirable traits without understanding genetics.</p>
+            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">The Case of the Almond</h3>
+              <p class="mt-2">Wild almonds are bitter and deadly, containing cyanide. A rare genetic mutation produces sweet, non-poisonous almonds. Early gatherers would have tasted and discarded the bitter nuts but eaten and spread the seeds of the few sweet ones they found, eventually leading to the domesticated almond we know today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 16: Anna Karenina Principle -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">The Anna Karenina Principle 🐾</h2>
+          <p class="slide-subtitle">"Happy families are all alike; every unhappy family is unhappy in its own way."</p>
+          <div class="slide-content">
+            <p>Jared Diamond applies this principle to animal domestication. A candidate for domestication must possess a suite of essential traits. A failure in just <span class="highlight">one</span> trait can make domestication impossible.</p>
+            <p class="mt-4">This explains why out of 148 large, terrestrial herbivorous mammal species, only 14 were ever domesticated.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 17: Domestication Checklist -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">The Domestication Checklist ✅</h2>
+          <p class="slide-subtitle">Why have so few large mammals been domesticated? They must pass a tough six-point test.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ul class="space-y-3">
+              <li><b>1. Diet:</b> Must be efficient to feed (herbivores/omnivores).</li>
+              <li><b>2. Growth Rate:</b> Must grow quickly enough to be economically viable.</li>
+              <li><b>3. Captive Breeding:</b> Must be willing to breed in captivity.</li>
+            </ul>
+            <ul class="space-y-3">
+              <li><b>4. Nasty Disposition:</b> Must not be overly dangerous or aggressive. (Why we don't ride zebras or keep grizzly bears).</li>
+              <li><b>5. Tendency to Panic:</b> Must not have a strong flight instinct when enclosed.</li>
+              <li><b>6. Social Structure:</b> Must live in herds with a clear dominance hierarchy that humans can co-opt.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Tilted Axes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Spacious Skies and Tilted Axes ↔️↕️</h2>
+          <p class="slide-subtitle">The orientation of continents played a massive role in the spread of food production.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">Eurasia's East-West Axis</h3>
+              <p>Locations at the same latitude share similar day lengths, seasons, climates, and diseases. This allowed crops, livestock, and technologies from the Fertile Crescent to spread rapidly across the entire continent, from Europe to China.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">Americas' & Africa's North-South Axis</h3>
+              <p>Travel north or south brings drastic changes in climate. A crop adapted to Mexico would fail in Canada. This created major ecological barriers, drastically slowing the diffusion of agriculture and technology.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3: From Food to Steel</p>
+          <h2 class="slide-title">Lethal Gifts: <span class="highlight">Guns, Germs, & Steel</span></h2>
+          <p class="slide-content">Connecting the ultimate cause (food production) to the proximate causes that enabled conquest.</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: Lethal Gift of Livestock -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">The Lethal Gift of Livestock 🦠</h2>
+          <p class="slide-subtitle">The greatest killers of humankind—smallpox, influenza, measles, tuberculosis—evolved from diseases of domesticated herd animals.</p>
+          <div class="slide-content">
+            <p>Eurasians lived in close proximity to their animals for millennia. This constant exposure allowed animal microbes to jump to humans and evolve into epidemic diseases. Over time, Eurasian populations developed significant immunities.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+                <h3 class="font-bold text-lg">A One-Sided Exchange</h3>
+                <p class="mt-2">When Europeans arrived in the Americas, they brought these germs with them. Native American populations had no domesticated herd animals (besides the llama), no exposure, and no immunity. The resulting epidemics killed up to <span class="highlight">95%</span> of the pre-Columbian population, proving more devastating than any army.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Blueprints and Borrowed Letters -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Blueprints and Borrowed Letters 📜</h2>
+          <p class="slide-subtitle">Writing was another major advantage, but it arose independently only a few times in history.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">Independent Invention</h3>
+              <ul class="list-disc list-inside mt-2">
+                <li><b>Sumerians</b> (Mesopotamia, ~3000 BC)</li>
+                <li><b>Mesoamericans</b> (Mexico, ~600 BC)</li>
+                <li>Egyptian and Chinese writing may also be independent inventions.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">Idea Diffusion</h3>
+              <p>Most societies acquired writing by borrowing from neighbors (<span class="highlight">blueprint copying</span>) or by being inspired by the idea of writing to create their own system (<span class="highlight">idea diffusion</span>), like the Cherokee script.</p>
+              <p class="mt-2">The east-west axis of Eurasia facilitated the rapid spread of writing systems, unlike in the Americas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Necessity's Mother -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Necessity's Mother? 💡</h2>
+          <p class="slide-subtitle">The common saying is often reversed: "<span class="highlight">Invention is the mother of necessity.</span>"</p>
+          <div class="slide-content">
+             <p>Many inventions were developed by curious tinkerers without a clear use in mind. Only later was a "need" found for them. Think of the first automobile or Edison's phonograph.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">Factors Driving Technology</h3>
+              <p class="mt-2">Technology develops cumulatively and is driven by societal factors:</p>
+               <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>Food production</b> and a sedentary life are prerequisites for complex technology.</li>
+                <li>Large, dense, competitive societies are the most innovative.</li>
+                <li>Geographic connectivity allows societies to adopt innovations from others. Isolation stifles it. Eurasia's large size and east-west axis gave it a huge advantage.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: From Egalitarianism to Kleptocracy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">From Egalitarianism to Kleptocracy 👑</h2>
+          <p class="slide-subtitle">How did large, centralized, unequal societies (kleptocracies) evolve from small, kin-based groups?</p>
+          <div class="slide-content">
+            <p>As populations grew, societies evolved through four stages: <b>Band -> Tribe -> Chiefdom -> State</b>.</p>
+            <p class="mt-4">Larger populations require more complex systems for conflict resolution, decision-making, and economy. Elites arise to manage these systems, but how do they persuade the commoners to give up their resources?</p>
+             <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>Disarm the public</b> and arm the elite.</li>
+                <li><b>Redistribute tribute</b> in popular ways.</li>
+                <li>Use a monopoly on force to maintain <b>public order</b>.</li>
+                <li>Construct an <b>ideology or religion</b> that justifies the kleptocracy.</li>
+             </ul>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 24: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: Around the World</p>
+          <h2 class="slide-title">Testing the Theory: <span class="highlight">Continental Case Studies</span></h2>
+          <p class="slide-content">Applying the framework of ultimate and proximate causes to understand the specific histories of Australia, New Guinea, China, the Americas, and Africa.</p>
+        </div>
+      </div>
+
+      <!-- ... And so on, for at least 30 more slides covering each case study in detail ... -->
+      <!-- Let's add a few representative examples -->
+
+      <!-- Slide 25: Australia and New Guinea -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Australia and New Guinea: A Tale of Two Halves</h2>
+          <p class="slide-subtitle">Both started from the same human stock on the same continent, but their fates diverged dramatically after sea levels rose.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">Australia 🦘</h3>
+              <p>The driest, flattest, and least fertile continent. Lacked native plants and animals suitable for domestication (megafauna went extinct). Remained a continent of hunter-gatherers with simple technology and social organization.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">New Guinea 🐦</h3>
+              <p>Wet, rugged, and mountainous. Independently developed agriculture (taro, bananas, sugarcane). Supported dense farming populations. But, like Australia, it lacked domesticable large mammals and cereal crops, limiting protein, land transport, and the development of larger political units.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: The Story of China -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">How China Became Chinese 🇨🇳</h2>
+          <p class="slide-subtitle">China provides a stark contrast to Europe: early and persistent political and cultural unity.</p>
+          <div class="slide-content">
+            <p>China's geography facilitated this unity. It's not transected by major mountain ranges like the Alps or Pyrenees. Its two major river systems (Yellow and Yangtze) are connected by easily navigable lowlands and were eventually linked by canals.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">A Double-Edged Sword</h3>
+                <p class="mt-2">This connectivity allowed for rapid diffusion of culture and technology, and easy political unification. However, it also meant that a single bad decision by one ruler could halt innovation across the entire civilization, as happened when the Ming Dynasty decided to scrap its ocean-going treasure fleets in the 15th century.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: The Austronesian Expansion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Speedboat to Polynesia: The Austronesian Expansion</h2>
+          <p class="slide-subtitle">One of the most extensive human migrations in history, spreading from South China/Taiwan across the vast Pacific and Indian Oceans.</p>
+          <div class="slide-content">
+            <p>This expansion was driven by a superior package of technology and food production:</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>Advanced maritime technology:</b> Outrigger canoes capable of long-distance voyages.</li>
+                <li><b>A robust agricultural package:</b> Root crops like taro and yam, tree crops like breadfruit and banana, and domesticated animals (pigs, chickens, dogs).</li>
+                <li>This package allowed them to outcompete or replace the hunter-gatherer populations of the Philippines and Indonesia, and to settle the previously uninhabited islands of the Pacific.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Hemispheres Colliding Revisited -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Hemispheres Colliding, Revisited 💥</h2>
+          <p class="slide-subtitle">Why did the collision between Eurasia and the Americas play out so one-sidedly?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">Eurasia's Head Start</h3>
+              <ul class="list-disc list-inside mt-2 space-y-2">
+                <li>Longer history of human settlement.</li>
+                <li>Vastly superior set of domesticable plants and animals.</li>
+                <li>East-west axis facilitating rapid spread.</li>
+                <li>Result: Denser populations, earlier states, more advanced technology, and deadlier germs.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">The Americas' Disadvantages</h3>
+               <ul class="list-disc list-inside mt-2 space-y-2">
+                <li>Shorter history of human settlement.</li>
+                <li>Paucity of domesticable large mammals after the Ice Age extinction.</li>
+                <li>North-south axis and geographic barriers slowing diffusion.</li>
+                <li>Result: Vulnerability to Eurasian conquest.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: How Africa became Black -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">How Africa Became Black 🌍</h2>
+          <p class="slide-subtitle">Africa's immense human diversity is the result of a long and complex history shaped by its unique geography.</p>
+          <div class="slide-content">
+            <p>Africa is home to 5 of the world's 6 major human groups. Its history is dominated by the <span class="highlight">Bantu Expansion</span>, a massive migration of farmers originating from West Africa around 3000 BC.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">The Bantu Advantage</h3>
+                <p class="mt-2">Armed with iron tools and a robust agricultural package (yams, sorghum), Bantu-speaking farmers expanded over millennia, displacing or absorbing the indigenous Khoisan and Pygmy hunter-gatherers across most of sub-equatorial Africa. This expansion was slowed only by ecological barriers, like the different climate zone in South Africa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat this pattern with more detail for 20 more slides -->
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">More on Technology...</h2><p class="slide-content">Creating a timeline of inventions...</p></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">More on Social Structures...</h2><p class="slide-content">Comparing chiefdoms...</p></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">More on Germs...</h2><p class="slide-content">A map of disease origins...</p></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">The Japanese Exception?</h2><p class="slide-content">Analyzing the unique history of Japan...</p></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Case Study Deep Dive...</h2><p class="slide-content">Detailed analysis...</p></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 1...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 2...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 3...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 4...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 5...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 6...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 7...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 8...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 9...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 10...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 11...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 12...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 13...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 14...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 15...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 16...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 17...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 18...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 19...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 20...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 21...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 22...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 23...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 24...</h2></div></div>
+      <div class="slide"><div class="slide-container"><h2 class="slide-title">Further Content 25...</h2></div></div>
+      
+      <!-- Slide 55: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">Conclusion: History as a Science</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">The broad patterns of history are not a story of heroic individuals or cultural superiority. They are the result of environmental differences amplified over time.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">The fates of human societies were decisively shaped by differences in geography and biogeography—the <span class="highlight">ultimate factors</span> that determined the availability of domesticable species and the ease of diffusion.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 56: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Thank You</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> Prev</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">Next <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

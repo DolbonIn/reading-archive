@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>잘됐던 방법부터 버려라</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🗑️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">잘됐던 방법부터 버려라</h1>
+          <p class="text-xl md:text-2xl text-gray-700">돈, 사랑, 관계가 술술 풀리는 <span class="highlight">36가지 성공 법칙</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Introduction Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">들어가는 글</p>
+          <h2 class="slide-title"><span class="highlight">잘됐던 방법을 버리면</span> 인생이 바뀐다!</h2>
+          <p class="slide-content">인생의 무대가 바뀔 때, 우리 마음에 일렁이는 작은 파도들에 대하여.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3: The Ripples of Change -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음속 작은 <span class="highlight">파도</span> 🌊</h2>
+          <p class="slide-subtitle">혹시 이런 감정을 느끼고 있나요?</p>
+          <div class="slide-content text-lg space-y-3">
+            <p>◦ 지금까지 신나서 했던 일인데, 왜인지 즐겁지가 않다.</p>
+            <p>◦ 밤새워 놀 만큼 잘 맞았던 친구가 어쩐지 불편하다.</p>
+            <p>◦ 월급이 약간 적게 느껴지고, 조금 더 벌었으면 좋겠다.</p>
+            <p class="mt-6">이런 찝찝함은 '이제 내가 있을 곳은 여기가 아닌가 봐'라는 신호입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: The Signal -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎉</div>
+          <h2 class="slide-title">그렇다면, <span class="highlight">축하합니다!</span></h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">그 파도는 당신이 있을 인생의 무대가 바뀐다는 뚜렷한 신호입니다. 그 신호를 외면하고 방치해서는 안 됩니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">이 상황에서 당신은 딱 한 가지 행동만 하면 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: The One Action -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">단 하나의 행동: <span class="highlight">놓아주기</span></h2>
+          <p class="slide-subtitle">지금까지 당신을 지탱해온 것들을 시원하게 놓아주는 것입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+              <li>지금껏 잘됐던 방법</li>
+              <li>지금껏 성과를 냈던 사고법</li>
+              <li>지금껏 도움이 됐던 능력</li>
+              <li>지금껏 뒷받침해줬던 노하우</li>
+            </ul>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p>불안하고 아쉬울 수 있습니다. 하지만 지금껏 잘됐던 방법일수록 다음 무대에서는 <span class="highlight">발목을 잡을 확률</span>이 큽니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: The Core Truth -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🔑</div>
+          <h2 class="slide-title">핵심 진리</h2>
+          <p class="text-2xl text-gray-700">사람은 자신이 어느 무대에 서 있느냐에 따라 <br/><span class="highlight">'잘되는 방정식'</span>이 달라진다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 7: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <p><b>1. 왜 잘됐던 방법부터 버려야 할까:</b> 우리가 '버리지 못하는' 9가지 진짜 이유</p>
+            <p><b>2. '정말 이래도 되나' 싶을 때:</b> 제대로 버리기 위한 마음 조건 만들기</p>
+            <p><b>3. 과감하게 놓는 자신에게 YES!:</b> 허전한 인생을 반전시키는 행동 테크닉</p>
+            <p><b>4. 나답게 사는 용기의 마법:</b> 온전히 나로 세계를 채우는 태도 연습</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">왜 하필 <span class="highlight">잘됐던 방법부터</span> 버려야 할까</h2>
+          <p class="slide-content">우리가 '버리지 못하는' 9가지 진짜 이유를 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 9: Starbucks Analogy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생의 '스테이지'가 바뀌면 <span class="highlight">'주인공'도 바뀐다</span></h2>
+          <p class="slide-subtitle">스타벅스에서 "라지 커피 주세요"라고 외친 할아버지 이야기</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">과거의 무대 ☕</h3>
+              <p>동네 카페에서는 '라지 사이즈'라는 말이 통했습니다. 그것이 할아버지의 '잘됐던 방법'이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">새로운 무대 ⭐</h3>
+              <p>스타벅스에는 '라지'가 없습니다. '톨, 그란데, 벤티'라는 새로운 규칙이 적용됩니다. 과거의 방법은 통하지 않습니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center text-xl font-bold">우리 인생도 이와 같습니다. 새로운 무대에서는 <span class="highlight">새로운 규칙</span>을 배워야 합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 10: New Rules for a New Stage -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 무대, 새로운 <span class="highlight">규칙</span></h2>
+          <p class="slide-subtitle">삶의 무대가 바뀌면, 완전히 다른 룰이 적용됩니다.</p>
+          <div class="slide-content text-lg space-y-3">
+            <p>◦ 지금껏 <span class="text-red-500">누군가를 위해</span> 움직였다면, 다음엔 <span class="text-blue-500">자신을 위해</span> 움직여야 할지 모릅니다.</p>
+            <p>◦ 지금껏 <span class="text-red-500">타인의 의견을</span> 따랐다면, 다음엔 <span class="text-blue-500">자신의 의견을</span> 밀어붙여야 할지 모릅니다.</p>
+            <p>◦ 지금껏 <span class="text-red-500">돈보다 좋아하는 일</span>에 눈이 멀었다면, 다음엔 <span class="text-blue-500">돈에 눈이 멀어야</span> 할지도 모릅니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Author's Story: The Question -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그때도 맞고 <span class="highlight">지금도 맞는 방법</span>이란 없다</h2>
+          <p class="slide-subtitle">저자의 20대, 성공한 음식점 사장이었을 때 받은 충격적인 질문</p>
+          <div class="mt-8 p-8 bg-gray-50 border border-gray-200 rounded-lg text-center">
+            <h3 class="font-bold text-2xl">"만약 1년 후에 죽는다면, 지금 하는 일을 계속할 거야?"</h3>
+            <p class="mt-4 text-xl">저의 대답은 "당장 때려치워야죠!"였습니다. 그 순간, 지금 하는 일이 <span class="highlight">정말 하고 싶은 일이 아니라는 것</span>을 깨달았습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Author's Story: The Shift -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">변화의 시작: <span class="highlight">자유</span>를 향하여</h2>
+          <p class="slide-subtitle">'어떻게 해야 내가 하고 싶은 일을 알 수 있을까?'라는 질문에서 시작된 변화</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과거의 믿음</h3>
+              <p>"사장이 현장에서 가장 열심히 일해야 경영이 잘 풀린다." → 완벽주의, 모든 것을 직접 통제</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">새로운 키워드</h3>
+              <p>"비즈니스 오너", "불로소득". 내가 직접 일하지 않아도 돈이 들어오는 시스템에 대한 갈망 → <span class="highlight">위임</span>의 시작</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: The Power of Letting Go -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">직원에게 <span class="highlight">위임</span> 선언 🤝</h2>
+          <p class="slide-subtitle">내가 없어야 가게가 더 잘 돌아간다는 역설적인 깨달음</p>
+          <div class="slide-content">
+            <p>미안하고 찝찝한 마음으로 직원에게 가게를 맡겼습니다. 결과는 놀라웠습니다. 제가 있을 때보다 현장이 훨씬 더 잘 돌아갔습니다.</p>
+            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">깨달음</h3>
+              <p>직원들은 사장의 질타와 격려보다 <span class="highlight">책임감과 자유</span>가 주어졌을 때 더 좋은 성과를 냈습니다. '내가 아등바등하는 덕분에 전체가 잘 돌아간다'는 생각을 버렸습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: The "Not X" Problem -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사람은 'OO 말고'를 <span class="highlight">상상하지 못하는</span> 동물</h2>
+          <p class="slide-subtitle">친구가 "나, 라면 말고 다른 거 먹고 싶어"라고 말한다면?</p>
+          <div class="slide-content">
+            <p>무엇을 제안해야 할지 막막할 것입니다. 우리는 'A가 아닌 것'이 아니라 'B'라는 구체적인 대상을 상상해야 합니다.</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+              <li>"불안하지 않은 날들을 보내고 싶어." (X)</li>
+              <li>"고통스럽지 않은 상태에 있고 싶어." (X)</li>
+              <li>"지금과 다른 환경에서 다시 시작하고 싶어." (X)</li>
+            </ul>
+             <p class="mt-6 font-bold text-lg">해결책: 원하는 <span class="highlight">목적</span>부터 명확히 해야 합니다. "라면 말고 회가 먹고 싶어!" 처럼요.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 15: Two Motivations -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기뻐서 하고 있는가, <span class="highlight">아까워서 하고 있는가?</span></h2>
+          <p class="slide-subtitle">무엇을 놓아야 할지 막막할 때, 스스로에게 던져볼 두 가지 질문입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-6 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-2xl mb-4">😄 기쁨</h3>
+              <p>"좋아하니까 같이 있지" 와 같은 긍정적인 마음. 이것은 계속 가져가야 할 것입니다.</p>
+            </div>
+            <div class="p-6 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-2xl mb-4">😥 아까움</h3>
+              <p>"이 사람을 놓치면 아까울 것 같아" 와 같은 부정적인 마음. 이것이 바로 <span class="highlight">놓아야 할 것</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: The Fear of Loss -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">손해 보고 싶지 않은 <span class="highlight">두려움</span></h2>
+          <p class="slide-subtitle">사람들이 '아깝다'고 생각하는 이유는 손해를 보고 싶지 않기 때문입니다.</p>
+          <div class="slide-content">
+            <p>'이득을 보고 싶다', '성장하고 싶다'는 긍정적인 마음보다 '손해 보고 싶지 않다', '잃을지도 모른다'는 부정적인 마음이 더 크게 작용합니다. 앞으로 얻을 설렘보다 지금 가진 것을 잃을 두려움이 더 큽니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">⚠️ 명심하세요</h3>
+              <p>어떤 방법이 당신을 지금의 자리로 데려왔다 하더라도, 그 방법이 <span class="highlight">당신이 원하는 미래</span>로 데려다주지는 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: The Only Way to Fail -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🚫</div>
+          <h2 class="slide-title">반드시 실패하는 단 한 가지 방법: <span class="highlight">완벽주의</span></h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">세상에는 수많은 성공 방법이 있지만, 실패하는 방법은 딱 하나입니다. 바로 완벽주의입니다. </p>
+            <p class="mt-4">인간은 불완전한 존재이기에 완벽이라는 불가능의 영역에 도전하는 것은 한 걸음도 내딛지 못하게 만듭니다. '만인에게 호감을 줘야 해'라는 생각은 대표적인 완벽주의입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: You Can't Please Everyone -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">모두를 만족시킬 <span class="highlight">필요는 없다</span></h2>
+          <p class="slide-subtitle">고깃집은 고기를 좋아하는 사람을, 횟집은 회를 좋아하는 사람을 만족시키면 됩니다.</p>
+          <div class="slide-content text-lg space-y-4">
+            <p>✅ 모두에게 호감을 얻을 수 없을뿐더러</p>
+            <p>✅ 모두에게 호감을 얻지 않아도 좋다.</p>
+            <p>✅ 모두를 만족시킬 수 없을뿐더러</p>
+            <p>✅ 굳이 모두를 만족시키지 않아도 좋다.</p>
+            <p class="mt-6 font-bold">당신은 <span class="highlight">당신을 좋아하는 사람들</span>을 만족시키면 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: The Inner Conflict -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">액셀과 브레이크를 <span class="highlight">동시에</span> 밟는 사람들</h2>
+          <p class="slide-subtitle">"좋아하는 일을 하고 싶지만, 회사를 그만두기는 두렵다"와 같은 마음의 갈등</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🚗 액셀 (나아가려는 마음)</h3>
+              <p><b>목표:</b> 행복해지고 싶다!<br/><b>장점:</b> 하고 싶은 일을 하며 꿈을 이룬다. 더 많은 사람과 웃을 수 있다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🛑 브레이크 (멈추려는 마음)</h3>
+              <p><b>목표:</b> 행복해지고 싶다!<br/><b>장점:</b> 가족과 시간을 보낸다. 비판당할 일이 없다. 안정적인 생활.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center text-xl font-bold">놀랍게도, 두 마음의 <span class="highlight">궁극적인 목적은 '행복'으로 동일</span>합니다. 단지 경로가 다를 뿐입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Finding the True Goal -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">눈앞의 문제는 <span class="highlight">눈속임이다</span></h2>
+          <p class="slide-subtitle">내면의 갈등 속에는 자신이 진정으로 갈망하는 것이 숨겨져 있습니다.</p>
+          <div class="slide-content">
+            <p>상담 사례: 불륜 관계로 고민하던 여성. 그녀의 내면에는 '가족과 함께 있고 싶은 나(해피)'와 '가족과 떨어지고 싶은 나(불꽃)'가 있었습니다.</p>
+            <p class="mt-4">두 자아의 궁극적인 목적을 파헤쳐보니, '스스로 하고 싶은 일을 하는 인생'이라는 공통된 바람이 있었습니다. 눈앞의 '불륜'이라는 문제는 진짜 갈망을 가리는 눈속임이었습니다.</p>
+             <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+               <p>진정한 바람을 깨닫게 되면, 눈앞의 문제는 더 이상 중요하지 않게 되거나 자연스럽게 해소되는 경우가 많습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: The Power of Focus -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'잘난 사람'일수록 버릴 때 <span class="highlight">탈이 나는 이유</span></h2>
+          <p class="slide-subtitle">"인간의 능력은 다 거기서 거기야. 단지 초점을 어디 맞추느냐에 따라 결과가 완전히 달라지지."</p>
+          <div class="slide-content text-center">
+            <img src="https://placehold.co/400x250/f0f0f0/333?text=돋보기+☀️" alt="Magnifying glass focusing sunlight" class="mx-auto rounded-lg shadow-md">
+            <p class="mt-6">돋보기로 햇빛을 모으면 불꽃이 일어나듯, 인생도 <span class="highlight">초점을 맞추고 집중</span>하면 가속합니다. 똑똑한 사람은 할 수 있는 일이 많기에 초점을 하나로 모으기 어렵습니다. 그래서 오히려 버리기가 더 힘듭니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Part 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">'정말 이래도 되나' 싶은 생각이 든다면</h2>
+          <p class="slide-content">제대로 버리기 위한 <span class="highlight">마음 조건</span> 만들기.</p>
+        </div>
+      </div>
+
+      <!-- Slide 23: Changing Your Mind -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'한번 내뱉은 말'에는 <span class="highlight">도망갈 시간을 주어라</span></h2>
+          <p class="slide-subtitle">과거의 말에 얽매일 필요는 없습니다. 사람은 변합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">어릴 적 "당근 싫어!" 🥕</h3>
+              <p>어린 시절 당근이 싫었다고 해서 평생 싫어해야 하는 법은 없습니다. "옛날에는 싫었는데 지금은 좋아"라고 말하면 그만입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">인생의 신념 ✨</h3>
+              <p>인생의 가치관이나 목표도 마찬가지입니다. 과거에 중요했던 것이 지금은 중요하지 않을 수 있고, 그 반대일 수도 있습니다. 중요한 것은 <span class="highlight">현재의 당신</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: The Chicken Coop Analogy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'당연하지 않은 것'을 <span class="highlight">'당연시하는 사람'</span>을 미러링하라</h2>
+          <p class="slide-subtitle">우리는 자신도 모르는 사이, 양계장의 닭처럼 살고 있을지 모릅니다.</p>
+          <div class="slide-content">
+            <p>태어날 때부터 닭장 안에서 자란 닭은 그 환경을 당연하게 여깁니다. 스트레스도 받지 않습니다. 우리도 사회의 '당연한 것들'(명함, 회식, 결혼 등)에 갇혀 있을 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">탈출 방법 🚀</h3>
+              <p>당신이 바라는 상태를 이미 '당연하게' 누리고 있는 사람과 접촉하세요. (예: 적게 일하고 많이 버는 사람, 늘 즐겁게 사는 사람) 그들과 함께하면 당신의 '당연함'도 바뀝니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: The Pachinko Mentor -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">때로는 '커닝'과 <span class="highlight">'분석'</span>이 필요하다</h2>
+          <p class="slide-subtitle">원하는 결과를 이미 달성한 사람에게 배우는 것이 가장 빠른 지름길입니다.</p>
+          <div class="slide-content">
+             <p>저자는 파친코 초보 시절, 항상 돈을 따는 아저씨를 끈질기게 관찰하고 말을 걸어 멘토로 삼았습니다. 그의 가르침을 그대로 따랐더니, 한 달에 큰돈을 버는 사람이 되었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+               <h3 class="font-bold text-lg">이기는 사람 vs 지는 사람</h3>
+               <p>그 차이는 단 하나, <span class="highlight">이기는 방법을 아느냐 모르느냐</span>의 차이였습니다. 이기는 방법을 아는 사람에게 배우면 이길 수 있습니다. 이는 인생의 모든 일에 통용되는 진리입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: The Blue Ocean Strategy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">파친코에서 배운 <span class="highlight">블루오션 전략</span> 🌊</h2>
+          <p class="slide-subtitle">가게 선택이 기술보다 중요하다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🦈 레드오션</h3>
+              <p><b>물고기(수익)는 많지만 라이벌(고수)도 많은 곳.</b><br/>이길 확률이 높은 기계가 많은 도심 가게. 초보가 장기적으로 이기기 어렵다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🐬 블루오션</h3>
+              <p><b>물고기는 적지만 확실히 낚을 수 있는 곳.</b><br/>고수들이 오지 않는 변두리 가게. 경쟁이 없기에 이길 확률이 높다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center text-xl font-bold">진짜 고수는 <span class="highlight">경쟁이 없는 곳</span>에서 느긋하게 이깁니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 27: The Smart Discarding Skill -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">똑소리 나는 <span class="highlight">내다 버리기 스킬</span></h2>
+          <p class="slide-subtitle">스트레스 없이 사는 사람들은 '버릴 줄 아는 사람'입니다.</p>
+          <div class="slide-content">
+            <p>무언가를 놓으면, 그 빈자리로 더 좋은 것들이 들어옵니다. 잘됐던 방식을 버렸더니 일도 마음도 한결 편해졌습니다.</p>
+            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">인생을 즐기는 사람들의 4가지 사이클 🔄</h3>
+              <p>1. 제대로 버리기 → 2. 원하는 것 찾기 → 3. 자신의 매력 키우기 → 4. 주저 없이 받아들이기</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Part 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">과감하게 놓는 자신에게 <span class="highlight">'YES'</span>를 외쳐주자</h2>
+          <p class="slide-content">허전한 인생을 반전시키는 행동 테크닉.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Luck and Mood -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'운'은 철저하게 <span class="highlight">'기분'</span>에 좌우된다</h2>
+          <p class="slide-subtitle">당신의 기분을 신나게 만드는 '방아쇠'는 무엇인가요?</p>
+          <div class="slide-content">
+            <p>어떤 분야든 '신난다'는 느낌으로 지속할 수 있는 일이 관건입니다. 저자에게는 20년 넘게 매주 월요일 만화 주간지를 읽는 것이 그런 일입니다.</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+              <li>네일을 새로 받으면 신이 난다.</li>
+              <li>돈 잘 벌 생각을 하면 신이 난다.</li>
+              <li>스타벅스 라테를 마시면 신이 난다.</li>
+              <li>위에 올린 달걀프라이를 보면 신이 난다. 🍳</li>
+            </ul>
+            <p class="mt-6 font-bold">자신만의 <span class="highlight">'신남 방아쇠'</span>를 알아두면, 중요한 순간에 100% 힘을 발휘할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Pleasing Yourself -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">💖</div>
+            <h2 class="slide-title">당신이 누구보다 기쁘게 해야 할 대상은<br/><span class="highlight">바로 당신 자신</span>입니다.</h2>
+            <p class="text-xl text-gray-700">소중한 파트너도, 부모 자식도 아닌 바로 '나' 자신입니다. '저거 갖고 싶다'는 사소한 욕망을 성취해주는 것이 자신에게 베푸는 최고의 사랑입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 31: Personify Your Desires -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나를 위한 소비가 어색하다면?</h2>
+          <p class="slide-subtitle">'무언가를 원하는 마음'을 의인화해보세요.</p>
+          <div class="slide-content">
+            <p>갖고 싶은 재킷이 있다면, 그 마음을 '재킷 씨'라고 이름 붙여보세요. 그리고 '나'를 기쁘게 하는 것이 아니라 '재킷 씨'를 기쁘게 해주기 위해 고민하는 겁니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">3단계 실천법</h3>
+              <p>1. 하고 싶은 마음에 이름 붙이기 (e.g., 재킷 씨)</p>
+              <p>2. 의인화 대상에 기쁨을 주는 행동하기 (e.g., 재킷 씨를 위해 재킷을 산다!)</p>
+              <p>3. 그로부터 오는 성취감 제대로 맛보기 (e.g., 재킷 씨가 기뻐하니 나도 뿌듯하다!)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Flaws as Strengths -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">콤플렉스는 '극복'이 아니라 <span class="highlight">'반응'</span>하는 것</h2>
+          <p class="slide-subtitle">당신의 단점이 사실은 가장 강력한 매력 포인트이자 셀링 포인트가 될 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">맛없는 녹즙 광고 🤢</h3>
+              <p>'맛없다'는 단점을 감추지 않고 솔직하게 드러낸 녹즙 광고는 오히려 큰 성공을 거두었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">저자의 저학력 콤플렉스 👨‍🎓</h3>
+              <p>평생 숨기려 했던 '중졸'이라는 약점을 농담처럼 태연하게 말하자, 오히려 매력으로 느끼는 사람들이 늘었습니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center text-xl font-bold">콤플렉스를 매력으로 바꾸기 어렵다면, 우선 <span class="highlight">웃어넘기는 것</span>부터 시작해보세요.</p>
+        </div>
+      </div>
+
+      <!-- Slide 33: The Power of "Acting As If" -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스스로를 대단하다고 <span class="highlight">쳐야</span> 진짜 대단해진다</h2>
+          <p class="slide-subtitle">과거의 저는 다른 사람이 되기 위해 안간힘을 썼습니다.</p>
+          <div class="slide-content">
+            <p>마음속에는 '나는 잘못됐다', '나는 초라하다'는 전제가 깔려 있었습니다. 성공한 사람의 의견을 내 생각인 양 말하고, 수많은 정보 속에서 나를 잃어갔습니다.</p>
+            <p class="mt-4">변화는 '나를 찾는 것'이 아니라 '나를 자각하는 것'에서 시작되었습니다. '나는 글렀어'라는 생각에서 <span class="highlight">'이게 난데, 뭐'</span>라는 중립적인 생각으로 바뀌었습니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 비장의 방법</h3>
+              <p>100% 믿지 않아도 좋으니, 일단 <span class="highlight">'자신이 가치 있다고 치고'</span> 살아보는 것입니다. 그러면 당신을 둘러싼 모든 것에 변화가 생길 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Charm over Skill -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'스킬 업'보다 상위에 있는 것은 <span class="highlight">'챠밍 업'</span></h2>
+          <p class="slide-subtitle">비즈니스는 '무엇을 제공하는가'가 아니라 '누가 제공하는가'로 판가름 납니다.</p>
+          <div class="slide-content">
+            <p>사람들은 기타를 가장 잘 치는 사람이 아니라, 방송에 나온 기타리스트의 음색을 듣고 싶어 합니다. 훌륭한 노래보다 아이돌의 미소를 보고 싶어 합니다. 기술보다 <span class="highlight">개인의 매력</span>이 더 중요합니다.</p>
+            <p class="mt-4">'당신에게 사고 싶어!', '당신이 해줬으면 좋겠어!'라고 생각하게 만드는 것이 중요합니다. 그것은 자신의 가치를 스스로 '인정하는 것'에서 출발합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Income is Not Ability -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수입을 늘리고 싶다면, '능력'은 <span class="highlight">별개의 문제</span></h2>
+          <p class="slide-subtitle">'기술이 뛰어난 순서대로 돈을 버는 것은 아니다'라는 세상의 구조</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+                <li>기타리스트의 수입은 기타 실력 순이 아니다.</li>
+                <li>가수의 수입은 음정 정확도 순이 아니다.</li>
+                <li>셰프의 수입은 요리 기술 순이 아니다.</li>
+            </ul>
+            <p class="mt-6">만약 목적이 '돈을 버는 것'이라면, 기술 향상에만 매달릴 것이 아니라 <span class="highlight">돈이 벌리는 문</span>을 많이 만드는 데 집중해야 합니다. (예: 돈을 잘 버는 사람과 어울리기)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Escaping the Hourly Wage Mindset -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생은 '시급제'라는 생각에서 <span class="highlight">당장 벗어나라</span></h2>
+          <p class="slide-subtitle">수입 = 노동 시간'이라는 공식을 깨야 금전적 여유가 생깁니다.</p>
+          <div class="slide-content">
+            <p>월 200만 원 버는 사람이 월 2,000만 원 버는 사람보다 10배 더 많이 일할까요? 오히려 그 반대인 경우가 많습니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">새로운 가치관 💡</h3>
+              <p>수입은 당신이 일한 시간의 대가가 아니라, <span class="highlight">당신이 부여한 가치이자 세상에게 받은 감사의 양</span>입니다. 우리는 시간이 아니라 가치를 파는 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Part 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">나답게 사는 용기가 인생에 <span class="highlight">마법</span>을 부른다</h2>
+          <p class="slide-content">온전히 나로 세계를 채우는 태도 연습.</p>
+        </div>
+      </div>
+
+      <!-- Slide 38: The Inner Child -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생의 좋고 나쁨은 오로지 <span class="highlight">동심</span>이 결정한다</h2>
+          <p class="slide-subtitle">사라진 듯하지만, 당신 안에 여전히 존재하는 동심.</p>
+          <div class="slide-content">
+            <p>언제부터 어른티가 나기 시작했나요?</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+              <li>아이처럼 떠드는 게 부끄럽다고 느끼기 시작한 것은.</li>
+              <li>좋아하는 일을 하면 안 된다고 느끼기 시작한 것은.</li>
+              <li>남들처럼 행동해야 한다고 생각하기 시작한 것은.</li>
+            </ul>
+             <p class="mt-6 font-bold text-lg">당신을 이루는 대부분은 <span class="highlight">동심</span>에서 비롯됩니다. 동심은 100% 순수한 재능과 매력의 덩어리입니다. 폼 잡지 말고 즐기고, 어른인 척 말고 방방 뛰세요!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: NO vs GO -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진짜 싫다면 NO! 일단 <span class="highlight">겁나면 GO!</span></h2>
+          <p class="slide-subtitle">싫다는 감정과 겁난다는 감정은 완전히 다릅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-6 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-2xl mb-4">🚫 싫으면 NO!</h3>
+              <p>가기 싫은 술자리, 만나기 싫은 사람. 싫다는 감정이 들면 단호하게 그만둬야 합니다.</p>
+            </div>
+            <div class="p-6 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-2xl mb-4">🚀 겁나면 GO!</h3>
+              <p>겁이 나는 일은 '해보고 싶은 일'이라는 뜻입니다. 그 안에는 기대감이 숨어 있습니다. 꼭 도전해보세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Overestimation vs Underestimation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">득이 되는 '과대평가'와 <span class="highlight">독이 되는 '과소평가'</span></h2>
+          <p class="slide-subtitle">자신을 음식물 쓰레기 취급하지 마세요.</p>
+          <div class="slide-content">
+            <p class="text-red-500"><b>과소평가(X):</b> "그렇게 마음먹었는데 포기하다니 난 정말 글렀어." → 성공하지 못했다고 자신을 탓하고 책망하는 행위.</p>
+            <p class="mt-4 text-blue-500"><b>과대평가(O):</b> "이럴 때도 있고 저럴 때도 있는 거지." → 지금까지 해온 노력을 제대로 평가해주고, 가끔은 우월감에 빠져도 좋습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>스스로에게 조금만 더 <span class="highlight">친절한 태도</span>를 취해주세요. 고급 호텔 카페에서 우아하게 홍차를 마시거나, 자신을 위해 예쁜 구두를 사는 것처럼요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Raising Your Limits -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자신의 한계점을 높이는 말을 <span class="highlight">은근슬쩍 주입하라</span></h2>
+          <p class="slide-subtitle">주변에 당신의 한계점을 높여주는 사람이 있나요?</p>
+          <div class="slide-content">
+            <p>월세 1,000만 원 집에 사는 친구, 50세에 가수로 데뷔한 심리상담사... 상식 밖의 삶을 사는 사람들을 만나면 내 한계점이 깨집니다.</p>
+            <p class="mt-4">'난 저렇게 못 해'라고 기죽을 필요도, '뭔가 잘못됐어'라고 부정할 필요도 없습니다. 그저 '아, 이렇게 살아도 되는구나!'라고 <span class="highlight">받아들이는 것</span>만으로도 충분합니다.</p>
+            <p class="mt-4">무너진 상식 너머로 가능성이 펼쳐지고, GO 사인을 낼 수 있게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Groundless Hunches -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">🧭</div>
+            <h2 class="slide-title">가끔은 <span class="highlight">근거 없는 예감</span>에 목숨을 걸어도 좋다</h2>
+            <p class="text-xl text-gray-700">'나는 훨씬 더 잘될 수 있어!', '나한테 어울리는 곳이 있을 거야!' 라는 근거 없는 확신. <br/>그 감정이야말로 당신을 새로운 무대로 데려가 줄 <span class="highlight">나침반</span>입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 43: The Power of Output -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'들여오기(Input)'만큼 중요한 <span class="highlight">'내보내기(Output)'</span> 습관</h2>
+          <p class="slide-subtitle">아무리 인풋을 많이 해도, 아웃풋을 하지 않으면 만족스럽기는커녕 부족하다는 느낌만 받습니다.</p>
+          <div class="slide-content">
+            <p>뉴스레터나 블로그를 쓰는 등, 배운 것을 꾸준히 아웃풋하는 습관은 엄청난 성장을 가져옵니다. 아웃풋을 생활화하면 배움의 속도가 빨라지고, 자신이 어떤 감정을 느끼는지도 훨씬 잘 이해하게 됩니다.</p>
+            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">아웃풋하는 사람의 변화 ✨</h3>
+              <p>자연스레 성장이 빨라진다. 자연스레 배움이 많아진다. 자연스레 중심축이 생긴다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: The Stages of Evolution -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">하나의 '과정'을 버리면 하나의 <span class="highlight">'신화'</span>가 열린다</h2>
+          <p class="slide-subtitle">인생의 바이오리듬: 6단계 진화 과정</p>
+          <div class="slide-content text-center text-lg space-y-2">
+            <p>① <b>진화(進化)</b>: 앞으로 나아가는 시기. 행동하면 결과가 나온다.</p>
+            <p>↓</p>
+            <p>② <b>신화(辛化)</b>: 맵고 힘든 과제가 주어지는 시기.</p>
+            <p>↓</p>
+            <p>③ <b>심화(深化)</b>: 자신과 대면하며 내면을 파헤치는 시기.</p>
+            <p>↓</p>
+            <p>④ <b>진화(眞化)</b>: 진정한 자신을 발견하고 새로운 무대로 이끌리는 시기.</p>
+            <p class="mt-4 font-bold">우리는 항상 어떤 단계에 놓여 있으며, 꽉 막힌 듯한 순간조차 <span class="highlight">항상 움직이고 있습니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Rules for Each Stage (1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">단계별 <span class="highlight">롤러코스터</span> 공략법 🎢</h2>
+          <p class="slide-subtitle">각 단계마다 필요한 행동은 다릅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">① 진화(進化) 단계</h3>
+              <p><b>필요한 것: 행동!</b><br/>나비가 된 시기. 내면을 보기보다 직접 밖으로 나가 결과를 내야 합니다. "뭐가 재미있어?", "오늘은 뭘 할까?" 스스로를 부추겨 행동하고 즐기면 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">② 신화(辛化) 단계</h3>
+              <p><b>필요한 것: 멈춤과 대화.</b><br/>갑자기 일이 막히는 시기. 억지로 밀어붙이면 문제가 악화됩니다. 잠깐 멈춰서 자신과 대화하는 시간이 필요합니다. "이 일을 하면 뭘 얻을까?", "뭘 배울 수 있을까?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46: Rules for Each Stage (2) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">단계별 롤러코스터 공략법 🎢 (계속)</h2>
+          <p class="slide-subtitle">각 단계마다 필요한 행동은 다릅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">③ 심화(深化) 단계</h3>
+              <p><b>필요한 것: 내면 탐구.</b><br/>과제와 씨름하며 자신의 내면을 들여다보는 시기. 독서나 명상을 통해 '내 인생의 의미는 무엇인가'를 생각해야 합니다. 타인의 이야기에 귀 기울이지 않는 것이 중요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">④ 진화(眞化) 단계</h3>
+              <p><b>필요한 것: 다음 행동 준비.</b><br/>'응? 끝난 건가?' 싶은 느낌과 함께 한 꺼풀 벗겨지는 시기. 하고 싶은 일이 뚜렷해집니다. "이제 뭘 어떻게 해볼까?" 실제 행동을 위한 시뮬레이션을 시작할 때입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47: The Most Important Rule -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">🔄</div>
+            <h2 class="slide-title"><span class="highlight">잘됐던 방법일수록</span> 미련 없이 버려라.</h2>
+            <p class="text-xl text-gray-700">인생이 새로운 단계로 들어섰다면, 이전 단계에서 썼던 방법을 버리고 새로운 수법을 취해야 합니다. <br/>당신을 지금의 자리로 데려온 방법이, 반드시 다음 단계로 데려다주지는 않습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 48: The Rule of Happiness Inflow -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">버릴수록 채워지는 <span class="highlight">행복 유입의 룰</span></h2>
+          <p class="slide-subtitle">당신이 활약할수록 칭찬하는 사람과 비판하는 사람은 함께 늘어납니다.</p>
+          <div class="slide-content">
+            <p>칭찬과 비판은 동전의 양면과 같습니다. 어느 한쪽에 치우치지 말고, '자기 세계의 균형감각'을 잃지 않고 중심을 잡아야 합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+               <p>기억하세요. 개인과 세계, 모두를 가질 수는 없습니다. 어떨 때는 나답게 살고 싶은 용기가 인생의 마법을 부릅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: Conclusion Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">나오는 글</p>
+          <h2 class="slide-title"><span class="highlight">반드시 되고 싶은 대로</span> 되어라</h2>
+          <p class="slide-content">인생이란 나 자신과 환경이 같이 창조해나가는 것입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 50: The Final Message -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">되고 싶은 대로 <span class="highlight">되어라.</span></h2>
+            <p class="slide-subtitle">과거의 나에게 딱 한마디만 하고 싶습니다.</p>
+            <div class="slide-content max-w-4xl mx-auto">
+              <p class="mb-4 text-xl">'내가 바라는 나'란 개인과 환경이 함께 완성하는 것입니다. 기존의 나를 버리고 환경에 변화를 가져올 때, 마법 같은 결과가 따라옵니다.</p>
+              <p class="mt-8 font-bold text-2xl text-gray-800">그 일이 가능한 시대에, 가능한 시점에 있기 때문에, 되고 싶은 대로 되어라.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 51: About the Author -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지은이: <span class="highlight">시이하라 다카시</span></h2>
+          <p class="slide-subtitle">맨손 경영의 신흥강자, 일본의 전설적인 컨설턴트</p>
+          <div class="slide-content">
+            <p>중학교 졸업 후 프로 갬블러로 월 2,000만 원을 버는 생활을 했습니다. 이후 사업가로 성공하여 돈과 자유를 얻었습니다. '성공'과 '행복'의 상관관계를 연구하며, '일단 버리고 보라'는 거침없는 인생 설계로 폭발적인 인기를 얻고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

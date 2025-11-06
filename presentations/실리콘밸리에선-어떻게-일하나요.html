@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실리콘밸리에선 어떻게 일하나 요 Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e9ecef;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd60a;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+     .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+        list-style-type: '✔️ ';
+        padding-left: 1.5rem;
+    }
+    li {
+        margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🏢</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">실리콘밸리에선 어떻게 일하나요?</h1>
+          <p class="text-xl md:text-2xl text-gray-700">직원 만족과 경쟁력을 함께 키우는 <span class="highlight">조직문화 7가지</span></p>
+        </div>
+      </div>
+      
+      <!-- Slide 2: Author -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">✍️ 저자 소개: 크리스 채 (Christiana Chae)</h2>
+          <div class="slide-content">
+            <p class="mb-4">메타(Meta) 본사에서 프로덕트 디자이너로 시작하여 AI 신규사업팀 수석팀장(Head of Design) 및 메타 1호 디자인 전략가(Design Strategist)에 이르기까지 약 7년간 근무했습니다.</p>
+            <p class="mb-4">이전에는 구글, 시스코, 유나이티드항공 등 다양한 기업을 대상으로 디자인 컨설팅을 수행했습니다.</p>
+            <p>미국, 한국, 북유럽 등 다양한 문화권의 업무 방식을 경험하며 얻은 통찰을 바탕으로, 2022년 한국 방문 중 실리콘밸리 조직문화에 대한 많은 질문을 받고 이 책을 집필하기로 결심했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📜 목차</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+            <p><b>Prologue:</b> 문화에 대한 남다른 관심</p>
+            <p><b>1. Bottom-Up Culture:</b> 가까운 사람의 책임이 더 크다</p>
+            <p><b>2. Feedback Culture:</b> 망하는 회사의 공통점</p>
+            <p><b>3. Flat Culture:</b> 모두에게 변화에 기여할 기회</p>
+            <p><b>4. Manage Up:</b> 내 상사는 내가 관리한다</p>
+            <p><b>5. Parallel Track:</b> 승진의 길은 한 가지가 아니다</p>
+            <p><b>6. Strength-Based Culture:</b> 잘할 뿐 아니라 즐기는 그 일을 하라</p>
+            <p><b>7. Impact Driven Culture:</b> 마지막 열쇠, 결과에 대한 책임</p>
+            <p><b>Conclusion:</b> 요약 및 최종 메시지</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Prologue Intro -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Prologue</p>
+              <h2 class="slide-title">문화를 이해하고 활용하는 것에 대한 <span class="highlight">남다른 관심</span></h2>
+              <p class="slide-subtitle">"Where are you from?" 이라는 질문에서 시작된 문화에 대한 고찰</p>
+              <div class="slide-content">
+                  <p>다양한 문화권에서 살아온 경험은 제3자의 눈으로 문화를 빨리 분석하고 적응하는 강점이 되었습니다. 어린 시절에는 생존을 위해 문화를 따라했지만, 성인이 되어서는 나만의 가치관과 스타일에 맞게 문화를 직접 고르고 적용하는 법을 배웠습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 5: Prologue - Meta vs Apple -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">일하는 <span class="highlight">문화와 방식</span>이 결과를 가른다</h2>
+              <p class="slide-subtitle">실리콘밸리의 상반된 두 문화: 메타와 애플</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">🍎 애플 (Apple)</h3>
+                      <p><b>키워드:</b> <span class="highlight">Top-down, 통제, 미니멀</span></p>
+                      <p>조직 상층부에서 비전과 방향을 정하고, 구성원은 그에 맞춰 업무를 실행합니다. 품질 경영과 업무 효율화에 강점이 있지만, 아이디어 도출과 혁신에는 한계가 있을 수 있습니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">📘 메타 (Meta)</h3>
+                      <p><b>키워드:</b> <span class="highlight">Bottom-up, 동등함, 공유, 인간중심</span></p>
+                      <p>회사의 큰 방향성만 정해지면, 제품을 만들고 실행하는 과정은 직원들에게 일임됩니다. 혁신적인 아이디어가 나올 가능성이 높지만, 결정 과정이 복잡하고 에너지가 많이 소비될 수 있습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 6: Section Title 1 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">조직문화 1</p>
+            <div class="text-6xl mb-4">🚀</div>
+            <h2 class="slide-title">Bottom-Up Culture</h2>
+            <p class="slide-subtitle">가까운 사람의 책임이 더 크다</p>
+        </div>
+      </div>
+
+      <!-- Slide 7: Bottom-Up WHAT -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">What is <span class="highlight">Bottom-Up Culture</span>?</h2>
+              <p class="slide-subtitle">아이디어 수집부터 제품 출시까지, 실무자가 주도권을 가지고 일하는 방식</p>
+              <div class="slide-content">
+                  <p>보텀업은 톱다운(Top-Down)의 반대 개념입니다. 아이디어만 있다면 누구든지 가설을 세우고, 꾸준한 실험과 <span class="highlight">데이터</span>를 통해 성공 여부를 증명하여 실제로 제품을 만드는 것이 보텀업 방식입니다.</p>
+                  <p class="mt-4">현장에서 일하는 사람이 그 일을 가장 잘 안다는 철학에 기반하며, 철저히 '데이터'를 기반으로 하기 때문에 누구나 업무 주도권을 가질 수 있습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 8: Bottom-Up Principles -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보텀업 컬처의 <span class="highlight">7가지 원칙과 단계</span></h2>
+          <div class="slide-content space-y-2">
+            <p><b>1. 리더의 비전으로 시작한다:</b> 큰 그림의 비전은 경영진이 제시합니다.</p>
+            <p><b>2. 팀에게 모든 책임을 부여한다:</b> 비전 달성 방법은 팀이 주도합니다. 결과에 대한 책임도 함께 따릅니다.</p>
+            <p><b>3. 기대치를 합의한다:</b> 실무자와 관리자는 진행 방식, 결과, 책임에 대한 기대치를 명확히 합의합니다.</p>
+            <p><b>4. 데이터 기반의 결정을 내린다:</b> 작은 실험을 통해 가설을 증명하며 확신을 키워나갑니다.</p>
+            <p><b>5. 피드백을 자주 준다:</b> 리더는 주기적으로 피드백을 통해 중간 점검을 합니다.</p>
+            <p><b>6. 빨리 실패한다:</b> 아니다 싶으면 빨리 접습니다. 판단 기준을 미리 정해두는 것이 좋습니다.</p>
+            <p><b>7. 배움 역시 성공이다:</b> 프로젝트가 중단돼도, 그 과정에서 얻은 배움이 있다면 성공으로 판단합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Bottom-Up WHY 1 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">Why Bottom-Up? (장점 ①)</h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 class="font-bold text-2xl mb-3">모든 문제를 <span class="highlight">기회</span>로 바라보게 된다</h3>
+                  <p>문제를 해결하면 보상(평가, 보너스, 승진)이 따르기 때문에, 모든 문제는 곧 기회가 됩니다. 불평에 그치지 않고 바로 해결책을 생각하는 습관이 길러지며, 문제 해결 능력의 '근육'이 키워집니다.</p>
+                </div>
+                <div class="text-6xl text-center">🤔 ➡️ 💡</div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Bottom-Up WHY 2 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">Why Bottom-Up? (장점 ②)</h2>
+             <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="text-6xl text-center">📈</div>
+                <div>
+                  <h3 class="font-bold text-2xl mb-3">효율적인 업무 진행 & <span class="highlight">질적 향상</span></h3>
+                  <p>업무와 가장 가까운 사람이 작은 결정을 직접 내리므로, 의사결정 속도가 빨라집니다. 또한, 리더 혼자가 아닌 팀 전체가 주도적으로 참여하면서 더 다양하고 참신한 아이디어가 나오고, 제품의 퀄리티가 높아집니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Bottom-Up Problems -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Potential Problems ⚠️</h2>
+          <p class="slide-subtitle">보텀업 문화의 잠재적 문제점</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-red-50 border border-red-200 rounded-lg">
+                <h3 class="font-bold text-lg text-red-800">조직의 비전은 반드시 <span class="highlight">톱다운</span>으로 정해야 한다</h3>
+                <p class="mt-2">조직이 어디로 향해야 하는지 명확하지 않으면, 보텀업의 방향성이 제각기 다른 쪽을 향하게 되어 에너지가 비효율적으로 쓰입니다. 회사 전체의 비전과 각 사업 분야의 비전까지는 톱다운 방식으로 명확히 소통되어야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Bottom-Up TIPS 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Tips for Bottom-Up Culture 💡</h2>
+          <p class="slide-subtitle">성공적인 보텀업 문화를 위한 조언들</p>
+          <div class="slide-content">
+            <p class="font-bold text-xl mb-4">1. 모든 결정은 <span class="highlight">데이터</span>를 기반으로 한다</p>
+            <p>아이디어를 낸 사람의 경력이나 직책과 관계없이, 데이터의 신빙성을 기반으로 결정하는 것이 보텀업의 핵심 원칙입니다. 여기서 데이터란 숫자(정량적)뿐만 아니라, 시장 인사이트, 사용자 반응/감정(정성적) 등을 모두 포함합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Bottom-Up TIPS 2 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">Tips for Bottom-Up Culture 💡</h2>
+            <div class="slide-content">
+                <p class="font-bold text-xl mb-4">2. 장애물을 예측하고 <span class="highlight">도움</span>을 청할 수 있는 환경을 만든다</p>
+                <p>리더는 '너의 힘으로 해결하라'가 아닌, '너에게는 장애물(blocker)을 예측하고 도움을 요청할 책임이 있다'는 메시지를 강조해야 합니다. 팀이 스스로 장애물을 예측하고 적절한 도움을 요청하는 것이 중요한 원칙입니다.</p>
+                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                  <h3 class="font-bold text-lg">'장애물'을 객관화하는 법</h3>
+                  <p class="mt-2">"저 디자이너가 파일을 안 줘서 업무를 못했다" (❌)</p>
+                  <p class="mt-2 font-bold text-green-700">"이 업무는 그 파일이 없어서 현재 진행할 수 없는 상태다. 업무 진전을 위해선 그 파일이 필요하다." (✔️)</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Bottom-Up Story 1 -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Bottom-Up Story</p>
+            <h2 class="slide-title">신입사원의 아이디어로 탄생한 <span class="highlight">'텍스트 필터'</span> 기능</h2>
+            <p class="slide-subtitle">문제 발견부터 가설 설정, 데이터 기반 증명까지</p>
+            <div class="slide-content">
+                <p><b>[문제]</b> 페이스북 뉴스피드에서 텍스트 공유가 꾸준히 감소하고 있었습니다.</p>
+                <p><b>[관찰]</b> 사용자들이 트위터 글을 스크린샷 찍어 페이스북에 이미지로 올리는 행동을 발견했습니다.</p>
+                <p><b>[가설]</b> 사람들은 자신의 소소한 텍스트 게시물이 초라해 보일까봐 공유를 꺼린다. 글에 필터를 입혀주면 공유에 대한 자신감이 높아질 것이다.</p>
+                <p><b>[실행]</b> 작은 규모의 테스트(글자 크기 자동 조절)를 통해 '좋아요'와 댓글 수가 증가하는 것을 확인하고, 배경색 추가 등 점진적으로 테스트를 확장하여 가설을 성공적으로 증명했습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Section Title 2 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">조직문화 2</p>
+            <div class="text-6xl mb-4">💬</div>
+            <h2 class="slide-title">Feedback Culture</h2>
+            <p class="slide-subtitle">망하는 회사의 공통점은 직원들의 피드백이 없었다는 것</p>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Feedback WHAT -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">What is a <span class="highlight">Feedback Culture</span>?</h2>
+            <p class="slide-subtitle">조직의 존폐를 결정짓는 매우 중요한 요소</p>
+            <div class="slide-content">
+                <p>피드백 컬처는 회사의 생존과 직결됩니다. 메타는 '모든 생각과 사상은 일단 논의되어야만 발전한다'는 철학을 기반으로, 조직 안팎에서 열린 문화와 피드백 컬처를 조성하기 위해 노력합니다.</p>
+                <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h3 class="font-bold text-lg text-blue-800">360도 피드백</h3>
+                    <p class="mt-2">모든 방향과 형태의 피드백이 원활하게 이루어지는 문화를 뜻합니다.</p>
+                    <ul>
+                      <li>직원 ↔️ 회사 (방향성, 전략, 만족도)</li>
+                      <li>직원 ↔️ 제품 (방향성, 퀄리티)</li>
+                      <li>직원 ↔️ 직원 (협업, 성장, 성과)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Feedback Principles -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">좋은 피드백의 <span class="highlight">5가지 원칙</span></h2>
+              <p class="slide-subtitle">피드백이 '성장의 기회'가 되기 위한 조건</p>
+              <div class="slide-content text-lg space-y-3">
+                  <p><b>1. 투명성 (Transparent):</b> 내용에 솔직함과 진정성이 있다.</p>
+                  <p><b>2. 시의성 (Timely):</b> 너무 오래 기다리지 않고 기억이 생생할 때 전달한다.</p>
+                  <p><b>3. 공정성 (Fair):</b> 편견 없이 공정하다.</p>
+                  <p><b>4. 친절함 (Kind):</b> 상대방을 배려하고자 하는 의도가 깔려 있다.</p>
+                  <p><b>5. 실행가능성 (Actionable):</b> 문제점뿐 아니라 해결에 대한 제안이 함께 담겨 있다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 18: Feedback WHY -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Why Feedback? (장점)</h2>
+              <div class="slide-content">
+                  <ul>
+                      <li>
+                          <strong>성과와 결과물의 완성도가 높아진다:</strong><br>
+                          제3자의 새로운 관점을 통해 미처 보지 못한 부분을 발견하고 업무 완성도를 높일 수 있습니다.
+                      </li>
+                      <li>
+                          <strong>효과적으로 인재를 확보할 수 있다:</strong><br>
+                          "직원은 회사가 아니라 상사를 떠난다." 안전한 피드백 문화는 갈등 해결을 돕고 이직률을 낮춥니다.
+                      </li>
+                      <li>
+                          <strong>직원 모두에게 성장 마인드를 키워준다:</strong><br>
+                          피드백의 궁극적 목표는 '성장'입니다. 피드백을 통해 지속적으로 성장하며 경쟁력 있는 조직이 됩니다.
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 19: Feedback Problems -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">Potential Problems ⚠️</h2>
+            <p class="slide-subtitle">피드백 문화의 잠재적 문제점</p>
+            <div class="slide-content space-y-6">
+                <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <h3 class="font-bold text-lg">올바름보다 쉬운 길을 선택할 수 있다</h3>
+                    <p>부정적인 피드백을 받는 것은 정신적으로 힘든 일입니다. 이 때문에 직원들이 어렵고 옳은 결정보다 쉽고 무난한 결정을 내리려는 경향이 생길 수 있습니다. 리더는 피드백의 목적이 '성장'임을 꾸준히 상기시켜야 합니다.</p>
+                </div>
+                <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <h3 class="font-bold text-lg">피드백에 개인의 편견이 담길 수 있다</h3>
+                    <p>모든 인간에게는 내재된 편견이 있습니다. 의도와 무관하게 개인의 정체성이나 배경에 따라 다른 기대치를 갖거나 다르게 해석할 수 있음을 인지하고 경계해야 합니다. '올바른 피드백'에 대한 교육 투자가 필수적입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Feedback TIPS -->
+       <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Tips for Feedback Culture 💡</h2>
+              <div class="slide-content">
+                  <p class="font-bold text-xl mb-4">1. 리더가 먼저 <span class="highlight">모범</span>을 보인다</p>
+                  <ul>
+                      <li><b>신뢰 쌓기:</b> 평소에 팀원들을 인간적으로 알아가려 노력하고 자신의 부족한 점을 드러냅니다.</li>
+                      <li><b>먼저 묻기:</b> "나에게 하고 싶은 말은 없는지" 주기적으로 피드백을 요청합니다.</li>
+                      <li><b>고마움 표현하기:</b> 용기 내어 피드백을 준 사람에게 진심으로 고마움을 표현합니다.</li>
+                      <li><b>사과하기 & 개선하기:</b> 잘못은 바로 인정하고 사과하며, 빠른 시일 내에 개선 의지와 방안을 보여줍니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 21: Feedback Story -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Feedback Story</p>
+              <h2 class="slide-title">아픈 피드백, 공격이 아닌 <span class="highlight">신뢰의 첫걸음</span></h2>
+              <p class="slide-subtitle">새로운 팀장으로 부임했을 때의 경험</p>
+              <div class="slide-content">
+                  <p>새로운 팀으로 옮긴 후, '말을 너무 직설적으로 한다'는 부정적인 피드백을 받았습니다. 이전 팀에서는 강점이었던 솔직함이, 아직 신뢰가 쌓이지 않은 팀에서는 공격처럼 느껴졌던 것입니다. 정신적 타격이 컸지만, 상사에게 솔직한 마음을 털어놓았고, 이는 오히려 깊은 대화로 이어졌습니다. 이후 팀원들과 일대일 미팅을 통해 피드백에 대한 고마움을 표하고 저의 부족한 점을 공유하자, 동료들의 태도가 변하며 신뢰가 쌓이기 시작했습니다. 이 사건은 우리 팀이 서로 신뢰를 쌓고 협업의 완성도를 높이는 중요한 첫걸음이 되었습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 22: Section Title 3 -->
+      <div class="slide">
+          <div class="slide-container text-center">
+              <p class="slide-part-title">조직문화 3</p>
+              <div class="text-6xl mb-4">🌐</div>
+              <h2 class="slide-title">Flat Culture</h2>
+              <p class="slide-subtitle">모두에게 변화에 기여할 기회가 주어진다</p>
+          </div>
+      </div>
+      
+      <!-- Slide 23: Flat Culture WHAT -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">What is a <span class="highlight">Flat Culture</span>?</h2>
+              <p class="slide-subtitle">조직의 모든 구성원들이 같은 기회와 책임을 갖고 일하는 업무 방식</p>
+              <div class="slide-content">
+                  <p>플랫 컬처는 직책이나 경력에 제한을 두지 않고 모두에게 참여의 기회를 주는 것입니다. 좋은 아이디어는 언제 어디서든 나올 수 있다는 철학이 바탕에 깔려 있습니다.</p>
+                  <p class="mt-4">핵심은 <span class="highlight">동등한 기회</span>와 <span class="highlight">차별화된 보상</span>입니다. 모두에게 동등하게 참여할 권리를 주지만, 성과에 대한 기여도는 냉정하게 평가하고 그에 맞게 보상함으로써 문화가 유지되고 좋은 성과로 이어집니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 24: Flat Culture System -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">메타는 어떻게 <span class="highlight">플랫 컬처</span>를 만들었는가?</h2>
+              <div class="slide-content space-y-4">
+                  <p><b>1. 직책을 세분화하지 않는다:</b> PM은 전략과 실행을 동시에 맡고, 모든 디자이너는 '프로덕트 디자이너'라는 같은 직책을 갖습니다. 이는 개인의 강점과 선호도에 따라 유연하게 역할을 정의할 기회를 줍니다.</p>
+                  <p><b>2. 직책의 레벨을 공개하지 않는다:</b> 본인과 팀장만 레벨을 압니다. 서로의 레벨을 모르기 때문에 모두의 의견을 같은 크기로 존중할 수 있습니다.</p>
+                  <p><b>3. 리더십의 개념이 다르다:</b> PM은 결정자가 아닌 '사회자(facilitator)'이며, 상사는 '윗사람'이 아닌 '파트너'나 '서포터'의 개념이 강합니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 25: Flat Culture WHY -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Why Flat Culture? (장점)</h2>
+              <div class="slide-content">
+                  <ul>
+                      <li><b>좋은 해결책을 찾을 가능성이 커진다:</b> 걸러지지 않은 다양한 아이디어가 많이 나올수록 해결책을 찾을 확률이 높아집니다.</li>
+                      <li><b>모든 구성원의 문제 해결력과 소속감을 높인다:</b> 모두가 'PM의 모자'를 쓰고 능동적으로 일하며 공동 오너십을 갖게 됩니다.</li>
+                      <li><b>결과의 질적 향상을 가져온다:</b> 팀 전체의 공동 책임감이 성공 가능성과 프로젝트의 품질(혁신+디테일)을 높입니다.</li>
+                      <li><b>사내정치가 줄어든다:</b> 투명한 피드백 컬처와 결합하여 민주적인 업무 구조가 자리 잡습니다.</li>
+                      <li><b>잠재력 있는 직원을 빨리 성장시킬 수 있다:</b> 스스로 문제 해결 습관을 갖고 자기 목소리를 내는 훈련을 통해 빠르게 성장합니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 26: Flat Culture Problems -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">Potential Problems ⚠️</h2>
+            <div class="slide-content">
+                <div class="p-6 bg-yellow-50 border border-yellow-200 rounded-lg mb-6">
+                    <h3 class="font-bold text-lg">목소리 큰 사람이 이길 수 있다</h3>
+                    <p>발표 능력이 좋거나, 회사 용어에 익숙한 사람의 의견이 더 타당하게 들릴 수 있습니다. 이를 방지하기 위해 모두에게 정보를 동등하게 제공하고, 충분한 준비 시간을 주며, 말보다 글을 활용하는 등의 훈련이 필요합니다.</p>
+                </div>
+                <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h3 class="font-bold text-lg">내향적인 사람들에게는 다소 힘든 회의</h3>
+                    <p>많은 의견이 제시되고 논의되는 문화는 내향적인 사람에게 피곤할 수 있습니다. 개인 집중 시간(focus block)을 보호하고, 불참 사유가 있다면 회의에 빠질 수 있는 문화를 조성하며, 회의록을 자세히 작성하는 제도가 도움이 됩니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Flat Culture Story -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Flat Culture Story</p>
+              <h2 class="slide-title">주기적인 기회의 광장, <span class="highlight">해커톤 (Hackathon)</span></h2>
+              <p class="slide-subtitle">모든 직원이 아이디어를 제시하고 프로토타입을 만들어 리더들에게 직접 피칭하는 행사</p>
+              <div class="slide-content">
+                  <p>해커톤은 플랫 컬처의 대표적인 사례입니다. 자신의 소속 팀이나 업무와 상관없이, 관심사나 강점에 기반하여 새로운 길을 개척할 기회를 제공합니다. 이는 개인과 회사의 성장에 모두 이득이 됩니다. 또한, 평소 만나기 힘든 최고 리더에게 직접 아이디어를 선보이고 피드백을 받으며 성장할 수 있는 소중한 기회입니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 28: Section Title 4 -->
+      <div class="slide">
+          <div class="slide-container text-center">
+              <p class="slide-part-title">조직문화 4</p>
+              <div class="text-6xl mb-4">👥</div>
+              <h2 class="slide-title">Manage Up</h2>
+              <p class="slide-subtitle">내 상사는 내가 관리한다</p>
+          </div>
+      </div>
+      
+      <!-- Slide 29: Manage Up WHAT -->
+       <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">What is <span class="highlight">"Manage Up"</span>?</h2>
+              <p class="slide-subtitle">'상사가 나를 잘 도와주도록 내가 상사를 돕는다' (Help your manager help you)</p>
+              <div class="slide-content">
+                  <p>업무 과정의 '주도권'이 부하직원에게 있다는 생각에 기반한 문화입니다. 단순히 상사를 관리한다는 뜻이 아니라, 상사와의 관계를 잘 정립하여 일의 효율성과 회사생활의 만족도를 높이는 전략입니다.</p>
+                   <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                      <div class="p-4 bg-gray-100 rounded-lg">
+                        <h3 class="font-bold">정보 제공 ℹ️</h3>
+                        <p>상사가 알아야 할 정보를 먼저 제공한다.</p>
+                      </div>
+                      <div class="p-4 bg-gray-100 rounded-lg">
+                        <h3 class="font-bold">도움 요청 🙋</h3>
+                        <p>상사에게 받아야 할 도움을 스스로 요청한다.</p>
+                      </div>
+                       <div class="p-4 bg-gray-100 rounded-lg">
+                        <h3 class="font-bold">피드백 요청/제공 💬</h3>
+                        <p>상사에게 먼저 피드백을 요청하고 또한 제공한다.</p>
+                      </div>
+                   </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 30: Manage Up WHY -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Why "Manage Up"? (장점)</h2>
+              <div class="slide-content">
+                  <ul>
+                      <li><b>팀 전체 성과가 높아질 수 있다:</b> 부하직원이 제때 정보를 주고 도움을 요청하면 팀장은 미래 전략 등 더 중요한 일에 시간을 쓸 수 있습니다.</li>
+                      <li><b>회사생활의 만족도가 올라간다:</b> 팀장의 도움을 잘 받는 직원은 성과가 좋고, 커리어도 목표대로 달성하게 되어 만족도가 자연히 올라갑니다.</li>
+                      <li><b>나의 성과가 더 공정하게 평가될 수 있다:</b> 평소에 팀장과 계속 소통하며 나의 업무를 정확히 이해시켜야 올바르고 공정한 평가를 받을 수 있습니다.</li>
+                      <li><b>마이크로 매니지먼트를 피할 수 있다:</b> 내가 먼저 제때 상황을 보고하고 지원을 요청하면, 상사의 불필요한 간섭을 피할 수 있습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 31: Manage Up Story -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Manage Up Story</p>
+              <h2 class="slide-title">일대일 미팅의 목적을 <span class="highlight">제대로 이해한 사건</span></h2>
+              <p class="slide-subtitle">높은 직급의 임시 팀장과의 경험</p>
+              <div class="slide-content">
+                  <p>신입사원 시절, 높은 직급의 임시 팀장과의 매주 30분 일대일 미팅이 부담스러웠습니다. 무슨 말을 해야 할지 몰라 소극적으로 임했습니다. 6개월 후, 팀장은 팀의 방향에 대한 중요한 결정을 내렸고, 제 관점에서는 그것이 옳은 결정이 아니었습니다. 체념하고 있던 제게 팀장은 솔직한 생각을 물었고, 용기를 내어 이야기하자 90분간의 깊은 대화로 이어졌습니다. 결국 팀장은 원래의 결정을 취소하고 새로운 방향을 찾았습니다. 이 사건 이후, 일대일 미팅이 나를 위한 시간이며 내가 주도권을 가져야 함을 깨달았습니다. 그 후 미팅을 적극적으로 활용하면서 업무 성과와 만족도가 크게 향상되었습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 32: Section Title 5 -->
+      <div class="slide">
+          <div class="slide-container text-center">
+              <p class="slide-part-title">조직문화 5</p>
+              <div class="text-6xl mb-4">🛤️</div>
+              <h2 class="slide-title">Parallel Track</h2>
+              <p class="slide-subtitle">승진의 길은 한 가지가 아니다</p>
+          </div>
+      </div>
+      
+      <!-- Slide 33: Parallel Track WHAT -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">What is a <span class="highlight">Parallel Track</span>?</h2>
+              <p class="slide-subtitle">'관리자'와 '전문가'라는 두 가지 성장 경로</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">IC (Individual Contributor) 리더</h3>
+                      <p><b>'업무' 전문가:</b> 특정 분야의 깊은 전문성을 바탕으로 직접 업무를 수행하며 기여합니다. 사람 관리가 아닌, 복잡하고 중요한 업무 자체에 집중하여 성과를 냅니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">관리자 (People Manager)</h3>
+                      <p><b>'사람' 전문가:</b> 구성원들이 성공적으로 일을 해내고 성장하도록 돕는 '서포터'의 역할을 합니다. 팀과 사람을 관리하는 것에 책임을 집니다.</p>
+                  </div>
+              </div>
+               <p class="mt-6 text-center">메타에서는 두 트랙의 레벨별 연봉과 권한을 <span class="highlight">동등하게</span> 책정하며, 언제든 강점에 따라 두 트랙을 오갈 수 있습니다.</p>
+          </div>
+      </div>
+
+      <!-- Slide 34: Parallel Track WHY -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Why Parallel Track? (장점)</h2>
+              <div class="slide-content">
+                  <ul>
+                      <li><b>핵심 업무 집중:</b> 관리자는 '사람'에, IC는 '업무'에 온전히 집중하여 각자의 전문성을 극대화하고, 이는 조직 전체의 효율성 증대로 이어집니다. (Context Switching 감소)</li>
+                      <li><b>최고의 팀 디자인:</b> "디자이너는 제품을 디자인하고, 팀장은 팀을 디자인한다." 사람 관리를 잘하고 즐기는 사람이 팀을 이끌어야 팀 만족도와 성과가 높아집니다.</li>
+                      <li><b>경력 많은 고성과자 유지:</b> 관리자가 되고 싶지 않은 뛰어난 전문가들이 계속해서 전문가로 성장하며 회사에 기여할 수 있는 경로를 제공하여 인재 유출을 막습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 35: Parallel Track Story -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Parallel Track Story</p>
+              <h2 class="slide-title">같은 회사, <span class="highlight">다른 길</span>을 걷다</h2>
+              <p class="slide-subtitle">저자(관리자 트랙)와 남편(전문가 트랙)의 이야기</p>
+              <div class="slide-content">
+                  <p>남편은 세계 최고의 개발자로 성장하는 길을, 저는 팀을 통해 더 큰 규모의 성과를 내는 관리자의 길을 선택했습니다. 남편은 코딩 자체를 즐겼고, 저는 사람들을 돕고 함께 성장하는 것에서 보람을 느꼈습니다. 이처럼 같은 회사 안에서도 개인의 타고난 성향과 강점, 선호에 따라 각자의 길을 갈 수 있게 한 것이 평행 트랙 시스템의 가장 큰 가치입니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 36: Section Title 6 -->
+      <div class="slide">
+          <div class="slide-container text-center">
+              <p class="slide-part-title">조직문화 6</p>
+              <div class="text-6xl mb-4">💪</div>
+              <h2 class="slide-title">Strength-Based Culture</h2>
+              <p class="slide-subtitle">잘할 뿐 아니라 즐기는 그 일을 하라</p>
+          </div>
+      </div>
+      
+       <!-- Slide 37: Strength-Based WHAT -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">What is a <span class="highlight">Strength-Based Culture</span>?</h2>
+              <p class="slide-subtitle">메타에서 '강점'이란, 단순히 '잘하는 것'이 아니라 <span class="highlight">'즐기는 것'</span></p>
+              <div class="slide-content">
+                  <p>강점에 맞는 일은 오랜 시간 지속했을 때 에너지가 소비되는(draining) 것이 아니라 오히려 충전(energizing)됩니다. 장기적으로 '즐기는 사람'은 '잘하는 사람'을 따라잡을 수 없습니다.</p>
+                  <p class="mt-4">강점 기반 문화는 어느 정도 실력에 이르면 단점을 고치기보다 강점을 더욱 키워 최고의 전문가로 만드는 데 집중합니다. 모두가 자신의 강점을 회사의 방향과 일치시켜 일하며 성장합니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 38: Strength Elements -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">강점을 이루는 <span class="highlight">5가지 요소</span></h2>
+              <div class="slide-content text-lg space-y-2">
+                  <p><b>1. 기술:</b> 어떤 소질과 능력을 갖고 있는가? (예: 시스템 디자인, 스토리텔링)</p>
+                  <p><b>2. 문제 접근법:</b> 남들과 다르게 보는 관점이 있는가? (예: 글로벌 시각)</p>
+                  <p><b>3. 행위:</b> 어떤 일을 할 때 즐거움을 느끼는가? (예: 새로운 비전 그리기)</p>
+                  <p><b>4. 관심 분야/가치관:</b> 어떤 주제가 심장을 뛰게 하는가? (예: 다양성 존중)</p>
+                  <p><b>5. 업무 스타일:</b> 어떤 스타일로 일할 때 가장 효율이 높은가? (예: 팀과 함께, 때론 혼자)</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 39: Strength-Based WHY -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Why Strength-Based? (장점)</h2>
+              <div class="slide-content">
+                   <ul>
+                      <li><b>조직 전체의 성과에 유리하다:</b> 각자 한 가지 기술을 마스터한 5명(조직 B)이 여러 기술을 그럭저럭 하는 5명(조직 A)보다 훨씬 경쟁력 있습니다.</li>
+                      <li><b>모두의 목적의식이 향상될 수 있다:</b> 자신의 일에서 '의미'를 발견하고, 자신의 강점이 조직에 유용하게 쓰인다는 보람을 느낍니다.</li>
+                      <li><b>업무의 완성도, 일의 만족도가 높아진다:</b> 사명감을 갖고 하는 업무는 몰입과 디테일이 남다를 수밖에 없습니다.</li>
+                      <li><b>커리어 성장과 관리에 유용하다:</b> 약점을 보완하는 것보다 강점을 키우는 것이 경쟁력을 쌓는 데 훨씬 유용한 전략입니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 40: Strength-Based Problems -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Potential Problems ⚠️</h2>
+              <p class="slide-subtitle">"약점에는 전혀 신경 쓰지 않아도 되는 걸까?"</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">무시할 수 있는 약점 ✔️</h3>
+                      <p>강점으로 충분히 보완 가능하거나, 업무에 거의 영향을 주지 않는 약점. 혹은 상반되는 강점을 가진 파트너와 협력하여 해결할 수 있습니다. (예: 코딩은 잘하지만 발표를 못하는 개발자)</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">개선해야 할 약점 ❌</h3>
+                      <p>조직의 제도나 문화에서 용납되지 않는 행위. 반드시 강도 높은 경고(Red flag)를 통해 개선해야 합니다. (예: 발표는 잘하지만 남의 성과를 가로채는 직원)</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 41: Strength-Based Story -->
+       <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Strength-Based Story</p>
+              <h2 class="slide-title">약점 있는데 <span class="highlight">팀장</span>해도 되나요?</h2>
+              <p class="slide-subtitle">비주얼 디자인 역량이 부족했던 한 디자이너의 성장</p>
+              <div class="slide-content">
+                  <p>리더십과 PM 성향이 강했지만 비주얼 디자인 역량이 부족했던 한 디자이너가 있었습니다. 분석 결과, 그의 약점은 프레젠테이션 등을 미적으로 꾸미는 역량이었고, 강점은 UI/UX 디자인의 디테일을 정확히 지키는 '픽셀 크래프트'였습니다. 리더에게는 후자의 역량이 훨씬 중요하며, 전자는 다른 사람의 도움으로 보완 가능하다고 판단했습니다. 결국 그는 팀장으로 전환되었고, 자신의 강점을 살려 메타 디자인 시스템에 탁월한 성과를 내는 팀장으로 성장했습니다. 이는 자신의 약점을 잘 가려내고, 보완에 에너지를 쏟을지 말지 현명한 결정을 내리도록 돕는 강점 기반 문화의 좋은 사례입니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 42: Section Title 7 -->
+      <div class="slide">
+          <div class="slide-container text-center">
+              <p class="slide-part-title">조직문화 7</p>
+              <div class="text-6xl mb-4">🎯</div>
+              <h2 class="slide-title">Impact Driven Culture</h2>
+              <p class="slide-subtitle">마지막 열쇠, 결과에 대한 책임</p>
+          </div>
+      </div>
+      
+      <!-- Slide 43: Impact Driven WHAT -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">What is an <span class="highlight">Impact Driven Culture</span>?</h2>
+              <p class="slide-subtitle">메타 조직문화를 완성하는 마지막 열쇠, <span class="highlight">'책임 제도'</span></p>
+              <div class="slide-content">
+                  <p>자율적인 조직문화를 유지하는 힘은 '결과물에 대한 책임 제도'에서 나옵니다. 책임 제도란 기대치를 초기에 명확히 잡고, 반드시 그 기대치만큼의 성과(Impact)를 내야 하는 것을 말합니다.</p>
+                  <p class="mt-4">기대치의 결과만 낼 수 있다면, 그 중간의 모든 형태(어떤 제품, 어떤 과정, 어떤 역할)는 직원들에게 맡기는 것이 자율적이고 주도적인 문화의 핵심입니다. 이 문화를 즐기고 활용하여 성과를 내는 직원들로 조직을 구성하고 유지하는 원동력이 됩니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 44: Impact Driven Core -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">Impact Driven 문화의 <span class="highlight">핵심 요소</span></h2>
+            <div class="slide-content text-lg space-y-3">
+                <p><b>1. 기대치 합의 (Expectation):</b> 우리가 목표로 하는 곳은 어디인가?</p>
+                <p><b>2. 임팩트 정의 (Impact):</b> 어떤 영향력을 끼쳤는가?</p>
+                <p><b>3. 평가 시스템 (Evaluation):</b> 약속된 기대치에 따른 결과를 보여줬는가?</p>
+                <p><b>4. 직원 고용과 유지 (Hiring & Retention):</b> 자율적인 조직문화를 즐기고 활용할 줄 아는 직원들</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: Impact vs Action -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Author's Note</p>
+            <h2 class="slide-title">행위(Action)와 임팩트(Impact) 구분하기</h2>
+            <div class="slide-content">
+                <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <p class="mb-4">"그가 이번 분기에 세 개의 제품을 론칭했다"는 <b>행위</b>입니다. 그 자체로는 임팩트라고 할 수 없습니다.</p>
+                    <p class="font-bold mb-4">"그가 세 개의 제품을 론칭하여(행위), 사람들 간의 새로운 관계 형성에(<b>임팩트</b>) 공헌했다."</p>
+                    <p>그리고 그 임팩트를 증명하고 측정하는 것이 <b>지표(Metric)</b>입니다.</p>
+                    <ul class="list-disc pl-5">
+                      <li>게시물 숫자의 OO 퍼센트 증가</li>
+                      <li>게시물 밑의 답글이나 DM 소통 OO 퍼센트 증가</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46: Evaluation System -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">평가 시스템: <span class="highlight">결과에 대한 책임</span></h2>
+              <div class="slide-content space-y-4">
+                  <p><b>• 평가 점수:</b> 분기별 결과물에 대한 임팩트를 측정합니다. (초과 / 달성 / 미달성)</p>
+                  <p><b>• 승진:</b> 성과를 '어떻게' 달성했는지에 대한 능력과 행위를 기반으로 결정합니다. 다음 레벨의 역량을 이미 지속적으로 보여주고 있는지가 기준입니다.</p>
+                  <p><b>• 경고:</b> 여러 번의 성장 기회에도 기대치에 미치지 못하는 점수를 두 번 이상 받으면 경고를 받습니다.</p>
+                  <p><b>• 해고:</b> 경고를 받은 후에도 주어진 기간 안에 눈에 띄는 변화를 보이지 못하면 '메타의 기대치에 도달하지 못한다'는 결정을 내립니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 47: Hiring Principles -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">함께 성장하는 <span class="highlight">직원을 채용하는 법</span></h2>
+              <p class="slide-subtitle">자율과 책임의 문화에서 성공하는 사람들의 3가지 공통점</p>
+              <div class="slide-content">
+                  <div class="flex justify-around items-center text-center h-48">
+                      <div class="text-2xl font-bold">의욕</div>
+                      <div class="text-4xl">+</div>
+                      <div class="text-2xl font-bold">주도성</div>
+                      <div class="text-4xl">+</div>
+                      <div class="text-2xl font-bold">객관적 자기인식</div>
+                  </div>
+                  <p class="mt-4">스스로 동기부여하는 의욕적인 사람만이 비전과 목표를 세우고, 자기인식을 통해 성장 방향을 정확히 알아차릴 수 있습니다. 또한 그런 사람만이 문제 해결 방법과 전략을 설계하여 주도적으로 일할 수 있습니다. 이 세 가지가 톱니바퀴처럼 맞물려야 합니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 48: Hard vs Soft Skills -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">Hard Skills vs. <span class="highlight">Soft Skills</span></h2>
+              <p class="slide-subtitle">장기적인 성장 잠재력을 보기 위해 소프트 스킬에 주목해야 합니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">하드 스킬 (Hard Skills) 예시</h3>
+                      <ul>
+                        <li>프로덕트 씽킹</li>
+                        <li>체계적 사고</li>
+                        <li>인터랙션 디자인</li>
+                        <li>비주얼 스토리텔링</li>
+                        <li>프로토타이핑</li>
+                      </ul>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg mb-2">소프트 스킬 (Soft Skills) 예시</h3>
+                      <ul>
+                        <li>주도성</li>
+                        <li>의욕 및 추진력</li>
+                        <li>객관적 자기인식</li>
+                        <li>의사소통 능력</li>
+                        <li>협업 능력</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 49: Impact Driven Story -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Impact Driven Story</p>
+          <h2 class="slide-title">어렵지만 <span class="highlight">필수적인 결정</span></h2>
+          <p class="slide-subtitle">메타의 조직문화에 적응하지 못했던 한 리더의 이야기</p>
+          <div class="slide-content">
+            <p>기술적으로는 탁월했지만, 메타가 요구하는 주도적인 리더십(스스로 기회를 찾고 전략을 짜는)과 맞지 않는 팀장이 있었습니다. 그의 성과는 조직의 기대치에 미치지 못했고, 이는 팀원들의 성장에도 부정적인 영향을 끼쳤습니다. 그로 인한 피해가 주변 팀에까지 미치자, 결국 그는 상사로부터 강력한 경고를 받았습니다. 주어진 기간 동안 '큰 변화와 성장'을 증명해야 하는 상황에서, 그는 자신과 더 잘 맞는 조직문화를 찾아 다른 회사로 이직하는 것을 선택했습니다. 이 어렵고 냉정한 결정은 결국 그 리더, 남겨진 팀, 그리고 주변 팀 모두에게 이득이 되는 결과로 이어졌습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🏁</div>
+          <h2 class="slide-title">결론: 함께 성장할 수 있었습니다</h2>
+          <p class="slide-subtitle">7가지 조직문화는 톱니바퀴처럼 맞물려 돌아갑니다.</p>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">메타에서 퇴사자들이 남기는 '배지 포스트'에 가장 많이 쓰인 메시지는 <span class="highlight">'덕분에 성장했다'</span>와 '좋은 커뮤니티와 인연들'에 대한 소회였습니다.</p>
+            <p>보텀업부터 책임 제도에 이르기까지, 이 일곱 가지 조직문화는 동료들과 함께 성장하며 두터운 우정을 형성하는 기반이 되었습니다. 가장 큰 선물은 <span class="highlight">성장과 인연</span>이었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 51: Final Message -->
+       <div class="slide">
+          <div class="slide-container text-center">
+              <h2 class="slide-title">마지막 메시지 🌟</h2>
+              <div class="slide-content max-w-4xl mx-auto">
+                  <p class="mb-4">지치는 것이 당연한 시기입니다. 이럴 때일수록 좋은 조직문화와 뚜렷한 규칙, 그리고 구성원을 향한 신뢰가 더욱 필요하고 빛을 발할 것입니다.</p>
+                  <p class="mt-8 font-bold text-xl text-gray-800">지금이야말로 반드시 <span class="highlight">문화와 사람</span>에 투자할 시간입니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

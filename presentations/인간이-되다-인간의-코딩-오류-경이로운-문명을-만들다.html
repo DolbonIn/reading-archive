@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인간이 되다 (Being Human) Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFF3A3;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-primary:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+      border-color: #ddd;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .btn-secondary:disabled {
+        background-color: #f5f5f5;
+        color: #aaa;
+        cursor: not-allowed;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+    }
+    li {
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center border-0 shadow-none bg-transparent">
+          <div class="text-7xl mb-8">🧬</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">인간이 되다</h1>
+          <p class="text-xl md:text-2xl text-gray-700">우리의 <span class="highlight">생물학</span>이 어떻게 세계사를 만들었는가</p>
+          <p class="mt-4 text-gray-500">루이스 다트넬 저</p>
+        </div>
+      </div>
+      
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-lg">
+            <p><b>머리말:</b> 유능하지만 결함 있는 존재</p>
+            <p><b>1장:</b> 문명을 위한 소프트웨어</p>
+            <p><b>2장:</b> 가족과 왕조의 탄생</p>
+            <p><b>3장:</b> 감염병과 역사의 물줄기</p>
+            <p><b>4장:</b> 팬데믹이 바꾼 세계</p>
+            <p><b>5장:</b> 인구, 보이지 않는 힘</p>
+            <p><b>6장:</b> 마음을 바꾸는 물질들</p>
+            <p><b>7장:</b> 유전자의 코딩 오류</p>
+            <p><b>8장:</b> 인지 편향과 비합리성</p>
+            <p><b>결론:</b> 생물학 위에 쓰인 역사</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Section Title (Preface) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">머리말</p>
+          <h2 class="slide-title">유능하지만 <span class="highlight">결함 있는 존재</span></h2>
+          <p class="slide-content">인간은 뛰어난 지능을 가진 유인원이지만, 우리의 신체와 정신에는 수많은 설계 결함이 존재합니다. 이 책은 그 결함과 능력이 어떻게 인류의 역사를 만들어왔는지 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Preface Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화의 <span class="highlight">트레이드오프</span></h2>
+          <p class="slide-subtitle">우리의 가장 큰 장점은 때로 가장 큰 약점의 원인이 됩니다.</p>
+          <div class="slide-content">
+            <p>복잡한 말을 할 수 있는 능력은 인류 발전의 핵심 동력이었습니다. 하지만 이는 진화 과정에서 후두가 내려오는 구조적 변화를 통해 얻어졌습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg text-red-600">⚠️ 치명적인 설계 결함</h3>
+              <p class="mt-2">이 구조 때문에 인간은 다른 포유류와 달리 음식물이 기도로 넘어가 <span class="highlight">질식할 위험</span>이 매우 높습니다. 조지 부시 전 대통령이 프레첼을 먹다 질식할 뻔한 사건은 유명한 예입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Preface Content (Two Column) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몸과 마음의 <span class="highlight">버그</span>들</h2>
+          <p class="slide-subtitle">완벽하게 설계되지 않은 우리의 신체와 정신.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-3">🤸 신체적 결함</h3>
+              <ul>
+                <li><b>직립보행:</b> 무릎 관절과 허리에 큰 부담을 주어 요통을 유발합니다.</li>
+                <li><b>눈의 맹점:</b> 망막의 구조적 문제로 인해 시야에 보이지 않는 부분이 생깁니다.</li>
+                <li><b>생화학적 결함:</b> 다른 동물과 달리 비타민 C 등 필수 영양소를 체내에서 합성하지 못합니다.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-3">🧠 정신적 결함</h3>
+              <ul>
+                <li><b>인지 편향:</b> 완벽한 합리적 사고가 아닌, 빠르고 편향된 직관에 의존하는 경우가 많습니다.</li>
+                <li><b>중독 취약성:</b> 쾌락과 보상을 추구하는 뇌의 시스템이 마약 등 외부 물질에 쉽게 해킹당합니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Section Title (Chapter 1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">문명을 위한 <span class="highlight">소프트웨어</span></h2>
+          <p class="slide-content">인류는 어떻게 거대하고 복잡한 사회를 이루고 평화롭게 공존하며 협력할 수 있었을까요? 그 비밀은 우리 뇌에 설치된 사회성 소프트웨어에 있습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Chapter 1 Content (Two Column) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 종류의 <span class="highlight">공격성</span></h2>
+          <p class="slide-subtitle">인류는 한 종류의 공격성은 억제하고, 다른 종류는 발전시키는 방향으로 진화했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-red-700">😡 반응성 공격성 (Reactive)</h3>
+              <p>위협에 대한 즉각적이고 충동적인 공격성. 인간 사회는 진화 과정에서 이러한 <span class="highlight">충동적 폭력</span>을 통제하고 억제하는 능력을 발전시켰습니다. 이것이 '자기 길들이기'의 핵심입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-blue-700">🥶 주도적 공격성 (Proactive)</h3>
+              <p>특정 목표를 위해 사전에 계획되고 계산된 공격성. 인류는 언어와 무기를 사용한 <span class="highlight">조직적 협력</span>을 통해 이 능력을 극대화했습니다. (예: 동맹을 통한 독재자 제거, 전쟁)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Chapter 1 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">독재자는 어떻게 <span class="highlight">사라졌나?</span></h2>
+          <p class="slide-subtitle">초기 인류 사회는 언어와 무기를 통해 권력 구조를 평평하게 만들었습니다.</p>
+          <div class="slide-content">
+            <p>침팬지 사회와 달리, 초기 인류 수렵채집 사회는 독재적인 알파 남성이 지배하지 않는 평등한 구조였습니다. 그 비결은 다음과 같습니다.</p>
+            <ul>
+                <li><b>언어:</b> 독재적인 개인에 맞서기 위한 음모와 동맹 결성을 가능하게 했습니다.</li>
+                <li><b>원거리 무기 (돌, 창):</b> 신체적 힘의 우위를 무력화하고, 다수가 힘을 합쳐 강한 개인을 제압할 수 있게 했습니다.</li>
+            </ul>
+            <p class="mt-4">이로 인해 권력은 개인의 힘이 아닌, <span class="highlight">평판과 사회적 지지</span>에서 나오게 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Chapter 1 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">협력의 다양한 <span class="highlight">형태</span></h2>
+          <p class="slide-subtitle">우리는 어떻게 혈연을 넘어 낯선 사람과도 협력할 수 있을까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🤝 직접적 상호성</h3>
+              <p>"네가 내 등을 긁어주면, 나도 네 등을 긁어줄게." 흡혈박쥐가 피를 나누는 것처럼, 은혜를 주고받는 직접적인 관계입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🌐 간접적 상호성</h3>
+              <p>내가 A를 도우면, 그 모습을 본 B가 나를 돕습니다. <span class="highlight">평판과 가십</span>이 핵심적인 역할을 하며, 거대 사회의 협력을 가능하게 하는 기반입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 1 Content (Special Block) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무임승차자를 찾아라! <span class="highlight">🕵️</span></h2>
+          <p class="slide-subtitle">우리의 뇌는 논리 문제보다 사회적 계약 위반을 탐지하는 데 훨씬 뛰어납니다.</p>
+          <div class="slide-content">
+            <p>'웨이슨 선택 과제'라는 유명한 논리 퍼즐이 있습니다. 추상적인 규칙(예: '카드의 한쪽이 모음이면, 다른 쪽은 짝수다')을 검증하는 문제에서 정답률은 10%에 불과합니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">🍻 사회적 규칙으로 바꾸면?</h3>
+              <p class="mt-2">하지만 똑같은 논리 구조를 사회적 규칙(예: '술을 마시려면 20살 이상이어야 한다')으로 바꾸면, 정답률이 <span class="highlight">75% 이상</span>으로 치솟습니다. 이는 우리 뇌에 협력 사회의 유지를 위해 '사기꾼 탐지' 모듈이 진화적으로 내장되어 있음을 시사합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Section Title (Chapter 2) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">가족, 왕조, 그리고 <span class="highlight">유전자</span></h2>
+          <p class="slide-content">인간의 독특한 번식 전략은 어떻게 가족을 탄생시키고, 나아가 거대한 왕조의 흥망성쇠를 이끌었을까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Chapter 2 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화의 딜레마: <span class="highlight">뇌 vs 골반</span></h2>
+          <p class="slide-subtitle">두 발로 걷는 것과 똑똑해지는 것, 두 가지 진화적 압력의 충돌.</p>
+          <div class="slide-content">
+            <ul>
+              <li><b>직립보행 → 좁은 골반:</b> 효율적인 보행을 위해 골반이 좁아져야 했습니다.</li>
+              <li><b>큰 뇌 → 넓은 산도:</b> 지능 발달로 태아의 머리가 커지면서 넓은 산도가 필요했습니다.</li>
+            </ul>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 진화의 해결책: 미숙아 출산</h3>
+              <p class="mt-2">인간은 뇌가 완전히 발달하기 전에 태어납니다. 이로 인해 다른 영장류에 비해 <span class="highlight">매우 길고 의존적인 유년기</span>를 보내게 되었습니다. 이는 부모, 특히 양쪽 부모 모두의 막대한 돌봄 투자를 필요로 했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Chapter 2 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑의 화학: <span class="highlight">옥시토신과 도파민</span></h2>
+          <p class="slide-subtitle">장기적인 유대감과 낭만적 사랑은 어떻게 생겨났을까요?</p>
+          <div class="slide-content">
+            <p>긴 유년기를 가진 자녀를 함께 양육하기 위해, 남녀 간의 강하고 지속적인 유대, 즉 '<span class="highlight">일부일처제적 쌍 결합</span>'이 진화했습니다. 이 과정에는 핵심적인 호르몬이 관여합니다.</p>
+            <ul class="mt-4">
+              <li><b>옥시토신:</b> '결속 호르몬'. 출산, 수유 시 분비되어 모성애를 자극하며, 파트너 간의 신뢰와 애착을 형성합니다.</li>
+              <li><b>도파민:</b> '보상 호르몬'. 낭만적 사랑의 초기 단계에서 열정과 쾌락을 느끼게 하며, 중독의 신경화학과 유사한 경로를 활성화합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 2 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">합스부르크 왕조: 결혼이라는 <span class="highlight">무기</span></h2>
+          <p class="slide-subtitle">"다른 이들은 전쟁을 하게 두어라. 너, 행복한 오스트리아여, 결혼하라!"</p>
+          <div class="slide-content">
+            <p>합스부르크 가문은 군사적 정복이 아닌, <span class="highlight">전략적 정략결혼</span>을 통해 유럽 대륙의 절반을 손에 넣었습니다. 이들은 결혼과 상속을 통해 영토를 확장하는 '왕좌의 게임'에서 진정한 그랜드마스터였습니다.</p>
+            <p class="mt-4">하지만 권력을 한 가문 안에 유지하려는 이 전략은 치명적인 대가를 치르게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Chapter 2 Content (Special Block) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왕가의 비극: <span class="highlight">유전자의 저주</span></h2>
+          <p class="slide-subtitle">수세대에 걸친 근친혼은 합스부르크 가문에 유전적 재앙을 불러왔습니다.</p>
+          <div class="slide-content">
+            <p>가까운 친척 간의 결혼은 유전병을 일으키는 열성 유전자가 발현될 확률을 극적으로 높입니다. 합스부르크 가문은 이로 인해 독특하고 심각한 유전적 문제를 겪었습니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">턱, 그리고 몰락: 카를로스 2세</h3>
+              <p class="mt-2">근친혼의 정점이었던 스페인의 카를로스 2세는 극심한 '합스부르크 턱'(주걱턱)과 수많은 신체적, 정신적 질환에 시달렸습니다. 그는 후사를 남기지 못했고, 그의 죽음은 <span class="highlight">에스파냐 왕위 계승 전쟁</span>을 촉발하며 왕가의 몰락을 가져왔습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Section Title (Chapter 3) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">감염병: 보이지 않는 <span class="highlight">정복자</span></h2>
+          <p class="slide-content">풍토병은 어떻게 한 국가의 운명을 결정하고, 제국의 흥망을 좌우했을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: Chapter 3 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스코틀랜드의 꿈과 <span class="highlight">모기</span></h2>
+          <p class="slide-subtitle">다리엔 계획: 풍토병이 꺾어버린 한 국가의 야망.</p>
+          <div class="slide-content">
+            <p>17세기 말, 스코틀랜드는 경제적 독립을 위해 파나마 지협에 식민지를 건설하는 '다리엔 계획'에 국가의 명운을 걸었습니다. 전 재산의 1/4 ~ 1/2이 이 프로젝트에 투자되었습니다.</p>
+            <p class="mt-4">하지만 이주민들은 도착하자마자 <span class="highlight">말라리아와 황열병</span>이라는 보이지 않는 적에게 속수무책으로 쓰러졌습니다. 이주민의 80%가 사망했고, 계획은 처참하게 실패했습니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">역사적 결과</h3>
+              <p class="mt-2">재정적으로 파산한 스코틀랜드는 결국 독립을 포기하고 1707년 잉글랜드와 연합하여 <span class="highlight">대영제국(Great Britain)</span>을 형성하게 됩니다. 역사의 거대한 전환점 뒤에는 작은 모기가 있었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 3 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이티 혁명과 <span class="highlight">나폴레옹</span></h2>
+          <p class="slide-subtitle">질병의 비대칭성이 어떻게 노예 혁명을 성공으로 이끌었는가.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🛡️ 아프리카인의 방패</h3>
+              <p>아이티의 노예들은 대부분 아프리카 태생으로, 말라리아와 황열병에 대한 선천적(낫형 적혈구 등) 또는 후천적 면역력이 있었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">☠️ 유럽인의 무덤</h3>
+              <p>반란을 진압하기 위해 파견된 프랑스와 영국의 군대는 이 질병들에 대한 면역력이 전혀 없었고, 전투보다 질병으로 대부분이 사망했습니다.</p>
+            </div>
+          </div>
+          <p class="slide-content mt-6">이 '생물학적 전쟁'의 결과, 아이티는 최초의 흑인 공화국으로 독립했고, 이는 나폴레옹이 아메리카 대륙에 대한 야망을 포기하고 <span class="highlight">루이지애나 영토</span>를 미국에 판매하는 결정적인 계기가 됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: Section Title (Chapter 4) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">팬데믹: 역사를 <span class="highlight">리셋하다</span></h2>
+          <p class="slide-content">갑작스럽게 닥친 대규모 유행병은 어떻게 기존 사회 질서를 무너뜨리고 새로운 시대를 열었을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">콜럼버스의 교환: <span class="highlight">비극의 시작</span></h2>
+          <p class="slide-subtitle">신세계와 구세계의 만남은 인류 역사상 가장 치명적인 인구 재앙을 초래했습니다.</p>
+          <div class="slide-content">
+            <p>아메리카 원주민들은 수만 년간 고립되어 있었기 때문에, 유럽인들이 옮겨온 구세계의 질병들(천연두, 홍역, 인플루엔자 등)에 대한 면역력이 전혀 없었습니다.</p>
+            <p class="mt-4">그 결과는 참혹했습니다. 일부 지역에서는 인구의 <span class="highlight">90% 이상</span>이 사망했습니다. 이는 소수의 유럽 정복자들이 아즈텍, 잉카와 같은 거대 제국을 무너뜨릴 수 있었던 결정적인 요인이었습니다.</p>
+            <p class="mt-4 font-bold">군사력이 아니라, 보이지 않는 미생물이 진정한 정복자였습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 4 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">흑사병이 낳은 <span class="highlight">새로운 시대</span></h2>
+          <p class="slide-subtitle">유럽 인구의 3분의 1을 앗아간 재앙은 봉건제를 무너뜨렸습니다.</p>
+          <div class="slide-content">
+            <p>14세기에 유럽을 휩쓴 흑사병은 끔찍한 재앙이었지만, 역설적으로 새로운 사회 경제적 변화를 촉발했습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">노동의 가치 상승 📈</h3>
+              <p class="mt-2">급격한 인구 감소는 심각한 노동력 부족을 야기했습니다. 살아남은 농민과 노동자들은 <span class="highlight">임금 협상력</span>이 강해졌고, 더 나은 조건을 찾아 이동할 자유를 얻게 되었습니다. 이는 영주에게 예속된 농노를 기반으로 한 봉건 제도의 근간을 흔들었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1918년 인플루엔자 팬데믹</h2>
+          <p class="slide-subtitle">제1차 세계대전의 종식을 앞당긴 보이지 않는 적.</p>
+          <div class="slide-content">
+            <p>1918년 스페인 독감은 전 세계적으로 5천만 명 이상의 목숨을 앗아갔습니다. 이 팬데믹은 특히 제1차 세계대전의 양상에 큰 영향을 미쳤습니다.</p>
+            <ul>
+                <li><b>W자형 사망률:</b> 다른 독감과 달리 면역력이 강한 <span class="highlight">20-40대 젊은 층</span>에서 사망률이 비정상적으로 높았습니다. 이는 군인들에게 치명적이었습니다.</li>
+                <li><b>독일군의 춘계 공세 실패:</b> 1918년 봄, 독일군의 마지막 대공세는 독감의 확산으로 인해 추진력을 잃었습니다. 연합군보다 먼저, 그리고 더 심하게 타격을 입은 독일군의 사기와 전력은 급격히 약화되었고, 이는 전쟁의 조기 종결에 영향을 미쳤습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Section Title (Chapter 5) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">인구: 보이지 않는 <span class="highlight">역사의 손</span></h2>
+          <p class="slide-content">인구의 크기, 성장률, 성비는 어떻게 제국의 흥망과 전쟁의 승패를 결정했을까요?</p>
+        </div>
+      </div>
+
+       <!-- Slide 24: Chapter 5 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">농업과 <span class="highlight">인구 팽창</span></h2>
+          <p class="slide-subtitle">농경민은 어떻게 수렵채집인을 밀어냈는가: 반투 팽창.</p>
+          <div class="slide-content">
+            <p>농업은 수렵채집보다 동일 면적에서 훨씬 더 많은 인구를 부양할 수 있습니다. 이는 농경 사회에 엄청난 <span class="highlight">인구학적 우위</span>를 제공했습니다.</p>
+            <p class="mt-4">대표적인 예가 '반투 팽창'입니다. 약 3,000년 전, 서아프리카의 반투어 사용 농경민들은 농업 기술을 바탕으로 폭발적으로 인구가 증가했습니다. 이들은 수천 년에 걸쳐 아프리카 대륙의 남쪽과 동쪽으로 퍼져나가며 기존의 수렵채집인들을 대체하거나 흡수했습니다. 이는 군사적 정복이 아닌, 인구 압력에 의한 거대한 흐름이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Chapter 5 Content (Two Column) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">19세기 유럽의 <span class="highlight">인구 경쟁</span></h2>
+          <p class="slide-subtitle">프랑스와 영국의 엇갈린 운명.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🇫🇷 정체된 프랑스</h3>
+              <p>나폴레옹 법전의 '균등 상속' 원칙은 농부들이 상속으로 토지가 쪼개지는 것을 막기 위해 자녀 수를 줄이는 유인으로 작용했습니다. 이로 인해 19세기 내내 프랑스는 유럽에서 가장 낮은 출산율과 인구 성장률을 기록했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🇬🇧 폭발하는 영국</h3>
+              <p>반면, 영국은 산업 혁명과 함께 사망률이 감소하며 '인구 폭발'을 경험했습니다. 이 넘쳐나는 인구는 대영제국의 식민지로 이주하여 제국의 기반을 닦는 동력이 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Chapter 5 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전쟁이 남긴 상처: <span class="highlight">성비 불균형</span></h2>
+          <p class="slide-subtitle">제2차 세계대전 후 소련의 인구 피라미드.</p>
+          <div class="slide-content">
+            <p>제2차 세계대전에서 소련은 약 2,700만 명의 인구를 잃었으며, 그중 대다수는 젊은 남성이었습니다. 이로 인해 전후 소련 사회는 극심한 <span class="highlight">성비 불균형</span>을 겪게 되었습니다. (특정 연령대에서 여성 100명당 남성 64명)</p>
+            <p class="mt-4">이러한 남성 부족 사태는 결혼, 가족 구조, 성 역할에 대한 사회적 태도에 장기적인 영향을 미쳤습니다. 이혼율과 혼외 출산율이 증가하고, 여성의 사회적 역할이 확대되는 등의 변화가 나타났습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Section Title (Chapter 6) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">마음을 변화시키는 <span class="highlight">물질</span></h2>
+          <p class="slide-content">알코올, 카페인, 니코틴 같은 정신 작용 물질들은 어떻게 세계사를 움직이는 동력이 되었을까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 6 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">커피와 <span class="highlight">계몽주의</span> ☕</h2>
+          <p class="slide-subtitle">커피하우스는 어떻게 근대 자본주의와 시민 사회의 인큐베이터가 되었나.</p>
+          <div class="slide-content">
+            <p>17~18세기 유럽에 확산된 커피는 단순한 음료가 아니었습니다. 술과 달리 정신을 맑게 하고 각성시키는 효과는 새로운 사회 공간인 '커피하우스'의 등장을 이끌었습니다.</p>
+             <ul>
+              <li><b>정보의 허브:</b> 상인들은 이곳에서 만나 거래를 하고, 보험(로이즈)과 증권 거래소의 시초가 되었습니다.</li>
+              <li><b>여론의 광장:</b> 다양한 계층의 사람들이 모여 신문을 읽고 정치, 사상을 토론하며 시민 여론을 형성했습니다.</li>
+              <li><b>혁명의 요람:</b> 프랑스 혁명 당시, 카페는 혁명가들의 아지트 역할을 했습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Chapter 6 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">차와 <span class="highlight">산업혁명</span> 🏭</h2>
+          <p class="slide-subtitle">설탕을 넣은 따뜻한 차 한 잔이 어떻게 영국의 노동자들을 움직였나.</p>
+          <div class="slide-content">
+            <p>산업혁명 시기, 영국의 공장 노동자들은 장시간의 고된 노동을 견뎌야 했습니다. 이때 저렴하게 공급된 차는 이들의 필수품이었습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">노동자를 위한 연료</h3>
+              <p class="mt-2">카페인은 노동자들이 <span class="highlight">졸음을 쫓고 집중력</span>을 유지하게 했고, 함께 타 마신 설탕은 고된 노동에 필요한 <span class="highlight">빠른 열량</span>을 공급했습니다. 차는 산업혁명을 이끈 노동자들을 위한 저렴하고 효율적인 '연료'였습니다. 이는 동시에 카리브해의 설탕 농장과 대서양 노예 무역의 확산과 깊이 연결되어 있었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 30: Chapter 6 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">담배와 <span class="highlight">아메리카</span> 🚬</h2>
+          <p class="slide-subtitle">버지니아 식민지를 구하고, 미국의 역사를 바꾼 식물.</p>
+          <div class="slide-content">
+            <p>초기 영국의 북미 식민지였던 제임스타운은 실패 직전의 위기에 놓여 있었습니다. 이때 존 롤프가 들여온 신종 담배(니코티아나 타바쿰) 재배가 성공하면서 상황은 반전되었습니다.</p>
+            <ul>
+              <li><b>현금 작물(Cash Crop):</b> 담배는 유럽에서 폭발적인 인기를 끌며 식민지의 경제적 기반이 되었습니다.</li>
+              <li><b>영토 확장과 갈등:</b> 담배는 지력을 빠르게 소모시키기 때문에, 새로운 땅을 찾아 서쪽으로 계속 팽창해야 했습니다. 이는 원주민과의 충돌을 필연적으로 만들었습니다.</li>
+              <li><b>노예제 확산:</b> 담배 재배는 노동 집약적이어서, 아프리카 노예 수입의 주요 원인이 되었습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Section Title (Chapter 7) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7장</p>
+          <h2 class="slide-title">코딩 오류: <span class="highlight">왕가의 혈액</span></h2>
+          <p class="slide-content">하나의 작은 유전자 변이가 어떻게 유럽의 제국들을 뒤흔들었을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Chapter 7 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">빅토리아 여왕의 <span class="highlight">비밀</span></h2>
+          <p class="slide-subtitle">혈우병 유전자는 결혼 동맹을 통해 유럽 왕실 전체로 퍼져나갔습니다.</p>
+          <div class="slide-content">
+            <p>'유럽의 할머니'라 불린 영국의 빅토리아 여왕은 혈우병 유전자의 보인자였습니다. 혈우병은 혈액이 응고되지 않는 유전병으로, 주로 남성에게 발병합니다.</p>
+            <p class="mt-4">여왕의 자녀와 손주들이 유럽 각국의 왕실과 결혼하면서, 이 '왕가의 병'은 스페인, 독일, 그리고 러시아 왕가로 퍼져나갔습니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">러시아 혁명의 불씨 🔥</h3>
+              <p class="mt-2">가장 비극적인 사례는 러시아의 황태자 알렉세이였습니다. 그의 혈우병을 치료한다고 주장하며 황실에 막강한 영향력을 행사한 신비주의자 <span class="highlight">라스푸틴</span>의 존재는 제정 러시아에 대한 대중의 불신을 증폭시켰고, 결국 러시아 혁명의 한 원인이 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Section Title (Chapter 8) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">8장</p>
+          <h2 class="slide-title">인지 편향: 비합리성의 <span class="highlight">힘</span></h2>
+          <p class="slide-content">인간의 뇌는 합리적이지 않습니다. 우리의 체계적인 판단 오류, 즉 인지 편향은 어떻게 역사의 중요한 순간들을 만들었을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 34: Chapter 8 Content (Two Column) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">역사를 움직인 <span class="highlight">마음의 오류</span></h2>
+          <p class="slide-subtitle">우리의 뇌는 세상을 있는 그대로 보지 않고, 보고 싶은 대로 해석합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🌎 확증 편향</h3>
+              <p>자신의 기존 신념을 확인해주는 정보만 선택적으로 받아들이는 경향. 콜럼버스는 서쪽으로 가면 인도에 닿을 것이라는 신념에 사로잡혀, 아메리카 대륙에 도착했음에도 죽을 때까지 그곳이 인도라고 믿었습니다. 이 편향이 그의 탐험을 이끈 원동력이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">💥 집단사고</h3>
+              <p>응집력 있는 집단이 비판적인 사고보다 만장일치를 우선시할 때 발생하는 비합리적인 의사결정. 케네디 행정부의 '피그만 침공' 실패는 집단사고의 대표적인 사례로 꼽힙니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 인간이라는 존재</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인류의 역사는 위대한 인물이나 거대한 사상의 흐름만으로 이루어지지 않았습니다. 그 근본에는 우리의 생물학적 본성, 즉 <span class="highlight">진화의 유산</span>이 깊이 자리 잡고 있습니다.</p>
+            <p class="mt-4">협력하려는 본능, 가족을 이루려는 욕구, 질병에 대한 취약성, 마음을 바꾸려는 갈망, 유전자의 오류, 그리고 비합리적인 마음까지. 이 모든 것이 바로 '인간이 된다'는 것의 의미이며, 세계사를 만들어온 진정한 동력입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide) / (slides.length - 1)) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+      
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

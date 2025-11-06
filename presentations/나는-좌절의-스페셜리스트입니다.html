@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나는 좌절의 스페셜리스트입니다</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 20px; /* Space for progress bar */
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 2rem;
+    }
+    li {
+        margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🎹</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나는 좌절의 스페셜리스트입니다</h1>
+          <p class="text-xl md:text-2xl text-gray-700">피아니스트 <span class="highlight">백혜선</span>의 인생 수업</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Prologue Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">가장 못생긴 발을 내밀다 👣</h2>
+          <p class="slide-subtitle">진정한 예술가는 자신의 가장 개인적이고 내밀한, 심지어 '못생긴' 부분을 드러낼 수 있어야 합니다.</p>
+          <div class="slide-content">
+            <p>이 책은 화려한 성공기 이면에 있는, 누구에게도 먼저 꺼내지 않았던 창피하고 아픈 이야기들을 담고 있습니다. 저자는 이러한 <span class="highlight">'가장 못생긴 발'</span>이야말로 자신이라는 인간의 내면을 가장 정확하게 표현해준다고 믿습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: The Teacher's Lesson -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">스승의 가르침: <span class="highlight">러셀 셔먼</span></h2>
+              <p class="slide-subtitle">1993년 봄, 반 클라이번 콩쿠르를 앞두고 받은 레슨에서 백혜선은 인생을 바꾼 가르침을 얻습니다.</p>
+              <div class="slide-content">
+                  <p>리스트의 '베네치아와 나폴리' 연주를 들은 스승은 "너무 아름답고 정제되어 있다"고 칭찬한 뒤, 바로 그것이 문제라고 지적합니다.</p>
+                  <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-lg text-center">"자네의 가장 못생긴 발부터 앞으로 내밀어야 하네. 매끈한 발은 누구나 갖고 있어. <br>가장 못생긴 발이야말로 자네가 가진 가장 개인적이고 내밀한 구석을 드러내는 것이라네."</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 4: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>프롤로그:</b> 가장 못생긴 발을 내밀다</p>
+            <p><b>1악장. 좌절의 기쁨:</b> 성장의 동력이 되는 좌절의 순간들</p>
+            <p><b>2악장. 다시, 연습이다:</b> 예술가에게 연습이 갖는 의미</p>
+            <p><b>3악장. 인정받지 못하는 순간이 찾아와도:</b> 외부의 평가를 넘어 자신의 목소리를 찾는 과정</p>
+            <p><b>4악장. 종착역 없는 행진:</b> 멈추지 않는 예술가로서의 삶</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Chapter 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 1악장</p>
+          <h2 class="slide-title">좌절의 기쁨 😊💔</h2>
+          <p class="slide-content">좌절은 끝이 아니라 새로운 시작을 위한 전환점이며, 진정한 기쁨을 발견하는 과정입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 6: The Swimming Prodigy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">첫 번째 좌절: <span class="highlight">수영의 천재?</span> 🏊‍♀️</h2>
+          <p class="slide-subtitle">피아노보다 수영에서 먼저 재능을 발견하고 '수영 천재'가 아닐까 생각했던 어린 시절.</p>
+          <div class="slide-content">
+            <p>또래보다 월등한 신체 조건과 노력으로 경북 신기록을 세우며 승승장구했습니다. 수영은 처음으로 '잘한다'는 느낌을 받았던 유일한 순간이었습니다.</p>
+            <p class="mt-4">하지만 서울 전지훈련에서 마주한 <span class="highlight">진정한 천재 '최윤정' 선수</span> 앞에서 자신의 한계를 깨닫습니다. 아무리 노력해도 도달할 수 없는 경지가 있음을 처음으로 알게 된 순간이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: The Aftermath of Frustration -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">좌절, 그리고 <span class="highlight">작은 기쁨의 발견</span></h2>
+          <p class="slide-subtitle">수영 선수의 꿈을 접은 뒤, 오히려 마음이 후련해졌습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">수영을 통한 깨달음</h3>
+              <p>수영의 천재가 아님을 인정한 순간, 가슴을 누르던 무언가가 풀리는 느낌을 받았습니다. 최고가 되지 못한다는 이유만으로 포기하고 싶지 않은 '무언가'를 찾고 싶다는 생각을 하게 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">피아노와의 재회 🎹</h3>
+              <p>한동안 덮어두었던 피아노 앞에 다시 앉았습니다. 싱거운 소리, 나다운 소리. 그 <span class="highlight">쌀알만큼 작은 기쁨</span>이 어쩌면 50년 가까이 피아노 앞에 앉게 만든 힘이 아니었을까 회상합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: The Gentleman in the White Suit -->
+      <div class="slide">
+        <div class="slide-container">
+           <p class="slide-part-title">1악장</p>
+          <h2 class="slide-title">하얀 양복을 입은 신사 🤵</h2>
+          <p class="slide-subtitle">피아노를 반대했던 아버지와의 길고 긴 갈등, 그리고 마지막 화해.</p>
+          <div class="slide-content">
+            <p>이비인후과 의사였던 아버지는 딸이 피아노 치는 것을 네 살 때부터 20년 넘게 꾸준히 반대했습니다. "요만한 대구 땅에서 2등 하는 거 가지고 뭔 피아노를 치노?"라며 늘 쓴소리를 했습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Father's Opposition -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">반대와 반대, <span class="highlight">이상한 결속력</span></h2>
+          <p class="slide-subtitle">아버지의 반대는 오히려 피아노를 계속하게 하는 얄미운 코치 같은 동력이었습니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li><b>미국 유학:</b> 아버지 몰래 유학을 준비했고, 떠나기 일주일 전 통보하자 아버지는 비행기표를 찢어버렸습니다. 식음 전폐로 맞서 결국 허락을 받아냅니다.</li>
+              <li><b>1989년 뉴욕 데뷔:</b> 윌리엄 카펠 콩쿠르 우승 부상으로 열린 뉴욕 링컨센터 데뷔 독주회. 객석에는 평생 무대에 온 적 없던 아버지께서 <span class="highlight">새하얀 양복</span>을 입고 앉아 계셨습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Father's Secret -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마지막 무대, 마지막 인정 💔</h2>
+          <p class="slide-subtitle">데뷔 무대는 아버지가 본 처음이자 마지막 딸의 무대였습니다.</p>
+          <div class="slide-content">
+              <p>당시 아버지는 위암 말기 판정을 받은 상태였지만, 딸에게 영향이 갈까 봐 투병 사실을 숨겼습니다. 투병 중인 몸으로 하와이를 경유해 힘겹게 뉴욕까지 오셨던 것입니다.</p>
+              <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                  <h3 class="font-bold text-lg">아버지의 유언 같은 한마디</h3>
+                  <p class="mt-2">"하버드 다니는 남자 만나 결혼하라고 유학 보냈더니... 내는 이제 네가 피아노랑 결혼한 걸로 생각하마."</p>
+                  <p class="mt-2 font-bold">"야, 이제는 <span class="highlight">정명훈 씨랑 한 무대</span>에 서도 되겠네."</p>
+              </div>
+              <p class="mt-4">아버지는 독주회 3개월 뒤 세상을 떠났고, 6년 후 백혜선은 실제로 정명훈 지휘자와 런던 심포니와 협연하게 됩니다.</p>
+          </div>
+      </div>
+      
+      <!-- Slide 11: Conditions of Freedom -->
+       <div class="slide">
+        <div class="slide-container">
+           <p class="slide-part-title">1악장</p>
+          <h2 class="slide-title">자유로움의 조건: <span class="highlight">반복 연습</span></h2>
+          <p class="slide-subtitle">무대 위에서의 자유는 결국 지독한 반복 연습에서 비롯됩니다.</p>
+          <div class="slide-content">
+             <p>연주자는 변명하지 않는 사람입니다. 어떤 상황에서도 최상의 연주를 선보여야 하는 숙명을 가집니다. 그 유일한 방법은 '반복 연습'입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: 100 Times Practice -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">틀리지 않고 <span class="highlight">백 번</span> 쳐봐야 해 💯</h2>
+          <p class="slide-subtitle">초등학교 2학년, 추승옥 선생님의 혹독한 과제: 모차르트 '작은 별 변주곡' 완벽하게 100번 연주하기.</p>
+          <div class="slide-content">
+            <p>한 음이라도 틀리면 카운트에서 제외되는 규칙. 넉 달에 걸쳐 이 과제를 완수한 뒤, 어떤 상황에서도 이 곡을 칠 수 있다는 자신감을 얻었습니다. '틀리지 않고 백 번 치기'는 이후 연주 인생의 철칙이 됩니다.</p>
+            <p class="mt-4">하지만 무대 위 '악마의 목소리'("그다음은 뭐야?")를 경험하며, 100번의 연습도 완벽하지 않음을 깨닫습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: 150 Times Practice -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">백오십 번의 연습: <span class="highlight">정신적 연마</span></h2>
+          <p class="slide-subtitle">무대 공포를 극복하기 위해 찾은 새로운 해답.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">추가된 50번</h3>
+              <p>기존의 100번 연주에 더해, 나머지 50번은 머릿속으로 연주를 상상하며 귀로 듣는 연습이었습니다. 몸 전체가 음악으로 하나가 되는 과정입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">반복의 진화</h3>
+              <p>단순한 근육 훈련을 넘어, 매번 새롭게 연주하는 <span class="highlight">'정신적 연마'</span>의 단계로 나아갔습니다. 이 연습을 통해 완전무결한 결과를 넘어 자유로운 표현의 경지에 이르게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Specialist in Frustration -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1악장</p>
+          <h2 class="slide-title">좌절의 스페셜리스트 💔</h2>
+          <p class="slide-subtitle">1993년, 가장 큰 콩쿠르에서의 충격적인 1차 탈락. 그리고 피아노를 포기하다.</p>
+          <div class="slide-content">
+            <p>윌리엄 카펠, 리즈, 퀸 엘리자베스 콩쿠르에서 연달아 입상하며 '나가기만 하면 된다'는 자신감에 차 있던 시절, 미국 반 클라이번 국제 콩쿠르에서 생애 첫 1차 탈락을 경험합니다.</p>
+            <p class="mt-4">모든 것이 '운'이었다는 생각과 함께 자신의 실력에 대한 믿음이 무너졌고, 피아노를 그만두고 미국 장거리 전화회사 <span class="highlight">MCI의 영업직</span>으로 취업합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: The Turning Point -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마지막으로 <span class="highlight">차이콥스키</span>는 나가봐야지</h2>
+          <p class="slide-subtitle">영업사원으로 재능을 보이며 매니저 승진 제안까지 받았을 때, 변화경 선생님의 전화 한 통이 걸려옵니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">스승의 한마디</h3>
+                <p class="mt-2">"너 이거 안 나가면 평생 후회한다. 지금 생각하지 말고 일단 지원서 내고 생각해."</p>
+            </div>
+            <p class="mt-4">결국 마감일에 울면서 신청서를 제출하고, 전화 회사에 사표를 냅니다. '마지막으로 힘닿는 데까지 해보고, 이번에도 떨어지면 그때는 피아노를 접자'는 각오로 다시 피아노 앞에 앉습니다. 몇 달 만에 다시 친 피아노, 손끝에서는 <span class="highlight">굳은살</span>이 느껴졌습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Chapter 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 2악장</p>
+          <h2 class="slide-title">다시, 연습이다 🎶💪</h2>
+          <p class="slide-content">연습은 단순한 반복이 아니라, 한계를 시험하고, 타인을 이해하며, 자신을 객관화하고, 평생에 걸쳐 계속되는 배움의 과정입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: Until I Can't Do More -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이 이상 할 수 없을 때까지: <span class="highlight">한계의 발견</span></h2>
+          <p class="slide-subtitle">퀸 엘리자베스 콩쿠르를 준비하며 "과연 사람은 몇 시간까지 연습할 수 있을까?"라는 질문을 스스로에게 던집니다.</p>
+          <div class="slide-content">
+            <p>최선을 다해 쉬지 않고 연습한 결과, 인간의 연습 한계는 <span class="highlight">열네 시간</span>임을 몸으로 깨닫습니다. 두뇌와 몸이 더 이상 작동하지 못하겠다는 신호를 보냈습니다.</p>
+            <p class="mt-4">하지만 준결선에서 24시간 전에 세 곡이 주어졌을 때, 세 시간만 자고 <span class="highlight">스무 시간 동안 연습</span>하여 무대에 올라 최선의 연주를 해내는 경험을 합니다. 한계를 뛰어넘는 순간이었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Knowing a Person's Heart -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">2악장</p>
+              <h2 class="slide-title">사람의 마음을 아는 것 ❤️</h2>
+              <p class="slide-subtitle">'미국 엄마' 변화경 선생님의 특별한 가르침: "옛날 흑백 영화들을 보며 감수성을 키워라."</p>
+              <div class="slide-content">
+                  <p>음악은 듣는 사람의 상상력과 영감을 불어넣는 것이며, 연주자는 자신의 경험을 넘어선 감정까지 표현할 수 있어야 합니다.</p>
+                  <p class="mt-4">선생님은 중학생이었던 제자가 가진 경험의 한계를 극복하게 하려고 영화, 연극, 문학을 통한 간접 경험의 중요성을 강조했습니다. 특히 현란한 연출이 없는 흑백 영화는 배우의 표정 하나하나에 몰입하며 <span class="highlight">예술적 표현을 깊이 있게</span> 배울 수 있는 좋은 교과서였습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 19: Language Permits Expression -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2악장</p>
+          <h2 class="slide-title">언어가 표현을 허락한다 ✍️</h2>
+          <p class="slide-subtitle">'건반 위의 철학자' 러셀 셔먼 선생님의 독특한 과제들.</p>
+          <div class="slide-content">
+            <ul>
+              <li><b>과제 1: 영단어 암기:</b> 생소하고 어려운 단어들을 외우게 하며 언어의 중요성을 강조했습니다.</li>
+              <li><b>과제 2: 에세이 작성:</b> 눈, 비, 그림, 시 등 피아노와 무관한 주제로 글을 쓰게 했습니다.</li>
+              <li><b>깨달음:</b> 박물관의 러시아 주전자 '사모바르'를 묘사하는 50개의 단어를 찾던 중, <span class="highlight">언어가 늘어날수록 대상이 선명해지는 경험</span>을 합니다. 언어가 표현의 크기를 결정한다는 것을 깨닫습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 20: Sherman's Philosophy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">셔먼의 철학: <span class="highlight">음악과 비음악</span></h2>
+          <p class="slide-subtitle">"연주자에게 연주 말고 필요한 게 뭐라고 생각하나?"</p>
+          <div class="slide-content">
+              <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                  <h3 class="font-bold text-lg text-center">"연주자에게 필요한 것은 <span class="highlight">전부(everything)</span>야! <br>음악을 이루는 것은 1퍼센트의 음악적 요소와 <br>99퍼센트의 비음악적인 요소라네."</h3>
+              </div>
+              <p class="mt-4">모든 경험과 공부가 결국 음악의 깊이를 만든다는 가르침이었습니다. 연주자는 단순히 손가락을 움직이는 기술자가 아니라, 자신의 모든 것을 통해 음악을 표현하는 존재여야 합니다.</p>
+          </div>
+      </div>
+      
+      <!-- Slide 21: One Step Away -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">2악장</p>
+              <h2 class="slide-title">한 발짝만 떨어져서: <span class="highlight">제3의 귀</span> 👂</h2>
+              <p class="slide-subtitle">남의 연주를 듣고, 또 자신의 연주를 객관적으로 듣는 능력의 중요성.</p>
+              <div class="slide-content">
+                <p>콩쿠르에서 만난 한 연주자는 세 번의 무대 내내 완벽했지만, 똑같은 연주를 반복했습니다. 준비된 숙제를 옮기는 듯한 연주에는 신선함이 없었습니다. 이를 통해 "연주란 똑같이 두 번을 치면 안 된다"는 스승의 말을 깨닫습니다.</p>
+                <p class="mt-4">연주자는 코치가 자신을 보듯, <span class="highlight">제3자의 귀(the third ear)</span>로 자신의 연주를 객관적으로 들을 수 있어야 합니다. 감정에 도취되는 아마추어 단계를 넘어, 객관적인 관점으로 관객을 감동시켜야 하는 프로페셔셔널이 되어야 합니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 22: Lifelong Learning -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2악장</p>
+          <h2 class="slide-title">배움이 끊기는 날이 인생이 끊기는 날 📚</h2>
+          <p class="slide-subtitle">50대에 접어들며 새로운 곡을 익히는 것이 점점 어려워짐을 느낍니다.</p>
+          <div class="slide-content">
+            <p>베토벤의 후기 소나타, 바흐의 음악처럼 하나의 곡 안에도 파고들면 끝이 없는 깊이와 세계가 존재합니다. 새로운 곡을 익히는 것만이 배움이 아닙니다. 이미 아는 곡을 더 깊고 원숙하게 만드는 것 역시 중요한 '배움'입니다.</p>
+             <p class="mt-4">"인생은 절대 계획한 대로 흘러가지 않는다"와 "삶이란 죽는 날까지 자신을 계발하는 과정이다"라는 두 가지 철학을 통해, 멈추지 않고 계속해서 나아가는 예술가의 길을 이야기합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Chapter 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 3악장</p>
+          <h2 class="slide-title">인정받지 못하는 순간이 찾아와도 🚶‍♀️</h2>
+          <p class="slide-content">최고의 스승들에게 인정받은 후 찾아온 위기, 그리고 '자신의 목소리'를 되찾기까지의 여정.</p>
+        </div>
+      </div>
+
+      <!-- Slide 24: The Lake Como Dilemma -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">코모호의 딜레마: <span class="highlight">"음악이 살아있지 않아"</span></h2>
+          <p class="slide-subtitle">이탈리아 코모호 피아노 캠프에서 세계적인 거장들에게 극찬을 받으며 자신감에 가득 찼습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">거장들의 칭찬</h3>
+              <p>마르타 아르헤리치, 레온 플라이셔 등 전설적인 피아니스트들로부터 칭찬 세례를 받으며 '내 연주가 틀리지 않았다'는 확신에 빠집니다. 그들의 가르침에 따라 연주를 조금씩 바꾸어 갔습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">스승의 혹평 🥶</h3>
+              <p>하지만 미국으로 돌아가 셔먼과 변화경 선생님께 연주를 들려주자, "음악이 살아있지 않다", "따닥따닥 다 끊어진다"는 혹평을 받습니다. '우리 선생님들이 세계적인 트렌드를 모르는구나'라는 오만한 생각까지 하게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: The Kennedy Center Failure -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">깨달음의 순간: <span class="highlight">케네디 센터의 침묵</span></h2>
+          <p class="slide-subtitle">1998년, 워싱턴 케네디 센터 협연 무대. 인생 최고의 자신감으로 연주했지만, 돌아온 것은 감동 없는 박수 소리였습니다.</p>
+          <div class="slide-content">
+            <p>연주가 끝나자마자 '오늘 연주를 망쳤다'는 것을 직감했습니다. 관객들의 박수에는 아무런 감동이 담겨있지 않았습니다. 그 순간, 스승들의 지적이 옳았음을 깨닫습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">살아있는 음악이란?</h3>
+                <p class="mt-2">"네가 피아노로 무슨 이야기를 하고 싶은지 모르겠어. <span class="highlight">음악에 너 자신을 담지 않을 거면</span> 뭐 하러 연주를 하니?"<br>
+                정리정돈은 잘 되어 있지만, 의미가 전해지지 않는 '죽어 있는 음악'이었던 것입니다. 피아노의 기본 속성(음이 서서히 죽어가는)을 이해하고, 죽어가는 음들을 살아있는 것처럼 느끼게 하는 '목소리'를 되찾아야 했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 26: Rhapsody on a Damp Day -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3악장</p>
+          <h2 class="slide-title">어느 축축한 날의 광시곡 🌧️</h2>
+          <p class="slide-subtitle">2010년 8월, 베이징 국제 음악 페스티벌에서 겪은 최악의 연주.</p>
+          <div class="slide-content">
+            <p>연주 전 사람을 만나지 않고, 낮잠을 자는 등 최상의 컨디션을 위한 철저한 루틴을 가지고 있습니다. 하지만 그날은 아이들과의 동행으로 인해 이 모든 루틴이 무너졌습니다.</p>
+            <ul>
+              <li>낮잠 실패 ❌</li>
+              <li>샤워와 의상 준비에 차질 ❌</li>
+              <li>억수같이 쏟아지는 비, 잡히지 않는 택시 🚕</li>
+            </ul>
+            <p>공연 직전 간신히 도착해 숨 돌릴 틈도 없이 무대에 올랐습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: The Worst Performance -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무너진 루틴, <span class="highlight">무너진 연주</span></h2>
+          <p class="slide-subtitle">리스트의 헝가리 광시곡 2번 연주 중, 곡 중간으로 돌아가 버리는 최악의 실수를 저지릅니다.</p>
+          <div class="slide-content">
+            <p>준비되지 않은 자세 위에서는 수많은 연습으로 쌓아 올린 실력도 모래성처럼 무너져 내렸습니다. 그날의 연주는 경력을 통틀어 최악이었습니다.</p>
+            <p class="mt-4">이는 엄마로서의 역할과 연주자로서의 역할을 구분하여 수행하지 못했기 때문입니다. 프로 연주자로서, 어떠한 예외도 없이 스스로의 루틴을 지켰어야 했습니다. 그날의 관객들에게 변명 없이 사과하고 싶은 마음을 전합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 28: A Day of No Achievement -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3악장</p>
+          <h2 class="slide-title">아무런 성취 없는 하루에도 🤷‍♀️</h2>
+          <p class="slide-subtitle">피아니스트의 진짜 삶은 끝없는 좌절의 반복입니다.</p>
+          <div class="slide-content">
+            <p>열 시간 연습을 해도 한 발짝도 나아가지 못할 때가 있습니다. 기교가 아닌 소리의 문제는 끝까지 극복되지 않을 때도 많습니다.</p>
+            <p class="mt-4">라흐마니노프 협주곡 3번은 20대 중반에 처음 만난 이후 30년이 넘게 걸려 비로소 '성취'라고 부를 만한 연주를 할 수 있었습니다. 연주자에게는 노력과 성취의 등가교환이 주어지지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: The Meaning of Process -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결과가 아닌 <span class="highlight">과정의 의미</span></h2>
+          <p class="slide-subtitle">인정받지 못하는 순간에도 연주자는 자기 연마를 통해 만족할 수 있어야 합니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">스스로에게 부여하는 의미</h3>
+                <p class="mt-2">"오늘 나는 아무런 진전도 거두지 못했지만 이렇게나 열심히 연습했고, 그러니 내일은 한 발 나아가게 되리라."</p>
+            </div>
+            <p class="mt-4">결과는 마음대로 할 수 없지만, 과정은 충실히 그리고 기꺼이 따라야 합니다. 진심으로 연마하는 연주자를 음악은 영영 버리지 않는다는 믿음이 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: The Decisive Moment -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3악장</p>
+          <h2 class="slide-title">결정적 순간: <span class="highlight">1994년 차이콥스키 콩쿠르</span> 🏆</h2>
+          <p class="slide-subtitle">모든 것을 걸어야 하는 하루. 모든 준비는 끝났고, 이제 운을 기다릴 차례였습니다.</p>
+          <div class="slide-content">
+            <p>철저한 준비: 연습실을 미리 확보하고, 러시아 음식 '보르시'를 피해 쌀과 전기밥솥, 라면, 참치캔을 공수해 갔습니다. 이것은 최상의 컨디션을 위한 '부적'이었습니다.</p>
+            <p class="mt-4">콩쿠르의 압박: 숨 막히는 더위, 꺼지지 않는 객석 조명, 그리고 동양인 연주자를 향한 노골적인 차별 대우까지. 모든 것이 기를 죽이는 요소였습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: The Final Stage -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음으로 나누는 대화 🤝</h2>
+          <p class="slide-subtitle">결선 마지막 순서. 비협조적인 오케스트라와 마주한 순간, 아침에 들었던 변 선생님의 말을 떠올립니다.</p>
+          <div class="slide-content">
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="text-center font-bold">"오늘 무대 위에서 네가 할 일은, 연주자들의 마음을 감동시키는 거야. 음악으로 마음을 움직일 수 있어."</p>
+            </div>
+            <p class="mt-4">쇼팽 협주곡 1번을 연주하며 오케스트라와 '대화'를 시도합니다. 1악장이 지나고 2악장, 3악장으로 넘어가면서 오케스트라가 조금씩 마음을 열고 반응해주는 것이 느껴졌습니다. <span class="highlight">'살아있는 음악'</span>이 만들어지는 순간이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: The Roar of Applause -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마침내 터져 나온 <span class="highlight">박수갈채</span> 👏</h2>
+          <p class="slide-subtitle">연주가 끝나자 뜨거운 박수가 쏟아졌고, 어느 순간 러시아 관객 특유의 '짝짝짝' 하는 박자로 바뀌었습니다.</p>
+          <div class="slide-content">
+            <p>러시아인 연주자에게만 보내던 그 박수를 받으며, 무대 뒤에서 한동안 움직이지 못했습니다. 두 번째 곡인 차이콥스키 협주곡 1번을 연주할 때, 오케스트라의 태도는 완전히 달라져 있었습니다. 그들은 기꺼이 최고의 반주를 해주었습니다.</p>
+            <p class="mt-4">인생에서 가장 극적인 장면. 수천 명의 관객이 기립하여 환하게 웃으며 환호를 보냈습니다. 3악장이 끝나며 콩쿠르는 끝났지만, 그칠 줄 모르는 박수 소리처럼 그녀의 음악은 끝나지 않았습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 33: The Result -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결과 발표: <span class="highlight">공동 3위</span></h2>
+          <p class="slide-subtitle">1위 없는 공동 3위. 하지만 결과에 연연하지 않기로 다짐했던 그녀에게는 달콤한 결과였습니다.</p>
+          <div class="slide-content">
+            <p>영국인 심사위원은 "당신이 러시아인이 아니라 걸맞은 평가를 받지 못했다. 나에게는 당신이 1등이다"라며 위로를 건넸습니다.</p>
+            <p class="mt-4">하지만 그녀는 억울한 마음이 없었습니다. 그날 청중과 음악으로 하나가 되는 귀중한 경험을 얻었고, 결과와 상관없이 피아노를 계속 치리라 다짐했기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Chapter 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 4악장</p>
+          <h2 class="slide-title">종착역 없는 행진 🚂</h2>
+          <p class="slide-content">예술가의 삶은 목적지에 도달하는 것이 아니라, 끊임없이 다음을 향해 나아가는 과정 그 자체입니다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 35: After the Stage -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무대를 마친 연주자의 행보: <span class="highlight">"다음 곡은 뭔가?"</span></h2>
+          <p class="slide-subtitle">차이콥스키 입상 후, 그날 뭘 했냐는 질문에 대한 대답: "그냥 씻고 바로 잤습니다."</p>
+          <div class="slide-content">
+            <p>프로 연주자는 성취에 취해있을 시간이 없습니다. 충분히 쉬었다면 곧바로 다음을 향해 나아가야 합니다. 입상한 그날 밤, 스승 셔먼 선생님에게 전화를 걸자 축하 인사와 함께 돌아온 질문은 이것이었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg text-center">"So, what's your next piece?"</h3>
+            </div>
+            <p class="mt-4">성취에 취해 '다음'을 생각하지 않을 도리가 없게 만드는, 스승다운 반응이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 36: No Final Station -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4악장</p>
+          <h2 class="slide-title">이 열차는 종착역이 없습니다 🛤️</h2>
+          <p class="slide-subtitle">서울대 교수, 그 이름의 무게와 모순.</p>
+          <div class="slide-content">
+            <p>차이콥스키 입상 후, 29세의 나이로 서울대 음대 최연소 교수로 임용됩니다. 하지만 임용 첫날부터 '여기는 내 옷이 아니다'라고 직감합니다.</p>
+            <ul>
+                <li>연주자로서의 삶과 교수로서의 삶 사이의 갈등.</li>
+                <li>결혼과 출산 후 엄마, 아내, 교수, 연주자의 1인 4역의 어려움.</li>
+                <li>'안정'된 환경 속에서 오히려 내면은 삐걱거리는 모순.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: The Great Escape -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결정: <span class="highlight">모든 것을 버리고 미국으로</span> ✈️</h2>
+          <p class="slide-subtitle">마흔 살, 교수직과 결혼 생활을 정리하고 두 아이를 데리고 미국으로 떠납니다.</p>
+          <div class="slide-content">
+            <p>주변에서는 '미친 여자'라고 했지만, 그녀는 인생에서 처음으로 스스로 '결정'이라는 것을 했습니다. 그 결정에 대한 책임을 지기 위해 '생계형 피아니스트'로 살아야 했습니다.</p>
+            <p class="mt-4">안온한 생활이 반드시 정상일 필요는 없습니다. 성장이 있는 삶에는 좌절과 불안이 필연적으로 함께합니다. '여기가 종착역'이라면서 눌러앉지 말고, 언제나 정차역이라 여기며 나아가야 합니다.</p>
+          </div>
+      </div>
+
+      <!-- Slide 38: The Person I Want to Be -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4악장</p>
+          <h2 class="slide-title">저렇게 되고 싶은 사람: <span class="highlight">참된 스승</span></h2>
+          <p class="slide-subtitle">서울대 교수직을 그만두고 17년, 다시 가르치는 연주자의 길을 걷고 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">연주와 교육의 딜레마</h3>
+              <p>연주에 필요한 '빈 공간'과 가르침에 쏟아야 하는 시간 사이에서 여전히 갈등합니다. 하지만 셔먼 선생님을 보며 깨닫습니다. 참된 스승은 지식을 가르치는 사람이 아니라, 학생이 스스로 깨닫게 해주는 사람이라는 것을.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">가장 좋은 스승이란?</h3>
+              <p>학생에게 <span class="highlight">'저렇게 되고 싶은 사람'</span>이 되어주는 것. 셔먼 선생님이 연주를 희생하지 않으면서 최고의 스승이었던 것처럼, 그녀 또한 제자들에게 '연주자로서의 모습'으로 기억되기를 바랍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: A Mother's Performance -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4악장</p>
+          <h2 class="slide-title">엄마에겐 엄마의 연주가 있다 👩‍👧‍👦</h2>
+          <p class="slide-subtitle">생계형 피아니스트로 살며 아이들에게 주었던 미안함, 그리고 아이들의 이해.</p>
+          <div class="slide-content">
+            <p>"엄마는 우리 가족이 살기 위해서 연주를 해야 해. 엄마의 역할이 첫 번째, 피아니스트는 두 번째야."</p>
+            <p class="mt-4">음악에 엄마를 빼앗긴 채 자란 아이들의 경험은 하버드 입학 에세이의 중요한 소재가 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Children's Essays -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이들이 바라본 <span class="highlight">엄마의 삶</span></h2>
+          <p class="slide-subtitle">에세이에 담긴 아이들의 깊은 이해와 사랑.</p>
+          <div class="slide-content">
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg mb-4">
+              <p class="font-bold">아들의 글 👦</p>
+              <p>"사랑은 보이지 않는 순간에도 계속된다는 것을, 음악에서는 쉼표도 음악의 한 요소인 것처럼 말이다. 엄마가 없는 집에서 나는 오히려 엄마가 지닌 강인함을 배울 수 있었다."</p>
+            </div>
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="font-bold">딸의 글 👧</p>
+              <p>"나에게 나의 인생이 있듯이 엄마에게도 엄마의 인생이 있다. 피아니스트인 엄마의 인생에서 가장 중요한 것은 연주하는 것이다. 그것이 나의 엄마이다. 나는 그러한 엄마의 본질을 받아들일 것이다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Nevertheless -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">4악장</p>
+              <h2 class="slide-title">그럼에도 불구하고 🌟</h2>
+              <p class="slide-subtitle">나이 들어가는 연주자로서 나는 왜 존재해야 하는가?</p>
+              <div class="slide-content">
+                  <p>김선욱, 조성진, 임윤찬 등 젊고 뛰어난 후배들을 보며 부러움과 함께 나의 자리에 대해 고민합니다. 하지만 '왜 피아노를 쳐야 하는가'라는 오랜 질문에 대한 답을 찾았습니다.</p>
+                  <p class="mt-4"><span class="highlight">'음악은 나보다 중요하다.'</span> 한 개인으로서가 아니라, 위대한 음악에 헌신하는 사람으로서의 사명을 깨닫자 비로소 진심으로 음악을 사랑하게 되었습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 42: The Meaning of 'Despite' -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불안할 때 던지는 질문: <span class="highlight">'그럼에도 불구하고'</span></h2>
+          <p class="slide-subtitle">이 일을 계속하는 것이 맞는지 불안할 때, '그럼에도 불구하고'를 붙여보아야 합니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>성공하지 못할 수도 있다.</li>
+              <li>세상의 즐거움을 포기해야 할지도 모른다.</li>
+            </ul>
+            <p class="mt-4">그럼에도 불구하고 당신은 당신의 일을 할 것인가? 대답이 '예스'라면 어떻게든 해야 합니다. 세상은 헌신의 마음을 지닌 사람을 끝내 실망시키지 않는다는 것이 저자의 믿음입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Acknowledgment Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">감사의 말</p>
+          <h2 class="slide-title">현실과 비현실의 공간에서 🙏</h2>
+          <p class="slide-subtitle">지난 몇 년간 떠나보낸 소중한 사람들을 추억하며.</p>
+          <div class="slide-content">
+            <p>2018년 음악 인생의 동반자였던 매니저 이명아 대표, 2021년 이모와 어머니, 그리고 인생의 파트너였던 필립 케윈까지. 사랑하는 이들을 떠나보낸 경험을 통해 인생의 유한함을 배우고, 더 많은 사랑을 나누며 살아야 함을 깨닫습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Thanks to Mentors -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">길을 열어준 사람들: <span class="highlight">감사의 마음</span></h2>
+          <p class="slide-subtitle">음악과 인생의 길에서 만난 모든 분들께 감사를 전합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">음악의 스승들</h3>
+              <p>초중학교 시절의 정진우 교수님, 이경숙 선생님. 그리고 미국 유학 생활의 전부였던 변화경, 러셀 셔먼 선생님.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">삶의 공동체</h3>
+              <p>보스턴 한인교회, 서울대 동료들, 대구 가톨릭대학교, 뉴욕 한인교회, 그리고 언제나 곁을 지켜준 가족과 제자, 후배, 친구들.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 45: Recommendation 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">추천의 글 - 신수정 (서울대학교 명예교수)</p>
+          <h2 class="slide-title">피아니스트 백혜선은 <span class="highlight">거인(巨人)</span>입니다.</h2>
+          <p class="slide-subtitle">거대한 레퍼토리, 무대에서의 당당함, 그리고 한없는 겸손함.</p>
+          <div class="slide-content">
+            <p>이 책을 통해 거인 뒤에 숨은 거인다운 노력을 발견했습니다. 또한 스승 러셀 셔먼에게서 배운 놀라운 글솜씨에 새로운 감동을 받았습니다.</p>
+            <p class="mt-4">무엇보다 사랑하고 존경하는 것은 그녀의 거인다운 인품입니다. 제자들에게 모든 것을 퍼주고 싶어 하는 헌신적인 레슨. 그녀의 거인다운 행보를 응원합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Core Philosophy 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 철학 1: <span class="highlight">좌절의 가치</span> 💡</h2>
+          <p class="slide-subtitle">"살면서 좌절할 때가 가장 좋은 때이고, 기쁘고 성취감을 느낄 때가 가장 위험한 때다."</p>
+          <div class="slide-content">
+            <p>좌절은 우리를 겸손하게 만들고, 자신의 한계를 깨닫게 하며, 새로운 길을 모색하게 하는 성장의 원동력입니다. 반면, 성공은 자만심에 빠지게 하고, 현실에 안주하게 만들어 우리를 위험에 빠뜨릴 수 있습니다. 이 책은 좌절을 끌어안고 그것을 성장의 발판으로 삼는 지혜를 이야기합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Core Philosophy 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 철학 2: <span class="highlight">과정의 신성함</span> 🙏</h2>
+          <p class="slide-subtitle">"결과가 아닌 과정에 충실할 때, 음악(삶)은 우리를 버리지 않는다."</p>
+          <div class="slide-content">
+            <p>성공, 인정, 보상은 우리가 통제할 수 없는 '결과'의 영역입니다. 우리가 통제할 수 있는 유일한 것은 매일의 연습과 연마라는 '과정' 뿐입니다. 아무런 성취가 없는 하루일지라도, 그 과정 자체에 의미를 부여하고 충실할 때 우리는 계속해서 나아갈 힘을 얻습니다. 진심을 다하는 과정 속에서 진정한 만족과 성장이 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: Core Philosophy 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 철학 3: <span class="highlight">살아있는 음악</span> 💖</h2>
+          <p class="slide-subtitle">"음악은 연주자 자신의 목소리이자 이야기여야 한다."</p>
+          <div class="slide-content">
+            <p>기술적으로 완벽한 연주는 단순한 '소리'에 그칠 수 있습니다. 진정한 연주는 연주자의 내면, 철학, 감정이 담겨 관객과 소통하는 '살아있는 목소리'가 되어야 합니다. 이를 위해 연주자는 단순히 악보를 재현하는 것을 넘어, 언어, 문학, 영화 등 다양한 비음악적 요소를 통해 자신의 내면을 채우고, 그것을 음악으로 표현해내는 '전달자'가 되어야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">:dart:</div>
+          <h2 class="slide-title">결론: 나는 좌절의 스페셜리스트입니다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">백혜선의 삶은 '좌절'이 실패가 아니라 오히려 가장 소중한 성장의 기회임을 증명합니다. 그녀는 수많은 좌절을 겪으며 자신의 한계를 마주하고, 그것을 극복하는 과정에서 더 단단하고 깊이 있는 예술가로 거듭났습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">이 책은 우리에게 <span class="highlight">자신의 '가장 못생긴 발'을 내밀 용기</span>와, 종착역 없는 인생의 행진을 계속해나갈 힘을 줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">:clap:</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

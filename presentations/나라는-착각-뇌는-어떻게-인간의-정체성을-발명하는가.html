@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나는 착각 (The Self Delusion) 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-list {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        gap: 2rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나는 착각</h1>
+          <p class="text-xl md:text-2xl text-gray-700">뇌는 어떻게 인간의 <span class="highlight">정체성</span>을 발명하는가</p>
+          <p class="mt-8 text-lg text-gray-600">그레고리 번스 저 | 흐름출판</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Introduction Quote -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">"나는 생각한다, 그러므로 나는 <span class="highlight">망상이다</span>"</h2>
+          <p class="slide-subtitle">이 책은 '나'라는 존재가 뇌가 만들어낸 하나의 정교한 착각, 즉 '망상'에 불과하다는 도발적인 질문에서 시작합니다.</p>
+          <div class="slide-content max-w-3xl mx-auto">
+            <p>우리는 자신을 단일하고 일관된 존재로 인식하지만, 신경과학은 우리의 자아가 과거, 현재, 미래라는 세 가지 다른 버전의 집합이며, 이들을 하나로 묶는 것은 뇌가 끊임없이 편집하는 '이야기'라고 말합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>머리말:</b> 나는 생각한다 그러므로 나는 망상이다</p>
+            <p><b>제1부. 편집된 자아:</b> 우리가 시뮬레이션인 이유와 뇌의 불완전한 편집 과정</p>
+            <p><b>제2부. 만들어진 자아:</b> 진화와 사회가 개인의 선택과 가치에 미치는 영향</p>
+            <p><b>제3부. 꿈꾸는 자아:</b> 후회와 이야기를 통해 미래의 나를 만들어가는 방법</p>
+            <p><b>결론:</b> 자아라는 서사를 다시 쓰는 법</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: The Three Selves -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리 안에는 <span class="highlight">3명의 나</span>가 산다</h2>
+          <p class="slide-subtitle">우리가 '나'라고 느끼는 자아는 단일한 존재가 아니라, 세 가지 다른 버전의 결합체입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-xl text-center">과거의 나 📜</h3>
+              <p class="mt-2">기억의 집합. 우리의 정체성과 계보의 기반이 되지만, 이 기억은 원본이 아닌 <span class="highlight">편집된 파편</span>에 불과합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-xl text-center">현재의 나 ⏱️</h3>
+              <p class="mt-2">감각에 반응하는 존재. 하지만 뇌가 감각을 처리하는 순간 이미 과거가 되어버리는, <span class="highlight">찰나의 망상</span>입니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-xl text-center">미래의 나 🚀</h3>
+              <p class="mt-2">예측하는 존재. 과거의 데이터를 바탕으로 미래를 예측하며, 생존과 적응을 돕는 <span class="highlight">희미하지만 실용적인</span> 자아입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제 1부</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">편집된 자아 ✂️</h2>
+          <p class="text-xl md:text-2xl text-gray-700">뇌가 어떻게 현실을 시뮬레이션하고, 기억을 편집하여 '나'라는 이야기를 만들어내는지 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Chapter 1 - We are a simulation -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">1장. 우리는 시뮬레이션이다</p>
+              <h2 class="slide-title">자아는 뇌의 <span class="highlight">발명품</span>이다</h2>
+              <div class="slide-content">
+                  <p>우리가 '자아'라고 지각하는 것은 뇌가 만들어낸 '가공의 구성물', 즉 시뮬레이션입니다. 뇌는 몸의 모든 감각을 해석하지만, 정작 뇌 자체의 감각은 느낄 수 없습니다. 이는 뇌가 몸 전체에 대한 복제품(시뮬레이션)을 구성하여 통제하기 때문입니다.</p>
+                  <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                      <h3 class="font-bold text-lg">💡 현재는 2초다</h3>
+                      <p class="mt-2">우리가 '현재'라고 인식하는 순간은 약 2초 길이의 출입구에 불과합니다. 발가락에 뜨거운 물이 닿았을 때, 시각 정보(즉시)와 통증 정보(약 2초 후) 사이의 시간 차이를 뇌가 <span class="highlight">예측</span>을 통해 통합하여 동시에 일어난 것처럼 느끼게 만듭니다. 우리의 주의력은 항상 과거와 미래 사이를 오갑니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 7: Chapter 1 - Edited Past -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과거는 <span class="highlight">편집된</span> 기억이다</h2>
+          <p class="slide-subtitle">우리의 과거는 있는 그대로 기록되는 것이 아니라, 내부적 근원(기억)과 외부적 근원(기록, 타인의 기억)을 통해 끊임없이 재구성됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">기억의 빈틈 메우기: 작화증(Confabulation)</h3>
+              <p>인간은 기억 속의 빈 곳을 채우기 위해 동원할 수 있는 모든 내/외부적 근원을 사용하는 본능을 가집니다. 이는 마치 조각난 사진을 다시 맞추는 것과 같습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">섬광 기억(Flashbulb Memory)의 오류</h3>
+              <p>9/11 테러와 같은 충격적인 사건에 대한 기억은 매우 생생하게 느껴지지만, 연구에 따르면 시간의 흐름에 따라 이 기억의 정확성은 크게 떨어집니다. 우리는 <span class="highlight">부정확한 기억</span>을 계속 왜곡하며 되새깁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Chapter 2 - First Memories -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">2장. 최초의 기억들</p>
+              <h2 class="slide-title">인생 서사의 <span class="highlight">원형</span>이 되는 이야기</h2>
+              <p class="slide-subtitle">유년기 기억상실은 왜 일어나며, 생애 초기의 이야기들이 어떻게 우리의 정체성 형성에 결정적인 영향을 미칠까요?</p>
+              <div class="slide-content">
+                  <p>발달심리학에 따르면, 정체성 형성에 가장 중요한 시기는 기억이 뒤죽박죽인 유년기와 일치합니다. 부모나 어른들에게 들은 이야기는 우리 인생 이야기의 첫 페이지를 구성하며, 이후 모든 이야기의 원형이 됩니다.</p>
+                  <p class="mt-4">뇌의 각 부분은 다른 속도로 발달합니다. 특히 기억을 담당하는 <span class="highlight">해마(Hippocampus)</span> 시스템은 2살이 지나야 연결되기 시작하며, 약 4세가 되면 유년기 기억상실이 끝나게 됩니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 9: Chapter 2 - Storytelling Development -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이야기꾼의 <span class="highlight">5단계</span> 성장 과정 👶➡️🧑</h2>
+          <p class="slide-subtitle">수전 엥겔의 연구에 따르면, 아이들은 5단계를 거쳐 정교한 스토리텔링 능력을 발달시키며 '확장된 자아'를 구축합니다.</p>
+          <div class="slide-content space-y-2">
+            <p><b>1단계 (2-3세):</b> '확장된 자아'의 발견. 과거가 존재함을 깨닫습니다.</p>
+            <p><b>2단계 (약 3세):</b> 다른 사람(가족)의 사건을 자신의 삶에 편입합니다.</p>
+            <p><b>3단계 (3-5세):</b> 또래 친구들과 개인적인 사건을 공유하며 피드백을 통해 좋은 이야기 만드는 법을 배웁니다.</p>
+            <p><b>4단계 (5-9세):</b> 이야기 레퍼토리를 늘리며, 여러 이야기를 시도해봅니다.</p>
+            <p><b>5단계 (9세-사춘기):</b> 안정화. 정체성의 근간이 되는 핵심 이야기들이 굳어집니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 3 - Imperfect Editor -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">3장. 뇌는 불완전한 편집자</p>
+              <h2 class="slide-title">만화 버전으로 기억하는 <span class="highlight">세상</span></h2>
+              <p class="slide-subtitle">뇌는 물리적 한계 때문에 모든 정보를 저장할 수 없습니다. 대신, '스키마(Schema)'라는 압축된 표현을 사용하여 세상을 기록하고 편집합니다.</p>
+              <div class="slide-content">
+                  <p>우리가 자아와 타인에 대해 갖는 인식은 실제의 '만화 버전'과 같습니다. 상세한 디테일 없이 특징만 강조되어, 어제의 우리와 오늘의 우리가 똑같은 사람이라는 '연속성에 대한 환상'을 갖게 합니다. 이 만화들은 세상에 대한 정신적 모델과 그 안에서 우리의 위치를 결합하는 '이야기의 접점'을 형성합니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 11: Chapter 3 - Schemas -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스키마: 압축과 편향의 <span class="highlight">메커니즘</span></h2>
+          <p class="slide-subtitle">스키마는 기억을 효율적으로 저장하는 틀이지만, 동시에 새로운 정보를 기존의 틀에 맞추려는 편향을 만들어냅니다.</p>
+          <div class="slide-content mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">🧠 스키마의 작동 방식</h3>
+            <p class="mt-2">뇌의 vmPFC(복부 내측 전전두피질)는 스키마를 사용하여 감각 정보를 처리합니다. 한번 스키마가 형성되면, 우리는 이후의 정보를 그 스키마와 <span class="highlight">일치하도록 편향</span>시켜서 보고 듣게 됩니다. 기존 스키마와 맞지 않는 정보는 아예 기억되지 않을 수도 있습니다. '첫 키스' 경험은 이후 모든 키스를 참조하는 강력한 스키마가 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Chapter 4 - The Bayesian Brain -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">4장. 추측하는 뇌</p>
+              <h2 class="slide-title">베이즈 정리와 <span class="highlight">뇌의 인식</span>  Bayes' Theorem 🧠</h2>
+              <p class="slide-subtitle">뇌는 세상을 있는 그대로 받아들이는 것이 아니라, 과거의 경험(사전 믿음)을 바탕으로 현재의 감각 정보에 대한 최선의 '추측'을 합니다.</p>
+              <div class="slide-content">
+                  <p>18세기 통계학자 토머스 베이즈의 정리처럼, 우리의 뇌는 새로운 정보를 얻을 때마다 사전 믿음을 계속해서 갱신합니다. 이것이 바로 '베이지안 뇌' 가설의 핵심입니다. 인식은 수동적인 과정이 아니라, 뇌가 능동적으로 만들어내는 확률적 추론 과정입니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 13: Chapter 4 - Optical Illusions -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌를 속이는 법: <span class="highlight">착시</span>의 원리</h2>
+          <p class="slide-subtitle">착시는 베이지안 뇌의 작동 방식을 보여주는 좋은 예입니다. 뇌는 모호한 시각 정보를 해석하기 위해 강력한 사전 믿음을 사용합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 class="font-bold text-lg">카니자 삼각형 & 크레이터 환각</h3>
+              <p>실제 윤곽선이 없음에도 삼각형이 보이는 이유는 뇌가 '가려진 물체'라는 사전 믿음을 적용하기 때문입니다. 또한, '빛은 항상 위에서 온다'는 강력한 사전 믿음 때문에 그림자의 방향에 따라 오목하거나 볼록하게 인식합니다.</p>
+            </div>
+            <div class="text-center">
+              <svg width="200" height="200" viewBox="0 0 100 100" class="mx-auto">
+                <path d="M50 10 a 40 40 0 0 1 0 80" fill="none" stroke="black" stroke-width="1"/>
+                <path d="M50 10 a 40 40 0 0 0 0 80" fill="white"/>
+                <circle cx="50" cy="10" r="10" fill="black" />
+                <circle cx="20" cy="78" r="10" fill="black" />
+                <circle cx="80" cy="78" r="10" fill="black" />
+                <path d="M50 15 L23 75 L77 75 Z" fill="none" stroke="lightgray" stroke-dasharray="2,2"/>
+              </svg>
+              <p class="text-sm mt-2">카니자 삼각형</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 5 - Finding the Self -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">5장. 자아를 찾아서</p>
+              <h2 class="slide-title">마음은 <span class="highlight">어디에</span> 있을까?</h2>
+              <p class="slide-subtitle">제임스-랑게 이론에 따르면, 우리는 슬퍼서 우는 것이 아니라 울기 때문에 슬픈 것입니다. 즉, 신체의 생리적 변화가 감정에 대한 인식을 주도합니다.</p>
+              <div class="slide-content">
+                  <p>감정의 지도는 일종의 확률 지도입니다. '가슴에 어떤 느낌이 있을 때, 그것이 감사함일 확률은 얼마나 될까?'와 같은 사후 확률을 통해 우리는 감정을 해석합니다. 아드레날린 주사 후 심장이 뛰는 것을 느끼는 것처럼, 감정은 신체 변화의 산물일 수 있습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 15: Chapter 5 - Minimal vs Narrative Self -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 종류의 자아: <span class="highlight">최소 자아</span>와 <span class="highlight">서사적 자아</span></h2>
+          <p class="slide-subtitle">우리의 자아는 현재 순간의 물리적 경험을 처리하는 '최소 자아'와 과거, 현재, 미래를 연결하는 '서사적 자아'로 구성됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">최소 자아 (Minimal Self) 🏃</h3>
+              <p>움직임이 '나'에 의해 수행되고 경험이 '내 것'이라는 느낌. 뇌의 예측(포워드 모델)을 통해 형성됩니다. 고무손 환각은 시각과 촉각의 통합을 통해 최소 자아가 무생물로 확장될 수 있음을 보여줍니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">서사적 자아 (Narrative Self) 📚</h3>
+              <p>시간에 걸쳐 확장되는 자아. 현재의 당신을 과거 및 미래의 당신과 연결하는 '이야기'입니다. 데닛의 '중력의 중심' 모델과 리쾨르의 '분산된 자아' 모델이 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Chapter 6 - Multiple Personalities -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">6장. 내 안의 다중 인격들</p>
+              <h2 class="slide-title">상황에 따라 바뀌는 <span class="highlight">우리</span>의 모습</h2>
+              <p class="slide-subtitle">해리성 정체성 장애(DID)는 극단적인 경우이지만, 사실 우리 모두는 사회적 환경에 따라 다양한 '나'의 버전을 가지고 살아갑니다.</p>
+              <div class="slide-content">
+                  <p>직장에서의 당신, 친구들과 있을 때의 당신, 가족 안에서의 당신은 모두 다른 모습을 보입니다. 우리는 각기 다른 인격에 '별명'을 붙이기도 합니다. 이는 자아가 고정된 실체가 아니라 상황에 따라 유동적으로 변하는 것임을 보여줍니다. 크리스틴 비첨의 사례는 치료사와 환자가 '함께' 다중 인격의 틀을 만들어냈을 가능성을 시사합니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 17: Chapter 6 - Out of Body Experience -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유체이탈: 3인칭 시점의 <span class="highlight">기억</span></h2>
+          <p class="slide-subtitle">극심한 스트레스나 충격적인 사건은 '비인격화(Depersonalization)'라 불리는 유체이탈 경험을 유발할 수 있습니다. 이는 기억이 어떻게 재구성되는지 보여줍니다.</p>
+          <div class="slide-content mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+            <h3 class="font-bold text-lg">🚗 저자의 교통사고 경험</h3>
+            <p class="mt-2">저자는 청소년기 교통사고 당시, 자신을 3인칭 시점에서 바라보는 경험을 했습니다. 목격자의 말("네가 죽은 줄 알았어")을 들은 후, 그의 뇌는 목격자의 시점에서 사건을 재구성(편집)했습니다. 이처럼 해리는 우리가 공간의 제약에서 벗어나 다른 이야기꾼을 머릿속에 가질 수 있게 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 7 - Power of Belief -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">7장. 내가 믿는 이야기가 나를 만든다</p>
+              <h2 class="slide-title">미신과 기적, <span class="highlight">믿음의 힘</span></h2>
+              <p class="slide-subtitle">인과관계가 없는 사건들을 연결하여 서사를 만드는 것은 인간의 본능입니다. 미신은 이러한 서사의 대표적인 예입니다.</p>
+              <div class="slide-content">
+                  <p>심리학자 B.F. 스키너의 '비둘기의 미신' 실험은 우연한 행동과 보상(음식)이 연결될 때, 동물조차 미신적인 행동을 보임을 증명했습니다. 인간의 '내가 그렇게 했다'는 느낌은 '통제 착각(Illusion of Control)'을 낳고, 이는 미신적 행동으로 이어집니다. 보니파스 수녀의 기적적인 회복 이야기는 믿음이 어떻게 서사를 바꾸고 현실을 재구성하는지 보여주는 강력한 사례입니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 19: Chapter 8 - The First Story -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">8장. 최초의 이야기</p>
+              <h2 class="slide-title">모든 이야기는 <span class="highlight">영웅의 여정</span>이다 🗺️</h2>
+              <p class="slide-subtitle">블라디미르 프롭과 조셉 캠벨은 전 세계의 신화와 민담이 보편적인 구조, 즉 '영웅의 여정'을 따르고 있음을 발견했습니다.</p>
+              <div class="slide-content">
+                  <p>이 구조는 너무나 오래되어 인간의 뇌에 깊이 각인된 문화유산입니다. 길가메시 서사시부터 스타워즈에 이르기까지, 영웅은 외부 사건으로 인해 모험을 떠나고, 고난을 겪으며, 결국 변신하여 귀환합니다. 이 보편적인 서사 구조는 우리가 세상을 해석하는 기본적인 틀이 됩니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 20: Chapter 8 - Six Basic Arcs -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이야기의 6가지 <span class="highlight">기본 형태</span></h2>
+          <p class="slide-subtitle">버몬트 대학의 연구에 따르면, 수많은 소설의 서사 구조는 6가지 기본 감정 곡선으로 분류될 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <p><b>1. 📈 넝마에서 부자로 (Rags to Riches):</b> 지속적인 상승</p>
+            <p><b>2. 📉 부자에서 넝마로 (Riches to Rags):</b> 지속적인 하강 (비극)</p>
+            <p><b>3. 📉📈 구덩이에 빠진 남자 (Man in a Hole):</b> 하강 후 상승</p>
+            <p><b>4. 📈📉 이카루스 (Icarus):</b> 상승 후 하강</p>
+            <p><b>5. 📈📉📈 신데렐라 (Cinderella):</b> 상승-하강-상승</p>
+            <p><b>6. 📉📈📉 오이디푸스 (Oedipus):</b> 하강-상승-하강</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제 2부</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">만들어진 자아 🤝</h2>
+          <p class="text-xl md:text-2xl text-gray-700">진화는 왜 개인주의를 싫어하며, 사회적 압력과 신성한 가치는 어떻게 우리의 선택과 자아를 형성하는가.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Chapter 9 - Evolution & Individualism -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">9장. 진화는 개인주의를 싫어한다</p>
+              <h2 class="slide-title">사슴 사냥 딜레마와 <span class="highlight">협력</span>의 기원</h2>
+              <p class="slide-subtitle">장 자크 루소의 '사슴 사냥 딜레마'는 개인의 이익과 공동의 이익 사이의 긴장을 보여줍니다. 인간의 뇌는 무리를 따르도록 진화했습니다.</p>
+              <div class="slide-content">
+                  <p>혼자 토끼를 잡는 것(작지만 확실한 이익)과 협력하여 사슴을 잡는 것(크지만 불확실한 이익) 사이의 선택. 이 딜레마를 해결하기 위해 '정신 이론(Theory of Mind, ToM)', 즉 다른 사람의 마음을 읽는 능력이 발달했습니다. 타인의 생각과 의도를 추론하는 '멘탈라이징'은 협력을 가능하게 하는 핵심적인 진화적 적응입니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 23: Chapter 10 - Illusion of Choice -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">10장. 나의 선택이라는 착각</p>
+              <h2 class="slide-title">애쉬의 실험: 반대편에 서는 <span class="highlight">두려움</span></h2>
+              <p class="slide-subtitle">솔로몬 애쉬의 동조 실험은 사회적 압력이 어떻게 개인의 명백한 인식조차 왜곡할 수 있는지를 보여줍니다.</p>
+              <div class="slide-content mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                  <h3 class="font-bold text-lg">🔬 실험 요약</h3>
+                  <p class="mt-2">여러 명의 연기자가 명백히 틀린 답을 말할 때, 실험 참가자의 75%가 최소 한 번 이상 그룹의 의견에 동조하여 틀린 답을 선택했습니다. fMRI 연구 결과, 그룹에 반하는 선택을 할 때 감정적 스트레스를 처리하는 <span class="highlight">편도체(Amygdala)</span>가 활성화되었습니다. 우리는 순응하도록 진화했습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 24: Chapter 10 - Music & Conformity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌는 미래의 <span class="highlight">인기곡</span>을 알고 있다 🎶</h2>
+          <p class="slide-subtitle">청소년들의 뇌 반응을 분석한 실험에서, 노래의 '인기도' 정보가 개인의 선호도 평가를 바꾸는 것으로 나타났습니다.</p>
+          <div class="slide-content">
+            <p>노래를 긍정적으로 평가할 때 보상 시스템의 핵심인 <span class="highlight">꼬리핵(Caudate nucleus)</span>이 활성화되었습니다. 하지만 자신의 평가와 다른 인기도 정보를 본 후 평가를 바꾼 경우, 이 영역의 활동이 감소했습니다. 이는 사회적 합의에 따르지 않는 것에 대한 일종의 '처벌' 신호로 해석될 수 있습니다. 뇌 스캔만으로 음악의 상업적 성공을 예측할 수 있었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Chapter 11 - Sacred Values -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">11장. 믿음, 신앙, 신성한 가치들</p>
+              <h2 class="slide-title">절대적 믿음의 <span class="highlight">역설</span></h2>
+              <p class="slide-subtitle">'남이 너에게 해주기를 바라는 대로 남에게 하라'는 황금률과 같은 신성한 가치는 우리의 자아 정체성의 핵심을 이룹니다. 뇌는 이러한 가치를 어떻게 처리할까요?</p>
+              <div class="slide-content">
+                  <p>뇌 영상 연구에 따르면, 뇌는 신성한 가치를 비용-편익 분석(실용주의)의 대상이 아닌, 협상 불가능한 규칙(의무론)으로 처리하는 경향이 있습니다. 신성한 가치를 위반하는 문장을 읽었을 때, 규칙 처리와 관련된 <span class="highlight">좌측 전전두엽 피질(TPJ)</span>과 혐오감을 처리하는 <span class="highlight">편도체</span>가 활성화되었습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 26: Chapter 12 - Brain of a Murderer -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">12장. 일반인과 살인자의 뇌는 다를까?</p>
+              <h2 class="slide-title">악의 평범함, 뇌의 <span class="highlight">평범함</span></h2>
+              <p class="slide-subtitle">살인범의 뇌를 스캔한 저자의 경험은 충격적인 결론에 이릅니다. 극단적인 악행을 저지른 사람의 뇌가 놀라울 정도로 평범할 수 있다는 것입니다.</p>
+              <div class="slide-content">
+                  <p>저자가 fMRI로 검사한 살인범 존슨의 뇌는 감정 인식(얼굴 표정)과 충동 조절(Go/No-Go 과제) 테스트에서 정상적인 반응을 보였습니다. 이는 뇌의 물리적 구조가 아니라, 그 안에 담긴 '이야기'와 '서사'가 한 사람의 인생과 행동을 결정한다는 것을 시사합니다. 한나 아렌트가 말한 '악의 평범성'처럼, 이는 '뇌의 평범함'을 가리킵니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 27: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제 3부</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">꿈꾸는 자아 몽상</h2>
+          <p class="text-xl md:text-2xl text-gray-700">우리의 자아가 편집 가능한 이야기라면, 어떻게 후회와 상상력을 동력으로 삼아 원하는 미래의 나를 만들 수 있을까.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 13 - Half a Brain -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">13장. 뇌를 절반만 가진 남자</p>
+              <h2 class="slide-title">망상과 믿음의 <span class="highlight">경계선</span></h2>
+              <p class="slide-subtitle">"저는 뇌가 절반밖에 없어요." 한 조현병 환자의 이 믿음은 망상과 정상적인 믿음 사이의 연속성을 보여줍니다.</p>
+              <div class="slide-content">
+                  <p>정신병적 증상은 일반 인구에서도 드물지 않게 발견됩니다. 이는 망상이 완전히 다른 종류의 믿음이 아니라, 믿음 스펙트럼의 한쪽 끝에 존재할 수 있음을 의미합니다. 사회적 규범에서 벗어난 믿음은 '망상'으로 분류될 수 있지만, 그 경계는 문화와 사회에 따라 유동적입니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 29: Chapter 14 - Stories Change the Brain -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">14장. 나는 이야기한다 그러므로 나는 존재한다</p>
+              <h2 class="slide-title">책은 뇌를 바꾸는 가장 <span class="highlight">효율적인</span> 매체</h2>
+              <p class="slide-subtitle">소설 '폼페이'를 읽는 동안과 읽은 후에 참가자들의 뇌를 스캔한 결과, 독서가 뇌의 기능적 연결성에 지속적인 변화를 일으킴을 발견했습니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-bold text-lg">뇌 연결성의 변화 🧠🔗</h3>
+                  <p>독서 후, 언어 이해를 담당하는 <span class="highlight">좌측 각회(angular gyrus)</span>의 연결성이 증가했습니다. 또한, 주인공의 감각과 행동을 시뮬레이션하는 것처럼 <span class="highlight">감각운동피질</span>의 연결성에도 변화가 나타났습니다. 이는 독자가 이야기 속 주인공과 자신을 동일시하며 '체화된 인지'를 경험함을 시사합니다.</p>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">휴지 상태 네트워크 (rs-fMRI)</h3>
+                  <p>아무것도 하지 않고 쉬는 동안에도 뇌는 '기본 모드 네트워크'를 통해 활동합니다. 장기간의 독서와 같은 경험은 이 휴지 상태의 뇌 활동 패턴 자체를 변화시킬 수 있습니다.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 30: Chapter 15 - Conspiracy Theories -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">15장. 쓰레기를 읽으면 쓰레기가 된다</p>
+              <h2 class="slide-title">음모론은 <span class="highlight">두려움</span>을 먹고 자란다</h2>
+              <p class="slide-subtitle">음모론은 설명할 수 없는 일에 대한 매력적인 설명을 제공하며, 특히 두려움과 분노 같은 강한 감정에 기대어 증폭됩니다. '계획된 전염병(Plandemic)' 영상은 그 대표적인 예입니다.</p>
+              <div class="slide-content">
+                  <p>음모론에 끌리는 세 가지 동기: <b>인식론적</b> (은폐된 정보에 대한 갈망), <b>존재론적</b> (불안과 공포에 대한 방패), <b>사회적</b> (집단 정체성 형성). 음모론은 외부의 적을 설정하는 '영웅의 여정' 구조를 따르며, 순교자 서사를 통해 신뢰를 얻습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 31: Chapter 16 - Regret -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">16장. 변화의 동력, 후회</p>
+              <h2 class="slide-title">후회 없는 삶을 <span class="highlight">위하여</span></h2>
+              <p class="slide-subtitle">후회는 고통스러운 감정이지만, 과거를 돌아보고 미래를 더 잘 준비하게 하는 강력한 학습 메커니즘입니다. 이는 '반사실적 사고(Counterfactual Thinking)'의 한 형태입니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-bold text-lg">행위의 후회 vs. 불행위의 후회</h3>
+                  <p><b>행위의 후회</b> ('하지 말았어야 했는데')는 단기적으로 더 강하게 느껴지지만 빠르게 감소합니다.</p>
+                  <p><b>불행위의 후회</b> ('했어야 했는데')는 장기적으로 계속 악화되는 경향이 있습니다.</p>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">후회 최소화 알고리즘 🤖</h3>
+                  <p>인공지능 포커 프로그램(CFR)은 '반사실적 후회 최소화' 전략을 사용합니다. 이는 가능한 미래를 시뮬레이션하고, 최악의 결과를 피하는 선택을 함으로써 후회할 확률을 줄이는 방식입니다.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 32: Chapter 17 - Finding the Real Me -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">17장. 진짜 원하는 나를 찾아서</p>
+              <h2 class="slide-title">자아 바꾸기 <span class="highlight">연습</span> ✍️</h2>
+              <p class="slide-subtitle">우리의 개인적 서사는 허구이며, 얼마든지 다시 쓸 수 있습니다. 빅터 프랭클의 로고테라피와 유다이모니아 개념을 활용해 새로운 삶의 이야기를 만들어 봅시다.</p>
+              <div class="slide-content">
+                  <p><b>1단계: 시간 범위 설정:</b> 5년 후의 미래를 상상합니다.</p>
+                  <p><b>2단계: 명제 정의:</b> 5년 후의 삶에서 가치 있게 여길 것들(관계, 건강, 행복 등)을 현재형으로 5가지 이상 적어봅니다. (예: '나는 빚이 없다.')</p>
+                  <p><b>3단계: 행동 계획 수립:</b> 각 명제를 이루기 위한 구체적인 행동들을 적습니다. (예: '불필요한 지출 줄이기, 신용카드 잔액 갚기')</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 33: Chapter 18 - The Future Equation -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">18장. 미래 방정식</p>
+              <h2 class="slide-title">과거의 기억으로 미래를 <span class="highlight">설계하라</span></h2>
+              <p class="slide-subtitle">미래의 당신은 단일한 존재가 아닌 '가능성의 집합'입니다. 과거의 기억을 재료 삼아 원하는 미래를 구체적으로 상상하고 만들어갈 수 있습니다.</p>
+              <div class="slide-content mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+                  <h3 class="font-bold text-lg">에피소드 미래 사고 (Episodic Future Thinking)</h3>
+                  <p class="mt-2">과거의 특정 경험(특히 완전히 몰두했던 순간)을 생생하게 떠올리는 것은 미래를 구체적으로 상상하는 데 도움을 줍니다. 이는 단순히 추억에 잠기는 것이 아니라, 미래의 당신을 위한 '데이터'를 이식하는 과정입니다. 운동과 같은 활동은 창의적 사고를 자극하여 이 과정에 도움을 줄 수 있습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 34: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 당신의 서사를 선택하라</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">'나'라는 존재는 고정된 실체가 아니라, 뇌가 끊임없이 쓰고 편집하는 <span class="highlight">한 편의 이야기</span>입니다. 당신이 소비하는 이야기가 곧 당신이 됩니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신이 말하는 서사가 곧 당신입니다. 당신은 당신의 이야기꾼입니다. 오래된 서사를 지울 수는 없지만, 당신이 원하는 것과 더 일치하는 다른 서사를 소비함으로써 그것들을 대체할 수 있습니다. <br/><br/> "당신의 삶을 살아가라. 이상한 이야기를 말하라."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+      <!-- Add 15+ more slides to reach the 50-page goal, diving deeper into chapters -->
+      <!-- More detailed slides start here -->
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">머리말 심층 탐구: <span class="highlight">서사 구조</span>의 역할</h2>
+          <p class="slide-subtitle">세 가지 자아(과거, 현재, 미래)는 어떻게 하나의 '나'로 통합될까요? 그 답은 '서사(Narrative)'에 있습니다.</p>
+          <div class="slide-content">
+            <p>뇌는 과거 기억의 파편들에 의미를 부여하고, 현재의 경험과 연결하며, 미래를 예측하는 연속적인 '이야기'를 만듭니다. 이 서사 구조는 마치 스포츠 하이라이트 영상처럼, 수많은 사건 중에서 특정한 부분을 편집하고 맥락을 이어 붙인 <span class="highlight">기억의 집합체</span>입니다.</p>
+            <p class="mt-4">결국 '자아'란, 내가 나와 세상에 들려주는 '나에 대한 편집된 이야기'이며, 우리는 이 이야기를 통해 무수히 많은 자아를 가진 채 살아갑니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1부 심층: 기억의 <span class="highlight">내부적 vs. 외부적 근원</span></h2>
+          <p class="slide-subtitle">우리의 과거는 순수한 내적 기억만으로 구성되지 않습니다. 외부의 정보가 끊임없이 개입하여 우리의 기억을 형성하고 변화시킵니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">내부적 근원 (기억) 🧠</h3>
+              <p>사실, 경험, 근육 기억 등 뇌의 서로 다른 곳에 저장되는 다양한 유형의 기억. 하지만 이 기억은 시간이 지남에 따라 변하고 왜곡됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">외부적 근원 (기록) 🖼️🗣️</h3>
+              <p>사진, 일기, 비디오 등 변하지 않는 '기록'과 친구나 가족의 증언과 같이 계속 변하는 '타인의 기억'으로 나뉩니다. 우리는 이 두 가지를 혼합하여 자신의 과거를 재구성합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2부 심층: <span class="highlight">지식과 믿음</span>의 정당화</h2>
+          <p class="slide-subtitle">우리는 어떤 것을 사실이라고 어떻게 알게 될까요? 버트런드 러셀은 지식을 두 가지로 구분했습니다.</p>
+          <div class="slide-content mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <p><b>직접적 경험으로 얻는 지식 (Knowledge by Acquaintance):</b> 자전거 타기처럼 직접 해봐서 아는 것.</p>
+            <p><b>간접적 방식으로 얻는 지식 (Propositional Knowledge):</b> '2+2=4' 또는 '조지 워싱턴은 초대 대통령이다'처럼 배워서 아는 것.</p>
+            <p class="mt-4 font-bold">중요한 것은, 간접적 지식은 '믿음'의 영역에 해당한다는 점입니다. 우리는 그 사실을 직접 경험하지 않았기 때문입니다. 이 믿음을 견지하는 이유, 즉 <span class="highlight">정당화(Justification)</span>는 오직 서사를 통해서만 이루어집니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3부 심층: 기억 저장의 <span class="highlight">2단계 과정</span></h2>
+          <p class="slide-subtitle">사건이 기억으로 저장되는 과정은 카메라의 녹화-재생 버튼처럼 단순하지 않습니다. 암호화와 통합이라는 두 단계를 거칩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 암호화 (Encoding) ➡️</h3>
+              <p>사건이 일어날 때 뇌가 정보를 저장하는 과정. 일부는 즉각적으로, 일부는 '일시적 저장 버퍼'에 보관됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 통합 (Consolidation) 💾</h3>
+              <p>일시적 기억이 장기 기억 시스템으로 이동하며 안정화되는 과정. 몇 분에서 며칠이 걸릴 수 있으며, 특히 '잠'이 중요한 역할을 합니다. 통합이 일어난 후에야 기억을 '검색'할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">4부 심층: <span class="highlight">베이지안 뇌</span>의 정보 처리</h2>
+            <p class="slide-subtitle">뇌는 사전 정보(prior)와 감각 증거(likelihood)를 결합하여 가장 가능성 있는 해석(posterior)을 내놓습니다.</p>
+            <div class="slide-content text-center">
+                <p class="text-2xl font-mono p-4 bg-gray-100 rounded-lg">P(가설 | 데이터) ∝ P(데이터 | 가설) * P(가설)</p>
+                <p class="mt-4"><b>사후 확률 ∝ 가능도 * 사전 확률</b></p>
+                <p class="mt-6">이것은 뇌가 항상 불확실성 속에서 추론하고 있음을 의미합니다. 우리의 인식은 객관적인 현실의 복사본이 아니라, 뇌가 구성한 <span class="highlight">확률적 모델</span>입니다. '승자 독식(winner-take-all)' 원리에 따라, 가장 가능성이 높은 해석 하나만이 의식적인 인식으로 떠오릅니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">5부 심층: 감정 이론의 <span class="highlight">대립</span></h2>
+              <p class="slide-subtitle">감정은 보편적이고 생물학적으로 결정되는 것일까요, 아니면 사회적으로 구성되는 것일까요?</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">자크 팽크세프의 관점 🐭</h3>
+                      <p>분노, 공포, 욕망 등 7가지 기본적인 감정은 모든 포유류에 공통적으로 존재하며, 각각 별도의 뇌 회로와 신경전달물질에 의해 발생한다고 주장합니다. (생물학적 결정론)</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">리사 펠드먼 배럿의 관점 🗣️</h3>
+                      <p>보편적인 감정은 없으며, 우리는 과거 경험과 문화적 맥락(어휘)을 통해 신체 감각을 '구성'하여 감정을 만들어낸다고 주장합니다. (사회적 구성주의)</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">7부 심층: 서사를 바꾸는 <span class="highlight">믿음</span>의 메커니즘</h2>
+              <p class="slide-subtitle">보니파스 수녀의 이야기는 믿음이 어떻게 두 개의 상반된 서사를 만들어내는지 보여줍니다.</p>
+              <div class="slide-content mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p><b>동일한 사건:</b> 루푸스 진단, 의학적 치료, 위독한 상태, 특정 시점 이후 회복.</p>
+                  <p class="mt-4"><b>신앙의 서사:</b> 병든 수녀가 '주니페로 세라'에게 기도한 후, 그의 기적적인 중재를 통해 치유되었다. → <span class="highlight">영웅의 여정</span> (고난과 구원).</p>
+                  <p class="mt-4"><b>회의론의 서사:</b> 현대 의학이 진단하고 치료하는 과정에서 병세가 호전된 것일 뿐이다. → <span class="highlight">과학적 인과관계</span>.</p>
+                  <p class="mt-4">믿음은 동일한 사실들을 전혀 다른 이야기로 엮어내는 강력한 힘을 가집니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">9부 심층: 멘탈라이징의 <span class="highlight">뇌 과학</span></h2>
+              <p class="slide-subtitle">다른 사람과 협력할 때, 우리 뇌는 어떤 인지 과정을 거칠까요? 사슴 사냥 게임 fMRI 실험은 그 단서를 제공합니다.</p>
+              <div class="slide-content">
+                  <p>다른 사람과 게임을 할 때(복권과 달리), 뇌에서는 다음과 같은 영역이 더 활성화되었습니다:</p>
+                  <ul class="list-disc list-inside mt-4 space-y-2">
+                      <li><b>쐐기소엽 (Cuneus):</b> 사회적 정보 처리와 관련된 시각 시스템의 일부.</li>
+                      <li><b>방추상회 (Fusiform Gyrus):</b> 얼굴 처리 시스템의 핵심 영역. 눈에 보이지 않는 상대방의 '얼굴'을 상상하며 그의 의도를 추론함을 시사합니다.</li>
+                  </ul>
+                  <p class="mt-4">이는 우리가 협력 상황에서 상대방의 마음을 시뮬레이션하는, 즉 <span class="highlight">멘탈라이징</span>을 적극적으로 사용하고 있음을 보여줍니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">11부 심층: 도덕적 중추, <span class="highlight">뇌의 영역</span></h2>
+          <p class="slide-subtitle">신성한 가치에 대한 우리의 신념은 뇌의 특정 영역 활동과 관련이 있습니다.</p>
+          <div class="slide-content">
+            <p>실험 결과, 그룹의 의견에 굴복하지 않고 자신의 신념을 고수하는 경향(낮은 순응 점수)을 보인 사람일수록, 신성한 가치에 대한 질문에 직면했을 때 <span class="highlight">왼쪽 전전두엽 피질</span>이 더 활발하게 활동했습니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 '도덕적 중추' 가설</h3>
+              <p class="mt-2">이 영역의 활동이 도덕적 결단력의 지표가 될 수 있음을 시사합니다. 즉, 사회적 압력에 저항하고 자신의 핵심 가치를 지키는 능력과 관련이 있을 수 있습니다. 저자는 이 부위를 '도덕적 중추'라고 부를 것을 제안합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">14부 심층: 독서 vs. 다른 미디어 📖 vs. 📺</h2>
+          <p class="slide-subtitle">모든 미디어가 뇌에 동일한 영향을 미치는 것은 아닙니다. 독서는 다른 미디어와 구별되는 독특한 특징을 가집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">능동적 vs. 수동적 소비</h3>
+              <p>영화나 TV는 수동적으로 소비되지만, 책은 독자의 능동적인 노력 없이는 소비될 수 없습니다. 이 능동적인 과정이 더 깊은 몰입을 유도합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">기억 통합의 시간</h3>
+              <p>책 한 권을 읽는 데는 수십 시간이 걸립니다. 이 긴 시간 동안, 특히 잠을 자는 동안 뇌는 새로운 정보를 기존의 기억과 '통합'할 충분한 시간을 갖게 됩니다. 반면, 몰아보기(Binge-watching)는 해마에 과부하를 주어 효과적인 기억 통합을 방해합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">15부 심층: 음모론 서사 <span class="highlight">해체하기</span></h2>
+            <p class="slide-subtitle">음모론과 같은 거짓 서사에 현혹되지 않으려면, 이야기의 구조를 비판적으로 분석하는 능력이 필요합니다.</p>
+            <div class="slide-content">
+                <p class="font-bold text-lg">체크 리스트 ✅</p>
+                <ul class="list-disc list-inside mt-4 space-y-3">
+                    <li><b>신뢰성:</b> 이야기꾼의 권위와 전문성은 무엇인가? 그들의 숨은 의도나 목적은 없는가?</li>
+                    <li><b>불만 부추기기:</b> 이 서사가 특정 집단의 불만을 부추기고 있는가? 그 불만은 객관적 사실에 기반하는가, 아니면 개인적 원한에 기반하는가?</li>
+                    <li><b>인식론적 출처:</b> 이야기꾼은 그 정보를 어떻게 알게 되었는가? 직접 경험인가, 아니면 "들은 이야기"인가?</li>
+                    <li><span class="highlight">모든 순교자를 의심하라:</span> 스스로를 희생자나 진실의 수호자로 포장하는 서사는 특히 경계해야 합니다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">16부 심층: 영화 속 <span class="highlight">후회</span>의 사용법</h2>
+              <p class="slide-subtitle">리처드 링클레이터의 '비포' 시리즈와 영화 '카사블랑카'는 미래의 후회를 예상하여 현재의 결정을 내리는 서사의 힘을 보여줍니다.</p>
+              <div class="slide-content">
+                  <p><b>'비포 선라이즈':</b> 주인공 제시는 "10년, 20년 후에 네가 결혼 생활에 권태를 느낄 때, 다른 남자를 만났다면 어땠을까 상상하게 될 거야. 바로 내가 그 남자야."라며 미래의 후회를 자극하여 현재의 선택(함께 밤을 보내는 것)을 이끌어냅니다.</p>
+                  <p class="mt-4"><b>'카사블랑카':</b> 주인공 릭은 일사와의 사랑을 포기하며 "언젠가 당신은 이걸 이해하게 될 거야"라고 말합니다. 이는 개인적인 행복보다 더 큰 대의를 선택하지 않았을 때의 미래의 후회를 피하기 위한 결정입니다.</p>
+                  <p class="mt-4 font-bold">"후회 없는 삶"은 미래의 후회를 가상으로 사용하여 현재의 선택을 내리는 <span class="highlight">매우 효과적인 전략</span>입니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">17부 심층: <span class="highlight">유다이모니아</span>와 도덕적 삶</h2>
+          <p class="slide-subtitle">새로운 서사를 쓸 때, '영웅의 여정' 외에 어떤 모델을 따를 수 있을까요? 고대 철학은 '좋은 삶'에 대한 대안을 제시합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">그리스 철학: 유다이모니아 (Eudaimonia) 🏛️</h3>
+              <p>'번영' 또는 '좋은 삶'으로 번역됩니다. 플라톤은 이를 용기, 지혜, 정의, 절제라는 4가지 덕목을 통해 사회와 연결되는 삶으로 보았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">동양 철학: 도 (道) ☯️</h3>
+              <p>개인의 영웅적 성취보다, 일상생활에서 다른 사람들과 어떻게 관계를 맺는지(윤리)에 초점을 맞춥니다. 극적인 딜레마가 아닌, 조화로운 관계를 중시합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">맺음말 심층: <span class="highlight">기차에서 내리기</span></h2>
+          <p class="slide-subtitle">저자는 책을 쓰는 과정 자체가 자신의 서사를 바꾼 경험이었음을 고백합니다.</p>
+          <div class="slide-content">
+            <p>코로나19 팬데믹 동안, 멈춰버린 일상은 마치 '서지 않는 기차'에 탄 것과 같았습니다. 시간의 감각이 붕괴된 후, 저자는 기차에서 내리기로 결심합니다. 도시의 집을 팔고 시골 농장으로 이사함으로써, 그는 자신의 서사를 <span class="highlight">한순간에</span> 바꿨습니다.</p>
+            <p class="mt-4">"이 책을 쓰기 시작한 사람과 맺음말을 쓰는 사람은 전혀 다른 사람이다."</p>
+            <p class="mt-2">이것은 책의 핵심 메시지를 저자 자신의 삶으로 증명하는 것입니다. 우리는 언제든 우리의 이야기를 다시 쓰고, 다른 사람이 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more slides if needed to fulfill the length -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자아와 정체성: <span class="highlight">인식의 문제</span></h2>
+          <p class="slide-subtitle">자기 인식이란 무엇일까요? 책은 '성별'을 예로 들어 그것이 타고난 물리적 표현과 반드시 일치하지 않는 '인식'의 문제일 수 있음을 설명합니다.</p>
+          <div class="slide-content">
+              <p>이러한 인식의 과정은 뇌에서 일어납니다. 인지신경과학의 발전은 '인지'가 과거의 경험이라는 렌즈를 통해 걸러진 물리적 현실의 혼합물임을 밝혀냈습니다. 우리의 감각은 제한된 범위에서 세계를 느끼고, 뇌는 매 순간 감각 입력의 근원에 대해 최선의 '추측'을 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">계산신경과학: 뇌는 <span class="highlight">컴퓨터</span>인가?</h2>
+          <p class="slide-subtitle">뇌는 컴퓨터와 똑같이 작동하지는 않지만, 정보를 처리하고 계산을 통해 결과를 산출하는 일종의 컴퓨터로 볼 수 있습니다.</p>
+          <div class="slide-content">
+              <p>인간의 뇌에는 약 800억 개의 신경세포가 있으며, 각각의 세포는 수천 개의 다른 세포로부터 입력값을 받아 다양한 기능을 수행합니다. 우리가 느끼고 경험하는 모든 것, 심지어 사랑, 증오, 기쁨과 같은 감정조차도 뇌에서 일어나는 <span class="highlight">계산의 결과물</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자아 정체성과 <span class="highlight">의식</span>의 관계</h2>
+          <p class="slide-subtitle">자아 정체성은 '의식의 결과'라는 점이 분명합니다. 의식을 잃으면 자기 자신에 대해 사고할 수 없습니다.</p>
+          <div class="slide-content">
+              <p>순간적인 의식의 형태는 '현재의 당신'에 해당합니다. 자아 정체성의 비밀을 풀기 위해서는, 우리 뇌가 어떻게 현재의 당신을 과거, 미래의 당신과 연결하는지 이해할 필요가 있습니다. 그 연결 고리가 바로 <span class="highlight">이야기(Storytelling)</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이야기하는 인간: <span class="highlight">진화의 산물</span></h2>
+          <p class="slide-subtitle">'이야기하기'는 인간의 본능이며, 지난 수백만 년 동안 발전해 온 독특한 인지 기술입니다.</p>
+          <div class="slide-content">
+              <p>우리 종은 '이야기하는 능력'을 활용해 DNA를 발견하고, 우주로 사람을 보냈으며, 초월적인 예술 작품을 창조했습니다. 이야기는 일련의 사건을 압축된 형태로 간추린, 현실의 <span class="highlight">엄선된 버전</span>입니다. 좋은 이야기에는 관련 없는 정보는 버려지고 중요한 부분만 남습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

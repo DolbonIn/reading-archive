@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데일 카네기 인간관계론 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+      list-style-position: inside;
+      padding-left: 1rem;
+    }
+    li {
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🤝</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">데일 카네기 인간관계론</h1>
+          <p class="text-xl md:text-2xl text-gray-700">어떻게 <span class="highlight">친구를 얻고</span> 사람을 변화시킬 수 있을까</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: About the Author -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자: <span class="highlight">데일 카네기</span></h2>
+          <p class="slide-subtitle">인간 경영 분야의 최고 전문가</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">초기 생애 👨‍🌾</h3>
+              <p>미국 미주리주 농가 출생으로 교사, 세일즈맨, 배우 등 다양한 직업을 경험했습니다. 이러한 경험은 그의 인간관계 통찰력에 깊이를 더해주었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">강의의 시작 🎙️</h3>
+              <p>1912년 뉴욕 YMCA에서 대화 및 연설 기술 강연을 시작, 이것이 '데일 카네기 코스'로 발전했습니다. 실천 사례 중심의 교육으로 선풍적인 인기를 끌었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: About the Book -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">책에 대하여: <span class="highlight">성공의 바이블</span> 📖</h2>
+          <p class="slide-subtitle">1936년 첫 출판 이후 전 세계적으로 1억 부 이상 판매된 베스트셀러</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">책의 목적 🎯</h3>
+              <p class="mt-2">단순한 이론이 아닌, 수많은 사람들의 경험에서 자라고 발전된 <span class="highlight">실용적인 생활 테크닉</span>을 전수하는 것입니다. 학교에서는 가르쳐주지 않는 인간관계의 중요성과 원리를 알기 쉽게 설명합니다.</p>
+            </div>
+             <p class="mt-4">이 책에 담긴 원칙들은 단순한 추측이 아니라, <span class="highlight">15년에 걸친 실험과 연구</span>의 결정체입니다. 이 원칙을 적용함으로써 많은 사람들의 삶에 문자 그대로 혁명을 가져오는 것을 목격했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+            <p><b>제1장:</b> 인간관계의 기본</p>
+            <p><b>제2장:</b> 사람의 마음을 읽어야 한다</p>
+            <p><b>제3장:</b> 목적을 달성하는 법</p>
+            <p><b>제4장:</b> 행복한 성공</p>
+            <p><b>제5장:</b> 성공의 비결</p>
+            <p><b>제6장:</b> 부자가 되는 법</p>
+            <p><b>제7장:</b> 행복을 위한 마음가짐</p>
+            <p><b>제8장:</b> 나를 다스리는 방법</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 1장</p>
+          <h2 class="slide-title">인간관계의 <span class="highlight">기본</span></h2>
+          <p class="slide-content">모든 인간관계의 시작점이자 가장 중요한 핵심 원칙들을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Chapter 1 - Pure Interest -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: <span class="highlight">순수한 관심</span>을 보여라 🐾</h2>
+          <p class="slide-subtitle">친구를 얻는 가장 확실한 방법은 상대에게 순수한 관심을 보이는 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">사람의 마음을 끄는 법</h3>
+              <p>다른 사람의 관심을 끌려고 노력하는 것보다, 내가 먼저 다른 사람에게 관심을 보이는 것이 훨씬 효과적입니다. 사람들은 자신에게 관심을 보여주는 사람에게 관심을 보입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">강아지의 교훈 🐶</h3>
+              <p>강아지는 아무것도 하지 않고 오직 사람에게 애정을 드러내는 것만으로 사랑받습니다. 아무런 속셈 없이 순수하게 반가움을 표현하는 것이 핵심입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Chapter 1 - Roosevelt's Secret -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례: <span class="highlight">루스벨트 대통령</span>의 인기 비결</h2>
+          <p class="slide-subtitle">그는 하인 한 사람 한 사람에게까지 진심 어린 관심을 보였습니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">작은 에피소드 🐦</h3>
+              <p class="mt-2">요리사의 아내가 딱따구리에 대해 묻자, 대통령은 자세히 설명해주었습니다. 며칠 후, 그는 직접 전화해 "지금 당신 집 창밖에 딱따구리가 와 있으니 보라"고 알려주었습니다. 이런 <span class="highlight">사소하지만 진심 어린 관심</span>이 사람들의 마음을 사로잡았습니다.</p>
+            </div>
+            <p class="mt-4">루스벨트는 재임 시절 고용인들의 이름을 모두 기억하고 부엌의 찬모에게까지 친근하게 인사를 건넸습니다. 진심에서 우러나온 관심은 상대가 누구든, 아무리 바쁜 사람이라도 협력하게 만듭니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Chapter 1 - Smile -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 2: 항상 <span class="highlight">미소</span>를 지어라 😊</h2>
+          <p class="slide-subtitle">표현은 말 이상의 웅변입니다. 미소는 "나는 당신을 좋아해요. 당신 덕분에 즐겁습니다." 라고 말하는 것과 같습니다.</p>
+          <div class="slide-content">
+            <p>마음에도 없는 기계적인 미소는 아무도 속지 않으며 오히려 화를 불러일으킵니다. 진심에서 우러나오는 미소는 돈 한 푼 들이지 않고 큰 가치를 만들어냅니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">중국 격언 🏮</h3>
+              <p class="mt-2">"<span class="highlight">미소를 지을 줄 모르는 사람</span>은 사업가가 될 자격이 없다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 9: Chapter 1 - Remember Names -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 3: 상대방의 <span class="highlight">이름</span>을 기억하라 📛</h2>
+          <p class="slide-subtitle">사람들에게 호감을 얻는 가장 간단하고 중요한 방법입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">이름의 힘</h3>
+              <p>상대의 이름을 기억하고 불러주는 것은 부질없는 아첨보다 몇 배의 효과를 냅니다. 반대로 이름을 잊거나 틀리게 쓰면 상대의 기분을 상하게 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">앤드루 카네기의 비결 🏭</h3>
+              <p>강철왕 카네기는 어릴 적 토끼에게 먹이를 많이 가져오는 아이의 이름을 붙여준 경험을 사업에 응용했습니다. 펜실베이니아 철도회사 사장의 이름을 딴 '에드거 톰슨 제철소'를 세워 레일을 팔았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 10: Chapter 1 - Sincere Praise -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 4: <span class="highlight">진심으로 칭찬</span>하라 ✨</h2>
+          <p class="slide-subtitle">인간의 행위에 관한 중요한 법칙: 사람들은 진심 어린 칭찬에 굶주려 있습니다.</p>
+          <div class="slide-content">
+            <p>타인을 기쁘게 하거나 칭찬했다고 해서 대가를 바라지 마십시오. 진심으로 상대를 칭찬하고 기쁘게 해주는 것 자체가 돈으로 살 수 없는 <span class="highlight">시원스러운 심정</span>이라는 가장 큰 대가입니다.</p>
+            <p class="mt-4 font-bold">"남으로부터 받고 싶거든 베풀어라!" - 2,000년 전 그리스도의 가르침</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 2장</p>
+          <h2 class="slide-title">사람의 마음을 <span class="highlight">읽어야 한다</span></h2>
+          <p class="slide-content">비난 대신 이해를, 논쟁 대신 공감을 선택하는 지혜를 배웁니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 12: Chapter 2 - Don't Criticize -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: 남을 <span class="highlight">비난하기 전</span>에 이해하라 🤔</h2>
+          <p class="slide-subtitle">남의 결점을 고쳐주려는 마음은 훌륭하지만, 왜 먼저 자신의 결점은 보지 못할까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">비난의 무익함</h3>
+              <p>타인의 허물을 찾아내는 것은 아무 소용이 없습니다. 상대는 곧 방어 태세를 갖추고 자신을 정당화하려 할 뿐입니다. 비난은 상대의 자존심에 상처를 입혀 반항심만 일으키는 위험천만한 일입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">링컨의 교훈 🎩</h3>
+              <p>청년 시절 남을 비난하는 편지를 써서 결투까지 갈 뻔했던 링컨은 그 이후로 남을 비난하는 일을 거의 하지 않았습니다. 그는 쓰라린 경험을 통해 비난이 아무 효과가 없다는 것을 깨달았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Chapter 2 - 'Two Gun' Crowley -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례: 쌍권총 명수 <span class="highlight">크로울리</span></h2>
+          <p class="slide-subtitle">흉악한 범죄자조차 스스로를 악인이라고 생각하지 않습니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">체포 직전의 편지 ✍️</h3>
+              <p class="mt-2">경찰과 총격전을 벌이던 크로울리는 피로 쓴 편지에서 이렇게 말했습니다. "내 마음, 그것은 삶에 지쳐 버린 마음이긴 하지만 부드럽고 온화한 마음이다. 그 누구도 사람을 상하게 하리라고는 생각한 적이 없는 마음이다."</p>
+            </div>
+            <p class="mt-4">전기의자에서 처형되기 직전에도 그는 "나는 내 몸을 지키려다 이런 꼴이 되었다"고 말했습니다. 이는 아무리 극악한 인간이라도 자신의 행동을 정당화하며, 스스로를 나쁘다고 생각하지 않는다는 것을 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Chapter 2 - Make them Feel Important -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 2: <span class="highlight">중요한 존재</span>임을 인식시키자 👑</h2>
+          <p class="slide-subtitle">인간의 가장 뿌리 깊은 충동은 '주요 인물이 되고자 하는 욕구'입니다.</p>
+          <div class="slide-content">
+            <p>사람은 누구나 타인보다 어떤 점에서는 뛰어나다고 생각합니다. 상대의 마음을 확실하게 얻는 방법은, 상대가 중요한 인물이라는 것을 부각시키고 그것을 <span class="highlight">진심으로 인정</span>하는 것입니다.</p>
+             <p class="mt-4 font-bold">"그 어떤 사람도 자기보다 어떤 특수한 점에 있어서는 뛰어나 있고 배울 것을 갖추고 있다." - 에머슨</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Chapter 2 - Three Success Stories -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례: <span class="highlight">칭찬의 원칙</span>으로 성공한 사람들</h2>
+          <p class="slide-subtitle">진심 어린 칭찬의 놀라운 효과를 보여주는 세 가지 이야기</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">자동차를 얻은 변호사 🚗</h3>
+              <p class="text-sm">외로운 노부인의 1890년대식 집을 진심으로 칭찬하자, 감동한 노부인은 남편의 유품인 자동차를 선물했습니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">강아지를 얻은 조경사 🐕</h3>
+              <p class="text-sm">유명 법률가의 애견을 칭찬했더니, 법률가는 한 시간 넘게 개 자랑을 하고는 백 달러짜리 강아지를 선물했습니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">결혼 생활의 지혜 💍</h3>
+              <p class="text-sm">아내의 살림 솜씨를 칭찬하고, 이상적인 여자와 결혼한 행운을 표현하는 것이 행복한 결혼 생활의 비결입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Chapter 2 - See from their POV -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 3: 상대방의 <span class="highlight">입장</span>에서 생각하자 🔄</h2>
+          <p class="slide-subtitle">성공의 비결이 있다면 그것은 타인의 입장을 이해하고, 자기의 입장과 동시에 타인의 입장에서 사물을 볼 수 있는 능력입니다.</p>
+          <div class="slide-content">
+            <p>사람을 움직일 수 있는 유일한 방법은 그 사람이 <span class="highlight">좋아하는 것을 문제로 삼고</span> 그것을 손에 넣는 방법을 가르쳐주는 것입니다. 낚시를 갈 때 내가 좋아하는 딸기 우유가 아니라, 물고기가 좋아하는 지렁이를 미끼로 쓰는 것과 같습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 2 - Be a Good Listener -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 4: <span class="highlight">듣는 입장</span>이 되어야 한다 👂</h2>
+          <p class="slide-subtitle">상대의 이야기에 진지하게 귀를 기울이는 것은 우리가 누구에게나 줄 수 있는 최고의 찬사입니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">상담의 비결</h3>
+              <p class="mt-2">"상담에는 별다른 비결 같은 것은 없다. ... 다만 상대의 이야기에 귀를 기울이는 것이 중요하다. <span class="highlight">어떤 아첨도 이보다 더 나은 효과는 없다</span>." - 찰스 엘리엇 하버드 대학 총장</p>
+            </div>
+            <p class="mt-4">불평하는 고객, 상심한 친구 등에게는 성실하게 그들의 이야기를 들어줄 줄 아는 사람이 필요합니다. 그들의 말을 끝까지 들어주는 것만으로도 문제는 해결될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 3장</p>
+          <h2 class="slide-title">목적을 <span class="highlight">달성</span>하는 법</h2>
+          <p class="slide-content">논쟁을 이기는 유일한 방법부터 상대방이 스스로 움직이게 만드는 기술까지, 설득의 핵심 전략을 다룹니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: Chapter 3 - Avoid Arguments -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: 논쟁을 <span class="highlight">피하라</span> ⚔️</h2>
+          <p class="slide-subtitle">토론에서 이기는 최고의 방법은 이 세상에 오직 한 가지, 시비를 피하는 것입니다.</p>
+          <div class="slide-content">
+            <p>논쟁에서 이긴다 해도 그것은 헛된 승리입니다. 상대의 호의를 절대로 얻어낼 수 없기 때문입니다. 설령 상대를 때려눕혔다 해도, 공격당한 쪽은 열등감을 느끼고 자존심을 상해 분개할 것입니다.</p>
+             <p class="mt-4 font-bold">"인간은 설득당하는 것 같아도 수긍은 하지 않는다."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Chapter 3 - Respect Opinions -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 2: 상대의 의견을 <span class="highlight">존중하라</span> 🙏</h2>
+          <p class="slide-subtitle">"당신이 틀렸다"고 말하는 것으로는 아무런 이익도 생기지 않습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">도전적인 태도의 문제</h3>
+              <p>"나는 당신보다 머리가 좋다. 당신의 생각을 고쳐주겠다"고 말하는 것과 같습니다. 이는 상대에게 반항심을 일으키고 싸울 준비를 시키는 것입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">부드러운 접근법 ✨</h3>
+              <p>"저는 그렇게 생각하지 않았습니다만, 아마 제 잘못일 겁니다. 다시 잘 생각해보겠습니다." 와 같은 말에는 이상할 만큼 효력이 있습니다. 반대할 사람은 아무도 없습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 3 - Admit Mistakes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 3: 잘못을 <span class="highlight">깨끗이 인정</span>하라 🙋‍♂️</h2>
+          <p class="slide-subtitle">지는 것이 곧 이기는 것입니다. 상대가 비난하기 전에 스스로 자기를 꾸짖는 편이 훨씬 낫습니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">경찰관과의 일화 👮</h3>
+              <p class="mt-2">작가가 공원에서 재갈 없는 개를 산책시키다 경찰관에게 적발되었을 때, 그는 먼저 "제가 잘못했습니다. 뭐라고 할 말이 없습니다."라고 인정했습니다. 그러자 경찰관의 태도는 부드러워졌고, 결국 "언덕 저쪽으로 데려가서 놓아주시오"라며 너그럽게 해결되었습니다.</p>
+            </div>
+            <p class="mt-4">자신의 잘못이 명백하다면, 상대가 말할 것을 먼저 자기가 말해 버리는 것이 현명합니다. 그러면 상대는 할 말이 없어지고, 십중팔구 관대한 태도로 나오게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 22: Chapter 3 - Begin with Praise -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 4: <span class="highlight">칭찬으로 시작</span>하라 👍</h2>
+          <p class="slide-subtitle">우리는 누구나 칭찬받은 뒤에 약간의 잔소리를 들어도 그다지 기분이 나쁘지 않습니다.</p>
+          <div class="slide-content">
+            <p>이발사가 면도를 하기 전에 비누 거품을 바르는 것과 같습니다. 상대의 잘못을 지적해야 할 때, 먼저 칭찬으로 시작하면 상대방은 훨씬 쉽게 비판을 받아들입니다.</p>
+            <p class="mt-4">링컨이 후커 장군에게 보낸 편지는 장군의 중대한 과실을 책망하기에 앞서, 그의 용맹함과 훌륭한 군인임을 칭찬하는 것으로 시작했습니다. 이러한 접근법은 비판을 훨씬 더 효과적으로 만듭니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 23: Chapter 3 - Indirect Approach -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 5: <span class="highlight">간접적으로</span> 말하라 넌지시</h2>
+          <p class="slide-subtitle">직접적인 비판은 반감을 사기 쉽습니다. 간접적으로 주의를 환기시키는 것이 훨씬 현명합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">찰스 슈워브의 일화</h3>
+              <p>공장 직원들이 '금연' 표지판 아래서 담배를 피우는 것을 보고, 그는 화를 내지 않았습니다. 대신 그들에게 다가가 담배를 하나씩 나눠주며 "모두 밖에 나가서 피우고 오지"라고 말했습니다. 체면을 세워주면서 문제를 해결했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">에버트 목사의 아내</h3>
+              <p>남편의 설교 원고가 지루하다고 느꼈을 때, 그녀는 "재미없어요"라고 말하는 대신, "이 원고는 '북미평론'에 내면 아주 훌륭한 논문이 될 거예요"라고 칭찬했습니다. 남편은 그 의미를 알아채고 원고 없이 설교했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Chapter 3 - Save Face -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 6: 상대의 <span class="highlight">체면</span>을 살려주어라 🎭</h2>
+          <p class="slide-subtitle">상대의 체면을 세워주는 것은 아주 중요한 일입니다. 우리는 타인의 감정을 짓밟고 지나갈 권리가 없습니다.</p>
+          <div class="slide-content">
+            <p>제너럴 일렉트릭 사는 뛰어난 기술자였지만 부장으로서는 부적격자였던 스타인메츠의 감정을 상하게 하지 않기 위해, 'GE 고문 기사'라는 새로운 직함을 만들어 그를 임명했습니다. 그의 체면을 살려주면서 문제를 원만하게 해결한 것입니다.</p>
+             <p class="mt-4">종업원을 해고해야 할 때조차도, 그들의 가치를 인정해주고 동정 어린 방법을 취하면 훨씬 좋은 결과를 낳습니다. "당신은 실력이 있으니 어디에 가든 걱정이 없겠습니다"와 같은 말은 상대가 기분 좋게 떠나게 만듭니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 25: Chapter 3 - Encourage -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 7: <span class="highlight">격려</span>해주어라 💪</h2>
+          <p class="slide-subtitle">칭찬은 발전을 이끌어내는 원동력입니다. 작은 발전이라도 발견하면 칭찬해주십시오.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">격려의 힘</h3>
+              <p class="mt-2">상대의 장점을 이야기해주면, 그는 당신의 기대에 어긋나지 않도록 노력할 것입니다. "덕이 없어도 덕이 있는 듯이 행동하라"는 셰익스피어의 말처럼, 상대의 좋은 점을 칭찬하면 그는 그 모습에 가까워지려 합니다.</p>
+            </div>
+             <p class="mt-4">유명한 성악가 카루소도 어릴 적 교사에게 "너는 노래에 소질이 없다"는 말을 들었지만, 어머니의 "너는 꼭 훌륭한 성악가가 될 것이다"라는 칭찬과 격려가 그의 생애를 바꾸었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 26: Chapter 3 - Give a Reputation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 8: 상대방을 <span class="highlight">치켜세워 주어라</span> 📈</h2>
+          <p class="slide-subtitle">상대에게 좋은 평판을 부여하면, 그는 그 평판에 걸맞게 행동하려고 노력할 것입니다.</p>
+          <div class="slide-content">
+            <p>어린아이나 배우자, 종업원을 '바보', '무능하다'고 나무라는 것은 향상심의 싹을 자르는 행위입니다. 대신 그들의 능력을 믿고 있음을 알려주고, 하기만 하면 쉽게 할 수 있다는 생각을 갖게 해주십시오.</p>
+            <p class="mt-4">나폴레옹 1세는 병사들에게 '원수' 칭호와 '레종 드뇌르' 훈장을 수여하고 군대를 '대육군'이라 부르며 그들의 명예심과 중요감을 충족시켰습니다. 그는 "인간은 어차피 명예에 사로잡힌다"고 말했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 4장</p>
+          <h2 class="slide-title">행복한 <span class="highlight">성공</span></h2>
+          <p class="slide-content">진정한 성공의 의미를 탐색하고, 성공으로 이끄는 마음의 자세와 구체적인 행동 지침을 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 4 - What is Happy Success? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복한 성공이란 <span class="highlight">무엇인가?</span> 🏆</h2>
+          <p class="slide-subtitle">성공이란, 당신 자신이 내적으로 만족감을 느끼는 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">내적 만족감</h3>
+              <p>세상 사람들이 모두 성공했다고 해도 스스로 만족하지 못하면 무가치합니다. 재물의 액수만으로 성공을 저울질할 수 없으며, 백만장자보다 훨씬 더 성공한 사람일 수도 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">목표의 중요성</h3>
+              <p>행복한 성공을 원한다면, 최후의 목표를 선택하는 것이 중요합니다. 당신의 목표는 당신의 야심을 재는 척도이며, 당신의 일이 사회와 인류를 위해 얼마나 보람 있는지를 결정합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Chapter 4 - Mindset for Success -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성공을 위한 <span class="highlight">마음의 자세</span> 🧘</h2>
+          <p class="slide-subtitle">긍정적인 마음가짐으로 문제에 대처하는 것이 핵심입니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">문제는 좋은 일이다</h3>
+              <p class="mt-2">어려운 문제에 부딪히고 그것을 이겨내는 과정을 반복하는 동안 성공의 길은 더욱 빨라집니다. 문제를 해결할 때마다 <span class="highlight">지혜, 경험, 도덕적 판단 능력</span>이 함께 성장하기 때문입니다.</p>
+            </div>
+            <p class="mt-4">우리는 생각을 지배하고 감정을 조절함으로써 우리의 태도를 결정할 수 있습니다. 행운의 신이 우리와 가까이 있다고 믿으면, 직면한 어떤 문제라도 유효하고 적절하게 대처할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Chapter 4 - Key Principles -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복한 성공의 <span class="highlight">4가지 원칙</span></h2>
+          <p class="slide-subtitle">성공적인 삶을 위한 구체적인 행동 지침</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 일에 재미를 붙여라 🎨</h3>
+              <p>자신이 하는 일에서 재미와 의미를 찾아야 합니다. 일에 대한 열정은 성공으로 이끄는 강력한 원동력입니다. 진정한 실패자는 하고 싶었던 일을 하지 않은 사람입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 희망과 이상을 높게 가져라 🌟</h3>
+              <p>사람들의 가장 큰 약점은 '바라는 것이 적다'는 것입니다. 우리는 적은 것에도 쉽게 만족합니다. 더 높고 큰 앞날에 대한 열렬한 기대로 굳은 신조를 지녀야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">3. 곧 시작하라! 🚀</h3>
+              <p>행동의 씨앗을 뿌리면 습관의 열매가 열립니다. '곧 시작하라'는 셀프스타터 정신으로 망설이지 말고 행동으로 옮기는 습관을 들여야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">4. 보는 방법을 배워라 👀</h3>
+              <p>단순히 눈으로 보는 것을 넘어, 마음으로 사물의 가치와 가능성을 보는 '창조적인 눈'을 가져야 합니다. 주변의 기회를 발견하는 능력이 성공을 좌우합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 31: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 5장</p>
+          <h2 class="slide-title">성공의 <span class="highlight">비결</span></h2>
+          <p class="slide-content">뚜렷한 목표 설정부터 일상 속 동기 부여까지, 성공을 습관으로 만드는 방법을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Chapter 5 - Next Goal -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: 끊임없이 <span class="highlight">다음 목표</span>를 설정하라 🎯</h2>
+          <p class="slide-subtitle">하나의 목적을 이루었으면 곧 새로운 목표를 설정해 꾸준히 매진해야 합니다.</p>
+          <div class="slide-content">
+            <p>너무 많은 사람이 뚜렷한 목표 없이 방황하고 있습니다. 인생에서 최대의 기회를 잡는 사람은 항상 뚜렷한 목표를 가지고 있습니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">버나드 쇼의 경고 ✍️</h3>
+              <p class="mt-2">"나는 성공을 두려워한다. 부귀공명을 이룩했다는 것은 이 땅 위에서는 할 일이 없어졌다는 뜻이 된다. ... 나는 목표를 이루고 난 후보다는 <span class="highlight">항상 목표를 앞에다 두는 미완의 상태</span>를 좋아한다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Chapter 5 - 6 Ways to Focus -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 2: 일에 열중하는 <span class="highlight">6가지 방법</span></h2>
+          <p class="slide-subtitle">일에 대한 몰입도를 높여 성공으로 나아가는 구체적인 방법들</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 깊이 배워라 📚</h3>
+              <p>자신이 담당한 일과 그 일이 회사 전체에 미치는 영향을 많이 배워야 합니다. 일에 대해 잘 알수록 더 열중하게 됩니다.</p>
+              <h3 class="font-bold text-lg mt-4">2. 목표를 정하고 추구하라 🏃‍♂️</h3>
+              <p>성공을 희망한다면 우선 목표를 설정하고, 사나운 개가 고양이를 쫓듯 그 목표를 추구해야 합니다.</p>
+              <h3 class="font-bold text-lg mt-4">3. 스스로를 격려하라 🗣️</h3>
+              <p>"나는 내 일을 사랑한다. 오늘도 100% 힘차게 일에 임한다." 와 같이 매일 아침 자신에게 격려의 말을 해보십시오.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">4. 남을 돌보라 ❤️</h3>
+              <p>이기주의적인 태도를 버리고, 남에게 구원의 손길을 뻗치는 사람이 되어야 장기적으로 성공할 수 있습니다.</p>
+              <h3 class="font-bold text-lg mt-4">5. 열중하는 사람과 사귀어라 🔥</h3>
+              <p>일에 열중하는 사람들과 교류하며 긍정적인 영향을 받고, 열중하지 않는 사람은 되도록 피하십시오.</p>
+              <h3 class="font-bold text-lg mt-4">6. 억지로라도 열심히 하라 💪</h3>
+              <p>처음에는 억지로라도 열심히 하는 척하면, 결국 정말로 열중하게 됩니다. 행동이 감정을 이끌어냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 34: Chapter 5 - More Secrets -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성공의 <span class="highlight">추가적인 비결</span>들</h2>
+          <p class="slide-subtitle">행동을 유발하고, 관계를 돈독히 하며, 긍정적인 태도를 유지하는 법</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">동기 유발 💡</h3>
+              <p class="text-sm">희망은 마법의 성분입니다. '얻을 수 있다'는 기대와 신념이 사람을 행동하게 만듭니다. 10가지 기본 동기(자기표현, 사랑, 공포 등)를 이해하고 활용하십시오.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">미소의 힘 😊</h3>
+              <p class="text-sm">마음에서 우러나오는 미소는 천금의 가치가 있습니다. 18년간 무뚝뚝했던 증권 중개인이 2개월간 미소 짓기를 실천하자, 수입과 행복이 크게 증가했습니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">배우자와의 상의 🤝</h3>
+              <p class="text-sm">사업의 성공/실패 여부보다 모든 일을 배우자와 상의하는 것이 더 중요합니다. 배우자는 고민을 들어주는 '안전장치'이자 '연료 보급창고'입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Section 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 6장</p>
+          <h2 class="slide-title">부자가 <span class="highlight">되는 법</span></h2>
+          <p class="slide-content">부의 지름길로 가는 17가지 원칙과 부를 대하는 올바른 마음가짐에 대해 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 36: Chapter 6 - Shortcut to Wealth -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부자가 되는 <span class="highlight">17가지 성공 원칙</span></h2>
+          <p class="slide-subtitle">클레멘트 스토운이 제시하는 '적극적인 사고'의 핵심 원리들</p>
+          <div class="slide-content text-sm grid grid-cols-2 md:grid-cols-3 gap-4">
+            <p>1. 적극적인 마음가짐</p>
+            <p>2. 목적의 명확화</p>
+            <p>3. 덤(bonus)을 붙일 것</p>
+            <p>4. 정확한 사고</p>
+            <p>5. 자기 규율</p>
+            <p>6. 지도력</p>
+            <p>7. 올바른 신앙심</p>
+            <p>8. 타인이 좋아하는 성격</p>
+            <p>9. 자발성</p>
+            <p>10. 성심성의껏 열심히</p>
+            <p>11. 조절된 주의력</p>
+            <p>12. 협동심</p>
+            <p>13. 실패에서 배우기</p>
+            <p>14. 창조적인 비전</p>
+            <p>15. 시간과 돈의 예산</p>
+            <p>16. 건강 유지</p>
+            <p>17. 우주 습성의 힘 이용</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Chapter 6 - Attitude towards Wealth -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부를 대하는 <span class="highlight">마음가짐</span> 💰</h2>
+          <p class="slide-subtitle">부를 배척하지 말고 끌어당겨라! 적극적 사고방식이 부를 만들고, 소극적 사고방식은 부를 배척합니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">첫걸음 떼기 👣</h3>
+              <p class="mt-2">목표를 정하고, 기한을 정하고, 기준을 높게 두십시오. 그리고 가장 중요한 것은, <span class="highlight">첫걸음을 내딛는 것</span>입니다. 실천이 따르지 않는 계획은 아무 소용이 없습니다.</p>
+            </div>
+             <p class="mt-4">저축은 부의 기본입니다. '바벨론 최대의 부호'의 원칙처럼, 수입의 10%를 저축하고, 6개월마다 그 이익금을 재투자하며, 전문가의 조언을 구해 안전하게 투자하십시오. 시작은 바로 지금입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Section 7 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 7장</p>
+          <h2 class="slide-title">행복을 위한 <span class="highlight">마음가짐</span></h2>
+          <p class="slide-content">우리의 생각이 어떻게 현실을 만드는지, 그리고 감사하는 마음이 왜 중요한지에 대해 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 39: Chapter 7 - Our Thoughts Create Our Life -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: 우리의 생활은 <span class="highlight">우리의 생각</span>이 만든다 🧠</h2>
+          <p class="slide-subtitle">행복한 생각을 하면 행복해지고, 비참한 생각을 하면 비참해집니다. 마음가짐이 우리의 운명을 결정합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">관심 vs 걱정</h3>
+              <p>문제에 관심을 갖는 것은 냉정한 태도로 대책을 취하는 것이지만, 걱정은 정신 나간 사람처럼 쓸데없이 헤매는 것입니다. 우리는 문제에 관심을 갖되, 걱정할 필요는 없습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">심적 태도의 힘</h3>
+              <p>우리의 심적 태도는 체력에 놀라운 영향을 미칩니다. 최면 실험에서 '힘이 약하다'는 말을 들은 사람은 힘이 1/3로 줄었지만, '힘이 세다'는 말을 듣자 체력이 50%나 증가했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 40: Chapter 7 - Heaven and Hell in Mind -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">천당과 지옥은 <span class="highlight">마음에 달렸다</span> 😇👿</h2>
+          <p class="slide-subtitle">"마음은 언제나 제자리에 있건마는, 그 마음 그 속에서 우리는 지옥을 천당으로 만들 수도 있고, 천당을 지옥으로 만들 수도 있다." - 존 밀턴, '실낙원'</p>
+          <div class="slide-content">
+            <p>나폴레옹은 모든 것을 가졌지만 "행복한 날이 엿새도 없었다"고 말했습니다. 반면, 보지도 듣지도 말하지도 못했던 헬렌 켈러는 "내 인생은 참으로 아름다웠다"고 감탄했습니다.</p>
+            <p class="mt-4 font-bold">우리의 생활은 우리의 생각이 만드는 것입니다. 외부적 조건은 행복에 별로 영향을 끼치지 못합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Chapter 7 - Ingratitude & Gratitude -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 2: 배은망덕에 <span class="highlight">분개하지 말고</span>, 가진 것에 <span class="highlight">감사하라</span></h2>
+          <p class="slide-subtitle">인간은 원래 감사할 줄 모르는 존재임을 인정하고, 우리가 가진 것들에 집중해야 합니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">인생의 90% vs 10% ⚖️</h3>
+              <p class="mt-2">우리 인생의 좋은 일은 90%, 좋지 않은 일은 10%입니다. 행복해지려면 <span class="highlight">90%의 좋은 일에 집중</span>하고 10%의 잘못은 무시하면 됩니다. 반대로 10%의 잘못에 집중하면 위암에 걸릴 수 있습니다.</p>
+            </div>
+            <p class="mt-4">"신발이 없음을 한탄하며 밖에 나오니 거리에는 다리 없는 사람도 있더라." 우리는 자신이 가진 것을 당연하게 여기고 없는 것만 생각하는 경향이 있습니다. "생각하고 감사하라"는 말을 가슴에 새겨야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Section 8 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 8장</p>
+          <h2 class="slide-title">나를 <span class="highlight">다스리는</span> 방법</h2>
+          <p class="slide-content">기분 조절, 건강 유지, 피로와 번민을 없애는 법 등 자기 관리의 기술을 배웁니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Chapter 8 - Control Your Mood -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: <span class="highlight">기분을 조절</span>하는 방법 🎭</h2>
+          <p class="slide-subtitle">"자신이 할 수 있다고 믿으면 거의 해낼 수 있습니다. 바로 그것은 마음가짐입니다."</p>
+          <div class="slide-content">
+            <p>에너지에는 육체적인 것과 정신적인 것이 있으며, 정신적인 면이 훨씬 중요합니다. 잠재의식은 필요할 때 엄청난 힘과 강인성을 끄집어낼 수 있습니다. (예: 자동차 사고 시 아내의 괴력)</p>
+            <p class="mt-4">육체와 정신은 연결되어 있습니다. 피로할 때는 부정적인 마음가짐이 되기 쉽습니다. 에너지 배터리가 방전되기 전에 충분한 휴식으로 건강을 회복하고 적극적인 마음가짐을 유지해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Chapter 8 - Protect Your Health -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 2: <span class="highlight">건강</span>을 지켜야 한다 🩺</h2>
+          <p class="slide-subtitle">적극적 사고방식은 건강과 장수를 가져오지만, 소극적 사고방식은 건강을 좀먹고 생명을 단축시킵니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">록펠러의 건강 유지법</h3>
+              <p class="mt-2">사업에서 은퇴한 후 록펠러는 건강한 삶을 목표로 삼고 다음과 같은 원칙을 지켰습니다: 
+              <ul class="list-disc mt-2">
+                <li>규칙적인 생활 (예배, 8시간 수면)</li>
+                <li>적절한 운동 (샤워, 골프)</li>
+                <li>안정된 마음으로 식사</li>
+                <li>남에게 원한을 사지 않음</li>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Chapter 8 - The Power of the Mind -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 3: 신비의 힘인 <span class="highlight">정신</span>을 탐구하라 🌌</h2>
+          <p class="slide-subtitle">인간의 두뇌와 마음(의식과 잠재의식)은 우리가 가진 가장 놀랍고 신비한 기계입니다.</p>
+          <div class="slide-content">
+            <p>잠재의식의 힘은 고대부터 알려져 왔습니다. '의식적 자기암시'는 마음에 강한 영향을 주는 효력이 있으며, 잠재의식에 창조적인 사고방식을 심어줄 수 있습니다.</p>
+            <p class="mt-4 font-bold">"돈을 벌고 싶다는 당신의 소망을 큰 소리로 외치다 보면, 이미 그 돈을 소유하고 있는 자신의 모습을 보거나 만져본 것 같은 느낌이 들게 됩니다." - 빌 마코르</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 46: Chapter 8 - Eliminate Fatigue -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 4: 피로와 번민을 없애는 <span class="highlight">4가지 법칙</span></h2>
+          <p class="slide-subtitle">"인간은 과로가 원인이 되어 죽지는 않는다. 낭비와 번민이 원인이 되어 죽는 것이다." - 찰스 에번스 휴스</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">제1법칙: 책상을 정리하라</h3>
+              <p>필요한 서류 외에는 모두 치워라. 어수선한 책상은 혼란, 긴장, 번민을 낳습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제2법칙: 중요도 순으로 처리하라</h3>
+              <p>모든 일을 중요한 정도에 따라서 처리하는 능력을 길러야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제3법칙: 즉시 해결하라</h3>
+              <p>문제가 생기면 그 즉시 해결해야 합니다. 결단이 필요할 때 연기해서는 안 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제4법칙: 조직화, 위임, 지휘하라</h3>
+              <p>모든 것을 혼자 하려고 하지 말고, 책임을 위임하는 법을 배워야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 47: Chapter 8 - Take a Rest -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 5: <span class="highlight">여유</span>를 가져라 ☕</h2>
+          <p class="slide-subtitle">정신적인 작업만으로는 인간은 피곤하지 않습니다. 피로의 대부분은 정신적, 감정적 태도에서 비롯됩니다.</p>
+          <div class="slide-content">
+            <p>긴장은 나쁜 습관이고, 휴식은 좋은 습관입니다. 항상 근육을 쉬게 하는 것부터 시작하십시오. 눈부터 시작하여 "쉬어라, 긴장을 풀고 푹 쉬어라!" 라고 조용히 말해보십시오.</p>
+            <p class="mt-4">하루에 4~5회씩 자신을 검토하고, 하루가 끝날 때 무엇이 나를 피곤하게 했는지 돌아보십시오. 일에 대한 <span class="highlight">흥미</span>를 느끼면 전혀 피로하지 않다는 것을 발견하게 될 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: Appendix Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">부록</p>
+          <h2 class="slide-title">성공적인 <span class="highlight">대화 기술</span></h2>
+          <p class="slide-content">매력적이고 효과적으로 대화하는 기본 공식과 설득의 기술을 요약합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 49: Appendix - Conversation Basics -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대화의 <span class="highlight">기본 공식</span></h2>
+          <p class="slide-subtitle">화제 선택부터 주의사항까지, 대화의 능률을 올리는 방법</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">화제 선택의 요령 🎯</h3>
+              <ul class="list-disc">
+                <li>목적에 맞는 화제</li>
+                <li>구체적인 내용</li>
+                <li>생활과 밀접한 관계</li>
+                <li>시사성 있는 문제</li>
+                <li>경험에 관한 얘기</li>
+                <li>욕망에 호소하는 화제</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">대화 시 주의사항 ⚠️</h3>
+              <ul class="list-disc">
+                <li>음식점에서 불결한 얘기 금지</li>
+                <li>공적인 모임에서 사적인 화제 금지</li>
+                <li>자기 자신 얘기만 하지 않기</li>
+                <li>윗사람에게 설교하지 않기</li>
+                <li>때와 장소에 맞는 화제 선택</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Appendix - Persuasion Techniques -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">효과적인 <span class="highlight">설득법</span> 🗣️</h2>
+          <p class="slide-subtitle">상대방의 마음을 움직여 내가 원하는 방향으로 이끄는 6가지 대화법</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-3 gap-6 text-sm">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold">① 친근하고 부드럽게</h3>
+              <p>꾸짖고 싶어도 참고, 정답고 부드러운 말투로 감정에 호소합니다.</p>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold">② 진실한 감정에 호소</h3>
+              <p>이론보다 감정적인 이해가 앞서야 설득의 효과가 있습니다.</p>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold">③ 먼저 잘못을 시인</h3>
+              <p>견해가 대립할 때는 먼저 자신의 잘못을 인정하고 상대의 감정에 호소합니다.</p>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold">④ 같은 입장에서 관심 유도</h3>
+              <p>상대를 자기의 관심사에 집중시켜 같은 입장에서 생각하게 합니다.</p>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold">⑤ 반박할 여유를 주지 않음</h3>
+              <p>처음부터 끝까지 조리 있게 지속해서 상대를 자신의 페이스로 끌어들입니다.</p>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold">⑥ 자기 자랑을 하게 함</h3>
+              <p>상대가 충분히 말하고 우월감을 느끼게 한 후 설득의 말문을 엽니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인간관계의 핵심은 거창한 기술이 아닙니다. 상대방의 입장에서 생각하고, 그들을 중요한 사람으로 느끼게 하며, 비난 대신 <span class="highlight">진심 어린 관심과 칭찬</span>을 보내는 것입니다. 이 간단한 원칙들이 당신의 삶에 기적을 만들 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">모든 것은 당신의 생각과 태도에 달려있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>

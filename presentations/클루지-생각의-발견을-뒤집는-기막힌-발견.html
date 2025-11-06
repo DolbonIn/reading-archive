@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클루지 (Kluge) 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 90vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      border: 1px solid #dee2e6;
+      border-radius: 1rem;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 5rem; /* Space for navigation */
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #6c757d;
+      margin-bottom: 0.5rem;
+    }
+    .slide-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .slide-subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd60a;
+      padding: 0 0.25em;
+      border-radius: 0.25rem;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #0077b6;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #023e8a;
+    }
+    .btn-secondary {
+      background-color: #e9ecef;
+      color: #343a40;
+      border-color: #ced4da;
+    }
+    .btn-secondary:hover {
+      background-color: #dee2e6;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem 2.5rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #e9ecef;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 1rem;
+    }
+    .progress {
+      background-color: #0077b6;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4 md:p-8 pb-32">
+
+  <div class="w-full max-w-7xl">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">클루지 (Kluge)</h1>
+          <p class="text-xl md:text-2xl text-gray-700">생각의 역사를 뒤집는 <span class="highlight">기막힌 발견</span></p>
+          <p class="mt-4 text-lg text-gray-600">게리 마커스 (Gary Marcus)</p>
+        </div>
+      </div>
+      
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>Prologue.</b> 클루지란 무엇인가?</p>
+            <p><b>1. 맥락과 기억:</b> 모든 클루지의 어머니</p>
+            <p><b>2. 오염된 신념:</b> 진화의 재고품으로 형성된 믿음</p>
+            <p><b>3. 선택과 결정:</b> 진화의 덫에 걸린 호모 이코노미쿠스</p>
+            <p><b>4. 언어의 비밀:</b> 커뮤니케이션을 방해하는 언어</p>
+            <p><b>5. 위험한 행복:</b> 무엇이 정말로 우리를 행복하게 하는가?</p>
+            <p><b>6. 심리적 붕괴:</b> 마음은 언제나 정상 작동하지 않는다</p>
+            <p><b>Epilogue.</b> 클루지를 이겨내는 13가지 제안</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Prologue</p>
+          <h2 class="slide-title">클루지란 무엇인가? 🛠️</h2>
+          <p class="slide-content text-xl">"인간은 합리적인 동물이다." - 이 명제에 대한 <span class="highlight">불편한 진실</span>을 탐구합니다. 우리의 마음은 완벽한 설계품이 아닙니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">서투른 해결책, <span class="highlight">클루지</span></h2>
+          <p class="slide-subtitle">클루지(Kluge)란 어떤 문제에 대한 서툴거나 세련되지 않은 (그러나 놀라울 만큼 효과적인) 해결책을 뜻합니다.</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg mb-2">🚀 아폴로 13호의 사례</h3>
+              <p>이산화탄소 여과기 고장 시, 지상 관제소는 우주선 안의 <span class="highlight">비닐봉지, 마분지 상자, 테이프</span> 등으로 임시 여과기를 만들어 우주비행사들의 목숨을 구했습니다. 이것이 바로 클루지입니다.</p>
+            </div>
+            <p class="mt-6">인간의 마음 역시 완벽한 공학 기술의 산물이 아니라, 진화 과정에서 그때그때 잡동사니들을 이어 맞춘 <span class="highlight">기상천외한 클루지</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화는 <span class="highlight">땜장이</span> 🔧</h2>
+          <p class="slide-subtitle">노벨상 수상자 프랑수아 제이콥의 말처럼, 진화는 완벽한 설계자가 아니라 '땜장이'와 같습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">👷‍♂️ 공학자 (Engineer)</h3>
+              <p>최적의 재료와 계획을 바탕으로 처음부터 완벽한 설계를 합니다. 미래를 내다보고 설계합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🛠️ 땜장이 (Tinker)</h3>
+              <p>주변에 있는 <span class="highlight">아무것이나 사용</span>하여 쓸 만한 물건을 만듭니다. 기존의 구조를 변형하여 새로운 기능을 추가합니다.</p>
+            </div>
+          </div>
+           <p class="mt-8 slide-content text-center font-bold">우리 몸과 마음은 땜장이의 작품처럼, 이전 구조의 제약을 받습니다. (예: 척추)</p>
+        </div>
+      </div>
+      
+      <!-- Section 1: Memory -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">KLUGE 1</p>
+          <h2 class="slide-title">맥락과 기억 🧠</h2>
+          <p class="slide-content text-xl">"우리의 기억은 괴물이다. 잊어도 그것은 잊지 않는다." - 존 어빙. 기억은 모든 인지적 클루지의 <span class="highlight">어머니</span>입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">컴퓨터 vs. 인간의 기억</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">💻 컴퓨터: 우편번호 기억</h3>
+              <p>모든 정보는 고유한 '주소'에 정확하게 저장됩니다. 정보 인출은 해당 주소를 찾아가는 방식입니다. <span class="highlight">정확하고, 수정이 용이합니다.</span></p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🚶‍♂️ 인간: 맥락 기억</h3>
+              <p>정보는 특정 '주소'가 아닌, 다른 기억들과의 <span class="highlight">연관 관계(맥락)</span> 속에서 저장됩니다. 단서를 통해 기억을 '떠올리는' 방식입니다. 빠르지만 부정확하고, 쉽게 왜곡됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">맥락의 힘: <span class="highlight">예비 효과</span> (Priming)</h2>
+          <p class="slide-subtitle">하나의 정보가 그와 관련된 다른 정보들을 쉽게 떠올리도록 만드는 현상입니다. 우리는 자신도 모르는 사이에 주변 정보에 의해 조종당합니다.</p>
+          <div class="slide-content">
+            <p>👨‍⚕️ '의사'라는 단어를 들으면 '간호사'라는 단어를 더 빨리 인식합니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">🚶‍♀️ 존 바르그의 '노인' 실험</h3>
+              <p>'늙은', '현명한', '플로리다' 등 노인과 관련된 단어들로 문장을 만들었던 학생들은, 실험이 끝난 후 복도를 <span class="highlight">더 천천히 걸어 나갔습니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기억의 왜곡과 간섭 🤯</h2>
+          <p class="slide-subtitle">우리의 기억은 비디오 녹화기가 아닙니다. 기억은 인출될 때마다 재구성되며, 쉽게 <span class="highlight">오염</span>되고 <span class="highlight">혼합</span>됩니다.</p>
+          <div class="slide-content">
+            <p><b>잘못된 기억:</b> 여러 점 패턴을 본 사람들은, 실제로는 본 적 없는 '평균적인' 점 패턴을 보았다고 잘못 기억하는 경향이 있습니다.</p>
+            <p class="mt-4"><b>목격자 증언의 오류:</b> 엘리자베스 로프터스의 실험에서, 자동차가 "세게 충돌했다(smashed)"는 말을 들은 사람들은 "충돌했다(hit)"는 말을 들은 사람들보다 자동차의 속도를 <span class="highlight">더 빠르게 추정</span>했습니다.</p>
+            <p class="mt-4 font-bold">➡️ 우리의 기억은 객관적 사실보다 주관적 해석에 가깝습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Belief -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">KLUGE 2</p>
+          <h2 class="slide-title">오염된 신념 👽</h2>
+          <p class="slide-content text-xl">우리는 너무 쉽게 속아 넘어갑니다. 우리의 신념 체계는 진실을 발견하기보다, 진화 과정에서 남은 <span class="highlight">재고품</span>들로 만들어졌습니다.</p>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정신적 오염의 주범들</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🌟 후광 효과 (Halo Effect)</h3>
+              <p>한 가지 긍정적 특성(예: 외모)이 다른 모든 특성을 긍정적으로 보이게 만듭니다. 잘생긴 교수가 가르치기도 잘할 것이라고 생각하는 경향.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🎯 초점 맞추기 착각</h3>
+              <p>특정 정보에 주의가 쏠리면 그 정보의 중요성을 과대평가하게 됩니다. (예: "지난달 데이트 횟수"를 먼저 물으면, 행복도 평가가 데이트 횟수에 크게 좌우됨)</p>
+            </div>
+             <div>
+              <h3 class="font-bold text-lg mb-2">⚓ 닻 내림 효과 (Anchoring)</h3>
+              <p>처음 제시된 임의의 정보(닻)가 이후의 판단에 큰 영향을 미칩니다. (예: 유엔 회원국 중 아프리카 국가 비율을 추측할 때, 룰렛 숫자에 영향을 받음)</p>
+            </div>
+             <div>
+              <h3 class="font-bold text-lg mb-2">👍 단순한 친숙 효과</h3>
+              <p>단지 자주 접했다는 이유만으로 어떤 대상을 더 긍정적으로 평가하는 경향입니다. (예: 현직 정치인이 선거에서 유리한 이유)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가장 강력한 편향: <span class="highlight">확증 편향</span></h2>
+          <p class="slide-subtitle">자신의 기존 신념과 일치하는 정보는 받아들이고, 일치하지 않는 정보는 무시하거나 반박하려는 경향입니다.</p>
+          <div class="slide-content">
+            <p>🤔 우리는 진실을 찾기보다 <span class="highlight">자신의 생각이 옳다는 증거</span>를 찾으려 합니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">🚬 동기에 의한 추론</h3>
+              <p>자신이 원하는 결론에 도달하기 위해 추론 과정을 왜곡하는 현상입니다. 흡연자들은 흡연의 위험성에 대한 연구 결과를 비흡연자들보다 더 회의적으로 평가합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 생각 도구 ✌️</h2>
+          <p class="slide-subtitle">우리의 사고는 크게 두 종류로 나눌 수 있으며, 이 둘의 충돌이 클루지를 만듭니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🐢 숙고 체계 (Deliberative)</h3>
+              <p>신중하고, 논리적이며, 천천히 작동합니다. 의식적인 노력이 필요합니다. 진화적으로 최근에 발달했습니다. (전전두피질)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🐇 반사 체계 (Ancestral/Reflexive)</h3>
+              <p>빠르고, 자동적이며, 주로 무의식적으로 작동합니다. 감정과 직관에 의존합니다. 진화적으로 더 오래되었습니다. <span class="highlight">(편도체, 기저핵)</span></p>
+            </div>
+          </div>
+          <p class="mt-8 slide-content text-center font-bold">스트레스를 받거나 피곤할 때, 우리는 더 원시적인 <span class="highlight">반사 체계</span>에 의존하게 됩니다.</p>
+        </div>
+      </div>
+      
+       <!-- Section 3: Choice -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">KLUGE 3</p>
+          <h2 class="slide-title">선택과 결정 🎯</h2>
+          <p class="slide-content text-xl">우리는 합리적 경제인 <span class="highlight">'호모 이코노미쿠스'</span>가 아닙니다. 우리의 선택은 종종 비합리적이고 근시안적입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마시멜로 실험의 교훈 🍡</h2>
+          <p class="slide-subtitle">월터 미셸의 실험은 인간의 '의지 박약'을 보여줍니다. 우리는 눈앞의 작은 만족을 위해 미래의 더 큰 보상을 포기하곤 합니다.</p>
+          <div class="slide-content">
+            <p>아이들은 지금 마시멜로 한 개를 먹거나, 15분을 기다려 두 개를 먹는 선택에 직면합니다. 많은 아이들이 기다리지 못합니다.</p>
+            <p class="mt-4">이것은 어른들의 세계에서도 마찬가지입니다.</p>
+            <ul class="list-disc list-inside mt-2 space-y-2">
+              <li>나중에 후회할 줄 알면서도 디저트를 먹는 것</li>
+              <li>위험한 줄 알면서도 과속 운전을 하는 것</li>
+              <li>노후 준비 대신 당장의 소비를 선택하는 것</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미래를 할인하는 뇌: <span class="highlight">쌍곡선 할인</span></h2>
+          <p class="slide-subtitle">우리의 뇌는 현재의 가치를 미래의 가치보다 훨씬 높게 평가합니다. 유혹이 가까울수록 물리치기 더 어려워집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">❓ 질문 1</h3>
+              <p>지금 100달러를 받으시겠습니까, 아니면 내일 101달러를 받으시겠습니까? <br/>➡️ 대부분 <span class="highlight">지금 100달러</span>를 선택합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">❓ 질문 2</h3>
+              <p>1년 뒤에 100달러를 받으시겠습니까, 아니면 1년 하고 하루 뒤에 101달러를 받으시겠습니까? <br/>➡️ 대부분 <span class="highlight">1년 하고 하루 뒤 101달러</span>를 선택합니다.</p>
+            </div>
+          </div>
+           <p class="mt-8 slide-content text-center font-bold">논리적으로는 같은 결정이지만, '현재'라는 강력한 유혹 때문에 판단이 달라집니다. 이는 신용카드 빚, 비만 등의 원인이 됩니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">틀 짜기 효과 (<span class="highlight">Framing</span>)</h2>
+          <p class="slide-subtitle">똑같은 내용이라도 어떻게 표현(틀을 짜는가)하는지에 따라 우리의 선택이 극적으로 달라집니다.</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">긍정적 틀 ✅</h3>
+              <p>"프로그램 A를 선택하면 600명 중 <span class="highlight">200명</span>이 살 것이다." <br/>➡️ 대부분 이 옵션을 선호합니다. (이득 강조)</p>
+            </div>
+             <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">부정적 틀 ❌</h3>
+              <p>"프로그램 A를 선택하면 600명 중 <span class="highlight">400명</span>이 죽을 것이다." <br/>➡️ 대부분 이 옵션을 회피합니다. (손실 강조)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이성과 감정의 충돌 🎭</h2>
+          <p class="slide-subtitle">우리의 선택은 차가운 이성보다 뜨거운 감정에 더 큰 영향을 받습니다.</p>
+           <div class="slide-content">
+            <p class="mb-4">"인간의 생명이 중요하지만 난 돌고래 보호에 기부하겠어."</p>
+            <p>실험에서 사람들은 피부암 예방 사업(인간)보다 돌고래 보호 사업에 더 많은 돈을 기부하려는 경향을 보였습니다. 이는 <span class="highlight">귀여운 돌고래</span>에 대한 감정적 반응 때문입니다.</p>
+             <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">내장의 유혹 (Attraction of the Visceral)</h3>
+              <p>추상적인 정보(쿠키에 대한 설명)보다 구체적이고 감각적인 자극(실제 쿠키의 모습과 냄새)이 우리의 결정에 훨씬 강력한 영향을 미칩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 4: Language -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">KLUGE 4</p>
+          <h2 class="slide-title">언어의 비밀 💬</h2>
+          <p class="slide-content text-xl">인간의 언어는 위대해 보이지만, 실제로는 <span class="highlight">온갖 결함과 단점</span>으로 가득 찬 클루지입니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불완전한 언어의 증거들</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🤔 애매함 (Ambiguity)</h3>
+              <p>"I'll give you a ring tomorrow." (반지를 주겠다는 건가? 전화를 하겠다는 건가?)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🔁 비효율적 중복 (Redundancy)</h3>
+              <p>"These three dogs..." (복수 개념이 세 번이나 반복됨)</p>
+            </div>
+             <div>
+              <h3 class="font-bold text-lg mb-2">❓ 막연함 (Vagueness)</h3>
+              <p>"밖이 따뜻하다." (몇 도부터 따뜻한 것인가? 경계가 불분명함)</p>
+            </div>
+             <div>
+              <h3 class="font-bold text-lg mb-2">🌪️ 불규칙성 (Irregularity)</h3>
+              <p>cat(고양이)과 비슷한 발음인 cattle(소), catapult(투석기) 등은 고양이와 아무 관련이 없음.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언어 클루지의 원인들</h2>
+          <p class="slide-subtitle">우리의 언어가 왜 완벽하지 않을까요?</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-4">
+                <li><b>복잡한 음성 체계:</b> 호흡기관을 재활용한 성대와 조음기관은 질식의 위험을 동반하며, 소리를 정확히 조절하는 데 한계가 있습니다. (혀 꼬임 현상)</li>
+                <li><b>부분 일치 논리:</b> 우리의 뇌는 '완전 일치'보다 '부분 일치'를 선호합니다. 나무줄기만 보고도 나무라고 판단하는 것처럼, 단어의 의미도 엄격한 정의보다 느슨한 유사성에 기반합니다.</li>
+                <li><b>부적합한 기억 체계:</b> 복잡한 문장 구조(중심 삽입)를 처리하려면 정확한 '우편번호 기억'이 필요하지만, 우리에겐 '맥락 기억'밖에 없습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Happiness -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">KLUGE 5</p>
+          <h2 class="slide-title">위험한 행복 😊</h2>
+          <p class="slide-content text-xl">"행복은 따뜻한 강아지다" vs. "행복은 따뜻한 총이다". 우리의 행복 추구 시스템은 과연 우리를 제대로 안내하고 있을까요?</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쾌락은 우리의 안내자? 🤔</h2>
+          <p class="slide-subtitle">진화심리학의 표준적 대답: 쾌락은 생존과 번식에 유리한 행동을 하도록 우리를 인도하기 위해 진화했습니다.</p>
+           <div class="slide-content">
+            <p>하지만 현실은 다릅니다. 우리는 유전적 이익이 거의 없는 활동(TV 시청, 스포츠 관람, 미식 탐험)에 엄청난 시간을 쏟습니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 클루지의 관점</h3>
+              <p>우리의 쾌락 탐지기는 정교하지 않습니다. 생존에 필요했던 특정 자극(단맛, 지방, 사회적 인정)에 반응하도록 설계되었지만, 이 시스템은 <span class="highlight">너무 쉽게 속아 넘어갑니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쾌락 중추 속이기 🎮🍔</h2>
+          <p class="slide-subtitle">현대 사회는 우리의 조야한 쾌락 탐지기를 교묘하게 파고드는 '과상 자극(hypernormal stimulus)'으로 가득 차 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">과일 vs. 사탕</h3>
+              <p>우리의 뇌는 과일의 '단맛'을 좋아하도록 진화했지만, 영양가 없이 단맛만 극대화한 <span class="highlight">사탕이나 소다</span>를 구분하지 못합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">성취감 vs. 비디오 게임</h3>
+              <p>우리는 '통제감'과 '숙달'에서 쾌락을 느끼지만, 비디오 게임은 현실의 노력 없이도 이런 느낌을 <span class="highlight">쉽고 빠르게 제공</span>하여 우리를 중독시킵니다.</p>
+            </div>
+          </div>
+           <p class="mt-8 slide-content text-center font-bold">진화는 우리가 행복'하도록' 진화시킨 것이 아니라, 행복을 '추구하도록' 진화시켰습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복의 쳇바퀴 🏃‍♀️</h2>
+          <p class="slide-subtitle">인간의 마음은 상황에 '순응(adaptation)'하는 놀라운 능력을 가지고 있습니다. 이는 행복에도 그대로 적용됩니다.</p>
+           <div class="slide-content">
+            <p>로또 당첨의 황홀경도, 끔찍한 사고의 비극도 시간이 지나면 익숙해집니다. 우리는 결국 원래의 행복 수준으로 돌아가는 경향이 있습니다. 이를 <span class="highlight">'쾌락의 쳇바퀴'</span>라고 합니다.</p>
+            <p class="mt-4">이것이 바로 소득이 증가해도 행복 수준이 그만큼 증가하지 않는 이유입니다. 우리는 더 나은 것에 금방 익숙해지고, 더 많은 것을 원하게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 6: Breakdown -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">KLUGE 6</p>
+          <h2 class="slide-title">심리적 붕괴 💥</h2>
+          <p class="slide-content text-xl">"사람들의 광기는 계산할 수 없다." - 아이작 뉴턴. 우리의 마음이 이토록 쉽게 무너지는 이유는 무엇일까요?</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음이 무너지는 방식 📉</h2>
+          <p class="slide-subtitle">정신장애는 임의적인 사건이 아니라, 우리 마음의 클루지적 설계에 내재된 <span class="highlight">취약점</span>이 드러나는 현상입니다.</p>
+          <div class="slide-content">
+             <div class="mt-4 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔁 반추의 순환 (Ruminative Cycle)</h3>
+              <p>우울증 환자들은 삶의 부정적인 측면에만 주목하는 경향이 있습니다. 슬픈 기억이 더 슬픈 기억을 불러오는 <span class="highlight">악순환</span>에 빠집니다. 이는 맥락 의존적 기억과 확증 편향이 결합된 결과입니다.</p>
+            </div>
+            <p class="mt-6">편집증 환자는 자신의 의심을 뒷받침하는 증거만 찾고, 반대 증거는 무시합니다. (확증 편향의 극단적 형태)</p>
+            <p class="mt-4">광기가 그 자신의 현실을 만들어냅니다. 작은 인지적 오류가 걷잡을 수 없이 증폭될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리 모두의 취약성</h2>
+          <p class="slide-subtitle">정신장애는 '그들'만의 문제가 아닙니다. 그것은 우리 모두가 공유하는 <span class="highlight">신경적 취약성</span>에서 비롯됩니다.</p>
+           <div class="slide-content">
+            <ul class="list-disc list-inside space-y-4">
+              <li><b>자기통제 체계의 분열:</b> 단기적 쾌락을 좇는 반사 체계와 장기적 목표를 추구하는 숙고 체계 사이의 갈등은 중독의 근원입니다.</li>
+              <li><b>인지 부조화와 자기기만:</b> 자신의 행동이나 신념이 모순될 때 불편함을 느끼고, 이를 해소하기 위해 스스로를 속입니다. (1달러를 받고 지루한 일을 한 사람이 20달러를 받은 사람보다 그 일이 더 재미있었다고 말함)</li>
+              <li><b>설명에 대한 갈망:</b> 우리는 모든 일에 원인과 설명을 찾으려 하며, 이 과정에서 망상이 만들어지기도 합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- Epilogue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Epilogue</p>
+          <h2 class="slide-title">클루지를 이겨내는 <span class="highlight">13가지 제안</span> 💡</h2>
+          <p class="slide-content text-xl">우리의 불완전함을 이해하는 것은 개선을 위한 첫걸음입니다.</p>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생각의 기술 (1-4)</h2>
+          <div class="slide-content space-y-4">
+            <p><b>1. 대안 가설을 고려하라:</b> 내가 틀릴 가능성을 항상 염두에 두십시오. '반대를 생각하라'.</p>
+            <p><b>2. 질문을 재구성하라:</b> "99% 순수한가?" vs "1% 유해한가?". 문제의 틀을 다시 짜서 다른 관점에서 보십시오.</p>
+            <p><b>3. 상관관계 ≠ 인과관계:</b> 신발 크기가 클수록 지식이 많은 이유는 나이가 많기 때문이지, 신발 크기 때문이 아닙니다.</p>
+            <p><b>4. 가진 표본의 크기를 잊지 말라:</b> 한두 번의 경험으로 성급한 일반화를 하지 마십시오. '큰 수의 법칙'을 기억하세요.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자기 통제의 기술 (5-8)</h2>
+          <div class="slide-content space-y-4">
+            <p><b>5. 자신의 충동을 미리 예상하라:</b> 오디세우스처럼, 유혹에 빠지기 전에 스스로를 묶어두십시오. (예: 배고플 때 장 보러 가지 않기)</p>
+            <p><b>6. 조건 계획을 세워라:</b> "살을 빼겠다" (X) → "감자튀김을 보면 샐러드를 주문하겠다" (O). 'X이면 Y이다' 형태로 계획을 세우세요.</p>
+            <p><b>7. 피곤할 때 중요한 결정을 내리지 말라:</b> 피로는 우리의 합리적인 숙고 체계를 마비시킵니다.</p>
+            <p><b>8. 언제나 이익과 비용을 비교 평가하라:</b> 행동의 이익뿐만 아니라, 그 행동을 함으로써 포기해야 하는 것(기회비용)도 고려하십시오.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">판단의 기술 (9-13)</h2>
+          <div class="slide-content space-y-4">
+            <p><b>9. 누군가 지켜보고 있다고 상상하라:</b> 자신의 결정을 타인에게 설명해야 한다고 생각하면 더 신중하고 덜 편향된 결정을 내립니다.</p>
+            <p><b>10. 자신에게 거리를 두어라:</b> 지금의 강렬한 감정이 미래에도 똑같을지 자문해보십시오. 현재와 미래의 균형을 맞추세요.</p>
+            <p><b>11. 생생한 것을 경계하라:</b> 통계적으로 탄탄한 연구 결과가 단 하나의 생생한 개인적 일화보다 더 중요합니다.</p>
+            <p><b>12. 우물을 파되 한 우물을 파라:</b> 모든 결정을 완벽하게 할 수는 없습니다. 가장 중요한 선택에 신중함을 아껴두십시오.</p>
+            <p><b>13. 합리적으로 되려고 노력하라:</b> 단지 "합리적이 되자"고 스스로 되뇌는 것만으로도 우리의 편향을 줄이는 데 도움이 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🏆</div>
+          <h2 class="slide-title">결론: 불완전함의 통찰</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인간의 마음은 클루지, 즉 불완전하고 조잡한 해결책들의 집합입니다. 하지만 이 <span class="highlight">불완전함을 이해하는 것</span>이야말로 우리 자신을 개선하고 더 나은 결정을 내릴 수 있는 가장 확실한 첫걸음입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">우리의 뇌를 있는 그대로 받아들이고, 그 한계를 극복할 지혜를 발휘합시다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
