@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아직 긴 인생이 남았습니다</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🌳</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">아직 긴 인생이 남았습니다</h1>
+          <p class="text-xl md:text-2xl text-gray-700">미움받을 용기, <span class="highlight">기시미 이치로</span>의 정년 철학론</p>
+          <p class="text-lg mt-4 text-gray-600">자유롭고 행복한 인생 2막을 위한 인생 철학자들의 조언</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+            <p><b>머리말:</b> 행복한 인생 2막을 위해</p>
+            <p><b>1장:</b> 정년은 왜 불안한가?</p>
+            <p><b>2장:</b> 인생 2막, 무엇을 준비해야 할까?</p>
+            <p><b>3장:</b> 일의 의미를 묻다</p>
+            <p><b>4장:</b> 새로운 관계를 위해</p>
+            <p><b>5장:</b> 행복한 존재가 되기 위해</p>
+            <p><b>6장:</b> 앞으로 어떻게 살 것인가</p>
+            <p><b>맺음말:</b> 오늘을 위해서만 살라</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">머리말</p>
+          <h2 class="slide-title">행복한 인생 2막을 위해</h2>
+          <p class="slide-subtitle">은퇴 후의 삶에 <span class="highlight">행복한 노후</span>가 기다리고 있다고 확신하고 아무런 불안도 느끼지 않는다면, 은퇴가 이토록 화제가 되지는 않을 것입니다.</p>
+          <div class="slide-content">
+            <p>이 책은 왜 우리가 은퇴 이후를 불안하게 느끼는지 고찰하고, 인생 2막을 맞이하는 데 어떤 준비가 필요한지 생각합니다. 필요한 것은 돈과 건강뿐만이 아닙니다. <br><br><b>"인간은 왜 사는가, 어떻게 살아야 하는가"</b>까지 생각하지 않으면 안 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">정년은 왜 <span class="highlight">불안한가?</span> 🤔</h2>
+          <p class="slide-content">은퇴를 앞둔 많은 이들이 느끼는 불안의 근원을 파헤쳐 봅니다. 문제는 단순히 표면적인 것들에만 있지 않습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Not Just Money & Health -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">문제는 <span class="highlight">돈과 건강</span>만이 아니다</h2>
+          <p class="slide-subtitle">흔히 은퇴 준비의 핵심으로 돈과 건강을 꼽습니다. 하지만 이것만으로 충분할까요?</p>
+          <div class="slide-content">
+            <p>돈만 있으면 행복해질 것이라 생각한다면 인생 2막은 불행해질 수밖에 없습니다. 젊은 시절에도 돈으로 모든 문제가 해결되진 않았습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">아들러 심리학의 '열등 콤플렉스'</h3>
+              <p class="mt-2">자신이 불행한 이유가 돈 때문이라고 생각한다면, 그것은 인생의 문제를 건설적으로 해결하려 하지 않고 열등감을 내세워 자신을 속이는 '열등 콤플렉스'에 빠진 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Rapid Aging After Retirement -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정년퇴직 후 <span class="highlight">급격히 늙는</span> 이유</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">⏳ 생활 리듬의 변화</h3>
+              <p>매일 같은 시간에 일어나 출근하고 식사하던 패턴이 사라집니다. 자유가 주어졌지만, 이를 어떻게 활용해야 할지 몰라 마치 징벌처럼 느끼기도 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🤝 인간관계의 변화</h3>
+              <p>일로 알던 사람 대부분을 잃고, 새로운 관계를 맺는 데 어려움을 겪습니다. 가족과의 관계 역시 새로운 국면을 맞이하게 됩니다.</p>
+            </div>
+          </div>
+           <p class="slide-content mt-8">가장 큰 이유는, 직장이 사라지면서 <b class="text-red-600">'나의 존재 가치'</b>도 사라졌다고 생각하기 때문입니다. 직책의 높고 낮음을 인간의 가치로 여기던 사회에서는 더욱 그렇습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 7: About Getting Older -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나이 듦에 대하여 🍂</h2>
+          <p class="slide-subtitle">노년은 청춘에 비해 무가치하다는 생각이 문제입니다.</p>
+          <div class="slide-content">
+            <p>인생 2막은 내리막길이 아닙니다. 더는 힘들게 오르막길을 오르지 않아도 되고, 페달에서 발을 뗀 채 비탈길을 내려오는 편안함으로 생각할 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔄 퇴화가 아닌 '변화'</h3>
+              <p class="mt-2">젊을 때보다 할 수 없는 일이 많아진 것이 아니라, <span class="highlight">젊은 시절과는 다른 형태로 능력을 발휘</span>할 수 있게 된 것입니다. 주어진 것을 최대한 활용하면 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Root of Worries -->
+      <div class="slide">
+        <div class="slide-container text-center">
+           <div class="text-6xl mb-6">💔</div>
+          <h2 class="slide-title">고민의 근원, 인간관계</h2>
+          <p class="slide-subtitle">아들러는 <span class="highlight">"모든 고민은 인간관계에서 비롯된다"</span>고 했습니다.</p>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p>관계를 맺으면 반드시 마찰이 생깁니다. 미움받거나, 따돌림당하거나, 상처 입을 수 있습니다. 이로 인해 관계 맺기를 두려워하는 사람들이 많습니다.</p>
+            <p class="mt-4">은퇴 후에는 직장에서의 관계가 사라지고, 새로운 관계(가족, 이웃)가 전면에 나서면서 기존의 고민이 다른 형태로 나타나게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Vertical vs Horizontal Relationships -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리 관계는 왜 늘 <span class="highlight">수직적</span>일까?</h2>
+          <p class="slide-subtitle">아들러는 모든 인간관계가 '동등하다'고 보았지만, 현실은 그렇지 않습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">직장에서의 수직관계 🏢</h3>
+              <p>직위에 따라 철저한 상하 관계가 형성됩니다. 승진하면 부하 직원을 대하는 말투와 태도까지 바꾸는 사람들은 수직적 관계밖에 모르기 때문입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">가정에서의 수직관계 🏠</h3>
+              <p>경제적 우위를 이유로 자신이 가족보다 우월하다고 생각합니다. "내가 돈 버니까"라는 생각은 가족 관계를 상하 관계로 만드는 위험한 발상입니다.</p>
+            </div>
+          </div>
+           <p class="slide-content mt-8">은퇴 후 수입이 줄거나 없어지면, 수직관계에 익숙했던 사람은 <b class="text-red-600">자신의 존재 이유가 사라졌다</b>고 느끼며 급격히 늙어갑니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Fear of Being Ordinary -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">특별하지 않은 존재가 되는 <span class="highlight">두려움</span></h2>
+          <p class="slide-subtitle">우리는 직책, 소속 같은 '속성'으로 자신을 정의하는 데 익숙합니다.</p>
+          <div class="slide-content">
+            <p>"OO회사 부장 OOO입니다." 처럼 말이죠. 하지만 은퇴 후에는 이런 직함이 사라집니다. '선생님'이나 '부장님'으로 불리지 않고, 그저 '아저씨'로 불리는 것을 받아들이기 힘들어합니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">가면을 벗을 기회</h3>
+              <p class="mt-2">소속이 없어지고 한 명의 인간이 되었다는 것, 즉 가면을 벗고 살게 되었다는 것을 두려워할 필요는 없습니다. 지금까지와는 <span class="highlight">전혀 다른 삶을 살 수 있는 기회</span>이기 때문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">인생 2막을 위해 무엇을 <span class="highlight">준비</span>해야 할까? 🛠️</h2>
+          <p class="slide-content">진정한 은퇴 준비는 미래가 아닌 '지금'을 위한 것입니다. 무엇을 어떻게 바꿔야 할까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Prep for the Present -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">은퇴 준비는 미래가 아니라 <span class="highlight">지금을 위한 것</span></h2>
+          <p class="slide-subtitle">불안은 미래에 관한 감정입니다. 미래를 놓으면 불안에서 벗어날 수 있습니다.</p>
+          <div class="slide-content">
+             <p>우리는 '지금 여기'를 살고 있습니다. 미래는 아직 오지 않은 것이 아니라 '없는' 것입니다. 지금 바꿀 수 없는 것이라면 미래에도 바꿀 수 없습니다. 은퇴 후 벌어질 일은 미래에 관한 것이므로, 지금부터 걱정할 필요가 없습니다.</p>
+             <p class="mt-4 font-bold">따라서 은퇴 준비란, 은퇴 이후를 위해 '지금 할 수 있는' 준비를 하는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: What to Change? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그럼, 뭘 <span class="highlight">바꿔야</span> 할까?</h2>
+          <p class="slide-subtitle">두 가지 핵심적인 관점을 바꿔야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 존재 가치에 대한 관점 🙋</h3>
+              <p>인간의 가치를 생산성으로 따지지 않아야 합니다. <span class="highlight">살아가는 것 자체</span>가 가치 있음을 알아야 합니다. 생산적인 일을 해야만 가치 있다는 생각을 바꾸지 않으면, 나이가 들며 할 수 없는 일이 많아질 때 받아들이지 못합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 인간관계에 대한 관점 ↔️</h3>
+              <p>인간관계를 <span class="highlight">수평적</span>으로 바꿔야 합니다. 지금부터라도 동등한 관계가 무엇인지 안다면 인생 2막이 수월하게 펼쳐질 것입니다. 필요한 건 첫발을 내디딜 용기입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Value of Existence -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">타인의 평가는 당신의 <span class="highlight">가치</span>와 상관없다</h2>
+          <p class="slide-subtitle">우리는 타인의 평가에 사로잡혀 있습니다. "넌 정말 별로야"라는 말을 들으면 가치가 떨어지고, "넌 정말 좋은 사람이야"라는 말을 들으면 가치가 높아진다고 착각합니다.</p>
+           <div class="slide-content">
+            <p>하지만 평가는 평가일 뿐, 내 본질적인 가치를 좌우할 수 없습니다. 인사고과나 대학 입시 같은 평가가 반드시 정당한 것도 아닙니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <h3 class="font-bold text-lg">💡 중요한 깨달음</h3>
+                <p class="mt-2">다른 사람이 나를 어떻게 생각할지 두려운가요? 지금까지 타인의 눈을 신경 써왔다면, 인생 2막에서는 그 시선에서 자유로워지길 바랍니다. <span class="highlight">이제 용기를 낼 때입니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Two Kinds of Courage -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 <span class="highlight">용기</span></h2>
+          <p class="slide-subtitle">아들러는 "자신에게 가치가 있다고 느낄 때만 용기를 낼 수 있다"고 말했습니다. 인생 2막에는 두 가지 용기가 필요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">💪 일에 임하는 용기</h3>
+              <p>결과가 좋지 않더라도, 내 능력이 부족하다는 현실을 받아들이고 다시 힘을 내는 용기입니다. 어려운 일을 해냈을 때 기쁨은 더 큽니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">❤️ 관계에 뛰어들 용기</h3>
+              <p>인간관계는 필연적으로 마찰과 상처를 동반합니다. 그럼에도 불구하고 관계에 뛰어들 용기가 필요합니다. 삶의 많은 기쁨은 관계에서만 얻을 수 있기 때문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">일의 <span class="highlight">의미</span>를 묻다 💼</h2>
+          <p class="slide-content">평생 해온 '일'은 우리에게 무엇이었을까요? 은퇴 후, 일의 진정한 의미와 본질을 다시 생각해 봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: Replaceable -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대신할 사람은 <span class="highlight">언제나 있다</span></h2>
+          <p class="slide-subtitle">내가 없으면 회사가 제대로 돌아가지 않을 것이라는 생각은 착각일 수 있습니다.</p>
+          <div class="slide-content">
+            <p>저자는 골절상으로 3주간 휴직했을 때, 병원이 아무 문제 없이 운영되는 것을 보고 놀랐다고 합니다. 퇴직 후에도 마찬가지입니다.</p>
+            <p class="mt-4 font-bold">내가 없어도 직장이 문제없이 돌아간다는 사실을 알면 오히려 기뻐해야 합니다. 내가 잘 가르친 덕분에 후임들이 일을 잘 해낸다는 뜻이기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Irreplaceable -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나만 할 수 있는 일은 <span class="highlight">뭘까?</span></h2>
+          <p class="slide-subtitle">내가 대체 가능하다는 사실을 아는 것과 동시에, '나만이 할 수 있는 일'이 있음을 아는 것도 중요합니다.</p>
+          <div class="slide-content">
+            <p>같은 일이라도 사람마다 하는 방식은 천차만별입니다. 같은 간호사라도 환자를 대하는 태도, 성실함의 정도는 모두 다릅니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🌟 당신만의 가치</h3>
+              <p class="mt-2">어떻게 일하는가, 어떤 태도로 임하는가가 당신을 <span class="highlight">대체 불가능한 존재</span>로 만듭니다. 기술과 인품, 둘 다 갖춘 사람이 신뢰를 얻습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Why do we work? -->
+      <div class="slide">
+        <div class="slide-container text-center">
+           <div class="text-6xl mb-6">❓</div>
+          <h2 class="slide-title">인간은 왜 일하는가</h2>
+          <p class="slide-subtitle">일하기 위해 사는 것이 아니라, <span class="highlight">살기 위해 일하는 것</span>입니다.</p>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p>더 정확히는, 인간은 '행복하게' 살기 위해 일합니다. 일하지 않아도 행복할 수 있습니다. 일에서 행복을 느끼지 못한다면, 삶에서 일을 어떻게 정의해야 할지 다시 생각해봐야 합니다.</p>
+             <p class="mt-8 font-bold text-xl text-gray-800">행복을 희생하면서까지 일하지 않아도 되는 이유가 있을까요?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Essence of Work is Contribution -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일의 본질은 <span class="highlight">공헌</span>이다</h2>
+          <p class="slide-subtitle">우리는 '공헌'을 위해 일합니다. 공헌감을 통해 자신이 가치 있는 사람이라고 생각하게 되고, 이는 행복으로 이어집니다.</p>
+          <div class="slide-content">
+            <p>여기서 공헌은 자신을 희생하며 고통을 감내하는 것이 아닙니다.</p>
+            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">💚 진정한 공헌</h3>
+              <p class="mt-2">누군가에게 도움이 되고 세상에 쓸모가 있어짐으로써 <span class="highlight">일이 즐거워지는 것</span>을 뜻합니다. 내가 하는 일이 아무 도움도 되지 않는다면, 아무리 많은 보수를 받아도 행복해질 수 없습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: It's Okay to Achieve Nothing -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아무것도 이루지 않아도 <span class="highlight">괜찮다</span></h2>
+          <p class="slide-subtitle">성공은 '과정'이지만, 행복은 '존재' 그 자체입니다.</p>
+          <div class="slide-content">
+            <p>목표는 미래의 것이 아니라 '지금 여기'의 것입니다. 저자는 공헌을 '길잡이 별'이라고 표현합니다. 북극성처럼 방향을 알려주는 별입니다.</p>
+            <p class="mt-4">이 별만 잃지 않으면 길을 헤매지 않고 목적지에 도착할 수 있습니다. 목표를 이루지 못해도, 이렇게 <span class="highlight">살아서 일하는 자체가 공헌</span>이라는 뜻입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">새로운 <span class="highlight">관계</span>를 위해 👨‍👩‍👧‍👦</h2>
+          <p class="slide-content">모든 기쁨은 인간관계에서 옵니다. 은퇴 후, 우리는 가족, 이웃과 새로운 관계를 맺어야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 23: Enemy or Friend? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">적인가, 친구인가?</h2>
+          <p class="slide-subtitle">아들러는 타인을 '친구'로 보느냐, '적'으로 보느냐가 관계의 시작이라고 말합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">적으로 간주할 때 😠</h3>
+              <p>타인은 틈만 나면 나를 속이려는 위험한 존재로 보입니다. 승진 경쟁이 치열한 직장을 다녔다면, 모든 타인을 적으로 간주하기 쉽습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">친구로 간주할 때 😊</h3>
+              <p>서로 연결되어 있고, 힘들 때 도와줄 수 있는 존재로 여깁니다. 이를 위해서는 상대를 <span class="highlight">동등하게</span> 바라봐야 합니다. 동등하지 않은 사람을 친구라고 생각하는 사람은 없습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Boss at Work, Outcast at Home? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">직장에서는 존경받는 상사, 집에서는 <span class="highlight">왕따?</span></h2>
+          <p class="slide-subtitle">이런 일은 본래 있을 수 없습니다. 그렇게 되기까지의 긴 역사가 있었을 것입니다.</p>
+          <div class="slide-content">
+            <p>직장에서의 역할 가면을 벗지 못하고, 가정에서도 상하 관계를 고집하며 군림하려 했을 가능성이 큽니다.</p>
+            <p class="mt-4">퇴직하면 누구와든 <b class="text-blue-600">교우 관계(친구 관계)</b>를 맺어야 합니다. 교우 관계 맺는 법을 모르는 사람은 은퇴 후 곧 곤란해질 수밖에 없습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 25: Easiest Way for Equal Relations -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">동등한 관계를 맺는 <span class="highlight">가장 쉬운 방법</span></h2>
+           <div class="slide-content">
+            <p class="text-2xl font-bold mb-4 text-center">"인간은 존재 자체로 가치 있다"고 생각하는 것입니다.</p>
+            <div class="mt-6 p-8 bg-gray-50 border border-gray-200 rounded-lg">
+                <p class="mt-2 text-lg">밖에서 돈을 버는 사람과 안에서 집안일을 하는 사람의 가치는 다르지 않습니다. 각자가 잘하는 일을 하면 됩니다.</p>
+                <p class="mt-4 text-lg">가족이 내 욕구와 기대를 채워주기 위해 사는 존재가 아니라는 점 또한 인정해야 합니다. 이것이 <span class="highlight">자기중심성</span>에서 벗어나는 첫걸음입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: From Self-Centeredness to Love -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자기중심성에서 <span class="highlight">사랑</span>으로 ❤️</h2>
+          <p class="slide-subtitle">타인을 사랑하면 점차 자기중심성에서 해방됩니다.</p>
+          <div class="slide-content">
+            <p><b>사랑을 시작하면 알게 되는 두 가지:</b></p>
+            <ol class="list-decimal list-inside space-y-3 mt-4">
+              <li>내가 누군가를 사랑한다고 해서 그가 받아준다는 보장은 없다는 것. 이를 통해 내 뜻대로 되지 않는 타인의 존재를 깨닫습니다.</li>
+              <li>그럼에도 불구하고, 그가 적이 아닌 친구임을 알게 되는 것.</li>
+            </ol>
+             <p class="mt-6">진정한 사랑은, 상대가 내게 뭘 해줄 수 있는지 따지는 것이 아니라, <span class="highlight">내가 이 사람을 위해 뭘 할 수 있을지</span> 생각하는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Lonely because Alone? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">혼자 있다고 <span class="highlight">고독한가?</span></h2>
+          <p class="slide-subtitle">고독사를 두려워하는 사람들이 많습니다. 하지만 아직 오지 않은 미래를 두려워해봤자 의미가 없습니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">의존 vs 자립 🚶</h3>
+              <p>두 사람이 사랑하면 함께 있고 싶어집니다. 하지만 늘 함께 있어야 한다면 그건 사랑이 아니라 <span class="highlight">의존</span>입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">진정한 자립 🧑‍🤝‍🧑</h3>
+              <p>혼자 살 수 있지만, 두 사람이라서 더 즐거울 수 있는 것이 진정한 의미의 <span class="highlight">자립</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">행복한 <span class="highlight">존재</span>가 되기 위해 ✨</h2>
+          <p class="slide-content">행복은 성취하는 것이 아니라, 존재하는 것입니다. '지금 여기'를 충실히 살아가는 법을 배웁니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Living Now -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지금 살고 있는 인생만이 <span class="highlight">인생</span>이다</h2>
+          <p class="slide-subtitle">미래는 예측 불가능합니다. 인생을 설계하고 계획해 봤자 뜻대로 되지 않는 것은 젊을 때나 나이 들었을 때나 마찬가지입니다.</p>
+          <div class="slide-content">
+            <p>계획을 세우면 '지금'이 그저 미래를 위한 준비 기간이 되어버립니다. 하지만 뭔가를 달성하든 하지 않든, 인간은 <b class="text-blue-600">'지금 여기'</b>에서만 살 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Two Kinds of Motion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아리스토텔레스의 두 가지 <span class="highlight">움직임</span></h2>
+          <p class="slide-subtitle">우리의 삶은 어떤 움직임과 닮았을까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">키네시스(kinesis) 🏃</h3>
+              <p>시작점과 종착점이 있는 운동. 마라톤처럼 목표 도달이 중요하며, 도중에 중단되면 불완전합니다. <span class="highlight">성공</span>이 여기에 해당합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">에네르게이아(energeia) 💃</h3>
+              <p>춤처럼 '지금' 추고 즐기는 순간 자체가 의미 있는 운동. 과정 하나하나가 완성입니다. <span class="highlight">인생과 행복</span>이 여기에 해당합니다.</p>
+            </div>
+          </div>
+           <p class="slide-content mt-8">인생은 춤과 같습니다. 어딘가에 도달하지 않아도, <b class="text-green-600">지금 이곳의 행복이 전부</b>입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 31: Dangerous Judgment -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">위험한 판단: <span class="highlight">"살 가치가 없다"</span></h2>
+          <p class="slide-subtitle">아무 생각 없이 살아서는 '선하게(행복하게)' 살 수 없습니다. 하지만 누가 그것을 판단할 수 있을까요?</p>
+          <div class="slide-content">
+            <p>늙거나 병든 사람은 행복하지 않고, 몸을 움직이지 못하는 사람은 살 가치가 없는 걸까요? 어떤 사람이나 국가도 한 인간을 더는 살 가치가 없다고 판단할 권리는 없습니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">⚠️ 스스로에 대한 판단</h3>
+              <p class="mt-2">스스로 '살 가치가 없다'고 느낀다면, 그 판단은 세상의 가치관(생산성, 성취)에 영향을 받은 것이지 <span class="highlight">진실이 아닙니다.</span> 갓 태어난 아이는 아무것도 하지 못하지만, 살아있는 것만으로도 감격스러운 존재입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Not Degeneration, but Change -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">퇴화가 아니라 <span class="highlight">변화</span>다</h2>
+          <p class="slide-subtitle">아들러 심리학의 핵심 개념: '사용의 심리학'</p>
+          <div class="slide-content">
+            <p><b>"무엇이 주어졌는지가 아니라, 주어진 것을 어떻게 활용하느냐가 중요하다."</b></p>
+            <p class="mt-4">늙는 것은 퇴화가 아니라 변화입니다. 젊은 날 할 수 있던 일을 지금은 못하게 됐다고 푸념해 봐야 소용없습니다. 지금 할 수 있는 일을 하는 수밖에 없습니다.</p>
+             <p class="mt-4 font-bold">못하는 것을 못한다고 인정하는 것은 패배 선언이 아닙니다. 있는 그대로의 자신을 받아들이는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Living in the Moment -->
+      <div class="slide">
+        <div class="slide-container text-center">
+           <div class="text-6xl mb-6">⏳</div>
+          <h2 class="slide-title">지금을 산다는 것</h2>
+          <p class="slide-subtitle">과거를 후회하거나 미래를 불안해한다면 지금을 살 수 없습니다.</p>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p>마르쿠스 아우렐리우스는 <span class="highlight">"각자 지금만을 살고 동시에 그것만을 잃어버린다"</span>고 했습니다. 과거와 미래는 갖고 있지 않으므로 잃어버릴 수도 없습니다.</p>
+            <p class="mt-4">지금 할 수 있는 일을 찾아 즐겁게 하루하루를 살다 보면, 문득 생각보다 멀리까지 와 있음을 깨달을지 모릅니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Section 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">앞으로 <span class="highlight">어떻게</span> 살 것인가 🧭</h2>
+          <p class="slide-content">인생 2막을 위한 구체적이고 현실적인 제안들입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Practical Advice 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">구체적인 제안 1: <span class="highlight">집안일 분담</span> 🍳</h2>
+          <p class="slide-subtitle">일선에서 물러난 후에는 살면서 큰 비중을 차지하던 일과 인간관계가 변합니다. 가장 먼저 마주하는 현실은 '가정'입니다.</p>
+          <div class="slide-content">
+            <p>지금부터라도 요리를 비롯한 집안일을 해야 합니다. 분담 방식은 간단합니다. <b class="text-blue-600">할 수 있는 사람이, 할 수 있을 때 하면 됩니다.</b></p>
+            <p class="mt-4">과거에 "집안일은 당신 일이잖아"라고 말했던 사람이라도, 새로운 인생을 시작하는 수밖에 없습니다. 과거는 과거일 뿐입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Practical Advice 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">구체적인 제안 2: <span class="highlight">현실적으로 생활하라</span> 🌱</h2>
+          <p class="slide-subtitle">이론은 생활에 뿌리내려야 합니다. 땅에 발 붙이지 않은 이론은 현실에 도움이 되지 않습니다.</p>
+          <div class="slide-content">
+            <p>추상적이고 이론적인 사고보다, 구체적이고 현실적인 사고가 필요합니다. 다양한 조건을 추가해 생각하고, 그 조건들을 생활에 결부시켜 생각하는 사람은 현실적으로 판단할 수 있습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">생활 방식의 변화</h3>
+              <p class="mt-2">새로운 것을 배우면 생활 방식도 변하게 됩니다. 인간관계를 맺는 법을 배우는 것은 단순히 지식을 얻는 것이 아니라, <span class="highlight">생활 방식 자체가 달라지는 것</span>을 의미합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Practical Advice 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">구체적인 제안 3: 조금씩이라도 <span class="highlight">책을 읽어라</span> 📚</h2>
+          <p class="slide-subtitle">퇴직 후 시간이 너무 많아 따분할까 봐 걱정할 필요가 없습니다. 책이 시간 가는 줄 모르게 해주기 때문입니다.</p>
+          <div class="slide-content">
+             <p>독서에는 인생을 바꾸는 힘이 있습니다. 젊을 때와는 달리, 시간을 들여 천천히 읽으면 책의 내용을 더 깊게 이해할 수 있음을 깨닫게 됩니다.</p>
+             <p class="mt-4 font-bold">독서의 즐거움을 아는 사람은 혼자 사는 것을 조금도 두려워하지 않습니다. 언제나 곁에 책이 있기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Practical Advice 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">구체적인 제안 4: <span class="highlight">뭐든 배워라</span> 🎨</h2>
+          <p class="slide-subtitle">새로운 것을 배울 때, 도움이 될지 아닐지를 따지거나 의무감으로 학습하는 데서 벗어나 '배우고 싶은 것'을 배우면 됩니다.</p>
+          <div class="slide-content">
+             <p>아들러는 <b class="text-green-600">'불완전할 용기'</b>를 말했습니다. 뭔가를 배우려면 실수할까 봐 두려워하지 않는 그 용기를 내야 합니다.</p>
+             <p class="mt-4">나이가 든다고 다 현명해지는 건 아닙니다. 젊은 사람들과 함께 배울 기회가 있다면, 그 자체로 새로운 공헌이 될 수 있습니다. 알지 않으면 견딜 수 없어서 배우는 사람은 결코 삶이 지루하지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Practical Advice 5 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">구체적인 제안 5: <span class="highlight">공헌감</span>을 느낄 수 있는 일을 하라</h2>
+          <p class="slide-subtitle">다른 사람을 가르치면서 공헌감을 느낄 수 있습니다. '가르치는 동안 배운다(Homines dum docent discunt)'는 라틴어 격언처럼 말이죠.</p>
+          <div class="slide-content">
+            <p>젊은 사람에게 무언가를 배우는 것도 좋습니다. 이는 배우는 사람에게 '가르치는 공헌'을 할 기회를 주는 것입니다.</p>
+            <p class="mt-4">꼭 특별한 일이 아니어도 됩니다. 가족이 보고 싶다면, "보고 싶어서 왔다"고 말하면 됩니다. 병문안을 갈 때 "심심해서 왔다"고 말하는 사람과 "걱정돼서 왔다"고 말하는 사람은 다릅니다. 존재 자체로 서로에게 힘이 되어주는 것이 공헌입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">맺음말: 행복한 인생 2막을 위해</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인생 2막을 생각한다는 건 결국 <span class="highlight">삶 전체를 생각한다</span>는 것입니다. 우리는 젊은 시절이든 인생 2막이든, 지금 이 순간밖에는 살지 못합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">인간의 가치는 생산성이 아니라 '산다는 것'에 있습니다. 후회하지도, 불안해하지도 말고 오늘이라는 날을 한 발 한 발 신중하게 내디디며 살아가십시오. 이것이 지금 우리가 할 수 있는 일의 전부입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+      <!-- The following are extra slides to meet the 50 page requirement, diving deeper into specific concepts. -->
+
+      <!-- Slide 42: Deeper on Adler & Community -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">심화 학습: 아들러 심리학</p>
+          <h2 class="slide-title">더 큰 <span class="highlight">공동체</span>의 목소리</h2>
+          <p class="slide-subtitle">직장이라는 공동체에만 소속되어 있다고 생각하면, 퇴직 후 소속감을 잃고 불안해집니다.</p>
+          <div class="slide-content">
+            <p>소크라테스는 자신을 아테네 시민이 아닌 '세계인'이라고 했습니다. 우리 또한 직장인, 특정 국가의 국민이기에 앞서 더 큰 공동체(인류, 우주)에 속해 있습니다.</p>
+            <p class="mt-4">직장보다 큰 공동체에 소속되어 있다고 생각해 온 사람은 퇴직이 두렵지 않습니다. 자신을 회사에 소속된 사람이라고 생각하면 고작 회사원에 그치지만, 더 큰 공동체에 소속되어 있다고 생각할 수 있는 사람은 <b class="text-blue-600">세계인</b>이 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Deeper on Work-Life Harmony -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">심화 학습: 일과 삶</p>
+          <h2 class="slide-title">돈 버는 일 외에도 삶의 <span class="highlight">보람</span>이 있다</h2>
+          <p class="slide-subtitle">일이 인생의 전부가 되면, 직장을 그만뒀을 때 사는 보람이 사라집니다.</p>
+          <div class="slide-content">
+            <p>아들러는 이를 '인생의 조화'가 깨진 상태라고 보았습니다. 일중독자와 같은 삶을 살게 되고, 직장 일을 다른 일에 참여하지 못하는 구실로 삼게 됩니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">인생의 조화 찾기 ⚖️</h3>
+              <p class="mt-2">인간관계 역시 직장 동료 외에 <span class="highlight">가족, 친구, 이웃</span>과의 관계도 있습니다. 일이 가장 큰 기쁨이며 보람이라 해도, 그것이 다른 일에 소홀할 이유는 되지 못합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Deeper on Competition -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">심화 학습: 관계</p>
+          <h2 class="slide-title">경쟁하지 않아도 <span class="highlight">된다면</span></h2>
+          <p class="slide-subtitle">경쟁은 인간의 정신 건강을 해치는 가장 큰 요인입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">경쟁의 폐해 ⚔️</h3>
+              <p>경쟁에서 진 사람은 용기를 잃고, 이긴 사람은 다음에는 질지도 모른다는 불안에 시달립니다. 이기기 위해 수단과 방법을 가리지 않게 되기도 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">협력의 시대 🤝</h3>
+              <p>지금은 경쟁이 아니라 <span class="highlight">협력</span>이 요구되는 시대입니다. 이는 은퇴 후 인생 전반에 걸쳐 중요한 능력입니다. 내가 그런 환경을 제공받지 못했다면, 후배들을 위해 그런 환경을 만들어주는 사람이 되어야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: Deeper on Self-Acceptance -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">심화 학습: 자기 이해</p>
+          <h2 class="slide-title">자신의 <span class="highlight">가치</span>를 의심하지 않으려면</h2>
+          <p class="slide-subtitle">첫째, 자신의 장점이 뭔지 알아야 합니다.</p>
+          <div class="slide-content">
+            <p>의외로 많은 사람이 자신의 장점을 선뜻 말하지 못합니다. 어린 시절부터 단점만 듣고 자랐기 때문일 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">관점의 전환: 단점을 장점으로 ✨</h3>
+              <p class="mt-2">집중력이 없다고요? -> '분산력'이 있어 여러 일을 동시에 할 수 있습니다.<br> 싫증을 잘 낸다고요? -> '결단력'이 있어 아니다 싶으면 빨리 접을 수 있습니다.<br>이처럼 단점으로 여겨온 특성을 다른 관점으로 보면, <span class="highlight">있는 그대로의 자신</span>을 받아들일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: On Freedom -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">자유로운 정신</span>이 필요할 때</h2>
+          <p class="slide-subtitle">성과주의에 얽매이지 않을 때, 새로운 발상이 가능해집니다.</p>
+          <div class="slide-content">
+            <p>퇴직 후 다른 일을 할 때도 젊을 때와 달리 바로 성과를 내지 않아도 된다면 새로운 발상을 해볼 수 있습니다. 한 회사만을 위한 것이 아닌, 뭔가를 창조할 수 있는 시기가 인생 2막입니다.</p>
+             <p class="mt-4 font-bold">소속된 곳이 없으면 더 자유롭게 궁리하고 연구할 수 있습니다. 중요한 점은 어디에도 얽매이지 않은 자유로운 정신을 갖는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: A Life of Loving Continues -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑하는 한 <span class="highlight">삶은 지속된다</span></h2>
+          <p class="slide-subtitle">철학자 미키 기요시는 "사랑하는 사람, 친한 사람이 하나둘씩 죽어가니 죽음의 공포가 오히려 희미해진다"고 말했습니다.</p>
+          <div class="slide-content">
+            <p>살아 있는 한은 죽은 사람과 만날 수 없지만, 죽으면 만날 수 있을지도 모른다는 희망을 가질 수 있습니다.</p>
+             <div class="mt-8 p-6 bg-purple-50 border border-purple-200 rounded-lg">
+              <h3 class="font-bold text-lg">미키 기요시의 말</h3>
+              <p class="mt-2">"진정 사랑하는 것이 있다면, 그것은 내 영원한 삶을 약속한다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: The Power of Side-projects -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부업인가, <span class="highlight">복업(複業)</span>인가?</h2>
+          <p class="slide-subtitle">본업 외의 활동이 인생 2막을 풍요롭게 합니다.</p>
+          <div class="slide-content">
+            <p>부업에 본업 이상의 시간과 열정을 쏟는다면, 이는 부업이 아닌 '복업(여러 개의 본업)'이라 할 수 있습니다. 꼭 돈을 버는 일이 아니어도 좋습니다.</p>
+            <p class="mt-4">일찍부터 이런 취미 혹은 부업을 찾아놓는 건 인생 2막을 위해 매우 중요합니다. 취미와 부업은 밥벌이의 지겨움을 덜기 위한 것이 아니라, <b class="text-blue-600">그 자체를 즐기는 게 목적</b>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: You Don't HAVE to Do Something -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">꼭 <span class="highlight">뭔가를 해야만</span> 하는 건 아니다</h2>
+          <p class="slide-subtitle">은퇴 후 뭔가를 하지 않으면 안 된다고 생각해 초조해하는 사람이 있습니다.</p>
+          <div class="slide-content">
+            <p>하지만 아무것도 하지 않고 시간을 보내도 괜찮습니다. '일이라는 저주'에서 벗어나는 것이 중요합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 관점의 전환</h3>
+              <p class="mt-2">사실 아무것도 안 하는 사람은 없습니다. 책을 읽고, 산책을 하고, 멍하니 있거나 잠을 자는 것 모두를 포함해, <span class="highlight">사는 것 자체가 일</span>입니다. 뭔가를 반드시 해야 한다는 의무감을 버리는 순간, 진정한 자유가 시작됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50: The Courage to be Imperfect -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아들러의 '<span class="highlight">불완전할 용기</span>'</h2>
+          <p class="slide-subtitle">새로운 것을 배울 때, 우리는 완벽하지 않음을 인정해야 합니다.</p>
+          <div class="slide-content">
+            <p>저자가 한국어를 배울 때, 실수할까 봐 두려운 마음이 가장 큰 문제였다고 합니다. 젊은 시절에는 잘못을 해도 주위에서 바로잡아 줄 기회가 많지만, 나이가 들면 지적해 주는 사람이 줄어듭니다.</p>
+             <p class="mt-4 font-bold">새로운 배움을 통해 젊은 사람에게 바로잡을 기회를 얻는 것은, 자만하지 않기 위해 중요합니다. 기억력이 떨어졌다고 한탄할 필요 없습니다. 있는 그대로의 자신에게서 시작하면 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  const slides =
+    Array.from(document.querySelectorAll('.slide'))
+      .filter(el => el.offsetHeight > 0) ||
+    Array.from(document.querySelectorAll('section, [data-slide]'))
+      .filter(el => el.offsetHeight > 0);
+
+  if (!slides.length) return;
+
+  let index = 0;
+  let isAnimating = false;
+
+  function clamp(i) {
+    return Math.max(0, Math.min(slides.length - 1, i));
+  }
+
+  function scrollToIndex(next) {
+    next = clamp(next);
+    if (next === index || isAnimating) return;
+    isAnimating = true;
+    index = next;
+    const target = slides[index];
+    const top = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'smooth' });
+    setTimeout(function () { isAnimating = false; }, 420);
+  }
+
+  function move(delta) {
+    if (delta > 0) {
+      scrollToIndex(index + 1);
+    } else if (delta < 0) {
+      scrollToIndex(index - 1);
+    }
+  }
+
+  window.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaY) < 24) return;
+    const isScrollY =
+      document.documentElement.scrollHeight > window.innerHeight + 8;
+    if (!isScrollY) return;
+    e.preventDefault();
+    move(e.deltaY);
+  }, { passive: false });
+
+  window.addEventListener('keydown', function (e) {
+    if (['ArrowDown', 'PageDown', ' ', 'Spacebar'].includes(e.key)) {
+      e.preventDefault();
+      move(1);
+    } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      move(-1);
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    var best = 0;
+    var bestDist = Infinity;
+    slides.forEach(function (s, i) {
+      var rect = s.getBoundingClientRect();
+      var dist = Math.abs(rect.top);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    index = best;
+  });
+})();
+</script>
+</body>
+</html>
