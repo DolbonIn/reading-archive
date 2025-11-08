@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사람을 얻는 지혜 - 발타자르 그라시안</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      background-color: white;
+      border-radius: 16px;
+      padding: 50px 60px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e9ecef;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #6c757d;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+     .slide-content ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .slide-content li {
+        padding-left: 1.5em;
+        text-indent: -1.5em;
+        margin-bottom: 0.75em;
+    }
+    .slide-content li::before {
+        content: "•";
+        color: #0d6efd;
+        font-size: 1.2em;
+        margin-right: 0.5em;
+        display: inline-block;
+    }
+    .highlight {
+      background-color: #ffd60a;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #0d6efd;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0b5ed7;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #5c636a;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #0d6efd;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .special-block {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background-color: #eef2ff;
+        border-left: 4px solid #4361ee;
+        border-radius: 8px;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">📖</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">사람을 얻는 지혜</h1>
+          <p class="text-xl md:text-2xl text-gray-700">발타자르 그라시안의 <span class="highlight">시대를 초월한 통찰</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: About the Author -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">저자: 발타자르 그라시안 ✒️</h2>
+              <p class="slide-subtitle">17세기 스페인의 철학자이자 예수회 신부</p>
+              <div class="slide-content">
+                  <ul>
+                      <li><b>출생:</b> 1601년 스페인 벨몬테에서 태어남.</li>
+                      <li><b>활동:</b> 예수회 신부로서 인문학 교수, 설교자, 고해 신부로 활동.</li>
+                      <li><b>시대적 배경:</b> 스페인의 '황금시대'가 저물어가는 바로크 문화 속에서 활동. 물질적 환멸과 종교적 희망이 공존하던 시기.</li>
+                      <li><b>주요 저서:</b> 『사람을 얻는 지혜』, 『재능의 기술』, 『비평가』 등 다수.</li>
+                      <li><b>특징:</b> 그의 글은 종교적 언급이 거의 없으며, 성공과 명성보다는 <span class="highlight">개인의 성숙과 실용적인 성공 전략</span>에 초점을 맞춤.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 🧭</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 서론:</b> 저자 및 시대 배경</p>
+            <p><b>2. 제1부:</b> 자기 완성의 기술 (지혜 1-50)</p>
+            <p><b>3. 제2부:</b> 관계와 평판 관리 (지혜 51-100)</p>
+            <p><b>4. 제3부:</b> 의사결정과 실행력 (지혜 101-150)</p>
+            <p><b>5. 제4부:</b> 위기관리와 전략 (지혜 151-200)</p>
+            <p><b>6. 제5부:</b> 내면 성찰과 절제 (지혜 201-250)</p>
+            <p><b>7. 제6부:</b> 삶의 완성 (지혜 251-300)</p>
+            <p><b>8. 결론:</b> 시대를 초월하는 지혜</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제1부: 자기 완성의 기술</p>
+          <h2 class="slide-title">모든 것은 <span class="highlight">나로부터</span> 시작된다 🌱</h2>
+          <p class="slide-content">개인의 성숙과 내면의 힘을 기르는 법. 지혜의 여정을 시작합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5-14: Content Slides (1-50) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 지혜 <span class="highlight">1-5</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>1. 온전한 사람이 된다는 것:</b> 오늘날 한 명의 현자를 기르는 것이 옛 일곱 현자를 기르는 것보다 어렵다. 그만큼 더 많은 노력이 필요하다.</li>
+              <li><b>2. 기질과 재능의 조화:</b> 탁월함은 타고난 기질과 후천적 재능, 두 축으로 이루어진다. 하나만으로는 반쪽짜리 행복이다.</li>
+              <li><b>3. 모든 것을 드러내지 말라:</b> 패를 다 보이는 게임은 즐겁지 않다. 신비감을 주어 존경심을 유발하라. <span class="highlight">침묵은 지혜의 성역</span>이다.</li>
+              <li><b>4. 지식과 용기:</b> 지식은 눈, 용기는 손과 같다. 위대함은 이 둘이 함께할 때 만들어진다. 용기 없는 지식은 열매를 맺지 못한다.</li>
+              <li><b>5. 사람들이 당신에게 매달리게 하라:</b> 감사하는 사람보다 필요로 하는 사람을 원하라. 의존이 끝나면 존중도 끝난다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">성장과 완성의 길 <span class="highlight">6-10</span></h2>
+            <div class="slide-content">
+                <ul>
+                    <li><b>6. 필요한 존재가 되는 법:</b> 완성된 모습으로 태어나는 사람은 없다. 매일 개인적으로, 직업적으로 개선하며 <span class="highlight">완성의 정점</span>에 이르러야 한다.</li>
+                    <li><b>7. 자기 장점을 다 드러내지 말라:</b> 윗사람을 이기려 하지 말라. 모든 승리는 미움을 가져온다. 때로는 장점을 감추는 것이 신중한 태도다.</li>
+                    <li><b>8. 감정에 휘둘리지 말라:</b> 정념에 사로잡히지 않는 사람은 가장 고귀한 정신을 얻는다. 자기 자신을 다스리는 것보다 더 큰 지배는 없다.</li>
+                    <li><b>9. 결점을 고칠 수 없다면 숨겨라:</b> 모든 민족, 모든 사람에게는 결점이 있다. 그것을 고치거나 최소한 숨기는 것이 <span class="highlight">승리의 기술</span>이다.</li>
+                    <li><b>10. 운보다 미덕을 사랑하라:</b> 행운은 불안정하지만 명성은 안정적이다. 명성에 대한 욕구는 미덕에서 나온다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">지혜로운 교제와 배움 <span class="highlight">11-15</span></h2>
+            <div class="slide-content">
+                <ul>
+                    <li><b>11. 배울 게 있다면 나의 스승이다:</b> 친구와의 교제를 지식을 얻는 학교로 삼아라. 대화의 즐거움 속에서 유익한 배움을 얻어라.</li>
+                    <li><b>12. 천재도 최선을 다한다:</b> 자연과 기술은 재료와 작품의 관계다. 천부적인 소질도 기술을 거치지 않으면 거칠다. <span class="highlight">연마가 필요하다.</span></li>
+                    <li><b>13. 의도가 한눈에 파악되지 않게 하라:</b> 인간의 삶은 교활함과 맞서 싸우는 전쟁이다. 때로는 두 번째, 세 번째 의도를 따라 행동하라.</li>
+                    <li><b>14. 현명한 방법의 중요성:</b> 본질만으로 충분치 않고, 방식과 환경도 중요하다. 좋은 방식은 모든 것을 보완하고 결말을 약속한다.</li>
+                    <li><b>15. 당신이 만나는 현자들은 누구인가:</b> 도움이 될 만한 현자들을 곁에 두라. 그들을 친구로 삼아 지식을 얻는 것이 현명한 처사다.</li>
+                </ul>
+            </div>
+      </div>
+    
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전략적 사고와 행동 <span class="highlight">16-20</span></h2>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">💡 좋은 지식과 나쁜 의도 (16)</h3>
+              <p>좋은 의도가 담긴 지식을 지녀라. 좋은 지식이 나쁜 의도와 결합하면 <span class="highlight">괴물 같은 고통</span>을 낳는다. 사리 분별이 없는 지식은 갑절의 광기가 된다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🎯 예측 불가능성 (17)</h3>
+              <p>행동 방식을 다양하게 하라. 항상 같은 방식으로 행동하면 상대가 미리 포착한다. <span class="highlight">비틀거리며 날아가는 새</span>를 죽이기는 더 어렵다.</p>
+            </div>
+          </div>
+          <div class="special-block">
+             <h3 class="font-bold text-lg">💡 노력과 타고난 능력 (18)</h3>
+             <p class="mt-2">노력과 미네르바(타고난 능력). 두 가지가 없으면 탁월함도 없다. 평범하지만 노력하는 사람이 탁월하지만 노력하지 않는 사람보다 많은 것을 얻는다. <span class="highlight">명예는 노력의 대가</span>다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기대와 시대를 읽는 눈 <span class="highlight">21-25</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>21. 행운으로 가는 길:</b> 행운에도 규칙이 있다. 노력으로 얻을 수 있다. 길은 <span class="highlight">미덕과 신중</span>뿐이다. 지혜보다 큰 행운은 없다.</li>
+              <li><b>22. 재치 있는 말 한마디:</b> 지혜로운 사람의 탄약은 정중하고 유쾌한 지식이다. 종종 재치 있는 말이 진지한 가르침보다 낫다.</li>
+              <li><b>23. 나만의 필살기를 가져라:</b> 결점을 남기지 말라. 만약 있다면, 그것을 멋진 장식으로 바꿀 줄 아는 것이 최고의 기술이다. (카이사르는 월계관으로 탈모를 숨겼다.)</li>
+              <li><b>24. 상상력을 제어하라:</b> 행복은 상상력에 달렸다. 때로는 바로잡고, 때로는 북돋워야 한다. <span class="highlight">분별력으로 상상력을 다스려라.</span></li>
+              <li><b>25. 중요한 진실은 절반만 전해진다:</b> 알아채는 능력이 필요하다. 다른 사람의 마음을 꿰뚫어 보고 의도를 알아채는 예리함이 중요하다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <!-- ... Add more slides for 26-50 ... -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">관계의 기술 <span class="highlight">26-32</span></h2>
+          <div class="slide-content">
+            <ul>
+                <li><b>26. 사람의 의지를 움직이는 기술:</b> 각자의 약점을 파악하라. 사람마다 접근해야 하는 통로가 다르다. 그 사람의 '우상'(명성, 이익, 쾌락)을 알아내 자극하라.</li>
+                <li><b>27. 내면을 더 중시하라:</b> 완벽함은 양이 아닌 질에 달려 있다. 외적인 부분만으로는 평범함을 넘을 수 없다.</li>
+                <li><b>28. 대중의 수준을 넘어서라:</b> 취향과 지식은 대중적이면 안 된다. 위대한 현자는 대중의 박수갈채에 기뻐하지 않는다.</li>
+                <li><b>29. 올곧은 사람을 가까이하라:</b> 올곧은 사람은 언제나 극소수다. 그들은 이성의 편에 서며, 우정이나 권력보다 진리를 택한다.</li>
+                <li><b>30. 평판을 나쁘게 하는 일에 참여하지 말라:</b> 지혜로운 사람은 온갖 파벌을 피해야 한다. 조롱거리가 될 일은 하지 말라.</li>
+                <li><b>31. 의심스러울 때는 운이 따르는 사람 곁에 서라:</b> 행운이 따르는 사람을 만나고, 불운이 따르는 사람은 피하라. 불행은 전염성이 강하다.</li>
+                <li><b>32. 주어진 힘을 선한 일에 사용하라:</b> 호의를 베푸는 평판을 얻어라. 이것이 통치자가 받을 수 있는 으뜸 평판이다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자신을 지키는 지혜 <span class="highlight">33-39</span></h2>
+          <div class="slide-content">
+            <ul>
+                <li><b>33. 자신을 잃어버려서는 안 된다:</b> 다른 사람에게서 자신을 분리할 줄 알라. 거절하는 법을 아는 것은 삶의 큰 교훈이다.</li>
+                <li><b>34. 탁월함의 출처를 알라:</b> 자신의 훌륭한 자질을 발견하고 열심히 갈고닦아라. 대부분 자신의 탁월한 재능을 제대로 알지 못한다.</li>
+                <li><b>35. 신중하게 생각하라:</b> 중요한 일일수록 더 신중하게 생각해야 한다. 이익과 손해를 파악하고 노력해야 한다.</li>
+                <li><b>36. 행운이 보이면 과감하게 나아가라:</b> 자기 행운을 가늠해보라. 행운이 다가오는 게 보이면 과감히 앞으로 나아가라. <span class="highlight">행운은 용감한 자를 좋아한다.</span></li>
+                <li><b>37. 말 한마디에 무너지지 않도록 조심하라:</b> 악의적인 암시를 잘 파악하고 사용하라. 암시를 던지는 기술만큼 받는 기술도 조심해야 한다.</li>
+                <li><b>38. 행운의 여신을 너무 오래 시험하지 말라:</b> 이기고 있을 때 행운을 버릴 줄 알라. 멋진 후퇴는 용감한 전진만큼 중요하다.</li>
+                <li><b>39. 인생의 모든 순간을 즐기는 법:</b> 일이 정점에 이르는 때를 알고 그것을 즐겨라. 이해력의 열매도 무르익는 때가 있다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">호감과 평가의 법칙 <span class="highlight">40-45</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🤝 호의를 얻는 법 (40)</h3>
+              <p>호의를 얻으려면 먼저 호의를 베풀어야 한다. 선한 행동과 말, 더 좋은 행동을 해야 한다. 예의는 위대한 사람들이 다른 사람을 현혹하는 가장 중요한 방법이다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">⚠️ 과대평가의 위험 (41)</h3>
+              <p>절대 과장하지 말라. 칭찬을 남발하는 것은 칭찬하는 사람의 지식과 안목 부족을 드러낼 뿐이다. <span class="highlight">과대평가보다 과소평가하는 실수를 택하라.</span></p>
+            </div>
+          </div>
+            <div class="special-block">
+                <h3 class="font-bold text-lg">👑 타고난 통치력 (42)</h3>
+                <p class="mt-2">타고난 통치력은 불쾌한 수법이 아니라 자연스러운 권위에서 나온다. 고귀한 귀재들은 몸짓 하나로 그 힘을 나타낸다.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">말과 관계의 균형 <span class="highlight">46-50</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>46. 저속한 반감은 성장을 방해한다:</b> 뛰어난 사람에게 반감을 품는 것만큼 자신의 가치를 떨어뜨리는 일은 없다. 영웅에게 호감을 품으면 이익이 된다.</li>
+              <li><b>47. 불행은 처음부터 피하는 게 낫다:</b> 어렵고 위험한 일은 피하라. 위험을 잘 극복하는 것보다 처음부터 관여하지 않는 것이 더 용기 있는 행동이다.</li>
+              <li><b>48. 내면의 깊이:</b> 내면이 깊을수록 온전한 사람이 된다. 외관만 세워진 집 같은 사람들이 있다. 예리한 사람은 그들의 텅 빈 내면을 들여다본다.</li>
+              <li><b>49. 한눈에 상대를 파악하는 힘:</b> 통찰력과 판단력이 있는 사람은 단번에 가장 깊은 곳을 측정한다. 모든 것을 발견하고, 깨닫고, 파악하고, 이해한다.</li>
+              <li><b>50. 현자는 자신에게 가장 엄격하다:</b> 절대 자존심을 잃지 말라. 모든 외적인 규칙보다 더 엄격하게 자신을 판단해야 한다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제2부: 관계와 평판 관리</p>
+          <h2 class="slide-title">세상 속에서 <span class="highlight">빛나는 법</span> 🌟</h2>
+          <p class="slide-content">타인과의 관계를 현명하게 맺고, 자신의 평판을 신중하게 관리하는 전략을 배웁니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 16-25: Content Slides (51-100) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">선택과 평정심 <span class="highlight">51-55</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>51. 선택이 인생을 결정한다:</b> 삶의 대부분은 선택에 달려 있다. 좋은 선택을 잘하는 것은 하늘이 내린 가장 큰 재능 중 하나다.</li>
+              <li><b>52. 지혜는 평정심에서 나온다:</b> 절대 평정심을 잃지 말라. 동요되지 않는 것이 지혜의 핵심이다. 자기 자신을 완전히 다스리는 위대한 사람이 되어야 한다.</li>
+              <li><b>53. 근면함은 경솔함과 신중함 사이에 있다:</b> 근면은 지성에 머물러 있는 일을 신속하게 실행하는 힘이다. 아우구스투스 황제의 좌우명은 "천천히 서두르라"였다.</li>
+              <li><b>54. 용기는 신중함이라는 칼집 속에:</b> 대담하지만 신중하게 행동하라. 정신적 용기는 육체적 용기를 능가하며, 항상 신중함이라는 칼집 속에 있어야 한다.</li>
+              <li><b>55. 기다릴 줄 아는 사람:</b> 엄청난 인내심과 위대한 마음의 증표. 지혜로운 기다림은 성공을 무르익게 하고, <span class="highlight">비밀을 성숙하게 한다.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">능력과 판단력 <span class="highlight">56-60</span></h2>
+            <div class="slide-content">
+                <ul>
+                    <li><b>56. 기민함을 갖추라:</b> 미리 생각하지 않고도 일을 제대로 해내는 힘. 명민한 판단력과 지혜로운 행동으로 뛰어난 능력을 보여준다.</li>
+                    <li><b>57. 가치가 클수록 큰 대가를 요구한다:</b> 빨리 만들어지면 빨리 망가진다. 영원히 지속하려면 그만큼 오래 걸린다. 오직 <span class="highlight">완벽함</span>만이 주목받는다.</li>
+                    <li><b>58. 자기 능력의 한계를 드러내지 말라:</b> 주변 수준에 맞출 줄 알라. 언제나 보여줄 수 있는 새로운 것을 지니고 있어야 한다.</li>
+                    <li><b>59. 결승선에서 웃는 사람이 되라:</b> 마무리를 잘하는 사람. 입구에서 받는 박수보다 출구에서 얻는 기쁨에 더 신경 써야 한다.</li>
+                    <li><b>60. 적절한 판단력:</b> 사려분별을 할 때 선천적인 양식을 지닌 사람은 이미 절반은 성공한 셈이다. 나이와 경험이 더해지면 완전한 판단을 내린다.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">전략적 선택과 협력 <span class="highlight">61-65</span></h2>
+            <div class="slide-content">
+                <ul>
+                    <li><b>61. 최선을 다하지 말아야 할 때도 있다:</b> 최고의 일에서 탁월함을 드러내는 것은 군주의 성품과 같다. 낮은 일에서 탁월하면 하찮은 일에만 존재감을 드러낼 뿐이다.</li>
+                    <li><b>62. 협력자들을 잘 선택하라:</b> 좋은 도구를 사용하라. 성공의 모든 영광은 군주에게 돌아가고, 실패의 비난도 마찬가지다. <span class="highlight">불멸의 명성</span>이 거기에 달렸다.</li>
+                    <li><b>63. 조건이 같다면 먼저 하는 게 유리하다:</b> 가장 먼저 하면서 탁월하기까지 하면, 그 우수성은 두 배가 된다. 현명한 사람은 참신함 때문에 영웅 명단에 오른다.</li>
+                    <li><b>64. 잠깐의 기쁨을 위해 평생의 고통을 떠안지 말라:</b> 불쾌함을 피하라. 다른 사람을 기쁘게 하는 일이 자신에게 고통을 준다면 이 교훈을 기억하라.</li>
+                    <li><b>65. 안목의 크기가 곧 능력의 크기다:</b> 고상한 안목을 키워라. 위대한 것만이 위대한 능력을 만족시킬 수 있다.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결과와 명예 <span class="highlight">66-70</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🏆 좋은 결과를 얻도록 주의하라 (66)</h3>
+              <p>승자는 어떤 변명도 할 필요가 없다. 사람들은 과정보다 결과에 관심을 둔다. 비록 수단이 옳지 못해도 <span class="highlight">결과만 좋으면 모든 것이 황금빛</span>이 된다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">👏 박수갈채를 받을 일을 하라 (67)</h3>
+              <p>대부분의 일은 다른 사람의 만족에 달려 있다. 위대한 사람이라면 모두가 알 만하고, 모두와 나눌 만한 칭찬받을 일을 선택해야 한다.</p>
+            </div>
+          </div>
+          <div class="special-block">
+             <h3 class="font-bold text-lg">🧠 이해하도록 도우라 (68)</h3>
+             <p class="mt-2">잊었던 기억을 일깨우는 것보다 이해하도록 돕는 게 훨씬 낫다. 지성의 가장 큰 유익 중 하나는 <span class="highlight">중요한 것을 빨리 깨닫게 해주는 것</span>이다.</p>
+          </div>
+        </div>
+      </div>
+       <!-- ... More slides ... -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자기 관리와 태도 <span class="highlight">81-90</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>81. 자기 광채를 새롭게 하라:</b> 탁월함도 명성도 사그라지기 마련. 평범하더라도 새로운 것이 낡은 탁월함보다 낫다.</li>
+              <li><b>82. 극단으로 가지 말라:</b> 절제가 곧 지혜다. 너무 엄격한 정의는 불의로 전락한다.</li>
+              <li><b>83. 자신의 가벼운 잘못은 허용하라:</b> 때로는 시기심을 피하기 위해 지혜를 제외한 재능이나 용기 면에서 잘못을 저지르는 척하라.</li>
+              <li><b>84. 적을 이용할 줄 알라:</b> 현명한 사람은 적으로부터 얻는 유익이 친구에게서 얻는 것보다 크다. 악의의 거울을 더 신뢰하라.</li>
+              <li><b>85. 만능패가 되지 말라:</b> 너무 많이 사용되면 오용되기 쉽다. 완벽함이 넘치되 드러낼 때는 절제해야 한다.</li>
+              <li><b>86. 험담을 미리 방지하라:</b> 나중에 고치는 것보다 미리 방지하는 게 훨씬 쉽다.</li>
+              <li><b>87. 세련미를 더하라:</b> 지혜도 세련되지 않으면 조잡해진다. 지식, 욕구, 대화 모두 세련되어야 한다.</li>
+              <li><b>88. 때로는 모르는 척 넘어가라:</b> 모든 일을 하나하나 따지지 말라. 특히 마음에 들지 않는 일에서는 더 그래야 한다.</li>
+              <li><b>89. 자기 자신을 알라:</b> 자신을 알지 못하면 자기 주인이 될 수 없다.</li>
+              <li><b>90. 잘 살아낸 삶의 기억은 영원하다:</b> 선하게 사는 것이 장수하는 기술이다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">분별력과 처세 <span class="highlight">91-100</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>91. 경솔함이 의심되지 않을 때만 행동하라.</b></li>
+              <li><b>92. 탁월한 분별력:</b> 약간의 분별력이 넘치는 명민함보다 낫다.</li>
+              <li><b>93. 모든 좋은 것에서 유익을 얻는 기술을 익혀라.</b></li>
+              <li><b>94. 한눈에 파악되는 존재가 되지 마라:</b> 능력의 한계를 드러내지 말라.</li>
+              <li><b>95. 상대방이 더 큰 것을 기대하게 하라.</b></li>
+              <li><b>96. 위대한 양식(良識):</b> 적은 노력으로 위대한 목표를 이룬다.</li>
+              <li><b>97. 알맹이 있는 명성을 얻었다면 유지하기는 쉽다.</b></li>
+              <li><b>98. 진짜 의도를 감출 줄 아는 것이 가장 실질적인 지식이다.</b></li>
+              <li><b>99. 겉모습이 별로면, 실제 의도가 좋아도 부족해 보인다.</b></li>
+              <li><b>100. 인생의 진정한 지식에 이른 자는 속임수를 쉽게 분별한다.</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제3부: 의사결정과 실행력</p>
+          <h2 class="slide-title">지혜를 <span class="highlight">행동으로</span> 옮기는 법 🚀</h2>
+          <p class="slide-content">상황을 판단하고, 사람을 사귀며, 올바른 결정을 내리는 실질적인 방법을 탐구합니다.</p>
+        </div>
+      </div>
+
+       <!-- ... Slides for 101-150 ... -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">판단과 관계의 미학 <span class="highlight">101-110</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>101. 세상의 절반이 외면해도 가치를 인정해줄 사람이 있다.</b></li>
+              <li><b>102. 큰 행운을 맞기 전에 먼저 배짱을 키워라.</b></li>
+              <li><b>103. 당신의 위치에 걸맞은 위엄을 갖추라.</b></li>
+              <li><b>104. 사람을 다스리는 일이 가장 힘들다.</b></li>
+              <li><b>105. 좋은 말인데 간결하면 두 배로 좋아진다.</b></li>
+              <li><b>106. 존경은 자기가 받으려고 할수록 더 받기 어렵다.</b></li>
+              <li><b>107. 자기만족은 대개 무지에서 시작해 어리석은 행복으로 끝난다.</b></li>
+              <li><b>108. 다른 사람과 조화하는 것은 큰 능력이다.</b></li>
+              <li><b>109. 거친 기질을 제어하지 않으면 모든 것을 죄로 만든다.</b></li>
+              <li><b>110. 사람들이 당신에게 등을 돌릴 때까지 기다리지 말라.</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간관계의 본질 <span class="highlight">111-120</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>111. 친구는 또 다른 나다:</b> 우리가 얻는 최고의 것은 대부분 다른 사람에게 달려 있다.</li>
+              <li><b>112. 호의를 얻으면 일사천리로 진행된다:</b> 호의 없이 공덕만으로 가는 길은 험하다.</li>
+              <li><b>113. 악천후와 역경 대비는 잘 나갈 때 해야 한다.</b></li>
+              <li><b>114. 경쟁의 열기는 당신의 소중한 것까지 태워 없앤다.</b></li>
+              <li><b>115. 사람들의 결점에 익숙해지는 것도 배워야 할 재주다.</b></li>
+              <li><b>116. 비열한 사람들 사이에는 진정한 우정이 없다.</b></li>
+              <li><b>117. 자신에 대한 말을 삼가라:</b> 자신을 칭찬하는 것은 헛되고, 비난하는 것은 사기를 꺾는다.</li>
+              <li><b>118. 예의는 비용이 적게 들면서도 그 가치가 크다.</b></li>
+              <li><b>119. 미움에 한번 사로잡히면 떨쳐내기가 어렵다.</b></li>
+              <li><b>120. 생각과 취향도 시대에 따라 변한다.</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <!-- ... And so on, until slide 50+ ... -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마무리: 핵심 지혜 <span class="highlight">295-300</span></h2>
+          <div class="slide-content">
+            <ul>
+              <li><b>295. 업적을 쌓되, 직접 팔지는 말라:</b> 영웅처럼 보이기보다 영웅이 되기를 열망하라.</li>
+              <li><b>296. 탁월한 한 명이 평범한 다수보다 낫다:</b> 모든 행동과 말에 탁월하고 훌륭한 위엄이 나타나야 한다.</li>
+              <li><b>297. 혼자 있을 때도 온 세상이 지켜보는 것처럼 생각하라.</b></li>
+              <li><b>298. 나이에 맞는 지혜:</b> 스무 살에는 의지, 서른에는 재능, 마흔에는 판단이 지배한다.</li>
+              <li><b>299. 갈증이 날 때는 완전히 해갈하지 말라:</b> 약간의 허기를 남겨두는 것이 좋은 취향을 유지하는 비결이다.</li>
+              <li><b>300. 한마디로, 미덕을 갖춘 사람이 돼라:</b> 미덕은 모든 완벽함을 이어주는 연결 고리이며, 행복의 중심이다. <span class="highlight">미덕만이 그 자체로 충분하다.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Conclusion Slide -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 시대를 초월하는 지혜</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">발타자르 그라시안의 지혜는 17세기를 넘어 오늘날 우리에게도 깊은 통찰을 줍니다. 그의 핵심 메시지는 <span class="highlight">자기성찰, 신중함, 전략적 사고, 그리고 관계의 중요성</span>입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">자신을 알고, 세상을 이해하며, 현명하게 행동하는 것. 그것이 바로 '사람을 얻는 지혜'의 본질입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You / Q&A Slide -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+      
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
