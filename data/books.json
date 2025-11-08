@@ -1,5 +1,25 @@
 [
   {
+    "slug": "자꾸-잘못된-선택을-하는-사람들을-위한-결정의-기술",
+    "title": "자꾸 잘못된 선택을 하는 사람들을 위한 결정의 기술",
+    "author": "필립마이스너",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/자꾸-잘못된-선택을-하는-사람들을-위한-결정의-기술.html",
+    "cover": "assets/covers/자꾸-잘못된-선택을-하는-사람들을-위한-결정의-기술.jpg"
+  },
+  {
+    "slug": "일류의-조건-사이토-다카시",
+    "title": "일류의 조건",
+    "author": "사이토 다카시",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/일류의-조건-사이토-다카시.html",
+    "cover": "assets/covers/일류의-조건-사이토-다카시.jpg"
+  },
+  {
     "slug": "인생에서-가장-후회되는-게-뭐냐고-묻는다면",
     "title": "인생에서 가장 후회되는 게 뭐냐고 묻는다면",
     "author": "노우티",
@@ -428,16 +448,6 @@
     "description": "",
     "presentation": "presentations/일을-잘-맡기는-기술-일-잘하는-리더보다-일-잘-맡기는-리더가-되라.html",
     "cover": "assets/covers/일을-잘-맡기는-기술-일-잘하는-리더보다-일-잘-맡기는-리더가-되라.jpg"
-  },
-  {
-    "slug": "일류의-조건-사이토-다카시",
-    "title": "일류의 조건",
-    "author": "사이토 다카시",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/일류의-조건-사이토-다카시.html",
-    "cover": "assets/covers/일류의-조건-사이토-다카시.jpg"
   },
   {
     "slug": "인간이-되다-인간의-코딩-오류-경이로운-문명을-만들다",
