@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Your Brain, Change Your Life Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      /* Add a subtle animation for slide transitions */
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #66ff99; /* Changed highlight color to match the book cover */
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid #ddd;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+      border-color: #111;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    li {
+        margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">Change Your Brain, Change Your Life</h1>
+          <p class="text-xl md:text-2xl text-gray-700">습관, 일, 관계까지 바꿔주는 <span class="highlight">뇌 최적화의 기술</span></p>
+          <p class="text-lg md:text-xl text-gray-600 mt-4">당신의 뇌는 변화가 필요합니다</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+            <div>
+                <p class="font-bold">Part 1. 드디어 내가 달라지기 시작했다</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>1장: 단순한 습관 설계만으로 인생이 달라진다</li>
+                    <li>2장: 들쭉날쭉 내 감정에 휘둘리지 않는 기술</li>
+                    <li>3장: 내 성격의 35퍼센트 원하는 대로 바꾸기</li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-bold mt-4 md:mt-0">Part 2. 오늘부터 일도, 공부도 두 배로 잘된다</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>4장: 일머리 좀 있다는 말 듣는 법</li>
+                    <li>5장: 120퍼센트 가동하는 뇌 컨디션 만들기</li>
+                    <li>6장: 우물쭈물하지 않고 현명하게 결정하는 법</li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-bold mt-4">Part 3. 뇌를 바꾸자 좋은 관계가 찾아왔다</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>7장: 뇌가 알려주는 사람을 이끄는 지혜</li>
+                    <li>8장: 상처받은 내면 아이와 화해하는 법</li>
+                    <li>9장: 누구도 마음 상하지 않는 대화의 기술</li>
+                </ul>
+            </div>
+             <div>
+                <p class="font-bold mt-4">마무리</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>결론: 뇌를 내 편으로 만들면 인생이 즐거워진다</li>
+                    <li>Q&A</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">들어가며</p>
+          <h2 class="slide-title">새해 결심이 늘 똑같다면, <span class="highlight">뇌부터 점검하세요</span></h2>
+          <p class="slide-subtitle">왜 우리는 변화에 실패하고 마음의 상처를 입을까요? 😫</p>
+          <div class="slide-content">
+            <p>우리는 '의지가 있고 노력하면 변할 수 있다'고 믿지만, 실패하면 자신을 탓하며 자존감이 낮아집니다. 이 악순환을 끊으려면, 우리 뇌가 <span class="highlight">왜 변화에 저항하는지</span> 이해해야 합니다.</p>
+            <p class="mt-4">인간은 '습관의 동물'입니다. 습관은 에너지를 아껴주고, 익숙함은 편안함을 줍니다. 이것이 우리가 무의식적으로 만든 습관을 바꾸기 힘든 이유입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: The Three Brains -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">달라지고 싶은 마음, <span class="highlight">따라오지 않는 머리</span></h2>
+           <p class="slide-subtitle">우리 뇌 속에는 세 가지 다른 '뇌'가 살고 있습니다. 이들의 충돌을 관리해야 변화할 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 border rounded-lg">
+              <h3 class="font-bold text-lg">🦎 파충류의 뇌</h3>
+              <p class="mt-2 text-sm">호흡, 심장박동 등 생존에 필수적인 자동 기능을 조절합니다. 가장 원시적이고 기본적인 뇌입니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 border rounded-lg">
+              <h3 class="font-bold text-lg">🐕 포유류의 뇌</h3>
+              <p class="mt-2 text-sm">감정과 습관을 담당합니다. 안전과 쾌락을 추구하며, 우리를 위험에서 지키기 위해 감정을 만들어냅니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 border rounded-lg">
+              <h3 class="font-bold text-lg">🧑‍🔬 인간의 뇌 (전전두피질)</h3>
+              <p class="mt-2 text-sm">학습, 추상적 사고, 계획, 공감 등 고차원적인 기능을 담당합니다. 이성적이고 논리적인 부분입니다.</p>
+            </div>
+          </div>
+           <p class="mt-6 slide-content"><b>문제는?</b> <span class="highlight">안전을 추구하는 포유류 뇌</span>와 <span class="highlight">성장과 변화를 원하는 인간 뇌</span>가 자주 충돌한다는 것입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 5: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center bg-gray-900 text-white rounded-xl p-12">
+            <p class="slide-part-title text-gray-400">Part 1</p>
+            <h2 class="slide-title text-white">드디어 내가 <br/><span class="highlight">달라지기 시작했다</span> ✨</h2>
+            <p class="slide-content text-gray-300">습관, 감정, 성격의 비밀을 파헤쳐 '나'를 바꾸는 법을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Chapter 1 - Habit Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 1: 단순한 습관 설계만으로 인생이 달라진다</p>
+          <h2 class="slide-title">새로운 습관은 <span class="highlight">눈뜨자마자 시작할 것</span> ☀️</h2>
+          <p class="slide-subtitle">뇌 에너지 소비량의 차이를 이해하면, 언제 새로운 시도를 해야 할지 알 수 있습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside">
+              <li><b>🏍️ 파충류 뇌 (오토바이):</b> 항상 켜져 있으며, 에너지 효율이 매우 높습니다.</li>
+              <li><b>🚗 포유류 뇌 (경차):</b> 깨어있는 동안 자동 습관을 통제합니다. 연비가 떨어집니다.</li>
+              <li><b>✈️ 인간 뇌 (비행기):</b> 엄청난 양의 에너지를 소비하며, 에너지가 충분할 때만 활동합니다.</li>
+            </ul>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 핵심 원칙: 자아 고갈 (Ego Depletion)</h3>
+              <p class="mt-2">하루가 끝나고 피곤할 때, 인간의 뇌(특히 전전두피질)는 기능할 에너지가 부족합니다. 이때 우리는 에너지 효율이 높은 포유류 뇌의 지배를 받아 옛 습관으로 쉽게 돌아갑니다. 따라서 새로운 습관 형성의 첫 번째 규칙은 <span class="highlight">"새로운 일은 아침이나 휴식 직후에 하라"</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Chapter 1 - Habit Loop -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왜 자꾸 간식을 <span class="highlight">곁눈질하게 될까?</span> 🍪</h2>
+          <p class="slide-subtitle">모든 습관은 특정한 욕구를 충족시키기 위해 존재합니다. 나쁜 습관도 마찬가지입니다.</p>
+          <div class="slide-content text-center">
+            <p>습관을 바꾸려면 '습관 루프(Habit Loop)'를 이해해야 합니다.</p>
+            <div class="mt-4 flex justify-center items-center space-x-4">
+                <div class="p-4 bg-blue-100 rounded-lg shadow-md">
+                    <p class="font-bold text-xl">🚦</p>
+                    <p><b>자극 (Cue)</b></p>
+                    <p class="text-sm">장소, 시간, 감정 등</p>
+                </div>
+                <div class="text-2xl font-bold text-gray-500">→</div>
+                <div class="p-4 bg-green-100 rounded-lg shadow-md">
+                    <p class="font-bold text-xl">🏃‍♂️</p>
+                    <p><b>행동 (Routine)</b></p>
+                    <p class="text-sm">반복되는 행동</p>
+                </div>
+                <div class="text-2xl font-bold text-gray-500">→</div>
+                 <div class="p-4 bg-purple-100 rounded-lg shadow-md">
+                    <p class="font-bold text-xl">🏆</p>
+                    <p><b>보상 (Reward)</b></p>
+                    <p class="text-sm">충족되는 욕구</p>
+                </div>
+            </div>
+            <p class="mt-6"><b>해결책:</b> 나쁜 습관을 그만두는 것이 아니라 <span class="highlight">'대체하는 것'</span>입니다. 동일한 자극과 보상을 유지하면서, 욕구를 충족시키는 더 나은 행동으로 바꿔야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Chapter 1 - Worksheet -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">눈앞의 충동에서 <span class="highlight">벗어나는 연습</span></h2>
+              <p class="slide-subtitle">포유류 뇌의 쾌감/고통 중추를 재교육하여 장기적인 관점을 갖게 만들어야 합니다.</p>
+              <div class="slide-content">
+                  <p>새로운 행동의 혜택과 과거 행동의 문제점을 목록으로 만들어 포유류 뇌에게 장기적인 결과를 상기시키세요.</p>
+                  <div class="mt-6 p-6 bg-gray-50 border rounded-lg">
+                      <h3 class="font-bold text-lg">📝 습관의 이점과 단점 판단 워크시트</h3>
+                      <p class="mt-2 mb-4">예: '당분이 많은 간식'을 '건강한 간식'으로 대체하기</p>
+                      <div class="grid grid-cols-2 gap-4">
+                          <div>
+                              <p class="font-semibold text-green-600">[+] 건강한 간식으로 대체했을 때</p>
+                              <ul class="list-disc list-inside text-sm">
+                                  <li>일에 대한 집중력 향상</li>
+                                  <li>피부가 좋아지고 체중 감소</li>
+                                  <li>두통 감소</li>
+                                  <li>브레인 포그(Brain Fog) 감소</li>
+                              </ul>
+                          </div>
+                          <div>
+                              <p class="font-semibold text-red-600">[-] 당분이 많은 간식을 계속 먹었을 때</p>
+                              <ul class="list-disc list-inside text-sm">
+                                  <li>초조한 기분, 집중력 저하</li>
+                                  <li>체중 증가와 스트레스</li>
+                                  <li>만성 두통 발생</li>
+                                  <li>전체적인 생산성 저하</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 9: Chapter 1 - Small Steps -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">식단 전부 바꾸기 vs. <span class="highlight">밥만 현미로 바꾸기</span></h2>
+          <p class="slide-subtitle">성공적으로 습관을 바꾸려면, 포유류 뇌가 안정감을 느끼도록 해야 합니다. 뇌는 급격한 변화를 싫어합니다!</p>
+          <div class="slide-content">
+            <p>야심 찬 큰 변화는 편도체(amygdala)를 자극하여 불안, 분노 등 강한 감정을 유발합니다. 이는 이성적인 뇌(전전두피질)의 기능을 일시적으로 멈추게 하는 '편도체 납치' 현상을 일으킬 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔑 변화를 위한 3가지 질문</h3>
+              <p class="mt-2">새해 계획 대신, 자신에게 이렇게 질문해보세요.</p>
+              <ul class="list-decimal list-inside mt-2 space-y-2">
+                <li><b>이번 달에 바꾸고 싶은 한 가지는 무엇일까?</b> (예: 재정 문제 정리)</li>
+                <li><b>그 변화를 위해 이번 주에 할 수 있는 일은 무엇일까?</b> (예: 입출금 내역서 확인하기)</li>
+                <li><b>이번 주의 목표를 달성하기 위한 작은 단계의 일은 무엇일까?</b> (예: 오늘 10분간 내역서 훑어보기)</li>
+              </ul>
+               <p class="mt-4 text-sm">이렇게 변화를 작은 단계로 쪼개면, 편도체는 위기감을 느끼지 않고 전전두피질은 과도한 부담을 느끼지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 10: Chapter 1 - Neuroplasticity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">딱 30일만 반복하면 <span class="highlight">30년은 저절로 한다</span></h2>
+          <p class="slide-subtitle">새로운 습관은 뇌에 새로운 신경망(네트워크)을 만드는 과정입니다. 이것이 바로 '신경가소성'입니다.</p>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🧠 활동의존 가소성</h3>
+              <p>"사용하지 않으면 사라진다"는 원칙입니다. 많이 사용하는 신경망은 강해지고, 사용하지 않는 신경망은 약해집니다. 새로운 습관을 만들려면 새로운 네트워크를 계속 사용해서 강화해야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">⏳ 얼마나 걸릴까?</h3>
+              <p>습관에 따라 다릅니다. 복잡한 변화일수록 더 많은 신경망 형성이 필요합니다. 중요한 것은 <span class="highlight">최소 한두 달 동안 지속</span>하면서 행동이 자동화될 수 있도록 준비하는 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Chapter 2 - Intro -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 2: 들쭉날쭉 내 감정에 휘둘리지 않는 기술</p>
+          <h2 class="slide-title">감정은 생존의 <span class="highlight">무기로 생겨났다</span></h2>
+          <p class="slide-subtitle">감정은 내/외적 환경에 대한 귀중한 정보를 담고 있습니다. 무시하거나 억누르는 것은 해답이 아닙니다.</p>
+          <div class="slide-content">
+            <p>1만 년 전, 생존을 위해서는 위험을 재빨리 감지하고 즉각 반응하는 시스템이 필요했습니다. 이것이 바로 감정을 만드는 포유류 뇌(변연계)가 발달한 이유입니다.</p>
+            <p class="mt-4">현대 사회의 환경은 변했지만, 우리의 감정 중추는 그대로입니다. 따라서 행동 패턴 뒤에 있는 감정적 의미를 이해하려면 <span class="highlight">진화에서 감정이 맡았던 역할</span>을 고려해야 합니다.</p>
+            <div class="mt-6 p-4 bg-gray-100 rounded-lg text-center">
+                <p><b>트리거 (유인) ➞ 감정 ➞ 생리적 변화 ➞ 행동 ➞ 개인과 종의 생존</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Chapter 2 - 8 Emotions -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나를 울고 웃게 만드는 <span class="highlight">8가지 감정들</span></h2>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="p-3 bg-blue-100 rounded-lg"><b>슬픔 💧</b><br/><span class="text-sm">수동적 반응, 통제력 부족</span></div>
+            <div class="p-3 bg-red-100 rounded-lg"><b>분노 🔥</b><br/><span class="text-sm">능동적 반응, 위험 대처</span></div>
+            <div class="p-3 bg-yellow-100 rounded-lg"><b>죄책감/수치심 😔</b><br/><span class="text-sm">사회적 감정, 의무 불이행</span></div>
+            <div class="p-3 bg-green-100 rounded-lg"><b>혐오 🤢</b><br/><span class="text-sm">진화적 회피, 도덕적 신념</span></div>
+            <div class="p-3 bg-purple-100 rounded-lg"><b>두려움 😨</b><br/><span class="text-sm">강한 감정적 반응, 위험 회피</span></div>
+            <div class="p-3 bg-indigo-100 rounded-lg"><b>놀람 😲</b><br/><span class="text-sm">중립적 반응, 불확실성 대비</span></div>
+            <div class="p-3 bg-pink-100 rounded-lg"><b>흥분/기쁨 😄</b><br/><span class="text-sm">긍정적 감정, 안전/생존 신호</span></div>
+            <div class="p-3 bg-rose-100 rounded-lg"><b>사랑/신뢰 ❤️</b><br/><span class="text-sm">사회적 감정, 관계 형성</span></div>
+          </div>
+          <p class="mt-6 slide-content">오늘날 많은 감정의 트리거는 실제 위험이 아닌 <span class="highlight">상상 속에만 존재</span>합니다. 따라서 각 감정을 만날 때 어떤 반응이 유용하고 어떤 반응이 역효과를 낳는지 스스로 평가해야 합니다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 13: Chapter 2 - Amygdala Control -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">평정심의 필수 조건, <span class="highlight">'안전하다'는 감각</span></h2>
+          <p class="slide-subtitle">감정을 관리하는 것은 편도체를 달래고, 신체를 부교감신경 지배 상태로 전환하는 것입니다.</p>
+          <div class="slide-content grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🌬️ 긴장을 완화하는 호흡 연습</h3>
+              <p>가장 빠르고 효과적인 방법입니다. 배로 숨을 깊게 마시고, 특히 <span class="highlight">내쉬는 호흡을 천천히</span> 하면 뇌는 상황이 안전하다고 인지합니다. 이는 감정의 악순환을 멈추고 신체를 이완 상태로 만듭니다.</p>
+               <p class="mt-2 text-sm"><b>연습:</b> 4초간 코로 숨쉬고, 4초간 참고, 6~8초간 천천히 내쉬세요. 이를 4번 반복합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🧘 평정심을 부르는 다른 활동들</h3>
+               <ul class="list-disc list-inside">
+                  <li><b>신체 활동:</b> 요가, 태극권 같은 느린 움직임 또는 조깅, 등산 등</li>
+                  <li><b>돌봄 행위:</b> 아기나 반려동물 안기, 포옹 (옥시토신 분비)</li>
+                  <li><b>감사 실천:</b> 매일 감사한 일 5가지 적기</li>
+                  <li><b>긍정 확언:</b> "나는 강하고, 건강하고, 안전하다."</li>
+               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 2 - Cognitive Appraisal -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">어린아이처럼 겁먹은 <span class="highlight">뇌 달래기</span> 🧸</h2>
+              <p class="slide-subtitle">인지적 평가(Cognitive Appraisal)를 통해 감정 패턴에 새로운 시각을 부여할 수 있습니다.</p>
+              <div class="slide-content">
+                  <p>심리학자 앨버트 엘리스의 <b>ABCDE 모델</b>은 감정 패턴을 이해하고 변화시키는 데 효과적입니다.</p>
+                  <ul class="list-none space-y-2 mt-4">
+                      <li><b>A (Adversity):</b> 특정한 상황 (예: 연인과 헤어짐)</li>
+                      <li><b>B (Belief):</b> 상황에 대한 각자의 신념 (예: "나는 이제 사랑받지 못할 거야")</li>
+                      <li><b>C (Consequence):</b> 특정한 감정적 반응 (예: 깊은 슬픔, 절망)</li>
+                      <li><b>D (Dispute):</b> 그 신념에 대한 반박 (예: "이 관계가 끝난 것이 내 가치를 결정하지 않아")</li>
+                      <li><b>E (Effective new belief):</b> 효과적인 새로운 신념 (예: "나는 새로운 관계를 맺을 수 있는 가치 있는 사람이야")</li>
+                  </ul>
+                  <div class="mt-6 p-4 bg-gray-50 border rounded-lg">
+                      <p>어떤 상황에서 억울하거나 슬프거나 화가 나는 이유는 <span class="highlight">그림의 절반만 보기 때문</span>일 수 있습니다. 관계가 끝났을 때의 긍정적인 측면(예: 더 많은 자유, 새로운 기회) 목록을 만들어보며 균형을 찾으세요.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 15: Chapter 3 - Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 3: 내 성격의 35퍼센트 원하는 대로 바꾸기</p>
+          <h2 class="slide-title">성격은 바뀐다고 <span class="highlight">믿는 만큼 바뀐다</span></h2>
+          <p class="slide-subtitle">성격의 50%는 유전, 15%는 환경이지만, 나머지 35%는 우리의 선택에 달려있습니다. 변화는 가능합니다!</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔒 고정형 사고방식 (Fixed Mindset)</h3>
+              <p>지능, 재능, 성격이 미리 결정되어 있다고 믿습니다. 변화는 어렵다고 생각하며 새로운 도전을 피합니다. 실패를 자신의 결함으로 받아들입니다. 이는 뇌 가소성을 떨어뜨립니다.</p>
+            </div>
+            <div class="p-4 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">🌱 성장형 사고방식 (Growth Mindset)</h3>
+              <p>노력을 통해 지능, 재능, 성격이 변화될 수 있다고 믿습니다. 도전을 즐기고 실패를 배움의 기회로 삼습니다. 이는 뇌 가소성을 높여 지속적인 변화를 가능하게 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Chapter 3 - Brain's Filter -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마트에 가면 <span class="highlight">취미용품만 보이는 이유</span></h2>
+          <p class="slide-subtitle">우리의 뇌는 세상을 '있는 그대로' 보지 않습니다. 과거 경험, 기대, 그리고 '개인적 가치관'이라는 필터를 통해 세상을 봅니다.</p>
+          <div class="slide-content">
+            <p>뇌의 시상피질 루프(thalamocortical loop)는 내적 신념에 따라 세상 정보에 필터를 씌웁니다. '도시에 사는 사람들은 모두 우울해'라고 믿으면, 밖에서 우울한 사람들만 눈에 띄게 됩니다.</p>
+            <p class="mt-4">개인의 <span class="highlight">가치관</span>은 더욱 강력한 필터입니다. 쇼핑몰에서 패션에 관심 있는 사람은 옷을, 아이를 키우는 사람은 유모차를, 아웃도어 활동을 좋아하는 사람은 등산 장비를 먼저 보게 됩니다. 우리는 가치를 두는 일에 더 많은 주의를 기울이고, 더 잘하게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 3 - Finding Values -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">내가 누구인지 이해하기 위한 <span class="highlight">열세 가지 질문</span> 🔍</h2>
+              <p class="slide-subtitle">진정한 자신을 찾으려면 현재 당신의 삶을 지배하는 '가치 위계'를 이해해야 합니다.</p>
+              <div class="slide-content">
+                  <p>다음 영역에서 당신이 가장 중요하게 생각하는 것 3가지는 무엇인가요?</p>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm mt-4">
+                      <ul class="list-disc list-inside">
+                          <li>개인 공간을 채우는 것</li>
+                          <li>시간을 보내는 방식</li>
+                          <li>에너지를 사용하는 곳</li>
+                          <li>돈을 사용하는 곳</li>
+                      </ul>
+                       <ul class="list-disc list-inside">
+                          <li>가장 질서 잡힌 부분</li>
+                          <li>가장 집중하는 부분</li>
+                          <li>머릿속을 채우는 주제</li>
+                          <li>내적 대화의 주제</li>
+                      </ul>
+                      <ul class="list-disc list-inside">
+                          <li>시각화하고 실현하는 것</li>
+                          <li>사람들과 이야기하는 주제</li>
+                          <li>영감을 주는 것</li>
+                          <li>장기적인 목표</li>
+                      </ul>
+                  </div>
+                   <p class="mt-6">반복되는 답변들을 범주별로 묶어보면 당신의 최상위 가치 3가지를 발견할 수 있습니다. 당신의 삶이 이 가치들과 일치하고 있나요?</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 18: Chapter 3 - The Work Technique -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고정된 생각을 바꾸는 <span class="highlight">'The Work' 6단계</span></h2>
+          <p class="slide-subtitle">영적 스승 바이런 케이티의 기법으로, 자신의 생각을 재평가하고 새로운 관점을 발견할 수 있습니다.</p>
+          <div class="slide-content text-sm">
+            <p><b>믿음: "나는 테니스에 재능이 없어."</b></p>
+            <ol class="list-decimal list-inside space-y-1 mt-4">
+              <li><b>정말인가요?</b> (네)</li>
+              <li><b>그게 사실이라고 100% 확신할 수 있나요?</b> (아니요, 많이 안 쳐봤으니까요.)</li>
+              <li><b>그렇게 생각할 때 어떤 느낌이 들고 어떻게 반응하나요?</b> (루저가 된 기분이고, 시도조차 안 하고 TV를 봅니다.)</li>
+              <li><b>그 생각이 없다면 어떨까요?</b> (화가 나지 않겠죠. 재미있는지 시도해보고, 새로운 친구를 사귈 수도 있을 거예요.)</li>
+              <li><b>그 생각을 버려야 할 이유가 있나요?</b> (네, 그 생각을 버리면 스트레스가 줄고 새로운 가능성이 열려요.)</li>
+              <li><b>반대로 생각해보세요.</b>
+                <ul class="list-disc list-inside ml-6">
+                  <li>"나는 테니스에 재능이 <b>있다</b>." (→ 시도해보지 않으면 모르는 일)</li>
+                  <li>"테니스에 재능이 없는 <b>사람은 많다</b>." (→ 내가 존경하는 사람도 못하는 게 있다)</li>
+                  <li>"나는 테니스와 <b>잘 맞지 않는다</b>." (→ 못하는 것에 대한 좌절감이 나의 결점처럼 느껴진다)</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Section 2 Title -->
+       <div class="slide">
+        <div class="slide-container text-center bg-green-800 text-white rounded-xl p-12">
+            <p class="slide-part-title text-green-200">Part 2</p>
+            <h2 class="slide-title text-white">오늘부터 일도, 공부도 <br/><span class="highlight">두 배로 잘된다</span> 🚀</h2>
+            <p class="slide-content text-green-100">뇌를 최적화하여 생산성을 높이고, 명쾌한 기억력과 현명한 결정 능력을 키웁니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Chapter 4 - Optimize PFC -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 4: 일머리 좀 있다는 말 듣는 법</p>
+          <h2 class="slide-title">당신의 머릿속을 <span class="highlight">최적화하라</span></h2>
+          <p class="slide-subtitle">높은 성과, 기억력, 생산성의 기반이 되는 전전두피질(PFC)을 재충전하는 4가지 방법입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <h3 class="font-bold text-lg">🥗 1. 영양과 산소 공급</h3>
+                <p>규칙적이고 영양이 풍부한 식사, 깊고 느린 호흡, 운동을 통해 혈액순환을 원활하게 하여 뇌에 충분한 에너지를 공급해야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <h3 class="font-bold text-lg">☕ 2. 일과 휴식의 균형</h3>
+                <p>장시간 일하면 신경전달물질이 고갈됩니다. 90분 일하고 10분 쉬는 등, 주기적인 휴식을 통해 뇌가 노폐물을 처리하고 회복할 시간을 줘야 합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <h3 class="font-bold text-lg">😴 3. 충분한 잠</h3>
+                <p>잠은 단순한 휴식이 아닙니다. 낮에 학습한 정보가 장기 기억으로 전환(기억 공고화)되고, 손상된 신경망이 복구되며, 새로운 뉴런이 생성되는 필수 과정입니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <h3 class="font-bold text-lg">🏃‍♀️ 4. 적당한 신체 활동</h3>
+                <p>자발적으로 즐겁게 하는 운동은 뇌유래신경성장인자(BDNF) 수치를 높여 기억과 학습을 촉진하고, 뇌 가소성을 향상시킵니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 4 - Multitasking -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">멀티태스킹은 <span class="highlight">'에너지 도둑'</span>이다</h2>
+          <p class="slide-subtitle">진정한 멀티태스킹은 물리적으로 불가능합니다. 우리는 단지 여러 과제 사이를 빠르게 전환(Task Switching)하고 있을 뿐입니다.</p>
+          <div class="slide-content">
+            <p class="text-center">과제를 전환할 때마다 엄청난 시간과 에너지가 낭비됩니다.</p>
+            <div class="mt-6 relative flex justify-center">
+              <div class="w-full max-w-lg">
+                <div class="bg-gray-200 rounded-full h-8"></div>
+                <div class="bg-blue-500 rounded-full h-8 absolute top-0" style="width: 100%;"><span class="ml-4 text-white font-bold">1개 과제 (생산성 100%)</span></div>
+                <div class="bg-red-500 rounded-full h-8 mt-4" style="width: 80%;"><span class="ml-4 text-white font-bold">2개 과제 (과제당 40%, 낭비 20%)</span></div>
+                <div class="bg-red-700 rounded-full h-8 mt-4" style="width: 60%;"><span class="ml-4 text-white font-bold">3개 과제 (과제당 20%, 낭비 40%)</span></div>
+              </div>
+            </div>
+            <p class="mt-6 text-center">과제 전환이 잦을수록 실수는 약 <span class="font-bold">3배</span> 높아집니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Chapter 4 - Pomodoro Technique -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뽀모도로 기법 🍅</h2>
+          <p class="slide-subtitle">주의력 훈련에 가장 유용한 기법 중 하나로, 집중과 휴식의 균형을 찾아줍니다.</p>
+          <div class="slide-content text-center">
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-5 items-center gap-4">
+              <div class="p-4 bg-red-100 rounded-lg">
+                <p class="text-4xl">⏰</p>
+                <p class="font-bold">1. 타이머 설정</p>
+                <p class="text-sm">25분간 한 가지 일에만 집중</p>
+              </div>
+              <div class="text-2xl font-bold text-gray-400">→</div>
+              <div class="p-4 bg-green-100 rounded-lg">
+                <p class="text-4xl">🧘</p>
+                <p class="font-bold">2. 5분 휴식</p>
+                <p class="text-sm">완전히 다른 활동하기</p>
+              </div>
+              <div class="text-2xl font-bold text-gray-400">→</div>
+              <div class="p-4 bg-blue-100 rounded-lg">
+                <p class="text-4xl">🔄</p>
+                <p class="font-bold">3. 4번 반복</p>
+                <p class="text-sm">그 후 15-30분 긴 휴식</p>
+              </div>
+            </div>
+            <p class="mt-8">이 방법은 한 가지 일에 지나치게 집중하는 사람(번아웃 방지)과 한 가지 일에 집중하기 어려운 사람(주의산만 방지) 모두에게 유용합니다. 과제 지속 시간(15분, 45분 등)은 개인의 상태에 따라 조절할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Chapter 5 - Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 5: 120퍼센트 가동하는 뇌 컨디션 만들기</p>
+          <h2 class="slide-title">긍정 모드를 켜는 <span class="highlight">머릿속 스위치</span> 💡</h2>
+          <p class="slide-subtitle">우리의 기분, 에너지, 기억력은 신경전달물질이라는 화학 분자의 섬세한 균형에 의해 결정됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-yellow-50 border rounded-lg">
+              <h3 class="font-bold text-lg">😊 세로토닌 (Serotonin)</h3>
+              <p class="mt-2 text-sm"><b>'긍정의 힘'.</b> 좋은 기분, 숙면, 삶의 긍정성에 필수적입니다. 햇빛, 운동, 명상, 감사 등으로 수치를 높일 수 있습니다.</p>
+            </div>
+            <div class="p-4 bg-orange-50 border rounded-lg">
+              <h3 class="font-bold text-lg">🔥 도파민 (Dopamine)</h3>
+              <p class="mt-2 text-sm"><b>'열정의 원천'.</b> 동기부여와 열의에 필수적입니다. 목표 달성, 새로운 경험, 맛있는 음식 등으로 분비됩니다.</p>
+            </div>
+            <div class="p-4 bg-rose-50 border rounded-lg">
+              <h3 class="font-bold text-lg">💖 옥시토신 (Oxytocin)</h3>
+              <p class="mt-2 text-sm"><b>'안정감의 원천'.</b> 사랑, 신뢰, 유대감을 형성합니다. 포옹, 신체 접촉, 신뢰 기반의 관계에서 분비됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Chapter 5 - Excitatory/Inhibitory Neurotransmitters -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">잠깐이라도 <span class="highlight">슈퍼맨이 될 수 없을까?</span></h2>
+          <p class="slide-subtitle">명료한 사고와 집중을 위해서는 흥분성/억제성 신경전달물질의 균형이 중요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+             <div class="p-4 bg-gray-50 border rounded-lg">
+              <h3 class="font-bold text-lg">🧠 글루타민산염 (Glutamate)</h3>
+              <p class="mt-2 text-sm"><b>'전방위 미드필더'.</b> 뇌의 가장 흔한 흥분성 물질로, 학습, 기억, 집행 기능 등 대부분의 정신 활동에 관여합니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 border rounded-lg">
+              <h3 class="font-bold text-lg">🎯 아세틸콜린 (Acetylcholine)</h3>
+              <p class="mt-2 text-sm"><b>'집중의 마법'.</b> 각성과 집중 상태를 만들어 기억과 학습, 성과에 중요한 역할을 합니다.</p>
+            </div>
+             <div class="p-4 bg-gray-50 border rounded-lg">
+              <h3 class="font-bold text-lg">🧘 감마아미노뷰티르산 (GABA)</h3>
+              <p class="mt-2 text-sm"><b>'불안감을 날리는 물질'.</b> 뉴런 활동을 약화시켜 불안을 조절하고, 배경 소음을 차단하여 집중을 돕는 억제성 물질입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 25: Chapter 5 - Gut-Brain Axis -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">화장실에 잘 가면 <span class="highlight">뇌도 건강해진다</span></h2>
+          <p class="slide-subtitle">장 건강과 정신 건강은 놀라울 정도로 긴밀하게 연결되어 있습니다.</p>
+          <div class="slide-content">
+            <p>뇌 화학물질의 대부분은 우리가 먹은 음식을 통해 <span class="highlight">장에서 만들어지기 시작</span>합니다. 장내 미생물계의 균형(장 건강)이 신경전달물질 전구체의 생성에 큰 영향을 미칩니다.</p>
+            <p class="mt-4">음식 과민증(셀리악병 등)이나 장 염증은 영양소 흡수를 방해하고, 이는 신경전달물질 불균형으로 이어져 체력 저하, 불면증, 불안, 우울 등을 유발할 수 있습니다. 심한 경우 '장 누수 증후군'은 뇌혈관에 염증을 일으켜 <span class="highlight">브레인 포그(Brain Fog)</span>나 심각한 정신 증상을 초래할 수도 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Chapter 6 - Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 6: 우물쭈물하지 않고 현명하게 결정하는 법</p>
+          <h2 class="slide-title">머리와 가슴, <span class="highlight">누구 편을 들지 모르겠을 때</span></h2>
+          <p class="slide-subtitle">최고의 결정은 감정과 이성의 완벽한 조화에서 나옵니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">❤️ 시스템 1: 직감을 따른다</h3>
+              <p>빠르고, 무의식적이며, 에너지를 거의 쓰지 않습니다. 포유류 뇌가 제공하는 정보로, <span class="highlight">과거 경험에 기반한 감정적 판단</span>입니다. 익숙함(Familiarity)에 크게 의존하며, 장점은 속도지만 단점은 편향(Bias)입니다.</p>
+            </div>
+            <div class="p-4 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">🧠 시스템 2: 이성적으로 사고한다</h3>
+              <p>느리고, 의식적이며, 많은 에너지를 소모합니다. 인간의 뇌(전전두피질)를 사용하여 <span class="highlight">장단점을 논리적으로 분석</span>합니다. 장점은 객관성이지만, 단점은 '분석 마비(Analysis Paralysis)'에 빠질 수 있다는 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Chapter 6 - Biases -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">우리는 왜 <span class="highlight">편견의 늪에서</span> 허우적댈까</h2>
+              <p class="slide-subtitle">빠른 판단을 돕는 '정신적 지름길(어림법)'은 안타깝게도 다양한 편견을 낳습니다.</p>
+              <div class="slide-content grid grid-cols-2 gap-4">
+                  <div class="p-3 bg-gray-50 border rounded-lg">
+                      <h3 class="font-bold">🤝 친근성 편향 (Familiarity Bias)</h3>
+                      <p class="text-sm">익숙한 것을 타당하다고 여기는 심리. 고정관념의 원인이 됩니다.</p>
+                  </div>
+                  <div class="p-3 bg-gray-50 border rounded-lg">
+                      <h3 class="font-bold">👍 확증 편향 (Confirmation Bias)</h3>
+                      <p class="text-sm">자신의 믿음을 뒷받침하는 정보만 인식하고 받아들이는 경향.</p>
+                  </div>
+                  <div class="p-3 bg-gray-50 border rounded-lg">
+                      <h3 class="font-bold">🙋 자기중심적 편향 (Egocentric Bias)</h3>
+                      <p class="text-sm">자신이 가진 것을 과대평가하고, 포기한 것을 과소평가하는 경향.</p>
+                  </div>
+                  <div class="p-3 bg-gray-50 border rounded-lg">
+                      <h3 class="font-bold">⚓️ 기준점 편향 (Anchoring Bias)</h3>
+                      <p class="text-sm">처음에 얻은 정보(기준점)에 의존하여 판단하는 경향.</p>
+                  </div>
+              </div>
+              <p class="mt-6"><b>해결책:</b> 이러한 무의식적 편견의 존재를 <span class="highlight">인식</span>하고, 이성적 사고(시스템 2)를 이용해 의식적으로 반대 증거를 찾거나 다른 관점을 고려함으로써 편향을 조정해야 합니다.</p>
+          </div>
+      </div>
+      
+      <!-- Slide 28: Section 3 Title -->
+       <div class="slide">
+        <div class="slide-container text-center bg-purple-800 text-white rounded-xl p-12">
+            <p class="slide-part-title text-purple-200">Part 3</p>
+            <h2 class="slide-title text-white">뇌를 바꾸자<br/><span class="highlight">좋은 관계가 찾아왔다</span> 🧑‍🤝‍🧑</h2>
+            <p class="slide-content text-purple-100">리더십, 내면의 상처, 그리고 대화의 기술을 뇌과학적 관점에서 탐구하여 관계를 혁신합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Chapter 7 - TPN vs DMN -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 7: 뇌가 알려주는 사람을 이끄는 지혜</p>
+          <h2 class="slide-title">사람이 먼저다 vs. <span class="highlight">과제가 먼저다</span></h2>
+          <p class="slide-subtitle">우리 뇌에는 '공감 모드'와 '과제 모드'라는 두 가지 상반된 네트워크가 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔥 TPN (태스크 포지티브 네트워크)</h3>
+              <p><b>'과제 모드'.</b> 분석적 사고, 문제 해결, 주의 집중을 담당합니다. 불협(Dissonant) 리더가 주로 사용하며, 일의 완수에 필수적이지만 공감 능력은 떨어집니다. <b>"과제가 먼저다"</b></p>
+            </div>
+            <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💙 DMN (디폴트 모드 네트워크)</h3>
+              <p><b>'공감 모드'.</b> 다른 사람의 감정과 생각을 이해하고 사회적 관계를 맺는 데 사용됩니다. 공감(Resonant) 리더가 주로 사용하며, 관계 형성에 필수적입니다. <b>"사람이 먼저다"</b></p>
+            </div>
+          </div>
+          <p class="mt-6 slide-content"><b>문제점:</b> 이 두 네트워크는 서로를 억제하기 때문에 동시에 활성화되기 어렵습니다. 따라서 상황에 맞게 두 모드를 의식적으로 전환하는 '전환 시간'이 필요합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 30: Chapter 7 - GROW Model -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">GROW, 사람을 이끌고 <span class="highlight">성장시키는 법</span></h2>
+          <p class="slide-subtitle">John Whitmore의 GROW 모델은 상대방이 스스로 해법을 찾도록 돕는 강력한 코칭 기법입니다.</p>
+          <div class="slide-content">
+            <ul class="space-y-4">
+              <li><b>G (Goal - 목표):</b> 무엇을 만들고 싶은가? 어디로 향하고 있는가? (목적지 확인)</li>
+              <li><b>R (Reality - 현실):</b> 현재 상황은 어떤가? 지금까지 무엇을 했는가? (현재 위치 파악)</li>
+              <li><b>O (Options - 옵션):</b> 이를 달성하기 위한 방법에는 무엇이 있는가? (가능한 모든 경로 탐색)</li>
+              <li><b>W (Will - 자발성/의지):</b> 기꺼이 실행할 수 있는 옵션은 무엇인가? 첫 단계는 무엇인가? (첫걸음 선택)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Chapter 8 - Attachment Styles -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 8: 상처받은 내면 아이와 화해하는 법</p>
+          <h2 class="slide-title">어린 시절의 내가 <span class="highlight">지금의 관계를 만들었다</span></h2>
+          <p class="slide-subtitle">어린 시절 양육자와의 관계는 성인기의 인간관계를 결정하는 '애착 유형'을 형성합니다.</p>
+          <div class="slide-content grid grid-cols-2 gap-4 text-sm">
+            <div class="p-3 bg-green-50 rounded-lg border"><b>1. 안정 애착 (Secure):</b> 일관된 사랑과 지지 속에서 형성. 자신과 타인에 대한 긍정적 이미지.</div>
+            <div class="p-3 bg-gray-50 rounded-lg border"><b>2. 거부-회피 애착 (Dismissing-avoidant):</b> 정서적 교감 부족으로 형성. 독립적이지만 깊은 관계를 회피.</div>
+            <div class="p-3 bg-yellow-50 rounded-lg border"><b>3. 몰두-불안정 애착 (Preoccupied-anxious):</b> 일관되지 않은 양육으로 형성. 타인의 인정에 의존하고 관계에 집착.</div>
+            <div class="p-3 bg-red-50 rounded-lg border"><b>4. 공포 애착 (Fearful-avoidant):</b> 거부와 비난 속에서 형성. 관계를 원하지만 거부당할까 두려워함.</div>
+          </div>
+          <p class="mt-4 slide-content">좋은 소식은, 애착 유형은 <span class="highlight">변할 수 있다</span>는 것입니다. 안정적인 관계와 내면 아이 치유를 통해 새로운 애착 유형을 발전시킬 수 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Chapter 8 - Inner Child Healing -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내 안의 어린아이가 <span class="highlight">울고 있다</span> 💧</h2>
+          <p class="slide-subtitle">내면 아이 치유 3단계: 상처받은 포유류 뇌를 이성적인 내면 어른이 돌보는 과정입니다.</p>
+          <div class="slide-content">
+            <ol class="list-decimal list-inside space-y-4">
+              <li><b>내면 부모 재교육:</b> 비판적인 내면 부모의 목소리를 멈추고, 이성적인 내면 어른(전전두피질)이 아이를 달래도록 교육합니다. ("불합리한 짓을 하고 있어" ❌)</li>
+              <li><b>내면 아이의 감정 인정:</b> 아이의 주관적인 경험과 감정을 있는 그대로 인정해줍니다. ("네가 겁먹고 외롭게 느낀다는 걸 알아. 하지만 넌 혼자가 아니야.")</li>
+              <li><b>내면 아이의 욕구 이해 및 충족:</b> 아이가 진정으로 원하는 것이 무엇인지(안정감, 인정, 유대 등) 묻고, 그 욕구를 충족시킬 방법을 함께 찾습니다. ("지금 네가 원하는 게 뭐니?")</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Chapter 9 - Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 9: 누구도 마음 상하지 않는 대화의 기술</p>
+          <h2 class="slide-title">감정적인 대화에서 <span class="highlight">즉각 탈출하기</span></h2>
+          <p class="slide-subtitle">자극을 받은 편도체는 전전두피질을 납치하여 포유류 뇌가 지배하는 '공격' 또는 '회피' 반응을 낳습니다.</p>
+          <div class="slide-content">
+            <p>이 상태에서는 이성적인 대화가 불가능합니다. 편도체의 흥분을 가라앉히고 전전두피질이 지배하는 상태로 돌아가야 합니다.</p>
+            <div class="mt-6 p-4 bg-gray-50 border rounded-lg">
+                <h3 class="font-bold text-lg">🛑 긴급 탈출 아이디어</h3>
+                <ul class="list-disc list-inside mt-2">
+                    <li><b>시간 갖기:</b> "지금은 대화하기 힘드니, 10분만 쉬었다가 다시 이야기하자."</li>
+                    <li><b>환경 바꾸기:</b> 함께 산책하거나, 편안한 소파에 앉아서 이야기하기.</li>
+                    <li><b>호흡하기:</b> 대화 전 심호흡이나 명상을 통해 편도체를 진정시키기.</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 34: Chapter 9 - Imago Dialogue -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이마고 대화 (Imago Dialogue) 🗣️</h2>
+          <p class="slide-subtitle">편도체를 안정시키고 안전한 소통을 위한 강력한 대화법입니다.</p>
+          <div class="slide-content">
+            <ol class="list-decimal list-inside space-y-2 text-sm">
+              <li><b>약속하기:</b> 대화할 적절한 시간을 함께 정합니다.</li>
+              <li><b>주관적 경험 공유 (발신자):</b> 비난 없이 '나'를 주어로 자신의 경험을 이야기합니다. ("나는 ~라고 느꼈어.")</li>
+              <li><b>상대의 말 반복하기 (수신자 - 거울 반응):</b> 들은 내용을 자신의 의견 없이 그대로 반복합니다. ("내가 이해한 바로는, 너는 ~라고 느꼈구나. 맞아?")</li>
+              <li><b>상대의 말 검증하기 (수신자 - 다름의 수용):</b> 상대의 관점에서는 그럴 수 있음을 인정합니다. ("네 입장에서 그렇게 보였다는 걸 알겠어. 충분히 그럴 만해.")</li>
+              <li><b>상대의 말에 공감하기 (수신자 - 유대감 형성):</b> 상대의 감정에 공감합니다. ("네가 무시당했다고 느껴서 슬프고 좌절했구나.")</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 35: Chapter 9 - NVC -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비폭력 대화 (NVC) 4단계 🕊️</h2>
+          <p class="slide-subtitle">자신의 생각과 욕구를 효과적으로 표현하고 상대의 말을 공감적으로 경청하는 방법입니다.</p>
+          <div class="slide-content">
+            <p>예시: 딸이 출근 전 아침에 자꾸 관계에 대한 이야기를 꺼낼 때</p>
+            <ol class="list-decimal list-inside space-y-3">
+              <li><b>관찰하기 (사실):</b> "릴리, 네가 지난 3일 동안 내가 출근하기 전 아침에 우리 관계에 대한 대화를 시작했다는 것을 알아차렸어." (비난이나 해석 없이)</li>
+              <li><b>느낌 공유하기 (감정):</b> "그런 상황에서 나는 스트레스를 받고 좌절감을 느낀단다."</li>
+              <li><b>욕구 확인하기 (필요):</b> "엄마는 너와 온전히 집중해서 이야기하고 싶어. 그리고 동시에 회사 일을 계획할 안전한 시간도 필요하단다."</li>
+              <li><b>요청하기 (부탁):</b> "급한 일이 아니라면, 우리가 온전히 서로에게 집중할 수 있는 저녁 시간을 정해서 이야기하는 건 어떨까?"</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 36: Chapter 9 - Gottman's Four Horsemen -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'비난'과 '담 쌓기'를 <span class="highlight">멈춰라</span> 🚫</h2>
+          <p class="slide-subtitle">가트맨 박사가 발견한, 관계를 파괴하는 4가지 해로운 상호작용 유형('네 명의 기수')입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 bg-red-50 border rounded-lg">
+              <h3 class="font-bold">1. 비난 (Criticism)</h3>
+              <p class="text-sm">"당신은 언제나..."와 같이 상대의 성격 전체를 공격하는 것. (대안: '나 전달법'으로 표현)</p>
+            </div>
+            <div class="p-4 bg-red-50 border rounded-lg">
+              <h3 class="font-bold">2. 방어 (Defensiveness)</h3>
+              <p class="text-sm">자신을 피해자로 만들거나 반격하는 것. (대안: 자신의 행동에 책임지기)</p>
+            </div>
+            <div class="p-4 bg-red-50 border rounded-lg">
+              <h3 class="font-bold">3. 무례와 비난 (Contempt)</h3>
+              <p class="text-sm">욕설, 경멸 등 상대를 자신보다 낮게 보는 태도. 이혼의 가장 강력한 예측 변수. (대안: 상대의 가치관 존중)</p>
+            </div>
+            <div class="p-4 bg-red-50 border rounded-lg">
+              <h3 class="font-bold">4. 담 쌓기 (Stonewalling)</h3>
+              <p class="text-sm">상대의 말이나 행동에 반응하지 않고 벽을 쌓는 것. (대안: 대화를 잠시 멈추자고 요청하기)</p>
+            </div>
+          </div>
+          <p class="mt-6 slide-content">건강한 관계는 긍정적 상호작용과 부정적 상호작용의 비율이 최소 <span class="highlight font-bold">5:1</span> 이상이어야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 37: Conclusion Section Intro -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🏁</div>
+            <h2 class="slide-title">마무리: 뇌를 내 편으로 만들기</h2>
+            <p class="slide-content max-w-4xl mx-auto">
+              가상의 인물 '에밀리'의 사례를 통해 책의 모든 내용을 종합하고, 그녀가 어떻게 변화의 여정을 거쳤는지 살펴봅니다.
+            </p>
+        </div>
+      </div>
+
+      <!-- Slide 38: Emily's Initial State -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">에밀리의 이야기: <span class="highlight">변화의 시작점</span></h2>
+            <p class="slide-subtitle">에밀리는 의지와 결단력만으로 변화하려 했지만, 계속 낡은 습관으로 되돌아가는 '요요 현상'을 겪으며 좌절하고 있었습니다.</p>
+            <div class="slide-content">
+                <p><b>에밀리의 자기 평가 (10점 만점):</b></p>
+                <ul class="list-disc list-inside grid grid-cols-2 md:grid-cols-3 gap-x-8 mt-4">
+                    <li>습관: 6점 (설탕 섭취 문제)</li>
+                    <li>감정: 4점 (비관적, 우울함)</li>
+                    <li>성격: 5점 (비관적 세계관)</li>
+                    <li>생산성: 5점 (일에 대한 신경을 못 끔)</li>
+                    <li>뇌 건강: 4점 (브레인 포그, 만성 불안)</li>
+                    <li>의사결정: 6점 (결정 마비)</li>
+                    <li>리더십: 6점 (두려움)</li>
+                    <li>인간관계: 5점 (갈등)</li>
+                    <li>커뮤니케이션: 6점 (충동적 반응)</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Emily's Journey - Habits & Emotions -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">에밀리의 여정 ①: <span class="highlight">습관과 감정 바꾸기</span></h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">👟 습관 바꾸기</h3>
+                    <p>에밀리는 자신이 너무 지쳐있음을 깨닫고, 뇌 에너지가 가장 활발한 <span class="highlight">아침 시간</span>에 '건강하게 먹기'라는 한 가지 습관에만 집중했습니다. 빵을 먹는 것의 '고통'과 건강식의 '즐거움'을 연결하고, 불안할 때 글을 쓰는 대안을 찾았습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">😊 감정 바꾸기</h3>
+                    <p>자신의 감정을 억누르는 대신, 각 감정이 전하는 메시지를 인식하기 시작했습니다. 불안, 분노가 <span class="highlight">'안정감 부족'</span>의 신호임을 깨닫고, 편도체를 자극하는 내면의 생각을 '6단계 질문법'으로 진단하며 감정의 주도권을 되찾았습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Emily's Journey - Personality & Productivity -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">에밀리의 여정 ②: <span class="highlight">성격과 생산성 높이기</span></h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">🌱 성격 바꾸기</h3>
+                    <p>자신의 진짜 가치를 파악하고, 타인의 기대에서 벗어나 자신이 원하는 삶을 그리기 시작했습니다. '나는 원래 이래'라는 <span class="highlight">고정형 사고방식</span>의 함정을 깨닫고, 통제할 수 있는 것에 집중하는 성장형 사고방식으로 전환했습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">🚀 생산성 높이기</h3>
+                    <p>멀티태스킹이 비효율적임을 깨닫고, <span class="highlight">뽀모도로 기법</span>을 도입해 주의 지속 시간을 늘렸습니다. '거절 못 하는 태도'와 '완벽주의'가 미루기의 원인임을 파악하고, 중요도/긴급성에 따라 과제를 분류하고 위임/거절하는 법을 익혔습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Emily's Journey - Brain Health & Decisions -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">에밀리의 여정 ③: <span class="highlight">뇌 건강과 의사결정</span></h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">🧠 뇌 건강 바꾸기</h3>
+                    <p>과도한 당과 카페인 섭취가 뇌를 흥분 상태로 몰아감을 인지했습니다. 점심 식사 후 <span class="highlight">가벼운 조깅</span>을 하는 습관을 들여 자연스럽게 건강한 음식을 선택하게 되었습니다. 저녁에는 이메일 확인 대신 독서, 산책 등 이완 활동으로 루틴을 만들어 수면의 질을 높였습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">🧭 의사결정 바꾸기</h3>
+                    <p>직감(시스템 1)과 이성(시스템 2)을 언제 사용해야 할지 배웠습니다. 감정 일기를 통해 <span class="highlight">감정이 주는 중요한 신호</span>를 파악하고, 이를 의사결정에 통합함으로써 '분석 마비'에서 벗어날 수 있었습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Emily's Journey - Leadership & Relationships -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">에밀리의 여정 ④: <span class="highlight">리더십과 인간관계</span></h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">🧑‍💼 리더십 유형 바꾸기</h3>
+                    <p>과제 중심의 불협 모드(TPN)에서 공감 중심의 공감 모드(DMN)로 전환하는 것이 어려움을 겪었습니다. 회의에서 의식적으로 <span class="highlight">공감 스타일을 실천</span>하며 동료들의 사고방식을 이해하려 노력했고, 점차 두 모드 사이의 균형을 찾게 되었습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">💑 인간관계 바꾸기</h3>
+                    <p>자신의 회피 애착 유형이 관계에 미치는 영향을 깨닫고 <span class="highlight">내면 아이 치유</span>를 시작했습니다. 6단계 질문법으로 잘못된 믿음을 교정하며 파트너에게 더 마음을 열었고, 서로의 가치관을 깊이 이해하며 유대와 신뢰를 강화했습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Emily's Journey - Communication -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">에밀리의 여정 ⑤: <span class="highlight">커뮤니케이션 방식 바꾸기</span></h2>
+            <p class="slide-subtitle">마지막으로, 에밀리는 자신의 감정적 반응 패턴을 이해하고 더 건강한 소통 방식을 익혔습니다.</p>
+            <div class="slide-content">
+                <p>에밀리는 '존중'에 대한 욕구가 매우 크다는 것을 인식하고, 이 욕구가 채워지지 않을 때 감정적으로 반응한다는 것을 깨달았습니다. 그녀는 파트너와 함께 <span class="highlight">이마고 대화</span>를 연습하기 시작했습니다.</p>
+                <p class="mt-4">상황이 과열될 때마다 15분간의 휴식 시간을 갖기로 약속한 후, 그녀는 더 이상 크게 화내지 않게 되었습니다. 파트너 역시 그녀의 말에 더 귀를 기울이게 되었습니다. 그들은 서로의 감정과 정신 상태를 존중하며 더 건강한 경계를 설정하고, 갈등 상황에서 <span class="highlight">건설적인 논의</span>를 이어갈 수 있게 되었습니다.</p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 44: Conclusion Summary -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">결론: <span class="highlight">뇌를 내 편으로 만들면 인생이 즐거워진다</span></h2>
+              <p class="slide-subtitle">당신은 있는 그대로 이미 완벽합니다. 이 사실을 받아들일 때 진정한 변화가 시작됩니다.</p>
+              <div class="slide-content">
+                  <ul class="space-y-4">
+                      <li>🧠 <b>변화는 가능합니다:</b> 우리 뇌는 새로운 네트워크를 만들고 강화하며 끊임없이 변화할 수 있습니다 (신경가소성).</li>
+                      <li>❤️ <b>뇌와 싸우지 마세요:</b> 뇌가 작동하는 방식을 존중하고 받아들여야 합니다. 변화에 저항하는 것은 에너지를 아끼려는 뇌의 자연스러운 반응입니다.</li>
+                      <li>🧘 <b>기본이 가장 중요합니다:</b> 새로운 네트워크를 만들려면 충분한 에너지, 재충전(휴식), 수면, 건강한 뇌 화학물질 균형, 감정적 안정이 필수적입니다.</li>
+                      <li>🔄 <b>반복이 핵심입니다:</b> 새로운 행동이나 패턴을 규칙적으로 반복해야만 낡은 네트워크가 약화되고 새로운 네트워크가 강화됩니다.</li>
+                      <li>🔍 <b>자신을 발견하세요:</b> 당신이 누구인지, 당신의 뇌가 어떤 모습인지 더 많이 발견하고 다른 사람의 목소리에서 벗어나세요.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 45: Final Message -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">💡</div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">당신은 정말 근사한 사람입니다!</h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">이 책의 내용을 통해 당신의 뛰어난 두뇌에 대해 배우는 일이, 당신 자신을 훨씬 더 사랑하게 되는 데 도움이 되기를 바랍니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 46: Thank You -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+        </div>
+      </div>
+      
+      <!-- Slide 47: Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">❓</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Q&A</h1>
+          <p class="text-xl md:text-2xl text-gray-600">질문이 있으신가요?</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
