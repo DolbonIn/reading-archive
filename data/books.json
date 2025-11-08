@@ -1,5 +1,15 @@
 [
   {
+    "slug": "나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가",
+    "title": "나라는 착각 - 뇌는 어떻게 인간의 정체성을 발명하는가",
+    "author": "그레고리 번스",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.html",
+    "cover": "assets/covers/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.jpg"
+  },
+  {
     "slug": "나는-죽을-때까지-재미있게-살고-싶다",
     "title": "나는 죽을 때까지 재미있게 살고 싶다",
     "author": "이근후",
@@ -428,16 +438,6 @@
     "description": "",
     "presentation": "presentations/나의-아프고-아름다운-코끼리.html",
     "cover": "assets/covers/나의-아프고-아름다운-코끼리.jpg"
-  },
-  {
-    "slug": "나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가",
-    "title": "나라는 착각 - 뇌는 어떻게 인간의 정체성을 발명하는가",
-    "author": "그레고리 번스",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.html",
-    "cover": "assets/covers/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.jpg"
   },
   {
     "slug": "그레이트-마인드셋",
