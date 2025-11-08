@@ -1,5 +1,15 @@
 [
   {
+    "slug": "다산의-마지막-편지",
+    "title": "다산의 마지막 편지",
+    "author": "박석현",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/다산의-마지막-편지.html",
+    "cover": "assets/covers/다산의-마지막-편지.jpg"
+  },
+  {
     "slug": "니체-인생수업-니체가-세상에-남긴-66가지-인생지혜",
     "title": "니체 인생수업 - 니체가 세상에 남긴 66가지 인생지혜",
     "author": "프리드리히 니체",
@@ -428,16 +438,6 @@
     "description": "",
     "presentation": "presentations/다시-인생을-아이처럼-살-수-있다면.html",
     "cover": "assets/covers/다시-인생을-아이처럼-살-수-있다면.jpg"
-  },
-  {
-    "slug": "다산의-마지막-편지",
-    "title": "다산의 마지막 편지",
-    "author": "박석현",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/다산의-마지막-편지.html",
-    "cover": "assets/covers/다산의-마지막-편지.jpg"
   },
   {
     "slug": "그레이트-마인드셋",

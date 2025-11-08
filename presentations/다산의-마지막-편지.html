@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다산의 마지막 편지 프레젠테이션</title>
+  <title>다산의 마지막 편지 발표</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,9 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
     }
     .slide {
       display: none;
@@ -20,11 +22,6 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     .slide.active {
       display: flex;
@@ -36,40 +33,39 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      border: 1px solid #e9ecef;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      backdrop-filter: blur(5px);
     }
     .slide-part-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #6c757d;
+      color: #555;
       margin-bottom: 8px;
     }
     .slide-title {
       font-size: 2.8rem;
       font-weight: 900;
-      color: #212529;
+      color: #111;
       margin-bottom: 25px;
       line-height: 1.3;
     }
     .slide-subtitle {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #495057;
+      color: #444;
       margin-bottom: 35px;
       line-height: 1.6;
     }
     .slide-content {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1.9;
-      color: #343a40;
+      color: #333;
     }
     .highlight {
-      background: linear-gradient(to top, #ffd700 50%, transparent 50%);
-      padding: 0 0.1em;
-      font-weight: 700;
+      background-color: #FFDD00;
+      padding: 0 0.25em;
     }
     .btn {
       padding: 12px 28px;
@@ -77,21 +73,21 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 2px solid transparent;
+      border: none;
     }
     .btn-primary {
-      background-color: #343a40;
+      background-color: #111;
       color: white;
     }
     .btn-primary:hover {
-      background-color: #495057;
+      background-color: #333;
     }
     .btn-secondary {
-      background-color: #e9ecef;
-      color: #343a40;
+      background-color: #F0F0F0;
+      color: #333;
     }
     .btn-secondary:hover {
-      background-color: #dee2e6;
+      background-color: #E0E0E0;
     }
     .progress-bar-container {
       position: fixed;
@@ -99,39 +95,47 @@
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid #dee2e6;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
       z-index: 10;
     }
     .progress-bar {
       width: 100%;
-      background-color: #e9ecef;
+      background-color: #eee;
       border-radius: 9999px;
       height: 8px;
       margin-bottom: 15px;
-      overflow: hidden;
     }
     .progress {
-      background-color: #343a40;
+      background-color: #111;
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
-    .quote-block {
-        margin-top: 1.5rem;
-        padding: 1.5rem;
+     .quote-box {
         background-color: #f8f9fa;
-        border-left: 5px solid #ffd700;
+        border-left: 5px solid #007bff;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 0 8px 8px 0;
+    }
+    .quote-box p {
         font-style: italic;
         color: #495057;
+    }
+    .quote-box .author {
+        text-align: right;
+        font-weight: bold;
+        color: #343a40;
+        margin-top: 10px;
     }
   </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
-  <div class="w-full max-w-6xl">
-    <!-- Slides Container: Add your slides here -->
+  <div class="w-full">
+    <!-- Slides Container -->
     <div id="slides-container">
 
       <!-- Slide 1: Title -->
@@ -147,13 +151,13 @@
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">목차 📖</h2>
-          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+          <div class="slide-content text-lg space-y-4">
             <p><b>프롤로그:</b> 마음공부를 시작하며</p>
-            <p><b>Chapter 1:</b> 공부에 대하여</p>
-            <p><b>Chapter 2:</b> 사람에 대하여</p>
-            <p><b>Chapter 3:</b> 습관에 대하여</p>
-            <p><b>Chapter 4:</b> 태도에 대하여</p>
-            <p><b>결론:</b> 마지막 당부</p>
+            <p><b>Chapter 1:</b> 공부에 대하여 (About Studying)</p>
+            <p><b>Chapter 2:</b> 사람에 대하여 (About People)</p>
+            <p><b>Chapter 3:</b> 습관에 대하여 (About Habits)</p>
+            <p><b>Chapter 4:</b> 태도에 대하여 (About Attitude)</p>
+            <p><b>결론:</b> 다산의 가르침을 통해 얻는 삶의 지혜</p>
           </div>
         </div>
       </div>
@@ -162,640 +166,601 @@
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">프롤로그</p>
-          <h2 class="slide-title">우리가 마지막에 해야 할 것은 <span class="highlight">마음공부</span>입니다.</h2>
-          <p class="slide-subtitle">이 책은 저자가 마음을 담아 독자에게 보내는 편지 형식의 글입니다.</p>
-          <div class="slide-content">
-            <p>다산 정약용 선생이 편지로 마음을 전했듯, 저자는 독자 여러분과 마음을 나누고자 편지를 쓰는 심정으로 글을 써 내려갔습니다.</p>
-            <p class="mt-4">책 중간중간에 소개되는 다산의 편지는 저자의 생각과 맞닿아 흘러가며, 우리 삶에 깊은 통찰을 줍니다.</p>
-          </div>
+          <h2 class="slide-title">마음공부란 무엇인가? 🤔</h2>
+          <p class="slide-content">결국 우리가 마지막에 해야 하는 것은 <span class="highlight">마음공부</span>입니다. 이 책은 저자가 한 마음공부를 독자들과 나누고자 하는 마음에서 시작되었습니다. 책은 저자가 독자들에게 보내는 편지 형식으로 구성되어 있으며, 중간중간 다산 정약용 선생의 편지를 소개하며 저자의 생각과 맞닿아 흘러갑니다.</p>
         </div>
       </div>
       
-      <!-- Chapter 1 Title -->
+      <!-- Chapter 1 Title Slide -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 1</p>
           <h2 class="slide-title">공부에 대하여 📚</h2>
-          <p class="slide-content">삶의 기본을 세우고 끊임없이 성장하기 위한 공부의 자세에 대해 알아봅니다.</p>
+          <p class="slide-content">학문과 배움의 본질을 탐구하고, 진정한 공부가 무엇인지에 대한 다산의 통찰을 살펴봅니다.</p>
         </div>
       </div>
 
-      <!-- Slide 5: Ch1-1 Reading -->
+      <!-- Slide 5 -->
       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">1. 독서를 게을리하지 말아야 한다</p>
-          <h2 class="slide-title">독서는 가장 중요하고 <span class="highlight">깨끗한 일</span></h2>
-           <div class="quote-block">
-            <p>"독서를 하려면 반드시 먼저 근본을 세워야 한다. ... 그 바탕은 바로 효(孝)와 제(悌)이다. ... 가난한 학생으로서 처신을 잘하는 방법은 오로지 독서를 하는 한 가지 길밖에 없다."</p>
+          <div class="slide-container">
+              <h2 class="slide-title">1. 독서를 게을리하지 말아야 한다</h2>
+              <div class="quote-box">
+                  <p>"독서를 하려면 반드시 먼저 근본을 세워야 한다. 배움에 뜻을 두지 않았다면 진정한 독서를 할 수가 없다... 그 바탕은 바로 효(孝)와 제(悌)이다. 그것으로 바탕을 세우면 자연히 학문은 몸에 배게 된다."</p>
+                  <p class="author">- 다산의 편지 中</p>
+              </div>
           </div>
-          <p class="slide-content mt-6">독서의 중요성은 아무리 말해도 지나침이 없습니다. 광화문 교보문고에는 "사람은 책을 만들고 책은 사람을 만든다"는 글귀가 있습니다.</p>
-        </div>
       </div>
-      
-      <!-- Slide 6: Ch1-1 How to Read -->
+
+      <!-- Slide 6 -->
       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">어떻게 읽을 것인가? <span class="highlight">서삼독(書三讀)</span></h2>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-4 bg-gray-50 rounded-lg">
-              <h3 class="font-bold text-lg">1. 텍스트 읽기</h3>
-              <p>책의 문장을 읽으며 내용을 파악합니다.</p>
-            </div>
-            <div class="p-4 bg-gray-50 rounded-lg">
-              <h3 class="font-bold text-lg">2. 저자 읽기</h3>
-              <p>문장을 이해하고 생각하며 저자의 의도를 파악합니다.</p>
-            </div>
-            <div class="p-4 bg-gray-50 rounded-lg">
-              <h3 class="font-bold text-lg">3. 자신 읽기</h3>
-              <p>책을 통해 깨달음을 얻어가는 나 자신을 만납니다.</p>
-            </div>
+          <div class="slide-container">
+              <h2 class="slide-title">독서의 중요성 <span class="highlight">"책이 사람을 만든다"</span></h2>
+              <p class="slide-subtitle">광화문 교보문고의 유명한 글귀, "사람은 책을 만들고 책은 사람을 만든다."는 교보생명 창립자 신용호 선생의 말입니다.</p>
+              <div class="slide-content">
+                  <p>우리가 책을 대해야 하는 자세를 한 문장으로 표현한 것입니다. 독서는 단순히 글자를 읽는 행위를 넘어, 저자와 만나고, 자신을 만나는 과정입니다.</p>
+              </div>
           </div>
-           <p class="slide-content mt-6">독서는 취미가 아니라, 먹고 자고 숨 쉬는 것처럼 삶의 일부가 되어야 합니다.</p>
-        </div>
       </div>
-      
-      <!-- Slide 7: Ch1-2 Writing -->
+
+      <!-- Slide 7 -->
       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2. 매일 글을 쓰는 습관</p>
-          <h2 class="slide-title">백 번 읽는 것보다 <span class="highlight">한 번 쓰는 것</span>이 낫다.</h2>
-          <div class="quote-block">
-            <p>"군자가 책을 지어 세상에 내는 것은... 단 한 사람만이라도 진가를 알아봐 주길 바라는 마음에서다. ... 시체가 된 몸이 차가워지기도 전에 이름부터 먼저 사라지는 자가 된다면 이는 금수(禽獸)일 뿐이다."</p>
+          <div class="slide-container">
+              <h2 class="slide-title">서삼독(書三讀): 세 번 읽기의 지혜</h2>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                  <div>
+                      <h3 class="font-bold text-2xl mb-2">① 텍스트 읽기</h3>
+                      <p class="text-6xl">📖</p>
+                      <p>책의 문장을 읽으며 내용을 파악합니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-2xl mb-2">② 저자 읽기</h3>
+                      <p class="text-6xl">✍️</p>
+                      <p>문장을 이해하고 생각하며 저자의 의도를 파악합니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-2xl mb-2">③ 독자 자신 읽기</h3>
+                      <p class="text-6xl">🧘</p>
+                      <p>책을 통해 깨달음을 얻어가는 나 자신을 만납니다.</p>
+                  </div>
+              </div>
           </div>
-           <p class="slide-content mt-6">백문불여일견(百聞不如一見), 백견불여일행(百見不如一行). 백 번 듣는 것이 한 번 보는 것만 못하고, 백 번 보는 것이 한 번 행하는 것보다 못하다는 것을 기억해야 합니다.</p>
-        </div>
       </div>
-      
-      <!-- Slide 8: Ch1-2 Why Writing -->
+
+      <!-- Slide 8 -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">독서는 <span class="highlight">취미</span>가 아닌 <span class="highlight">삶의 일부</span></h2>
+              <p class="slide-subtitle">위대한 업적을 남긴 사람들은 늘 독서를 게을리하지 않았습니다.</p>
+              <div class="slide-content">
+                  <p>빌 게이츠, 워런 버핏, 스티브 잡스 등은 모두 책을 손에서 놓지 않았습니다. "지금의 나를 만든 것이 독서"라는 말은 성공한 사람들의 공통적인 고백입니다. 독서는 먹고, 자고, 숨 쉬는 것처럼 우리 삶의 당연한 일부가 되어야 합니다.</p>
+              </div>
+          </div>
+      </div>
+
+       <!-- Slide 9 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">왜 써야 하는가? 🤔</h2>
-          <p class="slide-subtitle">읽기만 하는 것은 지식을 소비하는 것입니다. 쓰는 행위는 새로운 가치를 생산하는 것입니다.</p>
-           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">지식의 가공</h3>
-              <p>'구슬이 서 말이라도 꿰어야 보배'라는 말처럼, 읽은 것을 글로 써서 새로운 가치로 만들어내야 합니다. 이는 '선한 영향력'의 시작입니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">삶의 기록</h3>
-              <p>글쓰기는 내 삶의 기록을 남기는 행위입니다. 충무공 이순신 장군이 진중에서 일기를 쓰지 않았다면 『난중일기』는 없었을 것입니다. 글쓰기는 나에게도, 후손에게도 크나큰 유산이 됩니다.</p>
-            </div>
+          <h2 class="slide-title">2. 매일 글을 쓰는 습관 ✍️</h2>
+           <div class="quote-box">
+              <p>"군자가 책을 지어 세상에 내는 것은 세상 사람들의 비난을 받을 일이 아니다... 만일 내 책의 가치를 알아봐 주는 사람이 있어 그 사람이 너희보다 나이가 많다면 아버지처럼 모시고... 형제처럼 지내도 좋다."</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 9: Ch1-3 Curiosity -->
+      <!-- Slide 10 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">3. 늘 궁금증을 가져야 한다</p>
-          <h2 class="slide-title">아는 게 많아질수록 <span class="highlight">궁금한 것</span>이 늘어난다.</h2>
-          <div class="quote-block">
-            <p>"배움이 없는 이는 금수와 같다. ... 내가 지금까지 공부에 대해서 수없이 글과 편지로 권했음에도 불구하고 너희는 아직 경전이나 도덕, 예술에 관해 질문조차 하지 않으니 이게 어찌 된 일이냐?"</p>
-          </div>
-           <p class="slide-content mt-6">소크라테스의 '무지의 지(無知의 知)'는 "나는 적어도 내가 모른다는 것은 안다"라는 뜻입니다. 진정한 앎은 자신의 무지를 자각하는 것에서 출발합니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 10: Ch1-4 Politics -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">4. 정치에 관심을 가져야 한다</p>
-          <h2 class="slide-title">정치를 외면한 가장 큰 대가는, <span class="highlight">가장 저질스러운 인간들에게 지배당하는 것</span>이다.</h2>
-          <p class="slide-subtitle">- 플라톤</p>
-          <div class="quote-block">
-            <p>"정(政)의 뜻은 바로잡는다는 말이다. ... 붕당을 없애고 공평하고 바른 도리를 넓히며, 어진 이를 등용하고 못난 자를 몰아내어 바로잡았으니 이것이 바로 '정'이다."</p>
-          </div>
-           <p class="slide-content mt-6">정치는 내 삶과 밀접하게 맞닿아 있습니다. 시민이 깨어 있어야 나라가 바로 설 수 있습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 11: Ch1-4 Frame -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">'정치 혐오'라는 <span class="highlight">프레임</span>을 경계하라</h2>
+          <h2 class="slide-title">읽기 vs 쓰기: <span class="highlight">백문불여일행</span></h2>
+          <p class="slide-subtitle">백 번 읽는 것보다 한 번 쓰는 것이 낫습니다.</p>
           <div class="slide-content">
-              <p>일부 정치인들은 일부러 진흙탕 싸움을 만들어 '그놈이 그놈'이라는 프레임을 씌워 대중의 정치 혐오를 부추깁니다. </p>
-              <p class="mt-4">그들이 가장 바라는 말은 "나는 정치에 관심 없어" 와 "그놈이 그놈이야" 라는 두 마디입니다. 이는 대중을 정치에서 멀어지게 하여 자신들의 기득권을 유지하려는 수단일 뿐입니다.</p>
-               <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                  <h3 class="font-bold text-lg">권력의 속성: 균형과 견제</h3>
-                  <p class="mt-2">권력은 균형과 견제가 바탕이 되어야 합니다. 하지만 '균형과 견제'라는 듣기 좋은 말에 현혹되지 말고, 무엇이 진실인지 깊이 있게 따져보는 시민의 자세가 필요합니다.</p>
-                </div>
+            <p>물론 한 번 쓰기 위해 백 번 읽는 노력이 선행되면 더 좋습니다. 책을 많이 읽는 '다독'도 중요하지만, 읽은 것을 자신의 삶에 적용하고 새로운 글로 만들어내는 과정이 더욱 중요합니다. 지식은 공유될 때 더 큰 가치를 갖습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 선한 영향력</h3>
+              <p class="mt-2">'구슬이 서 말이라도 꿰어야 보배'라는 말처럼, 읽기만 하는 것을 넘어 글쓰기를 통해 새로운 가치를 창출하고 '선한 영향력'을 발휘해야 합니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 12: Ch1-5 Studying Hard -->
+      <!-- Slide 11 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">5. 공부를 열심히 한다는 것</p>
-          <h2 class="slide-title">학교 공부만이 <span class="highlight">공부가 아니다</span>.</h2>
-          <div class="quote-block">
-            <p>"폐족(廢族)으로서 세련된 교양이 없으면 더욱 가증스러운 일이 되고 만다. ... 너희들은 다시 분발하여 공부하여라. 우리 집안의 공부하는 전통을 너희들이 더욱 키우고 번성시켜 보아라."</p>
+          <h2 class="slide-title">기록의 힘: <span class="highlight">난중일기</span></h2>
+          <p class="slide-subtitle">기록하지 않는 경험은 과거 속으로 사라집니다.</p>
+           <div class="slide-content">
+            <p>매일 한 줄이라도 글을 쓰는 습관을 가져봅시다. 충무공 이순신 장군이 진중에서 일기를 쓰지 않았다면, 국보 『난중일기』는 없었을 것입니다. 일기가 어렵다면 주기(週記), 월기(月記)라도 좋습니다. 글쓰기는 내 삶의 역사를 남기는 위대한 유산이 될 것입니다.</p>
           </div>
-           <p class="slide-content mt-6">진정한 공부는 교과서 밖에 있는 것을 배우는 것으로부터 시작됩니다. 학창 시절의 공부는 기본 중의 기본이며, 공부하는 '자세'와 '습관'을 배우는 과정입니다.</p>
         </div>
       </div>
 
-      <!-- Slide 13: Ch1-6 Enlightenment -->
+      <!-- Slide 12 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">6. 배움은 같아도 깨달음은 다를 수 있다</p>
-          <h2 class="slide-title">벌은 이슬을 먹어 <span class="highlight">꿀</span>을 만들고, 뱀은 <span class="highlight">독</span>을 만든다.</h2>
-           <p class="slide-subtitle">동일한 배움 속에서 보다 나은 깨달음을 얻기 위해서는 평소 준비가 되어있어야 합니다. 기회는 준비된 자에게 찾아옵니다.</p>
+          <h2 class="slide-title">3. 늘 궁금증을 가져야 한다 ❓</h2>
+           <div class="quote-box">
+              <p>"배움이 없는 이는 금수와 같다... 내가 지금까지 공부에 대해서 수없이 글과 편지로 권했음에도 불구하고 너희는 아직 경전이나 도덕, 혹은 예술에 관해 질문조차 하지 않고... 이게 어찌 된 일이냐?"</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소크라테스의 지혜: <span class="highlight">"무지의 지"</span></h2>
+          <p class="slide-subtitle">"나는 적어도 내가 모른다는 것은 안다."</p>
           <div class="slide-content">
-            <p>선생의 역할은 투명한 '새벽이슬'을 만드는 것까지입니다. 그것을 배우고 익혀서 자신의 것으로 만드는 것은 오로지 청중의 몫입니다.</p>
-            <p class="mt-4">우리가 살면서 만나는 많은 배움과 가르침을 잘 활용하여, 새벽이슬을 통해 꿀을 얻는 벌이 되어야 합니다.</p>
+             <p>빈 수레가 요란하듯, 머릿속에 든 게 없을수록 아는 체를 합니다. 공부를 많이 할수록, 세상을 살아갈수록 내가 모르는 것이 많다는 것을 깨닫게 됩니다. 진정한 앎은 자신의 무지를 자각하는 것에서 출발합니다. 늘 책을 가까이하고 좋은 강의를 들으며 배우는 습관을 길러야 합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 14: Ch1-7 No Answers -->
+      <!-- Slide 14 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">7. 책은 정답을 주지 않는다</p>
-          <h2 class="slide-title">책은 정답 대신 <span class="highlight">힌트</span>를 줄 뿐이다.</h2>
-          <div class="quote-block">
-            <p>"무릇 독서 도중 의미 모르는 글자를 만날 때마다 널리 고찰하고 세밀하게 연구하여 그 근본 뿌리를 파헤쳐 글 전체를 이해할 수 있어야 한다. 이렇게 읽어야 책의 뜻과 이치를 훤히 꿰뚫어 알 수 있게 된다."</p>
+          <h2 class="slide-title">4. 정치에 관심을 가져야 한다 🗳️</h2>
+           <div class="quote-box">
+              <p>"정(政)의 뜻은 바로잡는다는 말이다... 붕당을 없애고 공평하고 바른 도리를 넓히며, 어진 이를 등용하고 못난 자를 몰아내어 바로잡았으니 이것이 바로 '정'이다."</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
-           <p class="slide-content mt-6">책을 통해 '정답'을 찾으려는 노력보다 '힌트'를 얻고자 한다면, 책을 받아들이는 마음이 더 너그러워지고 편안해질 수 있습니다. 다양한 책을 통해 얻은 힌트를 종합하여 나만의 해석을 해보는 것이 중요합니다.</p>
         </div>
       </div>
 
-      <!-- Slide 15: Ch1-8 Parents -->
+      <!-- Slide 15 -->
       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">8. 부모의 인생을 공부해라</p>
-          <h2 class="slide-title">부모가 살아온 삶 속에 <span class="highlight">인생의 지혜</span>가 있다.</h2>
-           <p class="slide-subtitle">내 부모의 삶은 그 어떤 교과서보다 훌륭한 삶의 지침서입니다.</p>
-           <div class="slide-content">
-            <p>좋은 것은 배워서 내 것으로 만들고, 좋지 않은 것은 그렇게 하지 않아야겠다는 교훈으로 삼는다면 삶에 큰 도움이 됩니다.</p>
-            <p class="mt-4">상대의 뒷모습이 보이기 시작한다는 것은 그 사람을 이해하고 사랑하기 시작했다는 의미입니다. 지금, 부모님의 뒷모습을 바라보고 그들의 인생을 공부해보세요.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 16: Ch1-9 Knowledge -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">9. 무식과 유식의 차이</p>
-          <h2 class="slide-title">모른다는 것을 <span class="highlight">자각</span>하는 순간, 유식의 반열에 들어선다.</h2>
-           <div class="quote-block">
-            <p>"배움이란 깨닫는 것이다. 잘못된 점을 깨닫는 것이다. ... 이미 저지른 잘못을 깨닫고 나서 부끄러워하고 뉘우치며 고쳐야만 이것을 배움이라고 할 수 있다."</p>
-          </div>
-           <p class="slide-content mt-6">얕은 정보를 많이 아는 것과 깊은 지식과 지혜를 겸비하는 것은 다릅니다. 모른다는 것을 알았으면 지금부터 노력하는 자세가 중요합니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 17: Ch1-10 Theme -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">10. 매년 주제를 정해서 살아라</p>
-          <h2 class="slide-title">1년 1주제, <span class="highlight">의미 있는 삶</span>을 만드는 법</h2>
-           <p class="slide-subtitle">교육을 전공한 한 선생님의 삶의 방식: 매년 하나의 주제를 정해 1년 내내 그 분야를 깊이 공부합니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">예시</h3>
-              <p>2020년: 물리학 ⚛️</p>
-              <p>2021년: 철학 🤔</p>
-              <p>2022년: 경제 💹</p>
-              <p>2023년: 종교 🙏</p>
+        <div class="slide-container text-center">
+            <h2 class="slide-title">플라톤의 경고</h2>
+            <p class="slide-subtitle text-2xl font-bold">"정치를 외면한 가장 큰 대가는<br>가장 <span class="highlight">저질스러운 인간들</span>에게 지배당하는 것이다."</p>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p>정치는 내 삶과 밀접하게 맞닿아 있습니다. 어떤 정당이 내 삶에 도움이 되는지 면밀히 따져보고, 꾸준히 공부하여 무엇이 개인과 나라를 위한 길인지 판단해야 합니다. 시민이 깨어 있어야 나라가 바로 설 수 있습니다.</p>
             </div>
-            <div>
-              <h3 class="font-bold text-lg">실천의 중요성</h3>
-              <p>깨달은 것을 실천하느냐, 하지 않느냐의 차이가 인생을 바꿉니다. 매년 계획을 세우고 꾸준히 실천하면 10년, 20년 뒤의 삶은 상상 이상으로 변해 있을 것입니다.</p>
-            </div>
-          </div>
         </div>
       </div>
-      
-      <!-- Slide 18: Ch1-11 Essence -->
+
+       <!-- Slide 16 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">11. 이야기의 본질을 파악해라</p>
-          <h2 class="slide-title">겉만 바라보지 말고 <span class="highlight">핵심</span>을 파악해야 한다.</h2>
-           <p class="slide-subtitle">이는 '문해력(Literacy)'과 깊은 연관이 있습니다.</p>
-           <div class="slide-content">
-            <p>문해력은 단순히 글을 읽고 쓰는 능력이 아니라, 글의 맥락을 이해하고 심오한 의미를 파악하는 능력입니다.</p>
-            <p class="mt-4">A를 말하기 위해 B와 C를 예로 들었는데 B와 C에만 집중하고 정작 A에는 관심이 없다면, 이는 대화의 핵심을 놓치는 것입니다. 항상 이야기의 본질을 파악하려는 노력이 필요합니다.</p>
+          <h2 class="slide-title">5. 공부를 열심히 한다는 것</h2>
+          <div class="quote-box">
+              <p>"내가 누차 말했듯이 폐족(廢族)으로서 세련된 교양이 없으면 더욱 가증스러운 일이 되고 만다... 너희들은 다시 분발하여 공부하여라. 내가 이어온 실낱같은 우리 집안의 공부하는 전통을 너희들이 더욱 키우고 번성시켜 보아라."</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
         </div>
       </div>
 
-      <!-- Chapter 2 Title -->
+      <!-- Slide 17 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진정한 공부의 의미 🌟</h2>
+          <p class="slide-subtitle">학교 공부만이 공부가 아닙니다. 진정한 공부는 교과서 밖의 것을 배우는 것에서 시작됩니다.</p>
+          <div class="slide-content">
+            <p>학창 시절의 공부는 기본 중의 기본입니다. 학교는 단순히 지식만이 아니라 공부하는 <span class="highlight">습관</span>과 <span class="highlight">인내심</span>, 그리고 공부에 대한 기본적인 <span class="highlight">'자세'</span>를 배우는 곳입니다. 훗날 돌이켜 보면 지금 흘린 눈물과 땀이 좋은 밑거름이 되었음을 깨닫게 될 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 2 Title Slide -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 2</p>
-          <h2 class="slide-title">사람에 대하여 🤝</h2>
-          <p class="slide-content">인생의 방향을 결정하는 중요한 요소인 인간관계의 지혜에 대해 알아봅니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 20: Ch2-1 Friends -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">1. 좋은 친구를 만나라</p>
-          <h2 class="slide-title">어떤 친구를 만나느냐에 따라 <span class="highlight">인생이 바뀔 수 있다</span>.</h2>
-          <div class="quote-block">
-            <p>"스스로의 인격을 엄격하게 갈고닦았다면 그가 사귀는 벗도 자연스레 단정한 사람을 만나게 된다. ... 나는 이 일로 친구 사귀는 법을 비로소 깨달았다."</p>
-          </div>
-           <p class="slide-content mt-6">인생은 선택의 연속입니다. 좋은 친구를 만나기 위해서는 먼저 스스로가 좋은 사람이 되어야 합니다. 유유상종(類類相從), 초록은 동색입니다.</p>
+          <h2 class="slide-title">사람에 대하여 👨‍👩‍👧‍👦</h2>
+          <p class="slide-content">인간관계의 중요성, 좋은 친구를 만나는 법, 그리고 관계 속에서 지켜야 할 도리에 대해 이야기합니다.</p>
         </div>
       </div>
       
-      <!-- Slide 21: Ch2-1 How to Choose -->
-      <div class="slide">
+      <!-- Slide 19 -->
+       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">좋은 이성을 고르는 5가지 힌트 💡</h2>
-          <div class="slide-content space-y-3">
-            <p><b>1. 성품이 좋은 사람:</b> 사람은 사계절을 겪어봐야 알 수 있습니다.</p>
-            <p><b>2. 어른에게 잘하는 사람:</b> 어른에게 예의 바른 사람치고 어긋난 사람 없습니다.</p>
-            <p><b>3. 사소한 것으로 싸우지 않는 사람:</b> 성격이 모난 이성은 피하는 것이 좋습니다.</p>
-            <p><b>4. 외모에만 매료되지 말 것:</b> 내면이 아름다운 사람을 만나야 합니다.</p>
-            <p><b>5. 독서와 사색을 즐기는 사람:</b> 배울 것이 많은 사람은 인생의 동반자로서 최고입니다.</p>
+          <h2 class="slide-title">1. 좋은 친구를 만나라</h2>
+          <div class="quote-box">
+              <p>"스스로의 인격을 엄격하게 갈고닦았다면 그가 사귀는 벗도 자연스레 단정한 사람을 만나게 된다... 사람의 진면목을 보려면 그가 가정에서 하는 행실을 관찰하면 된다."</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 22: Ch2-2 Money -->
-      <div class="slide">
+      <!-- Slide 20 -->
+       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">2. 돈으로 사람을 거를 수 있다</p>
-          <h2 class="slide-title">돈은 사람을 걸러내는 <span class="highlight">체(Sieve)</span>가 될 수 있다.</h2>
-           <p class="slide-subtitle">돈을 빌려달라는 부탁을 받았을 때, 생활에 지장이 없는 범위 내에서 기꺼이 빌려줘 보세요.</p>
+          <h2 class="slide-title">인생을 바꾸는 인연 🤝</h2>
+          <p class="slide-subtitle">어떤 친구를 만나느냐에 따라 사람의 인생이 바뀔 수 있습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">돈을 갚지 않는다면</h3>
-              <p>참으로 큰 것을 얻은 것입니다. 몇 푼의 돈으로 장차 독이 될 수 있는 인연을 미리 끊어낸 것이라 생각하고 홀가분하게 털어버리면 됩니다.</p>
+              <h3 class="font-bold text-lg">친구는 나이를 초월한다</h3>
+              <p>학창 시절 친구뿐만 아니라 사회에서 만나는 인연도 깊은 관계로 발전할 수 있습니다. 나이 많은 친구(선배)에게는 지혜를, 나이 어린 친구(후배)에게는 새로운 시각을 배울 수 있습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">돈을 갚는다면</h3>
-              <p>더 큰 것을 얻은 것입니다. 그는 당신을 평생의 은인으로 생각할 것이고, 당신의 든든한 응원군이 되어줄 것입니다.</p>
+              <h3 class="font-bold text-lg">좋은 이성을 만나는 법</h3>
+              <p>좋은 남자는 좋은 여자로 인해, 좋은 여자는 좋은 남자로 인해 만들어집니다. 좋은 이성을 만나 행복한 평생을 만들어가기 위한 5가지 힌트를 기억하세요.</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 23: Ch2-3 Enemies & Favors -->
+
+      <!-- Slide 21 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">3. 원수는 잊고 은혜는 갚아라</p>
-          <h2 class="slide-title">원수는 <span class="highlight">잊고</span>, 은혜는 <span class="highlight">갚아라</span>.</h2>
-          <div class="quote-block">
-            <p>"용서하는 사람이 큰 인물이다. 국량(局量)의 근본은 용서해 주는 데 있으니 용서할 수만 있다면 결국 큰 그릇이 될 수 있느니라."</p>
+          <h2 class="slide-title">좋은 이성을 만나는 <span class="highlight">5가지 힌트</span></h2>
+          <div class="slide-content space-y-3 text-lg">
+            <p><b>1. 성품이 좋은 사람:</b> 사람은 사계절을 겪어봐야 알 수 있습니다.</p>
+            <p><b>2. 어른에게 잘하는 사람:</b> 내면이 드러나는 태도를 관찰하세요.</p>
+            <p><b>3. 사소한 것으로 싸우는 상대를 경계할 것:</b> 결혼 생활에서도 반복될 확률이 높습니다.</p>
+            <p><b>4. 외모에만 매료되지 말 것:</b> 내면이 잘난 사람이 되도록 노력하세요.</p>
+            <p><b>5. 독서와 사색을 즐기는 사람:</b> 배울 것이 많은 사람과 함께하세요.</p>
           </div>
-           <p class="slide-content mt-6">용서하자고 마음먹으면 용서하지 못할 일이 없고, 원수로 생각하고 살자면 또 그러지 못할 일이 없습니다. 마음속에 원수가 많아질수록 마음은 황폐해지니, 원수는 되도록 빨리 잊는 것이 좋습니다.</p>
         </div>
       </div>
 
-      <!-- Slide 24: Ch2-4 Passing Connections -->
+      <!-- Slide 22 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">4. 스쳐 가는 인연은 그냥 보내라</p>
-          <h2 class="slide-title">살아가며 만나는 모든 사람이 <span class="highlight">다 인연은 아니다</span>.</h2>
-           <p class="slide-subtitle">인간에게 주어진 시간은 유한합니다. 모든 사람과 인연을 맺으려 하면 정작 좋은 인연을 만날 기회를 놓치게 됩니다.</p>
-           <div class="slide-content">
-            <p>진정한 인연과 스쳐 가는 인연을 구분할 수 있는 눈을 길러야 합니다. </p>
-             <p class="mt-4"><b>불가근불가원(不可近不可遠):</b> 너무 가까이해서도 안 되고 너무 멀리해서도 안 된다. 사람과의 관계는 늘 적당한 거리를 유지하는 것이 좋습니다.</p>
+          <h2 class="slide-title">2. 돈으로 사람을 거를 수 있다 💰</h2>
+           <div class="quote-box">
+              <p>"베풂은 덕의 근본이다. 절약만 하고 쓰지 않으면 친척이 멀어진다... 너희가 남을 돕지 못하면서 어찌 다른 집에서 너희들이 곤경에 처했을 때 달려올 것을 바라겠느냐?"</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
-        </div>
-      </div>
-      
-      <!-- Slide 25: Ch2-5 Being Unseen -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">5. 살아있어도 안 보이면 죽은 것과 마찬가지다</p>
-          <h2 class="slide-title">연락하지 않고 지내면 <span class="highlight">살아있어도 죽은 것</span>이나 다름없다.</h2>
-           <div class="quote-block">
-            <p>"옛사람이 이렇게 말했다. 죽은 자가 다시 살아서 돌아와도 능히 부끄러운 마음이 없어야 한다고. 내가 살아생전 다시 다산초당에 갈 수 없는 것은 또한 죽은 사람이나 매한가지다."</p>
-          </div>
-           <p class="slide-content mt-6">자주 만나고 가까이 보이는 살아있는 인연에 더 잘하면 됩니다. 상대의 육신이 죽고 사는 것과 상관없이, 내 눈에서 멀어지거나 내 마음속에서 죽은 사람이면 죽은 것입니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 26: Ch2-6 Obituary -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">6. 부고(訃告)를 알릴 때는 신중을 기해야 한다</p>
-          <h2 class="slide-title">가깝지도 멀지도 않은 사이일수록 <span class="highlight">더욱 신중해야</span> 한다.</h2>
-           <p class="slide-subtitle">경조사를 겪고 나면 인간관계가 재정립됩니다. 고마운 사람과 서운한 사람이 극명하게 나뉩니다.</p>
-           <div class="slide-content">
-            <p>일면식만 있는 사이나, 졸업 후 수십 년간 연락이 없던 동창에게 부고를 알리는 것은 실례가 될 수 있습니다. 꼭 필요한 사람에게만 연락하고, 그렇지 않은 상대라면 넘겨야 합니다. </p>
-            <p class="mt-4">차라리 알리지 않아서 서운한 것이 낫습니다. 알리지 않아야 할 상대에게 알려서 속물처럼 비치는 것은 인간관계 단절로 이어질 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-      
-       <!-- Slide 27: Ch2-7 Trust -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">7. 신뢰는 후불이다</p>
-          <h2 class="slide-title">믿음을 <span class="highlight">당겨쓸 수 있는 법</span>은 없다.</h2>
-          <div class="quote-block">
-            <p>"임금을 섬길 때는 임금의 존경을 받아야지 임금의 총애를 받는 사람이 되는 건 중요하지 않다. 또 임금의 신뢰를 받는 게 중요하지 임금을 기쁘게 해주는 사람이 되는 게 중요하지 않다."</p>
-          </div>
-           <p class="slide-content mt-6">신뢰는 꾸준히 쌓는 수밖에 없습니다. 그것만이 상대에게 신뢰를 줄 수 있는 가장 좋은 방법입니다. 그렇게 얻은 신뢰는 내 인생의 큰 밑거름이 될 것입니다.</p>
-        </div>
-      </div>
-      
-       <!-- Slide 28: Ch2-8 Consciousness -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">8. 삶의 질은 의식 수준이 좌우한다</p>
-          <h2 class="slide-title">배부른 돼지 vs <span class="highlight">배고픈 소크라테스</span></h2>
-           <p class="slide-subtitle">가급적 높은 의식 수준을 가질 수 있도록 노력해야 합니다.</p>
-           <div class="slide-content">
-            <p>의식 수준이 높아지려면 학습을 해야 합니다. 깊은 생각은 뇌의 전두엽에서 나옵니다. 컴퓨터, TV, 스마트폰은 정보를 일방적으로 받아들이게 만들어 전두엽의 활동을 급격하게 떨어뜨립니다.</p>
-            <p class="mt-4 font-bold">스티브 잡스는 자신의 아이들에게 디지털 기기 사용을 제한했습니다. 왜 그랬을까요? 창의적 사고를 하는 65원의 가치를 아는 사람으로 키우고 싶었기 때문입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-       <!-- Slide 29: Ch2-9 Empathy -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">9. 공감 능력을 키우도록 하여라</p>
-          <h2 class="slide-title">공감은 <span class="highlight">지능</span>이다.</h2>
-          <div class="quote-block">
-            <p>"근심 걱정에 싸여 있는 집에 가서는 연민의 눈빛으로 그 고통을 함께 나누며 잘 처리할 방법을 함께 의논해야 되는 것이다. ... 군자는 들고 나는 일을 잘해야 한다."</p>
-          </div>
-           <p class="slide-content mt-6">공감 능력은 타고나는 것이 아니라 연습을 통해 키울 수 있습니다. 공감받기 위해서는 먼저 공감해주어야 합니다. 늘 타인의 말에 귀를 기울이고 공감하는 습관을 가지는 것이 좋습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 30: Ch2-10 Strengths -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">10. 타인의 단점보다 장점을 보아라</p>
-          <h2 class="slide-title">단점만 찾다 보면 <span class="highlight">주위에 아무도 없다</span>.</h2>
-          <p class="slide-subtitle">상대의 단점을 찾기 이전에 나의 단점을 한 번쯤 생각해보는 것이 좋습니다.</p>
-           <div class="slide-content">
-            <p>상대에게서 나타나는 어떤 모습은 그 사람의 극히 일부분입니다. 한 부분만 보고 그 사람 전체를 판단하는 '일반화의 오류'를 범해서는 안 됩니다.</p>
-            <p class="mt-4">좋은 관계를 만들기 위해서는 내가 먼저 손을 내미는 것이 좋습니다. 살아가며 상대의 장점을 보도록 노력하여 좋은 사람을 많이 만들자. 그렇게 만든 인연이야말로 훗날 내 삶의 큰 무기가 될 것입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 31: Ch2-11 Honorifics -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">11. 오래 만나고 싶으면 존칭을 쓰는 것이 좋다</p>
-          <h2 class="slide-title">배려와 존중을 통해 <span class="highlight">관계가 형성</span>된다.</h2>
-          <div class="quote-block">
-            <p>"내가 하는 대로 남이 나를 대접한다. 윗사람이 나를 능멸하고, 아랫것들이 농간을 부리는 것은 내가 그들에게 만만하게 보였기 때문이다."</p>
-          </div>
-           <p class="slide-content mt-6">사람은 편해지면 서로를 안이하게 대하기 때문에 실수를 하게 됩니다. 나이 차이가 적거나 동갑일수록 말을 놓는 것을 더욱 조심해야 합니다. 오래 좋은 인연을 유지하고 싶은 상대라면 상호 존칭을 사용하는 것을 원칙으로 하세요.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 32: Ch2-12 Travel -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">12. 여행을 즐겨라 ✈️</p>
-          <h2 class="slide-title">새로운 것을 만나고 <span class="highlight">익숙한 것의 소중함</span>을 상기시켜라.</h2>
-           <p class="slide-subtitle">집에서 벗어나는 순간 여행은 시작됩니다. 꼭 먼 곳으로 가야만 여행은 아닙니다.</p>
-           <div class="slide-content">
-            <p>여행은 내 생각과 행동을 평소보다 조금 더 여유롭게 만들어주고 새로운 것을 마주할 기회를 줍니다. </p>
-            <p class="mt-4">결국 남는 것은 새로운 것이 아니라, 익숙해서 소중함을 잊고 살았던 것들입니다. 여행만큼 인생을 배우기에 좋은 것도 드뭅니다. 돈도 적게 들고 시간도 절약되는 최고의 여행은 바로 '책 속으로 떠나는 여행'입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 33: Ch2-13 Physiognomy -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">13. 관상은 과학이다</p>
-          <h2 class="slide-title">관상을 믿되, <span class="highlight">맹신하지는 마라</span>.</h2>
-          <div class="quote-block">
-            <p>"얼굴은 버릇으로 인해서 변하고 세력은 얼굴로 인해서 이루어진다. ... 임금이 관상법을 믿으면 그 신하를 잃게 된다."</p>
-          </div>
-           <p class="slide-content mt-6">나이 마흔이 되면 본인의 얼굴에 책임을 지라고 했습니다. 평소 언행을 올바르게 하고 마음 씀씀이를 올곧게 갖는다면 그것이 외부에 그대로 나타나게 됩니다. 모든 것은 마음에서 비롯되는 법입니다.</p>
         </div>
       </div>
 
-      <!-- Chapter 3 Title -->
+       <!-- Slide 23 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돈 거래의 지혜 💸</h2>
+          <p class="slide-subtitle">돈은 사람을 걸러내는 '체'가 될 수 있습니다.</p>
+          <div class="slide-content">
+            <p>누군가 돈을 빌려달라고 할 때, 생활에 지장이 없는 범위 내에서 기꺼이 빌려줘 보세요. 대신 돌려받을 기대는 하지 않는 것이 좋습니다. 돈을 돌려받지 못하더라도, 그 사람의 신의를 확인하고 미래의 더 큰 손해를 막은 것이라 생각하면 됩니다. 만약 상대가 약속을 지키고 돈을 갚는다면, 그는 평생의 든든한 응원군이 될 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 원수는 잊고 은혜는 갚아라</h2>
+          <div class="quote-box">
+              <p>"용서하는 사람이 큰 인물이다. 국량(局量)의 근본은 용서해 주는 데 있으니 용서할 수만 있다면 결국 큰 그릇이 될 수 있느니라."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음의 평안을 위한 선택 😌</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">원수는 잊어라</h3>
+              <p>마음에 원수가 많아질수록 마음은 황폐해집니다. 'Out of sight, out of mind'. 눈에서 멀어지게 하고 마음에서도 지워버리면 한결 편해집니다. 모든 사람을 다 안고 살아갈 수는 없습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">은혜는 반드시 갚아라</h3>
+              <p>받은 도움과 은혜는 잊어서도, 미루어서도 안 됩니다. 세상에 공짜는 없습니다. 받은 신세는 반드시 갚는 것이 좋습니다. 물질적인 것일 수도, 마음일 수도 있습니다. 현명하게 실천하며 살아가야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">4. 스쳐 가는 인연은 그냥 보내라 👋</h2>
+           <div class="quote-box">
+              <p>"무릇 천륜에 야박한 사람은 결코 믿을 수가 없으니 절대 가까이해서는 안 된다... 아침에는 따뜻이 대해 주다가도 저녁에는 차갑게 변하고 만다. 그러니 절대 가까이하지 말거라."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인연의 무게와 <span class="highlight">기회비용</span></h2>
+          <p class="slide-subtitle">살아가며 만나는 모든 사람이 다 인연은 아닙니다.</p>
+          <div class="slide-content">
+            <p>쉽게 만든 인연은 가볍고 오래가지 못합니다. 우리에게 시간은 한정적입니다. 진정한 인연과의 소중한 시간을 지키기 위해서라도 스쳐 가는 인연은 무심코 지나쳐야 합니다. 모든 사람과 인연을 맺으려 하면 정작 좋은 인연을 만날 기회를 놓치게 됩니다. 이것이 <span class="highlight">기회비용</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불가근불가원 (不可近不可遠)</h2>
+          <p class="slide-subtitle">인간관계의 핵심은 '적당한 거리'입니다.</p>
+          <div class="slide-content">
+            <p>너무 가까이해서도 안 되고 너무 멀리해서도 안 됩니다. 항상 적당한 거리를 유지하는 것이 좋습니다. 너무 허물없이 대하면 실수를 하기 마련이고, 나의 밑바닥까지 상대에게 다 들춰질 수 있습니다. 서로에 대해 조금 모르는 것이 오히려 낫습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 3 Title Slide -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 3</p>
-          <h2 class="slide-title">습관에 대하여 🔁</h2>
-          <p class="slide-content">인생을 만들어가는 작은 행동들, 좋은 습관을 만들고 나쁜 습관을 버리는 법을 알아봅니다.</p>
+          <h2 class="slide-title">습관에 대하여 🔄</h2>
+          <p class="slide-content">좋은 습관을 만들고 나쁜 습관에서 벗어나는 법, 일상 속 작은 실천의 중요성을 배웁니다.</p>
         </div>
       </div>
       
-      <!-- Slide 35: Ch3-1 Addiction -->
-      <div class="slide">
+      <!-- Slide 30 -->
+       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">1. 중독(中毒)에서 벗어나야 한다</p>
-          <h2 class="slide-title">'그것 없이는 견디지 못하는 <span class="highlight">병적 상태</span>'</h2>
-           <p class="slide-subtitle">내가 원치 않는 무언가가 절대로 채워지지 않는 것이 바로 중독입니다.</p>
-           <div class="slide-content">
-            <p>술, 담배, 사람, 마약, 스마트폰. 이 모든 중독에서 벗어나려는 노력은 나 자신과 더불어 내가 사랑하는 소중한 사람을 위한 일입니다.</p>
+          <h2 class="slide-title">1. 중독(中毒)에서 벗어나야 한다</h2>
+           <div class="quote-box">
+              <p>"내가 보니 비장(裨將)이 된 자들의 천만 가지 문제의 발단이 모두 한 글자에서 일어난다... 바로 음(淫)이라는 글자다. 어리석어 못난 사내가 한 차례 빠지기만 하면 향기와 악취도 분간 못하고... 마음을 잃고 몸을 망치는 것이 이로부터 비롯된다."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">중독의 정의와 극복</h2>
+          <p class="slide-subtitle">"내가 원치 않는 무언가가 절대로 채워지지 않는 것"</p>
+          <div class="slide-content">
+            <p>중독이란 '그것 없이는 견디지 못하는 병적 상태'입니다. 술, 담배, 사람, 스마트폰 등 모든 것이 해당될 수 있습니다. 중독에서 벗어나는 것은 나를 위한 일이자, 내가 사랑하는 소중한 사람을 위한 일입니다.</p>
              <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                  <h3 class="font-bold text-lg">중독을 벗어나는 법: 알아차림</h3>
-                  <p class="mt-2">중독된 그것이 생각날 때, '아! 중독된 그것이 또 나를 찾아왔구나' 라고 제3자의 관점으로 마주하세요. 통제하려 하지 말고, 그저 알아차리기만 해도 좋습니다. '또 네가 왔구나. 그래, 잠시 곁에 있다가 가렴.'</p>
-                </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 36: Ch3-2 Habits -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2. 한 톨의 쌀을 남길 것인가</p>
-          <h2 class="slide-title">사소한 습관을 <span class="highlight">중요하게</span> 여겨야 한다.</h2>
-           <p class="slide-subtitle">밥그릇에 쌀 한 톨 남기지 않는 습관은 음식의 소중함을 아는 삶의 기본 태도입니다.</p>
-           <div class="slide-content">
-            <p>나이가 들었다 하여 모두 어른은 아닙니다. 어른다운 말과 행실, 마음과 습관을 가져야 비로소 어른이라 할 수 있습니다. </p>
-            <p class="mt-4">내가 먹는 음식이 돈만 주면 사 먹을 수 있는 것이라고 단순히 치부하지 말아야 합니다. 내 입에 들어오기까지의 일련의 과정을 생각한다면 음식을 소홀히 대할 수 없을 것입니다.</p>
+              <h3 class="font-bold text-lg">💡 코끼리는 생각하지 마!</h3>
+              <p class="mt-2">중독을 통제하고 벗어나려 애쓰기보다, '중독이 또 나를 찾아왔구나'라고 제3자의 관점으로 마주하고 인정하는 것이 중요합니다. 부정하기보다 자연스레 받아들이는 것이 프레임에서 벗어나는 방법입니다.</p>
+            </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 37: Ch3-3 Speech Habits -->
-      <div class="slide">
+      <!-- Slide 32 -->
+       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">3. 말 습관을 조심해야 한다</p>
-          <h2 class="slide-title">바른 말로 상대도 나도 함께 <span class="highlight">높이는 지혜</span>를 가지자.</h2>
-          <div class="quote-block">
-            <p>"말을 실속 없이 과장되게 하면 남이 믿어 주질 않는다. 공부는 먼저 거짓말하지 않는 일부터 신경 써야 한다. 말을 적게 해라."</p>
-          </div>
-          <p class="slide-content mt-6">말 한마디로 천 냥 빚을 갚습니다. 좋은 말 습관은 좋은 관계의 시작입니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-              <div><h3 class="font-bold">🗣️ 바른 말</h3><p>상황에 맞는 격식과 존중을 담아 표현합니다. '감사해요' 보다는 '감사합니다'가 더 격식 있는 표현입니다.</p></div>
-              <div><h3 class="font-bold">🤫 솔직한 말</h3><p>지나친 솔직함은 상대에게 상처를 줄 수 있습니다. 진실하되, 불필요한 솔직함으로 독을 만들지 마세요.</p></div>
-              <div><h3 class="font-bold">💬 가벼운 말</h3><p>말은 무거울수록 좋습니다. 생각 없이 내뱉은 가벼운 말은 나를 가벼운 사람으로 만듭니다.</p></div>
-              <div><h3 class="font-bold">🤬 나쁜 말</h3><p>욕은 말로 하는 폭력입니다. 인격이 바닥을 칩니다. 늘 올바르고 좋은 말을 하는 습관으로 품격을 높이세요.</p></div>
+          <h2 class="slide-title">2. 한 톨의 쌀을 남길 것인가</h2>
+           <div class="quote-box">
+              <p>"집안을 다스리는 요령으로 새겨야 할 글자가 둘 있는데, 그 첫째는 근(勤)이다... 둘째는 검(儉)이다. 집안의 남녀노소가 모두 놀고먹는 사람이 없도록 하고 한순간도 한가함이 없어야 한다."</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 38: Ch3-4 Breaking Up with Familiarity -->
+      <!-- Slide 33 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사소한 습관의 중요성🍚</h2>
+          <p class="slide-subtitle">밥 한 톨까지 깨끗이 먹는 습관은 음식의 소중함을 아는 것입니다.</p>
+          <div class="slide-content">
+            <p>한 톨의 쌀이 식탁에 오르기까지의 과정은 우리가 살아가는 인생의 모습과 같습니다. 모진 비바람과 뜨거운 태양을 이겨낸 벼처럼, 우리도 수많은 과정을 거칩니다. 늘 음식의 소중함을 생각하고 귀하게 대하는 습관을 갖는 것은 단순히 식사 예절을 넘어, 삶을 대하는 기본적인 태도입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 34 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 말 습관을 조심해야 한다 🗣️</h2>
+           <div class="quote-box">
+              <p>"너희가 모든 말을 다 미덥게 하다가도 한마디만 사리에 맞지 않거나 거짓말을 하면 곧 도깨비처럼 되어 버린다... 공부는 먼저 거짓말하지 않는 일부터 신경 써야 한다. 말을 적게 해라."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">말의 종류와 지혜</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">바른 말 vs 솔직한 말</h3>
+              <p>바른 말로 상대와 나를 함께 높이는 지혜가 필요합니다. 지나친 솔직함은 상대에게 상처를 줄 수 있습니다. 진실하되, 상대에게 이득인지 손해인지를 따져보고 말하는 신중함이 필요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">가벼운 말 vs 나쁜 말</h3>
+              <p>말은 무거울수록 좋습니다. 쉽게 내뱉은 말은 나를 가벼운 사람으로 만듭니다. 욕은 말로 하는 폭력입니다. 인격이 바닥을 칩니다. 늘 올바르고 좋은 말을 하는 습관으로 품격을 높여야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 36 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">4. 익숙한 것과의 결별</p>
-          <h2 class="slide-title">같은 강물에 <span class="highlight">발을 두 번 담글 수 없다</span>.</h2>
-          <p class="slide-subtitle">- 헤라클레이토스</p>
-           <div class="slide-content">
-            <p>세상 만물은 한순간도 쉬지 않고 흐르고 변화합니다. 익숙하고 편안한 삶에 안주하면 발전이 저해될 수 있습니다.</p>
-            <p class="mt-4">때로는 익숙한 것과 결별하는 연습이 필요합니다. 새로운 것을 찾아 끊임없이 탐구하는 습관을 가지세요. 새로운 관계, 새로운 독서, 새로운 경험이 삶을 풍요롭게 합니다.</p>
+          <h2 class="slide-title">4. 익숙한 것과의 결별</h2>
+          <div class="quote-box">
+              <p>"새해를 맞이하여 마음가짐과 행동을 새롭게 하여야 한다. 나는 어릴 적 새해를 맞을 때마다 일 년 동안 공부할 과정을 미리 계획해 보곤 했다."</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 39: Ch3-5 Drinking -->
+      <!-- Slide 37 -->
        <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">5. 금주에 가까운 절주를 해야 한다</p>
-          <h2 class="slide-title">지나친 음주는 삶을 <span class="highlight">피폐하게</span> 만든다.</h2>
-          <div class="quote-block">
-            <p>"진정으로 술맛이란 입술을 적시는 데 있다. ... 술을 마시는 정취는 살짝 취하는 데 있다. ... 제발 술을 끊고 입에도 대지 마라."</p>
+          <h2 class="slide-title">"같은 강물에 발을 두 번 담글 수 없다"</h2>
+          <p class="slide-subtitle">헤라클레이토스의 말처럼, 세상 만물은 끊임없이 변화합니다.</p>
+          <div class="slide-content">
+            <p>익숙하고 편안한 삶에 안주하면 발전이 저해될 수 있습니다. 때로는 익숙한 것과 결별하는 연습이 필요합니다. 새로운 것을 찾아 끊임없이 탐구하는 습관을 가져야 합니다. 능동적인 변화의 시작은 <span class="highlight">익숙한 것과의 결별</span>에서부터 시작됩니다.</p>
           </div>
-           <p class="slide-content mt-6">술이 인간관계를 부드럽게 하지만, 과음은 반드시 실수를 낳고 소중한 시간을 잃게 만듭니다. 주량을 정확히 알고, 그 이상은 마시지 않는 것을 철칙으로 삼아야 합니다.</p>
         </div>
       </div>
 
-      <!-- Slide 40: Ch3-6 Temptation -->
-       <div class="slide">
+       <!-- Slide 38 -->
+      <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">6. 유혹에 빠지지 마라</p>
-          <h2 class="slide-title">아름다운 꽃에는 <span class="highlight">가시</span>가 있다.</h2>
-           <p class="slide-subtitle">인생은 온갖 유혹투성이입니다. 이성, 돈, 술, 마약 등 치명적인 유혹들이 항상 주변에 도사리고 있습니다.</p>
-           <div class="slide-content">
-            <p>유혹이 다가올 때, 잠시 멈춰 서서 두 가지만 생각해보세요.</p>
-            <ul class="list-disc list-inside mt-4">
-                <li>훗날의 내가 지금 이 모습을 본다면 어떤 생각이 들까?</li>
-                <li>내 부모와 자식들이 이 모습을 본다면 어떠할까?</li>
-            </ul>
-             <p class="mt-4">유혹에 넘어가 얻는 한순간의 쾌락은, 지나고 보면 아무것도 아닌 헛된 것임을 깨닫게 됩니다.</p>
+          <h2 class="slide-title">5. 금주에 가까운 절주를 해야 한다 🍺</h2>
+           <div class="quote-box">
+              <p>"어찌 글공부에는 아비의 버릇을 이을 줄 모르고 주량만 훨씬 아비를 넘어서는 것이냐?... 진정으로 술맛이란 입술을 적시는 데 있다. 소 물 마시듯 마시는 사람들은 무슨 술맛을 알겠느냐?"</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
         </div>
       </div>
 
-      <!-- Chapter 4 Title -->
+       <!-- Slide 39 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">절주의 필요성</h2>
+          <p class="slide-subtitle">지나친 음주는 삶을 피폐하게 만듭니다.</p>
+          <div class="slide-content">
+            <p>술이 인간관계를 부드럽게 하지만, 과음은 반드시 실수를 낳고 소중한 시간을 잃게 합니다. 자신의 주량을 정확히 알고 그 이상 마시지 않는 것을 철칙으로 삼아야 합니다. 의미 없는 술자리는 피하고, 맑은 정신으로 삶을 마주하는 것이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 4 Title Slide -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 4</p>
-          <h2 class="slide-title">태도에 대하여 🧘</h2>
-          <p class="slide-content">세상을 대하고 사람을 대하는 마음가짐, 올바른 태도가 인생을 어떻게 바꾸는지 알아봅니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 42: Ch4-1 Mother's Heart -->
-       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">1. 어머니의 마음을 기쁘게 해라</p>
-          <h2 class="slide-title">표현하지 않는 사랑은 <span class="highlight">반쪽짜리 사랑</span>이다.</h2>
-          <div class="quote-block">
-            <p>"어버이를 섬기는 데는 마음을 받드는 것이 가장 중요하다. ... 방법이란 방법은 다 써서 네 어머니의 마음을 기쁘게 하도록 하여라."</p>
-          </div>
-           <p class="slide-content mt-6">가까이 있는 사람에게 사랑을 표현하는 것을 습관화해야 합니다. 배우자, 부모, 자식에게 사랑을 표현하는 것은 결코 부끄러운 일이 아닙니다. 그래야 온전한 사랑이 전달됩니다.</p>
+          <h2 class="slide-title">태도에 대하여 🌟</h2>
+          <p class="slide-content">삶을 대하는 바람직한 자세, 겸손과 존중, 그리고 긍정적인 마음가짐에 대한 다산의 가르침을 알아봅니다.</p>
         </div>
       </div>
       
-      <!-- Slide 43: Ch4-2 Pretending -->
+      <!-- Slide 41 -->
        <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">2. 잘난 척하지 마라</p>
-          <h2 class="slide-title">잘난 척하는 사람은 결국 <span class="highlight">외면받는다</span>.</h2>
-           <p class="slide-subtitle">겸손의 미덕을 바탕에 깔고 살아가면 주위에 사람이 모입니다.</p>
-           <div class="slide-content">
-            <p>잘난 척하는 사람의 특징은 인정받고 싶은 욕구가 크다는 것입니다. 이는 자존감이 부족하거나 불안한 심리상태를 타인의 관심으로 채우려는 욕구에서 비롯됩니다.</p>
-            <p class="mt-4">자아가 성숙한 사람이라면 굳이 잘난 척하지 않아도 주위에서 알아줍니다. 스스로를 갈고닦으며 내면을 채우고 겸손의 미덕을 가슴에 새기고 살아갑시다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 44: Ch4-3 Attachment -->
-       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">3. 물건에 대한 집착</p>
-          <h2 class="slide-title">물건에 집착하지 마라. 어느 순간 <span class="highlight">상전이 될 수 있다</span>.</h2>
-          <div class="quote-block">
-            <p>"형태가 있는 것은 부서지기 쉽지만 형태가 없는 것은 없애기가 어렵기 때문이다. ... 자기 몸에 늘 재화를 지니고 다닐 수 있는 방법이 곧 이것이다(베푸는 것)."</p>
-          </div>
-           <p class="slide-content mt-6">본디 사람은 하나가 있어야 소중한 줄 아는 법입니다. 여러 개가 되면 그 소중함을 잊어버립니다. 내가 가진 '단 하나의 소중함'을 늘 기억해야 합니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 45: Ch4-4 Direction -->
-       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">4. 인생은 속도보다 방향이 중요하다</p>
-          <h2 class="slide-title">빨리 가려면 혼자 가고, <span class="highlight">멀리 가려면 함께 가라</span>.</h2>
-           <p class="slide-subtitle">시간은 유한합니다. 올바른 방향을 설정하고 살아가는 것이 좋습니다.</p>
-           <div class="slide-content">
-            <p>우리에게는 평생 약 4,000 ~ 4,700주의 시간이 주어집니다. 이 시간을 어떻게 사용할 것인가요?</p>
-            <p class="mt-4">너무 바쁘게 살다 보면 자신을 돌아볼 시간이 부족합니다. 바쁠수록 돌아가고, 한 템포 쉬면서 나 자신을 만나는 시간을 가져야 합니다. 인생은 마라톤입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 46: Ch4-5 Trivial Matters -->
-       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">5. 사소한 일에 목숨 걸지 마라</p>
-          <h2 class="slide-title">소탐대실(小貪大失)하지 마라.</h2>
-           <p class="slide-subtitle">모든 불화는 늘 사소한 것으로부터 시작됩니다.</p>
-           <div class="slide-content">
-            <p>사소한 자존심으로 인한 다툼이 인연을 끊고, 때로는 사람의 목숨까지 앗아갑니다. 사소한 것은 져주는 것이 지혜입니다. 그것을 이긴다고 해서 인생의 승자가 되는 것이 아닙니다.</p>
-            <p class="mt-4">화가 올라올 때는 항상 심호흡을 하며 한 걸음 물러서서 나를 바라보는 것이 좋습니다. 그러면 웬만해서는 사소한 일에 목숨을 걸 일이 없습니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 47: Ch4-6 Shame -->
-       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">6. 염치(廉恥)가 있어야 한다</p>
-          <h2 class="slide-title">부끄러움을 모르는 사람은 <span class="highlight">멀리하는 것</span>이 좋다.</h2>
-          <div class="quote-block">
-            <p>"재물의 이익 앞에서 인간의 존엄이나 품위는 간 데가 없다. ... 산처럼 재물을 쌓아놓고 혼자 고립되어 산다. 누구를 위해 그 재물을 모았던가?"</p>
-          </div>
-           <p class="slide-content mt-6">사람은 자고로 염치가 있어야 합니다. 짐승은 부끄러움을 모르지만, 유일하게 인간만이 부끄러움을 압니다. 부끄러움을 모른다면 짐승과 다를 바 없습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 48: Ch4-7 Gratitude -->
-       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">7. 당연한 마음과 고마운 마음</p>
-          <h2 class="slide-title">타인에게는 <span class="highlight">고마운 마음</span>을, 스스로에게는 <span class="highlight">당연한 마음</span>을.</h2>
-           <p class="slide-subtitle">상대의 친절은 당연하게 생각하고, 내 친절에는 상대가 고마워하길 바라면 마음에 언짢은 기분이 싹틉니다.</p>
-           <div class="slide-content">
-            <p>늘 고마워하되 당연하다고 생각하지 말 것이며, 당연히 하되 고마움을 바라지 말자. 그러면 내 마음이 한결 편해질 것입니다.</p>
-            <p class="mt-4">세상에 당연한 것은 단 하나도 없고, 고맙지 않은 것도 단 하나도 없습니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 49: Ch4-9 Solitude -->
-       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">9. 혼자만의 시간을 즐겨라</p>
-          <h2 class="slide-title">풍요 속의 빈곤에서 오는 <span class="highlight">상실감</span>을 맛보지 마라.</h2>
-           <p class="slide-subtitle">늘 혼자 있는 것에 익숙해질 필요가 있고 혼자만의 시간을 즐길 수 있어야 합니다.</p>
-           <div class="slide-content">
-            <p>외로움을 즐기기 위해서는 혼자 있는 시간을 즐길 수 있어야 합니다. 그 시간이 행복해야 합니다.</p>
-            <p class="mt-4">상대가 있어서 오는 상대적 행복이 아니라, 나 혼자서 행복할 수 있는 '절대적 행복'을 만들어야 합니다. 독서, 음악, 운동 등 다양한 방법을 통해 외로움을 즐겨보도록 합시다.</p>
+          <h2 class="slide-title">1. 어머니의 마음을 기쁘게 해라</h2>
+           <div class="quote-box">
+              <p>"어버이를 섬기는 데는 마음을 받드는 것이 가장 중요하다... 아무쪼록 이런 것들을 깊이 생각하여 방법이란 방법은 다 써서 네 어머니의 마음을 기쁘게 하도록 하여라."</p>
+              <p class="author">- 다산의 편지 中</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 50: Conclusion -->
+       <!-- Slide 42 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑은 <span class="highlight">표현</span>입니다 ❤️</h2>
+          <p class="slide-subtitle">표현하지 않는 사랑은 반쪽짜리 사랑입니다.</p>
+          <div class="slide-content">
+            <p>가까이 있는 사람에게 사랑을 표현하는 것을 습관화해야 합니다. 배우자, 부모, 자식에게 표현하지 않으면 상대는 알 도리가 없습니다. 짐작만 하게 만들지 마세요. 사랑은 표현하고 주고받을 때 온전히 전달됩니다. 엄마를 떠올리면 눈물이 납니다. 그러니 엄마한테 잘해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2. 잘난 척하지 마라</h2>
+           <div class="quote-box">
+              <p>"비스듬히 드러눕거나 옆으로 삐딱하게 서고, 아무렇게나 지껄이거나 눈알을 이리저리 굴리면서도 경건한 마음을 가질 수 있는 사람은 세상에 없다... 이 세 가지도 못하면서 다른 일에 힘을 쓴다면... 결국은 발뒤꿈치를 땅에 붙이고 바로 설 수 없게 되어 어긋난 말씨, 잘못된 행동 등으로 흘러 걷잡을 수 없게 될 것이다."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">겸손의 미덕 ✨</h2>
+          <p class="slide-subtitle">"적당히 해라. 까불면 결국에는 다친다."</p>
+          <div class="slide-content">
+            <p>잘난 척하는 사람은 결국 외면받습니다. 알아도 모르는 척, 있어도 없는 척하는 겸손의 미덕을 바탕에 깔고 살아가면 주위에 사람이 모입니다. 자존감이 부족하거나 불안한 심리상태를 인정받고 싶은 욕구로 채우려는 것이 '잘난 척'입니다. 스스로를 갈고닦아 내면을 채우고 겸손의 미덕을 가슴에 새기고 살아가는 것이 좋습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 45 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 물건에 대한 집착</h2>
+           <div class="quote-box">
+              <p>"형태가 있는 것은 부서지기 쉽지만 형태가 없는 것은 없애기가 어렵기 때문이다... 재물을 남에게 나누어주는 것은 정신적으로 사용한 것이 된다. 형태가 없는 것으로 정신적인 향락을 누린다면 그것이 변하거나 없어질 이유 또한 없으니..."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 46 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소유와 집착을 넘어</h2>
+          <p class="slide-subtitle">물건에 집착하지 마라. 물건이 어느 순간 나의 상전이 될 수가 있다.</p>
+          <div class="slide-content">
+            <p>법정 스님은 하나의 만년필만 사용했습니다. 사람은 하나가 있어야 소중한 줄 아는 법입니다. 너무 비싼 물건을 사용하는 것을 피하는 것이 좋습니다. 내면이 부실할수록 명품을 탐하게 됩니다. 내 안의 공허함을 명품으로 치장하는 착각은 금물입니다. 나 자신이 명품이 될 수 있도록 스스로를 갈고닦아야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 47 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">4. 인생은 속도보다 <span class="highlight">방향</span>이 중요하다 🧭</h2>
+          <div class="quote-box">
+              <p>"아침에 햇볕을 먼저 받는 곳은 저녁에 그늘이 빨리 들고, 일찍 피는 꽃은 일찍 시드는 것을 반드시 명심해라... 가슴속에는 늘 송골매가 가을 하늘을 솟구쳐 오르는 듯한 기상을 품어야 한다."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 48 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶의 방향 설정</h2>
+          <p class="slide-subtitle">"빨리 가려면 혼자 가고, 멀리 가려면 함께 가라."</p>
+          <div class="slide-content">
+            <p>시간은 유한합니다. 애초에 올바른 방향을 잡고 나아가는 것이 좋습니다. 생각보다 시간이 많이 남지 않았다고 해서 너무 조급하게 서두를 필요는 없습니다. 한 템포 쉬어가세요. 급하게 살아야 한다는 것이 아니라 <span class="highlight">의미 있게</span> 살아야 한다는 뜻입니다. 인생은 마라톤입니다. 바쁠수록 돌아가고, 한 템포 쉬면서 나 자신을 만나는 시간을 가져야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 49 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">5. 사소한 일에 목숨 걸지 마라</h2>
+           <div class="quote-box">
+              <p>"천하의 사물은 모두 지킬 것이 없다. 그러나 오직 '나'만은 마땅히 지켜야 한다... 진정 지켜야 할 '나'는 내버려둔 채 달아날 염려 없는 물건만 지키려고 난리다. 내가 나를 잃으면 그 많은 물건을 다 지녀도 내 것이 아니다."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소탐대실(小貪大失)을 경계하라</h2>
+          <p class="slide-subtitle">모든 불화는 늘 사소한 것으로부터 시작됩니다.</p>
+          <div class="slide-content">
+            <p>사소한 일에 목숨을 거는 경우가 종종 있습니다. 그럴 때는 잠시 하던 일을 멈추고 한걸음 물러서서 정작 중요한 것이 무엇인지를 간파해야 합니다. 사소한 것은 져주는 것도 나쁘지 않습니다. 그것을 이긴다고 해서 인생이 달라지는 것이 아닙니다. 힘은 정말 필요한 일에 값어치 있게, 정성을 다해 쏟아야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 51 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">6. 염치(廉恥)가 있어야 한다</h2>
+          <div class="quote-box">
+              <p>"재물의 이익 앞에서 인간의 존엄이나 품위는 간 데가 없다. 돈을 많이 벌 수만 있다면 사람들은 못하는 짓이 없다... 산처럼 재물을 쌓아놓고 혼자 고립되어 산다. 그렇게 악을 써서 모은 재물은 결국 자손 대에 가서 노름과 주색잡기로 순식간에 탕진되어 흔적조차 없게 된다."</p>
+              <p class="author">- 다산의 편지 中</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부끄러움을 아는 마음</h2>
+          <p class="slide-subtitle">부끄러움을 모르는 사람은 멀리하는 것이 좋습니다.</p>
+          <div class="slide-content">
+            <p>사람은 자고로 염치가 있어야 합니다. 짐승은 부끄러움을 모르지만, 유일하게 인간만이 부끄러움을 압니다. 부끄러움을 모른다면 짐승과 다를 바 없습니다. 늘 마음공부를 게을리하지 말고, 스스로에게 부끄러운 짓을 하지 않도록 노력해야 합니다. 노력 없는 기쁨이 없듯, 노력 없는 실력도 생기지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 53: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
-          <div class="text-6xl mb-6">🎯</div>
-          <h2 class="slide-title">마지막 당부</h2>
+          <div class="text-6xl mb-6">:dart:</div>
+          <h2 class="slide-title">결론: 삶의 지혜를 찾아서</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">다산의 편지를 통해 우리는 시대를 초월하는 삶의 지혜를 배울 수 있습니다. 공부, 사람, 습관, 태도 이 모든 것의 근본은 결국 <span class="highlight">'마음을 닦는 공부'</span>로 귀결됩니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">스스로를 끊임없이 성찰하고, 주변에 감사하며, 올바른 태도로 하루하루를 살아가는 것이 다산이 우리에게 전하는 마지막 메시지입니다.</p>
+            <p class="mb-4">『다산의 마지막 편지』는 200년 전 다산 정약용의 목소리를 빌려 오늘을 살아가는 우리에게 필요한 <span class="highlight">삶의 지혜</span>를 전달합니다. 공부, 사람, 습관, 태도라는 네 가지 키워드를 통해 끊임없이 자신을 성찰하고 더 나은 삶을 향해 나아갈 것을 이야기합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">결국 가장 중요한 것은 꾸준한 '마음공부'입니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 51: Thank You / Q&A -->
+      <!-- Slide 54: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">👏</div>
+          <div class="text-7xl mb-8">:clap:</div>
           <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
           <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
         </div>
@@ -831,16 +796,16 @@
           slide.classList.add('active');
         }
       });
-      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
       progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
 
       prevBtn.disabled = currentSlide === 0;
       nextBtn.disabled = currentSlide === slides.length - 1;
-      
-      prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
-      prevBtn.style.cursor = currentSlide === 0 ? 'not-allowed' : 'pointer';
-      nextBtn.style.opacity = currentSlide === slides.length - 1 ? '0.5' : '1';
-      nextBtn.style.cursor = currentSlide === slides.length - 1 ? 'not-allowed' : 'pointer';
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
     }
 
     nextBtn.addEventListener('click', () => {
@@ -858,9 +823,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+      if (e.key === 'ArrowRight') {
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+      } else if (e.key === 'ArrowLeft') {
         prevBtn.click();
       }
     });
