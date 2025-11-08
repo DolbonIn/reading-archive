@@ -1,4 +1,69 @@
-<!DOCTYPE html><html lang='ko'><head><meta charset='utf-8'><title>Dry Run</title></head><body><p>--dry-run 플래그로 인해 Gemini 호출을 건너뛰었습니다.</p>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>그가 나에게 말하지 않는 것 · 대용량 PDF 안내</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      background: radial-gradient(circle at top, #1b2340 0%, #090d1a 60%, #04060c 100%);
+      color: rgba(255, 255, 255, 0.92);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+      box-sizing: border-box;
+    }
+    main {
+      max-width: 760px;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55);
+      padding: clamp(32px, 5vw, 56px);
+      text-align: center;
+    }
+    img {
+      width: clamp(180px, 40%, 280px);
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      margin-bottom: 24px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+    p {
+      line-height: 1.7;
+      margin: 12px 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge">PDF 용량 143.4MB</div>
+    <img src="../assets/covers/그가-나에게-말하지-않는-것-로라-데이브-지음-김소정-옮김.jpg" alt="그가 나에게 말하지 않는 것 표지" loading="lazy" />
+    <h1>그가 나에게 말하지 않는 것</h1>
+    <p>로라 데이브 지음, 김소정 옮김</p>
+    <p>이 도서는 원본 PDF 용량이 80MB를 초과하여 AI 프레젠테이션 생성을 건너뛰었습니다.<br/>
+    표지와 메타데이터는 준비되어 있으며, 슬라이드 요약은 추후 별도로 업로드될 예정입니다.</p>
+  </main>
+
 <script data-reading-archive-scroll-nav>
 (function () {
   function findButton(selectors) {
@@ -190,4 +255,5 @@
   }, { passive: true });
 })();
 </script>
-</body></html>
+</body>
+</html>

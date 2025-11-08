@@ -95,10 +95,53 @@ def load_existing_slugs() -> Dict[str, dict]:
     return {entry.get("slug", ""): entry for entry in records if "slug" in entry}
 
 
+def has_scroll_nav(presentation_path: Path) -> bool:
+    """Check if the given HTML file already contains our scroll navigation marker."""
+    try:
+        text = presentation_path.read_text(encoding="utf-8")
+    except OSError:
+        return False
+    return "data-reading-archive-scroll-nav" in text
+
+
 def should_skip(slug: str, existing: Dict[str, dict], force: bool) -> bool:
+    """
+    Decide whether to skip processing this slug.
+
+    Rules:
+    - If --force is given: never skip (always regenerate).
+    - Otherwise:
+        - If slug not in existing manifest: do NOT skip.
+        - If slug exists:
+            - If its presentation HTML가 없거나, scroll-nav marker가 없으면: do NOT skip (재시도).
+            - 나머지(파일 있고 marker도 있음): skip.
+    """
     if force:
         return False
-    return slug in existing
+
+    entry = existing.get(slug)
+    if not entry:
+        return False
+
+    pres_rel = entry.get("presentation")
+    if not pres_rel:
+        return False
+
+    # 절대/상대 경로 모두 허용
+    pres_path = Path(pres_rel)
+    if not pres_path.is_absolute():
+        pres_path = ROOT / pres_path
+
+    if not pres_path.exists():
+        # manifest에는 있는데 파일이 없으면 다시 생성해야 함
+        return False
+
+    # scroll-nav 스크립트가 없다면 업데이트 필요 → skip 금지
+    if not has_scroll_nav(pres_path):
+        return False
+
+    # 여기까지 왔으면 완전히 준비된 상태이므로 skip
+    return True
 
 
 def persist_entry(result: dict, existing: Dict[str, dict]) -> None:
@@ -251,6 +294,7 @@ def run_with_retries(
     pdf_path: Path,
     title: str,
     author: Optional[str],
+    slug: str,
     retries: int,
     dry_run: bool,
     commit: bool,
@@ -272,6 +316,7 @@ def run_with_retries(
                 pdf_path=pdf_path,
                 title=title,
                 author=author,
+                slug=slug,
                 dry_run=dry_run,
                 commit=commit,
                 push=push,
@@ -586,7 +631,12 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     for pdf_path in pdf_files:
         title, author = parse_title_author(pdf_path.stem)
-        slug_candidate = slugify(title if not author else f"{title} {author}")
+        primary_slug = slugify(title)
+        legacy_slug = slugify(f"{title} {author}") if author else None
+        slug_candidate = primary_slug
+        if legacy_slug and legacy_slug in existing and primary_slug not in existing:
+            # 초창기 manifest 항목은 제목+저자 조합 슬러그를 썼으므로 그대로 재사용한다.
+            slug_candidate = legacy_slug
 
         if should_skip(slug_candidate, existing, force):
             print(f"[건너뜀] 이미 존재: {pdf_path.name} (slug: {slug_candidate})")
@@ -617,6 +667,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             pdf_path=pdf_path,
             title=title,
             author=author,
+            slug=slug_candidate,
             retries=retries,
             dry_run=dry_run,
             commit=commit,
