@@ -12,57 +12,62 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #f7f9fc;
     }
     .slide {
       display: none;
       min-height: 85vh;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
       flex-direction: column;
-      text-align: left;
     }
     .slide.active {
       display: flex;
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
       max-width: 1100px;
       padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      border: 1px solid #e9ecef;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e7eb;
     }
     .slide-part-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #007bff;
+      color: #4f46e5;
       margin-bottom: 8px;
     }
     .slide-title {
       font-size: 2.8rem;
       font-weight: 900;
-      color: #212529;
+      color: #111827;
       margin-bottom: 25px;
       line-height: 1.3;
     }
     .slide-subtitle {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #495057;
+      color: #374151;
       margin-bottom: 35px;
       line-height: 1.6;
     }
     .slide-content {
       font-size: 1.15rem;
       line-height: 1.9;
-      color: #343a40;
+      color: #1f2937;
     }
     .highlight {
-      background-color: #ffd6a5;
-      padding: 0.1em 0.4em;
-      border-radius: 4px;
+      background: linear-gradient(to top, #a5b4fc 40%, transparent 40%);
+      padding: 0 0.1em;
+      font-weight: 700;
     }
     .btn {
       padding: 12px 28px;
@@ -70,21 +75,21 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: none;
+      border: 2px solid transparent;
     }
     .btn-primary {
-      background-color: #007bff;
+      background-color: #4f46e5;
       color: white;
     }
     .btn-primary:hover {
-      background-color: #0056b3;
+      background-color: #4338ca;
     }
     .btn-secondary {
-      background-color: #F0F0F0;
-      color: #333;
+      background-color: #e5e7eb;
+      color: #374151;
     }
     .btn-secondary:hover {
-      background-color: #E0E0E0;
+      background-color: #d1d5db;
     }
     .progress-bar-container {
       position: fixed;
@@ -92,34 +97,42 @@
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(8px);
-      border-top: 1px solid #eee;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #e5e7eb;
       z-index: 10;
     }
     .progress-bar {
       width: 100%;
-      background-color: #e9ecef;
+      background-color: #e5e7eb;
       border-radius: 9999px;
       height: 8px;
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #007bff;
+      background-color: #4f46e5;
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
-    .toc-item {
-        border-left: 3px solid #007bff;
-        padding-left: 1rem;
-        margin-bottom: 1rem;
+    .special-block {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background-color: #f3f4f6;
+        border-left: 5px solid #4f46e5;
+        border-radius: 8px;
+    }
+    .special-block-title {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #111827;
+        margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
-  <div class="w-full">
+  <div class="w-full max-w-6xl">
     <!-- Slides Container -->
     <div id="slides-container">
 
@@ -129,45 +142,49 @@
           <div class="text-7xl mb-8">📖</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">내가 천 개의 인생에서 배운 것들</h1>
           <p class="text-xl md:text-2xl text-gray-700">돈, 명예, 시간 그 무엇보다 <span class="highlight">소중한 것</span>에 관하여</p>
-           <p class="text-lg mt-4 text-gray-500">김도윤 지음</p>
+          <p class="mt-6 text-lg text-gray-600">김도윤 작가</p>
         </div>
       </div>
 
       <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">목차</h2>
-          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-            <div class="toc-item"><b>프롤로그:</b> 가장 소중한 것</div>
-            <div class="toc-item"><b>1장:</b> 그땐 미처 알지 못했던 것들</div>
-            <div class="toc-item"><b>2장:</b> 어떤 행복은 오랜 뒤에 알게 된다</div>
-            <div class="toc-item"><b>3장:</b> 만약 오늘 밤 당신이 떠난다면</div>
-            <div class="toc-item"><b>4장:</b> 인생이 내게 다시 기회를 준다면</div>
-            <div class="toc-item"><b>에필로그:</b> 당신은 아직 늦지 않았기를</div>
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>프롤로그:</b> 천 개의 인생이 내게 알려준 한 가지 질문</p>
+            <p><b>1장:</b> 그땐 미처 알지 못했던 것들</p>
+            <p><b>2장:</b> 어떤 행복은 오랜 뒤에 알게 된다</p>
+            <p><b>3장:</b> 만약 오늘 밤 당신이 떠난다면</p>
+            <p><b>4.장:</b> 인생이 내게 다시 기회를 준다면</p>
+            <p><b>결론:</b> 인생에서 가장 가치 있는 5가지</p>
           </div>
         </div>
       </div>
-
-      <!-- Slide 3: Section Title - Prologue -->
+      
+      <!-- Slide 3: Prologue Section Title -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">프롤로그</p>
-          <h2 class="slide-title">1,000명의 인생에게 던진 <span class="highlight">두 가지 질문</span></h2>
-          <p class="slide-content">13년간 성공한 사람 1,000명 이상을 인터뷰하며 삶의 가장 가치 있는 것이 무엇인지 탐구했습니다.</p>
+          <h2 class="slide-title">천 개의 인생이 내게 알려준 <span class="highlight">단 한 가지</span></h2>
+          <p class="slide-content">13년간 1,000명이 넘는 성공한 사람들을 인터뷰하며 인생의 정답을 찾고자 했습니다. 그 과정에서 던진 두 가지 질문이 모든 것을 바꾸었습니다.</p>
         </div>
       </div>
-
+      
       <!-- Slide 4: Prologue - Question 1 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">질문 1: "세상에서 가장 <span class="highlight">소중한 것</span>은 무엇인가요?"</h2>
-          <p class="slide-subtitle">일상 속에서 우리가 가치 있다고 여기는 것들.</p>
-          <div class="slide-content text-center grid grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="p-4 bg-blue-50 rounded-lg"><span class="text-3xl">💰</span><br>돈</div>
-            <div class="p-4 bg-green-50 rounded-lg"><span class="text-3xl">🏆</span><br>명예</div>
-            <div class="p-4 bg-yellow-50 rounded-lg"><span class="text-3xl">⏰</span><br>시간</div>
-            <div class="p-4 bg-red-50 rounded-lg"><span class="text-3xl">🕊️</span><br>자유</div>
-            <div class="p-4 bg-indigo-50 rounded-lg"><span class="text-3xl">💪</span><br>건강</div>
+          <h2 class="slide-title">첫 번째 질문 ❓</h2>
+          <p class="slide-subtitle">"당신에게 있어 세상에서 가장 소중한 것은 무엇인가요?"</p>
+          <div class="slide-content">
+            <p>다양한 대답이 돌아왔습니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li>돈 💰</li>
+              <li>명예 🏆</li>
+              <li>시간 ⏳</li>
+              <li>자유 🕊️</li>
+              <li>건강 💪</li>
+            </ul>
+            <p class="mt-4">모두 일리 있는 대답이었지만, 정답은 아니었습니다.</p>
           </div>
         </div>
       </div>
@@ -175,465 +192,464 @@
       <!-- Slide 5: Prologue - Question 2 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">질문 2: "만약 <span class="highlight">오늘 밤 떠난다면</span> 지금 무엇을 할 건가요?"</h2>
-          <p class="slide-subtitle">죽음 앞에서 모든 가치는 재정의됩니다. 일, 취미, 여행이 아니었습니다.</p>
+          <h2 class="slide-title">두 번째 질문 🌙</h2>
+          <p class="slide-subtitle">"만약 오늘 밤 당신이 떠난다면, 지금 무엇을 할 것인가요?"</p>
           <div class="slide-content">
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
-              <h3 class="font-bold text-2xl">"사랑하는 사람과 몇 분이라도 더 시간을 보내고 싶다."</h3>
-              <p class="mt-2 text-gray-600">성공이 아닌 '행복'에 대해 물었을 때 나온 대답과 같았습니다. 돈, 명예, 시간 그 무엇보다 소중한 것은 바로 <span class="highlight">관계</span>였습니다.</p>
+            <p>놀랍게도, 이 질문에 대한 대답은 거의 모두 <span class="highlight">일치</span>했습니다. 일이나 취미, 여행이 아니었습니다.</p>
+            <div class="special-block">
+              <p class="special-block-title">"사랑하는 사람과 몇 분이라도 더 시간을 보내고 싶다."</p>
+              <p>결국 인생의 마지막 순간에 가장 소중한 것은 돈, 명예, 시간이 아닌 '관계', 바로 <span class="highlight">사랑하는 사람</span>이었습니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 6: Section Title - Chapter 1 -->
+      <!-- Slide 6: Prologue - Realization -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">죽음 앞에서 깨닫는 <span class="highlight">진실</span></h2>
+            <p class="slide-subtitle">9/11 테러, 대구 지하철 참사의 희생자들이 남긴 마지막 메시지는 우리에게 같은 것을 말해줍니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-2">마지막 말들 💬</h3>
+                    <p>"사랑해, 정말 사랑해."</p>
+                    <p>"엄마 얼마나 사랑하는지 말하고 싶었어요."</p>
+                    <p>"미안하다. 사랑한다."</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">가장 큰 후회 💔</h3>
+                    <p>심리학 교수는 말했습니다. 사람들은 죽기 전, 돈을 더 못 번 것을 후회하지 않는다고. 거의 모든 사람이 '<span class="highlight">내가 사랑하는 사람에게 더 잘해주지 못한 것</span>'을 후회한다고 말입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Chapter 1 Section Title -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">1장</p>
-          <h2 class="slide-title"><span class="highlight">그땐 미처</span> 알지 못했던 것들</h2>
-          <p class="slide-content">사소한 일상 속에 숨겨진 가족의 사랑과 희생에 대한 이야기들.</p>
+          <h2 class="slide-title">그땐 미처 알지 못했던 것들</h2>
+          <p class="slide-content">일상 속에 숨어있던 사랑의 의미들을 뒤늦게 발견합니다.</p>
         </div>
       </div>
-
-      <!-- Slide 7: Ch1 - The Seaweed Stem Story -->
+      
+      <!-- Slide 8: Chapter 1 - Story 1.1 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">'그냥'이라는 말에 담긴 <span class="highlight">사랑</span> 🍱</h2>
-          <p class="slide-subtitle">어린 시절, 친구들이 맛있는 반찬을 다 뺏어 먹어 속상했던 날들.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">어머니의 해결책</h3>
-              <p>어머니는 다른 친구들이 좋아하지 않는 '미역줄기'를 싸주기 시작했습니다. 제가 좋아하는 반찬이면서, 동시에 친구들이 뺏어 먹지 않을 반찬. 덕분에 저는 더 이상 흰 쌀밥만 먹지 않아도 되었습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">말에 담지 못한 마음</h3>
-              <p>어른이 되어 왜 미역줄기를 좋아하냐는 질문을 받을 때면, 이 모든 사정을 설명하기 힘들어 "그냥"이라고 답합니다. 우리는 말이 마음을 다 담지 못할 때 '그냥'이라는 말을 쓰는 것 같습니다.</p>
+          <h2 class="slide-title">'그냥'이라는 말에 담긴 <span class="highlight">사랑</span></h2>
+          <p class="slide-subtitle">학창 시절, 친구들에게 반찬을 뺏겨 밥을 제대로 먹지 못했던 나.</p>
+          <div class="slide-content">
+            <p>어느 날부터 엄마는 도시락에 친구들이 좋아하지 않는 '미역줄기'를 싸주시기 시작했습니다. 덕분에 저는 편안하게 점심을 먹을 수 있었습니다.</p>
+            <p class="mt-4">나중에 "왜 미역줄기를 좋아해?"라는 질문에, 엄마의 깊은 사랑을 설명하기 어려워 저는 항상 이렇게 대답했습니다.</p>
+            <p class="mt-2 font-bold text-2xl text-center text-indigo-600">"그냥."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Chapter 1 - Story 1.2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노인이 한 명 앉아 있었다</h2>
+          <p class="slide-subtitle">어느 날 식당에서 한 아이가 엄마를 "할머니"라고 불렀습니다.</p>
+          <div class="slide-content">
+            <p>그 순간, 저는 처음으로 깨달았습니다. 내 나이 먹는 것만 걱정하는 동안, <span class="highlight">엄마는 이미 늙어가고 있었다는 사실</span>을. 식당에 들어갈 땐 '아줌마'였던 엄마가, 나올 때는 내 옆의 '할머니'가 되어 있었습니다.</p>
+            <div class="special-block">
+                <p class="special-block-title">나는 지독히도 나밖에 몰랐다.</p>
+                <p>아이의 순수한 한마디가 나에게 현실을 보게 해주었습니다. 엄마와 함께할 시간이 영원하지 않다는 것을 깨달은 순간이었습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 8: Ch1 - The Expensive Cream -->
+      <!-- Slide 10: Chapter 1 - Story 1.3 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">몰라서 <span class="highlight">빼앗아버린 것</span> 🎁</h2>
-          <p class="slide-subtitle">어머니께 처음으로 비싼 영양 크림을 선물했습니다.</p>
+          <h2 class="slide-title">가정을 책임진다는 것의 <span class="highlight">무게</span></h2>
+          <p class="slide-subtitle">실직 후 택시 운전을 시작하신 아버지. 어린 시절, 저는 그런 아버지를 원망했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">어린 나의 시선 👀</h3>
+              <p>왜 우리 아버지는 좋은 직장이 없을까? 왜 엄마를 고생시킬까? 저는 아버지가 능력이 없다고 생각하며 상처 주는 말을 내뱉기도 했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">어른이 된 나의 시선 👨‍💼</h3>
+              <p>내 땀과 시간으로 월급을 받은 후에야 비로소 알게 되었습니다. 아버지가 짊어졌던 어깨의 무게와 세상의 무서움을. 아버지는 우리 가족을 지키기 위해 자신을 위한 모든 것을 포기한 <span class="highlight">'늙어버린 노인'</span>이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Chapter 1 - Story 1.4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몰라서 빼앗아버린 것 💔</h2>
+          <p class="slide-subtitle">처음으로 엄마에게 비싼 영양 크림을 선물했습니다.</p>
           <div class="slide-content">
-            <p>어머니는 그 크림을 쓰지 않고 가장 잘 보이는 곳에 두셨습니다. 1년 뒤, 유통기한이 다 되어가는 것을 보고 화가 난 저는 어머니를 나무라며 크림을 서울로 가져와 써버렸습니다.</p>
-            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
-              <h3 class="font-bold text-lg">뒤늦은 깨달음</h3>
-              <p>"나는 알지 못했다. 엄마는 그간 영양 크림을 피부가 아닌 <span class="highlight">마음에 바르고 있었다</span>는 사실을. 자식이 처음 사준 화장품보다 더 행복을 주는 화장품 따윈 엄마에게 없다는 사실을 말이다."</p>
+            <p>하지만 1년 뒤, 엄마는 그 크림을 한 번도 쓰지 않았습니다. 아들이 처음 사준 선물이라 아까워서 쓸 수 없었던 것입니다. 유통기한이 다 되어간다는 생각에 저는 화를 내며 그 크림을 서울로 가져와 써버렸습니다.</p>
+            <div class="special-block">
+                <p>저는 몰랐습니다. 엄마는 그 크림을 피부가 아닌 <span class="highlight">마음에 바르고 있었다는 것</span>을. 저는 영양 크림이라는 물건을 주는 척하며, 엄마의 작은 자랑거리와 행복 하나를 빼앗아 간 것이었습니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 9: Ch1 - The Weight of Family -->
+      <!-- Slide 12: Chapter 1 - Story 1.5 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">가정을 책임진다는 것의 <span class="highlight">무게</span> 🚗</h2>
-          <p class="slide-subtitle">실직 후 택시 운전을 시작하신 아버지. 어린 시절엔 그 사실이 부끄러웠습니다.</p>
+          <h2 class="slide-title">시간을 <span class="highlight">초월한</span> 마음</h2>
+          <p class="slide-subtitle">서울에서 지내던 저를 보기 위해 엄마가 찾아오셨습니다.</p>
           <div class="slide-content">
-             <p>아버지는 술, 담배, 노름 등 자신을 위한 것은 아무것도 하지 않으셨습니다. 가족을 위해 하루 15시간씩 운전하며 폭삭 늙어 버린 노인 한 명만 있을 뿐이었습니다. </p>
-            <p class="mt-4">세월이 흘러 내 땀과 시간으로 월급을 받은 후에야 아버지의 무게와 세상의 무서움을 알게 됐습니다.</p>
+            <p>새벽 5시에 도착하셨지만, 직장 가는 아들이 피곤할까 봐 깨우지 않고 아침 7시까지 밖에서 기다리셨습니다. 그 사실을 알고 저는 미안한 마음에 도리어 화를 냈습니다.</p>
+            <p class="mt-4">나중에야 깨달았습니다. 춥고 어두운 새벽 거리에서 두 시간 동안 저를 기다렸을 엄마의 발걸음을. <span class="highlight">자식을 보고 싶은 마음보다, 자식을 사랑하는 마음이 더 컸던</span> 엄마의 시간은 어린 왕자의 여우가 왕자를 기다리던 시간과 같았을 것입니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 10: Ch1 - A Mother's Love Transcending Time -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">시간을 <span class="highlight">초월한</span> 마음 ❤️</h2>
-            <p class="slide-subtitle">이른 아침 7시, 고시원 앞에 어머니가 와 계셨습니다.</p>
-            <div class="slide-content">
-                <p>전날 서울에 오신 어머니는 제가 사는 삼성역에 새벽 5시에 도착하셨습니다. 제가 깰까 봐 두 시간 동안이나 밖에서 기다리셨던 것입니다. 그깟 내 출근이 뭐라고, 그 자그마한 피해조차 엄마는 용납하지 않았습니다.</p>
-                <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-                    <p>그날의 두 시간은, 사랑하는 사람을 보고 싶은 마음보다, 그 사람을 사랑하는 마음이 왜 더 커야 하는지를 가르쳐 주었습니다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-       <!-- Slide 11: Ch1 - Not Even a Small Pebble -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">작은 돌멩이조차 <span class="highlight">되지 않게</span></h2>
-            <p class="slide-subtitle">해외 봉사활동 중, 어머니는 갑상선암 수술을 받으셨지만 제게 알리지 않으셨습니다.</p>
-            <div class="slide-content">
-                <p>"엄마가 수술한다는 걸 알면 네가 한국에 와야 할까 봐. 네 일에 방해가 되지는 않아야 하니까 말하지 않았어."</p>
-                <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <h3 class="font-bold text-lg">어머니의 마음</h3>
-                    <p>어머니는 그냥 내 인생에 발에 차이는 돌멩이 하나조차 되고 싶지 않았던 거다. 살면서 힘들 때마다 나는 엄마에게 수많은 돌멩이를 치워 달라고 부탁했는데, 엄마는 마지막까지 내게 그 어떤 조그마한 돌멩이조차 되는 것을 허락하지 않았다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 12: Section Title - Chapter 2 -->
+      <!-- Slide 13: Chapter 2 Section Title -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">2장</p>
           <h2 class="slide-title">어떤 행복은 <span class="highlight">오랜 뒤에</span> 알게 된다</h2>
-          <p class="slide-content">시간이 지나고 나서야 비로소 깨닫게 되는 순간의 가치와 행복.</p>
+          <p class="slide-content">시간이 흐른 뒤에야 비로소 그 가치를 깨닫게 되는 순간들.</p>
         </div>
       </div>
 
-      <!-- Slide 13: Ch2 - What I Wish I'd Heard Then -->
+      <!-- Slide 14: Chapter 2 - Story 2.1 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">그때 들었으면 <span class="highlight">좋았을 텐데</span> 🎮</h2>
-          <p class="slide-subtitle">스무 살 무렵, 2년 동안 게임에 미쳐 살았던 시절이 있었습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">어머니의 걱정</h3>
-              <p>어머니는 게임에 빠진 저를 보며 속이 너무 상한다며, 제발 그만하라고 부탁하셨습니다. "앞으로는 밤새도록 게임에 빠져서 엄마의 마음을 안타깝게 하는 행동은 하지 말아다오."</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">뒤늦은 후회</h3>
-              <p>너무 늦었지만 지금은 게임을 전혀 하지 않고 인생을 열심히 살고 있습니다. 엄마가 그만두라고 했을 때 말을 들었다면 좀 더 좋았을 텐데. 생각해보면 그리 중요한 것도 아니었는데.</p>
+          <h2 class="slide-title">돌아보니 가장 행복했던 한때 ✨</h2>
+          <p class="slide-subtitle">서울에서 처음으로 번듯한 오피스텔을 얻은 날, 엄마와 함께 이사 전 청소를 했습니다.</p>
+          <div class="slide-content">
+            <p>아직 짐도 들어오지 않은 텅 빈 공간, 창밖으로 남산이 보였습니다. 우리는 바닥에 앉아 짜장면을 시켜 먹었습니다. 이불도 베개도 없어 불편했지만, 그날은 제 인생에서 가장 행복한 날 중 하나로 기억됩니다.</p>
+            <div class="special-block">
+                <p>햇볕이 들어오는 창가에 누워 엄마에게 말했습니다. "엄마, 앞으로 나는 밀리언셀러 작가가 될 거야." 엄마는 말없이 고개를 끄덕여 주셨습니다. 그 평온했던 순간, <span class="highlight">그 약속의 온기</span>가 여전히 남아있습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-       <!-- Slide 14: Ch2 - The Happiest Moment -->
-       <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">돌아보니 가장 <span class="highlight">행복했던 한때</span> 🏠</h2>
-            <p class="slide-subtitle">서울살이 3년 차, 처음으로 집다운 집을 구한 날. 어머니가 함께 올라오셨습니다.</p>
-            <div class="slide-content">
-                <p>이삿짐도 들어오기 전, 텅 빈 집에서 어머니와 함께 청소를 하고 짜장면을 시켜 먹었습니다. 햇볕이 들어오는 창가 옆, 편하지 않은 바닥에 누워 이런저런 이야기를 나누었습니다. 이상하게도 살면서 가장 행복한 날 중 하나로 꼽히는 날입니다.</p>
-                <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <p>"엄마, 앞으로 나는 밀리언셀러 작가가 되어 많은 사람에게 내 이야기를 들려줄 거야. 여기에서 창가의 햇살을 맞으면서 일하면, 일이 참 잘될 거 같아."</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 15: Ch2 - This Was My Mother -->
+      <!-- Slide 15: Chapter 2 - Story 2.2 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">우리 엄마는 이런 <span class="highlight">사람이었습니다</span></h2>
-          <p class="slide-subtitle">어머니의 삶에 대한 회고.</p>
-          <div class="slide-content space-y-3">
-            <p>🎓 공부벌레였지만 동생들을 위해 대학을 포기하고 농협에 취업해 첫 월급으로 가족에게 짜장면을 사주신 분.</p>
-            <p>🏠 자식들 걱정에 하룻밤도 친정에서 견디지 못하고 집으로 돌아오신 분.</p>
-            <p>✈️ 결혼 후 제주도 여행도 못 가봤지만 하소연 한번 하지 않으신 분.</p>
-            <p>🎶 옛 가요만 들어도 눈물 흘리던, 마음 약한 분.</p>
+          <h2 class="slide-title">우리 엄마는 이런 사람이었습니다</h2>
+          <p class="slide-subtitle">엄마의 삶을 돌아봅니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li>과외 한번 안 받고 전교 1, 2등을 하던 공붓벌레.</li>
+              <li>동생들 때문에 대학을 포기하고 첫 월급으로 가족에게 짜장면을 사주던 사람.</li>
+              <li>자식들 걱정에 힘든 결혼 생활을 견디고 하룻밤도 못 가 집으로 돌아오던 사람.</li>
+              <li>가족을 위해 30번 넘게 이사하며 모든 것을 감내한 사람.</li>
+              <li>자신은 낡은 옷을 입어도 자식에겐 늘 충분한 용돈을 쥐여주던 사람.</li>
+              <li>옛 가요만 들어도 눈물 흘리던 마음 약한 사람.</li>
+            </ul>
+            <p class="mt-6 font-bold text-center text-xl">그리고 우리 엄마는, <span class="highlight">이렇게 살면 안 되는 사람이었습니다.</span></p>
           </div>
-           <p class="mt-6 font-bold text-xl text-center text-gray-800">우리 엄마는, 이렇게 살면 안 되는 사람이었다.</p>
         </div>
       </div>
       
-      <!-- Slide 16: Ch2 - A Life Without Luxury -->
+      <!-- Slide 16: Chapter 2 - Story 2.3 -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">사치 부릴 수 없었던 <span class="highlight">인생</span></h2>
-            <p class="slide-subtitle">아버지의 고등학교 동창 모임에서 있었던 일.</p>
-            <div class="slide-content">
-                <p>호텔 뷔페에서 아버지의 쟁반은 한식, 중식, 양식, 디저트가 모두 뒤섞여 있었습니다. 그 모습을 보고 "음식에도 순서가 있는데..."라며 핀잔을 드렸습니다.</p>
-                <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <h3 class="font-bold text-lg">이해와 존중의 부족</h3>
-                    <p>하루 15시간 운전하며 기사식당에서 시간에 쫓겨 끼니를 때우셨을 아버지. 식사 순서를 생각할 여유조차 없는 삶을 사셨던 것입니다. 아버지에게 교양이 부족한 것이 아니었습니다. 아버지의 인생에 대한 내 이해와 존중이 부족했을 뿐이었습니다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 17: Ch2 - The Day the Rough Waves Came -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">거친 파도가 몰아치게 된 <span class="highlight">날</span> 🌊</h2>
-            <p class="slide-subtitle">똑똑하고 인기 많았던 형. 그러나 대학 시절부터 무너지기 시작했습니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">형의 추락</h3>
-                    <p>대기업에 취업했지만 오래 다니지 못하고 그만두기를 반복했습니다. 결국 7년 동안 사회와 단절된 채 방 안에서 침묵했습니다. 형의 감정이 격해진 날은 집안에 파도가 몰아쳤습니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">엄마의 추락</h3>
-                    <p>형의 추락은 엄마의 추락을 의미했습니다. 마음이 너무 아픈 엄마는 침대에 누워 혼자서 조용히 눈물을 흘렸습니다. 우리 집의 암흑기는 그렇게 시작됐습니다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-       <!-- Slide 18: Ch2 - A World Turned White -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">하얗게 <span class="highlight">변해버린</span> 세상</h2>
-          <p class="slide-subtitle">형의 병은 우울증에서 공황장애, 조현병으로 심해졌습니다.</p>
+          <h2 class="slide-title">나 대신 아파주는 마음</h2>
+          <p class="slide-subtitle">어느 날 우연히 탄 택시의 기사님이 아버지였습니다.</p>
           <div class="slide-content">
-            <p>"위층에 사는 사람들이 우리를 도청하고 있다"는 망상에 시달렸고, 결국 정신과 폐쇄병동에 입원하게 되었습니다.</p>
-            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
-              <h3 class="font-bold text-lg">전염된 우울증</h3>
-              <p>결국, 형의 우울증은 엄마에게 전염됐습니다. 우울증은 전염병이 아니지만, 그 환자를 벗어날 수 없는 가까운 사람에게는 전염병보다 더 치명적인 병이었습니다. 엄마의 마음도 같이 병들고 있었습니다.</p>
+            <p>여자친구와 함께 있던 저는, 아버지의 직업이 부끄러워 아는 척을 하지 못했습니다. 그 짧은 시간이 영원처럼 길게 느껴졌고, 내내 죄책감에 시달렸습니다.</p>
+             <div class="special-block">
+                <p class="special-block-title">15년이 지난 후</p>
+                <p>아버지께서는 그때 이미 저를 알아보셨다고 했습니다. "네가 아버지 직업을 부끄러워하는 걸 알고, 아는 척하고 싶지 않아 하는 것 같아서 아버지는 가만히 있었다."<br>철없는 아들의 자존심과 상처를 지켜주기 위해, <span class="highlight">아버지는 대신 상처받는 길</span>을 택하셨습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 19: Section Title - Chapter 3 -->
+      <!-- Slide 17: Chapter 2 - Family's Dark Period 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">거친 파도가 몰아치게 된 날 🌊</h2>
+          <p class="slide-subtitle">늘 똑똑하고 잘나가던 형. 모두의 자랑이었던 형이 무너지기 시작했습니다.</p>
+          <div class="slide-content">
+            <p>대기업에 취업했던 형은 회사를 그만두고 7년간 사회와 단절된 채 방 안에만 있었습니다. 형의 추락은 엄마의 추락을 의미했습니다. 마음이 너무 아픈 엄마는 침대에 누워 조용히 눈물을 흘렸습니다.</p>
+            <p class="font-bold text-center mt-6">우리 집의 암흑기는 그렇게 시작되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 2 - Family's Dark Period 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">하얗게 변해버린 세상</h2>
+          <p class="slide-subtitle">형의 병은 우울증에서 공황장애, 그리고 조현병으로 깊어졌습니다.</p>
+          <div class="slide-content">
+            <p>결국 형은 폐쇄병동에 입원했습니다. 그곳에서 본 하얀 세상은 충격이었습니다. 그리고 그때 깨달아야 했습니다. 내 상처의 크기만큼, 아니 비교조차 할 수 없는 상처를 엄마가 받았다는 것을.</p>
+            <div class="special-block">
+                <p class="special-block-title">우울증의 전염</p>
+                <p>형의 우울증은 엄마에게 옮겨갔습니다. 우울증은 전염병보다 더 치명적이었습니다. 엄마 역시 정신과 병원에 입원해야 했습니다. 병명은 <span class="highlight">화병에 의한 불면증과 우울증</span>이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 19: Chapter 2 - Story 2.4 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">늘 괜찮은 줄 알았습니다</h2>
+          <p class="slide-subtitle">우리는 부모님이 늘 강하고 괜찮을 것이라고 착각합니다.</p>
+          <div class="slide-content">
+            <p>어느 날 엄마는 말씀하셨습니다. "엄마도 이번 삶이 처음인 걸 몰랐어. 엄마는 내가 처음 만난 그 순간부터 어른이었으니까, 늘 괜찮은 줄 알았어."</p>
+            <div class="special-block">
+                <p>"도윤이는 남자니까 언젠가 아버지가 되겠지. 배가 아파 너를 낳은 엄마가 될 순 없기에 평생 엄마 마음은 모를 거야."</p>
+            </div>
+            <p class="mt-4 text-center font-bold">엄마 미안해. 우리 가족이 너무 무거워서 미안해.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Chapter 3 Section Title -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">3장</p>
           <h2 class="slide-title">만약 오늘 밤 당신이 <span class="highlight">떠난다면</span></h2>
-          <p class="slide-content">죽음의 문턱에서 비로소 보이는 삶의 진실과 가장 소중한 것들의 의미.</p>
+          <p class="slide-content">가장 소중한 것을 잃어가는 시간, 그리고 마지막 순간에 대한 기록.</p>
         </div>
       </div>
-      
-       <!-- Slide 20: Ch3 - Misunderstandings -->
+
+      <!-- Slide 21: Chapter 3 - The Day of Misunderstandings 1 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">오해와 오해가 <span class="highlight">만든 날</span></h2>
-          <p class="slide-subtitle">그날은 내 삶에서 많은 오해가 겹친 날이었습니다.</p>
-          <div class="slide-content space-y-4">
-            <p><b>오해 1:</b> 외박 후 병실로 돌아온 어머니가 "여보, 나 집에 가고 싶어"라고 말했습니다. 저는 그것을 살고자 하는 의지로, 회복의 신호로 오해했습니다.</p>
-            <p><b>오해 2:</b> 새벽, 아버지의 "네 엄마가, 네 엄마가..."라는 전화. 그 절박한 감정을 외면하고 "다시 병원에 가야 해요?"라고 물으며 최악의 상황을 피하고 싶어 했습니다.</p>
-            <p><b>오해 3:</b> "엄마가 떨어졌다"는 말에, 저는 아직 듣지 않았기에 '살아있다'고 오해하고자 했습니다.</p>
-            <p><b>오해 4:</b> 병실에서 엄마가 마지막으로 내 손을 잡았을 때, 그것이 마지막 대화의 순간임을 알지 못하고 그 손길을 외면했습니다.</p>
+          <h2 class="slide-title">오해와 오해가 만든 날 (1)</h2>
+          <p class="slide-subtitle">병원에서 잠시 외박을 하고 돌아온 엄마가 아버지에게 말했습니다.</p>
+          <div class="slide-content text-center">
+            <p class="text-3xl font-bold p-8 bg-gray-50 rounded-lg">"여보, 나 집에 가고 싶어."</p>
+            <p class="mt-6">저와 아버지는 이 말을 <span class="highlight">살고자 하는 의지</span>라고 오해했습니다. 어두운 병실이 아닌, 안락한 우리 집에서 살고 싶다는 희망의 신호라고 믿었습니다. 우리는 기쁜 마음으로 퇴원 수속을 생각했습니다.</p>
           </div>
         </div>
       </div>
-
-       <!-- Slide 21: Ch3 - The Aftermath -->
-       <div class="slide">
-        <div class="slide-container text-center">
-            <div class="text-6xl mb-6">💔</div>
-            <h2 class="slide-title">차가운 방에서의 마주침</h2>
-            <div class="slide-content max-w-4xl mx-auto">
-                <p class="mb-4">그렇게 수많은 오해가, 내게서 엄마를 빼앗아 갔습니다. 엄마의 말을, 엄마의 체온을, 엄마의 숨결을 빼앗아 갔습니다.</p>
-                <p class="mt-8 font-bold text-xl text-gray-800">이날은 엄마를 마지막으로 본 날이자, 내게 엄마가 없는 첫 번째 날이 됐습니다.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 22: Ch3 - Why Didn't You Call? -->
+      
+      <!-- Slide 22: Chapter 3 - The Day of Misunderstandings 2 -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">내게 왜 <span class="highlight">전화하지 않았을까</span></h2>
-            <p class="slide-subtitle">엄마는 마지막 순간까지 날 생각하지 않았다고, 내게 전화하지 않았다고 생각하며 상처받았습니다.</p>
-            <div class="slide-content">
-                <p>하지만 살아생전 의사 선생님과의 문답지에는 '가장 보고 싶은 사람'으로 늘 '우리 둘째 아들'이라고 적어냈습니다.</p>
-                <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-                    <h3 class="font-bold text-lg">끊어진 끈</h3>
-                    <p>엄마는, 자신의 존재가 내게 방해가 된다고 생각하자, 엄마와 자식으로 이어진 천륜의 끈을 과감히 끊어 버렸습니다. 엄마는 내게 그 끈을 잡을 기회조차 주지 않았습니다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 23: Ch3 - Until the Last Moment -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">마지막 그 순간까지도: <span class="highlight">엄마의 유언</span></h2>
-          <p class="slide-subtitle">장례식 둘째 날, 아버지께서 엄마의 유언을 말씀해주셨습니다.</p>
+          <h2 class="slide-title">오해와 오해가 만든 날 (2)</h2>
+          <p class="slide-subtitle">다음 날 새벽, 아버지에게서 전화가 왔습니다. 고요함을 깨는 전화벨 소리였습니다.</p>
           <div class="slide-content">
-            <p>엄마 명의로 된 고향집을 아버지가 아닌, 형과 나의 명의로 상속했으면 좋겠다는 것이었습니다. 지독한 외사랑에 숨이 막혀왔습니다. 어떻게 떠나는 그 순간까지 자식 걱정만 했던 걸까.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">엄마의 인생</h3>
-              <p>엄마 인생에 엄마 자신은 없었습니다. 오로지 '엄마'만 있을 뿐이었습니다. 엄마 자신의 시간도 없었습니다. 오로지 '엄마로서의 시간'만 있을 뿐이었습니다.</p>
+            <p class="text-2xl font-bold">"네 엄마가, 네 엄마가..."</p>
+            <p>본능적으로 모든 것을 알아차렸지만, 저는 외면했습니다. 보고 싶은 것만 보려는 이기적인 본능이 그 느낌을 부정했습니다.</p>
+            <p class="mt-4">"엄마가 왜요? 다시 병원에 가야 해요?"</p>
+            <div class="special-block">
+              <p>"엄마가 떨어졌다... 우리 집 베란다에서 떨어졌다... 네가 대구로 와야 할 것 같다."</p>
             </div>
+            <p class="mt-4">저는 또다시 오해했습니다. '6층이니까 크게 다치진 않았을 거야.' <span class="highlight">아니, 오해하고 싶었습니다.</span></p>
           </div>
         </div>
       </div>
       
-       <!-- Slide 24: Ch3 - The Last Voice -->
-       <div class="slide">
+      <!-- Slide 23: Chapter 3 - The Day of Misunderstandings 3 -->
+      <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">남아 있는 <span class="highlight">마지막 목소리</span> 🎙️</h2>
-            <p class="slide-subtitle">우연히 녹음해두었던, 살아생전 어머니의 목소리를 다시 들었습니다.</p>
-            <div class="slide-content">
-                <div class="p-6 bg-gray-50 border-l-4 border-blue-500 italic">
-                    <p>"도윤아, 오늘은 날씨가 흐려서 마음이 너무 아프다. 너희들에게 한창 도움이 필요한 시기인데, 내가 병원에서 이러고 있으니까 엄마가 미안해서 마음이 너무 아파... 도윤이는 엄마가 어찌 되든 열심히 잘 살아라, 알겠지?"</p>
-                </div>
-                <p class="mt-6">어떻게 엄마의 마지막으로 남아 있는 목소리마저도 자식한테 '미안하다'였을까. 엄마란 사람은 도대체 어떤 존재이기에 그런 말을 해서 지금의 내 마음을 손쓸 틈 없이 무너지게 만드는 걸까.</p>
+          <h2 class="slide-title">오해와 오해가 만든 날 (3)</h2>
+          <p class="slide-subtitle">떨리는 손으로 다시 전화를 걸어, 제 인생에서 가장 힘든 질문을 던졌습니다.</p>
+          <div class="slide-content">
+            <p class="text-xl italic">"많이 다치신 거죠? 엄마, 살아는 있는 거죠...?"</p>
+            <p class="mt-4">잔인한 질문은, 그것보다 더 잔인한 대답으로 돌아왔습니다.</p>
+            <div class="special-block">
+                <p class="text-2xl font-bold">"네 엄마... 돌아가셨다. 뭐가 그리 아팠는지 우리 집 베란다에서 뛰어내렸다."</p>
             </div>
+            <p class="mt-4">수많은 오해들이, 내게서 엄마를 빼앗아 갔습니다. 엄마의 말을, 엄마의 체온을, 엄마의 숨결을 빼앗아 갔습니다. 이날은 엄마를 마지막으로 본 날이자, <span class="highlight">내게 엄마가 없는 첫 번째 날</span>이 됐습니다.</p>
+          </div>
         </div>
       </div>
 
-      <!-- Slide 25: Ch3 - The Nagging -->
-      <div class="slide">
+      <!-- Slide 24: Chapter 3 - Last Touch -->
+       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">다시 들을 수 없는 <span class="highlight">잔소리</span></h2>
-            <p class="slide-subtitle">엄마와 자식의 관계만큼 불공정한 관계는 없습니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">엄마의 말 (For me)</h3>
-                    <p class="italic">"공부 좀 열심히 해라."<br>"성실하게 살아라."<br>"술 적당히 마셔라."<br>"좋은 사람 만나라."</p>
-                    <p class="mt-2">그 잔소리에 엄마의 이득은 단 하나도 없었습니다. 그저 나를 위한 소리뿐이었습니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">나의 말 (For me)</h3>
-                    <p class="italic">"엄마, 밥 차려 줘."<br>"엄마, 용돈 좀 올려 줘."<br>"엄마, 간식 좀 줘."<br>"엄마, 숙제 좀 도와줘."</p>
-                    <p class="mt-2">내 이야기에는 늘 나만 있었습니다. 오늘따라 엄마의 잔소리가 그립습니다.</p>
-                </div>
-            </div>
+          <h2 class="slide-title">마지막 손길, 마지막 후회</h2>
+          <p class="slide-subtitle">세 번째 오해는, 손끝으로 전한 엄마의 마지막 외침을 이해하지 못한 것이었습니다.</p>
+          <div class="slide-content">
+            <p>돌아가시기 전날, 병실에서 엄마는 처음으로 제 손을 붙잡고 가지 말라고 했습니다. 저는 그저 엄마의 슬픔이라고만 생각했습니다.</p>
+            <p class="mt-4">엄마는 알고 있었을 것입니다. 아들을 마지막으로 볼 수 있는 시간이 지금뿐이라는 것을. 그래서 붙잡았을 것입니다. 그러나, <span class="highlight">그걸 알지 못한 나는 그 손끝을 외면했습니다.</span></p>
+          </div>
         </div>
       </div>
       
-      <!-- Slide 26: Ch3 - The Person Who Was Always There -->
+      <!-- Slide 25: Chapter 3 - Last Voice -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">늘 그 자리에 <span class="highlight">서 있던 사람</span></h2>
-            <p class="slide-subtitle">고향 집에 갈 때면, 어머니는 항상 6층 베란다 창가에서 손을 흔들며 저를 반겨주셨습니다.</p>
-            <div class="slide-content">
-                <p>서울로 돌아갈 때면 역까지 배웅을 나오셨습니다. 그런 엄마는 병원에서 이런 말을 했습니다. "우리 아들이 고향에 올 때 함께 밖에서 밥 먹고, 서울로 돌아갈 때 역까지 배웅해 줄 수 있어서 참 행복했는데, 앞으로 그럴 수 없을지도 모르겠네."</p>
-                <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
-                    <p>이제 저는 고향에 잘 가지 못합니다. 집 가는 길인 그 길을 벗어날 수는 없기 때문입니다. 엄마가 날 바라보던 곳인데, 이제 그곳은 바라볼 수 없는 곳이 되어 버렸습니다.</p>
-                </div>
+          <h2 class="slide-title">남아 있는 마지막 목소리 📼</h2>
+          <p class="slide-subtitle">엄마가 돌아가신 후, 우연히 휴대폰에서 엄마의 목소리 녹음을 발견했습니다.</p>
+          <div class="slide-content">
+             <div class="special-block italic">
+                <p>"도윤아, 오늘은 날씨가 흐려서 마음이 너무 아프다. 너희들에게 한창 도움이 필요한 시기인데, 내가 병원에서 이러고 있으니까 엄마가 미안해서 마음이 너무 아파."</p>
+                <p class="mt-2">"도윤이는 엄마가 어찌 되든 열심히 잘 살아라, 알겠지?"</p>
             </div>
+            <p class="mt-4">어떻게 엄마의 마지막으로 남아 있는 목소리마저도 자식에게 '미안하다'였을까. 엄마라는 존재는 도대체 무엇일까. 준비할 틈 없이 들은 엄마의 목소리에, 저는 무너져 내렸습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Chapter 3 - Nagging -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다시 들을 수 없는 <span class="highlight">잔소리</span></h2>
+          <p class="slide-subtitle">엄마와 자식의 관계만큼 불공정한 관계는 없습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">엄마의 이야기 (나를 위한 소리)</h3>
+              <p>"공부 좀 열심히 해라."</p>
+              <p>"성실하게 살아라."</p>
+              <p>"술 적당히 마셔라."</p>
+              <p>"좋은 사람 만나라."</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">나의 이야기 (나만 있던 소리)</h3>
+              <p>"엄마, 밥 차려 줘."</p>
+              <p>"엄마, 용돈 좀 올려 줘."</p>
+              <p>"엄마, 간식 좀 줘."</p>
+              <p>"엄마, 숙제 좀 도와줘."</p>
+            </div>
+          </div>
+          <p class="mt-6 text-center">오늘따라 엄마의 잔소리가 그립습니다.</p>
         </div>
       </div>
 
-      <!-- Slide 27: Section Title - Chapter 4 -->
+      <!-- Slide 27: Chapter 4 Section Title -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">4장</p>
-          <h2 class="slide-title">인생이 내게 다시 <span class="highlight">기회를 준다면</span></h2>
-          <p class="slide-content">상실 이후의 삶, 그리고 남은 이들을 위한 다짐과 성찰.</p>
+          <h2 class="slide-title">인생이 내게 다시 <span class="highlight">기회를</span> 준다면</h2>
+          <p class="slide-content">상실 이후의 삶, 치유의 과정, 그리고 새로운 다짐들.</p>
         </div>
       </div>
       
-      <!-- Slide 28: Ch4 - I Didn't Know -->
+      <!-- Slide 28: Chapter 4 - Story 4.1 -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">이렇게 <span class="highlight">좋을 줄</span> 몰랐으면서</h2>
-            <p class="slide-subtitle">살아생전, 가족 여행을 가자는 제 제안을 가족들은 번번이 거절했습니다.</p>
-            <div class="slide-content">
-                <p>엄마가 세상을 떠난 그해, 남은 가족과 제주도 여행을 떠났습니다. 형과 아버지는 말했습니다. "가족이 다 같이 여행을 오니까 참 좋구나."</p>
-                <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
-                    <h3 class="font-bold text-lg">터져 나온 원망</h3>
-                    <p>"이렇게 좋은 줄도 모르면서 그냥 반대한 아버지와 형 때문에, 내게 다 같이 떠나는 가족 여행의 기회가 사라진 거라고요!"</p>
-                    <p class="mt-2 text-gray-700">그 '언젠가'는 살면서 다시 없을지도 모릅니다. 가족과 여행을 떠나기에 가장 좋은 때는 언제나 <span class="highlight">지금뿐</span>입니다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-       <!-- Slide 29: Ch4 - Nowhere to be Praised -->
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">칭찬받을 <span class="highlight">곳이 없다</span> 🏆</h2>
-          <p class="slide-subtitle">가장 많은 잔소리를 하는 사람은 엄마였지만, 가장 많은 칭찬을 하는 사람도 엄마였습니다.</p>
+          <h2 class="slide-title">이렇게 좋을 줄 몰랐으면서</h2>
+          <p class="slide-subtitle">엄마가 살아계실 땐 늘 반대하던 가족 여행. 엄마가 떠난 그해, 남은 가족은 제주도로 여행을 떠났습니다.</p>
           <div class="slide-content">
-            <p>엄마가 떠나고 난 뒤, 난 참 열심히도 살았습니다. 책을 여러 권 출간하고, 수많은 사람에게 사랑받으며 행복한 순간도 더 많아졌습니다.</p>
-            <p class="mt-4">동시에, 가장 기쁜 순간에는 늘 마음의 허함을 지울 수가 없었습니다. 두 번째 책이 출간됐을 때, 지상파 방송에 나가게 됐을 때, 이 벅찬 기쁨을 전할 곳이 없었습니다. 내 마음을 있는 그대로 받아 줄 곳이 없었습니다.</p>
-             <p class="mt-6 font-bold text-xl text-center text-gray-800">'이제 내게 엄마는 정말 없구나.' 엄마의 부재를 마주해야 했습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 30: Ch4 - I Wish I Could Become You -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">당신이 되어 그 <span class="highlight">마음을</span> 알면 좋겠다</h2>
-          <p class="slide-subtitle">늘 자신보다 자식을 먼저 생각했던 어머니.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">엄마의 "괜찮아"</h3>
-              <p>"엄마는 안 먹어?" → "엄마는 괜찮아."<br>"엄마는 옷 안 사?" → "엄마는 괜찮아."<br>"아프면 병원 가자" → "엄마는 정말 괜찮아."</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">괜찮지 않은 마음</h3>
-              <p>꿈에서 만난 엄마에게 "미안해"라며 울자, 엄마는 눈물을 흘리며 "엄마가 미안해"라고 말했습니다. 괜찮다는 말이 괜찮지 않다는 말로 들리는 유일한 존재는 엄마일지도 모릅니다.</p>
+            <p>아버지와 형이 말했습니다. "가족이 다 같이 여행을 오니까 참 좋구나."</p>
+            <p class="mt-4">그 순간, 저는 참았던 화를 터뜨렸습니다. "이렇게 좋은 줄도 모르면서 그냥 반대한 아버지와 형 때문에, 다 같이 떠날 기회가 사라진 거라고요!"</p>
+            <div class="special-block">
+                <p>여행은 기쁨인 동시에 엄마의 부재를 계속해서 느껴야 하는 쓸쓸함이기도 했습니다. 그때 깨달았습니다. 우리가 미루는 그 '언젠가'는 살면서 다시 없을지도 모른다는 것을. 함께하기에 가장 좋은 때는 <span class="highlight">언제나 지금뿐</span>입니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-       <!-- Slide 31: Ch4 - Sorry, Thank You, I Love You -->
-      <div class="slide">
-        <div class="slide-container text-center">
-            <h2 class="slide-title"><span class="highlight">미안해, 고마워, 사랑해</span>뿐</h2>
-            <p class="slide-subtitle">엄마의 묘지 앞에 서니 하고 싶었던 수많은 말들은 사라지고 이것뿐이었습니다.</p>
-            <div class="slide-content max-w-4xl mx-auto">
-                <p>우리가 태어나서 처음으로 말하는 단어는 '엄마'입니다. '엄마'라 부를 시절에는 우리는 오로지 받기만 합니다. '어머니'라 부를 시점이 되어서야 해 줄 수 있는 것이 많아집니다.</p>
-                <p class="mt-8 font-bold text-xl text-gray-800">나의 엄마도 엄마인 채로 땅에 묻혀서 나를 기다리고 있습니다.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 32: Ch4 - One Person Who Just Watched -->
+      <!-- Slide 29: Chapter 4 - Story 4.2 -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">그저 <span class="highlight">바라봐 줄</span> 한 사람</h2>
-            <p class="slide-subtitle">상실의 고통 속에서 찾은 해결책은 심리 상담센터였습니다.</p>
-            <div class="slide-content">
-                <p>상담사가 해 준 것은 딱 하나뿐이었습니다. 억지로 내 마음을 치료해 주려 한 것이 아니라, 그냥 내 마음속 상처를 제대로 바라봐 준 것. 내 마음을 바라봐 주는 사람이라는 햇볕이 내 눈에 눈물이 흐르게 해 줬고, 세상에 나 혼자가 아니라는 기분이 들게 해 줬습니다.</p>
-                <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
-                    <p>힘들 때 위로가 되는 사람은 무언가 엄청난 것을 해결해 주는 사람이 아닌, 내 아픈 마음에 공감하고, 그 순간을 함께해 주는 사람입니다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-       <!-- Slide 33: Ch4 - The True Legacy -->
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">부모가 물려줘야 할 <span class="highlight">진짜 유산</span></h2>
-          <p class="slide-subtitle">내가 역경 속에서 다시 일어설 수 있었던 진짜 이유.</p>
+          <h2 class="slide-title">칭찬받을 곳이 없다 🏆</h2>
+          <p class="slide-subtitle">엄마가 떠난 후, 저는 더 열심히 살았습니다. 책을 내고, 강연을 하고, 성공한 유튜버가 되었습니다.</p>
           <div class="slide-content">
-            <p>그것은 수많은 노력이나 시간이 약이어서가 아니었습니다. 살아생전에 어머니에게 <span class="highlight">충분한 사랑</span>을 받았기 때문이었습니다. 내 삶이 무너지려고 할 때마다, 살면서 엄마에게 받은 큰 사랑이 절벽이 떨어지기 전 내 손을 붙잡아주었습니다.</p>
-            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-              <h3 class="font-bold text-lg">사랑의 힘</h3>
-              <p>부모에게 온전한 사랑을 받은 사람이 자신과 타인을 사랑할 수 있고, 인생에서 역경이 닥칠 때마다 살아갈 힘을 얻을 수 있습니다. 돈, 명예, 시간보다 중요한 사랑이야말로 사람을 살게 하는 힘입니다.</p>
+            <p>인생에서 가장 기쁜 순간들, 가장 빛나는 순간들이 찾아왔습니다. 하지만 동시에 가장 허무한 순간들이기도 했습니다.</p>
+            <p class="mt-4">이 벅찬 기쁨을 가장 먼저 전할 곳이 없었습니다. 내 마음을 있는 그대로 받아주고, 나보다 더 기뻐해 줄 첫 번째 사람이 없었습니다.</p>
+            <p class="text-center font-bold text-2xl mt-6">이제 내게 엄마는 정말 없구나.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Chapter 4 - Story 4.3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신이 되어 그 마음을 알면 좋겠다</h2>
+          <p class="slide-subtitle">엄마는 늘 "괜찮다"고 말했습니다.</p>
+          <div class="slide-content">
+            <p>"엄마는 배불러, 아들 많이 먹어."<br>"엄마는 옷 괜찮아, 아들 사고 싶은 거 골라."<br>"차라리 엄마가 아픈 게 낫지."</p>
+            <div class="special-block">
+                <p>'괜찮다'는 말이 '괜찮지 않다'는 말로 들리는 유일한 존재는 <span class="highlight">엄마일지도 모른다.</span><br>꿈에서 만난 엄마에게 미안하다고 울자, 엄마는 눈물을 흘리며 말했습니다. "엄마가 미안해."<br>이제 저는 꿈에서조차 울 수 없습니다. 세상에 없는 엄마의 눈에서 눈물이 흐르는 것은 참을 수가 없기 때문입니다.</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Slide 34: Section Title - Epilogue -->
+      
+      <!-- Slide 31: Chapter 4 - Story 4.4 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">에필로그</p>
-          <h2 class="slide-title">당신은 아직 <span class="highlight">늦지 않았기를</span> 바랍니다</h2>
-          <p class="slide-content">사랑하는 사람과 함께 살아갈 날이 살아온 날보다 많을 대부분의 사람을 향해 마음을 전하고 싶었습니다.</p>
+          <h2 class="slide-title">그저 바라봐 줄 한 사람 ☀️</h2>
+          <p class="slide-subtitle">엄마를 잃은 슬픔 속에서 심리 상담센터를 찾아갔습니다.</p>
+          <div class="slide-content">
+            <p>상담사는 대단한 해결책을 주지 않았습니다. 그는 그저 제 눈을 바라보고, 이야기에 고개를 끄덕이고, 감정에 공감해주었습니다.</p>
+            <p class="mt-4">그것만으로 충분했습니다. 누구에게도 온전히 내비친 적 없던 마음 깊은 곳에 햇볕이 비치기 시작했습니다. 힘들 때 위로가 되는 사람은 엄청난 것을 해결해 주는 사람이 아닌, 내 아픈 마음에 공감하고, <span class="highlight">그 순간을 함께해 주는 사람</span>이라는 것을 배웠습니다.</p>
+          </div>
         </div>
       </div>
       
-      <!-- Slide 35: Epilogue - To You -->
+      <!-- Slide 32: Chapter 4 - Story 4.5 -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">당신에게 묻습니다</h2>
-            <div class="slide-content">
-                <div class="p-8 bg-gray-50 border border-gray-200 rounded-lg text-center">
-                    <p class="text-xl">당신에게 지금 사랑하는 사람과 보낼 수 있는 시간이 딱 <span class="highlight">5분</span> 남아 있습니다.</p>
-                    <p class="mt-4 text-xl">당신과 그는 곧 세상에서 사라집니다. 다음 생애가 있다 할지라도 서로를 기억하지 못합니다.</p>
-                    <p class="mt-8 font-bold text-3xl">그와의 마지막 시간인 5분, 당신은 무엇을 말하고 싶은가?</p>
-                </div>
+          <h2 class="slide-title">함께 살아간다는 것 🐾</h2>
+          <p class="slide-subtitle">지독한 외로움을 견디기 위해 강아지 '오월이'를 입양했습니다.</p>
+          <div class="slide-content">
+            <p>다른 생명체를 책임지는 것은 벅찬 과정이었지만, 집안에 온기가 돌기 시작했습니다. '나는 세상에 혼자가 아니구나, 내가 챙겨줘야 할 생명체가 있구나.'</p>
+            <div class="special-block">
+                <p class="special-block-title">생텍쥐페리의 어린 왕자처럼</p>
+                <p>"네가 나를 길들인다면 우리는 서로를 필요로 하게 되는 거야. 너는 내게 이 세상에서 하나밖에 없는 존재가 되는 거야."<br>오월이에게 들인 시간과 애정은, 오월이를 세상에 하나뿐인 <span class="highlight">나의 가족</span>으로 만들었습니다.</p>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Chapter 4 - Story 4.6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">잊을 수 없기에 <span class="highlight">무뎌지는</span> 것</h2>
+          <p class="slide-subtitle">엄마를 잊을까 봐 두려웠습니다. 너무 행복해서 엄마를 까먹는 날이 올까 봐 무서웠습니다.</p>
+          <div class="slide-content">
+            <p>그래서 엄마를 기억하기 위한 반지를 만들었습니다. 밖에는 'My mom', 안에는 '사랑해'라고 새겼습니다. 매일 이 반지를 보며 조금씩 아파해야겠지만, 그렇게라도 엄마를 내 곁에 두고 싶었습니다.</p>
+            <p class="mt-4">잊을 수 없기에 시간의 파도에 무뎌지는 것일 테다. 파도를 맞다 보면 감정은 무뎌질 테지만, <span class="highlight">해안선처럼 기억은 남아 있을 것이다.</span> 그 어딘가에, 영원히.</p>
+          </div>
         </div>
       </div>
 
-       <!-- Slide 36: Ch4 - Five Most Valuable Things -->
-       <div class="slide">
+      <!-- Slide 34: Conclusion Section Title -->
+      <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">인생에서 가장 <span class="highlight">가치 있는</span> 다섯 가지</h2>
-          <p class="slide-subtitle">천 명 이상의 성공한 사람들을 인터뷰하며 깨달은 공통적인 가치.</p>
-          <div class="slide-content space-y-4">
-            <p><b>1. 일:</b> 내가 좋아하거나 잘하는 일을 하는 것</p>
-            <p><b>2. 사랑:</b> 내가 사랑하는 사람과 함께 즐겁게 살아가는 것 (가족, 친구, 애완동물)</p>
-            <p><b>3. 취미:</b> 돈과 상관없이 시간을 뺏겨도 좋을 만큼 좋아하는 취미를 가지는 것</p>
+          <p class="slide-part-title">결론</p>
+          <h2 class="slide-title">인생에서 가장 가치 있는 <span class="highlight">다섯 가지</span></h2>
+          <p class="slide-content">천 명의 인생과 나의 인생을 통해 배운, 삶에서 가장 중요한 것들입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Conclusion Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶의 중요한 5가지 가치 💎</h2>
+          <p class="slide-subtitle">이 다섯 가지의 '균형' 속에서 만족을 찾는 것이 중요합니다.</p>
+          <div class="slide-content space-y-3">
+            <p><b>1. 일:</b> 내가 좋아하거나 잘하는 일 (직업)</p>
+            <p><b>2. 사랑:</b> 내가 사랑하는 사람과 함께 즐겁게 살아가는 것 (가족, 친구)</p>
+            <p><b>3. 취미:</b> 돈과 상관없이 시간을 잊을 만큼 좋아하는 것</p>
             <p><b>4. 건강:</b> 몸과 마음이 건강한 것</p>
-            <p><b>5. 돈:</b> 이 모든 것을 함에 있어서 고민하지 않아도 되는 충분한 돈을 가지는 것</p>
+            <p><b>5. 돈:</b> 이 모든 것을 하는 데 고민하지 않아도 되는 충분한 돈</p>
+            <p class="mt-4">한국 사회는 유일하게 '돈'을 가장 중요하게 생각했지만, 돈만 보고 살아가기에는 우리 삶 곳곳에 <span class="highlight">너무나도 소중한 것들</span>이 많습니다.</p>
           </div>
         </div>
       </div>
-
-      <!-- Slide 37: Conclusion -->
+      
+      <!-- Slide 36: Final Message -->
       <div class="slide">
         <div class="slide-container text-center">
-          <div class="text-6xl mb-6">🎯</div>
-          <h2 class="slide-title">최종 결론</h2>
+          <div class="text-6xl mb-6">💌</div>
+          <h2 class="slide-title">당신에게</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">우리는 돈만 보고 살아가기에는 삶 곳곳에 너무나도 소중한 것들이 많습니다. 한국 사회는 유일하게 '돈'이 가장 중요하다고 답했지만, 삶의 마지막 순간에 우리가 원하는 것은 결국 <span class="highlight">사랑하는 사람과의 시간</span>입니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">결국에는 사랑이 모든 것을 이길 테니까.</p>
+            <p class="mb-4">당신에게 지금 사랑하는 사람과 보낼 수 있는 시간이 딱 5분 남아있다면, 당신은 무엇을 말하고 싶은가?</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">이 책의 진짜 메시지는 머리말과 목차, 문장 곳곳에 숨어있습니다. 그것을 찾아 당신의 삶에서 실천하는 것은 당신의 몫입니다. 그 의미 있는 과정에 <span class="highlight">행운을 빕니다.</span></p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 38: Thank You / Q&A -->
+      <!-- Slide 37: Epilogue -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">⏳</div>
+            <h2 class="slide-title">당신은 아직 늦지 않았기를 바랍니다</h2>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p>아무리 위대한 사랑일지라도 시간의 주름을 피할 순 없습니다. 관계가 우리 삶의 전부는 아닐지라도, 대부분임은 분명하다는 것을 잊지 않았으면 합니다.</p>
+                <p class="mt-4">당신은, 아직 많은 것을 바꿀 수 있는 당신의 삶은, <span class="highlight">그러지 않길 소망한다.</span></p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Thank You -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -641,7 +657,7 @@
           <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
         </div>
       </div>
-      
+
     </div>
   </div>
 
@@ -667,13 +683,14 @@
 
     function updateSlide() {
       slides.forEach((slide, index) => {
-        slide.classList.remove('active');
         if (index === currentSlide) {
           slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
         }
       });
       slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
-      progressBar.style.width = `${((currentSlide) / (slides.length - 1)) * 100}%`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
 
       prevBtn.disabled = currentSlide === 0;
       nextBtn.disabled = currentSlide === slides.length - 1;
@@ -684,27 +701,28 @@
       nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
     }
 
-    nextBtn.addEventListener('click', () => {
+    function goToNextSlide() {
       if (currentSlide < slides.length - 1) {
         currentSlide++;
         updateSlide();
       }
-    });
+    }
 
-    prevBtn.addEventListener('click', () => {
-      if (currentSlide > 0) {
+    function goToPrevSlide() {
+       if (currentSlide > 0) {
         currentSlide--;
         updateSlide();
       }
-    });
+    }
+
+    nextBtn.addEventListener('click', goToNextSlide);
+    prevBtn.addEventListener('click', goToPrevSlide);
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        nextBtn.click();
+      if (e.key === 'ArrowRight') {
+        goToNextSlide();
       } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevBtn.click();
+        goToPrevSlide();
       }
     });
 
