@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>천재가 어딨어? 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border: 1px solid #f0f0f0;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .book-cover {
+        max-width: 250px;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">💡</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">천재가 어딨어?</h1>
+          <p class="text-xl md:text-2xl text-gray-700">아이디어를 찾아 밤을 지새우는 <span class="highlight">창작자들에게</span></p>
+          <p class="mt-4 text-lg text-gray-600">그랜트 스나이더 지음 | 공경희 옮김</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
+            <p><b>1. 영감:</b> 아이디어의 탄생</p>
+            <p><b>2. 노력:</b> 아이디어를 키우는 힘</p>
+            <p><b>3. 즉흥성:</b> 예상 밖의 발견</p>
+            <p><b>4. 열망:</b> 성공으로 가는 길</p>
+            <p><b>5. 사색:</b> 생각의 정원 가꾸기</p>
+            <p><b>6. 탐구:</b> 세상에 질문 던지기</p>
+            <p><b>7. 일상의 좌절:</b> 창작의 그림자</p>
+            <p><b>8. 모방:</b> 거인의 어깨 위에서</p>
+            <p><b>9. 절망:</b> 어두운 터널을 지날 때</p>
+            <p><b>10. 순수한 기쁨:</b> 창작의 본질</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title - 영감 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">영감 💡</h2>
+          <p class="slide-content">아이디어는 어디에서 오는가? 영감의 다양한 <span class="highlight">얼굴과 형태</span>를 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">천재의 구성 요소 🧠</h2>
+          <p class="slide-subtitle">천재는 번뜩이는 영감만으로 이루어지지 않습니다. 그 뒤에는 수많은 과정이 숨어있습니다.</p>
+          <div class="slide-content grid grid-cols-2 gap-4">
+            <p><b>노력 29%</b>: 꾸준함이 가장 큰 비중을 차지합니다.</p>
+            <p><b>탐구 15%</b>: 세상을 향한 호기심과 질문입니다.</p>
+            <p><b>일상의 좌절 13%</b>: 실패와 극복의 경험입니다.</p>
+            <p><b>모방 11%</b>: 다른 작품에서 배우고 영감을 얻습니다.</p>
+            <p><b>절망 10.9%</b>: 깊은 고뇌의 시간입니다.</p>
+            <p><b>열망 8%</b>: 무언가를 이루고 싶은 마음입니다.</p>
+            <p><b>사색 7%</b>: 조용히 생각에 잠기는 시간입니다.</p>
+            <p><b>즉흥성 5%</b>: 계획에 없던 시도와 발견입니다.</p>
+            <p><b>영감 1%</b>: 결정적인 순간의 섬광입니다.</p>
+            <p><b>순수한 기쁨 0.1%</b>: 창작 그 자체의 즐거움입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이디어의 <span class="highlight">형태</span></h2>
+          <p class="slide-subtitle">아이디어는 다양한 모습으로 우리를 찾아옵니다.</p>
+          <div class="slide-content">
+            <ul class="space-y-3 list-disc list-inside">
+              <li><b>밤에 떠오른 아이디어</b>: 밤에는 반짝이지만 아침에는 달라 보일 때가 있습니다.</li>
+              <li><b>오래된 아이디어</b>: 오래된 아이디어를 무작정 부수지 말고, 그 위에 새로운 아이디어를 쌓아보세요.</li>
+              <li><b>숨은 아이디어</b>: 깊은 어둠 속에 숨어있는 아이디어들은 꼼꼼히 살펴볼 가치가 있습니다.</li>
+              <li><b>찰나의 아이디어</b>: 잔잔한 순간에 낚아채야 하는 아이디어도 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이디어를 <span class="highlight">다루는 법</span></h2>
+          <p class="slide-subtitle">떠오른 아이디어를 어떻게 발전시켜야 할까요?</p>
+          <div class="slide-content">
+             <ul class="space-y-3 list-disc list-inside">
+              <li><b>구체화 vs. 추상화</b>: 구체적인 아이디어를 내려고 쩔쩔매고 있나요? 대략적으로 구상해보세요.</li>
+              <li><b>크고 작은 아이디어</b>: 최고의 아이디어를 찾는 동안에도, 작고 간단한 아이디어를 무시하지 마세요.</li>
+              <li><b>예상 밖의 아이디어</b>: 때로는 상상도 못한 아이디어가 떠오릅니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Content -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">완벽한 아이디어 찾기 🔍</h2>
+            <p class="slide-subtitle">완벽한 아이디어는 바로 여기, 어딘가에 있을 것 같지만...</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                <p><b>잡히지 않고:</b> 좀처럼 잡히지 않습니다.</p>
+                <p><b>너무 높거나:</b> 너무 높은 곳에 있습니다.</p>
+                <p><b>복잡하고:</b> 너무 복잡합니다.</p>
+                <p><b>멀거나:</b> 너무 멀리 있습니다.</p>
+                <p><b>유치하고:</b> 너무 유치합니다.</p>
+                <p><b>사소하며:</b> 너무 사소합니다.</p>
+                <p><b>비슷비슷하고:</b> 너무 비슷비슷합니다.</p>
+                <p><b>거창합니다:</b> 너무 거창합니다.</p>
+            </div>
+            <p class="mt-6 text-center font-bold text-lg">"자, 이제 완벽한 아이디어를 찾자!" ... 하지만 여전히 제자리입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Two Column -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">떨어지는 <span class="highlight">영감</span></h2>
+          <p class="slide-subtitle">영감은 예측할 수 없는 방식으로 찾아옵니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">언제 떨어질까?</h3>
+              <p>사과처럼 떨어지지만, 참고 기다릴 수는 없습니다. 폭설처럼 내가 다른 일을 할 때 떨어지기도 하고, 벼락처럼 내리쬐면 좋겠지만 빗방울일 뿐입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">어떻게 다가올까?</h3>
+              <p>완벽한 영감은 눈송이처럼 떨어지지만 나한테까지 닿지 않기도 합니다. 알고 보면 다른 사람 차지일 때도 있습니다. 때로는 이런 영감도 떠오르지 않은 채 밤이 깊어갑니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내 생각은... (1/2) 🎨</h2>
+          <p class="slide-subtitle">아이디어는 다양한 성격과 특징을 가집니다.</p>
+          <div class="slide-content grid grid-cols-2 gap-4">
+              <p><b>눈부시게 밝고:</b> 세상을 밝히는 빛과 같습니다.</p>
+              <p><b>인기를 한 몸에 받으며:</b> 많은 사람의 주목을 받습니다.</p>
+              <p><b>거대하지:</b> 때로는 감당하기 어려울 만큼 큽니다.</p>
+              <p><b>익명을 요구하면서:</b> 조용히 숨어있기도 합니다.</p>
+              <p><b>다른 사람과 공유할 수도 있고:</b> 함께 나눌 때 더 커집니다.</p>
+              <p><b>깨달음을 얻게 하고:</b> 새로운 시각을 열어줍니다.</p>
+              <p><b>초현실적이며:</b> 현실을 뛰어넘습니다.</p>
+              <p><b>소설처럼 참신해:</b> 이야기가 담겨 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내 생각은... (2/2) 🚀</h2>
+          <p class="slide-subtitle">아이디어의 또 다른 얼굴들.</p>
+           <div class="slide-content grid grid-cols-2 gap-4">
+              <p><b>압도적이고:</b> 수많은 아이디어 속에 파묻히기도 합니다.</p>
+              <p><b>이기적이면서:</b> 독점하고 싶어집니다.</p>
+              <p><b>무시당하기도 하고:</b> 가치를 인정받지 못할 때도 있습니다.</p>
+              <p><b>조심스러운 동시에:</b> 세상에 내놓기 두렵습니다.</p>
+              <p><b>제한적이야:</b> 틀 안에 갇혀있기도 합니다.</p>
+              <p><b>부화되지 않고:</b> 결실을 맺지 못할 수도 있습니다.</p>
+              <p><b>빌려오기도 하고:</b> 다른 곳에서 영감을 얻습니다.</p>
+              <p><b>야행성이지:</b> 주로 밤에 찾아옵니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Content with special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생각이라는 이름의 <span class="highlight">열차</span> 🚂</h2>
+          <p class="slide-subtitle">우리의 생각은 다양한 교통수단을 타고 움직입니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg grid grid-cols-3 gap-4">
+              <p><b>욕망</b>이라는 이름의 전차</p>
+              <p><b>망상</b>이라는 이름의 손수레</p>
+              <p><b>미루기</b>라는 이름의 역</p>
+              <p><b>동기</b>라는 이름의 모노레일</p>
+              <p><b>거창한 아이디어</b>라는 이름의 관람차</p>
+              <p><b>후회</b>라는 이름의 롤러코스터</p>
+              <p><b>무의식</b>이라는 이름의 지하철</p>
+              <p><b>각성</b>이라는 이름의 증기 기관차</p>
+              <p><b>예기치 못한 통찰</b>이라는 이름의 버려진 철로</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Section Title - 노력 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">노력 🏋️</h2>
+          <p class="slide-content">영감은 시작일 뿐, 아이디어를 현실로 만드는 것은 <span class="highlight">꾸준한 노력</span>입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 13: Content -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">아이디어를 <span class="highlight">얻는 방법</span></h2>
+            <p class="slide-subtitle">아이디어를 발견하는 과정은 보물찾기와 같습니다.</p>
+            <div class="slide-content">
+                <ul class="space-y-3 list-disc list-inside">
+                    <li>땅을 파고 들어가면 표면 위로 솟아오릅니다.</li>
+                    <li>낯선 두 가지가 합쳐져서 생산되기도 합니다.</li>
+                    <li>자는 동안 포착할 수도 있지만, 운이 좋아야 알아차릴 수 있습니다.</li>
+                    <li>함정을 설치한 뒤 기다리면 큰 것이 걸리기도 합니다.</li>
+                    <li>어떤 것은 절망의 빠른 순간에 나타나기도 합니다.</li>
+                    <li>대부분의 경우, <span class="highlight">찾는 일을 그만두어야</span> 비로소 당신에게 다가올 것입니다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Two Column Layout -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언덕을 오르는 <span class="highlight">방법</span></h2>
+          <p class="slide-subtitle">창작의 과정은 언덕을 오르는 것과 같습니다. 어떻게 올라야 할까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">잘못된 방법들</h3>
+              <p><b>너무 세게 밀면</b> 금방 기운이 빠집니다. <b>놀이하듯이 하면</b> 한심한 결과가 나를 민망하게 합니다. <b>앉아서 긍정적인 생각만 하면</b> 아무 일도 일어나지 않습니다. <b>크고 특별한 계획을 진척시키려 하면</b> 날씨의 협조가 필요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">올바른 방법들</h3>
+              <p>밤사이 언덕에 가로막히면 <b>약간의 휴식</b>을 취하세요. 아침이 되면, 작고 성취 가능한 <b>목표</b>를 세우세요. 그리고 <b>계속 앞으로</b> 나아가세요, 정상에 다다를 때까지! 내려가는 길은 언제나 빠르니까요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">좋은 생각, 나쁜 생각 🦋</h2>
+          <p class="slide-subtitle">생각을 채집하는 나비 채집가처럼, 우리는 아이디어를 분류하고 탐구해야 합니다.</p>
+          <div class="slide-content">
+            <p>보기엔 제법 비슷해 보이지만 행동은 아주 다릅니다. '어, 새로운 생각이다!' 하고 발견하면, 잡아서 분류를 합니다. 어떤 종류일까? 알아내려면 쫓아가보는 수밖에! 그러다 보면 당신은 낯선 곳에 가게 되고, 점점 더 복잡한 작전이 필요해집니다. 그리고 아예 놓치기도 합니다. 쫓아갈 가치가 있었을까요? <span class="highlight">대답할 수 있는 사람은 당신뿐.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">브레인스토밍의 <span class="highlight">날씨</span> 🌤️</h2>
+          <p class="slide-subtitle">창의적인 작업 환경은 날씨처럼 변화무쌍합니다.</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div><h3 class="font-bold text-lg">생각의 가뭄</h3><p>아이디어가 메마름</p></div>
+              <div><h3 class="font-bold text-lg">인공 아지랑이</h3><p>환상에 사로잡힘</p></div>
+              <div><h3 class="font-bold text-lg">흩어진 생각들</h3><p>집중이 안 됨</p></div>
+              <div><h3 class="font-bold text-lg">불안정한 대기</h3><p>외부 방해 요소</p></div>
+              <div><h3 class="font-bold text-lg">고압 전선</h3><p>압박감</p></div>
+              <div><h3 class="font-bold text-lg">영감의 보슬비</h3><p>작은 아이디어들</p></div>
+              <div><h3 class="font-bold text-lg">창의력 소나기</h3><p>아이디어가 쏟아짐</p></div>
+              <div><h3 class="font-bold text-lg">예상치 못한 현상</h3><p>뜻밖의 결과물</p></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Content -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">미루지 않으려고 🏃</h2>
+            <p class="slide-subtitle">창작자들은 미루는 습관과 싸우기 위해 다양한 방법을 사용합니다.</p>
+            <div class="slide-content">
+                <ul class="space-y-3 list-disc list-inside">
+                    <li>내 자리에 나를 고정시킨다. 유혹하는 소리들을 무시하려 애쓴다.</li>
+                    <li>인생은 짧다는 말을 되새긴다. 무언가를 이루기 위해 낭비할 시간은 없다.</li>
+                    <li>상상 속의 라이벌을 만든다. 그리고 나의 작업물로 그를 물리친다.</li>
+                    <li>더 지겨운 일들을 찾아낸다. 그리고 다시 그 일을 미룬다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Section Title - 즉흥성 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">즉흥성 🎷</h2>
+          <p class="slide-content">계획을 벗어나는 용기, <span class="highlight">재즈 연주처럼</span> 매일을 살아가는 법을 배웁니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">Play Each Day Like <span class="highlight">Jazz</span></h2>
+          <p class="slide-subtitle">매일을 재즈처럼 연주하기 위한 여섯 가지 규칙.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+              <p><b>1. 침착하게.</b> 하지만 너무 처지지 않게.</p>
+              <p><b>2. 체계와 반복의 개념을 만들고,</b> 그 안에서 변주를 시도하라.</p>
+              <p><b>3. 즉흥 연주를 망설이지 말자.</b></p>
+              <p><b>4. 남들이 내게 말하는 생각들을 듣자.</b></p>
+              <p><b>5. 만족스러운 주제로 돌아오자.</b></p>
+              <p><b>6. 자유로운 재즈로 끝내자, 독특하게!</b></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Content with special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">백지 찾기 📄</h2>
+          <p class="slide-subtitle">창의성은 어디에나 있는 '백지'를 발견하는 것에서 시작됩니다.</p>
+          <div class="slide-content">
+            <p>새로운 아이디어를 펼칠 공간은 어디에나 있습니다. 우리는 백지를 발견할 수 있습니다...</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg grid grid-cols-2 md:grid-cols-3 gap-4">
+                <p>종이에서</p>
+                <p>편지지에서</p>
+                <p>구겨진 종이에서</p>
+                <p>악보에서</p>
+                <p>조각품에서</p>
+                <p>말풍선에서</p>
+                <p>미술 작품에서</p>
+                <p>건축물에서</p>
+                <p>다리 위 트럭에서</p>
+                <p>자연에서</p>
+                <p>컴퓨터 모니터에서</p>
+                <p>밤하늘에서</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Section Title - 열망 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">열망 🌟</h2>
+          <p class="slide-content">무언가를 간절히 바라는 마음, 그 <span class="highlight">열망의 본질</span>과 성공으로 가는 길을 탐험합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 22: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">도약하기 🧗</h2>
+          <p class="slide-subtitle">새로운 도전을 앞두고 우리는 수많은 감정과 마주합니다.</p>
+          <div class="slide-content">
+            <p>준비가 덜 됐어. 이건 불가능한 일이야. 아플 수도 있어. 경쟁이 너무 심해. 무슨 일이 생길지 보이지 않아. 무슨 일이 생길지 뻔하군. 난 여기가 편해. 상황이 좋지 않아... <span class="highlight">난 무엇을 기다렸던 거지?</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">야망의 본질 🐢</h2>
+          <p class="slide-subtitle">야망은 거북이를 산책시키는 것과 같습니다. 느리고 힘들지만, 결국에는 사람들의 인정을 받게 됩니다.</p>
+          <div class="slide-content">
+            <p>운이 좋다면, 당신은 자신이 좋아하는 일이 무엇인지 찾아낼 것이다. 다른 사람들도 그것을 알아차릴 거고, 당신은 실력을 키우려고 애쓸 것이다. 그 일이 곧 당신을 규정하게 될 것이고, 결국 능력을 인정받게 될 것이다. 하지만 역풍을 만날지도 모른다. 내적 혼돈에 휘말릴 때도 있을 것이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성공으로 가는 길 🗺️</h2>
+          <p class="slide-subtitle">성공에 이르는 길은 하나가 아닙니다. 다양한 경로가 존재합니다.</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-3 gap-4">
+              <p><b>착선:</b> 곧고 바른 길</p>
+              <p><b>신화적인:</b> 미로 같은 길</p>
+              <p><b>갈림길:</b> 선택의 연속</p>
+              <p><b>파격적인:</b> 에스컬레이터 같은 길</p>
+              <p><b>구불구불:</b> 뱀처럼 험난한 길</p>
+              <p><b>허공으로:</b> 대포알 같은 도약</p>
+              <p><b>미지의 영역:</b> 아무도 가보지 않은 길</p>
+              <p><b>깊은 생각:</b> 강을 건너는 길</p>
+              <p><b>위험한:</b> 절벽을 오르는 길</p>
+              <p><b>미치게 만드는:</b> 끝없는 상자 속 길</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 25: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미니멀리즘은 간단하다 ◻️</h2>
+          <p class="slide-subtitle">복잡함을 덜어내는 과정, 하지만 그 과정은 보기보다 어렵습니다.</p>
+          <div class="slide-content">
+            <p>불필요한 것을 치운다. 체계를 만든다. 숨은 의미를 찾는 일을 그만둔다. 단단한 것들을 포옹한다. 패턴에 몰입한다. 빈자리를 건너지 않는다. 다정함을 유지한다. 다채로워지고 대담해진다. 과한 표현은 하지 않는다. 단순한 게 낫다. <span class="highlight">하지만 단순해지는 건 보기보다 어렵다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Section Title - 사색 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5</p>
+          <h2 class="slide-title">사색 🦋</h2>
+          <p class="slide-content">조용한 관찰과 생각의 수집. 창의력을 위한 <span class="highlight">내면의 시간</span>입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 27: Content with special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생각 모으기 📥</h2>
+          <p class="slide-subtitle">머릿속을 떠다니는 다양한 생각들을 수집하고 관찰합니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg grid grid-cols-2 md:grid-cols-3 gap-4">
+                <p>나른한 생각</p>
+                <p>병에 담은 생각</p>
+                <p>이상한 생각</p>
+                <p>원치 않는 생각</p>
+                <p>머나먼 생각</p>
+                <p>추상적인 생각</p>
+                <p>아무 생각 없음</p>
+                <p>흩어진 생각</p>
+                <p>과도한 생각</p>
+                <p>깊은 생각</p>
+                <p>어두운 생각</p>
+                <p>탐나는 생각</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오늘 아무것도 하지 않을 것이다 🌸</h2>
+          <p class="slide-subtitle">때로는 아무것도 하지 않는 시간이 가장 큰 영감을 줍니다.</p>
+          <div class="slide-content">
+            <p>잔디가 더 파랗게 자라도록 북돋워주고, 꽃이 피기를 기다리고, 지빠귀의 야망을 분석하고, 다람쥐의 물리학을 공부하고, 하늘로 뻗은 가지에 대한 글을 읽으면 아직 읽지 않은 페이지를 바람이 넘기겠지. 난 빈둥거림의 달인이 될 거다. <span class="highlight">오늘은 심심함에 바친 휴일이야.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Two Column Layout -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생각의 <span class="highlight">장소</span> 🛋️</h2>
+          <p class="slide-subtitle">아이디어는 편안하고 아늑한 공간에서 자라납니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">어떤 곳일까?</h3>
+              <p>편안한 곳, 호기심과 탐구심이 있고, 조금의 방해도 없고, 생각이 자라는 곳, 숨겨진 영감이 가득한 곳, 과로 후에 쉴 곳, 문제를 해결할 수 있는 곳입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">무엇을 할까?</h3>
+              <p>느긋해지고, 재충전하고, 무의식에 사로잡혀 아늑한 곳에 엎어지면, 생각이 자라는 새로운 곳이 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아무것도 하지 않기 🧘</h2>
+          <p class="slide-subtitle">진정한 휴식은 의도적으로 '하지 않는' 것입니다.</p>
+          <div class="slide-content">
+            <p>누구든 아무것도 하지 않을 수 있다. 어디에도 있지 않는다. 어떤 것에도 집중하지 않는다. 아무 계획도 세우지 않는다. 아무도 방해하지 못하게 한다. 의미를 찾지 않는다. 마음에 아무것도 떠올리지 않는다. 눈을 감는다. <span class="highlight">당신은 아무것도 하지 않았다. 이 순간을 잊지 못할 것이다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Section Title - 탐구 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6</p>
+          <h2 class="slide-title">탐구 🗺️</h2>
+          <p class="slide-content">상자 밖으로, 때로는 상자 안으로. 새로운 관점을 찾기 위한 <span class="highlight">끊임없는 여정</span>입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 던지기 ❓</h2>
+          <p class="slide-subtitle">질문의 크기와 종류에 따라 발견의 깊이가 달라집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+              <p><b>작은 질문은</b> 작은 발견으로 이어진다.</p>
+              <p><b>큰 질문은</b> 큰 발견으로 이어진다.</p>
+              <p><b>어떤 질문은</b> 의문이 더 깊어지게 한다.</p>
+              <p><b>뭘 물어야 할지 알면서도</b> 대답에 놀라기도 한다.</p>
+              <p><b>어마어마한 질문은</b> 어마어마한 문제를 낳을 수도 있다.</p>
+              <p><b>질문이 너무 많으면</b> 이상한 사람으로 보일 수도 있다.</p>
+              <p><b>예상치 않은 질문에 맞닥뜨려</b> 어쩔 도리가 없으면, <span class="highlight">그것이 이끄는 대로 따라가라.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Two Column Layout -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상자 밖에서, <span class="highlight">상자 안에서</span></h2>
+          <p class="slide-subtitle">창의적인 생각은 상자를 넘나드는 유연함에서 나옵니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">상자 활용법</h3>
+              <p>모두 상자 밖에서 생각하라고 바란다. 하지만 더 큰 효과를 보려면 상자 안에 들어가야 한다. 새로운 관점으로 상자를 보자. 상자를 해체해서 새로운 쓰임새를 찾자. 결과를 알지 못해도 상자를 펼쳐보자.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">상자 너머로</h3>
+              <p>상자의 수수께끼를 풀어보자. 어마어마한 질문은 최대한 멀리 밀어 보자. 그리고 상자 너머로 가서 새로운 생각법을 찾아보자.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Section Title - 일상의 좌절 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 7</p>
+          <h2 class="slide-title">일상의 좌절 😩</h2>
+          <p class="slide-content">창작 과정에서 마주치는 다양한 <span class="highlight">블록과 장애물</span>, 그리고 그것을 극복하는 방법.</p>
+        </div>
+      </div>
+
+      <!-- Slide 35: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다양한 블록들 🧱</h2>
+          <p class="slide-subtitle">우리의 길을 가로막는 다양한 형태의 '블록'들.</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div><h3 class="font-bold text-lg">STARTING BLOCK</h3><p>출발대</p></div>
+              <div><h3 class="font-bold text-lg">MENTAL BLOCK</h3><p>기억의 차단</p></div>
+              <div><h3 class="font-bold text-lg">BUILDING BLOCK</h3><p>생산량 블록</p></div>
+              <div><h3 class="font-bold text-lg">ICE BLOCK</h3><p>얼음 덩어리</p></div>
+              <div><h3 class="font-bold text-lg">SUN BLOCK</h3><p>자외선 방지</p></div>
+              <div><h3 class="font-bold text-lg">ROAD BLOCK</h3><p>노상 장애물</p></div>
+              <div><h3 class="font-bold text-lg">WRITER'S BLOCK</h3><p>작가의 블록</p></div>
+              <div><h3 class="font-bold text-lg">UNBLOCKED!</h3><p>장애물 제거!</p></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Content -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">거절, 그리고 <span class="highlight">새로운 문</span> 🚪</h2>
+            <p class="slide-subtitle">하나의 문이 닫히면 또 다른 문이 열립니다. 하지만 그 과정은 쉽지 않습니다.</p>
+            <div class="slide-content">
+                <p>하나의 문이 닫히면 또 다른 문이 열린다. 하지만 우리는 어두운 곳으로 떨어져 모든 문에 손이 닿지 않고, 통과하는 것도 불가능하고, 어디로도 가지 못하고, 약순환에 갇혀 미칠 지경이 된다.</p>
+                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                  <h3 class="font-bold text-lg">해결책</h3>
+                  <p>문에 대해서 생각하는 것을 그만두자. <span class="highlight">열린 문이 보일 때까지.</span> 그 문이 닫힐 때, 제시간에 들어갈 수 있을까?</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Section Title - 모방 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 8</p>
+          <h2 class="slide-title">모방 🎨</h2>
+          <p class="slide-content">새로운 것을 창조하기 위해 다른 작품을 보고 배우는 <span class="highlight">예술의 과정</span>.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예술 작품을 보는 방법 🏞️</h2>
+          <p class="slide-subtitle">예술 작품을 감상하는 것은 새로운 영감을 얻는 여정입니다.</p>
+          <div class="slide-content">
+            <ul class="space-y-2 list-decimal list-inside">
+              <li>내 머릿속에서 스타일과 형태의 차이를 인식하기</li>
+              <li>상징성을 강요하지 말기</li>
+              <li>추상미술을 이해하고 감상하기</li>
+              <li>인습에 도전하기</li>
+              <li>타인의 작품을 보호하기</li>
+              <li>깊은 감정을 받아들이기</li>
+              <li>수수께끼의 여지를 남겨두기</li>
+              <li><span class="highlight">새로운 것을 만들 수 있는 영감 얻기</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 39: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">처음 배우는 것처럼 그려라 ✍️</h2>
+          <p class="slide-subtitle">기존의 틀을 깨고 새로운 시각으로 세상을 바라보는 연습.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">새로운 시도</h3>
+              <ul class="list-disc list-inside">
+                <li>완벽한 원근법 사용하기</li>
+                <li>다양한 명암 방법 숙달하기</li>
+                <li>거꾸로 그리기</li>
+                <li>왼손으로 그리기</li>
+                <li>눈 감고 그리기</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">관점의 확장</h3>
+              <p>능력 확장을 위한 연습들. 예를 들어, 배경에 깊이를 부여하여 그림에 새로운 차원을 더하는 것입니다. 익숙한 것을 낯설게 바라보는 것에서 창의력은 시작됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">취미로 그리는 그림 🎨</h2>
+          <p class="slide-subtitle">재료, 붓, 색, 주제를 자유롭게 선택하며 창작의 즐거움을 느껴보세요.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-3">
+              <li><b>다양한 재료 실험:</b> 수채 물감, 파스텔, 아크릴, 유화용 기름 등 다양한 재료를 시도해 보세요.</li>
+              <li><b>알맞는 붓 고르기:</b> 납작붓, 팬붓, 세필붓 등 목적에 맞는 붓을 선택하는 것이 중요합니다.</li>
+              <li><b>인상적인 팔레트 선택:</b> 중립적인 회색, 불타버린 주황, 발랄하기 힘든 파랑 등 감정을 담은 색을 선택하세요.</li>
+              <li><b>영감을 주는 주제 그리기:</b> 목가적인 풍경, 정물, 기하학적인 도형, 내 감정 등 원하는 모든 것을 그려보세요.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Section Title - 절망 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 9</p>
+          <h2 class="slide-title">절망 🔦</h2>
+          <p class="slide-content">창작의 과정에서 겪는 어두운 시기, 그리고 <span class="highlight">희망을 찾는 방법</span>.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창의력 유령 👻</h2>
+          <p class="slide-subtitle">과거, 현재, 미래의 창의력은 서로 다른 모습으로 우리를 찾아옵니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div><h3 class="font-bold text-lg">과거의 창의력 유령</h3><p>"전에는 좋은 아이디어가 많았잖아. 어떻게 된 거야?"</p></div>
+            <div><h3 class="font-bold text-lg">현재의 창의력 유령</h3><p>"네가 틀어박혀 일할 때 밖에서 즐거워하는 사람들을 봐!"</p></div>
+            <div><h3 class="font-bold text-lg">미래의 창의력 유령</h3><p>"영원한 작품을 만들지 않으면 아무도 널 가르치지 않을 거야."</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내면의 10종 경기 🏃‍♀️</h2>
+          <p class="slide-subtitle">창작자들이 내면에서 겪는 10가지 장애물 경기.</p>
+          <div class="slide-content grid grid-cols-2 gap-x-8 gap-y-4">
+            <p>1. 비현실적인 기대감</p>
+            <p>2. 과의식</p>
+            <p>3. 정신 산만</p>
+            <p>4. 실패에 대한 두려움</p>
+            <p>5. 성공에 대한 두려움</p>
+            <p>6. 악천후</p>
+            <p>7. 잘못되는 상상</p>
+            <p>8. 열악한 장비</p>
+            <p>9. 피로감</p>
+            <p>10. 예상치 못한 사건들</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가장 큰 <span class="highlight">두려움</span></h2>
+          <p class="slide-subtitle">창작자들을 괴롭히는 다양한 형태의 두려움들.</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-3 gap-4">
+              <p>죽은 새</p>
+              <p>학자금 대출금</p>
+              <p>영혼을 훔치는 달</p>
+              <p>불면증</p>
+              <p>큰 개</p>
+              <p>인신공양을 하는 사이비 종교</p>
+              <p>냉소</p>
+              <p>높은 곳</p>
+              <p>고도의 지능을 가진 로봇 난쟁이</p>
+              <p>잘못 탄 버스</p>
+              <p>의도하지 않은 표정</p>
+              <p>몸통이 없이 떠다니는 해골</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Content with special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창의적인 <span class="highlight">사고</span></h2>
+          <p class="slide-subtitle">영감, 야망, 몰두, 자기 평가, 독창성, 경험, 지속. 이 모든 것이 창의적 사고의 과정입니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg space-y-4">
+              <p><b>영감:</b> 뭔가가 만들어져야 해! / 가치 있는 것은 이미 다 나와 있어.</p>
+              <p><b>야망:</b> 이거야! 큰 기회가 왔어! / 내가 이 프로젝트를 맡을 자격이 있나?</p>
+              <p><b>몰두:</b> 여기는 방해하는 게 너무 많군. / 한결같군.</p>
+              <p><b>자기 평가:</b> 난 좋은 아이디어가 없어. 그러니까 난 형편없는 인간이야.</p>
+              <p><b>독창성:</b> 이거 대단한 아이디어인걸! / 이걸 어디서 봤더라?</p>
+              <p><b>경험:</b> 이번에는 내가 뭘 하는지 알아. (x3) / 아직도 내가 뭘 하는지 모르겠어.</p>
+              <p><b>지속:</b> 끝났다! 완벽해! / 다시는 좋은 아이디어를 못 낼 거야.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Section Title - 순수한 기쁨 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 10</p>
+          <h2 class="slide-title">순수한 기쁨 💖</h2>
+          <p class="slide-content">모든 과정을 거쳐 도달하는, 창작 그 자체에서 오는 <span class="highlight">가장 순수한 즐거움</span>.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 47: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수채화 🎨</h2>
+          <p class="slide-subtitle">창작은 수채화 그리기와 같습니다. 때로는 비를 맞고, 번지고, 망쳐도 괜찮습니다.</p>
+          <div class="slide-content">
+            <p>완벽한 그림을 그리려 하지만 비가 와서 망칩니다. 실망하고 포기하려 할 때, 빗물에 번진 물감이 예상치 못한 아름다움을 만들어냅니다. 그 위에 다시 그림을 그리기 시작합니다. 창작 과정은 통제 불가능한 요소들과 어우러지며 완성됩니다. <span class="highlight">결과가 아닌 과정 자체의 즐거움</span>이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수정 ✍️</h2>
+          <p class="slide-subtitle">창작은 끊임없는 수정의 과정입니다. 실수를 털어내고 더 나은 결과물을 만들어갑니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">지우고 바로잡기</h3>
+              <p>내가 썼던 것들을, 형편없는 것들을 하얗게 지우고 싶어. 내가 그었던 선들 중 마음에 들지 않는 걸 지울래. 과거의 착오를 갈아버리고, 완전히 잘못된 표현들을 전부 수정할 거야. 실수를 털어내자.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">자신감과 재시작</h3>
+              <p>어색한 부분에 불어넣고 '자신감'을 더하자. 우유부단을 드러내고, 뜻이 통할 때까지 생각들을 교정해. 실패들을 접어서 창밖으로 날려버려. 빈 종이를 꺼내 다시 시작하자.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">:dart:</div>
+          <h2 class="slide-title">결론: 천재는 없다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">이 책은 '천재'가 되는 비법을 알려주지 않습니다. 대신, 아이디어를 찾아 헤매는 모든 창작자의 여정이 고유하고 가치 있음을 보여줍니다. 영감, 노력, 좌절, 기쁨이 뒤섞인 이 과정 전체가 바로 창작입니다. <span class="highlight">가장 중요한 것은 멈추지 않고 계속 나아가는 것입니다.</span></p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신의 아이디어는 당신만의 형태를 가지고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">:clap:</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  const slides =
+    Array.from(document.querySelectorAll('.slide'))
+      .filter(el => el.offsetHeight > 0) ||
+    Array.from(document.querySelectorAll('section, [data-slide]'))
+      .filter(el => el.offsetHeight > 0);
+
+  if (!slides.length) return;
+
+  let index = 0;
+  let isAnimating = false;
+
+  function clamp(i) {
+    return Math.max(0, Math.min(slides.length - 1, i));
+  }
+
+  function scrollToIndex(next) {
+    next = clamp(next);
+    if (next === index || isAnimating) return;
+    isAnimating = true;
+    index = next;
+    const target = slides[index];
+    const top = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'smooth' });
+    setTimeout(function () { isAnimating = false; }, 420);
+  }
+
+  function move(delta) {
+    if (delta > 0) {
+      scrollToIndex(index + 1);
+    } else if (delta < 0) {
+      scrollToIndex(index - 1);
+    }
+  }
+
+  window.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaY) < 24) return;
+    const isScrollY =
+      document.documentElement.scrollHeight > window.innerHeight + 8;
+    if (!isScrollY) return;
+    e.preventDefault();
+    move(e.deltaY);
+  }, { passive: false });
+
+  window.addEventListener('keydown', function (e) {
+    if (['ArrowDown', 'PageDown', ' ', 'Spacebar'].includes(e.key)) {
+      e.preventDefault();
+      move(1);
+    } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      move(-1);
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    var best = 0;
+    var bestDist = Infinity;
+    slides.forEach(function (s, i) {
+      var rect = s.getBoundingClientRect();
+      var dist = Math.abs(rect.top);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    index = best;
+  });
+})();
+</script>
+</body>
+</html>

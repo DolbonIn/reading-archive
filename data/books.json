@@ -1,5 +1,25 @@
 [
   {
+    "slug": "천재가-어딨어-개정판-양장본-hardcover",
+    "title": "천재가 어딨어 (개정판) (양장본 Hardcover)",
+    "author": "그랜트스나이더",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/천재가-어딨어-개정판-양장본-hardcover.html",
+    "cover": "assets/covers/천재가-어딨어-개정판-양장본-hardcover.jpg"
+  },
+  {
+    "slug": "진짜-좋아하는-일만-하고-사는-법-데릭-시버스",
+    "title": "진짜 좋아하는 일만 하고 사는 법",
+    "author": "데릭 시버스",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/진짜-좋아하는-일만-하고-사는-법-데릭-시버스.html",
+    "cover": "assets/covers/진짜-좋아하는-일만-하고-사는-법-데릭-시버스.jpg"
+  },
+  {
     "slug": "자꾸-잘못된-선택을-하는-사람들을-위한-결정의-기술",
     "title": "자꾸 잘못된 선택을 하는 사람들을 위한 결정의 기술",
     "author": "필립마이스너",
@@ -418,16 +438,6 @@
     "description": "",
     "presentation": "presentations/챗gpt에게-묻는-인류의-미래.html",
     "cover": "assets/covers/챗gpt에게-묻는-인류의-미래.jpg"
-  },
-  {
-    "slug": "진짜-좋아하는-일만-하고-사는-법-데릭-시버스",
-    "title": "진짜 좋아하는 일만 하고 사는 법",
-    "author": "데릭 시버스",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/진짜-좋아하는-일만-하고-사는-법-데릭-시버스.html",
-    "cover": "assets/covers/진짜-좋아하는-일만-하고-사는-법-데릭-시버스.jpg"
   },
   {
     "slug": "잘됐던-방법부터-버려라-돈-사랑-관계가-술술-풀리는-36가지-성공-법칙",
