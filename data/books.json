@@ -1,5 +1,15 @@
 [
   {
+    "slug": "사는-동안-한-번-은-팔아봐라",
+    "title": "사는 동안 한 번 은 팔아봐라",
+    "author": "서 과장",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/사는-동안-한-번-은-팔아봐라.html",
+    "cover": "assets/covers/사는-동안-한-번-은-팔아봐라.jpg"
+  },
+  {
     "slug": "번아웃의-종말",
     "title": "번아웃의 종말",
     "author": "조나단 말레식",
@@ -428,16 +438,6 @@
     "description": "",
     "presentation": "presentations/사장학개론.html",
     "cover": "assets/covers/사장학개론.jpg"
-  },
-  {
-    "slug": "사는-동안-한-번-은-팔아봐라",
-    "title": "사는 동안 한 번 은 팔아봐라",
-    "author": "서 과장",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/사는-동안-한-번-은-팔아봐라.html",
-    "cover": "assets/covers/사는-동안-한-번-은-팔아봐라.jpg"
   },
   {
     "slug": "무엇이-나를-행복하게-만드는가-인생의-절반쯤-왔을-때-깨닫게-되는-것들-리처드-j-라이더-데이비드-a-샤피로",

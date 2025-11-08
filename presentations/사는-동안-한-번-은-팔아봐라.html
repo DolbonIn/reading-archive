@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>사는 동안 한 번은 팔아봐라 - 서과장</title>
+  <title>사는 동안 한 번은 팔아봐라 - 프레젠테이션</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,17 +12,21 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f8fafc;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
     }
     .slide {
       display: none;
       min-height: 85vh;
       align-items: center;
       justify-content: center;
+      opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
     .slide.active {
       display: flex;
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
@@ -33,37 +37,39 @@
       justify-content: center;
       background-color: white;
       border-radius: 20px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+      border: 1px solid #f0f0f0;
     }
     .slide-part-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #4f46e5;
+      color: #10B981; /* Emerald 500 */
       margin-bottom: 8px;
     }
     .slide-title {
       font-size: 2.8rem;
       font-weight: 900;
-      color: #111827;
+      color: #111;
       margin-bottom: 25px;
       line-height: 1.3;
     }
     .slide-subtitle {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #374151;
+      color: #444;
       margin-bottom: 35px;
       line-height: 1.6;
     }
     .slide-content {
       font-size: 1.1rem;
       line-height: 1.9;
-      color: #1f2937;
+      color: #333;
     }
     .highlight {
-      background-color: #fef08a;
-      padding: 0 0.25em;
+      background-color: #A7F3D0; /* Emerald 200 */
+      padding: 0 0.4em;
       border-radius: 4px;
+      font-weight: 700;
     }
     .btn {
       padding: 12px 28px;
@@ -71,43 +77,42 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 2px solid transparent;
+      border: none;
     }
     .btn-primary {
-      background-color: #4f46e5;
+      background-color: #059669; /* Emerald 600 */
       color: white;
-      border-color: #4f46e5;
     }
     .btn-primary:hover {
-      background-color: #4338ca;
+      background-color: #047857; /* Emerald 700 */
     }
     .btn-secondary {
-      background-color: #e5e7eb;
-      color: #374151;
+      background-color: #F0F0F0;
+      color: #333;
     }
     .btn-secondary:hover {
-      background-color: #d1d5db;
+      background-color: #E0E0E0;
     }
-    .navigation-container {
+    .progress-bar-container {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid #eee;
       z-index: 10;
     }
     .progress-bar {
       width: 100%;
-      background-color: #e5e7eb;
+      background-color: #eee;
       border-radius: 9999px;
       height: 8px;
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #4f46e5;
+      background-color: #10B981; /* Emerald 500 */
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
@@ -124,688 +129,570 @@
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">🚀</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">사는 동안 한 번은 팔아봐라</h1>
-          <p class="text-xl md:text-2xl text-gray-700 mb-8">평범한 직장인이 <span class="highlight">'잘 파는 뇌'</span>로 경제적 자유를 이룬 비밀</p>
-          <p class="text-lg text-gray-600">저자: 서과장</p>
+          <p class="text-xl md:text-2xl text-gray-700">평범한 직장인이 <span class="highlight">'잘 파는 뇌'</span>로 경제적 자유를 이룬 비밀</p>
         </div>
       </div>
 
-      <!-- Slide 2: Core Message -->
-      <div class="slide">
-        <div class="slide-container text-center">
-          <div class="text-6xl mb-6">💡</div>
-          <h2 class="slide-title">핵심 메시지</h2>
-          <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4 text-2xl font-bold">"<span class="highlight">자본주의 세상에서는 팔 줄 알아야 부자가 된다!</span>"</p>
-            <p class="mt-4 text-lg">투잡으로 시작해 1년 동안 순수익 19억을 만들어 낸 판매의 법칙. 이 책은 단순한 부업 가이드가 아닌, '생산자의 뇌'를 만들어 경제적 자유로 가는 길을 안내합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3: Table of Contents -->
+      <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">목차 📖</h2>
           <div class="slide-content text-lg space-y-4">
-            <p><b>프롤로그:</b> 왜 우리는 '파는 사람'이 되어야 하는가?</p>
-            <p><b>Chapter 1:</b> 부업에 입문하다 (평범한 직장인의 첫걸음)</p>
-            <p><b>Chapter 2:</b> '파는 사람'으로 나아가다 (판매의 본질 깨닫기)</p>
-            <p><b>Chapter 3:</b> 인생에 한 번은 '파는 사람'이 돼라 (브랜딩과 스케일업)</p>
-            <p><b>Chapter 4:</b> '파는 사람'이 되면 보이는 것들 (세상을 보는 새로운 눈)</p>
-            <p><b>부록:</b> 서과장이 추천하는 부업 리스트</p>
+            <p><b>1. 프롤로그:</b> 자본주의에서 왜 '파는 것'이 중요한가?</p>
+            <p><b>2. 챕터 1:</b> 평범한 직장인의 부업 입문기</p>
+            <p><b>3. 챕터 2:</b> '파는 사람'으로 진화하기</p>
+            <p><b>4. 챕터 3:</b> 인생의 주인이 되는 '파는 사람'이 되다</p>
+            <p><b>5. 챕터 4:</b> '파는 사람'이 되면 보이는 것들</p>
+            <p><b>6. 결론:</b> 당신도 '파는 뇌'를 가질 수 있다</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 4: Section Title - Prologue -->
+      <!-- Slide 3: Section Title Prologue -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Prologue</p>
-          <h2 class="slide-title">왜 우리는 <span class="highlight">'파는 사람'</span>이 되어야 하는가?</h2>
-          <p class="slide-content">자본주의 사회에서 돈을 버는 행위의 본질은 '판매'에 있습니다. 우리는 알게 모르게 매일 무언가를 팔고 있습니다.</p>
+          <h2 class="slide-title">자본주의 세상에서 <span class="highlight">부자가 되는 법</span> 💰</h2>
+          <p class="slide-content">우리가 사는 자본주의 세상에서는 무언가를 팔아야만 돈을 벌 수 있습니다. 이 장에서는 왜 '파는 능력'이 부의 핵심인지 알아봅니다.</p>
         </div>
       </div>
-      
-      <!-- Slide 5: Prologue Content -->
+
+      <!-- Slide 4: 3 Ways to Make Money -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">우리는 모두 '파는 사람'이다 💼</h2>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-xl mb-2">직장인이라면?</h3>
-              <p>자신의 <span class="highlight">노동력과 시간을 팔아</span> 월급을 법니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-xl mb-2">사장님이라면?</h3>
-              <p>제품이나 <span class="highlight">서비스를 팔아</span> 이익을 남깁니다.</p>
-            </div>
-          </div>
-          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-            <p class="text-lg">결국, 돈을 번다는 것의 본질은 '판매'입니다. '팔이'라는 단어로 판매 행위를 비하해서는 '파는 사람'이 될 수 없으며, 경제적 자유를 얻기 어렵습니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 6: Prologue Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">판매 사이클과 <span class="highlight">'파는 뇌'</span> 🧠</h2>
-          <p class="slide-subtitle">회사의 판매 사이클을 이해하는 것이 창업 성공의 열쇠입니다.</p>
-          <div class="slide-content">
-            <p>대기업보다 중소기업에서 판매의 전체 과정을 경험하기 쉽습니다. 저자는 중소기업에서 제품 수입, 브랜딩, 마케팅까지 담당하며 '파는 뇌'를 훈련했습니다.</p>
-            <p class="mt-4 font-bold">'파는 뇌'란, 내가 맡은 일이 판매의 한 부분임을 인지하고, 판매를 더 잘하기 위해 다른 부분까지 관심을 갖고 공부하는 태도를 의미합니다.</p>
+          <h2 class="slide-title">세상에서 돈 버는 3가지 방법</h2>
+          <div class="slide-content text-xl space-y-6">
+            <p>1️⃣ <span class="font-bold">열심히 일하는 것:</span> 노동력을 팔아 안정적인 수입을 얻습니다.</p>
+            <p>2️⃣ <span class="font-bold">가진 돈을 잘 굴리는 것:</span> 투자를 통해 자산을 증식시킵니다.</p>
+            <p>3️⃣ <span class="font-bold">무언가를 잘 파는 것:</span> 상품, 서비스, 가치를 팔아 부를 창출합니다.</p>
+            <p class="mt-8 font-bold text-2xl">이 <span class="highlight">세 가지를 모두 하는 사람</span>이 훨씬 더 잘 벌게 됩니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 7: Section Title - Chapter 1 -->
+      <!-- Slide 5: The Essence of Selling -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결국, 모든 것은 <span class="highlight">'판매'</span>다</h2>
+          <p class="slide-subtitle">작은 가게부터 세계적인 대기업까지, 돈을 번다는 것의 본질은 무언가를 판다는 것입니다.</p>
+          <div class="slide-content">
+            <p>직장인은 자신의 <span class="font-bold">노동력</span>을 팔고, 파리바게트 사장님은 <span class="font-bold">빵</span>을 팝니다. 테슬라는 <span class="font-bold">전기차</span>를 팔죠.</p>
+            <p class="mt-4">'팔이'라는 단어로 정당하게 무언가를 파는 사람을 비하해서는, 결코 '파는 사람'이 될 수 없습니다. '파는 사람'이 되지 않고서는 큰 돈을 벌기 어렵습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Producer's Mindset -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">생산자 관점으로 바라보기 🧐</h2>
+            <p class="slide-subtitle">이 책은 5년간의 판매 경험을 통해 얻은 노하우와 생각하는 방식을 쉬운 언어로 담았습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg text-emerald-600">핵심 통찰</h3>
+                <p class="mt-2">판매자로서의 삶을 시작하고 싶다면 이 책을 추천합니다. 돈을 들이지 않고도 <span class="highlight">많은 경험</span>을 얻을 수 있을 것입니다. 언어가 쉽다고 내용이 가볍지는 않습니다. 모든 순간의 고민과 감정이 담겨 있습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Section Title Chapter 1 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 1</p>
-          <h2 class="slide-title">부업에 입문하다 🚀</h2>
-          <p class="slide-content">평범한 직장인 '김 차장'이 재정적 압박 속에서 부업의 세계에 발을 들여놓는 여정.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 8: Chapter 1 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">뜨뜻미지근했던 삶의 <span class="highlight">위기</span> 🥶</h2>
-          <p class="slide-subtitle">맞벌이로 월 700을 벌지만, 아이가 태어난 후 현실의 벽에 부딪히다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-            <div class="p-4 bg-red-50 rounded-lg">
-              <h3 class="font-bold text-lg">지출 💸</h3>
-              <p>육아 도우미: 200만원</p>
-              <p>대출 이자: 20만원</p>
-              <p>보험료: 40만원</p>
-              <p>용돈(통신비 포함): 30만원</p>
-            </div>
-            <div class="p-4 bg-blue-50 rounded-lg">
-              <h3 class="font-bold text-lg">미래 🏠</h3>
-              <p>청약 당첨의 기쁨도 잠시,</p>
-              <p>1억이 넘는 계약금 마련의 막막함.</p>
-              <p>뚜렷한 미래가 보이지 않는 불안감.</p>
-            </div>
-          </div>
+          <h2 class="slide-title">평범한 직장인의 <span class="highlight">부업 입문기</span> 💼</h2>
+          <p class="slide-content">안정적이지만 어딘가 부족한 삶. 경제적 위기감을 느낀 주인공 '김 차장'이 어떻게 부업의 세계에 발을 들이게 되었는지 따라가 봅니다.</p>
         </div>
       </div>
 
-      <!-- Slide 9: Chapter 1 Content -->
+      <!-- Slide 8: The Story of Two Colleagues -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">첫 부업: <span class="highlight">배달 대행 알바</span> 🚴</h2>
-          <p class="slide-subtitle">아버지의 건강 문제로 추가 수입이 절실해져 시작한 첫 부업.</p>
-          <div class="slide-content">
-            <p>퇴근 후 전기 자전거로 배달 대행을 시작. 하루 4만원, 월 100만원 이상의 추가 수익을 얻으며 보람을 느낌.</p>
-            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <h3 class="font-bold text-lg">그러나, 위기는 예고 없이...</h3>
-              <p class="mt-2">수익에 대한 욕심으로 신호 위반이 잦아졌고, 결국 사고로 발목을 다쳐 부업을 중단하게 됩니다. 이는 노동력 투입형 부업의 한계를 보여주는 계기가 됩니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 10: Chapter 1 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">운명적 재회와 <span class="highlight">새로운 세상</span> ✨</h2>
-          <p class="slide-subtitle">우연히 본 유튜브에서 성공한 사업가가 된 옛 동료 '서과장'을 발견하다.</p>
-          <div class="slide-content">
-            <p>5년 만에 연락한 서과장은 11만 유튜버이자 월 천만 원 이상을 버는 성공한 사업가가 되어 있었습니다. 그의 성공에 놀라움과 약간의 질투를 느낍니다.</p>
-            <p class="mt-4">와이프의 요청으로 서과장에게 온라인 부업에 대해 묻게 되고, 이는 인생의 전환점이 됩니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 11: Chapter 1 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">온라인 부업의 첫걸음: <span class="highlight">블로그</span> ✍️</h2>
-          <p class="slide-subtitle">서과장이 추천한 첫 번째 부업, 네이버 블로그와 제휴 마케팅.</p>
+          <h2 class="slide-title">두 명의 동료, <span class="highlight">엇갈린 운명</span></h2>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">블로그 & 티스토리</h3>
-              <p>네이버 광고료보다 구글 광고료가 더 비싸다는 사실. 구글 광고를 붙일 수 있는 티스토리, 워드프레스의 가능성을 알게 됨.</p>
+              <h3 class="font-bold text-lg mb-2">서 과장 (멘토)</h3>
+              <p>회사 몰래 유튜브 하다 걸린 '또라이'. 하지만 부업으로 월 1,000만 원 이상 벌게 되자 과감히 퇴사하고 CEO가 됩니다. <span class="font-bold">실행력</span>의 아이콘.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">쿠팡 파트너스</h3>
-              <p>블로그에 상품을 홍보하고, 생성된 링크를 통해 24시간 내에 발생한 모든 구매액의 3%를 수수료로 받는 제휴 마케팅.</p>
+              <h3 class="font-bold text-lg mb-2">김 차장 (주인공)</h3>
+              <p>월급 350만 원, 맞벌이로 월 700만 원을 벌며 나쁘지 않은 삶을 살지만 아이 출산과 아버지의 병환으로 <span class="font-bold">현실의 벽</span>에 부딪힙니다. </p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 12: Chapter 1 Content -->
+      <!-- Slide 9: The Catalyst -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">도전과 좌절, 그리고 <span class="highlight">첫 수익</span> 🎉</h2>
-          <p class="slide-subtitle">서과장과의 '환경설정' 내기를 통해 꾸준히 블로그 글쓰기를 시작하다.</p>
+          <h2 class="slide-title">인생은 <span class="highlight">계획대로 되지 않는다</span></h2>
+          <p class="slide-subtitle">아버지의 암 수술과 합병증으로 늘어난 생활비. 불안감은 분노가 되고, 부부 싸움으로 이어집니다.</p>
           <div class="slide-content">
-            <p>매일 글을 쓰지 않으면 벌금 10만원. 꾸준함을 유지하기 위한 강제 장치.</p>
-            <p>초반에는 조회수 0. 하지만 포기하지 않고 쓴 글에 조금씩 조회수가 발생하기 시작.</p>
-            <div class="mt-8 text-center">
-              <p class="text-4xl font-black text-indigo-600">330원</p>
-              <p class="mt-2 text-lg">블로그 시작 19일 만에 얻은 첫 수익. 허무할 정도로 작은 금액이었지만, 노동력 투입 없이 돈이 벌리는 첫 경험이었습니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 13: Chapter 1 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">온라인 세상의 법칙: <span class="highlight">알고리즘</span> 🤖</h2>
-          <p class="slide-subtitle">단순히 글만 쓰는 것이 아니라, 온라인 세상의 규칙을 이해해야 한다.</p>
-          <div class="slide-content">
-             <p>온라인 세상은 알고리즘에 따라 점수가 매겨집니다. 유튜브, 블로그, 스마트스토어 등 모든 플랫폼은 콘텐츠의 순위를 정하는 고유의 로직을 가지고 있습니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">네이버 블로그의 알고리즘</h3>
-              <p class="mt-2"><span class="highlight">C-RANK</span>: 블로그의 주제별 전문성과 신뢰도 점수.</p>
-              <p><span class="highlight">D.I.A</span>: 글 자체의 독창성, 경험 기반 정보 점수.</p>
-              <p class="mt-2">이 로직을 이해하고 글을 써야 상위 노출이 가능합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 14: Chapter 1 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">관점의 전환: <span class="highlight">생산자 마인드</span> 🧑‍🎨</h2>
-          <p class="slide-subtitle">내가 쓰고 싶은 글, 팔고 싶은 제품이 아닌, '소비자가 원하는 것'을 팔아야 한다.</p>
-          <div class="slide-content">
-            <p>소비자의 니즈는 '검색 키워드 데이터'에 숨어 있습니다. 네이버 데이터랩과 같은 툴을 통해 사람들의 관심사를 파악하고, 그들이 원하는 콘텐츠와 제품을 제공해야 합니다.</p>
-            <p class="mt-4 font-bold">이것이 바로 '생산자 마인드'의 핵심입니다. 공급자 중심에서 수요자 중심으로 사고를 전환하는 것입니다.</p>
+            <p class="text-4xl text-center mb-6">💥</p>
+            <p>이때쯤이었습니다. 내가 부업을 해야겠다고 마음을 먹은 순간이. 가장 먼저 알아본 부업은 자전거를 좋아하는 장점을 살릴 수 있는 <span class="font-bold">'배달대행 알바'</span>였습니다. 노동력을 투입해 즉각적인 수입을 얻는, 가장 간단한 방법이었죠.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 15: Section Title - Chapter 2 -->
+      <!-- Slide 10: The Turning Point -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우연히 본 <span class="highlight">옛 동료의 성공</span></h2>
+          <p class="slide-subtitle">배달 중 사고로 다친 어느 날 밤, 아내가 켠 유튜브 '월급쟁이 부자들' 채널. 그곳에 5년 만에 완전히 다른 사람이 된 '서 과장'이 있었습니다.</p>
+          <div class="mt-8 p-6 bg-emerald-50 border border-emerald-200 rounded-lg">
+            <p class="text-lg">퇴사 5년 만에 직원 10명이 넘는 회사의 대표, 전국에 지점이 6개. 그의 성공은 질투심과 함께 <span class="font-bold">'나도 할 수 있을까?'</span>라는 호기심을 불러일으켰습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: First Contact for Advice -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">온라인 부업, <span class="highlight">첫 조언</span></h2>
+          <p class="slide-subtitle">아내의 등쌀에 못 이겨 서 대표에게 연락한 김 차장. 그가 받은 첫 번째 온라인 부업 추천은?</p>
+          <div class="slide-content text-xl space-y-6">
+            <p>1️⃣ <span class="font-bold">블로그 (Blog):</span> 네이버 블로그, 티스토리, 워드프레스. 콘텐츠를 쌓아 광고 수익을 얻는 방법.</p>
+            <p>2️⃣ <span class="font-bold">제휴 마케팅 (Affiliate):</span> 쿠팡 파트너스. 내 링크를 통해 24시간 내에 제품이 팔리면 <span class="highlight">3%의 수수료</span>를 얻는 구조.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Scalability is Key -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">부업의 핵심: <span class="highlight">확장성 (Scalability)</span></h2>
+            <p class="slide-subtitle">서 과장이 보낸 전자책의 첫 장부터 김 차장은 마음에 들지 않았습니다. '돈 더 벌려고 하는 거지, 다른 이유가 있나?'</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-red-600 mb-2">❌ 확장성 없는 부업</h3>
+                    <p>배달대행처럼 노동력을 투입하는 일. 내가 일하는 만큼만 벌 수 있습니다. <span class="font-bold">수익에 한계</span>가 명확합니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-green-600 mb-2">✅ 확장성 있는 부업</h3>
+                    <p>블로그처럼 콘텐츠를 쌓아가는 일. 내가 자는 동안에도 돈을 벌어다 줍니다. <span class="font-bold">수익이 기하급수적으로 증가</span>할 수 있습니다.</p>
+                </div>
+            </div>
+            <p class="mt-8 text-center font-bold text-xl">"결국 판매와 연결된 부업을 해야 큰돈을 번다."</p>
+        </div>
+      </div>
+
+      <!-- Slide 13: The First Step -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">블로그 시작, 그리고 <span class="highlight">환경설정</span></h2>
+          <p class="slide-subtitle">"블로그는 써봤어?" 며칠 후 걸려온 서 과장의 전화. 야근과 육아 핑계를 대자, 그는 '환경설정'을 제안합니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">🔥 The Bet</h3>
+            <p class="mt-2">서로 매일 글쓰기 약속. 하루라도 글을 안 쓰면 상대방에게 <span class="font-bold">10만 원</span> 벌금 주기. 한 달 용돈의 1/3이 걸린 내기. 이 강제적인 환경이 꾸준함을 만들었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: The First Earning -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎉</div>
+          <h2 class="slide-title">첫 수익: <span class="highlight">330원</span></h2>
+          <p class="slide-subtitle">블로그를 시작한 지 19일, 꾸준히 글을 쓴 끝에 얻어낸 첫 수익은 330원이었습니다.</p>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">"조금 있으면 나도 돈 벌 수 있겠는데?" 부푼 꿈에 젖었지만, 현실은 허무했습니다. 배달대행을 했더라면 50만 원은 넘게 벌었을 시간. <span class="font-bold">이게 맞는 걸까?</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Section Title Chapter 2 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 2</p>
-          <h2 class="slide-title">'파는 사람'으로 나아가다 📈</h2>
-          <p class="slide-content">단순 부업을 넘어, 본격적인 온라인 판매자로서의 정체성을 찾아가는 과정.</p>
+          <h2 class="slide-title">'파는 사람'으로 <span class="highlight">진화하기</span> 📈</h2>
+          <p class="slide-content">단순히 글을 쓰는 것을 넘어, 어떻게 하면 '잘 팔리는 글'을 쓸 수 있을까? 온라인 세상의 원리를 깨닫고 '생산자 마인드'를 장착하는 여정입니다.</p>
         </div>
       </div>
-
-      <!-- Slide 16: Chapter 2 Content -->
+      
+      <!-- Slide 16: Understanding the 'Why' -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">첫걸음: <span class="highlight">국내 위탁판매</span> 📦</h2>
-          <p class="slide-subtitle">재고 없이 시작할 수 있는 온라인 판매의 입문, 위탁판매.</p>
+          <h2 class="slide-title">왜 내 글은 <span class="highlight">수익이 안 날까?</span></h2>
+          <p class="slide-subtitle">7일간의 꾸준함이 한계에 다다랐을 때, 서 과장에게 따지듯 물었습니다. "이게 돈이 벌리긴 하는 거냐?"</p>
           <div class="slide-content">
-            <p>온라인 판매 강의를 통해 플랫폼별 상위노출 알고리즘, 썸네일 차별화, 상세페이지 기획법을 배웁니다.</p>
-            <p>도매꾹, 도매매 같은 도매사이트에서 상품을 찾아 오픈마켓(쿠팡, 스마트스토어 등)에 등록하고, 주문이 들어오면 도매사이트에서 바로 고객에게 배송하는 방식입니다.</p>
-            <p class="mt-4">첫 주문은 58,000원짜리 고양이 숨숨집. 마진은 약 12% (6,960원). 330원과 비교할 수 없는 큰 마진이었습니다!</p>
+            <p class="font-bold text-red-500">"당연히 이렇게 올리니까 수익이 안 나지."</p>
+            <p class="mt-4">서 과장은 전자책을 정독하고 실행하라고 충고합니다. 지식을 습득하지 않고 하는 부업은 <span class="font-bold">시간과 에너지 낭비</span>일 뿐이라고.</p>
+            <p class="mt-6">핵심은 2가지였습니다: <span class="highlight">온라인 알고리즘</span>과 <span class="highlight">생산자 마인드</span>.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 17: Chapter 2 Content -->
+      <!-- Slide 17: Online Algorithms -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">성장의 핵심: <span class="highlight">첫 리뷰의 힘</span> ⭐</h2>
-          <p class="slide-subtitle">첫 주문이 들어왔을 때, 가장 중요한 것은 '리뷰'를 확보하는 것입니다.</p>
-          <div class="slide-content">
-            <p>리뷰가 없는 제품은 신뢰를 얻기 어렵고, 재구매로 이어질 확률이 낮습니다. 첫 구매 고객에게 리뷰 작성을 요청하는 것은 꾸준히 팔리는 '씨앗 상품'을 만드는 첫 단계입니다.</p>
-            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-              <h3 class="font-bold text-lg">리뷰 확보 전략</h3>
-              <p class="mt-2">"리뷰를 정성스럽게 작성해주시면 스타벅스 커피 쿠폰을 보내드립니다!"와 같은 이벤트를 통해 고객의 참여를 유도합니다. 초기 비용이 들더라도, 장기적으로는 더 큰 이익을 가져다줍니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 18: Chapter 2 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">위탁판매의 한계: <span class="highlight">레드오션</span> 🩸</h2>
-          <p class="slide-subtitle">도매사이트의 공급가보다 저렴하게 파는 경쟁자들이 나타나다.</p>
-          <div class="slide-content">
-            <p>위탁판매는 진입장벽이 낮아 수많은 경쟁자가 존재합니다. 이는 곧 가격 경쟁으로 이어지며, 마진을 확보하기 어려운 '레드오션' 시장입니다.</p>
-            <p class="mt-4 font-bold text-xl text-center">"이건 말이 안 되는 싸움이다."</p>
-            <p class="mt-2 text-center">위탁판매의 한계를 깨닫고 새로운 돌파구를 고민하기 시작합니다.</p>
+          <h2 class="slide-title">온라인 세상은 <span class="highlight">알고리즘</span>으로 돌아간다</h2>
+          <p class="slide-subtitle">유튜브, 블로그, 쇼핑몰의 모든 콘텐츠와 제품은 '랭킹화'됩니다. 랭킹이 높을수록 상위에 노출됩니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">네이버 블로그의 알고리즘 🤖</h3>
+            <p class="mt-2"><span class="font-bold">C-RANK:</span> 블로그의 신뢰도. (Context, Content, Chain)<br/> <span class="font-bold">D.I.A / D.I.A+:</span> 글의 독창성, 경험 기반 정보.</p>
+            <p class="mt-4 font-bold text-emerald-600">핵심: 바뀌는 알고리즘을 따라가는 것보다, <span class="highlight">알고리즘처럼 사고하는 것</span>이 중요하다.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 19: Chapter 2 Content -->
+      <!-- Slide 18: Producer's Mindset -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">가치를 <span class="highlight">만들어서</span> 판다 💎</h2>
-          <p class="slide-subtitle">제품의 본질을 바꾸지 않고도, 어떻게 가치를 높여 판매할 수 있을까?</p>
-          <div class="slide-content">
-            <p>가격이 아닌 가치로 경쟁해야 합니다. 마케팅은 제품이 가진 가치를 '높아 보이게' 만드는 기술입니다. 핵심은 '타겟 고객'을 좁히고 그들의 '고통'을 해결해주는 것입니다.</p>
-            <div class="mt-8 p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
-              <h3 class="font-bold text-lg">예시: 못생긴 배 팔기 🍐</h3>
-              <p class="mt-2">그냥 '맛있는 배'로 팔면 경쟁이 치열하지만, '기관지염으로 고통받는 분들을 위한 배'로 타겟을 좁히면, 못생긴 외형조차 '오로지 맛과 효능에만 집중했다'는 신뢰의 증거가 됩니다. 이는 단순 기호식품을 '필수품'으로 바꾸는 전략입니다.</p>
+          <h2 class="slide-title">생산자 마인드: <span class="highlight">고객의 눈</span>으로 보라</h2>
+          <p class="slide-subtitle">잘 팔기 위해서는 내가 쓰고 싶은 글, 내가 팔고 싶은 제품을 팔면 안 됩니다.</p>
+          <div class="slide-content text-xl space-y-6">
+            <p>👥 <span class="font-bold">상대방 (구독자, 소비자)의 입장</span>에서 그들이 읽고 싶은 글, 사고 싶은 제품을 팔아야 합니다.</p>
+            <p>📊 <span class="font-bold">"소비자가 뭘 원하는지 어떻게 아냐고?"</span><br/>바로 <span class="highlight">키워드 데이터</span>에 답이 있습니다. (ex. 네이버 데이터랩)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Value of Labor vs Added Value -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노동의 가치 vs <span class="highlight">부가가치</span></h2>
+          <p class="slide-subtitle">19일 동안 330원을 번 블로그, 부가가치가 높은 부업일까? 서 과장은 '그렇다'고 말합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">배달대행 (노동)</h3>
+              <p>시급은 높지만, 일회성 수익. 내가 일하지 않으면 수익은 0. 한계가 명확하다.</p>
             </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">블로그 (부가가치)</h3>
+              <p>초기 수익은 낮지만, 콘텐츠가 쌓이면 자산이 된다. 내가 자는 동안에도 노출되고 수익을 창출한다. 한계가 없다.</p>
+            </div>
+          </div>
+          <p class="text-center font-bold text-xl mt-8">돈을 많이 벌려면 결국 <span class="highlight">부가가치가 높은 일</span>을 해야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: Level Up! -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">레벨업: <span class="highlight">국내 위탁판매</span> 시작 🚀</h2>
+          <p class="slide-subtitle">블로그로 월 100만 원 수익을 달성한 후, 다음 단계인 온라인 판매에 도전합니다.</p>
+          <div class="slide-content">
+            <p>플랫폼만 블로그에서 <span class="font-bold">쿠팡, 스마트스토어</span> 등으로 바뀌었을 뿐, 핵심 원리는 같았습니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li>상위 노출 알고리즘 공부</li>
+              <li>클릭을 유도하는 썸네일 제작</li>
+              <li>가치를 높여주는 상세페이지 기획</li>
+            </ul>
           </div>
         </div>
       </div>
       
-      <!-- Slide 20: Chapter 2 Content -->
+      <!-- Slide 21: The First Sale and The First Hurdle -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">가격을 <span class="highlight">올려라</span>! 💰</h2>
-          <p class="slide-subtitle">광고를 해도 적자인 상황, 미친 척하고 가격을 올리자 벌어진 일.</p>
-          <div class="slide-content">
-            <p>마진이 낮아 광고비조차 감당하기 어려웠던 상황. 경쟁자보다 저렴하게 팔아야 한다는 고정관념을 깨고 오히려 가격을 10% 인상.</p>
-            <p class="mt-4">결과적으로 판매량은 줄었지만, 마진이 높아져 흑자 전환에 성공. 7만원짜리 협탁을 21만원에 팔아도 구매가 일어났습니다.</p>
-            <p class="mt-6 font-bold">핵심: 제품의 가치는 판매자가 아닌 소비자가 결정한다. 상세페이지를 통해 가치를 충분히 전달했다면, 가격을 올려 테스트해볼 용기가 필요하다.</p>
-          </div>
+            <h2 class="slide-title">첫 주문, 그리고 <span class="highlight">첫 번째 장벽</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-green-50 rounded-lg">
+                    <h3 class="font-bold text-lg text-green-700 mb-2">🎉 첫 주문!</h3>
+                    <p>58,000원짜리 고양이 숨숨집. 마진은 약 12%(6,960원). 330원과 비교하면 엄청난 발전! 하지만 재주문이 들어오지 않습니다. 이유는? <span class="font-bold">리뷰가 없기 때문</span>.</p>
+                </div>
+                <div class="p-6 bg-red-50 rounded-lg">
+                    <h3 class="font-bold text-lg text-red-700 mb-2">🧱 첫 장벽!</h3>
+                    <p>내가 파는 제품이 이미 더 싼 가격에 팔리고 있었습니다. 도매사이트 공급가보다 싸게 파는 사람들. <span class="font-bold">이길 수 없는 가격 경쟁</span>의 시작.</p>
+                </div>
+            </div>
         </div>
+      </div>
       
-      <!-- Slide 21: Chapter 2 Content -->
+      <!-- Slide 22: Red Ocean Strategy -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🌊</div>
+            <h2 class="slide-title">"돈은 <span class="highlight">레드오션</span>에서 버는 거야"</h2>
+            <p class="slide-subtitle">모두가 기피하는 레드오션, 하지만 서 과장은 그곳에 기회가 있다고 말합니다.</p>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="mb-4">10억짜리 블루오션 시장의 50%를 차지해봐야 5억. <br/> 1조짜리 레드오션 시장의 <span class="font-bold">0.1%만 차지해도 10억</span>. 경쟁이 없는 시장만 찾다가는 아무것도 못 합니다.</p>
+                <p class="mt-8 font-bold text-xl text-gray-800">문제는 시장이 아니라, <span class="highlight">가치를 만들어내지 못하는 것</span>입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Creating Value Example -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">공부한 것들의 <span class="highlight">시너지</span> 💥</h2>
-          <p class="slide-subtitle">온라인 판매 경험을 본업(자전거 총판 회사)에 적용하여 폭발적인 성과를 내다.</p>
-          <div class="slide-content">
-            <p>자전거 매장 사장님들에게 블로그 운영 교육을 제안. 온라인 홍보의 중요성을 설득하고, 네이버 플레이스 상위 노출을 지원.</p>
-            <p class="mt-4">결과는 대성공. 1~2주 만에 매장들의 매출이 폭발적으로 증가했고, 이는 곧바로 회사 전체의 매출 증대로 이어졌습니다. 이 성과로 저자는 '역대급 연봉 협상'에 성공합니다.</p>
-            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <p class="text-lg">"우리가 하는 모든 일(점)들이 한 선으로 이어진다." - 스티브 잡스. 그동안 공부했던 것들이 하나로 연결되는 전율을 느낀 순간이었습니다.</p>
+          <h2 class="slide-title">가치 만들기: <span class="highlight">못생긴 배</span> 팔기 🍐</h2>
+          <p class="slide-subtitle">제품의 본질을 바꾸지 않고도, 어떻게 전달하느냐에 따라 가치는 완전히 달라집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">Before (가치 X)</h3>
+              <p>이 배는 못생겼습니다. 온라인에서는 맛도 볼 수 없죠. 어떻게 팔아야 할까요?</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">After (가치 O)</h3>
+              <p>"저희 배는 못생겼습니다. 예쁘게 만들려다 보면 당도가 떨어지기 때문입니다. 저희는 오로지 <span class="font-bold">최고의 맛과 효능</span>(기관지염 완화)에만 집중했습니다."</p>
             </div>
           </div>
+          <p class="mt-8 font-bold">핵심: 고객의 <span class="highlight">'고통(Pain Point)'</span>을 찾아 해결책으로 제시하면, 단순 기호식품이 <span class="font-bold">필수품</span>이 됩니다.</p>
         </div>
+      </div>
 
-      <!-- Slide 22: Section Title - Chapter 3 -->
+      <!-- Slide 24: Section Title Chapter 3 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 3</p>
-          <h2 class="slide-title">인생에 한 번은 <span class="highlight">'파는 사람'</span>이 돼라 👑</h2>
-          <p class="slide-content">판매자로 거듭나며 브랜드를 만들고, 사업을 확장하며 겪는 성장통과 교훈.</p>
+          <h2 class="slide-title">인생의 주인이 되는 <span class="highlight">'파는 사람'</span> 👑</h2>
+          <p class="slide-content">'파는 뇌'가 장착되자, 일상의 모든 것이 기회로 보이기 시작합니다. 월급을 뛰어넘는 수익을 내고, 삶의 주도권을 되찾는 과정입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 25: The Breakthrough -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🏆</div>
+            <h2 class="slide-title">월 순수익 <span class="highlight">384만원</span> 달성!</h2>
+            <p class="slide-subtitle">온라인 부업 시작 1년 만에 중소기업 8년 차 실수령액 350만 원을 뛰어넘는 쾌거를 이루었습니다.</p>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="mb-4">상세페이지 설득력 높이기, 묶어팔기, 증정품 전략 등 <span class="font-bold">마케팅 전략</span>을 적용한 결과였습니다. 특히 '어린이용 카메라'가 대박을 터뜨리며 한 달 매출 2,400만 원을 달성했습니다.</p>
+            </div>
         </div>
       </div>
 
-      <!-- Slide 23: Chapter 3 Content -->
+      <!-- Slide 26: The Power of Reading -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">더 넓은 시장으로: <span class="highlight">해외 소싱</span> 🌏</h2>
-          <p class="slide-subtitle">국내 도매몰의 한계를 넘어, 중국에서 직접 물건을 소싱하다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">장점 👍</h3>
-              <p>국내 도매몰보다 훨씬 저렴한 가격</p>
-              <p>비교할 수 없을 정도로 다양한 제품</p>
-              <p>높은 마진율 확보 가능</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">플랫폼 🇨🇳</h3>
-              <p>타오바오 (Taobao)</p>
-              <p>알리익스프레스 (AliExpress)</p>
-              <p>1688 (1688.com)</p>
-            </div>
-          </div>
-          <p class="mt-6">국내 도매업자들도 결국 중국에서 수입해서 마진을 붙여 파는 구조. 중간 유통을 없애고 직접 소싱함으로써 가격 경쟁력을 확보합니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 24: Chapter 3 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">나만의 브랜드를 만들다 ⛺</h2>
-          <p class="slide-subtitle">'혼자 캠핑'하는 사람들을 위한 쇼핑몰, <span class="highlight">'혼캠 쇼핑몰'</span>의 탄생.</p>
-          <div class="slide-content">
-            <p>1인 가구 증가와 캠핑 트렌드에 맞춰 '혼캠'이라는 명확한 컨셉의 자사몰을 구축. 남의 플랫폼이 아닌, 내 고객을 모을 수 있는 나만의 공간을 만드는 것이 브랜딩의 시작입니다.</p>
-            <p class="mt-4">초기에는 방문자가 없어 블로그 체험단을 통해 쇼핑몰을 알리는 '물길 작업'을 시작합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 25: Chapter 3 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">망한 것을 망하지 않게 만드는 <span class="highlight">브랜딩 비법</span> 💡</h2>
-          <p class="slide-subtitle">초기 투자금 500만원, 결과는 400만원 적자. 하지만 실패는 끝이 아니었다.</p>
-          <div class="slide-content">
-            <p>"자사몰 망했습니다"라는 제목으로 유튜브에 영상을 업로드. 실패 과정을 진솔하게 공유하자 오히려 사람들의 응원을 받으며 구독자가 늘기 시작.</p>
-            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-              <h3 class="font-bold text-lg">실패가 콘텐츠가 되다</h3>
-              <p class="mt-2">성장 과정을 공유하는 것은 신뢰를 쌓는 가장 강력한 방법입니다. 유튜브를 하지 않았다면 그냥 실패였을 경험이, 콘텐츠가 되어 실패를 실패가 아닌 것으로 만들었습니다. 이것이 바로 '퍼스널 브랜딩'의 힘입니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 26: Chapter 3 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">두 가지 브랜딩 전략 ✌️</h2>
-          <p class="slide-subtitle">사업의 안정성과 성장을 위해 쇼핑몰 브랜딩과 퍼스널 브랜딩을 동시에 가져가라.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">쇼핑몰 브랜딩</h3>
-              <p>특정 카테고리(예: 소금)나 컨셉(예: 민트색 제품)을 좁혀 '단골'을 만드는 전략. 고객들이 특정 니즈가 생겼을 때 가장 먼저 떠올리는 쇼핑몰이 되는 것.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">퍼스널 브랜딩 (유튜브)</h3>
-              <p>나 자신을 좋아하고 신뢰하는 사람들을 모으는 전략. 실패와 성공의 과정을 공유하며 '팬'을 만든다. 팬들은 내가 파는 제품과 서비스를 신뢰하고 구매해준다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 27: Chapter 3 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">동업의 교훈: <span class="highlight">신뢰</span> 그리고 <span class="highlight">계약서</span> 📜</h2>
-          <p class="slide-subtitle">비즈니스가 잘 될 때 터지는 문제. 동업의 아픔을 통해 배운 것.</p>
-          <div class="slide-content">
-            <p>프로그램 개발 동업 중, 기여도에 비해 수익 배분이 불합리하다고 느꼈지만 '신뢰'를 깨지 않기 위해 문제를 제기하지 않았습니다.</p>
-            <p class="mt-4">서과장의 조언: "계약서를 신중히 쓰지 않은 네 잘못이다. 하지만 한번 한 약속을 깨는 순간 너는 신뢰를 잃는다. 그게 더 큰 손해다."</p>
-            <p class="mt-6 font-bold">결국 '환경설정'을 통해 공개적으로 약속을 지킬 것을 선언하며 갈등을 극복. 이 경험 또한 브랜딩 가치를 높이는 콘텐츠가 되었습니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 28: Chapter 3 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">퇴사를 결심하다 🏃‍♂️</h2>
-          <p class="slide-subtitle">순수익이 본업의 월급을 넘어서는 순간, 인생의 중요한 결정을 내리다.</p>
-          <div class="slide-content">
-            <p>온라인 부업 시작 1년 만에 월 순수익 384만원 달성. 중소기업 8년차 실수령액 350만원을 넘어서는 쾌거.</p>
-            <p>퇴사에 대한 두려움과 주변의 만류. 하지만 서과장은 "미래의 나에게 빚을 만들지 말라"며 용기를 줍니다.</p>
+            <h2 class="slide-title">책이 <span class="highlight">재미있어졌다</span> 📚</h2>
+            <p class="slide-subtitle">서 과장이 추천해준 책 '뇌, 욕망의 비밀을 풀다'에서 얻은 인사이트.</p>
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <p class="text-lg">"지금 이 불안감을 감당하지 않으면, 결국 미래의 내가 더 큰 불안감을 감당해야 한다."</p>
+                <h3 class="font-bold text-lg">연필 vs 아이라이너</h3>
+                <p class="mt-2">제조 단가는 비슷하지만 가격은 10배 이상 차이. 아이라이너는 인간의 '성욕'과 관련되어 있기 때문입니다. 이처럼 <span class="font-bold">욕구와 밀접한 제품</span>은 더 높은 가치를 가집니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Applying Knowledge -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지식의 적용: <span class="highlight">노인용 변기</span>의 변신</h2>
+          <p class="slide-subtitle">책에서 얻은 영감으로 새로운 판매 전략을 시도합니다.</p>
+          <div class="slide-content text-center space-y-4">
+            <p class="text-2xl">👴 노인용 휴대용 변기</p>
+            <p class="text-4xl">⬇️</p>
+            <p class="text-2xl">🏕️ <span class="highlight">감성 캠핑용 휴대용 의자</span></p>
+            <p class="mt-6">콘셉트를 바꾸고 상세페이지를 꾸미자, 23,000원짜리 제품이 <span class="font-bold text-2xl">78,000원</span>에 팔리기 시작했습니다. 무려 150개나!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Life Changes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스스로 돈을 벌자 <span class="highlight">달라지는 것들</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">경제적 변화 💰</h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li>용돈 30만원 ➡️ 50만원으로 인상</li>
+                <li>처남에게 매달 50만원 용돈 지원</li>
+                <li>장모님께 스페인 산티아고 순례길 여행 선물</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">정신적 변화 😊</h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li>회사에서 잘릴지 모른다는 불안감 해소</li>
+                <li>의견에 자신감이 생기고 회사 생활이 즐거워짐</li>
+                <li>'경제적 자신감' 획득</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 29: Section Title - Chapter 4 -->
+      <!-- Slide 29: Deciding to Quit -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">퇴사를 <span class="highlight">결심하다</span></h2>
+          <p class="slide-subtitle">판매에 더 집중하면 더 잘할 수 있을 것 같다는 확신. 하지만 퇴사는 여전히 두려운 리스크였습니다.</p>
+          <div class="mt-8 p-6 bg-emerald-50 border border-emerald-200 rounded-lg">
+            <h3 class="font-bold text-lg text-emerald-700">서 과장의 조언: Future Self</h3>
+            <p class="mt-2">"지금의 불안감을 감당하지 않으면, 미래의 당신이 그 불안감을 전부 감당해야 할 거야. 어차피 언젠가는 회사를 떠나야 하니까."</p>
+            <p class="mt-2 font-bold">"의견을 물어봐도 결국 내 마음이 원하는 대로 움직이게 돼 있어. 넌 이미 마음속에 답을 정해놨어."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Section Title Chapter 4 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 4</p>
-          <h2 class="slide-title">'파는 사람'이 되면 보이는 것들 🔭</h2>
-          <p class="slide-content">판매자의 관점으로 세상을 바라보며 얻게 되는 새로운 통찰과 기회.</p>
+          <h2 class="slide-title">'파는 사람'이 되면 <span class="highlight">보이는 것들</span> 👁️</h2>
+          <p class="slide-content">퇴사 이후, 진짜 사업가로서 마주하는 문제들. 경쟁, 브랜딩, 사람 관리 등 더 높은 차원의 과제들을 해결해나갑니다.</p>
         </div>
       </div>
-      
-      <!-- Slide 30: Chapter 4 Content -->
+
+      <!-- Slide 31: The First Crisis -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">세상이 <span class="highlight">콘텐츠</span>로 보이기 시작한다 🌐</h2>
-          <p class="slide-subtitle">일상의 모든 일이 유튜브 콘텐츠와 비즈니스 기회로 연결되다.</p>
+          <h2 class="slide-title">퇴사 후 첫 위기: <span class="highlight">매출 반토막</span></h2>
+          <p class="slide-subtitle">퇴사 2달 만에 매출 4,000만 원, 순수익 800만 원 달성. 하지만 곧바로 위기가 찾아옵니다.</p>
           <div class="slide-content">
-            <p>단순히 즐기던 것들을 분석하기 시작합니다.</p>
-            <ul class="list-disc list-inside mt-4 space-y-2">
-              <li>"이 영상은 왜 갑자기 떡상했을까?"</li>
-              <li>"이 썸네일은 인간의 어떤 욕구를 건드렸을까?"</li>
-              <li>"이 뉴스 기사 제목은 왜 이렇게 자극적일까?"</li>
-            </ul>
-            <p class="mt-4">이 모든 것의 뒤에는 '돈'이라는 동기가 있음을 이해하고, 그 원리를 나의 판매 활동에 적용하기 시작합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 31: Chapter 4 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">인간의 8가지 욕구 🔥</h2>
-          <p class="slide-subtitle">책 '캐시버타이징'에서 말하는, 인간이 자극에 끌리는 근원적인 이유.</p>
-          <div class="slide-content grid grid-cols-2 gap-x-8 gap-y-4">
-            <p>1. 생존, 수명 연장</p>
-            <p>2. 식사와 음료의 즐거움</p>
-            <p>3. 공포와 위험으로부터의 자유</p>
-            <p>4. 성적 만족</p>
-            <p>5. 안락한 생활 조건</p>
-            <p>6. 남보다 우월해지고 싶은 마음</p>
-            <p>7. 사랑하는 사람에 대한 보호</p>
-            <p>8. 사회적 인정</p>
-          </div>
-           <p class="mt-6 font-bold">콘텐츠의 제목이나 광고 문구를 이 욕구들과 연결할 때, 사람들의 클릭을 유도하고 더 큰 매출을 일으킬 수 있습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 32: Chapter 4 Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">스스로 돈을 벌면 달라지는 것들 👨‍👩‍👧‍👦</h2>
-          <p class="slide-subtitle">경제적 여유가 가져다주는 삶의 변화.</p>
-          <div class="slide-content">
-             <ul class="list-disc list-inside mt-4 space-y-3">
-              <li><b>18평 → 39평으로 이사:</b> 꿈도 꾸지 못했던 공간에서의 삶.</li>
-              <li><b>가족 관계의 변화:</b> 만성 두통이 사라진 아내, 1/10로 줄어든 부부싸움.</li>
-              <li><b>자신감 상승:</b> 회사에서 잘려도 괜찮다는 마음이 생기자 오히려 의견에 자신감이 붙고 회사 생활이 더 즐거워짐.</li>
-              <li><b>베푸는 삶:</b> 처남에게 용돈을 주고, 장모님께 성지순례 여행을 보내드리는 기쁨.</li>
-            </ul>
-            <p class="mt-6">돈을 벌면 가장 가까운 사람들이 행복해지고, 그 모습을 보는 나는 더 행복해집니다. 이는 내가 무언가를 샀을 때 느끼는 행복과는 차원이 다릅니다.</p>
+            <p>주력 제품과 똑같은 제품을 더 싸게 파는 경쟁자가 나타났습니다. 결국 가격 경쟁에서 밀려 그달 매출과 순수익은 정확히 절반으로 떨어졌습니다.</p>
+            <p class="mt-4 font-bold text-red-500">"너도 재고 없이 남의 물건 파는데, 다른 사람이라고 못 팔라는 법은 없어. 그게 반복될 거야."</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 33: Chapter 4 Content -->
+      <!-- Slide 32: The Solution is Branding -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">결국, <span class="highlight">싸고 좋은 제품</span>이 이긴다 🏆</h2>
-          <p class="slide-subtitle">모든 마케팅과 브랜딩의 끝에서 마주한 시장의 본질.</p>
-          <div class="slide-content">
-            <p>캠핑 의자 카테고리에서 상위 5위권 진입을 목표로 설정. 품질 좋고 저렴한 제품을 찾기 위해 중국 1688의 모든 공장에 연락.</p>
-            <p class="mt-4">이미 상위권을 차지한 업체들보다 더 낮은 가격으로 공급해줄 업체를 찾아내고, 나만의 브랜드를 입혀 상세페이지를 제작.</p>
-            <p class="mt-6 font-bold">결과: 가격 전쟁에서 승리. 경쟁사보다 규모가 작아(고정비가 적어) 더 낮은 마진으로도 버틸 수 있었기 때문. 최저의 공급가를 찾으려던 시도가 빛을 발했습니다.</p>
+          <h2 class="slide-title">경쟁을 이기는 법: <span class="highlight">브랜딩</span></h2>
+          <p class="slide-subtitle">계속되는 가격 경쟁에서 벗어날 유일한 방법은 '브랜딩'입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">쇼핑몰 브랜딩 (Niche)</h3>
+              <p>내 쇼핑몰을 좋아할 만한 이유를 만드는 것. 타겟과 카테고리를 좁히는 것이 가장 쉬운 방법입니다. (ex. 민트색을 좋아하는 사람들을 위한 쇼핑몰, 요리사들을 위한 소금 전문몰)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">퍼스널 브랜딩 (Your Story)</h3>
+              <p>나 자신을 좋아하게 만드는 것. 실패가 없고, 지구상 누구도 따라 할 수 없는 방법. 나의 성장 과정을 공유하며 신뢰를 쌓는 것입니다. (ex. 유튜브)</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 34: Section Title - Appendix -->
+      <!-- Slide 33: Birth of a Brand -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">Appendix</p>
-          <h2 class="slide-title">서과장이 추천하는 <span class="highlight">부업 리스트</span> 📋</h2>
-          <p class="slide-content">다양한 난이도와 수익 모델을 가진 부업들을 소개합니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 35: Appendix Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">1. 블로그 원고 부업 📝</h2>
-          <p class="slide-subtitle">난이도: ★☆☆☆☆</p>
+          <h2 class="slide-title">브랜드의 탄생: <span class="highlight">혼캠 쇼핑몰</span> 🏕️</h2>
+          <p class="slide-subtitle">'나 혼자 산다' 프로그램을 보다가 떠오른 아이디어. '혼자 캠핑하는 사람들을 위한 쇼핑몰'을 만들기로 결심합니다.</p>
           <div class="slide-content">
-            <p><b>개요:</b> 내 블로그가 아닌, 다른 사람의 블로그 글을 외주받아 작성하는 부업.</p>
-            <p><b>수익:</b> 글 하나당 6,000원 ~ 12,000원</p>
-            <p><b>장점:</b> 사업자 필요 없음. 설득력 있는 글쓰기 연습 가능.</p>
-            <p><b>확장:</b> 글쓰기 능력을 키워 내 블로그를 운영하거나 제휴 마케팅으로 확장 가능.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 36: Appendix Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">2. 중고제품 리셀 🔄</h2>
-          <p class="slide-subtitle">난이도: ★★☆☆☆</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 수요 있는 중고품을 저렴하게 매입하여 되파는 부업.</p>
-            <p><b>수익:</b> 월 100 ~ 300만원</p>
-            <p><b>장점:</b> 소비자의 최신 니즈 파악 연습, 비싼 제품일수록 리스크와 수익이 함께 커짐.</p>
-            <p><b>확장:</b> 일본 명품 브랜드 수입 판매, 아울렛 유통 등으로 확장 가능.</p>
+            <p><span class="font-bold">데이터 확인:</span> 네이버 데이터랩에서 '혼자 캠핑' 키워드가 월 1,000건 이상 검색되는 수요를 확인.<br/><span class="font-bold">자사몰 구축:</span> 남의 플랫폼(오픈마켓)에서는 사람(고객)을 모으기 어렵다고 판단, Cafe24를 통해 60만 원으로 자사몰 제작.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 37: Appendix Content -->
+      <!-- Slide 34: The Power of Personal Branding through Failure -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">3. 블로그 제휴마케팅 🔗</h2>
-          <p class="slide-subtitle">난이도: ★★★☆☆</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 쿠팡 파트너스, 알리익스프레스 등 제휴 링크를 통해 물건을 판매하는 부업.</p>
-            <p><b>수익:</b> 월 100 ~ 300만원 이상</p>
-            <p><b>장점:</b> 블로그 상위노출 지식 습득, 판매되는 글쓰기 연습.</p>
-            <p><b>확장:</b> 위탁판매, 광고 대행, 브랜드 블로그 관리 등으로 확장 가능.</p>
-          </div>
+            <h2 class="slide-title">실패가 <span class="highlight">콘텐츠</span>가 되다</h2>
+            <p class="slide-subtitle">자사몰 홍보를 위해 투자한 500만 원. 결과는 400만 원 적자. 이 실패 과정을 유튜브에 올리자 놀라운 일이 벌어집니다.</p>
+            <div class="mt-8 p-6 bg-emerald-50 border border-emerald-200 rounded-lg">
+                <h3 class="font-bold text-lg text-emerald-700">실패의 역설</h3>
+                <p class="mt-2">"자사몰 망했습니다" 영상의 조회수가 폭발하며 구독자가 3,000명을 돌파. 진정성 있는 실패담이 오히려 <span class="font-bold">신뢰와 팬</span>을 만들었습니다. 응원의 댓글이 쏟아지기 시작했습니다.</p>
+            </div>
         </div>
       </div>
       
-      <!-- Slide 38: Appendix Content -->
+      <!-- Slide 35: From Seller to Educator -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">👨‍🏫</div>
+            <h2 class="slide-title">판매자에서 <span class="highlight">교육자로</span></h2>
+            <p class="slide-subtitle">구독자가 5,000명이 넘자, 위탁판매와 구매대행을 배우고 싶다는 이메일이 오기 시작합니다.</p>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="mb-4">서 과장의 조언에 따라 99,000원짜리 전자책을 만들어 판매. 구독자 8,000명 채널에서 홍보하여 첫 달에 132권을 팔아 <span class="font-bold">13,068,000원</span>을 벌었습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Understanding Human Desire -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">4. 유튜브 제휴마케팅 🎥</h2>
-          <p class="slide-subtitle">난이도: ★★★☆☆</p>
+          <h2 class="slide-title">사람의 관심을 <span class="highlight">끌어내는 법</span></h2>
+          <p class="slide-subtitle">유튜브를 시작하자 세상 모든 일이 콘텐츠로 보이기 시작했습니다. 특히 신문기사 헤드라인에서 큰 영감을 얻습니다.</p>
           <div class="slide-content">
-            <p><b>개요:</b> 유튜브 영상을 통해 제휴 링크 상품을 소개하고 판매하는 부업.</p>
-            <p><b>수익:</b> 영상 30개 이상부터 월 30만원 이상</p>
-            <p><b>장점:</b> 영상 제작 스킬 습득, 쇼츠를 통한 애드센스 수익도 가능.</p>
-            <p><b>확장:</b> 특정 카테고리의 제품을 모아 판매하는 유튜브 마켓으로 확장 가능.</p>
+            <p>기자들의 자극적인 제목은 인간의 8가지 근원적 욕구(생존, 식욕, 공포로부터의 자유, 성적 만족 등)를 건드리고 있었습니다. 아무리 좋은 콘텐츠라도 사람들이 들여다보지 않으면 의미가 없습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 39: Appendix Content -->
+      <!-- Slide 37: From Idea to Action at Work -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">5. 라이브 커머스 (GRIP) 🛍️</h2>
-          <p class="slide-subtitle">난이도: ★★★☆☆</p>
+          <h2 class="slide-title">공부한 것을 <span class="highlight">회사에 적용하다</span></h2>
+          <p class="slide-subtitle">매출 부진으로 위기에 처한 영업부. 부업에서 배운 지식을 활용해 해결책을 제시합니다.</p>
           <div class="slide-content">
-            <p><b>개요:</b> 라이브 방송을 통해 제품을 판매하는 부업.</p>
-            <p><b>수익:</b> 팔로워에 따라 월 100 ~ 500만원 이상</p>
-            <p><b>장점:</b> 카메라 앞에서 말하는 연습, 설득력 있게 말하는 능력 향상.</p>
-            <p><b>확장:</b> 인지도가 높아지면 폐쇄몰 등에서 제품을 공급받아 더 저렴하게 판매 가능.</p>
+            <p><span class="font-bold">문제:</span> 자전거 매장들이 물건을 잘 팔아야 우리 회사(총판) 매출이 오른다.<br/><span class="font-bold">해결:</span> 매장 사장님들에게 <span class="highlight">블로그 마케팅</span>을 교육하고, 네이버 플레이스 상위노출을 도와주자!</p>
+            <p class="mt-4 font-bold text-2xl text-center">결과는? 1~2주 만에 폭발적인 매출 증가! 역대급 연봉 협상 성공!</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 40: Appendix Content -->
+      <!-- Slide 38: Creating Your Own Brand -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">6. 전자책 발간 📚</h2>
-          <p class="slide-subtitle">난이도: ★★★★☆</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 자신의 지식과 경험을 전자책으로 만들어 판매하는 부업.</p>
-            <p><b>수익:</b> 월 100 ~ 500만원 이상</p>
-            <p><b>장점:</b> 시장의 니즈 파악, 판매되는 글쓰기, 퍼스널 브랜딩 연습.</p>
-            <p><b>확장:</b> 퍼스널 브랜딩을 통해 위탁/사입 판매로 확장.</p>
-          </div>
+            <h2 class="slide-title">나만의 브랜드 만들기: <span class="highlight">수류탄 펌프</span></h2>
+            <p class="slide-subtitle">"다른 색상은 없나요?" 쇼핑몰 Q&A에서 얻은 아이디어. 시장에 없는 '샌드색' 수류탄 에어펌프를 직접 만들기로 합니다.</p>
+            <div class="slide-content">
+                <p>유튜브 채널(구독자 10만 명의 소매업자)을 무기로 중국 공장과 협상, 최소주문수량(MOQ)을 500개에서 200개로 낮췄습니다. <br/>결과는 대성공! 3주 만에 샌드색, 카키색 제품이 모두 완판되었습니다. 위탁판매 마진 20%에서 <span class="font-bold">자체 브랜드 마진 60%</span>로 퀀텀 점프!</p>
+            </div>
         </div>
       </div>
 
-      <!-- Slide 41: Appendix Content -->
+      <!-- Slide 39: Facing a Patent Lawsuit -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">⚖️</div>
+            <h2 class="slide-title">특허권 침해, <span class="highlight">재판장에 서다</span></h2>
+            <p class="slide-subtitle">새로 브랜딩한 '전기 자전거 키트'가 대박이 났지만, 곧 경찰서에서 연락이 옵니다. 특허권 침해로 형사 고소를 당한 것입니다.</p>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="mb-4">무지로 인한 실수. 7천만 원어치 재고가 묶이고, 재판까지 가게 된 절망적인 상황. <br/> 하지만 '직원 사건' 때 서 과장의 조언을 떠올립니다. <span class="font-bold">"먼저 나의 잘못을 인정하라."</span></p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Winning the Price War -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">7. 국내 위탁판매 🚚</h2>
-          <p class="slide-subtitle">난이도: ★★★★☆</p>
+            <h2 class="slide-title">결국, <span class="highlight">싸고 좋은 제품</span>이 이긴다</h2>
+            <p class="slide-subtitle">최저 공급가를 찾는 노력 끝에, 캠핑 의자 카테고리 1~5위보다 더 저렴한 가격으로 제품을 출시합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">가격 전쟁의 승리 ✌️</h3>
+                <p class="mt-2">경쟁사(직원 30명)가 가격을 내리자, 더 낮은 가격으로 맞받아칩니다. 고정비가 적은 1인 기업의 장점을 활용해 더 적은 마진으로 버틸 수 있었기 때문입니다. 결국 경쟁사는 가격을 다시 올렸고, 전쟁에서 승리했습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: From Smart Store to Coupang -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쿠팡 MD의 제안: <span class="highlight">로켓배송 입점</span></h2>
+          <p class="slide-subtitle">스마트스토어 3위까지 올라가자, 쿠팡 MD로부터 로켓배송 입점 제안을 받습니다.</p>
           <div class="slide-content">
-            <p><b>개요:</b> 도매사이트 제품을 오픈마켓에서 판매.</p>
-            <p><b>수익:</b> 월 100 ~ 500만원 이상</p>
-            <p><b>장점:</b> 틈새시장 키워드 찾기, 상세페이지 제작, 차별화 방안 고민.</p>
-            <p><b>확장:</b> 잘 팔리는 제품을 중국에서 직접 사입하여 마진율을 높여 판매.</p>
+            <p>로켓배송은 재고 부담이 없고 CS까지 쿠팡이 처리해주는 셀러에게는 최고의 시스템입니다. 스마트스토어보다 비싼 가격에도 불구하고 '빠른 배송'의 힘으로 주문이 들어오기 시작했습니다.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 42: Appendix Content -->
+      <!-- Slide 42: The Goal: Financial Freedom -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">8. 해외 구매대행 ✈️</h2>
-          <p class="slide-subtitle">난이도: ★★★★☆</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 해외 사이트 제품을 소싱하여 오픈마켓에서 판매.</p>
-            <p><b>수익:</b> 월 100 ~ 500만원 이상</p>
-            <p><b>장점:</b> 경쟁이 적은 틈새시장 파악, 설득력 있는 상세페이지 제작.</p>
-            <p><b>확장:</b> 재고를 쌓아두고 사입 판매로 확장, 나만의 브랜드를 붙여 판매.</p>
+            <h2 class="slide-title">월 순익 3,000만 원, 그리고 <span class="highlight">새로운 고민</span></h2>
+            <p class="slide-subtitle">"이 정도 벌면 되지 않았나?" 자기 안주에 빠질 무렵, 더 큰 부자들은 왜 멈추지 않고 도전하는지 궁금해집니다.</p>
+            <div class="slide-content">
+                <p>서 과장의 목표는 <span class="font-bold">'경제적 자유'</span>. 45살까지 아무것도 안 해도 월 2,000만 원이 나오는 삶. 이를 위해서는 주식 배당이나 부동산으로 현찰 30~40억이 필요하다는 계산이 나옵니다. 현재의 수익만으로는 불가능하기에, 더 큰 도전을 멈출 수 없다는 것.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Beyond Money -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돈 너머의 목표: <span class="highlight">대의 (大義)</span></h2>
+          <p class="slide-subtitle">"경제적 자유를 누리고 나서는 뭘 할 건데?"</p>
+          <div class="mt-8 p-6 bg-emerald-50 border border-emerald-200 rounded-lg">
+              <h3 class="font-bold text-lg text-emerald-700">서 과장의 꿈 🌟</h3>
+              <p class="mt-2">보육원 아이들이 성인이 되어 500만 원을 받고 사회에 나왔을 때, 나쁜 길로 빠지지 않도록 어릴 때부터 '돈 버는 방법(온라인 판매, 광고, 재테크)'을 가르쳐주는 교육 공간을 만드는 것. "생각만 해도 가슴이 뛰고 눈물이 나는 일."</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 43: Appendix Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">9. 인스타 공구 🤝</h2>
-          <p class="slide-subtitle">난이도: ★★★★☆</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 인스타그램 팔로워를 모아 공동구매를 진행하여 수익을 내는 방법.</p>
-            <p><b>수익:</b> 월 100 ~ 500만원 이상</p>
-            <p><b>장점:</b> 사람을 모으는 연습, 클릭을 부르는 썸네일 제작, 제품 공급처와 협상 능력.</p>
-            <p><b>확장:</b> 유튜브, 블로그 등 채널을 확대하여 공동구매 진행.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 44: Appendix Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">10. 핸드메이드 제품 판매 🧶</h2>
-          <p class="slide-subtitle">난이도: ★★★★☆</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 직접 제작한 제품을 오픈마켓에서 판매.</p>
-            <p><b>수익:</b> 월 100 ~ 300만원</p>
-            <p><b>장점:</b> 취미를 판매로 전환, 마진율 70% 이상 가능.</p>
-            <p><b>확장:</b> 온라인 판매가 익숙해지면 직원을 고용하고 시스템을 만들어 공산품 판매까지 확장.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 45: Appendix Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">11. 인스타그램 광고대행 📢</h2>
-          <p class="slide-subtitle">난이도: ★★★★★</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 음식 등 특정 분야의 인스타그램 계정을 키워 광고 수익을 내는 형태.</p>
-            <p><b>수익:</b> 월 100 ~ 500만원 이상</p>
-            <p><b>장점:</b> 사람을 모으는 능력, 제품 사진 찍는 능력 향상.</p>
-            <p><b>확장:</b> 음식으로 시작해 다양한 카테고리로 확장 후 인스타 광고 대행사로 성장 가능.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 46: Appendix Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">12. 의류 쇼핑몰 👕</h2>
-          <p class="slide-subtitle">난이도: ★★★★★</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 동대문 도매시장에서 의류를 구입 후 스마트스토어 등에서 판매.</p>
-            <p><b>수익:</b> 월 100 ~ 500만원 이상</p>
-            <p><b>장점:</b> 소비자가 좋아할 만한 의류 찾는 연습, 설득력 있는 상세페이지 제작.</p>
-            <p><b>확장:</b> 작은 카테고리에서 시작해 판매가 늘면 자사몰을 만들어 브랜딩.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 47: Appendix Content -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">13. 아마존 FBA 📦</h2>
-          <p class="slide-subtitle">난이도: ★★★★★</p>
-          <div class="slide-content">
-            <p><b>개요:</b> 아마존의 주문처리 서비스를 이용해 상품을 등록하고 판매하는 방법.</p>
-            <p><b>수익:</b> 월 100 ~ 150만원 이상 (초기 투자 500만원 기준)</p>
-            <p><b>장점:</b> 해외 소비자 니즈 파악, 해외 소싱 능력 배양, 아마존 광고 연습.</p>
-            <p><b>확장:</b> 아마존에서 제품이 잘 팔리면 K-호미와 같이 전 세계로 수출 가능.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 48: Author's Message -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">저자 서과장의 한마디 🎤</h2>
-          <div class="slide-content">
-            <p>"지금 이 책을 사서 읽어주셔서 저는 돈을 벌었습니다. 지금 이 순간 저는 생산자이고 여러분은 소비자입니다."</p>
-            <p class="mt-4">"하지만 여러분들은 현명한 소비를 하셨습니다. 이 현명한 소비가 여러분이 <span class="highlight">생산자의 삶</span>을 사는 데 도움이 되셨으면 좋겠습니다."</p>
-            <p class="mt-6 text-right">- 감사합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 49: Conclusion -->
+      <!-- Slide 44: Final Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-6xl mb-6">🎯</div>
-          <h2 class="slide-title">최종 결론</h2>
+          <h2 class="slide-title">당신도 '파는 뇌'를 가질 수 있다</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">"사는 동안 한 번은 팔아봐라"는 단순한 재테크 서적이 아닙니다. 소비자에서 생산자로, 의존에서 자립으로 나아가는 <span class="highlight">관점의 전환과 실행의 여정</span>을 담은 안내서입니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">'파는 뇌'를 장착하고, 당신의 경제적 자유를 직접 만들어가십시오.</p>
+            <p class="mb-4">'파는 것'은 배울 수 있는 <span class="highlight">기술</span>입니다. 작은 부업에서 시작하여 사업으로 키우고, 궁극적으로는 당신의 삶을 바꾸는 열쇠가 될 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">핵심은 소비자의 뇌에서 생산자의 뇌로 전환하는 것입니다. 지금 바로 시작하세요.</p>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 50: Thank You / Q&A -->
+
+      <!-- Slide 45: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -814,25 +701,115 @@
         </div>
       </div>
       
-      <!-- Slide 51: Book Info -->
+      <!-- Add more slides to reach 50+ pages. Let's add more details from the book. -->
+
+      <!-- Slide 46: Appendix - Side Hustle List 1 -->
       <div class="slide">
-          <div class="slide-container text-center">
-              <h2 class="slide-title">도서 정보</h2>
-              <div class="slide-content">
-                  <p><b>제목:</b> 사는 동안 한 번은 팔아봐라</p>
-                  <p><b>저자:</b> 서과장 (서준)</p>
-                  <p><b>출판사:</b> 마인드셋(바이포엠 스튜디오)</p>
-                  <p><b>발행일:</b> 2024년 01월 31일</p>
-                  <p class="mt-4">도서 판매 수익금은 모두 한부모 가정과 아이들의 교육을 위해 기부됩니다.</p>
-              </div>
+        <div class="slide-container">
+          <h2 class="slide-title">부록: 서과장이 추천하는 부업 리스트 1</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">✍️ 블로그 원고 부업 (난이도: ★★)</h3>
+              <p>내 블로그가 아닌 남의 블로그 글을 외주받아 작성. 글쓰기 연습과 수익을 동시에. 글쓰기 실력이 늘면 단가도 상승.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">♻️ 중고제품 리셀 (난이도: ★★★)</h3>
+              <p>수요 있는 중고품을 싸게 매입해 되파는 부업. 당근마켓, 번개장터 활용. 소비자의 니즈를 파악하는 연습에 탁월.</p>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Appendix - Side Hustle List 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부록: 서과장이 추천하는 부업 리스트 2</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🔗 블로그 제휴마케팅 (난이도: ★★★)</h3>
+              <p>쿠팡 파트너스 등을 활용해 블로그에 제품을 소개하고 수수료 수익 얻기. 상위노출, 글쓰기 능력 향상에 도움.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">▶️ 유튜브 제휴마케팅 (난이도: ★★★★)</h3>
+              <p>영상으로 제품을 묶어 소개. (ex. 다이소 청소용품 베스트3) 영상 편집 스킬이 필요하지만, 파급력이 큼.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: Appendix - Side Hustle List 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부록: 서과장이 추천하는 부업 리스트 3</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">📦 국내 위탁판매 (난이도: ★★★★)</h3>
+              <p>재고 없이 도매사이트 상품을 오픈마켓에 등록해 판매. 온라인 판매의 기본기를 다질 수 있는 가장 확실한 방법.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">✈️ 해외 구매대행 (난이도: ★★★★★)</h3>
+              <p>알리, 타오바오 등에서 상품을 소싱해 판매. 마진율이 높지만 언어, CS 등 관리 포인트가 많음.</p>
+            </div>
+          </div>
+      </div>
+      
+      <!-- Slide 49: Details on Employee Management -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">서 과장에게 배우는 <span class="highlight">직원관리 노하우</span></h2>
+          <p class="slide-subtitle">사업이 성장하며 직원을 뽑게 될 때, 저자가 멘토에게 배운 원칙들.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-2">
+              <li><b>인성이 최고다:</b> 큰소리 칠 만한 직원은 뽑지 않는다. 감정은 전염된다.</li>
+              <li><b>회식은 제한 없이:</b> 맛있는 것을 사주는 것이 최고의 복지.</li>
+              <li><b>투잡을 장려하라:</b> 직원이 부업으로 성장하면, 그 경험이 회사에 적용된다.</li>
+              <li><b>성장하면 연봉을 올려줘라:</b> '이태원 클라쓰' 박새로이처럼, 가치에 맞게 보상한다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: The Freelancer's Betrayal -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">프리랜서 직원의 <span class="highlight">배신과 교훈</span></h2>
+          <p class="slide-subtitle">오랫동안 함께 일한 프리랜서 직원이 퇴사하며 법적 조항을 근거로 예상보다 큰 퇴직금을 요구한 사건.</p>
+          <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+            <h3 class="font-bold text-lg text-red-700">서 과장의 일침 🗣️</h3>
+            <p class="mt-2">"다 네 잘못이야. 너의 이익을 위해 4대 보험 없이 프리랜서로 운영했잖아. 회사에서 일어나는 모든 일은 대표 잘못이야. 그릇이 작은 사람에게는 좋은 사람이 모이지 않아. <span class="font-bold">이 기회에 그릇을 키운다고 생각하고 더 줘버려.</span>"</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 51: The Power of Forgiveness -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">결과: <span class="highlight">호구가 되니 호구가 아니었다</span></h2>
+            <p class="slide-subtitle">서 과장의 조언대로 요구한 금액보다 100만 원을 더 주자, 직원은 오히려 거절했습니다.</p>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="mb-4">의외의 반응에 한결 마음이 풀렸고, 두말없이 원래 주려던 금액에 100만 원을 더 얹어 입금했습니다. "앞으로 힘든 일 있으면 연락하라"는 카톡을 보내며, 저자는 눈시울이 붉어지는 것을 느꼈습니다.</p>
+                <p class="mt-8 font-bold text-xl text-gray-800">그릇을 키우는 경험은 돈으로 살 수 없는 자산이 됩니다.</p>
+            </div>
+        </div>
+      </div>
+      
+       <!-- Slide 52: Wife's Instagram -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">와이프의 <span class="highlight">비공개 인스타그램</span></h2>
+          <p class="slide-subtitle">"왜 저걸 팔아서 돈 벌 생각을 안 하지?" '파는 뇌'가 장착되자 아내의 취미가 사업 아이템으로 보이기 시작합니다.</p>
+          <div class="slide-content">
+            <p>카페 사진을 잘 찍고 인테리어에 관심 많은 아내. 비공개 계정을 공개로 전환하고 콘텐츠를 올리자 팔로워가 2,000명까지 늘어납니다.</p>
+            <p class="mt-4">이를 통해 체험단 광고 제의를 받고, 인테리어 조명 공동구매를 진행하는 등 <span class="font-bold">일상의 재능이 수익으로 연결</span>되는 경험을 합니다.</p>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 
   <!-- Navigation -->
-  <div class="navigation-container">
+  <div class="progress-bar-container">
     <div class="progress-bar">
       <div id="progress" class="progress"></div>
     </div>
@@ -859,7 +836,7 @@
           slide.classList.remove('active');
         }
       });
-      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      slideCounter.textContent = `페이지 ${currentSlide + 1} / ${slides.length}`;
       progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
 
       prevBtn.disabled = currentSlide === 0;
@@ -886,10 +863,10 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
         prevBtn.click();
       }
