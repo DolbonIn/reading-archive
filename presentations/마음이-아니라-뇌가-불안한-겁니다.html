@@ -21,9 +21,12 @@
       min-height: 85vh;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
     .slide.active {
       display: flex;
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
@@ -108,15 +111,20 @@
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
+    ul {
+      list-style-type: '🧠 ';
+      padding-left: 1.5rem;
+    }
     li {
-      margin-bottom: 0.75rem;
+       padding-left: 0.5rem;
+       margin-bottom: 0.75rem;
     }
   </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
   <div class="w-full">
-    <!-- Slides Container -->
+    <!-- Slides Container: Add your slides here -->
     <div id="slides-container">
 
       <!-- Slide 1: Title -->
@@ -125,757 +133,464 @@
           <div class="text-7xl mb-8">🧠</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">마음이 아니라 뇌가 불안한 겁니다</h1>
           <p class="text-xl md:text-2xl text-gray-700">최신 과학이 밝힌 <span class="highlight">뇌 유형별</span> 회복 탄력의 비밀</p>
+          <p class="mt-4 text-lg text-gray-600">다니엘 G. 에이멘 지음</p>
         </div>
       </div>
 
       <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">목차 📜</h2>
+          <h2 class="slide-title">목차 📚</h2>
           <div class="slide-content text-lg space-y-3">
-            <p><b>서문:</b> 행복은 우리 모두를 위한 길입니다</p>
-            <p><b>1장:</b> 우리는 행복을 오해하고 있다</p>
-            <p><b>2장:</b> 행복과 불행을 결정하는 5가지 뇌 유형</p>
-            <p><b>3장:</b> 슬픔을 유발하는 일상의 패턴을 깨라 (생활 습관)</p>
-            <p><b>4장:</b> 하루 10분, 불안한 뇌를 조련하라 (심리 습관)</p>
-            <p><b>5장:</b> 인간은 연결되어야 행복해질 수 있다 (관계 습관)</p>
-            <p><b>결론:</b> 당신의 행복은 영속적이어야 한다</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 3: Section Title - Preface -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">한국어판 서문</p>
-          <h2 class="slide-title">행복은 우리 모두를 위한 <span class="highlight">길입니다</span></h2>
-          <p class="slide-content">이 책은 미국에서의 열띤 호응을 넘어, 한국 독자분들에게도 행복으로 가는 실용적이고 과학적인 전략을 제시하고자 합니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 4: Korean Happiness Types -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">한국인이 추구하는 <span class="highlight">7가지 행복</span> 유형</h2>
-          <p class="slide-subtitle">2020년 연구에 따르면, 한국 성인들은 다음과 같은 일곱 가지 유형의 행복을 추구합니다. 이 책은 이 중 여러 주제를 다룹니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-            <ul>
-              <li>✅ 자기실현</li>
-              <li>✅ 소속감</li>
-              <li>✅ 사명</li>
-              <li>✅ 사회적 인정</li>
-            </ul>
-            <ul>
-              <li>✅ 즐거움</li>
-              <li>✅ 물질적 성공</li>
-              <li>✅ 양육</li>
-            </ul>
+            <p><b>1. 우리는 행복을 오해하고 있다:</b> 행복에 관한 거짓말과 뇌에서 행복 찾기</p>
+            <p><b>2. 5가지 뇌 유형:</b> 행복과 불행을 결정하는 5가지 핵심 뇌 유형 분석</p>
+            <p><b>3. 생활 습관편:</b> 슬픔을 유발하는 패턴을 깨고 뇌 유형에 맞는 영양 공급</p>
+            <p><b>4. 심리 습관편:</b> 하루 10분, 불안한 뇌를 조련하고 긍정성 편향 훈련하기</p>
+            <p><b>5. 관계 습관편:</b> 건강한 관계를 만들고 세계와 연결되는 행복의 가치</p>
+            <p><b>6. 결론:</b> 당신의 행복은 영속적이어야 한다</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 5: The Secret to True Happiness -->
+      <!-- Slide 3: Section 1 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">진정한 행복의 <span class="highlight">비밀</span> 🤫</h2>
-          <p class="slide-subtitle">사회과학 전문가들이 간과하는 행복의 중요한 비결은 바로 '뇌'에 있습니다.</p>
-          <div class="slide-content">
-            <p>22만 5,000장 이상의 뇌 스캔 영상을 분석한 뇌 건강 전문가로서 단언컨대, 뇌는 행복에서 빼놓을 수 없는 가장 중요한 부분입니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">이 책에서 다룰 핵심 내용 🔑</h3>
-              <p class="mt-2">행복은 뇌 유형에 따라 달라지며, 건강한 뇌가 행복의 토대임을 이해하고, 뇌 유형에 맞는 영양소와 식단을 통해 행복을 찾고 증진시키는 방법을 알아봅니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 6: 7 Principles of Happiness -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">행복해지기 위한 <span class="highlight">7가지 원칙</span></h2>
-          <div class="slide-content space-y-2">
-            <p><b>1. 뇌 유형:</b> 행복은 뇌 유형에 따라 달라집니다.</p>
-            <p><b>2. 뇌 건강:</b> 건강한 뇌는 행복해지기 위한 토대입니다.</p>
-            <p><b>3. 영양소:</b> 매일 뇌 유형에 맞춘 영양소를 공급해야 합니다.</p>
-            <p><b>4. 식단:</b> 식단은 행복을 돕거나 빼앗을 수 있습니다.</p>
-            <p><b>5. 생각 다스리기:</b> 행복해지려면 반드시 생각을 다스려야 합니다.</p>
-            <p><b>6. 긍정 초점:</b> 싫어하는 것보다 좋아하는 것에 초점을 맞추면 더 행복해집니다.</p>
-            <p><b>7. 목적의식:</b> 목적의식과 사명감은 행복한 삶에 필수적입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 7: Section Title - Chapter 1 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">1장</p>
+          <p class="slide-part-title">Part 1: 행복에 대한 오해</p>
           <h2 class="slide-title">우리는 행복을 <span class="highlight">오해하고</span> 있다</h2>
-          <p class="slide-content">성공은 행복의 열쇠가 아닙니다. 행복이 성공의 열쇠입니다. - 알버트 슈바이처</p>
+          <p class="slide-content">성공이 행복의 열쇠가 아니라, 행복이 성공의 열쇠입니다. 우리는 부, 명예, 운이 행복의 전부가 아니라는 사실을 알아야 합니다. 이 장에서는 행복에 대한 일반적인 오해들을 바로잡고, 진정한 행복의 비밀이 바로 우리 <span class="highlight">뇌</span>에 있음을 밝힙니다.</p>
         </div>
       </div>
       
-      <!-- Slide 8: 11 Lies About Happiness (1-3) -->
+      <!-- Slide 4: 11 Lies About Happiness -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">행복에 관한 <span class="highlight">11가지 거짓말</span> (1/4)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>❌ 거짓말 #1: 더 많이 가질수록 행복해질 것이다.</b><br>쾌락은 적응(hedonic adaptation)합니다. 더 큰 쾌락을 추구할수록 쾌락 중추가 망가져 우울증으로 이어질 수 있습니다.</p>
-            <p><b>❌ 거짓말 #2: '걱정 말고 행복하자'는 마음가짐이 행복을 가져온다.</b><br>적절한 불안은 더 바람직한 결정을 내리게 돕습니다. '걱정 없이 행복한' 사람들은 사고나 예방 가능한 질병으로 일찍 사망할 확률이 높습니다.</p>
-            <p><b>❌ 거짓말 #3: 패스트푸드는 행복을 가져다준다.</b><br>해피밀은 '언해피밀'입니다. 가공식품은 염증, 우울증, ADHD, 비만, 낮은 지능 지수와 연관됩니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 9: 11 Lies About Happiness (4-6) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">행복에 관한 <span class="highlight">11가지 거짓말</span> (2/4)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>❌ 거짓말 #4: 여기가 아닌 다른 어딘가에 행복이 있다.</b><br>'지구상에서 가장 행복한 곳'이라는 디즈니랜드도 스트레스는 주요 감정 및 기억 중추를 줄어들게 할 수 있습니다.</p>
-            <p><b>❌ 거짓말 #5: 최신 전자기기가 행복을 위해 필요하다.</b><br>신기술은 중독성이 있습니다. 가족, 친구, 건강 등 더 중요한 대상에 집중하지 못하게 방해합니다.</p>
-            <p><b>❌ 거짓말 #6: 비디오게임이 행복을 가져온다.</b><br>비디오게임은 '금세기의 담배'라 불릴 만큼 중독성과 파괴적인 부작용을 가집니다. 우울증과 비만 비율을 높입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 10: 11 Lies About Happiness (7-9) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">행복에 관한 <span class="highlight">11가지 거짓말</span> (3/4)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>❌ 거짓말 #7: 뉴스 '정보통'이 되면 행복할 것이다.</b><br>언론 매체는 공포와 재앙을 반복적으로 보여주며 뇌의 원시적인 공포 회로를 활성화시킵니다. 아침에 부정적인 뉴스를 보는 것만으로 행복 지수가 27% 떨어질 수 있습니다.</p>
-            <p><b>❌ 거짓말 #8: 술을 마시면 행복해진다.</b><br>술은 7가지 암 발생과 연관성이 있습니다. 뇌를 손상시키고, 결정의 질을 떨어뜨리며, 인간관계를 해칠 수 있습니다.</p>
-            <p><b>❌ 거짓말 #9: 대마초를 피우면 행복해진다.</b><br>대마초는 뇌의 조기 노화를 유발하고 전반적인 혈류를 감소시킵니다. 10대 시절 흡연은 정신병 위험을 450% 증가시킵니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 11: 11 Lies About Happiness (10-11) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">행복에 관한 <span class="highlight">11가지 거짓말</span> (4/4)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>❌ 거짓말 #10: 달콤한 간식과 디저트는 행복을 준다.</b><br>당류는 잠깐의 기분 상승을 주지만, 중독성과 염증 반응을 유발해 우울증, 비만, 당뇨병, 치매와 관련됩니다. 코카콜라의 'Open happiness'는 사실 'Open depression'입니다.</p>
-            <p><b>❌ 거짓말 #11: 돈이 많으면 행복해진다.</b><br>연간 소득 7만 5천 달러까지는 사실이지만, 그 이후로는 상관관계가 급격히 줄어듭니다. 경험(콘서트, 식사)에 돈을 쓰는 것이 물건을 사는 것보다 훨씬 큰 행복을 줍니다.</p>
+          <h2 class="slide-title">행복에 관한 <span class="highlight">11가지 거짓말</span> 🤥</h2>
+          <p class="slide-subtitle">마케터들은 우리 뇌를 손상시키고 우리를 불행하게 만드는 것들에 행복이 달려 있다고 세뇌시켜 왔습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <p>1. 더 많이 가질수록 행복하다 (쾌락 적응)</p>
+            <p>2. 걱정 없이 사는 것이 행복이다.</p>
+            <p>3. 패스트푸드가 행복을 가져다준다.</p>
+            <p>4. '여기가 아닌 어딘가'에 행복이 있다.</p>
+            <p>5. 최신 전자기기가 있어야 행복하다.</p>
+            <p>6. 비디오게임이 행복을 가져온다.</p>
+            <p>7. 뉴스를 많이 보면 행복하다.</p>
+            <p>8. 술을 마시면 행복해진다.</p>
+            <p>9. 대마초를 피우면 행복해진다.</p>
+            <p>10. 달콤한 간식과 디저트가 행복을 준다.</p>
+            <p>11. 돈이 많으면 행복해진다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 12: The 7 Secrets to Happiness -->
+      <!-- Slide 5: The 7 Secrets of Happiness -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">아무도 말하지 않는 <span class="highlight">행복의 비밀 7가지</span></h2>
-          <p class="slide-subtitle">기존의 행복 연구는 뇌와 관련된 중요한 7가지 측면을 놓치고 있습니다.</p>
-          <div class="mt-2 p-6 bg-gray-50 border border-gray-200 rounded-lg slide-content">
-            <p>1. 뇌 유형에 맞춰 행복 전략을 세워야 합니다.</p>
-            <p>2. <span class="font-bold">뇌 건강</span>(뇌의 물리적 기능)이 행복의 가장 중요한 기본 요건입니다.</p>
-            <p>3. 매일 뇌에 목표 영양소를 공급해야 합니다.</p>
-            <p>4. 선택한 음식이 행복 수준을 높이거나 낮출 수 있습니다.</p>
-            <p>5. 마음을 다스리고 머릿속 소음과 심리적 거리를 둬야 합니다.</p>
-            <p>6. 다른 사람의 장점을 찾는 것이 행복한 관계의 비결입니다.</p>
-            <p>7. 명확한 가치관, 목적, 목표가 행복을 뒷받침합니다.</p>
+          <h2 class="slide-title">행복으로 가는 <span class="highlight">7가지 비밀</span> 🔑</h2>
+          <p class="slide-subtitle">사회과학자들이 놓치고 있는, 신경과학에 기반한 행복의 핵심 요건들입니다.</p>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 뇌 유형에 맞는 전략:</b> 개인의 고유한 뇌 유형에 맞춰 행복 전략을 세워야 합니다.</p>
+            <p><b>2. 뇌 건강:</b> 뇌의 물리적 기능이 행복을 좌우하는 가장 중요한 기본 요건입니다.</p>
+            <p><b>3. 목표 영양소 공급:</b> 행복을 증진하려면 매일 뇌에 목표 영양소를 공급해야 합니다.</p>
+            <p><b>4. 음식 선택:</b> 당신이 선택한 음식이 행복 수준을 높일 수도, 낮출 수도 있습니다.</p>
+            <p><b>5. 마음 다스리기:</b> 행복을 지키려면 반드시 마음을 다스리고 머릿속 소음과 거리를 둬야 합니다.</p>
+            <p><b>6. 긍정적 관계:</b> 다른 사람의 단점보다 장점을 찾아내는 것이 행복한 관계의 비결입니다.</p>
+            <p><b>7. 가치관과 목적:</b> 행복을 뒷받침하려면 명확한 가치관, 목적, 목표가 있어야 합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 13: The Four Circles of Happiness -->
+      <!-- Slide 6: Four Circles of Happiness -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">행복의 <span class="highlight">네 가지 영역</span> (Four Circles)</h2>
-          <p class="slide-subtitle">행복과 불행은 네 가지 영역의 상호작용으로 결정됩니다. 각 영역에서 행복을 가져오는 요소를 알아보는 것이 중요합니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-            <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 class="font-bold text-lg">🧬 생물적 영역</h3>
-              <p>물리적 신체와 뇌의 기능</p>
+          <h2 class="slide-title">행복의 <span class="highlight">네 가지 영역</span> 🌐</h2>
+          <p class="slide-subtitle">행복은 삶의 네 가지 핵심 영역에서 비롯됩니다. 각 영역에서 당신에게 기쁨을 주는 요소를 찾아보세요.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg text-blue-800">🌱 생물적 영역</h3>
+              <p class="mt-2">물리적인 신체와 뇌가 어떻게 기능하는가? (예: 숙면, 좋은 컨디션, 건강한 식사)</p>
             </div>
-            <div class="p-4 bg-green-50 rounded-lg border border-green-200">
-              <h3 class="font-bold text-lg">🤔 심리적 영역</h3>
-              <p>발달 문제와 사고방식</p>
+            <div class="p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg text-green-800">🧘 심리적 영역</h3>
+              <p class="mt-2">당신의 사고방식과 발달 과정은? (예: 새로운 학습, 생산적인 느낌, 목표 달성)</p>
             </div>
-            <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-              <h3 class="font-bold text-lg">🤝 사회적 영역</h3>
-              <p>사회적 지원과 현재 생활 상황</p>
+            <div class="p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg text-yellow-800">🤝 사회적 영역</h3>
+              <p class="mt-2">사회적 지원, 현재 생활 상황, 사회적 영향은? (예: 가족/친구와 연락, 즐거운 대화)</p>
             </div>
-            <div class="p-4 bg-purple-50 rounded-lg border border-purple-200">
-              <h3 class="font-bold text-lg">🙏 영적 영역</h3>
-              <p>삶의 의미와 목적</p>
+            <div class="p-6 bg-purple-50 border border-purple-200 rounded-lg">
+              <h3 class="font-bold text-lg text-purple-800">🙏 영적 영역</h3>
+              <p class="mt-2">가장 심오한 의미와 목적, 신념 체계는? (예: 신과 가까이 지내기, 중요한 일 하기)</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Slide 14: Section Title - Chapter 2 -->
+      
+      <!-- Slide 7: Section 2 Title -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">2장</p>
+          <p class="slide-part-title">Part 2: 5가지 핵심 뇌 유형</p>
           <h2 class="slide-title">행복과 불행을 결정하는 <span class="highlight">5가지 뇌 유형</span></h2>
-          <p class="slide-content">자신의 뇌 유형과 다른 사람의 뇌 유형을 알아야 '나는 왜 이런 일을 할까?', '무엇이 나를 행복하게 할까?'라는 질문에 답할 수 있습니다.</p>
+          <p class="slide-content">자신의 뇌 유형과 다른 사람의 뇌 유형을 알아야 '나는 왜 이런 일을 할까?', '무엇이 나를 행복하게 할까?'라는 핵심 질문에 답할 수 있습니다. 지금부터 5가지 기본 뇌 유형을 살펴보겠습니다.</p>
         </div>
       </div>
-      
-      <!-- Slide 15: Brain Type 1 - Title -->
+
+      <!-- Slide 8: Brain Type 1 - Balanced -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">뇌 유형 1</p>
           <h2 class="slide-title">균형 잡힌 뇌 ⚖️: <span class="highlight">사려 깊고 성실한 모범 시민형</span></h2>
-          <p class="slide-subtitle">생산적이고 행복한 공동체를 떠받드는 토대. 학교와 직장에서 우수한 인재이며, 옆집에 살았으면 하는 이웃입니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 16: Brain Type 1 - Traits -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">균형 잡힌 뇌의 <span class="highlight">공통 특질</span></h2>
+          <p class="slide-subtitle">생산적이고 행복한 공동체를 떠받드는 토대. 삶을 체계적으로 살아가며 학교와 직장에서 우수한 인재입니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg text-green-600">👍 높은 경향</h3>
-              <ul>
-                <li>• 집중력, 충동 조절, 성실성</li>
-                <li>• 유연성, 긍정성</li>
-                <li>• 회복 탄력성, 정서적 안정</li>
+              <h3 class="font-bold text-lg">👍 강점</h3>
+              <ul class="mt-2 list-none p-0">
+                <li><span class="text-green-500 mr-2">✔</span> 집중력, 충동 조절</li>
+                <li><span class="text-green-500 mr-2">✔</span> 성실성, 유연성</li>
+                <li><span class="text-green-500 mr-2">✔</span> 긍정성, 정서적 안정</li>
+                <li><span class="text-green-500 mr-2">✔</span> 뛰어난 대처 기술</li>
               </ul>
             </div>
             <div>
-              <h3 class="font-bold text-lg text-red-600">👎 낮은 경향</h3>
-              <ul>
-                <li>• 충동성, 불성실성</li>
-                <li>• 걱정, 부정성, 불안</li>
-              </ul>
-            </div>
-          </div>
-          <p class="mt-6">집중력이 강하고, 유연하며, 정서적으로 안정된 사람. 약속을 잘 지키고, 규칙을 따르며, 큰 위험을 감수하지 않습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 17: Brain Type 1 - Happiness -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">균형 잡힌 뇌를 <span class="highlight">행복하게/불행하게 하는 것</span></h2>
-           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg text-green-600">😊 행복하게 하는 것</h3>
-              <ul>
-                <li>• 건강한 인간관계, 보람 있는 일</li>
-                <li>• 경제적 안정, 규칙 및 시간 준수</li>
-                <li>• 전통 명절, 재미있게 놀기</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg text-red-600">☹️ 불행하게 하는 것</h3>
-              <ul>
-                <li>• 혼돈, 과도한 위험 감수</li>
-                <li>• 지각, 과제 빼먹기</li>
-                <li>• 믿을 수 없거나 규칙을 안 지키는 사람</li>
+              <h3 class="font-bold text-lg">💡 행복 처방</h3>
+               <ul class="mt-2 list-none p-0">
+                <li><span class="text-blue-500 mr-2">✔</span> 뇌 건강에 좋은 행동으로 뇌를 보호</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 규칙적 운동, 명상, 균형 잡힌 식사</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 멀티비타민, 오메가-3, 프로바이오틱스</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 보람 있는 일과 건강한 인간 관계</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 18: Brain Type 2 - Title -->
+       <!-- Slide 9: Brain Type 2 - Spontaneous -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">뇌 유형 2</p>
-          <h2 class="slide-title">즉흥적인 뇌 🤸: <span class="highlight">도전에 강하고 권태에 약한 도파민 중독형</span></h2>
-          <p class="slide-subtitle">새로운 일을 즐기고, 위험을 감수하며, 창의적이고 대담한 사람들. 할리우드 영화 속 주인공 같은 유형입니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 19: Brain Type 2 - Traits -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">즉흥적인 뇌의 <span class="highlight">공통 특질</span></h2>
+          <h2 class="slide-title">즉흥적인 뇌 🚀: <span class="highlight">도전에 강하고 권태에 약한 도파민 중독형</span></h2>
+          <p class="slide-subtitle">새로운 것을 즐기고 위험을 감수하며 창의적입니다. 하지만 충동적이고 부주의한 실수가 잦을 수 있습니다. (낮은 전두엽 기능)</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg text-green-600">👍 높은 경향</h3>
-              <ul>
-                <li>• 즉흥성, 위험 감수, 창의성</li>
-                <li>• 호기심, 폭넓은 관심사</li>
-                <li>• ADD 경향, 뜻밖의 일을 좋아함</li>
+              <h3 class="font-bold text-lg">👍 강점</h3>
+              <ul class="mt-2 list-none p-0">
+                <li><span class="text-green-500 mr-2">✔</span> 즉흥성, 창의성</li>
+                <li><span class="text-green-500 mr-2">✔</span> 위험 감수, 호기심</li>
+                <li><span class="text-green-500 mr-2">✔</span> 폭넓은 관심사</li>
+                <li><span class="text-green-500 mr-2">✔</span> 위기 상황에서 침착함</li>
               </ul>
             </div>
             <div>
-              <h3 class="font-bold text-lg text-red-600">👎 낮은 경향</h3>
-              <ul>
-                <li>• 위험 회피, 일과, 관습</li>
-                <li>• 세부 사항 관심, 충동 조절</li>
-                <li>• 안정된 느낌</li>
+              <h3 class="font-bold text-lg">💡 행복 처방</h3>
+               <ul class="mt-2 list-none p-0">
+                <li><span class="text-blue-500 mr-2">✔</span> 도파민 수치를 높이는 활동 (운동, 목표 설정)</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 타이로신이 풍부한 음식 (아몬드, 달걀, 생선)</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 고단백 저탄수화물 식단, 마사지</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 녹차, 홍경천, 인삼 등 보충제 섭취</li>
               </ul>
             </div>
           </div>
-          <p class="mt-6">앞이마겉질 활성이 낮아 집중력이 짧고 충동적인 경향이 있습니다. 도파민 수치가 낮아 자극적인 활동을 추구합니다.</p>
         </div>
       </div>
 
-      <!-- Slide 20: Brain Type 2 - Dopamine -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">즉흥형의 행복: <span class="highlight">도파민 균형 맞추기</span></h2>
-          <p class="slide-subtitle">도파민은 '부추김의 분자'로, 기대, 가능성, 사랑, 보상과 관련이 있습니다. 낮은 도파민은 충동성, 당 갈망, 스릴 추구로 이어질 수 있습니다.</p>
-          <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg slide-content">
-              <h3 class="font-bold text-lg">💡 도파민 균형을 위한 10가지 방법</h3>
-              <p class="mt-2"><b>1. 타이로신 풍부 식품 섭취</b> (아몬드, 바나나, 아보카도, 달걀, 다크 초콜릿)</p>
-              <p><b>2. 고단백 저탄수화물 식단</b></p>
-              <p><b>3. 규칙적인 운동</b>, 기도와 명상, 마사지, 숙면</p>
-              <p><b>4. 음악 듣기</b>, 햇볕 쬐기, 목표 설정</p>
-              <p><b>5. 보충제 섭취</b> (홍경천, 인삼, 쿠르쿠민, L-theanine 등)</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 21: Brain Type 3 - Title -->
+       <!-- Slide 10: Brain Type 3 - Persistent -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">뇌 유형 3</p>
-          <h2 class="slide-title">집요한 뇌 🧐: <span class="highlight">규칙과 논쟁, 비판에 익숙한 강박 집착형</span></h2>
-          <p class="slide-subtitle">의지가 강하고, 규칙적인 일상을 선호하며, 쉽게 생각에 사로잡히는 유형. 뇌의 변속기인 '앞띠이랑'이 과하게 활성화된 경향이 있습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 22: Brain Type 3 - Traits -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">집요한 뇌의 <span class="highlight">공통 특질</span></h2>
+          <h2 class="slide-title">집요한 뇌 ⚙️: <span class="highlight">규칙과 논쟁, 비판에 익숙한 강박 집착형</span></h2>
+          <p class="slide-subtitle">의지가 강하고 규칙을 선호하지만, 변화에 저항하고 과거의 상처를 쉽게 잊지 못합니다. (과활성화된 전대상피질)</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg text-green-600">👍 높은 경향</h3>
-              <ul>
-                <li>• 집요함, 강한 의지, 규칙 선호</li>
-                <li>• 완고함, 생각에 사로잡힘</li>
-                <li>• 원한, 반대/논쟁, 강박적 성향</li>
+              <h3 class="font-bold text-lg">👍 강점</h3>
+              <ul class="mt-2 list-none p-0">
+                <li><span class="text-green-500 mr-2">✔</span> 집요함, 강한 의지</li>
+                <li><span class="text-green-500 mr-2">✔</span> 규칙적인 일상 선호</li>
+                <li><span class="text-green-500 mr-2">✔</span> 한번 시작한 일은 끝냄</li>
+                <li><span class="text-green-500 mr-2">✔</span> 책임감</li>
               </ul>
             </div>
             <div>
-              <h3 class="font-bold text-lg text-red-600">👎 낮은 경향</h3>
-              <ul>
-                <li>• 적응성, 유연성</li>
-                <li>• 부정적인 생각/상처를 쉽게 잊음</li>
-                <li>• 비판적이지 않음, 협력</li>
+              <h3 class="font-bold text-lg">💡 행복 처방</h3>
+               <ul class="mt-2 list-none p-0">
+                <li><span class="text-blue-500 mr-2">✔</span> 세로토닌 수치를 높이는 활동 (운동, 햇볕)</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 트립토판이 풍부한 음식 (칠면조, 해산물, 견과류)</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 복합 탄수화물 위주의 식단</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 사프란, 세인트존스워트 등 보충제 섭취</li>
               </ul>
             </div>
           </div>
-          <p class="mt-6">'안 된다'는 대답을 받아들이지 않고, '내 방식을 따르라'는 태도를 보입니다. 과거의 상처를 쉽게 잊지 못하는 걱정이 많은 사람입니다.</p>
         </div>
       </div>
 
-      <!-- Slide 23: Brain Type 3 - Serotonin -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">집요형의 행복: <span class="highlight">세로토닌 높이기</span></h2>
-          <p class="slide-subtitle">세로토닌은 '존중의 분자'로, 기분, 수면, 유연성에 관여합니다. 수치가 낮으면 뇌가 특정 생각이나 행동에 집착하게 됩니다.</p>
-          <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg slide-content">
-              <h3 class="font-bold text-lg">💡 세로토닌 수치를 높이는 방법</h3>
-              <p class="mt-2"><b>1. 트립토판 섭취 늘리기</b> (칠면조, 닭고기, 생선, 당근, 호박씨)</p>
-              <p><b>2. 해산물 섭취</b> (오메가-3가 세로토닌 생성 촉진)</p>
-              <p><b>3. 긍정적 비교</b>, 규칙적인 운동, 특정 영양 보충제 (사프란, 마그네슘, 비타민D 등)</p>
-              <p><b>4. 마사지</b>, 광선 요법, 명상</p>
-              <p><b>5. 긍정적인 것에 초점 맞추기</b></p>
-            </div>
-        </div>
-      </div>
-      
-      <!-- Slide 24: Brain Type 4 - Title -->
+      <!-- Slide 11: Brain Type 4 - Sensitive -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">뇌 유형 4</p>
-          <h2 class="slide-title">예민한 뇌  sponges: <span class="highlight">공감에 능하고 외부 자극에 취약한 감정 중심형</span></h2>
-          <p class="slide-subtitle">다른 사람의 감정을 자신의 것처럼 느끼는 '엠패스(empath)'. 감정의 뇌인 '둘레계통'의 활성이 높은 경향이 있습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 25: Brain Type 4 - Traits -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">예민한 뇌의 <span class="highlight">공통 특질</span></h2>
+          <h2 class="slide-title">예민한 뇌 ❤️‍🩹: <span class="highlight">공감에 능하고 외부 자극에 취약한 감정 중심형</span></h2>
+          <p class="slide-subtitle">공감 능력이 뛰어나고 감정이 깊지만, 기분 변동이 심하고 비관적인 경향이 있습니다. (과활성화된 변연계)</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg text-green-600">👍 높은 경향</h3>
-              <ul>
-                <li>• 예민함, 깊은 감정, 공감</li>
-                <li>• 기분 변동, 비관주의</li>
-                <li>• 과도한 부정적 생각 (ANTs), 우울</li>
+              <h3 class="font-bold text-lg">👍 강점</h3>
+              <ul class="mt-2 list-none p-0">
+                <li><span class="text-green-500 mr-2">✔</span> 높은 공감 능력 (엠패스)</li>
+                <li><span class="text-green-500 mr-2">✔</span> 깊은 감정</li>
+                <li><span class="text-green-500 mr-2">✔</span> 직관력, 예술적 감성</li>
+                <li><span class="text-green-500 mr-2">✔</span> 타인과의 깊은 유대</li>
               </ul>
             </div>
             <div>
-              <h3 class="font-bold text-lg text-red-600">👎 낮은 경향</h3>
-              <ul>
-                <li>• 피상성</li>
-                <li>• 지속적인 행복</li>
-                <li>• 긍정적 사고</li>
-              </ul>
-            </div>
-          </div>
-          <p class="mt-6">군중을 꺼리고, 조용한 시간을 즐기며, 잡담보다는 깊은 관계를 선호합니다. 다른 사람의 고통과 행복을 직접 경험하는 것처럼 느낍니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 26: Brain Type 4 - Happiness -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">예민형의 행복: <span class="highlight">옥시토신과 엔도르핀</span></h2>
-          <p class="slide-subtitle">예민한 뇌는 옥시토신(신뢰), 엔도르핀(통증 완화) 등 여러 화학물질 수치가 낮게 나타나는 경향이 있습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">💞 옥시토신 높이기</h3>
-              <ul>
-                <li>• 사교 모임, 신체 접촉 (손잡기, 마사지)</li>
-                <li>• 선물하기, 눈 맞추기, 음악 듣기</li>
-                <li>• 요가, 자애 명상, 친절 베풀기</li>
-                <li>• 반려동물 쓰다듬기, 식사 함께하기</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">🏃 엔도르핀 높이기</h3>
-              <ul>
-                <li>• 운동, 남에게 베풀기</li>
-                <li>• 요가, 명상</li>
-                <li>• 매운 음식, 다크 초콜릿</li>
-                <li>• 더 많이 웃기, 침 맞기</li>
+              <h3 class="font-bold text-lg">💡 행복 처방</h3>
+               <ul class="mt-2 list-none p-0">
+                <li><span class="text-blue-500 mr-2">✔</span> 옥시토신과 엔도르핀 수치를 높이는 활동</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 사교 모임, 스킨십, 자애 명상, 운동</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 비타민 C, D, 마그네슘, 오메가-3</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 매운 음식, 다크 초콜릿, 웃음</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 27: Brain Type 5 - Title -->
+       <!-- Slide 12: Brain Type 5 - Cautious -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">뇌 유형 5</p>
-          <h2 class="slide-title">신중한 뇌 🤔: <span class="highlight">불안에 압도당하기 쉬운 위험 회피형</span></h2>
-          <p class="slide-subtitle">준비가 철저하고, 위험을 회피하며, 약속 시간을 잘 지킵니다. 최악의 시나리오를 대비하는 경향이 있습니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 28: Brain Type 5 - Traits -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">신중한 뇌의 <span class="highlight">공통 특질</span></h2>
+          <h2 class="slide-title">신중한 뇌 🛡️: <span class="highlight">불안에 압도당하기 쉬운 위험 회피형</span></h2>
+          <p class="slide-subtitle">준비가 철저하고 신뢰할 수 있지만, 불안 수준이 높고 최악의 시나리오를 예상하는 경향이 있습니다. (과활성화된 불안 중추)</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg text-green-600">👍 높은 경향</h3>
-              <ul>
-                <li>• 준비성, 경계, 위험 회피</li>
-                <li>• 동기부여, 마음이 분주함</li>
-                <li>• 변덕, 까다로움, 불안</li>
+              <h3 class="font-bold text-lg">👍 강점</h3>
+              <ul class="mt-2 list-none p-0">
+                <li><span class="text-green-500 mr-2">✔</span> 철저한 준비성</li>
+                <li><span class="text-green-500 mr-2">✔</span> 경계심, 위험 회피</li>
+                <li><span class="text-green-500 mr-2">✔</span> 동기 부여, 신뢰성</li>
+                <li><span class="text-green-500 mr-2">✔</span> 분석적 사고</li>
               </ul>
             </div>
             <div>
-              <h3 class="font-bold text-lg text-red-600">👎 낮은 경향</h3>
-              <ul>
-                <li>• 준비에 무심함, 위험 감수</li>
-                <li>• 차분함, 긴장을 푸는 능력</li>
-                <li>• 고요한 마음, 침착함, 안심</li>
+              <h3 class="font-bold text-lg">💡 행복 처방</h3>
+               <ul class="mt-2 list-none p-0">
+                <li><span class="text-blue-500 mr-2">✔</span> GABA(진정) 수치를 높이고 코르티솔(스트레스) 수치를 낮춤</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 명상, 요가, 심호흡, 최면</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 마그네슘, 비타민 B6, 녹차(L-테아닌)</li>
+                <li><span class="text-blue-500 mr-2">✔</span> 카페인, 알코올, 스트레스 상황 피하기</li>
               </ul>
             </div>
           </div>
-          <p class="mt-6">기준이 높고, 행동 전에 문제를 상세히 분석하며, 믿을 만합니다. 안심, 안전, 예측 가능성이 중요합니다.</p>
         </div>
       </div>
-      
-      <!-- Slide 29: Brain Type 5 - GABA -->
+
+      <!-- Slide 13: Section 3 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">신중형의 행복: <span class="highlight">가바(GABA)와 코르티솔</span></h2>
-          <p class="slide-subtitle">신중한 뇌 유형은 '진정의 분자'인 가바(GABA) 농도가 낮고, '위험의 분자'인 코르티솔 농도가 높은 경향이 있습니다.</p>
-          <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg slide-content">
-              <h3 class="font-bold text-lg">💡 가바(GABA) 균형을 위한 방법</h3>
-              <p class="mt-2"><b>1. 가바 구성 요소 섭취:</b> 녹차, 홍차, 렌틸콩, 딸기류 등</p>
-              <p><b>2. 비타민 B6 섭취:</b> 시금치, 마늘, 브로콜리 등</p>
-              <p><b>3. 발효 식품 섭취:</b> 김치, 케피르 등</p>
-              <p><b>4. 명상, 요가, 가바 도둑(카페인, 알코올) 제거</b></p>
-              <p class="mt-4"><b>※ 코르티솔 수치를 낮추려면 충분한 수면, 운동, 명상, 최면, 웃음, 건강한 식단 등이 효과적입니다.</b></p>
-            </div>
-        </div>
-      </div>
-      
-      <!-- Slide 30: Mixed Brain Types -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">복합 뇌 유형 <span class="highlight">(6~16)</span></h2>
-          <p class="slide-subtitle">대부분의 사람들은 여러 뇌 유형의 특성을 복합적으로 가집니다. 가장 뚜렷하게 나타나는 특성을 바탕으로 여러 유형의 전략들을 조합하여 적용하는 것이 핵심입니다.</p>
-          <div class="slide-content">
-            <p>예를 들어, <b>즉흥-집요형 (유형 6)</b>은 즉흥성과 위험 감수 성향(낮은 도파민)과 함께, 생각에 사로잡히는 끈질김(낮은 세로토닌)을 보입니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 복합 유형을 위한 전략</h3>
-              <p class="mt-2">핵심은 <span class="font-bold">행복의 신경화학물질들 간의 균형</span>을 찾고 뇌 활성을 최적화하는 것입니다. 각 유형에 추천된 방법들을 섞어서 시도해보세요. 예를 들어, 신체 운동은 도파민과 세로토닌 분비를 동시에 촉진합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 31: Section Title - Chapter 3 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">3장. 생활 습관편</p>
+          <p class="slide-part-title">Part 3: 생활 습관편</p>
           <h2 class="slide-title">슬픔을 유발하는 <span class="highlight">일상의 패턴</span>을 깨라</h2>
-          <p class="slide-content">뇌 건강은 행복과 바람직한 인간관계, 최고 성과를 이어주는 연결 고리입니다. 행복으로 가는 근본적인 비결은 먼저 뇌의 물리적 기능을 최적화하는 것입니다.</p>
+          <p class="slide-content">뇌 건강은 행복과 직결됩니다. 뇌를 건강하게 유지하고 싶다면 마음을 훔치는 주요 위험 요인을 예방하고 치료해야 합니다. 'BRIGHT MINDS'라는 11가지 핵심 요소를 통해 당신의 뇌를 최적화하는 방법을 알아봅니다.</p>
         </div>
       </div>
-
-      <!-- Slide 32: BRIGHT MINDS (B-R) -->
+      
+       <!-- Slide 14: BRIGHT MINDS - Part 1 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">뇌를 망치는 11가지 위험 요인: <span class="highlight">BRIGHT MINDS</span> (1/6)</h2>
+          <h2 class="slide-title">뇌 건강을 위한 <span class="highlight">BRIGHT MINDS</span> (1/2)</h2>
+          <p class="slide-subtitle">뇌에 해로운 11가지 위험 요소를 관리하여 행복을 지키세요.</p>
           <div class="slide-content space-y-4">
-            <p><b>B - Blood Flow (혈류):</b> 혈류 감소는 우울증, ADHD 등과 관련 있습니다. 수분 공급, 카페인 제한, 운동, 혈액순환에 좋은 음식(고추, 로즈메리)으로 혈류를 개선하세요.</p>
-            <p><b>R - Retirement & Aging (은퇴와 노화):</b> 학습을 멈추면 뇌는 죽기 시작합니다. 평생 학습, 사회관계 유지, 명상, 비타민 섭취로 뇌 노화를 늦추세요.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 33: BRIGHT MINDS (I-G) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">뇌를 망치는 11가지 위험 요인: <span class="highlight">BRIGHT MINDS</span> (2/6)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>I - Inflammation (염증):</b> 몸의 염증은 우울증과 치매 위험을 높입니다. 가공식품을 피하고, 구강 건강을 관리하며, 오메가-3를 섭취하고, 장 건강을 돌보세요.</p>
-            <p><b>G - Genetics (유전):</b> 유전적 위험은 사망 선고가 아닙니다. 조기 검진과 예방을 통해 관리할 수 있습니다. 행복의 60%는 당신 손에 달려 있습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 34: BRIGHT MINDS (H-T) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">뇌를 망치는 11가지 위험 요인: <span class="highlight">BRIGHT MINDS</span> (3/6)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>H - Head Trauma (두부 외상):</b> 가벼운 뇌진탕도 우울증, 중독, 기억력 문제를 일으킬 수 있습니다. 뇌 건강에 좋은 스포츠를 선택하고, 뇌 재활 프로그램을 통해 회복할 수 있습니다.</p>
-            <p><b>T - Toxins (독소):</b> 뇌는 독소에 매우 취약합니다. 약물, 알코올, 흡연, 중금속, 환경호르몬 노출을 최소화하고, 신장/장/피부/간의 해독 작용을 도와주세요.</p>
+            <p><b>B - Blood Flow (혈류):</b> 혈류 감소는 우울증과 관련 있습니다. 수분 공급, 운동, 혈압 관리가 중요합니다.</p>
+            <p><b>R - Retirement & Aging (은퇴와 노화):</b> 새로운 학습을 멈추면 뇌는 쇠퇴하기 시작합니다. 평생 학습이 중요합니다.</p>
+            <p><b>I - Inflammation (염증):</b> 만성 염증은 우울증과 치매의 원인입니다. 가공식품을 피하고 오메가-3를 섭취하세요.</p>
+            <p><b>G - Genetics (유전):</b> 유전적 위험은 사망 선고가 아닙니다. 예방을 통해 극복할 수 있습니다.</p>
+            <p><b>H - Head Trauma (두부 외상):</b> 가벼운 뇌진탕도 우울증, 중독을 유발할 수 있습니다. 뇌를 보호하세요.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 35: BRIGHT MINDS (M-N) -->
+      <!-- Slide 15: BRIGHT MINDS - Part 2 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">뇌를 망치는 11가지 위험 요인: <span class="highlight">BRIGHT MINDS</span> (4/6)</h2>
+          <h2 class="slide-title">뇌 건강을 위한 <span class="highlight">BRIGHT MINDS</span> (2/2)</h2>
+          <p class="slide-subtitle">뇌에 해로운 11가지 위험 요소를 관리하여 행복을 지키세요.</p>
           <div class="slide-content space-y-4">
-            <p><b>M - Mental Health (정신 건강):</b> 우울증, 불안, 스트레스 등을 방치하면 뇌가 상하고 불행해집니다. 독성이 적고 효과적인 치료법(영양, 명상, 운동 등)을 먼저 시도하세요.</p>
-            <p><b>N - Neurohormone Issues (신경호르몬 문제):</b> 호르몬은 뇌의 비료와 같습니다. 테스토스테론, 갑상샘, DHEA, 에스트로겐 등의 균형이 중요합니다. 40세 이후 정기적인 검사를 받으세요.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 36: BRIGHT MINDS (D-S) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">뇌를 망치는 11가지 위험 요인: <span class="highlight">BRIGHT MINDS</span> (5/6)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>D - Diabesity (비만 당뇨):</b> 비만과 당뇨는 뇌를 이중으로 위협합니다. 체중이 증가하면 뇌의 크기와 기능이 감소합니다. 식생활을 바로잡는 것이 필수적입니다.</p>
-            <p><b>S - Sleep (수면):</b> 만성 불면증, 수면 무호흡증은 뇌 건강에 치명적입니다. 뇌는 잠자는 동안 스스로 정화합니다. 시원하고 어두운 환경에서 7시간 이상 주무세요.</p>
+            <p><b>T - Toxins (독소):</b> 약물, 알코올, 환경 독소는 뇌와 행복에 악영향을 미칩니다. 독소 노출을 최소화하세요.</p>
+            <p><b>M - Mental Health (정신 건강):</b> 우울증, 불안 등을 방치하면 뇌가 손상됩니다. 적극적인 치료가 필요합니다.</p>
+            <p><b>I - Immunity & Infections (면역과 감염):</b> 면역 체계 문제는 뇌 기능 저하로 이어집니다. 면역력을 강화하세요.</p>
+            <p><b>N - Neurohormone Issues (신경호르몬 문제):</b> 호르몬 불균형은 기분과 에너지에 직접적인 영향을 줍니다.</p>
+            <p><b>D - Diabesity (비만 당뇨):</b> 비만과 당뇨는 뇌를 이중으로 위협합니다. 식생활 개선이 시급합니다.</p>
+            <p><b>S - Sleep (수면):</b> 수면 부족은 뇌 노폐물을 쌓이게 하고 기억력을 손상시킵니다. 질 좋은 수면은 필수입니다.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 37: Happy vs Sad Foods -->
-       <div class="slide">
+      <!-- Slide 16: Foods for Happiness -->
+      <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">행복을 부르는 음식 vs <span class="highlight">불행을 부르는 음식</span></h2>
-          <p class="slide-subtitle">음식은 당신을 영구적으로 행복하게 할 수도, 슬프게 할 수도 있습니다.</p>
+          <p class="slide-subtitle">당신의 선택이 당신의 기분을 만듭니다. 영구적으로 행복하게 할 음식을 선택하세요.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg text-green-600">😇 행복한 음식</h3>
-              <p>알록달록한 유기농 과일/채소, 지속가능한 생선/육류, 견과류, 씨앗류, 몸에 좋은 지방, 청정 단백질, 다크 초콜릿, 혈당 지수가 낮은 식품.</p>
+              <h3 class="font-bold text-lg text-green-700">😊 행복한 음식</h3>
+              <ul class="mt-2 list-none p-0">
+                <li><span class="text-green-500 mr-2">✔</span> 알록달록한 유기농 과일과 채소</li>
+                <li><span class="text-green-500 mr-2">✔</span> 지속 가능한 생선과 육류</li>
+                <li><span class="text-green-500 mr-2">✔</span> 견과류, 씨앗류, 건강한 지방</li>
+                <li><span class="text-green-500 mr-2">✔</span> 혈당 지수가 낮은 식품, 고섬유질 식품</li>
+                <li><span class="text-green-500 mr-2">✔</span> 허브와 향신료</li>
+              </ul>
             </div>
             <div>
-              <h3 class="font-bold text-lg text-red-600">👿 슬픈 음식 (대량살상무기)</h3>
-              <p>가공식품, 살충제/호르몬/항생제 범벅 식품, 혈당지수 높은 식품, 저섬유질, 인공색소/감미료, 플라스틱 용기 보관 식품.</p>
+              <h3 class="font-bold text-lg text-red-700">😥 슬픈 음식</h3>
+              <ul class="mt-2 list-none p-0">
+                <li><span class="text-red-500 mr-2">✔</span> 가공식품, 살충제를 뿌린 식품</li>
+                <li><span class="text-red-500 mr-2">✔</span> 혈당 지수가 높은 식품</li>
+                <li><span class="text-red-500 mr-2">✔</span> 인공색소와 감미료</li>
+                <li><span class="text-red-500 mr-2">✔</span> 호르몬/항생제 사용 식품</li>
+                 <li><span class="text-red-500 mr-2">✔</span> 트랜스지방</li>
+              </ul>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 심리 습관편</p>
+          <h2 class="slide-title">하루 10분, 불안한 뇌를 <span class="highlight">조련하라</span></h2>
+          <p class="slide-content">우리 마음은 우리를 다치게 할 수도, 돕게 할 수도 있습니다. 부정적인 생각에 초점을 맞추면 불행해지고, 긍정적인 생각에 초점을 맞추면 행복해집니다. 이제 당신의 뇌를 행복하게끔 설정하는 구체적인 심리 훈련법을 배워봅시다.</p>
         </div>
       </div>
       
-      <!-- Slide 38: 12 Rules for a Happy Diet -->
-      <div class="slide">
+      <!-- Slide 18: Psychological Distance -->
+       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">행복한 식사를 위한 <span class="highlight">12가지 규칙</span></h2>
-          <div class="slide-content space-y-1">
-            <p>1. 영구적으로 행복하게 할 음식을 선택하라.</p>
-            <p>2. 열량이 행복에 기여하게 하라 (고품질 음식).</p>
-            <p>3. 더 행복해지도록 수분을 섭취하라.</p>
-            <p>4. 고품질 단백질로 기분 좋은 신경화학물질 분비를 늘리자.</p>
-            <p>5. 건강한 지방으로 뇌를 행복하게 하자.</p>
-            <p>6. 오랫동안 기분을 북돋우는 탄수화물을 고르자.</p>
-            <p>7. 향신료 찬장에서 행복을 찾자.</p>
-            <p>8. 성욕을 촉진하는 음식을 먹자.</p>
-            <p>9. 몸이 행복하도록 청정한 음식을 먹자.</p>
-            <p>10. 제외 식이요법으로 행복 방해 요소를 타파하자.</p>
-            <p>11. 간헐적 단식으로 쾌락 적응을 막자.</p>
-            <p>12. 음식과 행복한 마음가짐을 갖자.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 39: Section Title - Chapter 4 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">4장. 심리 습관편</p>
-          <h2 class="slide-title">하루 10분, <span class="highlight">불안한 뇌를 조련하라</span></h2>
-          <p class="slide-content">생각하는 대로 느끼고, 느끼는 대로 행동하고, 행동하는 대로 가진다. - 조지프 매클렌던</p>
-        </div>
-      </div>
-
-      <!-- Slide 40: Train your Brain -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">행복을 <span class="highlight">신경계에 고정시키는 법</span></h2>
-          <p class="slide-subtitle">어디에 주의를 기울이는지가 항상 기분을 결정합니다.</p>
+          <h2 class="slide-title">마음에 이름을 붙이자: <span class="highlight">심리적 거리 두기</span> 🚶‍♂️...🧠</h2>
+          <p class="slide-subtitle">우리는 우리 마음이 아닙니다. 내 의식에 떠오르는 온갖 생각을 낱낱이 믿지 않아도 된다는 사실을 깨달아야 합니다.</p>
           <div class="slide-content">
-            <p>부정적으로 생각하면 스트레스 호르몬인 코르티솔 수치가 증가해 불안하고 우울해집니다. 반면, 긍정적으로 생각하면 행복 호르몬인 도파민과 세로토닌이 분비되어 기분이 좋아집니다. 뇌가 행복하게끔 설정하는 과학적 방법들이 있습니다.</p>
+            <p>부정적인 생각을 하는 내면의 목소리에 '허미'(말썽쟁이 너구리), '조지', '리타' 등 별명을 붙여주세요. 이것은 '나'와 '내 생각'을 분리하는 강력한 기법입니다.</p>
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 핵심 전략</h3>
-              <p class="mt-2">부정적인 관점에서 벗어나 더 행복한 사고방식으로 옮겨가는 간단한 전략들을 일상생활에 적용하는 것부터 시작할 수 있습니다.</p>
+              <h3 class="font-bold text-lg">💡 실행 방법</h3>
+              <p class="mt-2">내면의 목소리가 부정적인 말을 할 때, 이렇게 대응해 보세요: <br><i>"의견 고마워, 허미. 하지만 그건 도움이 되지 않는 생각이야."</i><br>이름을 붙임으로써 당신은 그 생각과 거리를 두고, 그것에 휘둘리지 않을 힘을 얻게 됩니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 41: 4 Simple Strategies -->
+      <!-- Slide 19: Positive Psychology -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">행복한 사고방식을 위한 <span class="highlight">4가지 전략</span></h2>
-          <div class="slide-content space-y-4">
-            <p><b>1. '기쁨 놀이'를 하자 (폴리아나처럼):</b> 어떤 상황에서든 기뻐할 거리를 찾는 연습입니다. '어떤 기뻐할 거리가 있을까?'라고 스스로에게 질문하세요.</p>
-            <p><b>2. 마음에 이름을 붙이자 (심리적 거리 두기):</b> 내면의 부정적인 목소리(침입자)에 '허미'나 '조지' 같은 이름을 붙여주세요. 그 생각과 나 자신을 분리하고, 비합리적인 생각이라면 무시하는 연습을 합니다.</p>
-            <p><b>3. 불필요한 불행한 순간을 차단하자:</b> ① 일부러 불행을 느끼고 ② "멈춰!"라고 외치며 패턴을 차단하고 ③ 행복한 기억에 집중한 뒤 ④ 스스로를 축하해주는 4단계 과정을 거칩니다.</p>
-            <p><b>4. 언제 어디서나 멋진 기분을 만끽하자 (기억술):</b> 행복했던 기억들을 집 안의 특정 장소와 연결하세요. 기분이 안 좋을 때 집 안을 거니는 상상을 하며 행복한 기억을 되살리는 훈련을 합니다.</p>
+          <h2 class="slide-title">긍정성 편향 훈련: 행복도를 높이는 <span class="highlight">9단계</span> 📈</h2>
+          <p class="slide-subtitle">부정적인 관점에서 벗어나 더 행복한 사고방식으로 옮겨가는 간단하지만 강력한 전략들입니다.</p>
+          <div class="slide-content text-lg space-y-2">
+            <p><b>1. "오늘은 멋진 날이 될 거야"</b>라고 말하며 하루 시작하기</p>
+            <p><b>2. 소소한 행복의 순간들</b>을 기록하기</p>
+            <p><b>3. 고마움과 감사 인사</b>를 자주 표현하기</p>
+            <p><b>4. 다른 사람에게 공감</b>하고 친절하게 대하기</p>
+            <p><b>5. 자신의 강점과 성취</b>에 초점 맞추기</p>
+            <p><b>6. 현재를 살아가도록</b> 훈련하기</p>
+            <p><b>7. 부정성을 없애고</b> 긍정적인 사람이 되기 (ANTs 퇴치)</p>
+            <p><b>8. 인생에서 재미와 웃음</b>을 찾기</p>
+            <p><b>9. "오늘은 어떤 일이 잘 풀렸지?"</b>라고 물으며 하루 마무리하기</p>
           </div>
         </div>
       </div>
-
-      <!-- Slide 42: Killing the ANTs -->
+      
+      <!-- Slide 20: ANTs -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">떠오르는 생각을 낱낱이 믿지 말자: <span class="highlight">ANTs 죽이기</span></h2>
-          <p class="slide-subtitle">ANTs (Automatic Negative Thoughts: 자동적인 부정적 생각)는 당신의 행복을 훔치는 개미들입니다.</p>
+          <h2 class="slide-title">부정적인 생각(ANTs) <span class="highlight">퇴치하기</span> 🐜</h2>
+          <p class="slide-subtitle">자동적으로 떠오르는 부정적인 생각(Automatic Negative Thoughts)은 당신의 행복을 훔치는 개미들입니다.</p>
           <div class="slide-content">
-            <p>부정적인 생각이 들 때마다 다음 5가지 질문을 던져보세요:</p>
-            <ol class="list-decimal list-inside mt-4">
-              <li>1. 그 생각은 진실인가?</li>
-              <li>2. 100퍼센트 확실하게 절대적으로 진실인가?</li>
-              <li>3. 그 생각을 믿을 때 기분이 어떠한가?</li>
-              <li>4. 그 생각을 하지 않는다면 기분이 어떠하겠는가?</li>
-              <li>5. 생각을 정반대로 돌려 정반대 생각이 사실인지 물어보자.</li>
-            </ol>
+             <p class="mb-4">부정적인 생각이 들 때마다 다음 5가지 질문을 던져보세요:</p>
+             <ul>
+                 <li>1. 그 생각은 <span class="highlight">진실</span>인가?</li>
+                 <li>2. 100퍼센트 확실하게 <span class="highlight">절대적으로</span> 진실인가?</li>
+                 <li>3. 그 생각을 믿을 때 <span class="highlight">기분</span>이 어떠한가?</li>
+                 <li>4. 그 생각을 하지 않는다면 기분이 <span class="highlight">어떠하겠는가</span>?</li>
+                 <li>5. 생각을 <span class="highlight">정반대로</span> 돌려보자. 그 생각도 사실일 수 있는가?</li>
+             </ul>
+             <p class="mt-6"><b>예시:</b> "아무도 나를 좋아하지 않아." ➡️ <b>정반대 생각:</b> "어떤 사람들은 나를 좋아한다." 이 새로운 생각이 사실이라는 증거를 찾아보세요.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 43: Section Title - Chapter 5 -->
+      <!-- Slide 21: Section 5 Title -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">5장. 관계 습관편</p>
+          <p class="slide-part-title">Part 5: 관계 습관편</p>
           <h2 class="slide-title">인간은 <span class="highlight">연결되어야</span> 행복할 수 있다</h2>
-          <p class="slide-content">건강한 관계를 만드는 8가지 지침, RELATING.</p>
+          <p class="slide-content">긍정적인 관계는 우리가 사랑받고, 안전하고, 만족스럽다고 느끼게 합니다. 반면 문제 있는 관계는 불안과 불행을 유발합니다. 건강한 관계를 만들고 유지하는 8가지 지침 'RELATING'을 알아봅니다.</p>
         </div>
       </div>
       
-      <!-- Slide 44: RELATING (R-E-L) -->
+      <!-- Slide 22: RELATING Acronym -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">건강한 관계의 8가지 지침: <span class="highlight">RELATING</span> (1/3)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>R - Responsibility (책임감):</b> 내 기분과 태도는 내 책임입니다. 관계에서 발생하는 문제 해결을 주도적으로 찾고, 상대방을 탓하지 않는 자세입니다.</p>
-            <p><b>E - Empathy (공감):</b> 상대방의 뇌 유형을 파악하고, 그 사람이 어떨 때 행복하고 불행한지 이해하려 노력하는 것입니다. 상대방의 관점에서 보려고 노력하세요.</p>
-            <p><b>L - Listening (경청):</b> 적극적 경청은 신뢰를 쌓고 관계를 강화합니다. 상대방의 말을 끊지 않고, 판단을 미루며, 들은 말을 반복하여 이해했는지 확인합니다.</p>
+          <h2 class="slide-title">건강한 관계를 만드는 <span class="highlight">RELATING</span> 8가지 지침</h2>
+          <p class="slide-subtitle">이 원칙들은 당신과 소중한 사람들 사이의 유대를 강화시켜 줄 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-lg">
+            <p><b>R</b>esponsibility (책임감)</p>
+            <p><b>E</b>mpathy (공감)</p>
+            <p><b>L</b>istening (경청)</p>
+            <p><b>A</b>ssertiveness (자기주장)</p>
+            <p><b>T</b>ime (시간)</p>
+            <p><b>I</b>nquiry (질문)</p>
+            <p><b>N</b>oticing (장점 주목)</p>
+            <p><b>G</b>race (자비와 용서)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Global Happiness Concepts -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">세계로 연결된 <span class="highlight">행복의 가치</span> 🌍</h2>
+          <p class="slide-subtitle">전 세계의 다양한 문화에서 발견되는 행복의 개념들입니다.</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <p class="text-4xl">🇩🇰</p>
+              <p class="font-bold mt-2">Hygge (휘게)</p>
+              <p class="text-sm">아늑함, 편안함</p>
+            </div>
+            <div class="text-center">
+              <p class="text-4xl">🇳🇱</p>
+              <p class="font-bold mt-2">Gezelligheid (허젤리헤이트)</p>
+              <p class="text-sm">아늑함, 단란함</p>
+            </div>
+            <div class="text-center">
+              <p class="text-4xl">🇩🇪</p>
+              <p class="font-bold mt-2">Gemütlichkeit (게뮈틀리히카이트)</p>
+              <p class="text-sm">따뜻함, 친근함</p>
+            </div>
+             <div class="text-center">
+              <p class="text-4xl">🇳🇴</p>
+              <p class="font-bold mt-2">Friluftsliv (프리루프트슬리브)</p>
+              <p class="text-sm">야외 생활</p>
+            </div>
+            <div class="text-center">
+              <p class="text-4xl">🇸🇪</p>
+              <p class="font-bold mt-2">Lagom (라곰)</p>
+              <p class="text-sm">딱 적당하게</p>
+            </div>
+             <div class="text-center">
+              <p class="text-4xl">🇿🇦</p>
+              <p class="font-bold mt-2">Ubuntu (우분투)</p>
+              <p class="text-sm">인간다움, 공동체</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 45: RELATING (A-T-I) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">건강한 관계의 8가지 지침: <span class="highlight">RELATING</span> (2/3)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>A - Assertiveness (자기주장):</b> 자신의 생각과 감정을 확고하면서도 합리적으로 표현하는 능력입니다. 불편하다는 이유로 상대의 분노에 굴복하지 마세요.</p>
-            <p><b>T - Time (시간):</b> 건강한 관계를 만들려면 특별한 시간에 투자해야 합니다. 방해 요소가 없는 곳에서 현재에 집중하며 둘만의 시간을 계획하세요.</p>
-            <p><b>I - Inquiry (질문):</b> 관계에 대한 부정적인 생각이 들 때, 그 생각이 진실인지 스스로에게 물어보세요. 상대방의 말이나 행동의 진의가 무엇인지 직접 물어보는 것도 중요합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 46: RELATING (N-G) -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">건강한 관계의 8가지 지침: <span class="highlight">RELATING</span> (3/3)</h2>
-          <div class="slide-content space-y-4">
-            <p><b>N - Noticing (주목):</b> 단점보다 장점에 주목하세요. 긍정적인 말을 부정적인 말보다 5배 더 많이 하는 부부의 이혼 가능성은 현저히 낮습니다. 작은 사랑스러운 행동을 찾아보세요.</p>
-            <p><b>G - Grace and Forgiveness (자비와 용서):</b> 용서는 관계를 번창하게 하는 중요한 역할을 합니다. 용서는 자기 자신을 위한 것이며, 상처를 준 사람과 반드시 관계를 맺어야 한다는 뜻은 아닙니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 47: Global Happiness -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">세계로 연결된 <span class="highlight">행복의 가치</span></h2>
-          <p class="slide-subtitle">세계 여러 나라의 독특한 행복 문화를 통해 행복의 비밀을 찾아봅시다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ul>
-              <li>🇩🇰 덴마크: <b class="text-blue-600">휘게 (Hygge)</b> - 아늑한 자족감</li>
-              <li>🇳🇱 네덜란드: <b class="text-orange-600">허젤리헤이트 (Gezelligheid)</b> - 안락하고 편안한 기분</li>
-              <li>🇩🇪 독일: <b class="text-yellow-600">게뮈틀리히카이트 (Gemütlichkeit)</b> - 따뜻하고 아늑한 소속감</li>
-              <li>🇳🇴 노르웨이: <b class="text-red-600">프리루프트슬리브 (Friluftsliv)</b> - 야외 생활</li>
-              <li>🇸🇪 스웨덴: <b class="text-blue-500">라곰 (Lagom)</b> - 딱 적당하게</li>
-            </ul>
-            <ul>
-              <li>🇹🇷 튀르키예: <b class="text-red-500">케이프 (Keyif)</b> - 즐거운 순간의 음미</li>
-              <li>🇳🇬 나이지리아: <b class="text-green-600">우분투 (Ubuntu)</b> - 공동체 의식</li>
-              <li>🇮🇩 인도네시아: <b class="text-red-700">가이웁 (Guyub)</b> - 강한 소속감과 연민</li>
-              <li>🇵🇭 필리핀: <b class="text-blue-700">파키키파그캅와타오</b> - 집단 조화</li>
-              <li>🇯🇵 일본: <b class="text-red-800">신린요쿠 (森林浴)</b> - 삼림욕</li>
-              <li>🇺🇸 하와이: <b class="text-pink-500">호오포노포노</b> - 용서를 통한 관계 회복</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 48: Conclusion -->
+      <!-- Slide 24: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
-          <div class="text-6xl mb-6">🚀</div>
+          <div class="text-6xl mb-6">🎯</div>
           <h2 class="slide-title">결론: 당신의 행복은 영속적이어야 한다</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">행복은 노력해야 얻을 수 있습니다. 지속적으로 행복하려면 오랜 시간 동안 반복해서 올바른 결정을 내려 좋은 기분을 느끼는 <span class="highlight">신경 경로를 구축</span>해야 합니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">이제 당신이 자신의 행복을 100% 책임질 차례입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 49: 7 Secrets & 7 Questions -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">행복으로 가는 <span class="highlight">비밀과 질문</span></h2>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">🔑 7가지 비밀</h3>
-              <ol class="list-decimal list-inside">
-                <li>자신의 뇌 유형을 알자.</li>
-                <li>뇌의 물리적 기능을 최적화하자.</li>
-                <li>자기 뇌에 맞는 영양분을 공급하자.</li>
-                <li>내 사랑에 보답할 음식을 고르자.</li>
-                <li>마음을 다스리자.</li>
-                <li>장점에 더 주목하자.</li>
-                <li>명확한 가치, 목적, 목표를 갖자.</li>
-              </ol>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">❓ 7가지 질문</h3>
-              <ol class="list-decimal list-inside">
-                <li>고유한 요인에 초점을 맞추고 있는가?</li>
-                <li>이것은 뇌에 이로운가, 해로운가?</li>
-                <li>필요한 영양분을 공급하고 있는가?</li>
-                <li>내 사랑에 보답할 음식을 골랐는가?</li>
-                <li>그 생각은 진실인가? 잘 풀렸나?</li>
-                <li>내가 이끈 행동이 좋은 행동인가?</li>
-                <li>내 행동이 삶의 목표에 부합하는가?</li>
-              </ol>
-            </div>
+            <p class="mb-4">지속적으로 행복하려면 오랜 시간 동안 반복해서 올바른 결정을 내려 좋은 기분을 느끼는 신경 경로를 구축해야 합니다. 건강과 마찬가지로 행복에도 시간이 걸립니다. 오늘 배운 7가지 비밀과 7가지 질문을 통해, 당신은 <span class="highlight">자신의 행복을 책임질</span> 힘을 갖게 되었습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">지금 바로, 당신의 뇌를 사랑하는 것부터 시작하세요!</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 50: Thank You / Q&A -->
+      <!-- Slide 25: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -914,7 +629,7 @@
           slide.classList.add('active');
         }
       });
-      slideCounter.textContent = `슬라이드 ${currentSlide + 1} / ${slides.length}`;
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
       progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
 
       prevBtn.disabled = currentSlide === 0;
@@ -941,9 +656,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft') {
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
         prevBtn.click();
       }
     });

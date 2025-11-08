@@ -1,5 +1,15 @@
 [
   {
+    "slug": "마음이-아니라-뇌가-불안한-겁니다",
+    "title": "마음이 아니라 뇌가 불안한 겁니다",
+    "author": "다니엘 G 에이멘",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/마음이-아니라-뇌가-불안한-겁니다.html",
+    "cover": "assets/covers/마음이-아니라-뇌가-불안한-겁니다.jpg"
+  },
+  {
     "slug": "도파민네이션-쾌락-과잉-시대에서-균형-찾기",
     "title": "도파민네이션 쾌락 과잉 시대에서 균형 찾기",
     "author": "애나 렘키 지음, 김두완 옮김",
@@ -438,16 +448,6 @@
     "description": "",
     "presentation": "presentations/마흔에-읽는-쇼펜하우어.html",
     "cover": "assets/covers/마흔에-읽는-쇼펜하우어.jpg"
-  },
-  {
-    "slug": "마음이-아니라-뇌가-불안한-겁니다",
-    "title": "마음이 아니라 뇌가 불안한 겁니다",
-    "author": "다니엘 G 에이멘",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/마음이-아니라-뇌가-불안한-겁니다.html",
-    "cover": "assets/covers/마음이-아니라-뇌가-불안한-겁니다.jpg"
   },
   {
     "slug": "똑똑한-사람은-어떻게-생각하고-질문하는가-이시한",
