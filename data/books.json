@@ -1,5 +1,15 @@
 [
   {
+    "slug": "사장학개론",
+    "title": "사장학개론",
+    "author": "김승호",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/사장학개론.html",
+    "cover": "assets/covers/사장학개론.jpg"
+  },
+  {
     "slug": "사람을-얻는-지혜-현대지성-클래식-46",
     "title": "사람을 얻는 지혜 - 현대지성 클래식 46",
     "author": "발타자르 그라시안",
@@ -438,16 +448,6 @@
     "description": "",
     "presentation": "presentations/상실의-기쁨.html",
     "cover": "assets/covers/상실의-기쁨.jpg"
-  },
-  {
-    "slug": "사장학개론",
-    "title": "사장학개론",
-    "author": "김승호",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/사장학개론.html",
-    "cover": "assets/covers/사장학개론.jpg"
   },
   {
     "slug": "무엇이-나를-행복하게-만드는가-인생의-절반쯤-왔을-때-깨닫게-되는-것들-리처드-j-라이더-데이비드-a-샤피로",
