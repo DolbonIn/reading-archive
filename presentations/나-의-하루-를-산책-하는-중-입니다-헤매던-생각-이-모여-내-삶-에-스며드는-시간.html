@@ -21,9 +21,12 @@
       min-height: 85vh;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
     .slide.active {
       display: flex;
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
@@ -59,9 +62,8 @@
       color: #333;
     }
     .highlight {
-      background-color: #FFF59D; /* Softer yellow */
+      background-color: #d4e4ff;
       padding: 0 0.25em;
-      border-radius: 4px;
     }
     .btn {
       padding: 12px 28px;
@@ -109,436 +111,568 @@
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
-    .quote-block {
-        margin-top: 2rem;
-        padding: 1.5rem;
-        background-color: #f8f9fa;
-        border-left: 4px solid #4f46e5;
-        font-style: italic;
-        color: #444;
-    }
   </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
   <div class="w-full">
-    <!-- Slides Container -->
     <div id="slides-container">
 
       <!-- Slide 1: Title -->
       <div class="slide active">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">🚶‍♀️</div>
+          <div class="text-7xl mb-8">🍃</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나의 하루를 산책하는 중입니다</h1>
-          <p class="text-xl md:text-2xl text-gray-700">헤매던 생각이 모여 내 삶에 스며드는 시간</p>
-          <p class="mt-8 text-lg text-gray-500">글·그림: 댄싱스네일</p>
+          <p class="text-xl md:text-2xl text-gray-700">헤매던 생각이 모여 <span class="highlight">내 삶에 스며드는 시간</span></p>
         </div>
       </div>
 
-      <!-- Slide 2: Author Introduction -->
+      <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">작가 소개: <span class="highlight">댄싱스네일</span> ☘️</h2>
-          <p class="slide-subtitle">그리고 쓰는 사람. 말도 안 되는 공상을 하며 산책하는 시간을 가장 좋아합니다.</p>
-          <div class="slide-content space-y-4">
-            <p>대학에서 디자인을 전공 후 그림과 마음의 상관관계에 관심을 갖고 미술심리상담사 과정을 수료했습니다. 상담센터에서 미술치료사로 일했던 경험을 살려, 이제는 매일 그리고 쓰는 자가 치유를 생활화하고 있습니다.</p>
-            <p><b>주요 저서:</b> 『게으른 게 아니라 충전 중입니다』, 『적당히 가까운 사이』, 『쉽게 행복해지는 사람』 등 다수의 책을 쓰고 그렸으며, 일본, 대만, 태국 등에 수출되었습니다.</p>
-             <div class="mt-6 text-base">
-                <p><i class="fa-brands fa-instagram mr-2"></i><b>인스타그램:</b> @dancing.snail</p>
-                <p><i class="fa-solid fa-b mr-2"></i><b>브런치:</b> brunch.co.kr/@dancingsnail</p>
-            </div>
+          <h2 class="slide-title">목차</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>프롤로그.</b> 매일 산책하듯 살고 싶다</p>
+            <p><b>Chapter 1.</b> 나를 미워하는 게 가장 쉬웠던 건 아닐까</p>
+            <p><b>Chapter 2.</b> 모두에게 착한 사람 말고 행복한 사람이 되고 싶어</p>
+            <p><b>Chapter 3.</b> 나만의 속도로 오늘을 살아간다</p>
+            <p><b>Chapter 4.</b> 더 자유로운 내일을 위해</p>
+            <p><b>결론.</b> 마무리</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 3: Table of Contents -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">목차 📖</h2>
-          <div class="slide-content text-lg space-y-4">
-            <p><b>프롤로그:</b> 매일 산책하듯 살고 싶다</p>
-            <p><b>Chapter 1:</b> 나를 미워하는 게 가장 쉬웠던 건 아닐까</p>
-            <p><b>Chapter 2:</b> 모두에게 착한 사람 말고 행복한 사람이 되고 싶어</p>
-            <p><b>Chapter 3:</b> 나만의 속도로 오늘을 살아간다</p>
-            <p><b>Chapter 4:</b> 더 자유로운 내일을 위해</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Section: Prologue -->
+      <!-- Slide 3: Section Title Prologue -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">프롤로그</p>
           <h2 class="slide-title">매일 <span class="highlight">산책하듯</span> 살고 싶다</h2>
-          <p class="slide-subtitle">시간의 압박감에서 벗어나, 가볍게 하루를 시작할 수 있는 우리가 되기를 바라며.</p>
+          <p class="slide-content">매일 약속 시간에 늦은 사람처럼 하루를 보냅니다. 시간이 갈수록 압박감이 불어나는 무한궤도에 갇힌 기분. 누구도 강요한 적 없는 목표를 향해 매일 허덕이며 달려보지만, 나는 매일 늦습니다.</p>
         </div>
       </div>
-
+      
+      <!-- Slide 4: Prologue Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">시간의 압박감 ⏳</h2>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg mb-2">쫓기는 삶</h3>
-              <p>매일 약속 시간에 늦은 사람처럼 하루를 보냅니다. '이 나이면 어느 정도 이루었어야 한다'는 성취에 도달하지 못하는 느낌, 시간이 갈수록 압박감이 불어나는 무한궤도에 갇힌 기분입니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg mb-2">기다림의 아이러니</h3>
-              <p>올해는 처음으로 새해 계획을 세우지 않았습니다. 계획대로 되는 일이 없다고 느꼈고, 예상치 못한 혼돈 속에서 할 수 있는 건 기다림뿐이었기 때문입니다. 아이러니하게도 시간이 해결해 주기를 바랄 수밖에 없었습니다.</p>
-            </div>
+          <h2 class="slide-title">시간이 해결해 준다는 말 🕰️</h2>
+          <p class="slide-subtitle">올해는 처음으로 새해 계획을 세우지 않았습니다. 어느 때보다 계획대로 되는 일이 없다고 느꼈고, 예상치 못한 혼돈 속에서 내가 할 수 있는 건 기다림뿐이었기에.</p>
+          <div class="slide-content">
+            <p>우리는 한 번에 몇 가지 대상에만 온전히 집중할 수 있어서, 시간이 지나 생각과 마음의 방에 또 다른 대상이 들어오면 그전에 어떤 힘든 일이 있었던 크게 애쓰지 않고도 잊어버리게 됩니다. 마음이 포화 상태가 되지 않고 유지할 수 있는 <span class="highlight">걱정의 총량에는 어차피 한계가 있다는 것</span>입니다.</p>
           </div>
         </div>
       </div>
 
+      <!-- Slide 5: Prologue Content -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">시간이 해결해 준다는 것</h2>
-            <p class="slide-subtitle">우리는 한 번에 몇 가지 대상에만 온전히 집중할 수 있습니다.</p>
-            <div class="slide-content">
-                <p>시간이 지나 생각과 마음의 방에 또 다른 대상이 들어오면, 그전에 어떤 힘든 일이 있었는지 크게 애쓰지 않고도 잊어버리게 됩니다. <span class="highlight">마음이 포화 상태가 되지 않고 유지할 수 있는 걱정의 총량에는 한계가 있다는 것.</span></p>
-                <div class="quote-block">
-                    <p>그렇기에 그저 나를 기다려주는 것만으로도 많은 것을 해결할 수 있습니다.</p>
-                </div>
-            </div>
+          <h2 class="slide-title">나를 기다려주는 시간</h2>
+          <p class="slide-subtitle">이제는 무리한 계획이나 목표를 향한 채찍질 대신, 가고자 하는 방향과 꾸준함을 잃지 않도록, 걱정과 불안에 삼켜지지 않도록 다정한 마음으로 나를 돕고 싶습니다.</p>
+          <div class="slide-content mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+             <p>그리하여 계획대로 되지 않은 날도, 계획대로 착착 이룬 날도 모두 다 <span class="highlight">나의 세계의 확장이라 여기며</span> 산책하듯 가볍게 하루를 시작할 수 있는 우리가 되길 바라며.</p>
+           </div>
         </div>
       </div>
 
-      <div class="slide">
-        <div class="slide-container text-center">
-            <h2 class="slide-title">다정한 마음으로 🤝</h2>
-            <p class="slide-subtitle">이제는 무리한 계획이나 목표를 향한 채찍질 대신, 가고자 하는 방향과 꾸준함을 잃지 않도록 나를 돕고 싶습니다.</p>
-            <div class="slide-content max-w-3xl mx-auto">
-                <p>계획대로 되지 않은 날도, 계획대로 착착 이룬 날도 모두 다 <span class="highlight">나의 세계의 확장</span>이라 여기며, 산책하듯 가볍게 하루를 시작할 수 있는 우리가 되길 바랍니다.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Section: Chapter 1 -->
+      <!-- Slide 6: Section Title Chapter 1 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 1</p>
           <h2 class="slide-title">나를 미워하는 게 가장 <span class="highlight">쉬웠던</span> 건 아닐까</h2>
-          <p class="slide-subtitle">"생각이 많아질 때마다 몸을 움직여 밖으로 나갔다."</p>
+          <p class="slide-content">"생각이 많아질 때마다 몸을 움직여 밖으로 나갔다."</p>
         </div>
       </div>
 
+      <!-- Slide 7: Chapter 1 Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">시간이 없다는 말 ⏰</h2>
-          <p class="slide-subtitle">가스경보기 설치에 1년이 걸린 이야기</p>
-          <div class="slide-content">
-            <p>인터넷으로 가스경보기를 구입했지만, 영어 설명서와 귀찮음 때문에 설치를 미뤘습니다. '시간이 나면 달아야지' 생각하며 한 달, 또 6개월이 흘렀습니다. 결국 1년이 지나서야 설치했는데, 3분도 채 걸리지 않았습니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">말의 진짜 의미</h3>
-              <p class="mt-2">'시간이 없다'는 말은 사실, '그것을' 할 시간이 없다는 의미입니다. <span class="highlight">무언가를 위해, 누군가를 위해 지금 당장은 시간을 내고 싶지 않다는 말</span>과 같습니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">감정의 스위치 <span class="highlight">off</span> 🎛️</h2>
-          <p class="slide-subtitle">내향형인 나는 사람이 많은 곳에서 유독 긴장하는 편입니다. 하지만 가족이나 친한 친구 앞에서는 진짜 모습을 편히 내비칩니다.</p>
+          <h2 class="slide-title">시간이 없다는 말 핑계일까?</h2>
+          <p class="slide-subtitle">가스경보기를 설치하는 데 걸린 시간은 단 3분. 3분이면 할 일인데 1년이나 걸렸다는 사실에 헛웃음이 나왔습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">감정의 진폭</h3>
-              <p>가까운 사람 앞에서만 농축된 감정이 터져 곤란할 때가 있습니다. 나쁜 기분이 다른 곳까지 전염될까 두려워 화나는 기분을 억지로 누르기도 합니다.</p>
+              <h3 class="font-bold text-lg">"시간이 없다"는 말의 진짜 의미</h3>
+              <p>다른 것은 할 시간이 있지만, '<span class="highlight">그건</span>' 할 시간이 없다는 말. 다른 사람을 볼 시간은 있지만, '<span class="highlight">그 사람</span>'을 볼 시간은 없다는 말. 무언가를 위해, 누군가를 위해 지금 당장은 시간을 내고 싶지 않다는 말입니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">잠시 꺼두기</h3>
-              <p>때로는 거대한 감정의 파도를 잠깐 비껴가고 싶을 때가 있습니다. 그런 날에는 '똑딱!'하고 마음속 감정의 스위치를 잠시 꺼둡니다. <span class="highlight">기분은 기분일 뿐, 그것 때문에 세상이 무너지지는 않으니까요.</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">사랑받고 싶어서 그런가 보다 💖</h2>
-          <p class="slide-subtitle">글을 쓰고 그림을 그리며 내가 모르던 나에 대해 알게 됩니다.</p>
-          <div class="slide-content">
-            <p>사람들은 제 그림이 따뜻하고 문체가 소란스럽지 않다고 평합니다. 하지만 평소의 저는 그와 반대로 매우 소란스럽습니다. 불안하면 극단적인 생각에 휩싸이기도 합니다.</p>
-            <p class="mt-4">그래서 미성숙한 행동들을 털어내고 생각 정리가 된 후에야 글을 씁니다. 우울한 상상들은 다른 사람들에게 받아들여질 수 있을 정도의 <span class="highlight">다정한 색을 입혀서 세상에 내놓습니다.</span></p>
-            <p class="mt-4 font-bold">내가 가진 모든 면을 다 드러내고 싶지는 않습니다. 사랑받고 싶은가 봅니다, 이렇게도.</p>
-          </div>
-        </div>
-      </div>
-
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">돈이 없을 때 가장 슬픈 것 💸</h2>
-          <p class="slide-subtitle">돈이 없으면 마음마저 가난해지는 것입니다.</p>
-          <div class="slide-content">
-            <p>어릴 때부터 아끼는 게 몸에 밴 편이라 벌이가 시원치 않을 때도 크게 불편하지 않았습니다. 소유물의 결핍이 나를 불행하게 하지는 않았습니다. 하지만 오랜만에 만난 친구와 밥 한 끼 먹는 데 인색해지는 나, 마음을 표현할 선물 금액대를 보며 들었다 놨다 하는 내가 가장 슬펐습니다.</p>
-            <div class="quote-block">
-                <p>돈을 벌게 된 후 가장 좋은 점은, <span class="highlight">사랑하는 사람들에게 적어도 인색해지지 않을 수 있다는 것</span>입니다. 좋아하는 사람과 밥 한 끼 맛있게 먹으려고 일합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">친하다는 것의 의미 🫂</h2>
-          <p class="slide-subtitle">때로는 가장 친밀하게 느끼는 존재들이 우리를 가장 힘들게 하기도 합니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">친밀함의 기준</h3>
-              <p>연락의 횟수보다 얼마나 깊은 속사정을 공유하는지가 친밀함의 기준이 되었습니다. 그래서 더 친한 사람에게는 공감, 이해, 배려를 더 많이 기대하게 됩니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">시절 인연</h3>
-              <p>하지만 아이러니하게도 거리를 두던 관계가 마음을 편하게 해주기도 합니다. 어쩌면 우리가 살면서 스치는 대부분의 관계가 <span class="highlight">시절 인연</span>일지 모릅니다. 너무 큰 기대로 서로를 힘들게 하지 말아요.</p>
+              <h3 class="font-bold text-lg">우선순위의 문제</h3>
+              <p>결국 '시간이 없다'는 것은 물리적인 시간의 부족이 아니라, 마음의 우선순위에서 밀려났다는 의미일 때가 많습니다. 우리는 무의식적으로 덜 중요하다고 생각하는 일을 뒤로 미루곤 합니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-       <!-- Section: Chapter 2 -->
+      <!-- Slide 8: Chapter 1 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정의 스위치 <span class="highlight">OFF</span> 🔘</h2>
+          <p class="slide-subtitle">내향형인 나는 사람이 많은 곳에서 유독 긴장을 많이 합니다. 일상적인 상황에서도 남들의 시선을 의식해 경직될 때가 있습니다.</p>
+          <div class="slide-content">
+            <p>하지만 가까운 사람 앞에서만 농축된 감정이 터져 곤란할 때도 있습니다. 특히 친밀한 사이에서 갈등은 감정의 진폭이 더 크기에, 나쁜 기분이 다른 곳까지 전염될까 두려워 화나는 기분을 억지로 누르기도 합니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">스위치를 꺼두는 날</h3>
+              <p>느끼고 싶지 않아 피해버린 감정이 결국 나를 집어삼킬지도 모른다는 걸 압니다. 그런데도 때로는 거대한 감정의 파도를 잠깐 비껴가고 싶은 날, '똑딱!'하고 <span class="highlight">마음속 감정의 스위치를 잠시 꺼둡니다.</span> 기분은 기분일 뿐이니까요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Chapter 1 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑받고 싶어서 <span class="highlight">그런가 보다</span></h2>
+          <p class="slide-subtitle">글을 쓰고 그림을 그리면서, 그리고 그것을 세상 밖에 내어놓기 시작하면서 내가 모르던 나에 대해 알게 됩니다.</p>
+          <div class="slide-content">
+             <p>평소의 나는 매우 소란스럽지만, 사람들은 담담한 글과 따뜻한 색을 통해 나를 봐줍니다. 나의 내면은 말 그대로 늘 소란스럽습니다. 그래서 미성숙한 행동들을 생활에서 털어내고 생각정리가 다 되고 나서야 글을 씁니다. 우울한 상상들은 다른 사람들에게 받아들여질 수 있을 정도의 <span class="highlight">다정한 색을 입혀서 세상에 내놓습니다.</span> 내가 가진 모든 면을 다 드러내고 싶지는 않습니다. 사랑받고 싶은가 봅니다, 이렇게도.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Chapter 1 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돈이 없을 때 가장 슬픈 것 💸</h2>
+          <p class="slide-subtitle">소유물의 결핍이 나를 불행하게 하지는 않았습니다. 다만 주변에 인색하면 안 된다고 배웠기에, 그럴 여력이 없을 때 잘못 살고 있는 것 같았습니다.</p>
+          <div class="slide-content mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <p>돈이 없으면 가장 슬픈 건 <span class="highlight">마음마저 가난해지는 것</span>입니다. 오랜만에 만난 친구와 밥 한 끼 먹는데도 인색해지는 나, 마음을 표현할 선물 금액대를 보며 들었다 놨다 하는 내가 가장 슬픕니다. 돈을 벌게 된 이후 가장 좋은 점은, 사랑하는 사람들에게 적어도 인색해지지 않을 수 있다는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Chapter 1 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가장 가까운 사람 때문에 가장 힘들었다</h2>
+          <p class="slide-subtitle">나에게는 만남이나 연락의 횟수보다 얼마나 깊은 속사정을 공유할 수 있는지가 친밀한 정도를 가르는 기준이 되었습니다. 그래서 더 친한 사람에게는 더 많이 기대했습니다. 공감도, 이해도, 배려도.</p>
+          <div class="slide-content">
+            <p>아이러니하게도 덜 친한 사람에게는 오히려 실망할 일이 없었습니다. 애초에 기대한 게 없었으니까요. 어쩌면 우리가 살면서 스치는 대부분의 관계가 시절 인연일지 모릅니다. 그러니 우리 너무 큰 기대로 서로를 힘들게 하지 않으며, <span class="highlight">그저 옆에 있어 줄 수 있는 그런 사이가 되어주자.</span></p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 12: Chapter 1 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진짜 어른의 조언 💡</h2>
+          <p class="slide-subtitle">카페 아르바이트 시절, 디자인 전공자라는 이유로 추가 업무를 받곤 했습니다. 신이 났던 나는 아르바이트 시간 외에도 열정적으로 디자인 작업을 해서 보여주기도 했습니다.</p>
+          <div class="slide-content">
+            <p>어느 날 그런 나를 지켜보던 베이커리 주방장님이 의미심장한 미소를 지으며 말했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">주방장님의 한마디</h3>
+              <p>"사회생활할 때는 되도록 재주를 숨겨야 해. <span class="highlight">일만 더 많아지거든.</span>" 그때는 몰랐습니다. 엄연히 비용을 지불받아야 할 전문성을 요하는 추가 업무를 순진하게도 공짜로 해줬다는 걸. 그는 진짜 어른의 지혜를 갖고 있었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Section Title Chapter 2 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 2</p>
           <h2 class="slide-title">모두에게 착한 사람 말고 <span class="highlight">행복한 사람</span>이 되고 싶어</h2>
-          <p class="slide-subtitle">"내가 옳다고 믿어온 단 몇 사람의 지지를 얻으면 충분하니까."</p>
+          <p class="slide-content">"내가 옳다고 믿어온 단 몇 사람만 있으면 충분하니까."</p>
         </div>
       </div>
 
+      <!-- Slide 14: Chapter 2 Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">좋아하는 척하지 않기로 했다 🙅‍♀️</h2>
-          <p class="slide-subtitle">사회생활을 하다 보면 일보다 사람이 더 힘들 때가 많습니다.</p>
-          <div class="slide-content">
-            <p>때와 장소에 맞게 사회적 가면을 쓰고 싫어하는 사람을 적절히 상대하는 것도 능력입니다. 하지만 적어도 사적인 관계에서만큼은 솔직해지고 싶습니다.</p>
-            <p class="mt-4">좋아하지도 않는 사람을 좋아하는 척 말과 행동을 꾸며내고 싶지 않습니다. 그렇게 가짜 관계를 맺을 때 <span class="highlight">외로워지는 쪽은 오히려 나였으니까요.</span> 잠깐의 외로움은 달래질지언정 깊은 유대감이 주는 충만함은 없었습니다.</p>
-             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+          <h2 class="slide-title">좋아하는 척하지 않기로 했다</h2>
+          <p class="slide-subtitle">사회생활을 하다 보면 일보다 사람이 더 힘들 때가 많습니다. 그래서 때와 장소에 맞게 사회적 가면을 쓰고 싫어하는 사람을 적절히 상대하는 것도 하나의 능력이라는 생각이 듭니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">솔직해질 용기</h3>
+              <p>하지만 적어도 사적인 관계에서만큼은 나에게도, 너에게도 솔직해지고 싶습니다. 좋아하지도 않는 사람을 좋아하는 척 말과 행동을 꾸며내고 싶지 않습니다. 그렇게 가짜 관계를 맺을 때 <span class="highlight">외로워지는 쪽은 오히려 나였으니까.</span></p>
+            </div>
+            <div>
               <h3 class="font-bold text-lg">나의 선택</h3>
-              <p class="mt-2">좋아하지 않는 사람을 그냥 좋아하지 않기로 했습니다. 모두에게 친절한 사람이 되기보다는, <span class="highlight">행복한 사람이 되고 싶습니다.</span></p>
+              <p>좋아하지 않는 사람을 그냥 좋아하지 않기로 했습니다. 모두에게 친절한 사람이 되기보다는, 행복한 사람이 되고 싶습니다. 나의 감정에 솔직해지는 것이 진정한 행복의 시작입니다.</p>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Slide 15: Chapter 2 Content -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">별거 없이 잘 쉬는 법 🛌</h2>
-          <p class="slide-subtitle">일요일은 공식적으로 옥장판 위를 떠나지 않는 날입니다.</p>
+          <p class="slide-subtitle">일요일은 공식적으로 옥장판 위를 떠나지 않는 날입니다. 식사와 화장실을 제외하고는 온전히 와식으로 하루를 보냅니다.</p>
           <div class="slide-content">
-            <p>물론 오랜 집순이 경력을 가진 저라도 한 달에 며칠은 번화가를 쏘다니곤 합니다. 그렇게 돌아다니고 집에 돌아오면 '역시 밖에 나가봐야 별거 없네'라는 생각이 들어 집에 누워만 있는 날에도 불안감을 내려놓고 안심하고 쉴 수 있습니다.</p>
-            <p class="mt-4 font-bold">과거의 나보다 나아지고 있음에, 오늘 하루도 별것 아닌 일들이 감사한 마음입니다.</p>
+            <p>물론 오랜 집순이 경력을 가진 나라도 한 달에 며칠 정도는 번화가를 쏘다니곤 합니다. 그렇게 돌아다니고 집에 돌아오면 '역시 밖에 나가봐야 별거 없네'라는 생각이 들어 집에 누워만 있는 날에도 '나만 이렇게 집에 있는 것 아닐까?' 하는 <span class="highlight">불안감을 내려놓고, 안심하고 쉴 수 있기 때문</span>입니다.</p>
+            <p class="mt-4">과거의 나보다 나아지고 있음에, 오늘 하루도 별것 아닌 일들이 감사한 마음입니다.</p>
           </div>
         </div>
       </div>
       
+      <!-- Slide 16: Chapter 2 Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">마음을 여는 데 <span class="highlight">오랜 시간</span>이 걸리는 사람 🐢</h2>
-          <p class="slide-subtitle">한 번 열어둔 마음을 다시 닫는 데도 그만큼 오랜 시간이 걸립니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">회피와 희망</h3>
-              <p>그런 자신을 누구보다 잘 알기에, 타인을 마음에 쉽게 들이지 못하고 겉으로는 회피하는 태도를 보일 때가 있습니다. 하지만 사실 그들은 누구보다 사람에 대한 희망을 놓지 못하는 자들이기도 합니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">기대를 낮추는 법</h3>
-              <p>우리가 관계를 단절하지 않으면서 상처를 최소화할 방법은 사람에 대한 기대를 낮추는 것입니다. <span class="highlight">늘 0을 기대하며 살자.</span> 그럼 환대는 고맙고, 실망하게 되더라도 지나치게 마음 쓸 일 없는 거니까요.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">딱 하루만 나를 봐주기로 했다 🙏</h2>
-           <p class="slide-subtitle">운동하다 다쳐서 엄지손가락에 깁스를 했습니다. 다친 건 손인데 힘든 건 마음이었습니다.</p>
+          <h2 class="slide-title">변하지 않을 단 한 가지 ✨</h2>
+          <p class="slide-subtitle">나이에 비해 이룬 것이 별로 없는 것 같은데 괜찮을까. 또래 친구들은 다 제 짝을 찾아 육아하기 바쁜데 괜찮을까. 막연한 걱정들로 머릿속이 가득할 때, 나만의 리추얼들이 있습니다.</p>
           <div class="slide-content">
-            <p>건강해지려고 노력했더니 상황이 더 안 좋아졌다는 게 억울하고 화가 났습니다. 맡은 업무가 끝나갈 때쯤 수개월간 쌓여온 스트레스가 폭발해 방에 앉아 엉엉 울어버렸습니다.</p>
-            <div class="quote-block">
-                <p>성숙한 성인이라면 할 일을 했겠지만, 나는 그런 어른이 아니었습니다. 하지만 적어도 그런 스스로를 미숙하다고 탓하지는 않기로 했습니다. <span class="highlight">힘들 땐 아이처럼 주저앉아 울어도 괜찮다고. 그러기도 하는 게 인생이라고.</span></p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">나를 위한 의식</h3>
+              <p>거품 목욕하며 책 읽기, 이불 속에서 드라마 보기, 모두가 잠든 새벽에 음악 들으며 그림 그리기. 이런 소소한 리추얼들이 나를 해방시킵니다. 삶의 시간과 상태가 바뀌듯이 행복해질 방법도 계속 변합니다. 그럼에도 <span class="highlight">변하지 않을 단 한 가지는, 나는 나를 행복하게 해줄 방법을 다시 찾아낼 거라는 것</span>입니다. 지금까지 그래왔듯이.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Section: Chapter 3 -->
+      <!-- Slide 17: Chapter 2 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음을 여는 데 오랜 시간이 걸리는 사람</h2>
+          <p class="slide-subtitle">관계에서 마음의 문을 여는 데 충분한 시간이 필요한 사람은, 한 번 열어둔 마음을 다시 닫는 데도 그만큼 오랜 시간이 걸립니다.</p>
+          <div class="slide-content">
+            <p>그런 자신을 누구보다 잘 알기에 타인을 마음에 쉽게 들이지 못하고 되레 겉으로는 회피하는 태도를 보일 때가 있습니다. 그들은 사실 누구보다도 사람에 대한 희망을 놓지 못하는 자들이기도 합니다. 기대가 컸던 만큼 실망도 크기에 <span class="highlight">한 번 닫힌 마음이 쉬이 열리지 않는 걸 테지.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 2 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성장통도 적당히 고통스러워야 약이 된다 🤕</h2>
+          <p class="slide-subtitle">"나를 죽이지 못하는 고통은 나를 더 강하게 해줄 뿐이다." 니체의 말입니다. 젊어서 고생은 사서도 한다고 흔히들 말합니다. 나는 그 말에 적극 반대합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">고통의 이면</h3>
+              <p>어려움과 시련은 무언가를 이룰 강력한 동기가 되기도 하지만, 어려서 너무 많은 고통과 상처를 겪으면 새로운 도전에 몸을 사리고 회피하게 되기도 합니다. 젊다고 부러 불구덩이 안으로 뛰어 들어갈 필요는 없습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">적절한 시련의 가치</h3>
+              <p>성장통도 적당히 고통스러워야 약이 됩니다. 때로 <span class="highlight">지나친 고통은 상처만 남길 뿐</span>입니다. 견디기 힘들 정도의 상황을 너무 오래 참기만 하지는 마라.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 19: Chapter 2 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">좋아하는 일로만 매일을 채울 수는 없어도 🎨</h2>
+          <p class="slide-subtitle">만약 로또 1등에 당첨된다면 무엇을 하고 있을까? 여행, 맛집 탐방, 그리고 그간 배우고 싶었던 도자기 공예나 현대무용, 연극 같은 것을 실컷 배울 것 같습니다.</p>
+          <div class="slide-content">
+            <p>막상 생각해보니 이런 것들은 여유 시간을 내야 하기는 하지만, 지금의 나에게도 완전히 혹은 영원히 불가능한 일은 아니었습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+               <p>좋아하는 일로만 매일을 채울 수는 없어도, <span class="highlight">삶의 일부쯤은 채울 수 있지 않을까.</span> 심호흡을 한 번 하고, 마음의 여유를 되찾으면 보이지 않던 것들이 보일 것입니다. 지금 가진 것 안에서 나에게 내어줄 수 있는 작은 선물들이.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 20: Chapter 2 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어지러운 하루 끝에는 펜을 들어 보기를 ✍️</h2>
+          <p class="slide-subtitle">나에게 글쓰기는 크게 두 가지 의미가 있습니다. '게워내기'와 '붙잡아 두기'. 같은 쓰기라도 상황에 따라 완전히 상반된 역할을 합니다.</p>
+          <div class="slide-content">
+            <p>생각이 많아지다가 비현실적인 불안으로 증폭될 때, 그 모든 생각들을 글로 뱉어내야만 마음의 안정을 찾을 수 있었습니다. 반면 뇌리를 빠르게 스치는 영감을 언어로 저장해 둔 뒤 나중에 다시 꺼내보고 싶을 때도 글을 씁니다.</p>
+            <p class="mt-4">어지러운 하루를 보낸 끝에는 펜을 들어 보기를 추천합니다. 그렇게 비현실적인 불안을 털어내고 현실 세계로부터 도망치지 않으며, <span class="highlight">내일을 향해 용기 있게 나아갈 수 있기를.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Section Title Chapter 3 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 3</p>
-          <h2 class="slide-title">나만의 <span class="highlight">속도로</span> 오늘을 살아간다</h2>
-          <p class="slide-subtitle">"나에게 필요한 건 나를 기다려주는 일이었다."</p>
+          <h2 class="slide-title"><span class="highlight">나만의 속도</span>로 오늘을 살아간다</h2>
+          <p class="slide-content">"나에게 필요한 건 나를 기다려주는 일이었다."</p>
         </div>
       </div>
-
+      
+      <!-- Slide 22: Chapter 3 Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">80퍼센트만 하며 살기로 했다 🎨</h2>
-          <p class="slide-subtitle">성공하고 행복해지려면 매사에 100퍼센트를 발휘해야 하는 줄 알았습니다.</p>
+          <h2 class="slide-title">80퍼센트만 하며 살기로 했다</h2>
+          <p class="slide-subtitle">성공하고 행복해지려면 매사에 내가 가진 에너지의 100퍼센트를 발휘하며 진심을 다해 살아야 하는 줄 알았습니다.</p>
           <div class="slide-content">
-            <p>하지만 세상은 내가 100퍼센트를 쏟아도 그대로 돌려주지 않았습니다. 때로는 10퍼센트의 노력에 200퍼센트의 결과가 오기도 하고, 300퍼센트만큼 애써도 아무것도 남지 않았습니다.</p>
-            <p class="mt-4">매일 100퍼센트의 노력을 하다가는 언젠가 영혼이 탈탈 털릴 것 같아 두렵습니다. 정신과 의사 정우열 선생님은 말했습니다. <span class="highlight">"나의 인생 모토는 80점으로 살자"</span> 라고.</p>
-            <p class="mt-4 font-bold">어쩌면 적당히 쉬엄쉬엄 일하며 버티다가, 운 좋게 얻어 걸리는 행운에 감탄할 줄 아는 자세가 긴 삶을 지치지 않고 행복하게 살아갈 수 있는 지혜가 아닐까.</p>
+            <p>하지만 세상은 내가 100퍼센트를 쏟아 부으면 곧이곧대로 100퍼센트를 돌려주는 식으로 돌아가지 않았습니다. 정신과 의사 정우열 선생님은 자신의 유튜브 채널에서 이렇게 말했습니다. <span class="highlight">“나의 인생 모토는 80점으로 살자”</span>라고.</p>
+            <p class="mt-4">어쩌면 적당히 쉬엄쉬엄 일하며 버티다가 운 좋게 얻어 걸리는 행운에 감탄할 줄 아는 자세가 100세 시대, 긴 삶을 지치지 않고 행복하게 살아갈 수 있는 지혜가 아닐까.</p>
           </div>
         </div>
       </div>
-
+      
+      <!-- Slide 23: Chapter 3 Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">우리가 <span class="highlight">행복 회로</span>를 돌리는 이유 💡</h2>
-          <p class="slide-subtitle">불행은 겪어도 적응이 잘되지 않아 항상 현재 진행 중인 불행이 가장 거대하게 느껴집니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">가벼운 위로</h3>
-              <p>그럴 때 제삼자가 "다 잘될 거야" 같은 말로 위로하면 그 말이 그렇게 가벼울 수가 없었습니다. 하지만 이제는 압니다. 가끔은 무한 긍정이 필요할 때도 있다는 걸.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">지나간 일이 될 테니</h3>
-              <p>당장 처한 상황이 너무 힘들어서 어떻게든 버텨나갈 희망이 필요할 때, 이성적이고 냉철한 조언보다는 <span class="highlight">막연하지만 다 잘될 거라는 말이 듣고 싶습니다.</span> 살면서 어떤 힘든 일을 겪더라도 언젠가 돌아보면 '지난 일'이 될 테니까요.</p>
+          <h2 class="slide-title">우리가 행복 회로를 돌리는 이유 😊</h2>
+          <p class="slide-subtitle">불행은 겪어도 겪어도 적응이 잘되지 않아서 항상 현재 진행 중인 불행이 가장 거대하게 느껴지곤 합니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">때로는 필요한 무한 긍정</h3>
+              <p>당장 처한 상황이 너무 힘들어서 어떻게든 버텨나갈 희망이 필요할 때, 그럴 때는 이성적이고 냉철한 조언보다는 <span class="highlight">막연하지만 다 잘될 거라는 말이 듣고 싶더라.</span> 삶의 고통이 늘 현재형이라는 점이 역설적으로 우리를 살게 하기도 합니다. 살면서 어떤 힘든 일을 겪더라도 언젠가 돌아보면 있을 수 있는 '지난 일'이 될 테니까요.</p>
             </div>
           </div>
         </div>
       </div>
-
+      
+      <!-- Slide 24: Chapter 3 Content -->
        <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">오랜 친구에게 소포를 보냈다 📮</h2>
-          <p class="slide-subtitle">중학교 시절 단짝이던 친구는 내가 글을 참 잘 쓴다고 항상 말해주었습니다.</p>
-          <div class="slide-content">
-            <p>책을 쓰며 스스로에 대한 믿음이 약해질 때마다 그 애가 나눠 준 응원의 마음을 떠올리며 글을 이어 나갔습니다. 어느덧 서로 바빠지고 삶의 생태계가 달라져 연락이 뜸해졌습니다.</p>
-            <p class="mt-4">몇 년 만에 친구에게 연락해 그동안 만든 책을 보내주겠다고 했습니다. 우리는 마치 어제 만난 것처럼 수다를 떨었습니다. '아, 이래서 오랜 친구가 좋은 거였지.'</p>
-             <div class="quote-block">
-                <p>그리고 이제야, 너무 늦은 마음을 전해봅니다. <span class="highlight">네가 해 준 말 한마디에 나는 늘 용기를 낼 수 있었다고.</span></p>
+          <h2 class="slide-title">그냥 나로 존재해도 괜찮을까</h2>
+          <p class="slide-subtitle">그림 작업을 시작한 이후 이상한 감정의 굴레를 맴돌았습니다. 외주 요청을 받아 일을 하고 있을 때는 스스로가 가치 있게 느껴졌지만, 그리지 않고 있을 때는 내가 아무것도 아닌 사람 같았습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">정체성의 함정</h3>
+              <p>어릴 때부터 그림을 그릴 때 가장 행복했는데, 어느새 그림을 그리는 행위가 내 자존감을 올려주는 도구가 되어버린 건 아닐까 두려웠습니다. 결국 '그림 그리는 사람'이라는 정체성을 뺀 그냥 나로 존재하는 걸 견딜 수 없어서 그렇게 열심히 일했는지도 모르겠습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">행위 자체를 즐기기</h3>
+              <p>과시하려는 마음 말고, 눈에 보이는 결과에 연연해 조급해하지 않고 <span class="highlight">순수하게 행위 자체를 즐기는 시간</span>을 가져 보기로 했습니다. 어쩌면 내게 가장 필요했던 건 나를 기다려 주는 일이었을지도 모르겠습니다.</p>
             </div>
           </div>
         </div>
       </div>
       
+      <!-- Slide 25: Chapter 3 Content -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">내 마음속의 <span class="highlight">검열관</span> 🕵️</h2>
-            <p class="slide-subtitle">계획적으로 일하기를 좋아하는 성향 탓에 종종 스스로를 몰아붙일 때가 있습니다.</p>
-            <div class="slide-content">
-                <p>미리 세워둔 일정에서 조금이라도 어긋나거나 결과물의 만족도가 떨어지는 걸 못 견디고, 빠르게 잘 해내야 한다는 압박감을 늘 달고 삽니다.</p>
-                 <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                  <h3 class="font-bold text-lg">진짜 상사는 바로 나</h3>
-                  <p class="mt-2">어느 날 문득 깨달았습니다. 조금 쉬어간다고 나에게 뭐라고 할 사람은 아무도 없다는 걸. 나를 몰아붙이는 마음속 상사는 <span class="highlight">바로 나 자신이었다는 걸.</span></p>
-                  <p class="mt-2">이제 중고 검열관들이 앉아 있던 자리에 신입 응원단을 초대하기로 했습니다. '성과를 내는 것도 중요하지. 하지만 세상에 계획대로만 되는 일은 없잖아?'</p>
-                </div>
+          <h2 class="slide-title">오랜 친구에게 소포를 보냈다 📦</h2>
+          <p class="slide-subtitle">내가 책을 쓰게 되었다고 하자, 중학교 시절 단짝이던 친구는 말했습니다. "너 그때 백일장에서 상도 받고 그랬었잖아. 난 항상 네가 글을 참 잘 쓴다고 생각했어."</p>
+          <div class="slide-content">
+            <p>어린 나에 대해 나보다 더 많은 것을 기억하는 사람. 내가 몇 권의 책을 써내는 동안 친구는 두 아이를 키우는 워킹맘이 되었고 서로 바빴습니다. 어느덧 싱글인 나와 워킹맘 친구의 삶의 생태계는 많이 달라져 있었습니다.</p>
+            <p class="mt-4">몇 년 만에 친구에게 연락해 그동안 만든 책을 보내주겠다고 했습니다. 우리는 마치 어제 만난 것처럼 한동안 쉬지 않고 수다를 떤 뒤, 중요한 이야기는 만나서 풀자며 말을 끝맺었습니다. '아, 이래서 오랜 친구가 좋은 거였지.' 나는 떠올렸습니다. <span class="highlight">네가 해 준 말 한마디에 나는 늘 용기를 낼 수 있었다고.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Chapter 3 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아름다운 순간을 전혀 눈치채지 못하고 📸</h2>
+          <p class="slide-subtitle">세상을 향한 냉소에 잠겨 아름다운 순간을 전혀 눈치채지 못하고 슬픔 속에서 지내던 날들에 대한 보상으로, 요즘 나는 이런 것들을 눈에 더 담으려 합니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">일상의 아름다움 찾기</h3>
+              <p>나를 괴롭게 만드는 것들에만 집중하다가 지금껏 얼마나 많은 아름다움을 지나쳤을까. 이제라도 아름다운 것들을 많이 봐둬야지. 나를 재촉하지 않고, 느긋한 마음으로. 보고 싶은 것을 보고, 먹고 싶은 것을 먹고. <span class="highlight">약간의 자유가 나를 살릴 거예요.</span></p>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Chapter 3 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내 마음속의 검열관 🧐</h2>
+          <p class="slide-subtitle">계획적으로 일하기를 좋아하는 성향 탓에 종종 스스로를 몰아붙일 때가 있습니다. 미리 세워둔 일정에서 조금이라도 어긋나거나 결과물의 만족도가 떨어지는 걸 못 견디고, 빠르게 잘 해내야 한다는 압박감을 늘 달고 삽니다.</p>
+          <div class="slide-content">
+            <p>여느 날처럼 바쁘게 일하다 문득 깨달았습니다. 조금 쉬어가며 한다고 나에게 뭐라고 할 사람은 아무도 없다는 걸. 나를 몰아붙이는 마음속 상사는 <span class="highlight">바로 나 자신이었다는 걸.</span></p>
+            <p class="mt-4">중고 검열관들이 쪼르르 앉아 있던 자리에 신입 응원단을 초대하기로 했습니다. '성과를 내는 것도 중요하지. 하지만 세상에 계획대로만 되는 일은 없잖아?' 마음속 응원단이 너스레를 떠는 동안 하루쯤 나의 어설픈 모습을 눈 감아 주기로 해본다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 3 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지금 옷장 속이 무슨 색으로 채워져 있나요? 👕</h2>
+          <p class="slide-subtitle">우리의 마음은 고정불변하는 것이 아닙니다. Let it be. 오늘 내가 무슨 색을 가장 사랑하든 그저 흘러가게 두려고 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">색으로 보는 마음</h3>
+              <p>우울과 무기력이 심하던 때엔 옷장에도 그림 속에도 유난히 청록이 많았습니다. 한때는 도트 무늬에 광적으로 집착한 시기도 있었습니다. 강박이 심했던 때라 그랬는지 온전한 동그라미들이 가지런히 정렬된 무늬를 보면 마음이 편안해지곤 했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">변화하는 취향</h3>
+              <p>그러다 의식하지 못하는 사이 좋아하는 무늬나 색이 많이 달라졌고 요즘 옷장에는 더 다양한 색과 무늬가 생겼습니다. 그중에서도 빨강이랑 노랑을 가장 사랑하는 것 같습니다. <span class="highlight">오늘 당신이 가장 사랑하는 색은 무엇인가요?</span></p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">숲속에서는 숲을 볼 수 없다 🌳</h2>
-          <p class="slide-subtitle">누군가가 나에게 해악을 끼치고 있는지 알아차리는 방법은 하나뿐입니다.</p>
-          <div class="slide-content">
-            <p class="font-bold text-2xl text-center">그에게서 <span class="highlight">멀어져 보는 것.</span></p>
-            <p class="mt-6">떨어져서 객관적으로 바라보지 않으면 절대 알 수 없는 것들이 있기 때문입니다. 숲속에서는 숲을 볼 수 없습니다.</p>
-            <p class="mt-4">나를 힘들게 하는 사람에게서 떨어져 보세요. 그리고 고요와 평화가 주는 가치를 온몸으로 느껴 볼 것. 혼자서도 괜찮다는 걸, 내가 나를 구하면 세상도 나를 돌본다는 걸 곧 깨닫게 될 것입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-       <!-- Section: Chapter 4 -->
+      <!-- Slide 29: Section Title Chapter 4 -->
       <div class="slide">
         <div class="slide-container">
           <p class="slide-part-title">Chapter 4</p>
           <h2 class="slide-title">더 <span class="highlight">자유로운</span> 내일을 위해</h2>
-          <p class="slide-subtitle">"세상을 있는 그대로 바라보며 살아가고 싶다."</p>
+          <p class="slide-content">"세상을 있는 그대로 바라보며 살아가고 싶다."</p>
         </div>
       </div>
-
+      
+      <!-- Slide 30: Chapter 4 Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">항상 성공할 수만은 없더라도 ✨</h2>
-          <p class="slide-subtitle">나이를 먹을수록 안되는 일에 빠르게 애정을 거둬버리는 자신을 발견하게 됩니다.</p>
+          <h2 class="slide-title">항상 성공할 수만은 없더라도</h2>
+          <p class="slide-subtitle">나이를 먹을수록 안되는 일에 빠르게 애정을 거둬버리는 자신을 발견하게 됩니다. 한때는 모든 일에는 노력한 만큼의 결과가 따를 거라 믿었습니다.</p>
           <div class="slide-content">
-            <p>한때는 모든 일에 노력한 만큼 결과가 따를 거라 믿었습니다. 이제는 노력한 만큼 기대하던 결과가 따르지 않을 때도 있는 게 인생임을 깨달아 갑니다.</p>
-            <p class="mt-4">우리가 정말 두려워해야 할 것은, 훗날 최선을 다해보지 않은 과거의 나를 탓하며 아무리 후회해도 시간을 다시 되돌릴 수는 없다는 사실입니다.</p>
-             <div class="quote-block">
-                <p>우리가 알아야 할 건, 노력이 우리가 기대한 결과를 가져다 주지 못할 때조차 적어도 그만큼의 <span class="highlight">경험치는 남긴다는 사실입니다.</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">현실보다 무서운 <span class="highlight">상상</span> 👻</h2>
-          <p class="slide-subtitle">오랫동안 고치고 싶었던 '자기 전 간식 먹는 버릇'이 있었습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">관점의 전환</h3>
-              <p>'고쳐야 해'라고 생각했을 때는 식욕을 참기가 너무 힘들었지만, '나는 지금 간헐적 단식 중이야'라고 생각하니 신기하게도 쉽게 유혹을 끊어낼 수 있었습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">부정적 믿음 깨기</h3>
-              <p>이것은 단순히 습관을 고친 것 이상의 의미였습니다. 십수 년간 절대 고칠 수 없다고 믿었던 부정적 믿음이 깨진 역사적인 순간이었습니다. 어쩌면 우리가 떼어낼 수 없다고 믿는 부정적인 면들이 다 사실은 아닐지 모릅니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">실패와 경험의 가치</h3>
+              <p>우리가 정말 두려워해야 할 것은 훗날 최선을 다해보지 않은 과거의 나를 탓하며 아무리 후회해도 시간을 다시 되돌릴 수는 없다는 사실입니다. 노력이 우리가 기대한 결과를 가져다 주지 못할 때조차 <span class="highlight">적어도 그만큼의 경험치는 남긴다는 사실</span>입니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="slide">
+      <!-- Slide 31: Chapter 4 Content -->
+       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">불안이 너의 <span class="highlight">나침반</span>이 될 거야 🧭</h2>
-            <p class="slide-subtitle">예전에 작업해 놓은 글이나 그림을 보면 그 수준이 부끄러워 손발이 움츠러들 때가 있습니다.</p>
-            <div class="slide-content">
-                <p>나의 형편없는 과거의 결과물을 마주한다는 건 괴로운 일입니다. 하지만 반대로 생각해보면, 그건 지금 나의 보는 눈과 실력이 더 높아졌음을 의미합니다.</p>
-                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                  <h3 class="font-bold text-lg">성장의 증거</h3>
-                  <p class="mt-2">100퍼센트 만족스럽지 않기 때문에 더 나아가야 할 방향을 찾을 수 있습니다. 현재의 내 모습이, 내 상황이 만족스럽지 않다면 떠올리세요.</p>
-                  <p class="mt-4 font-bold">그 불완전함과 불안이 나를 더 나은 곳으로 이끌어 주리라는 것을.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">돈, 사랑, 자유 중에 제일은? 🤔</h2>
-          <p class="slide-subtitle">학창 시절, 미대에만 가면 막연히 자유롭고 멋진 삶을 살게 될 거라고 꿈꿨습니다.</p>
+          <h2 class="slide-title">현실보다 무서운 상상 💭</h2>
+          <p class="slide-subtitle">오랫동안 고치고 싶었던 악습관이 있었습니다. 자기 전 이불 위에서 간식을 먹다가 잠드는 버릇. 십여 년 이상 지속되니 어느 시점에는 간식을 먹지 않으면 잠이 오지 않을 것 같은 강박이 생기는 지경에 이르렀습니다.</p>
           <div class="slide-content">
-            <p>다만 이 일화를 통해 말하고 싶은 건, 그때나 지금이나 나에게 최상의 가치는 <span class="highlight">'자유'</span>라는 것입니다.</p>
-            <p class="mt-4">일을 하고 돈을 버는 이유도 돈이 자유를 얻기 위한 수단이 되기 때문입니다. 시간적 자유, 만나고 싶지 않은 사람을 만나지 않을 자유가 내가 돈을 벌어 얻고 싶은 것입니다.</p>
-            <p class="mt-4 font-bold">지나온 삶에서 했던 선택의 이유를 가만히 살펴보세요. 무엇이 수단이고, 무엇이 목적인지. 당신에게 가장 중요한 가치는 무엇인가요?</p>
+            <p>‘나는 절대 못 할 거야’ 같은 생각이 떠오를 때마다 끊임없이 의심하고 대항하며 살기로 했습니다. 포기는 그렇게 여러 차례 더 싸워보고 그 후에 해도 늦지 않으니까. 만약 그렇게까지 해보고도 안 되는 일이라면 그때는 <span class="highlight">좀 더 홀가분하게 놓아줄 수 있을 테니까.</span></p>
           </div>
         </div>
       </div>
-
+      
+       <!-- Slide 32: Chapter 4 Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">있는 그대로 바라볼 <span class="highlight">자유</span> 🕊️</h2>
-          <p class="slide-subtitle">나이가 들수록 자연스러운 게 좋아집니다. 자연스럽다는 건 무언가를 꼬아보지 않고 있는 그대로 바라보는 것입니다.</p>
+          <h2 class="slide-title">적어도 사람답게 살고 싶기 때문에 🍚</h2>
+          <p class="slide-subtitle">최근 몇 년간은 일에 대한 간절함이 컸기에 업무 효율성에 집착하게 되었습니다. 행동이 느릿해서 남들보다 시간이 더 소요되니, 하루 중 어디서든 시간을 줄여야 했습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">뾰족한 마음</h3>
-              <p>어릴 때는 세상을 비뚤어진 시선으로 바라보기도 했습니다. '저 사람은 착한 척을 하네.' 이렇게 가시 돋친 생각을 하며 살면 사람 마음이 참 뾰족해집니다.</p>
+              <h3 class="font-bold text-lg">잃어버린 식사의 의미</h3>
+              <p>음식을 씹는 시간이 아까워 거의 매 끼니마다 곡물 셰이크를 먹었습니다. 나에게 식사란 생존을 위해 영양소를 보충하거나 스트레스를 푸는 것 이상의 의미가 없어졌습니다. 이건 사람다운 식사가 아니라는 생각이 들었습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">자유로운 시선</h3>
-              <p>무언가를 꼬아 보지만 않아도 대상을 다양한 시선으로 볼 수 있는 자유를 얻습니다. 세상을 있는 그대로 볼 줄 아는 시선은 곧 자유입니다. <span class="highlight">작고 보잘것없는 마음으로부터 나를 구해줄 자유.</span></p>
+              <h3 class="font-bold text-lg">되찾고 싶은 여유</h3>
+              <p>최근에는 주말까지 일해야 할 정도로 마감이 급한 업무는 맡지 않으려고 합니다. 이 각박한 하루하루 사이에도 인간으로서 누려야 마땅한 여유를 잊지 않기 위해. <span class="highlight">내가 나를 대접해야 한다는 사실을 언제나 잊지 말아요.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Chapter 4 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불안이 너의 나침반이 될 거야 🧭</h2>
+          <p class="slide-subtitle">예전에 작업해 놓은 글이나 그림을 보면 그 수준이 부끄러워 손발이 움츠러들 때가 있습니다. 나의 형편없는 과거의 결과물을 마주한다는 건 괴로운 일입니다.</p>
+          <div class="slide-content">
+            <p>하지만 반대로 생각해보면 그건 지금 나의 보는 눈과 실력이 더 높아졌음을 의미합니다. 100퍼센트 만족스럽지 않기 때문에 더 나아가야 할 방향을 찾을 수 있습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">불만족의 힘</h3>
+              <p>현재의 내 모습이, 내 상황이 만족스럽지 않다면 떠올리자. <span class="highlight">그 불완전함과 불안이 나를 더 나은 곳으로 이끌어 주리라는 것을.</span> 지난 일은 실패가 아니에요. 거기서부터 다시 시작할 수 있으니까요.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide: Conclusion -->
+      <!-- Slide 34: Chapter 4 Content -->
       <div class="slide">
-        <div class="slide-container text-center">
-          <div class="text-6xl mb-6">🌿</div>
-          <h2 class="slide-title">나의 하루 산책하기</h2>
-          <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">우리의 삶은 시간과 감정, 관계 속에서 끊임없이 흔들리는 산책과 같습니다. 중요한 것은 완벽한 경로가 아니라, <span class="highlight">나만의 속도로 꾸준히 걸어가는 것</span>입니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">불안을 나침반 삼아, 자유를 향해, 다정한 마음으로 오늘 하루를 산책합시다.</p>
+        <div class="slide-container">
+          <h2 class="slide-title">뭘 그렇게 복잡하게 생각해? 🤔</h2>
+          <p class="slide-subtitle">누군가에게 고민을 털어놓을 때면 종종 듣는 말입니다. 공감은커녕 핀잔까지 들어가며 내 사정을 그렇게 말하고, 또 말했습니다. 모두에게 이해받고 싶은 마음이 컸던 것 같습니다.</p>
+          <div class="slide-content">
+            <p>이제는 모두에게 이해를 바라지 않습니다. 이해해 주면 고맙고, 이해 못 해도 어쩔 수 없고. 말을 아끼는 그런 시기도 때로는 필요하니까.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결혼하고 싶은 사람이 없어서요</h2>
+          <p class="slide-subtitle">얼마 전 친척 어르신을 오랜만에 찾아뵈었을 때의 일입니다. 내 얼굴을 보시더니 대뜸 "넌 결혼 안 하냐!"라는 호통으로 인사를 대신하셨습니다.</p>
+          <div class="slide-content">
+            <p>"결혼하고 싶은 사람이 없어서요"라고 답하니, "네가 뭐 잘났냐?!"라고 또 호통을 치셨습니다. 하고 싶은 말이 많았지만 편찮으신 어른 앞에서 논쟁을 하고 싶지 않았습니다.</p>
+            <p class="mt-4">살아가다 보면 내가 원하는 상황에서 내가 원하는 사람만을 만날 수는 없습니다. 특히 가족은 선택할 수 없는 관계이기에 더욱 조심해야 하고 <span class="highlight">서로 간의 배려가 필요</span>합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide: Thank You / Q&A -->
+      <!-- Slide 36: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일에서 자유로워지는 법 🕊️</h2>
+          <p class="slide-subtitle">인문계 고등학교에 다니면서 반에서 유일한 '예체능 하는 애' 역할을 담당하는 동안 덤으로 따라온 건 '난 특별해'라는 감각이었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">특별함의 굴레</h3>
+              <p>그러다 그 감각이 엇나가 '나는 특별해야만 해. 그래야만 존재할 이유가 있는 거야'에 이르자 많은 것이 힘들어졌습니다. 내가 바라는 자유가 '특별하다는 느낌을 받는 상황'으로 한정된다면 굴레는 끝나지 않을 터였습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">진정한 자유의지</h3>
+              <p>결국 중요한 건 자유의지가 아닐까. 그때그때 닥치는 상황에서 최소한의 자유의지를 실행하며 사는 것입니다. 어떤 상황에서든 당당할 수 있는 태도를 갖춘다면 내가 무엇이 되든, 무엇이 되지 않든 <span class="highlight">조금 더 자유로울 것</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 37: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불편한 진실을 듣고 싶은 사람은 없다</h2>
+          <p class="slide-subtitle">민감한 주제를 직설적으로 말하는 걸 쿨한 행동이라고 잘못 생각하던 때가 있었습니다. 솔직하고 쿨한 나에 취해서 불편한 진실을 직설적으로 표현하곤 했습니다.</p>
+          <div class="slide-content">
+            <p>그런데 아무리 좋은 내용이라도 지나치게 직설적인 화법은 듣기 불편하다는 게 또 하나의 불편한 진실. 안 좋은 내용의 말도 표현만 완곡하게 돌리면 사람들은 대부분 더 쉽게 받아들입니다. 누군가에게 진심 어린 조언을 하고 싶을 때 한 번만 입장 바꿔 생각해 보자. <span class="highlight">똑같은 말을 내가 들었을 때 어떤 기분일지.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">너는 나를 더 이상 아끼지 않는구나</h2>
+          <p class="slide-subtitle">어른의 관계는 때로 솔직하지 못합니다. 누군가와 관계를 끝내고 싶을 때, '너에게 실망했어. 너를 더 이상 보고 싶지 않아' 같은 잔인한 말로 끝을 맺는 일은 웬만해서는 없습니다.</p>
+          <div class="slide-content">
+            <p>언제부턴가 그런 관계들을 하나둘 정리하기 시작했습니다. 그런데도 내려놓을 수밖에 없는 이유는 그런 관계를 붙잡아 두어도 나에게 남는 것은 결국 공허뿐이었기 때문입니다. 그 헛헛함이 나를 삼켜버리기 전에 무언가 해야만 더 이상 아프지 않을 테니. <span class="highlight">외로울지언정 공허해지고 싶지는 않으니까.</span> 나를 다치게 하면서 지켜야 하는 관계는 놓아주기로 해요.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 39: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돈, 사랑, 자유 중에 제일은... 💖</h2>
+          <p class="slide-subtitle">학창 시절 꼭 미대에 가고 싶다는 생각을 하게 된 결정적인 장면이 두 가지 있습니다. 다만 이 일화를 통해 말하고 싶은 건 그때나 지금이나 나에게 최상의 가치는 <span class="highlight">'자유'</span>라는 것입니다.</p>
+          <div class="slide-content">
+            <p>돌아보면 일을 하고, 공부를 하고, 누군가를 만나고 헤어졌던 모든 지나온 선택의 이유는 다 '자유'를 위해서였습니다. 일을 하고 돈을 버는 이유도 돈이 자유를 얻기 위한 수단이 되기 때문입니다. 시간적 자유, 만나고 싶지 않은 사람을 만나지 않을 자유가 내가 돈을 벌어 얻고 싶은 것입니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">당신의 가치는 무엇인가요?</h3>
+              <p>지나온 삶에서 했던 선택을 따라 기억을 더듬어보고 그 선택의 이유를 가만히 살펴보자. 무엇이 수단이고, 무엇이 목적인지. 돈, 사랑, 자유 중에 당신에게 가장 중요한 가치는 무엇인가?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Chapter 4 Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">누구도 당신에게 공감을 빚지지 않았다</h2>
+          <p class="slide-subtitle">이따금 나를 온전히 이해하지 못하는 타인에게 실망할 때가 있습니다. 아무리 오래 보고 가까운 사이라고 해도 조금 더 진심을 담아 이해하려고 노력할 수 있을 뿐. 내 인생의 자잘한 맥락과 역사를 온전히 이해할 수 있는 사람은 나뿐인 건데.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과도한 기대</h3>
+              <p>공감 능력이 마치 인간관계론 필수과목처럼 이야기되는 사회 분위기 때문일까. 가족, 친구, 연인이라는 이유로 서로에게 과도한 이해를 바라고 서운할 때가 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">서로의 입장</h3>
+              <p>나를 100퍼센트 이해할 수 있는 타인이 없듯이 반대로 나 역시 타인에게 100퍼센트의 이해나 공감을 해주기는 어렵습니다. <span class="highlight">우리는 서로에게 공감을 빚지지 않았으니까.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 41: Chapter 4 Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">있는 그대로 바라볼 자유 👀</h2>
+          <p class="slide-subtitle">나이가 들수록 자연스러운 게 좋아집니다. 자연스럽다는 건 무언가를 꼬아보지 않고 있는 그대로 바라보는 것입니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">뾰족한 마음 내려놓기</h3>
+              <p>'저 사람은 착한 척을 하네.' '감성적인 척을 하네.' 이렇게 가시 돋친 생각을 하며 살면 사람 마음이 참 뾰족해집니다. 싫어하기만 하던 게 어느 날은 좋아지기도 하고, 무엇이든 조금만 느슨하게 바라보면 좋은 기분을 느낄 선택지가 더 많아집니다. <span class="highlight">세상을 있는 그대로 볼 줄 아는 시선은 곧 자유</span>입니다. 작고 보잘것없는 마음으로부터 나를 구해줄 자유.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">👏</div>
+          <div class="text-6xl mb-6">:dart:</div>
+          <h2 class="slide-title">결론: 나의 하루를 산책하며</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">우리의 삶은 완벽한 계획이나 거창한 목표가 아닌, 산책하듯 가볍게 내딛는 하루하루의 발걸음으로 채워집니다. 때로는 길을 잃고, 때로는 잠시 멈춰 서기도 하지만, 그 모든 순간이 <span class="highlight">나의 세계를 확장하는 과정</span>입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">나만의 속도를 믿고, 오늘의 나를 다정하게 바라봐 주세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">:clap:</div>
           <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
           <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
         </div>
@@ -574,7 +708,7 @@
           slide.classList.add('active');
         }
       });
-      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
       progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
 
       prevBtn.disabled = currentSlide === 0;
@@ -601,11 +735,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-        e.preventDefault();
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        e.preventDefault();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
         prevBtn.click();
       }
     });
