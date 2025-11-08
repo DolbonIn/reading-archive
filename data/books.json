@@ -180,6 +180,16 @@
     "cover": "assets/covers/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.jpg"
   },
   {
+    "slug": "거인의-노트",
+    "title": "거인의 노트",
+    "author": "김익한",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/거인의-노트.html",
+    "cover": "assets/covers/거인의-노트.jpg"
+  },
+  {
     "slug": "개인주의자의-철학-수업",
     "title": "개인주의자의 철학 수업",
     "author": "마루야마 슌이치",
@@ -258,16 +268,6 @@
     "description": "",
     "presentation": "presentations/공부하고-있다는-착각-성적의-판도를-가르는-뇌-최적화의-기술.html",
     "cover": "assets/covers/공부하고-있다는-착각-성적의-판도를-가르는-뇌-최적화의-기술.jpg"
-  },
-  {
-    "slug": "거인의-노트",
-    "title": "거인의 노트",
-    "author": "김익한",
-    "date": "2025-11-08",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/거인의-노트.html",
-    "cover": "assets/covers/거인의-노트.jpg"
   },
   {
     "slug": "그가-나에게-말하지-않는-것-로라-데이브-지음-김소정-옮김",
