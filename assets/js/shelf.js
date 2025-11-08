@@ -36,13 +36,14 @@
       const books = Array.isArray(payload) ? payload : payload.books || [];
       if (!books.length) {
         if (emptyState) {
-          emptyState.style.display = 'flex';
+          emptyState.hidden = false;
           emptyState.innerHTML = '<div><strong>아직 책이 없습니다.</strong><br>PDF를 업로드해 첫 번째 책을 등록해 보세요.</div>';
         }
         return;
       }
       if (emptyState) {
-        emptyState.style.display = 'none';
+        emptyState.hidden = true;
+        emptyState.textContent = '';
       }
       renderBooks(books);
       setupMotion();
@@ -50,7 +51,7 @@
     .catch((error) => {
       console.error(error);
       if (emptyState) {
-        emptyState.style.display = 'flex';
+        emptyState.hidden = false;
         emptyState.textContent = '책 데이터를 불러오는 데 실패했습니다.';
       }
     });

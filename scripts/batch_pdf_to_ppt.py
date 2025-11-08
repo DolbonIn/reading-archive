@@ -19,6 +19,7 @@ import datetime as dt
 import fnmatch
 import json
 import re
+import shlex
 import subprocess
 import sys
 import time
@@ -198,6 +199,11 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         help="PDF를 찾을 디렉터리 (기본: %(default)s)",
     )
     parser.add_argument(
+        "--file-list",
+        type=Path,
+        help="업로드 목록 텍스트 파일 (한 줄당 상대/절대 경로)",
+    )
+    parser.add_argument(
         "--pattern",
         default="*.pdf",
         help="대상 파일 글로브 패턴 (기본: %(default)s)",
@@ -260,11 +266,54 @@ def collect_pdf_files(directory: Path, pattern: str) -> List[Path]:
     if matches:
         return sorted(matches)
 
-    return fallback_shell_glob(directory, pattern)
+    shell_matches = shell_glob_scan(directory, pattern)
+    if shell_matches:
+        return sorted(shell_matches)
+
+    windows_matches = windows_glob_scan(directory, pattern)
+    if windows_matches:
+        write_auto_file_list(directory, windows_matches)
+        return sorted(windows_matches)
+
+    return fallback_find(directory, pattern)
 
 
-def fallback_shell_glob(directory: Path, pattern: str) -> List[Path]:
-    """Use `find` as a last resort to work around DrvFs I/O errors."""
+def shell_glob_scan(directory: Path, pattern: str) -> List[Path]:
+    """Use bash globbing (with nocase support) to enumerate files."""
+    if not directory.exists():
+        return []
+
+    quoted_dir = shlex.quote(str(directory))
+    quoted_pattern = shlex.quote(pattern)
+    command = (
+        f"cd {quoted_dir} && "
+        "shopt -s nullglob nocaseglob; "
+        f"pattern={quoted_pattern}; "
+        "for f in $pattern; do printf '%s\\0' \"$PWD/$f\"; done"
+    )
+    result = subprocess.run(
+        ["bash", "-lc", command],
+        capture_output=True,
+        text=False,
+        check=False,
+    )
+    if result.returncode not in (0, 1):
+        if result.stderr:
+            msg = result.stderr.decode("utf-8", "ignore").strip()
+            if msg:
+                print(f"[무시] shell glob 경고: {msg}")
+        return []
+
+    entries = [
+        Path(path.decode("utf-8", "ignore"))
+        for path in result.stdout.split(b"\0")
+        if path
+    ]
+    return entries
+
+
+def fallback_find(directory: Path, pattern: str) -> List[Path]:
+    """Use `find` as the final fallback when everything else fails."""
     if not directory.exists():
         return []
 
@@ -297,9 +346,109 @@ def fallback_shell_glob(directory: Path, pattern: str) -> List[Path]:
     return sorted(entries)
 
 
+def windows_glob_scan(directory: Path, pattern: str) -> List[Path]:
+    """Use cmd.exe to gather file list when available."""
+    win_dir = to_windows_path(directory)
+    if not win_dir:
+        return []
+
+    pattern_path = str(Path(win_dir) / pattern)
+    command = f'for %f in ("{pattern_path}") do @echo %~ff'
+    try:
+        result = subprocess.run(
+            ["cmd.exe", "/c", command],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError as exc:
+        print(f"[무시] Windows dir 호출 실패: {exc}")
+        return []
+
+    if result.returncode not in (0, 1):
+        message = (result.stderr or "").strip()
+        if message:
+            print(f"[무시] Windows dir 경고: {message}")
+        return []
+
+    paths: List[Path] = []
+    for line in result.stdout.splitlines():
+        clean = line.strip()
+        if not clean:
+            continue
+        wsl_path = to_wsl_path(clean)
+        if wsl_path:
+            paths.append(wsl_path)
+    return paths
+
+
+def to_windows_path(path: Path) -> Optional[str]:
+    try:
+        result = subprocess.run(
+            ["wslpath", "-w", str(path)],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return result.stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def to_wsl_path(path: str) -> Optional[Path]:
+    try:
+        result = subprocess.run(
+            ["wslpath", "-u", path],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return Path(result.stdout.strip())
+    except (OSError, subprocess.CalledProcessError):
+        if len(path) >= 2 and path[1] == ":":
+            drive = path[0].lower()
+            remainder = path[2:].replace("\\", "/")
+            return Path(f"/mnt/{drive}/{remainder}")
+        return None
+
+
+def write_auto_file_list(directory: Path, paths: List[Path]) -> None:
+    auto_file = directory / ".auto_file_list.txt"
+    try:
+        relative_lines = []
+        for path in paths:
+            try:
+                relative_lines.append(str(path.relative_to(directory)))
+            except ValueError:
+                relative_lines.append(str(path))
+        auto_file.write_text("\n".join(relative_lines), encoding="utf-8")
+        print(f"[안내] Windows 목록을 '{auto_file}'에 저장했습니다.")
+    except OSError as exc:
+        print(f"[무시] file-list 저장 실패: {exc}")
+
+
+def load_list_file(file_path: Path, uploads_dir: Path) -> List[Path]:
+    entries: List[Path] = []
+    try:
+        raw_text = file_path.read_text(encoding="utf-8")
+    except OSError as exc:
+        print(f"[경고] file-list를 읽을 수 없습니다 ({exc}). 무시합니다.")
+        return entries
+    for line in raw_text.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        candidate = Path(stripped)
+        if not candidate.is_absolute():
+            candidate = uploads_dir / candidate
+        entries.append(candidate)
+    return entries
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     args = parse_args(argv)
     uploads_dir: Path = args.uploads
+    list_file: Optional[Path] = args.file_list
     pattern: str = args.pattern
     retries: int = max(0, args.retries)
     force: bool = args.force
@@ -314,13 +463,19 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"[경고] 업로드 디렉터리를 찾지 못했습니다: {uploads_dir}")
         return 0
 
-    try:
-        pdf_files = sorted(uploads_dir.glob(pattern))
-    except OSError:
-        pdf_files = collect_pdf_files(uploads_dir, pattern)
-    else:
+    pdf_files: List[Path]
+    if list_file:
+        pdf_files = load_list_file(list_file, uploads_dir)
         if not pdf_files:
+            print(f"[경고] file-list에서 유효한 경로를 찾지 못했습니다: {list_file}")
+    else:
+        try:
+            pdf_files = sorted(uploads_dir.glob(pattern))
+        except OSError:
             pdf_files = collect_pdf_files(uploads_dir, pattern)
+        else:
+            if not pdf_files:
+                pdf_files = collect_pdf_files(uploads_dir, pattern)
     if not pdf_files:
         print(f"[안내] 변환할 PDF가 없습니다. (패턴: {pattern})")
         return 0

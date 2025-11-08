@@ -40,3 +40,7 @@
 - `uploads/` 폴더에 있는 PDF를 한 번에 책장에 올리려면 `python scripts/batch_pdf_to_ppt.py` 를 실행하세요.
 - 파일명이 `제목 -- 저자 -- ...` 형식을 따르면 스크립트가 자동으로 제목과 저자를 추출해 전달합니다.
 - 실패한 항목은 최대 2번까지 재시도하며, 결과 HTML과 manifest 갱신은 기존 파이프라인(`run_pipeline`)을 그대로 사용합니다.
+- WSL에서 `uploads/` 디렉터리 전체를 읽지 못할 때는 스크립트가 자동으로 Windows 경로를
+  호출해 `.auto_file_list.txt`를 생성하고 그 목록을 사용합니다.
+- 자동 생성이 안 될 경우(예: Windows 명령 실행이 차단된 환경)에는 직접 `uploads/filelist.txt`
+  를 만든 뒤 `--file-list uploads/filelist.txt` 옵션과 함께 실행하면 됩니다.

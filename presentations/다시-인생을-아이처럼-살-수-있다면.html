@@ -12,21 +12,22 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #FCFCFC;
-      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-      background-size: 30px 30px;
+      background-color: #f8fafc;
     }
     .slide {
       display: none;
       min-height: 85vh;
       align-items: center;
       justify-content: center;
-      opacity: 0;
       transition: opacity 0.5s ease-in-out;
+      opacity: 0;
+      position: absolute;
+      width: 100%;
     }
     .slide.active {
       display: flex;
       opacity: 1;
+      position: relative;
     }
     .slide-container {
       width: 100%;
@@ -35,40 +36,40 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(4px);
-      border-radius: 1.5rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid rgba(0,0,0,0.07);
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 5px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
     }
     .slide-part-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #555;
+      color: #475569;
       margin-bottom: 8px;
     }
     .slide-title {
       font-size: 2.8rem;
       font-weight: 900;
-      color: #111;
+      color: #0f172a;
       margin-bottom: 25px;
       line-height: 1.3;
     }
     .slide-subtitle {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #444;
+      color: #334155;
       margin-bottom: 35px;
       line-height: 1.6;
     }
     .slide-content {
       font-size: 1.1rem;
       line-height: 1.9;
-      color: #333;
+      color: #1e293b;
     }
     .highlight {
-      background-color: #FFDD00;
+      background-color: #fef08a;
       padding: 0 0.25em;
+      border-radius: 4px;
     }
     .btn {
       padding: 12px 28px;
@@ -76,21 +77,22 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: none;
+      border: 1px solid transparent;
     }
     .btn-primary {
-      background-color: #111;
+      background-color: #1e293b;
       color: white;
     }
     .btn-primary:hover {
-      background-color: #333;
+      background-color: #334155;
     }
     .btn-secondary {
-      background-color: #F0F0F0;
-      color: #333;
+      background-color: #f1f5f9;
+      color: #334155;
+      border-color: #cbd5e1;
     }
     .btn-secondary:hover {
-      background-color: #E0E0E0;
+      background-color: #e2e8f0;
     }
     .progress-bar-container {
       position: fixed;
@@ -98,20 +100,20 @@
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
-      border-top: 1px solid #eee;
+      border-top: 1px solid #e2e8f0;
       z-index: 10;
     }
     .progress-bar {
       width: 100%;
-      background-color: #eee;
+      background-color: #e2e8f0;
       border-radius: 9999px;
       height: 8px;
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #111;
+      background-color: #1e293b;
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
@@ -120,646 +122,764 @@
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
-  <div class="w-full">
+  <div class="w-full relative">
     <!-- Slides Container -->
     <div id="slides-container">
 
       <!-- Slide 1: Title -->
       <div class="slide active">
-        <div class="slide-container text-center">
-          <div class="text-7xl mb-8">🧒</div>
+        <div class="slide-container text-center items-center">
+          <div class="text-7xl mb-8">🤸‍♂️</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">다시 인생을 아이처럼 살 수 있다면</h1>
           <p class="text-xl md:text-2xl text-gray-700">두려움 없이 인생에 온전히 뛰어드는 이들의 <span class="highlight">5가지 비밀</span></p>
-          <p class="mt-8 text-lg text-gray-600">존 오리어리 (John O'Leary)</p>
+          <p class="mt-8 text-lg text-gray-600">존 오리어리 (John O'Leary) 원작</p>
         </div>
       </div>
 
       <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">목차 📖</h2>
-          <div class="slide-content text-lg space-y-3">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg space-y-4">
             <p><b>프롤로그:</b> 아이의 감각으로 세상을 사는 법</p>
-            <p><b>1부. 경이감:</b> 가능성의 길을 여는 질문</p>
+            <p><b>1부. 경이감:</b> '왜?'라는 질문의 힘</p>
             <p><b>2부. 기대감:</b> 인생의 관점을 바꾸면 달라지는 것들</p>
-            <p><b>3부. 몰입:</b> 중요한 순간을 놓치지 마라</p>
-            <p><b>4부. 소속감:</b> 기쁨에는 전염성이 있다</p>
-            <p><b>5부. 자유:</b> 이기는 게임을 하라</p>
+            <p><b>3부. 몰입:</b> 지금 이 순간에 집중하는 기술</p>
+            <p><b>4부. 소속감:</b> 우리는 혼자가 아니라는 진실</p>
+            <p><b>5부. 자유:</b> 이기는 게임을 선택하는 용기</p>
+            <p><b>에필로그:</b> 인생 최고의 순간은 아직 오지 않았다</p>
           </div>
         </div>
       </div>
-
-      <!-- Slide 3: Section Title - Prologue -->
+      
+      <!-- Slide 3: Prologue Section Title -->
       <div class="slide">
-        <div class="slide-container">
+        <div class="slide-container items-center text-center">
           <p class="slide-part-title">프롤로그</p>
-          <h2 class="slide-title">아이의 감각으로 <span class="highlight">세상을 사는 법</span></h2>
-          <p class="slide-content">우리는 나이가 들면서 어린 시절의 열정과 호기심을 잃어버립니다. 잃어버린 아이의 감각을 되찾아 인생의 기쁨을 회복하는 여정을 시작합니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 4: Prologue Content -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">나이에 따라 <span class="highlight">변하는 태도</span></h2>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg mb-2">어린 학생들 (1-3학년) 🧒</h3>
-                    <p>파티 분위기! 얼굴엔 미소가 가득하고 에너지가 넘칩니다. 질문에 열심히 대답하고, 너도나도 손을 들며 적극적으로 참여합니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-2">나이가 든 학생들 (7-8학년) 🧑‍💻</h3>
-                    <p>차분하고 조용합니다. 고개를 숙이고 휴대폰을 만지작거리며, 질문하는 일이 드뭅니다. 적극적으로 참여하는 기쁨을 잊은 듯 보입니다.</p>
-                </div>
-            </div>
+          <h2 class="slide-title">아이의 감각으로<br><span class="highlight">세상을 사는 법</span> 🧒</h2>
+          <p class="slide-content max-w-3xl">우리는 언제부터 세상을 향한 순수한 호기심을 잃어버렸을까요? 어린 시절의 반짝이는 눈빛을 되찾기 위한 여정을 시작합니다.</p>
         </div>
       </div>
 
-      <!-- Slide 5: Prologue Question -->
+      <!-- Slide 4: Prologue Story -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">우리의 질문: <span class="highlight">그 아이는 어디로 갔을까?</span> 🤔</h2>
-          <p class="slide-subtitle">엉뚱하고, 경이롭고, 활기 넘치던 어린 시절의 '나'는 어디로 사라졌을까요?</p>
+          <h2 class="slide-title">"아저씨 손은 왜 이래요?" 🤔</h2>
+          <p class="slide-subtitle">강연 후, 한 아이가 저자에게 던진 순수한 질문.</p>
           <div class="slide-content">
-            <p>어른이 되면서 우리는 열정의 불꽃이 꺼진 채 쳇바퀴 도는 삶을 삽니다. 부정적인 뉴스와 소셜미디어 속에서 고립감과 외로움은 더욱 짙어집니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">이제는 바꿔야 할 때입니다.</h3>
-              <p class="mt-2">우리는 모두 삶을 대하는 태도를 바꿔야 합니다. 반짝거리는 눈빛과 설레는 마음, 열정으로 미래를 맞이해야 합니다. 그 <span class="highlight">답은 아이들에게</span> 있습니다.</p>
-            </div>
+            <p>저자는 수많은 어른들 앞에서 강연했지만, 가장 기억에 남는 청중은 어린 학생들이었습니다. 그들의 넘치는 에너지와 호기심은 저자에게 큰 영감을 주었습니다.</p>
+            <p class="mt-4">강연이 끝나고 아이들과 주먹 인사를 하던 중, 한 아이가 저자의 손을 보고 뒷걸음질 치며 물었습니다. "아저씨는 손이 어쩌다 이렇게 되었어요?"</p>
+            <p class="mt-4">강연 내용을 듣지 못한 아이의 순수한 질문은 '어른'이 되면서 우리가 잃어버린 것이 무엇인지 생각하게 합니다. 바로 <span class="highlight">질문하기를 두려워하지 않는 마음</span>입니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 6: Section Title - Part 1 -->
+      <!-- Slide 5: Prologue - The core problem -->
       <div class="slide">
         <div class="slide-container">
+            <h2 class="slide-title">경이롭던 아이는 어디로 갔을까? ❓</h2>
+            <div class="slide-content grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="font-bold text-xl mb-2">어린 시절의 우리</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>활기 넘치는 걸음걸이</li>
+                        <li>설렘 가득한 발표</li>
+                        <li>열정적으로 질문에 답하는 모습</li>
+                        <li>세상 모든 것이 신기하고 긍정적</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl mb-2">어른이 된 우리</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>열정의 불꽃이 꺼짐</li>
+                        <li>산만하고 냉소적인 태도</li>
+                        <li>부정적인 뉴스에 쉽게 확신을 잃음</li>
+                        <li>고립감과 외로움</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                <p class="text-center font-medium">나이가 들고 경험이 쌓이며 우리는 지혜를 얻지만, 동시에 어린 시절의 <span class="highlight">반짝이는 눈빛과 설레는 마음</span>을 잃어버립니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Part 1 Section Title -->
+      <div class="slide">
+        <div class="slide-container items-center text-center">
           <p class="slide-part-title">1부</p>
-          <h2 class="slide-title">경이감 🌟: <span class="highlight">가능성의 길</span>을 여는 질문</h2>
-          <p class="slide-content">단순히 놀라워하는 마음을 넘어, 궁금해하고, 캐묻고, 도전하며 더 나아가 의심하는 능력. 경이감은 우리를 행동하게 만듭니다.</p>
+          <h2 class="slide-title">경이감 (Awe) 🌌<br><span class="highlight">가능성의 길을 여는 질문</span></h2>
+          <p class="slide-content max-w-3xl">"왜?" 라는 질문은 세상을 바꾸는 혁신의 시작입니다. 당연하게 여기던 것들에 의문을 제기하고 새로운 길을 찾는 힘, 바로 경이감입니다.</p>
         </div>
       </div>
 
-      <!-- Slide 7: Part 1, Chapter 1 Story -->
+      <!-- Slide 7: Part 1 - Piano Story -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">손가락 없는 피아니스트 🎹</h2>
-          <p class="slide-subtitle">아홉 살, 끔찍한 화재 사고로 손가락을 모두 잃었습니다. 야구선수의 꿈은 사라졌고, 피아노는 더 이상 칠 수 없다고 생각했습니다.</p>
-          <p class="slide-content">하지만 엄마와 피아노 선생님은 포기하지 않았습니다. 그들은 휠체어에 앉은 저를 피아노 앞으로 밀어주었습니다. 말 대신 행동으로 꼭 필요한 메시지를 전했습니다.<br><br><span class="font-bold">"불은 네 손가락을 앗아갔지만, 네 목숨은 가져가지 못했어. 너만의 창의적인 방법으로 장애물을 뛰어넘어야 해."</span></p>
-        </div>
-      </div>
-
-      <!-- Slide 8: Part 1, Chapter 1 Lesson -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">누구나 <span class="highlight">망가진 손</span>으로 피아노를 쳐야 할 때가 온다</h2>
-          <p class="slide-subtitle">우리는 살면서 각자의 '손가락 없는 손'을 마주합니다. 막막하고 짓눌린 기분을 느끼는 순간들입니다.</p>
-          <div class="slide-content mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-            <h3 class="font-bold text-lg">선택의 순간</h3>
-            <p class="mt-2">연주를 포기하시겠습니까? 아니면, 타고난 잠재력을 발휘해 <span class="highlight">나만의 곡을 연주할 새로운 길</span>을 찾으시겠습니까? 어린 시절의 호기심과 창조성, 투지를 되살려 불가능은 없다는 믿음에 불을 지펴야 합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 9: Part 1, Chapter 2 "Why?" -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">모든 것은 '<span class="highlight">왜?</span>'라는 질문에서 탄생한다</h2>
-          <p class="slide-subtitle">아이들은 세상을 이해하고 싶은 선천적 욕망으로 끝없이 질문합니다. 하지만 어른들은 어떨까요?</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">아이들의 질문 🙋</h3>
-              <p>세상이 돌아가는 방식이 너무나 궁금하기 때문에 질문합니다. 타고난 과학자처럼 탐구하고, 때로는 파괴하며 배웁니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">어른들의 침묵 🤫</h3>
-              <p>효율성과 위계 구조 속에서 질문과 반대 의견은 무시당하기 쉽습니다. 우리는 '왜?'라고 묻는 것을 멈추고 혁신과 새로운 발상도 멈추게 됩니다.</p>
+          <h2 class="slide-title">손가락 없는 소년과 피아노 🎹</h2>
+          <p class="slide-subtitle">9살, 끔찍한 화재 사고로 모든 손가락을 잃은 저자는 야구선수의 꿈을 포기해야 했습니다. 피아노는 더더욱 불가능해 보였습니다.</p>
+          <div class="slide-content">
+            <p>사고 후, 피아노 선생님이 집에 찾아왔습니다. 저자는 피아노를 칠 수 없다는 현실에 절망했지만, 엄마와 선생님은 포기하지 않았습니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">엄마의 침묵, 그리고 행동</h3>
+                <p class="mt-2">"엄마, 어디 가는 거예요?" 라는 물음에 엄마는 말없이 휠체어를 밀어 피아노 앞으로 데려갔습니다. 이는 '너는 할 수 있다'는 <span class="highlight">가장 강력한 메시지</span>였습니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 10: Part 1, Chapter 2 Genius -->
+      <!-- Slide 8: Part 1 - Piano Lesson -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">클립의 용도 <span class="highlight">200가지</span>를 생각해내는 천재들 📎</h2>
-          <p class="slide-subtitle">유치원 아이들의 98%는 '확산적 사고'에서 천재 수준의 점수를 받습니다. 하나의 문제를 다양한 방법으로 해결하는 능력입니다.</p>
+          <h2 class="slide-title">"좋아, 이제 시작하자." 🎶</h2>
+          <p class="slide-subtitle">선생님은 불가능해 보이는 상황 속에서도 방법을 찾아냈습니다.</p>
           <div class="slide-content">
-              <p>하지만 나이가 들수록 이 능력은 급격히 감소합니다. 열 살 때는 30%, 열다섯 살 때는 12%, 성인이 되면 <span class="font-bold">단 2%</span>만이 천재 수준을 유지합니다.</p>
-              <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                  <h3 class="font-bold text-lg">왜 창의성을 잃어버릴까?</h3>
-                  <p class="mt-2">규칙을 잘 따르고 교사의 말을 잘 듣는 아이가 칭찬받는 환경 속에서, 우리는 남다르게 생각하는 법을 잊어버립니다. <span class="highlight">"남과 비슷하게 사는 건 남다른 생각을 하는 법을 잊어버리는 최고의 방법이다."</span> - 애덤 그랜트</p>
-              </div>
+            <p>붕대가 감긴 손에 고무줄로 연필을 묶어 건반을 누르게 했습니다. 그렇게 인생에서 가장 긴 30분이 흘렀습니다. '난 엄마가 진짜 싫어'라고 생각하면서요.</p>
+            <p class="mt-4">이 수업은 무려 <span class="highlight">5년 동안</span> 계속되었습니다. 선생님과 엄마는 단순히 피아노를 가르친 것이 아니었습니다.</p>
+            <div class="mt-6 text-center">
+              <p class="text-xl font-bold text-gray-800">그들은 장애와 절망 속에서 <span class="highlight">잠재력과 희망</span>을 발견하고,<br>불가능해 보이는 목표를 향해 나아가는 법을 가르쳤습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Part 1 - JFK Story -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"우리는 달에 가기로 했습니다." 🚀</h2>
+          <p class="slide-subtitle">1962년, 혼란의 시대에 케네디 대통령은 불가능해 보였던 위대한 목표를 제시했습니다.</p>
+          <div class="slide-content">
+              <p>당시는 쿠바 미사일 위기, 경기 불황 등 혼란과 불안이 가득한 시기였습니다. 케네디는 '1960년대가 끝나기 전에 인류를 달에 착륙시키겠다'는 대담한 목표를 선언했습니다.</p>
+              <p class="mt-4">이것은 단순한 목표 제시가 아니었습니다. 규칙에 얽매이지 않고, 무한한 <span class="highlight">창의성과 호기심, 투지</span>를 쏟아부으라는 '경이감'을 활용하라는 메시지였습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Part 1 - The Power of 'Why?' -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">모든 것은 '왜?'라는 질문에서 탄생한다 💡</h2>
+          <p class="slide-subtitle">아이들은 세상이 궁금하기 때문에 끝없이 질문합니다. 그들은 타고난 과학자입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">닐 디그래스 타이슨의 말</h3>
+              <p>"아이들은 툭하면 돌을 뒤집거나 꽃잎을 뗍니다. 탐구란 그런 것입니다. 아이가 달걀이 떨어지면 깨진다는 사실을 직접 배우게 하세요! 그것도 물리학 실험입니다."</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">어른들의 반응</h3>
+              <p>하지만 대부분의 어른들은 '달걀 갖고 놀지 마!'라고 소리칩니다. 가정의 질서를 유지하려는 의도지만, 이는 아이의 경이감과 타고난 <span class="highlight">호기심을 억누르는 결과</span>를 낳습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 11: Part 1, Chapter 3 "Who says?" -->
+      <!-- Slide 11: Part 1 - Divergent Thinking Study -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">"누가 그러는데요?" 🤨</h2>
-          <p class="slide-subtitle">다섯 살 아들 패트릭은 하와이까지 가는 도로를 만들겠다고 선언했습니다. 제가 불가능한 이유를 설명하자, 아들은 물었습니다. "누가 그러는데요, 아빠?"</p>
-          <p class="slide-content">우리는 얼마나 자주 다른 사람의 의견이나 세상의 잣대가 우리의 가능성을 규정하도록 내버려둘까요? 스물네 살 청년은 비행기 관련 일을 하고 싶었지만, 경영학을 공부했다는 이유로 "너무 늦었다"고 말했습니다. 저는 그에게 되물었습니다.<br><br><span class="font-bold text-2xl text-center block">"누가 그러는데요?"</span></p>
-        </div>
-      </div>
-
-      <!-- Slide 12: Part 1, Chapter 3 Story of Sister Buder -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">마흔여덟에 달리기를 시작한 <span class="highlight">'철인 수녀'</span> 🏃‍♀️</h2>
-            <p class="slide-subtitle">마리 도로시 뷰더 수녀는 48세에 처음으로 운동화를 빌려 신고 달리기를 시작했습니다.</p>
+            <h2 class="slide-title">클립의 용도 200가지 📎</h2>
+            <p class="slide-subtitle">유치원생들은 대부분 '천재 수준'의 확산적 사고(Divergent Thinking) 능력을 가지고 있습니다.</p>
             <div class="slide-content">
-                <p>그녀는 세상의 통념("그 나이에 시작하기엔 너무 늦었어")에 반기를 들었습니다. 이후 40년간 달리기를 멈추지 않았고, 350회 이상 마라톤에 출전했습니다.</p>
-                <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-                    <h3 class="font-bold text-lg">최고령 완주자 🏆</h3>
-                    <p class="mt-2">그녀는 무려 <span class="highlight">여든두 살</span>에 철인 3종 경기를 완주하여 최고령 완주자가 되었습니다. 그녀는 세상의 목소리가 아닌, 자신의 내면에서 울리는 '진실의 목소리'에 귀를 기울였습니다.</p>
+                <p>조지 랜드 교수의 연구에서, 3~5세 아이들은 평범한 클립의 용도를 평균 <span class="highlight">200가지</span>나 떠올렸습니다. 연구에 참여한 아이들의 98%가 확산적 사고에서 '천재 수준'의 점수를 받았습니다.</p>
+                <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+                    <h3 class="font-bold text-lg">하지만... 성인이 되면?</h3>
+                    <p class="mt-2">같은 실험을 성인에게 했을 때, 천재 수준의 점수를 받은 사람은 단 <span class="highlight">2%</span>에 불과했습니다. 우리는 자라면서 창의적 천재성을 잃어버립니다.</p>
                 </div>
             </div>
         </div>
       </div>
-
-      <!-- Slide 13: Part 1, Chapter 4 Vision -->
+      
+      <!-- Slide 12: Part 1 - Summary -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">당신은 삶에서 <span class="highlight">무엇을</span> 보고 있습니까?</h2>
-          <p class="slide-subtitle">두 명의 의사, 두 개의 다른 시선</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg text-red-700">절망을 본 의사 🐴</h3>
-              <p>열 살 때 만난 첫 번째 의사는 제 손을 보고 말했습니다. "말이었다면 쏘아 죽였을 겁니다." 그는 잔혹한 사실만으로 절망을 투사했습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg text-blue-700">가능성을 본 의사 🌇</h3>
-              <p>두 번째 파팔라도 박사님은 제 손을 잡고 말했습니다. "이탈리아의 저녁노을처럼 아름다운 손이네요!" 그는 제 가치를 알아보고, 제 삶이 잠재력으로 가득하다고 믿었습니다.</p>
-            </div>
+          <h2 class="slide-title">경이감 되찾기: 첫 번째 감각 🌟</h2>
+          <p class="slide-subtitle">남과 비슷하게 사는 것은 남다른 생각을 하는 법을 잊어버리는 최고의 방법입니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 다시 질문하기:</b> '이건 왜 이럴까? 더 나은 방법은 없나?'라고 끊임없이 질문하며 혁신적인 사고를 깨우세요.</p>
+            <p><b>2. 당연함 거부하기:</b> 기존의 방식과 생각에 의문을 제기하고, 새로운 가능성을 탐구하는 용기를 가지세요.</p>
+            <p><b>3. 브레이크 풀기:</b> '현재 상태 유지'라는 브레이크에서 발을 떼고, 새로운 것에 마음을 열고 질문을 던져 인생을 바꾸세요.</p>
           </div>
         </div>
       </div>
-
-      <!-- Slide 14: Part 1, Chapter 4 Choice -->
+      
+      <!-- Slide 13: Part 2 Section Title -->
       <div class="slide">
-        <div class="slide-container text-center">
-            <h2 class="slide-title">선택은 <span class="highlight">당신의 몫</span>입니다</h2>
-            <p class="slide-subtitle">타인을 볼 때 무엇을 보십니까? 말을 쏘아 죽이는 사람입니까, 샴페인 파티를 여는 사람입니까?</p>
-            <div class="slide-content max-w-4xl mx-auto">
-                <p class="mb-4">어떤 사람은 불가능을 한계로 봅니다. 어떤 사람은 불가능을 <span class="highlight">기회</span>로 봅니다. 부디 현명한 선택을 하길 바랍니다.</p>
-                <p class="mt-8 font-bold text-xl text-gray-800">우리는 어둠을 볼 수도 있고, 그 안의 별을 볼 수도 있습니다.</p>
-            </div>
+        <div class="slide-container items-center text-center">
+          <p class="slide-part-title">2부</p>
+          <h2 class="slide-title">기대감 (Anticipation) 🎁<br><span class="highlight">미래는 기대한 대로 바뀐다</span></h2>
+          <p class="slide-content max-w-3xl">야구장에 글러브를 가져가는 아이처럼, 멋진 일이 일어날 것이라 기대하는 마음이 현실을 만듭니다. 우리는 방관자가 될 것인가, 선수가 될 것인가?</p>
         </div>
       </div>
       
-      <!-- Slide 15: Section Title - Part 2 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2부</p>
-          <h2 class="slide-title">기대감 🚀: 인생의 관점을 바꾸면 <span class="highlight">달라지는 것들</span></h2>
-          <p class="slide-content">모험이 기다리고 있으며 근사한 일이 벌어지리라는 굳은 확신을 품고 미래를 기다리는 감각입니다. 긍정적인 사람의 꿈은 이루어집니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 16: Part 2, Chapter 1 Story of Patrick -->
+      <!-- Slide 14: Part 2 - Baseball Story -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">1,000분의 1의 확률 ⚾</h2>
-          <p class="slide-subtitle">메이저리그 경기에서 공을 잡을 확률은 1,000분의 1입니다. 저는 아들 패트릭에게 글러브를 두고 가라고 말했습니다.</p>
+          <p class="slide-subtitle">저자의 아들 패트릭은 야구장에 갈 때마다 글러브를 챙겼습니다. 공을 잡을 확률은 희박했지만, 그는 멋진 일이 일어날 것이라 기대했습니다.</p>
           <div class="slide-content">
-            <p>하지만 패트릭은 "아뇨, 이게 꼭 있어야 해요."라며 글러브를 챙겼습니다. 그리고 그날, 패트릭은 정말로 날아온 공을 글러브로 잡았습니다. 저는 생각했습니다. '운이 좋았군.'<br><br>다음 해, 다른 구장에서 패트릭은 또 글러브를 챙겼고, 또다시 공을 잡았습니다. 이것은 단순한 운이었을까요?</p>
-            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <p class="mt-2">"얄팍한 사람은 <span class="highlight">운과 상황</span>을 믿고, 강한 사람은 <span class="highlight">원인과 결과</span>를 믿는다." - 랠프 월도 에머슨</p>
+            <p>그리고 놀랍게도, 패트릭은 2년 연속으로 여행 중 관람한 야구 경기에서 공을 잡는 행운을 얻었습니다. 이것은 단순한 '운'이었을까요?</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">얄팍한 사람 vs 강한 사람</h3>
+              <p class="mt-2">랠프 월도 에머슨은 말했습니다. "얄팍한 사람은 운과 상황을 믿고, 강한 사람은 <span class="highlight">원인과 결과</span>를 믿는다." 패트릭의 행운은 운이 아니라, 기대하고 준비했기에 얻을 수 있었던 결과였습니다.</p>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Slide 17: Part 2, Chapter 1 Lesson -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">방관자에서 <span class="highlight">참여자</span>로</h2>
-          <p class="slide-subtitle">왜 어른들은 경기장에 글러브를 가져가지 않을까요? 낮은 확률 때문에, 기적을 바라는 어리석은 사람으로 보이기 싫어서입니다.</p>
-          <p class="slide-content">하지만 공이 날아오는 순간, 누구나 어린아이로 돌변합니다. 기대감은 현실에 안주하던 어른을 각성시켜 내면의 잠든 아이를 깨웁니다.<br><br>패트릭의 꿈이 이루어진 건 운 때문이 아니라, 꿈이 이루어지리라는 <span class="font-bold">기대감</span> 때문이었습니다. 관점을 바꾸면 지극히 현실적인 혜택이 따릅니다. 팔짱을 풀고, 확률을 무시하고, 기대감에 다시 불을 붙이세요.</p>
-        </div>
-      </div>
-
-      <!-- Slide 18: Part 2, Chapter 2 "Everything is Awesome" -->
-      <div class="slide">
-        <div class="slide-container text-center">
-            <div class="text-6xl mb-6">🎶</div>
-            <h2 class="slide-title">지금 살아 있다는 <span class="highlight">기적</span></h2>
-            <p class="slide-subtitle">"모든 것이 멋져!" - 레고 무비 주제가</p>
-            <div class="slide-content max-w-4xl mx-auto">
-                <p>아이들에게는 모든 것이 새롭고 신납니다. 에스컬레이터, 비행기, 비 오는 날의 지렁이... 모든 것이 감탄의 대상이며 멋진 모험입니다. 하지만 어른이 되면서 이 감각은 빛을 잃습니다.</p>
-                <p class="mt-8 font-bold text-xl text-gray-800">우리의 모험은 아직 끝나지 않았습니다.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 19: Part 2, Chapter 2 Story of Pat -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">98세의 암 4기 환자, <span class="highlight">팻 하인드먼</span></h2>
-            <p class="slide-subtitle">은퇴한 지 30년이 넘은 팻은 제 강연에 가장 열정적으로 참여했습니다. 그는 말했습니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">"인생은 선물이에요."</h3>
-                <p class="mt-2">"나는 매일 내게 주어진 선물을 귀하게 여깁니다. 인간은 <span class="highlight">배움과 사랑을 멈추지 않는 한</span> 절대 늙지 않는다는 걸 깨달았죠."</p>
-            </div>
-            <p class="slide-content mt-8">그는 고통과 고난을 각오한 것이 아니라, 인생은 선물이고 놀라운 일로 가득하다고 확신했습니다. 놀라운 일은 눈을 크게 뜨고 볼 준비가 된 사람에게만 보입니다.</p>
         </div>
       </div>
       
-      <!-- Slide 20: Part 2, Chapter 3 Miracle -->
+      <!-- Slide 15: Part 2 - Spectator vs Player -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">평범한 인생이란 <span class="highlight">없다</span></h2>
-          <p class="slide-subtitle">우리가 이 세상에 존재할 확률은 얼마나 될까요?</p>
-          <div class="slide-content text-center">
-            <p class="text-6xl font-black text-blue-600">400조 분의 1</p>
-            <p class="mt-4">이는 파워볼 복권 당첨 확률보다 <span class="font-bold">2,000배나 낮은</span> 확률입니다.</p>
-            <p class="mt-8">우리 모두의 인생은 세상에서 가장 놀라운 선물이고, 값을 매길 수 없는 귀한 보물이며, 헤아릴 수 없을 정도로 엄청난 축복입니다. 그 사실을 믿고, 그 믿음대로 행동하고 있습니까?</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 21: Part 2, Chapter 4 Hope -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">무기력에서 벗어나 <span class="highlight">희망을 선택하는 법</span></h2>
-            <p class="slide-subtitle">'학습된 무기력'은 자신에게 상황을 바꿀 힘이 없다고 믿을 때 발동하는 심리 상태입니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">학습된 무기력 ⛓️</h3>
-                    <p>부정적 환경에 반복적으로 노출되면 극복하기보다 체념하고 받아들입니다. 그냥 포기해버리고, 우울증에 걸릴 확률이 높아집니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">희망의 힘 ✨</h3>
-                    <p>하지만 할 수 있는 일은 언제나 있습니다. 희망은 현재의 삶이 아무리 힘들어도 앞으로 나아가게 하는 원동력입니다. <span class="highlight">"희망을 선택하면 무엇이든 가능합니다."</span> - 크리스토퍼 리브</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 22: Part 2, Chapter 5 Placebo -->
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">미래는 우리가 <span class="highlight">기대하는 대로</span> 바뀐다</h2>
-          <p class="slide-subtitle">생각의 힘은 강력하며, 기대는 종종 현실이 됩니다.</p>
+          <h2 class="slide-title">언제까지 방관자만 할 것인가?</h2>
+          <p class="slide-subtitle">왜 어른들은 경기장에 글러브를 가져가지 않을까요?</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg text-green-700">위약 효과 (Placebo Effect) ✅</h3>
-              <p>병을 치료하는 약을 먹었다는 생각만으로도 실제로 몸이 좋아집니다. 뇌가 말 그대로 몸을 치유하는 것입니다. 긍정적 기대가 긍정적 결과를 낳습니다.</p>
+              <h3 class="font-bold text-lg">방관자의 삶</h3>
+              <p>확률이 낮다는 것을 알기에, 기적을 바라는 어리석은 사람으로 보이기 싫어서입니다. 대부분 모험을 기대하기보다 현실적인 목표를 향하며, 실망하지 않으려 스스로를 보호합니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg text-red-700">노시보 효과 (Nocebo Effect) ❌</h3>
-              <p>치료 중 부정적 기대를 할 때 발생하는 현상입니다. 부작용이 있을 것이라고 경고하면, 위약을 복용한 그룹도 같은 부작용을 겪습니다. 부정적 기대가 부정적 결과를 낳습니다.</p>
+              <h3 class="font-bold text-lg">선수의 삶</h3>
+              <p>하지만 공이 날아오는 순간, 누구나 어린아이로 돌변합니다. 기대감은 현실에 안주하던 어른을 각성시켜 내면의 잠든 아이를 깨웁니다. <span class="highlight">대담하고 낙관적인 아이의 사고방식</span>을 되찾아야 합니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 23: Part 2, Chapter 6 Anticipation -->
+      <!-- Slide 16: Part 2 - Pat Hyndman's Story -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">삶은 <span class="highlight">기다릴수록</span> 즐겁다</h2>
-          <p class="slide-subtitle">"아빠, 내 생일이 되려면 며칠 남았어요?" (340일 남았을 때)</p>
+          <h2 class="slide-title">98세의 암 4기 환자, 팻 👨‍🦳</h2>
+          <p class="slide-subtitle">은퇴한 지 30년이 넘은 팻 하인드먼은 저자의 강연에 참석해 가장 열정적으로 필기하던 참석자였습니다.</p>
           <div class="slide-content">
-            <p>아들 헨리는 실망하는 대신 외쳤습니다. "신난다! 내일 생일 카운트다운 달력 만들어도 돼요?" 이것이 바로 <span class="font-bold">즐거운 기다림의 힘</span>입니다.<br><br>연구에 따르면, 일정 시간 무언가를 기대하고 나면 실제 그 일에서 더 큰 기쁨을 느낀다고 합니다. 좋아하는 사람과의 입맞춤을 오늘 할지, 사흘 뒤에 할지 묻는 질문에 대부분은 사흘 뒤를 선택했습니다. 설레는 시간을 즐기고 싶기 때문입니다.</p>
+            <p>그는 암 4기 진단을 받고 화학 요법을 받는 중이었지만, 누구보다 활력과 열정이 넘쳤습니다. 그의 삶의 원동력은 무엇이었을까요?</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">팻의 비밀</h3>
+              <p class="mt-2">"있잖아요, 존. 인생은 선물이에요. 나는 매일 내게 주어진 선물을 귀하게 여깁니다. 인간은 <span class="highlight">배움과 사랑을 멈추지 않는 한 절대 늙지 않는다</span>는 걸 깨달았죠."</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 24: Section Title - Part 3 -->
+      <!-- Slide 17: Part 2 - Placebo Effect -->
       <div class="slide">
         <div class="slide-container">
+          <h2 class="slide-title">생각의 힘: 위약과 노시보 효과 🧠</h2>
+          <p class="slide-subtitle">미래는 우리가 기대하는 대로 바뀝니다. 우리의 생각이 현실에 미치는 강력한 영향력입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">위약 효과 (Placebo) ✅</h3>
+              <p>가짜 약을 먹고도 병이 낫는 현상. 병을 치료하는 약을 먹었다는 '생각'만으로도 실제로 몸이 좋아집니다. 뇌가 말 그대로 몸을 치유하는 것입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">노시보 효과 (Nocebo) ❌</h3>
+              <p>부정적인 기대를 할 때 발생하는 현상. 부작용이 있을 것이라 경고하면, 위약을 복용한 그룹도 같은 부작용을 겪습니다. 저자가 약을 먹을 때마다 구역질을 예상하자 실제로 구역질이 났던 것처럼 말입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Part 2 - Diary for Beth -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아내에게 바치는 1년의 일기 ✍️❤️</h2>
+          <p class="slide-subtitle">좋은 면을 찾으려 들면 좋은 면만 보입니다.</p>
+          <div class="slide-content">
+            <p>저자는 아내 베스의 소중함을 잊지 않기 위해 1년 동안 매일 밤 그녀에게 바치는 일기를 썼습니다. 아내의 아름다운 말과 행동, 함께한 일들을 기록했습니다.</p>
+            <p class="mt-4">일기를 쓸수록 아내의 좋은 점, 친절한 행동에 더욱 주목하게 되었습니다. 일상의 암막이 걷히고, 아내가 가족을 위해 얼마나 노력하는지 상세히 보이기 시작했습니다.</p>
+            <p class="mt-4 font-bold">이처럼 <span class="highlight">긍정적 기대를 실천</span>하면 관계와 삶의 모든 면에서 놀라운 효과가 나타납니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Part 3 Section Title -->
+      <div class="slide">
+        <div class="slide-container items-center text-center">
           <p class="slide-part-title">3부</p>
-          <h2 class="slide-title">몰입 🎯: <span class="highlight">중요한 순간을</span> 놓치지 마라</h2>
-          <p class="slide-content">주변 세상에 완전히 집중하고 몰두하는 감각. 사소한 일에 신경 쓸 시간인가, 중요한 일에 관심을 기울일 시간인가.</p>
+          <h2 class="slide-title">몰입 (Immersion) 🧘<br><span class="highlight">중요한 순간을 놓치지 마라</span></h2>
+          <p class="slide-content max-w-3xl">우리는 동시에 여러 곳에 존재하도록 만들어지지 않았습니다. 사소한 일에 신경 쓸 시간인가, 아니면 중요한 일에 관심을 기울일 시간인가?</p>
         </div>
       </div>
 
-      <!-- Slide 25: Part 3, Chapter 1 Disconnect -->
+      <!-- Slide 20: Part 3 - The Ladder Analogy -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">가장 소중한 것은 <span class="highlight">지금 여기</span>, 이 순간에 존재한다</h2>
-            <p class="slide-subtitle">"놓쳤어요, 아빠." - 아침에 잠에서 깨며 아들 잭이 한 말.</p>
-            <div class="slide-content">
-                <p>무엇을 놓쳤을까요? 바로 앞마당 목련나무의 꽃이 피고 지는 순간이었습니다. 우리는 출장, 업무, 스마트폰에 빠져 삶의 소중한 순간들을 놓치고 있습니다. 몸은 여기 있지만 마음은 다른 곳에 가 있습니다.</p>
-                <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
-                    <h3 class="font-bold text-lg">"일상의 기쁨을 가장 많이 앗아가는 건 눈앞의 일에 집중하지 않는 행위다."</h3>
-                </div>
+          <h2 class="slide-title">"사다리를 잘못된 벽에 기대고 있었더군요." 🪜</h2>
+          <p class="slide-subtitle">병원 목사로 일하던 시절 만난 한 노신사의 후회.</p>
+          <div class="slide-content">
+            <p>그는 평생 성공을 위해 '죽기 살기로' 사다리를 올라갔습니다. 일에 너무 많은 시간을 할애한 나머지 가족에게 소홀했고, 결국 아내와 아이들과 서먹해졌습니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">그의 깨달음</h3>
+              <p class="mt-2">"하지만 꼭대기에 도달해보니, 망할 사다리가 내가 꿈꾸던 벽이 아니라 <span class="highlight">엉뚱한 벽</span>에 기대고 있더군요."</p>
             </div>
-        </div>
-      </div>
-      
-      <!-- Slide 26: Part 3, Chapter 1 Wrong Ladder -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">사다리를 오르기 전에 <span class="highlight">벽을 확인하라</span></h2>
-          <p class="slide-subtitle">한 노신사의 후회: "존, 나는 평생 죽기 살기로 사다리를 올라갔어요. 하지만 꼭대기에 도달해보니, 망할 사다리가 내가 꿈꾸던 벽이 아니라 엉뚱한 벽에 기대고 있더군요."</p>
-          <p class="slide-content">사다리를 오르는 게 문제가 아닙니다. 더 높이 오르려 애쓰다 애초에 사다리를 오르기 시작한 이유와 현재 위치를 망각하는 것이 문제입니다. 다음 발판, 다음 목표에 너무 집중한 나머지 <span class="font-bold">지금 이 순간의 축복</span>을 보지 못하는 것입니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 27: Part 3, Chapter 2 Today vs Tomorrow -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">더 나은 내일보다 <span class="highlight">행복한 오늘을</span> 살아라</h2>
-            <p class="slide-subtitle">과도한 스케줄에 시달리는 고등학생 스테파니는 말합니다. "좋은 대학에 가고 싶으니까요."</p>
-            <div class="slide-content">
-                <p>우리는 '완벽한 내일'이라는 막연한 목표를 위해 오늘의 행복을 희생합니다.<br>좋은 대학 → 완벽한 직장 → 완벽한 경력 → 완벽한 삶?</p>
-                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <h3 class="font-bold text-lg">더는 못 견디겠나요? 😰</h3>
-                    <p class="mt-2">변화는 지금의 삶을 더는 버티지 못할 때, 그리고 더 나은 삶을 갈망할 때 찾아옵니다. 중요하지 않은 일에 매달려 사는 중독에서 벗어나, <span class="highlight">한 번에 하나씩만 집중하는 법</span>을 배워야 합니다.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 28: Part 3, Chapter 3 Rules of Flow -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">아이처럼, <span class="highlight">지금 이 순간에</span> 몰입하라</h2>
-          <p class="slide-subtitle">아이들은 학교로 뛰어 들어갑니다. 어른들은 왜 그렇게 하지 못할까요? 아이들의 삶의 방식에서 새로운 해답을 찾아봅시다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h3 class="font-bold text-2xl">일할 때 💼</h3>
-              <p>일할 때는 일만 합니다. 완전히 몰입해서 끝내고 다음 일로 넘어갑니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-2xl">놀 때 🤸</h3>
-              <p>놀 때는 놉니다. 다른 생각 없이 그 순간의 즐거움을 만끽합니다.</p>
-            </div>
-            <div>
-                <h3 class="font-bold text-2xl">쉴 때 🛌</h3>
-                <p>쉴 때는 쉽니다. 신발을 벗고, 두 발을 올리고, 뇌를 쉬게 합니다.</p>
-            </div>
+            <p class="mt-4">문제는 사다리를 오르는 것이 아니라, 더 높이 오르려 애쓰다 애초에 사다리를 오르기 시작한 <span class="highlight">이유와 현재 위치를 망각</span>하는 것입니다.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 29: Section Title - Part 4 -->
+      <!-- Slide 21: Part 3 - Multitasking is a Myth -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">4부</p>
-          <h2 class="slide-title">소속감 🤝: <span class="highlight">기쁨에는</span> 전염성이 있다</h2>
-          <p class="slide-content">나 자신이 가치 있고, 어딘가에 속하며, 퍼즐에 없어서는 안 될 조각이라는 확신이 들 때 느껴지는 위안과 평화, 기쁨의 감각입니다.</p>
+            <h2 class="slide-title">뇌는 다중 작업을 싫어한다 🧠⚡</h2>
+            <p class="slide-subtitle">우리의 뇌는 다중 작업을 하도록 설계되지 않았습니다. '과제 전환'은 뇌의 에너지를 급격히 소모시킵니다.</p>
+            <div class="slide-content">
+                <p>런던 대학교 연구에 따르면, 다중 작업을 할 때 지능지수(IQ)는 <span class="highlight">마리화나를 피우거나 하룻밤 잠을 자지 않았을 때만큼</span> 감소합니다.</p>
+                <p class="mt-4">일상의 기쁨을 가장 많이 앗아가는 것은 눈앞의 일에 집중하지 않는 행위입니다. 뇌가 쉬고 싶어하는 신호를 무시하지 마세요.</p>
+                <div class="mt-6 text-center font-bold text-xl">
+                    <p>일할 때는 일하고, 놀 때는 놀고, 쉴 때는 쉬세요.</p>
+                    <p>한 번에 한 가지 일만 하세요.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Part 3 - Mick Ebeling's Story -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불가능은 없다: 아이라이터(Eyewriter) 👁️✍️</h2>
+          <p class="slide-subtitle">'Not Impossible Labs'의 창립자 믹 에블링은 불가능을 거부하는 굳은 의지로 세상을 바꿉니다.</p>
+          <div class="slide-content">
+            <p>믹은 루게릭병으로 전신이 마비된 그라피티 예술가 '템트'를 만났습니다. 유일하게 움직일 수 있는 '눈'으로 소통하는 그를 보고 '이건 말도 안 돼'라고 생각했습니다.</p>
+            <p class="mt-4">그는 해커, 혁신가, 기술자들을 모아 2주 만에 안구의 움직임을 추적해 그림을 그릴 수 있는 전자 안경 <span class="highlight">'아이라이터'</span>를 만들어냈습니다. 7년간 침묵했던 예술가의 창의성이 다시 발현되는 순간이었습니다.</p>
+          </div>
         </div>
       </div>
 
-      <!-- Slide 30: Part 4, Chapter 1 Dad's Hand -->
+      <!-- Slide 23: Part 3 - The Value of Rest -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쉬는 시간이 필요한 이유 🏞️</h2>
+          <p class="slide-subtitle">극적인 도약은 일할 때가 아니라 놀 때 일어납니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">벨크로의 발명</h3>
+              <p>조르주 드 메스트랄은 개와 산책을 하다가 옷과 개털에 붙은 씨앗을 발견했습니다. 현미경으로 관찰한 갈고리 모양 가시에서 영감을 얻어 벨크로를 발명했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">페니실린의 발견</h3>
+              <p>알렉산더 플레밍은 가족 여행에서 돌아와 배양 접시에 핀 곰팡이 주변의 포도상구균이 죽은 것을 발견했습니다. 이 우연한 발견이 페니실린 개발로 이어졌습니다.</p>
+            </div>
+          </div>
+           <div class="mt-8 text-center">
+              <p class="font-bold">놀이는 뇌가 새로운 접근법을 찾는 데 필요한 <span class="highlight">최적의 상태</span>를 만듭니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Part 4 Section Title -->
+      <div class="slide">
+        <div class="slide-container items-center text-center">
+          <p class="slide-part-title">4부</p>
+          <h2 class="slide-title">소속감 (Belonging) 🤝<br><span class="highlight">타인을 진심으로 받아들여라</span></h2>
+          <p class="slide-content max-w-3xl">우리는 혼자가 아닙니다. 고립의 굴레를 벗고 자기 비하의 베일을 걷어낼 때, 우리는 함께 세상을 바꿀 힘을 얻게 됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 25: Part 4 - "What's wrong with your dad?" -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">"너희 아빠, 무슨 문제 있어?"</h2>
-          <p class="slide-subtitle">유치원 첫날, 딸 그레이스의 새 친구가 제 손을 보고 물었습니다. "손이 강아지 발 같잖아."</p>
+          <p class="slide-subtitle">유치원 첫날, 딸 그레이스의 친구가 던진 질문.</p>
           <div class="slide-content">
-            <p>그레이스는 당황하거나 분노하지 않았습니다. 그녀는 친구를 돌아보며 담담하게 답했습니다.<br><br><span class="font-bold">"아무 문제없어. 그냥 어릴 때 불이 나서 화상을 입었대. 그런데 지금은 괜찮아. 다 나았어."</span><br><br>아이들은 다름을 직시합니다. 무시하거나 피하지 않습니다. 그들은 관계를 맺고, 질문하고, 이해하려 노력하며 온 세상에 소속감을 느낍니다.</p>
+            <p>흉터와 구부러진 손을 가진 저자를 보고 아이는 순수하게 물었습니다. 하지만 딸 그레이스는 당황하지 않고 답했습니다.</p>
+            <div class="mt-6 p-6 bg-purple-50 border border-purple-200 rounded-lg">
+              <p class="text-xl text-center font-medium">"아무 문제없어. 그냥 어릴 때 불이 나서 화상을 입었대. 그런데 <span class="highlight">지금은 괜찮아. 다 나았어.</span>"</p>
+            </div>
+            <p class="mt-4">아이들은 다름을 직시하고, 질문하고, 이해하려 노력합니다. 마음을 닫아 스스로를 고립시키지 않고, 세상을 잠재적 놀이 친구로 가득한 아름다운 놀이터로 생각합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 26: Part 4 - Sawabona -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사우보나 (Sawabona) 🙏</h2>
+          <p class="slide-subtitle">남아프리카 부족의 전통 인사말: "나는 당신을 봅니다."</p>
+          <div class="slide-content">
+            <p>이 인사를 받은 사람은 "시코나(Sikhona)"라고 답합니다. "나는 여기 있습니다"라는 뜻입니다.</p>
+            <p class="mt-4">이는 진정한 소통의 핵심을 보여줍니다. 외면하거나 판단하지 않고, 서로를 온전히 바라보는 것. 이 인사를 들으면 우리는 상대가 나를 포용하고 환영하고 있음을 느낍니다.</p>
+            <p class="mt-4 font-bold text-center">나는 당신을 봅니다. 나는 여기 있습니다. 이것이 <span class="highlight">소속감의 시작</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Part 4 - Curtis's Story -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기적을 만든 가족의 사랑 ❤️‍🩹</h2>
+          <p class="slide-subtitle">끔찍한 교통사고로 생존 가능성이 희박했던 아이, 커티스.</p>
+          <div class="slide-content">
+            <p>의료진은 커티스가 살아나도 인지, 언어, 시각 능력을 잃을 것이라 예상했습니다. 하지만 부모님은 포기하지 않았습니다.</p>
+            <p class="mt-4">저자는 자신의 경험을 바탕으로, 형제자매의 방문이 얼마나 큰 힘이 되는지 이야기해주었습니다. 며칠 후, 커티스의 동생들이 병실을 찾았습니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <p>동생들의 손길에 커티스는 반응했습니다. 손을 뻗어 동생을 만지고, 희미한 미소를 짓고, 눈물을 흘렸습니다. 그리고 동생을 꼭 끌어안았습니다. <span class="highlight">순수한 사랑이 흘러넘치는 소생의 순간</span>이었습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 31: Part 4, Chapter 1 Walls -->
+      <!-- Slide 28: Part 4 - The Power of Touch -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">의자를 당겨 앉고 <span class="highlight">마음을 열어라</span></h2>
-          <p class="slide-subtitle">루게릭병을 앓던 오기 니에토가 가장 힘들어했던 것은 병세나 죽음이 아니었습니다. 그를 외면하고, 무시하고, 안타까워하는 사람들의 태도였습니다.</p>
-           <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-              <h3 class="font-bold text-lg">"나는 사람들에게 무시당하는 게 싫습니다."</h3>
-              <p class="mt-2">우리는 타인의 시선이 두려워 진짜 모습을 감춥니다. 하지만 그럴수록 벽이 쌓입니다. 이제 그동안 쌓아온 벽을 허물고, 자신의 본모습을 드러내고, 서로를 온전히 바라보며 <span class="highlight">서로의 존재를 찬양</span>해야 합니다.</p>
+          <h2 class="slide-title">포옹 치료의 마법 🤗</h2>
+          <p class="slide-subtitle">애정이 담긴 신체 접촉은 기분만 좋게 하는 것이 아니라, 상처도 치유합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과학적 효과</h3>
+              <ul class="list-disc list-inside space-y-2 mt-2">
+                <li>면역 체계 활성화</li>
+                <li>스트레스 호르몬(코르티솔) 수치 감소</li>
+                <li>유대감 호르몬(옥시토신) 수치 증가</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">사회적 효과</h3>
+              <p>신체 접촉은 <span class="highlight">소속감</span>을 느끼게 합니다. 프로 스포츠팀 연구 결과, 경기 중 신체 접촉이 많은 팀일수록 더 좋은 성적을 거두었습니다. 하이파이브만으로도 연대 의식이 커져 우승 가능성이 높아집니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 32: Part 4, Chapter 2 Curtis -->
+      <!-- Slide 29: Part 4 - Dare to Lead -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">소속감, <span class="highlight">혼자가 아니라는 것</span>이 우리를 치유한다</h2>
-            <p class="slide-subtitle">교통사고로 생존 가능성이 희박했던 아이, 커티스. 부모님은 다른 아이들이 충격받을까 봐 커티스의 모습을 보여주지 않았습니다.</p>
-            <p class="slide-content">저는 제 경험을 이야기했습니다. 다섯 달간 병원에 갇혀 있을 때, 저를 버티게 해준 것은 매주 찾아오는 형제자매들이 주는 <span class="font-bold">소속감</span>이었습니다. 그들의 포옹, 손길, 웃음이 저를 살렸습니다.<br><br>다음 주, 커티스의 동생들이 병실을 찾았습니다. 앞을 보지 못하던 커티스는 동생의 얼굴을 더듬고 희미한 미소를 지었습니다. 그리고 동생을 꼭 끌어안았습니다. 그 순간, 기적이 시작되었습니다.</p>
+          <h2 class="slide-title">두려움의 가면을 벗어라 🎭</h2>
+          <p class="slide-subtitle">우리는 타인의 시선을 두려워해 자신의 진짜 모습을 감춥니다.</p>
+          <div class="slide-content">
+            <p>저자는 해병대 강연에서 자신의 상처를 드러내는 것을 두려워했습니다. 하지만 자신의 약점과 상처를 솔직하게 드러냈을 때, 청중은 그를 이해하고 공감하며 기립 박수를 보냈습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">브레네 브라운의 조언</h3>
+                <p class="mt-2">"두려움은 용감한 리더십을 가로막는 장벽이 아닙니다. 가장 큰 장벽은 자기방어예요. <span class="highlight">갑옷으로 무장한 채 사람들을 이끌 수는 없습니다.</span>"</p>
+             </div>
+             <p class="mt-4">자신의 본모습을 받아들이고 드러낼 때 진정한 소통이 시작되고, 벽이 허물어집니다.</p>
+          </div>
         </div>
       </div>
 
-      <!-- Slide 33: Part 4, Chapter 3 Misfit Piece -->
+      <!-- Slide 30: Part 5 Section Title -->
+      <div class="slide">
+        <div class="slide-container items-center text-center">
+          <p class="slide-part-title">5부</p>
+          <h2 class="slide-title">자유 (Freedom) 🕊️<br><span class="highlight">두려움의 가면을 벗어라</span></h2>
+          <p class="slide-content max-w-3xl">지지 않는 게임이 아니라 '이기는 게임'을 하라. 두려움에 갇힌 삶에서 벗어나, 모든 것을 걸고 승리를 추구하는 자유로운 삶을 선택하세요.</p>
+        </div>
+      </div>
+
+      <!-- Slide 31: Part 5 - The Poker Game -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"아빠는 지지 않는 게임을 하잖아요." ♠️</h2>
+          <p class="slide-subtitle">포커 게임에서 아들 잭이 아버지에게 던진 한 마디.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">아빠의 게임 (지지 않는 게임)</h3>
+              <p>실패가 두려워 위험을 감수하지 않고 안전한 길만 택합니다. 주목받기보다 뒤에 서서 다른 사람이 먼저 행동하길 기다립니다. 이는 포커뿐만 아니라 인생에서도 마찬가지였습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">아들의 게임 (이기는 게임)</h3>
+              <p>어리석어 보이는 것을 두려워하지 않습니다. 실패를 두려워하지 않고 발가벗고, 노래하고, 질문하고, 새로운 일을 시도합니다. 자유롭게 도전하고, 웃고, 관계 맺고, 이깁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Part 5 - Jack Buck's Story -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"꼬맹이, 일어나. 넌 살 거야." 🎙️</h2>
+          <p class="slide-subtitle">전설적인 스포츠 캐스터 잭 벅은 저자의 인생을 바꾼 영웅이었습니다.</p>
+          <div class="slide-content">
+            <p>화재 사고 다음 날, 한 번도 만난 적 없던 잭 벅이 병실로 찾아왔습니다. 그는 살아남을 가능성이 없다는 의료진의 말에도 불구하고, 매일같이 찾아와 <span class="highlight">"계속 싸워라"</span>고 격려했습니다.</p>
+            <p class="mt-4">그는 사인볼 60개를 선물하며 글 쓰는 법을 다시 배우게 했고, 대학 졸업 선물로 명예의 전당 기념 크리스털 야구공을 주었습니다. 그는 저자의 삶의 궤적을 바꿔놓았습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Part 5 - The Regret -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가장 큰 후회, 그리고 다짐</h2>
+          <p class="slide-subtitle">잭 벅이 암으로 병상에 누워있을 때, 저자는 그를 단 한 번도 찾아가지 않았습니다.</p>
+          <div class="slide-content">
+            <p>두려움 때문이었습니다. '다른 사람이 하겠지', '다음에 가지' 라는 핑계 뒤에 숨었습니다. 장례식장에서 유명인사들을 보며 자신은 그에게 어울리지 않는 하찮은 존재라고 생각하고 발길을 돌렸습니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+                <p class="text-center font-bold">그날, 길가에 차를 세우고 엉엉 울며 다짐했습니다.<br>
+                다시는 <span class="highlight">두려움 때문에 사이드라인에 머무는 삶</span>을 살지 않겠다고.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Part 5 - The Pitch -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">30년 만의 시구 ⚾</h2>
+          <p class="slide-subtitle">'존 오리어리의 날' 30주년 기념 행사, 한 선수가 저자에게 시구를 제안했습니다.</p>
+          <div class="slide-content">
+            <p>손목은 움직이지 않고, 손가락도 없고, 팔꿈치는 90도로 고정된 상태. 성공적인 시구는 불가능했습니다. 하지만 가족을 보며 그는 결심했습니다.</p>
+            <p class="mt-4 font-bold text-center">남김없이. 후퇴 없이. 후회 없이.</p>
+            <p class="mt-4">"좋죠. 해봅시다!"</p>
+            <p>마운드에 선 그에게 아들 패트릭이 말했습니다. "아빠... 우리 창피하게 하지 말아요."</p>
+            <p class="mt-4">결과는? 포수가 놀랄 정도로 완벽한 스트라이크였습니다. <span class="highlight">스스로의 한계를 넘어 게임에 뛰어든 순간</span>이었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Part 5 - William Borden -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">남김없이, 후퇴 없이, 후회 없이</h2>
+            <p class="slide-subtitle">자유로운 삶의 의미를 알았던 윌리엄 보든의 이야기.</p>
+            <div class="slide-content space-y-4">
+                <p>대기업 상속자였던 그는 막대한 부를 포기하고 세상의 문제를 해결하는 데 헌신하기로 결심했습니다. 그는 성경책에 자신의 좌우명을 적었습니다.</p>
+                <ul class="list-decimal list-inside space-y-3 mt-4 text-lg font-semibold">
+                    <li><span class="highlight">"남김없이."</span> - 예일대 입학 후, 자신의 모든 것을 쏟아붓겠다는 다짐.</li>
+                    <li><span class="highlight">"후퇴 없이."</span> - 졸업 후, 가족의 기대를 뒤로하고 봉사의 삶을 선택한 다짐.</li>
+                    <li><span class="highlight">"후회 없이."</span> - 이집트에서 25세의 나이로 병사하기 직전, 자신의 삶을 후회하지 않는다는 마지막 다짐.</li>
+                </ul>
+                <p class="mt-4">보든의 세 마디 말은 우리에게 선택의 자유가 있음을 상기시킵니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center items-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 감탄하는 삶을 선택하라</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">누구나 매일, 아이의 다섯 가지 감각을 되살리는 선택을 할 수 있습니다. 마음만 먹는다면 간절히 원하는 삶, 어릴 때 아무렇지 않게 즐겼던 그 삶을 되찾을 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800"><span class="highlight">때는 지금입니다. 선택은 여러분의 몫입니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 37: 5 Senses Summary -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다섯 가지 감각 되찾기 🖐️</h2>
+          <div class="slide-content space-y-3">
+            <p><b>1. 경이감 🤔:</b> 당연한 것에 '왜?'라고 질문하며 새로운 가능성을 여세요.</p>
+            <p><b>2. 기대감 🎉:</b> 멋진 일이 일어날 것이라 믿고, 글러브를 낀 채 경기에 참여하세요.</p>
+            <p><b>3. 몰입  집중:</b> '지금, 여기'에 온전히 존재하며 삶의 중요한 순간들을 만끽하세요.</p>
+            <p><b>4. 소속감 ❤️:</b> 우리는 모두 연결된 존재임을 기억하고, 마음의 벽을 허무세요.</p>
+            <p><b>5. 자유 🕊️:</b> 두려움을 넘어 '이기는 게임'을 선택하고, 후회 없이 모든 것을 쏟아부으세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Epilogue -->
+      <div class="slide">
+        <div class="slide-container text-center items-center">
+          <p class="slide-part-title">에필로그</p>
+          <h2 class="slide-title">인생 최고의 순간은<br><span class="highlight">아직 오지 않았다</span> 🌅</h2>
+          <div class="slide-content max-w-3xl">
+            <p>아들 헨리가 보여준 해돋이의 기적처럼, 매일 새롭게 시작되는 날들을 감탄으로 맞이할 수 있습니다. '창백한 푸른 점' 위의 우리 존재는 작지만, 우주의 춤에 적극적으로 참여할 때 그 삶은 강력한 힘을 발휘합니다.</p>
+            <p class="mt-4 font-bold">감탄하는 삶이 선사하는 무한한 가능성을 즐기십시오.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39: More example - Two Column Layout -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 의사의 <span class="highlight">다른 시선</span> 👀</h2>
+          <p class="slide-subtitle">열 살 때, 저자는 손 수술을 위해 두 명의 세계적인 외과 의사를 만났습니다. 그들의 반응은 극명하게 달랐습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">첫 번째 의사 🐴</h3>
+              <p>"말이었다면 쏘아 죽였을 겁니다."</p>
+              <p class="mt-2">그는 잔혹한 사실만으로 절망을 투사했습니다. 그는 망가진 손에서 <span class="highlight">한계와 불가능</span>을 보았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">두 번째 의사 (파팔라도 박사) ✨</h3>
+              <p>"이탈리아의 저녁노을처럼 아름다운 손이네요!"</p>
+              <p class="mt-2">그는 희망의 눈으로 아이를 보았습니다. 그는 망가진 손에서 <span class="highlight">가치와 잠재력</span>을 보았고, 샴페인 파티를 열 만한 이유를 찾았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: More example - Content with a special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신은 무엇을 보고 있습니까?</h2>
+          <p class="slide-subtitle">타인을 볼 때 무엇을 보는가? 우리는 말을 쏘아 죽이는 사람인가, 샴페인 파티를 여는 사람인가?</p>
+          <div class="slide-content">
+            <p>아들 잭은 아버지의 흉터를 보고 말했습니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg text-center">"아빠 배가 빨갛고 울퉁불퉁하고 산마루 같아요…. <span class="highlight">정말 멋져요!</span>"</h3>
+              <p class="mt-2 text-center">잭은 흉터에서 절망이 아닌 아름다움과 희망, 기쁨을 포착했습니다.</p>
+            </div>
+            <p class="mt-4">우리는 어둠을 볼 수도 있고, 그 안의 별을 볼 수도 있습니다. 선택은 각자의 몫입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: More example - Standard Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">외로움이라는 전염병 😷</h2>
+          <p class="slide-subtitle">현대 사회는 그 어느 때보다 외롭습니다. 외로움은 단순히 해로운 정도가 아니라 생명을 앗아갑니다.</p>
+          <div class="slide-content">
+            <p>연구에 따르면 외로움은 하루에 <span class="highlight">담배 15개비</span>를 피우는 것만큼 건강에 해롭습니다. 매년 150만 명 이상의 미국인이 외로움을 이유로 자살을 시도합니다.</p>
+            <p class="mt-4">하지만 헨리가 말했듯, 세상은 친구가 될 수 있는 사람들로 가득합니다. 우리는 모두 같은 부족 출신이며, 서로가 필요합니다.</p>
+            <p class="mt-4 font-bold">해결책은 휴대폰을 내려놓고 타인에게 다가가는 것, 경계를 늦추고 직면한 문제를 공유하는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: More example - Poem -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">나는 맞지 않는 조각이다 🧩</h2>
-          <p class="slide-subtitle">한 학생이 쓴 시의 제목입니다. 그는 시에서 자신의 외로움과 소외감을 절절하게 표현했습니다. "사람들은 왜 내 있는 그대로의 모습을 싫어할까?"</p>
-          <div class="slide-content">
-            <p>우리 중 많은 사람이 스스로를 '맞지 않는 조각'이라고 느낍니다. 하지만 진실은 이렇습니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">맞지 않는 조각은 없다.</h3>
-              <p class="mt-2">우리는 외롭지 않습니다. 혼자가 아닙니다. 인류라는 거대한 가족 안에서 가치 없는 개인은 단 한 명도 없습니다. 들쭉날쭉한 조각들이 모여 <span class="highlight">아름다운 걸작</span>을 만들어냅니다. 우리는 모두 거대한 삶의 모자이크 안에 완벽하게 들어맞는 조각입니다.</p>
-            </div>
+          <p class="slide-subtitle">한 소년이 쓴 시는 외로움과 소외감의 고통을 절절하게 보여줍니다.</p>
+          <div class="slide-content italic text-center max-w-2xl mx-auto space-y-3">
+            <p>나는 맞지 않는 조각이다</p>
+            <p>사람들은 왜 내 있는 그대로의 모습을 싫어할까</p>
+            <p>내 안에서 외로움이 울부짖는 소리가 들린다</p>
+            <p>... 오직 나, 나, 나뿐일 미래가 두렵다</p>
+            <p>나는 치즈, 남들은 다 쥐다</p>
+            <p>나는 여전히 맞지 않는 조각이다</p>
           </div>
+          <p class="mt-6 text-center">하지만 진실은 이것입니다. <span class="highlight">맞지 않는 조각은 없습니다.</span> 우리는 모두 거대한 삶의 모자이크에 완벽하게 들어맞는, 필요한 조각입니다.</p>
         </div>
       </div>
       
-      <!-- Slide 34: Section Title - Part 5 -->
-      <div class="slide">
+      <!-- Slide 43: More example - Two Column -->
+       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">5부</p>
-          <h2 class="slide-title">자유 🕊️: <span class="highlight">이기는 게임</span>을 하라</h2>
-          <p class="slide-content">스스로 선택하고, 자신의 능력을 드러내고, 과감하게 도전하며, 인생에 모든 걸 거는 감각. 경기장 밖에 머물지 말고, 게임에 적극적으로 참여하라.</p>
-        </div>
-      </div>
-
-      <!-- Slide 35: Part 5, Chapter 1 Winning Game -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">지지 않는 게임 vs <span class="highlight">이기는 게임</span></h2>
-          <p class="slide-subtitle">포커 게임에서 계속 지자, 아들 잭이 말했습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-            <div>
-              <h3 class="font-bold text-lg">아빠의 게임: 지지 않는 게임 🛡️</h3>
-              <p>"아빠는 지지 않는 게임을 하잖아요."<br>위험을 감수하기보다 안전한 길을 택하고, 주목받기보다 뒤에 서서, 실패가 두려워 시도조차 하지 않는 삶.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">아들의 게임: 이기는 게임 ⚔️</h3>
-              <p>"나는 이기는 게임을 하고요."<br>실패할 위험이 있더라도 전부를 걸고 발 벗고 나서는 삶. 한 줌의 미련도 없이 모든 걸 쏟아붓는 삶.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 36: Part 5, Chapter 1 Freedom -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">아이들은 <span class="highlight">자유롭다</span></h2>
-          <p class="slide-subtitle">아이들은 어리석어 보이는 것을 두려워하지 않습니다. 그들은 자유롭게 시도하고, 웃고, 관계를 맺고, 실패하고, 다시 일어섭니다.</p>
-          <p class="slide-content">자유로운 삶은 무책임한 삶이 아닙니다. 스스로 선택하고 그 선택에 책임을 지는 삶, 자기 힘으로 삶의 고삐를 틀어잡고 자신만의 관점을 갖는 삶입니다. <span class="font-bold">우리는 더 적극적으로 실패해야 합니다.</span> 실패는 피해야 할 대상이 아니라 성장의 필수 요소입니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 37: Part 5, Chapter 2 Jack Buck -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">"꼬맹이, 일어나. 넌 살 거야."</h2>
-            <p class="slide-subtitle">전설적인 스포츠 캐스터 잭 벅. 그는 화재 사고 다음 날, 한 번도 만난 적 없는 저를 찾아와 말했습니다.</p>
-            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <p class="mt-2">"살아남을 거야. 그러니 계속 싸워. 퇴원하면 야구장에서 축하 파티를 열자. 그날을 '존 오리어리의 날'로 지정할 테니 기대해도 좋아."</p>
-            </div>
-            <p class="slide-content mt-8">그의 목소리는 다섯 달의 입원 기간 내내 제 귓전을 울렸습니다. 그는 약속을 지켰고, 제게 60개의 사인볼을 선물하며 글 쓰는 법을 다시 가르쳐주었습니다. 하지만 저는 그가 병상에 있을 때, 한 번도 찾아가지 못했습니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 38: Part 5, Chapter 2 Fear -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">두려움에 <span class="highlight">갇힌 삶</span></h2>
-            <p class="slide-subtitle">왜 찾아가지 않았을까요? 바빠서도, 고맙지 않아서도 아니었습니다. 두려움 때문이었습니다.</p>
-            <div class="slide-content">
-              <p class="mb-4">핑계 1: '다른 사람이 하겠지.' (나보다 더 중요하고 친한 사람들이 갈 거야.)</p>
-              <p class="mb-4">핑계 2: '다음에 가지, 뭐.' (내일 가자, 다음 주에 가자…)</p>
-              <p>잭의 장례식 날, 저는 차 안에서 오열했습니다. 사랑한다고 말할 기회, 고맙다고 말할 기회를 영영 놓쳤다는 사실에 절망했습니다. 그날, 저는 다짐했습니다. 다시는 <span class="highlight">사이드라인에 머무는 삶</span>을 살지 않겠다고.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 39: Part 5, Chapter 3 A Better Way -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">더 나은 길은 <span class="highlight">언제나 있다</span></h2>
-          <p class="slide-subtitle">괴롭힘을 당할 때, 불의를 목격했을 때, 우리는 어떻게 해야 할까요?</p>
-          <div class="slide-content">
-            <p>고등학생 시절, 저를 괴롭히던 아이에게 반에서 가장 작은 아이였던 제이슨이 소리쳤습니다. "닥쳐! 넌 이 아이가 무슨 일을 겪었는지 모르잖아." 그 한마디에 모든 것이 멈췄습니다.<br><br>제이슨이 보여준 자유는 진정으로 중요한 것이 무엇인지 알고, 자기 삶에 책임을 지며, <span class="font-bold">선택의 힘을 행사하는 것</span>입니다. 지지 않는 삶보다 전부를 거는 삶을 선택하는 것이 낫습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 40: Part 5, Chapter 3 All In -->
-      <div class="slide">
-        <div class="slide-container text-center">
-            <h2 class="slide-title">"전부 다요!" 💰</h2>
-            <p class="slide-subtitle">교회 헌금 접시 앞에서 "얼마나 낼까요?"라는 제 질문에 아들 패트릭이 외쳤습니다.</p>
-            <p class="slide-content max-w-4xl mx-auto">
-              '전부 다 거는 것'은 아이들에게 익숙한 개념입니다. 그들은 모든 게임에 전력을 기울이고, 에너지를 아끼지 않습니다.
-            </p>
-            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-                <h3 class="font-bold text-lg">왜 우리는 전부를 걸지 않는가?</h3>
-                <p class="mt-2">왜 내일의 삶을 위해 오늘의 삶을 포기하는가? 왜 매일 자기 안의 모든 것을 다 쏟아내지 않는가? 우리는 <span class="highlight">선택할 수 있는 자유</span>가 주는 기쁨을 잊어버렸습니다.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 41: Part 5, Chapter 3 William Borden -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">윌리엄 보든의 삶: <span class="highlight">세 가지 다짐</span></h2>
-          <p class="slide-subtitle">거대한 부의 상속자였던 윌리엄 보든은 모든 것을 버리고 세상의 문제를 해결하는 데 헌신하기로 결심했습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h3 class="font-bold text-2xl">남김없이<br>(No Reserves)</h3>
-              <p>자신이 가진 모든 재능, 통찰력, 연민을 세상에 쏟아붓겠다는 다짐.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-2xl">후퇴 없이<br>(No Retreats)</h3>
-              <p>어떤 어려움에도 뜻을 굽히지 않고 비전을 현실로 만들겠다는 다짐.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-2xl">후회 없이<br>(No Regrets)</h3>
-              <p>자신의 목적과 신념에 흔들림 없이, 지난 삶을 후회하지 않는 마음.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 42: Part 5, Chapter 4 The Pitch -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">30년 만의 시구: <span class="highlight">게임에 뛰어들어라</span></h2>
-          <p class="slide-subtitle">카디널스 홈구장에서 시구 제안을 받았습니다. 손가락도, 손목도, 팔꿈치도, 어깨도 정상이 아니었습니다. 말 그대로 불가능했습니다.</p>
-          <p class="slide-content">하지만 그 순간, 제 곁에 있는 가족이 보였습니다. 아내와 네 아이들. 그들이 있었기에 저는 이 기회를 놓칠 수 없었습니다.<br><br><span class="font-bold">남김없이. 후퇴 없이. 후회 없이.</span><br><br>저는 단호하게 말했습니다. <span class="font-bold text-2xl">"좋죠. 해봅시다!"</span></p>
-        </div>
-      </div>
-
-      <!-- Slide 43: Epilogue Section Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">에필로그</p>
-          <h2 class="slide-title">인생 최고의 순간은 <span class="highlight">아직 오지 않았다</span> 🌅</h2>
-          <p class="slide-content">어린 아들 헨리는 동트기 전의 잿빛 하늘을 보며 흥분했습니다. 빛이 어둠을 밀어내고, 밤이 낮으로 바뀌는 기적. 새날의 시작을 감탄하며 맞이했습니다. 우리도 그럴 수 있습니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 44: Epilogue Pale Blue Dot -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">'창백한 푸른 점'이 주는 교훈 🌎</h2>
-          <p class="slide-subtitle">보이저 1호가 64억 킬로미터 밖에서 찍은 지구의 사진. 칼 세이건은 말했습니다.</p>
-          <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-            <p class="mt-2">"이 점은 이곳입니다. 집입니다. 우리입니다. 당신이 사랑하고, 알고, 들어보고, 존재했던 모든 인간이 이 점 위에서 생을 이어갔습니다."</p>
-          </div>
-          <p class="slide-content mt-8">이 사진은 우리가 얼마나 작은 존재인지, 동시에 우주의 춤에 참여하는 것이 얼마나 경이로운 일인지를 깨닫게 합니다. 이 경외심은 인생에 모든 걸 다 거는 <span class="highlight">원동력</span>이 됩니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 45: Summary of 5 Senses -->
-      <div class="slide">
-          <div class="slide-container">
-            <h2 class="slide-title">아이의 <span class="highlight">다섯 가지 감각</span> 되살리기</h2>
-            <p class="slide-subtitle">다섯 가지 감각을 되살리면, 어릴 때 그랬듯 인생을 엉뚱하고 기발하고 자유롭고 즐겁게 살 수 있습니다.</p>
-            <div class="slide-content space-y-3">
-              <p><b>🌟 경이감:</b> '왜?'라고 질문하며 불가능을 가능으로 만듭니다.</p>
-              <p><b>🚀 기대감:</b> 최고의 순간을 기대하며 모험을 떠나듯 하루를 시작합니다.</p>
-              <p><b>🎯 몰입:</b> 현재에 집중하며 주변의 아름다움을 알아봅니다.</p>
-              <p><b>🤝 소속감:</b> 내가 세상에 없어서는 안 될 조각임을 깨닫고, 함께 나아갑니다.</p>
-              <p><b>🕊️ 자유:</b> 두려움을 넘어 대담하게 도전하며 '남김없이, 후퇴 없이, 후회 없이' 삽니다.</p>
-            </div>
-          </div>
-      </div>
-
-      <!-- Slide 46: Call to Action -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">이제 당신의 <span class="highlight">선택</span>입니다</h2>
-          <p class="slide-subtitle">때는 지금입니다. 마음만 먹는다면 간절히 원하는 삶을 살 수 있습니다.</p>
+          <h2 class="slide-title">자유로운 삶 vs <span class="highlight">얽매인 삶</span></h2>
+          <p class="slide-subtitle">우리는 자유롭게 태어났지만, 자라면서 점점 더 많은 것에 얽매입니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">가던 길을 계속 갈 것인가? 🚶‍♂️</h3>
-              <p>지금까지 걸어온 길을 계속 갈 수도 있습니다.</p>
+              <h3 class="font-bold text-lg">얽매인 삶 ⛓️</h3>
+              <p>기대에 갇히고, 책임에 짓눌리고, 두려움에 얽매입니다. 과거의 상처, 부정적인 믿음, 용서하지 못하는 마음에 발목이 잡힙니다. 타인과 세상의 시선에 휘둘리는 삶입니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">감탄하는 삶의 초대에 응할 것인가? 🎉</h3>
-              <p>혹은 감동과 의미와 기쁨이 있는, 감탄하는 삶을 살 수도 있습니다.</p>
+              <h3 class="font-bold text-lg">자유로운 삶 🕊️</h3>
+              <p>스스로 선택하고 그 선택에 책임을 지는 삶입니다. 자기 힘으로 삶의 고삐를 틀어잡고 행로를 정합니다. 실패를 두려워하지 않고, 적극적으로 행동하고, 개입합니다.</p>
             </div>
           </div>
-          <p class="slide-content mt-8 text-center font-bold text-xl">그리고 감탄하는 삶이 선사하는 무한한 가능성을 즐기십시오.</p>
         </div>
       </div>
-
-      <!-- Slide 47: Conclusion -->
+      
+      <!-- Slide 44: More example - Special Block -->
       <div class="slide">
-        <div class="slide-container text-center">
-          <div class="text-6xl mb-6">:dart:</div>
-          <h2 class="slide-title">최종 결론</h2>
-          <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">아이의 다섯 가지 감각—경이감, 기대감, 몰입, 소속감, 자유—을 회복함으로써 우리는 두려움 없이 인생에 온전히 뛰어들 수 있습니다. <span class="highlight">삶은 기적이며, 매 순간이 선물입니다.</span></p>
-            <p class="mt-8 font-bold text-xl text-gray-800">새날이 밝았습니다. 이제 어디로 갈지 선택하십시오.</p>
+        <div class="slide-container">
+          <h2 class="slide-title">헬리콥터 양육의 위험성 🚁</h2>
+          <p class="slide-subtitle">위험을 감수하는 것은 유아기 놀이의 핵심 요소입니다.</p>
+          <div class="slide-content">
+            <p>최근 '헬리콥터 부모'를 넘어 자녀의 성공을 가로막는 모든 장애물을 밀어버리는 '불도저 부모'까지 등장했습니다. 이는 오히려 자녀에게 상처를 입히는 양육 방식입니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <h3 class="font-bold text-lg">제이 그리피스의 경고</h3>
+                <p class="mt-2">"부모의 개입으로 작은 위험을 감수해보지 못한 아이는 정서적으로 덜 성숙하고 폐쇄적이며 <span class="highlight">상상력이 부족한 어른</span>으로 자란다."</p>
+            </div>
+            <p class="mt-4">실패는 피해야 할 대상이 아니라 성장의 필수 요소입니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 48: Thank You -->
+      <!-- Slide 45: More example - Standard -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진정한 승리란 무엇인가? 🏆</h2>
+          <p class="slide-subtitle">저자의 축구 감독님은 승리의 진정한 의미를 가르쳐주었습니다.</p>
+          <div class="slide-content">
+            <p>경기 막바지 동점 상황, 감독님은 팀에서 가장 잘 차는 선수가 아닌, 화상을 입고 갓 복귀한 저자를 페널티 킥 키커로 내보냈습니다.</p>
+            <p class="mt-4">"나는 네가 필요하다, 존. 가서 우승 골을 넣고 와."</p>
+            <p class="mt-4">결과는 기적적인 골인이었습니다. 하지만 그날의 승리는 골을 넣었기 때문이 아니었습니다. 감독님이 모두에게 <span class="highlight">진정한 승리가 무엇인지 보여준 덕분</span>이었습니다.</p>
+            <p class="mt-2"><b>진정한 승리:</b> 희박한 확률을 깨거나, 역경을 극복하거나, 나 자신보다 중요한 대의를 위해 힘을 모으는 것.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46: Bitti & Beau's Coffee Shop -->
       <div class="slide">
-        <div class="slide-container text-center">
+        <div class="slide-container">
+          <h2 class="slide-title">비티 & 보의 커피숍 ☕️</h2>
+          <p class="slide-subtitle">두 다운증후군 자녀를 둔 부부가 세상의 인식을 바꾸기 위해 연 커피숍.</p>
+          <div class="slide-content">
+            <p>에이미와 벤 부부는 장애가 있는 성인의 80%가 직업이 없다는 현실을 바꾸기로 결심했습니다. 그들은 지적 발달 장애인을 고용하는 커피숍을 열었습니다.</p>
+            <p class="mt-4">이곳은 단순히 커피를 파는 공간이 아닙니다. 고객들이 직원들과 소통하며 장애인을 더 깊이 이해하고, 다름을 축하하는 공동체입니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+                <h3 class="font-bold text-lg">에이미 라이트 (CNN 올해의 영웅)</h3>
+                <p class="mt-2">"우리 직원들은 고장 나지 않았어요. 지적 발달 장애인 2억 명 모두 고장 나지 않았습니다. <span class="highlight">고장 난 건 장애인을 바라보는 비뚤어진 시각</span>입니다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: More example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">더 나은 길은 언제나 있다 🛤️</h2>
+          <p class="slide-subtitle">놀림당하던 소년을 위해 작은 거인 제이슨이 일어섰습니다.</p>
+          <div class="slide-content">
+            <p>고등학생 시절, 저자는 덩치 큰 아이에게 계속 놀림을 받았습니다. 모두가 그 사실을 알았지만 아무도 나서지 않았습니다.</p>
+            <p class="mt-4">그러던 어느 날, 반에서 가장 몸집이 작은 제이슨이 일어나 그 아이에게 걸어가 외쳤습니다.</p>
+            <p class="mt-4 text-center text-2xl font-bold">"닥쳐! 넌 이 아이가 무슨 일을 겪었는지 모르잖아. 그러니까 닥쳐!"</p>
+            <p class="mt-4">그날 이후로 아무도 저자를 놀리지 않았습니다. 제이슨은 목소리를 내면 엄청난 변화를 불러올 수 있다는 것을 보여주었습니다. 이것이 바로 <span class="highlight">진정한 자유</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: More example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신은 왜 일하고 있는가? 💼</h2>
+          <p class="slide-subtitle">일의 신성한 가치와 의미를 되새겨야 합니다.</p>
+          <div class="slide-content">
+            <p>마틴 루서 킹 주니어는 말했습니다. "무슨 일이든 인류의 발전에 보탬이 된다면 그 일은 우주적 의미를 지닙니다. 도로 청소부가 되었다면 라파엘로가 그림을 그리듯 거리를 청소하세요."</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">가치 vs. 직업 만족도</h3>
+              <p class="mt-2">연구에 따르면 직업 만족도를 가장 잘 보여주는 지표는 일의 종류가 아니라, <span class="highlight">그 일이 중요하다는 확신</span>이었습니다. 자신이 하는 일이 치료의 일부라고 생각하는 병원 청소부는 훨씬 더 열정적이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49: More example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">최고들은 '재미'에 집중한다 🎯</h2>
+          <p class="slide-subtitle">어떤 과제에 목적의식 없이 시간 가는 줄 모르고 몰입할 때, 우리는 '흐름(flow)'을 타게 됩니다.</p>
+          <div class="slide-content">
+              <p>흐름 상태가 되면 자기 자신을 주시하고 충동을 억제하는 전전두엽피질이 일시적으로 작동을 멈춥니다. 타인의 시선을 신경 쓰는 뇌의 귀찮은 기능이 꺼지는 것입니다.</p>
+              <p class="mt-4">이때 우리는 자신에게 관대해지고 더 과감한 행동을 취할 수 있습니다. 당연히 창의성도 높아집니다.</p>
+              <p class="mt-4 font-bold">링컨은 연극을 보며, 루스벨트는 운동과 파티를 즐기며 가장 힘든 시기를 이겨냈습니다. 놀이는 리더십을 좌우하는 매우 중요한 요소입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50: Final example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자연이 주는 선물, '가벼운 도취' 🍃</h2>
+          <p class="slide-subtitle">끊임없는 다중 작업이 초래하는 정신적 피로에서 벗어나는 법.</p>
+          <div class="slide-content">
+            <p>미시간 대학 연구진은 뇌가 쉴 수 있는 건 '가벼운 도취(soft fascination)' 상태일 때라고 말합니다. 이는 저녁노을을 보거나, 모닥불을 보거나, 빗줄기를 볼 때의 상태입니다.</p>
+            <p class="mt-4">자연은 뇌에 쉴 기회를 줄 뿐만 아니라, 치료 효과도 있습니다. 숲에서 산책하면 스트레스 호르몬, 교감신경 활성도, 혈압, 심장 박동 수가 모두 감소합니다.</p>
+            <div class="mt-6 text-center">
+              <p class="text-xl font-medium">단순히 밖으로 나가기만 해도 <span class="highlight">생명력과 회복력</span>을 높일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Thank You -->
+      <div class="slide">
+        <div class="slide-container text-center items-center">
           <div class="text-7xl mb-8">👏</div>
           <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
         </div>
       </div>
-      
-      <!-- Slide 49: Q&A -->
-      <div class="slide">
-        <div class="slide-container text-center">
-          <div class="text-7xl mb-8">🙋‍♂️</div>
-          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Q&A</h1>
-           <p class="text-xl md:text-2xl text-gray-600">질문 있습니까?</p>
-        </div>
-      </div>
-      
-      <!-- Slide 50: Final Quote -->
-      <div class="slide">
-        <div class="slide-container text-center">
-          <h1 class="text-3xl font-bold text-gray-800 mb-4">"나는 맞지 않는 조각인가,</h1>
-          <p class="text-3xl font-bold text-gray-800">있는 그대로의 모습으로도 이 세상에 맞는 조각인가."</p>
-        </div>
-      </div>
 
+      <!-- Slide 52: Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center items-center">
+          <div class="text-7xl mb-8">🎤</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Q & A</h1>
+          <p class="text-xl md:text-2xl text-gray-600">질문 있나요?</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -785,9 +905,10 @@
 
     function updateSlide() {
       slides.forEach((slide, index) => {
-        slide.classList.remove('active');
         if (index === currentSlide) {
           slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
         }
       });
       slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
@@ -817,11 +938,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
+      if (e.key === 'ArrowRight') {
         nextBtn.click();
       } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
         prevBtn.click();
       }
     });
@@ -829,6 +948,5 @@
     // Initial setup
     updateSlide();
   </script>
-
 </body>
 </html>

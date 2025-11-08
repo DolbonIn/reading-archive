@@ -1,5 +1,15 @@
 [
   {
+    "slug": "다시-인생을-아이처럼-살-수-있다면",
+    "title": "다시 인생을 아이처럼 살 수 있다면",
+    "author": "존 오리어리",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/다시-인생을-아이처럼-살-수-있다면.html",
+    "cover": "assets/covers/다시-인생을-아이처럼-살-수-있다면.jpg"
+  },
+  {
     "slug": "다산의-마지막-편지",
     "title": "다산의 마지막 편지",
     "author": "박석현",
@@ -428,16 +438,6 @@
     "description": "",
     "presentation": "presentations/똑똑한-사람은-어떻게-생각하고-질문하는가-이시한.html",
     "cover": "assets/covers/똑똑한-사람은-어떻게-생각하고-질문하는가-이시한.jpg"
-  },
-  {
-    "slug": "다시-인생을-아이처럼-살-수-있다면",
-    "title": "다시 인생을 아이처럼 살 수 있다면",
-    "author": "존 오리어리",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/다시-인생을-아이처럼-살-수-있다면.html",
-    "cover": "assets/covers/다시-인생을-아이처럼-살-수-있다면.jpg"
   },
   {
     "slug": "그레이트-마인드셋",

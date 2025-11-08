@@ -9,35 +9,45 @@
 </head>
 <body>
   <div id="app">
-    <div class="bookshelf-wrapper">
-      <div class="shelf-stage">
-        <div id="bookshelf" class="shelf-stack" aria-live="polite"></div>
-        <div class="stage-shadow"></div>
+    <div class="background" aria-hidden="true">
+      <div class="grid-overlay"></div>
+      <div class="parallax">
+        <span class="glow glow-1"></span>
+        <span class="glow glow-2"></span>
+        <span class="glow glow-3"></span>
       </div>
     </div>
 
-    <div class="header-bar">
+    <header class="header-bar">
       <h1>READING ARCHIVE</h1>
       <span class="chip">AI GENERATED BOOKSHELF</span>
-    </div>
+    </header>
 
-    <div id="empty-state" style="display:none;"></div>
+    <main class="app-layout" aria-live="polite">
+      <section class="bookshelf-wrapper" aria-label="AI 책장">
+        <div class="shelf-stage">
+          <div class="gradient-overlay" aria-hidden="true"></div>
+          <div id="bookshelf" class="shelf-stack" aria-live="polite"></div>
+          <div class="stage-shadow" aria-hidden="true"></div>
+        </div>
+        <div id="empty-state" class="empty-state" hidden></div>
+        <div class="controls">
+          <span>마우스를 움직이면 서가가 3D로 기울어집니다</span>
+          <span>책을 클릭하면 프레젠테이션이 열립니다</span>
+        </div>
+      </section>
 
-    <aside id="info-panel" class="info-panel">
-      <div class="cover">
-        <img id="info-cover" src="assets/covers/default.svg" alt="책 표지" />
-      </div>
-      <h2 id="info-title">책 제목</h2>
-      <p id="info-meta">저자 · 날짜</p>
-      <p id="info-description" class="description"></p>
-      <div id="info-tags" class="tags"></div>
-      <a id="info-button" class="view-button" href="#" target="_blank" rel="noopener">AI 프레젠테이션 열기</a>
-    </aside>
-
-    <div class="controls">
-      <span>마우스를 움직이면 서가가 3D로 기울어집니다</span>
-      <span>책을 클릭하면 프레젠테이션이 열립니다</span>
-    </div>
+      <aside id="info-panel" class="info-panel" aria-live="polite">
+        <div class="cover">
+          <img id="info-cover" src="assets/covers/default.svg" alt="책 표지" />
+        </div>
+        <h2 id="info-title">책 제목</h2>
+        <p id="info-meta">저자 · 날짜</p>
+        <p id="info-description" class="description"></p>
+        <div id="info-tags" class="tags"></div>
+        <a id="info-button" class="view-button" href="#" target="_blank" rel="noopener">AI 프레젠테이션 열기</a>
+      </aside>
+    </main>
   </div>
 
   <script defer src="assets/js/shelf.js"></script>
