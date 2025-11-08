@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading Archive · AI Bookshelf</title>
   <link rel="stylesheet" href="assets/css/shelf.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <meta name="theme-color" content="#090d1a" />
   <meta name="description" content="AI가 자동으로 생성한 HTML 프레젠테이션을 책장 형태로 전시합니다." />
 </head>
 <body>
@@ -107,5 +111,14 @@
   </div>
 
   <script defer src="assets/js/shelf.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').catch((error) => {
+          console.error('Service worker registration failed:', error);
+        });
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,21 @@
+{
+  "name": "Reading Archive · AI Bookshelf",
+  "short_name": "ReadingArchive",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#090d1a",
+  "theme_color": "#090d1a",
+  "description": "AI가 자동으로 생성한 HTML 프레젠테이션을 책장 형태로 전시합니다.",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
