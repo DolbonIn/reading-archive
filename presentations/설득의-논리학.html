@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설득의 논리학 Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e9ecef;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd600;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: #5a6268;
+      transform: translateY(-2px);
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .quote-block {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background-color: #f8f9fa;
+      border-left: 5px solid #007bff;
+      font-style: italic;
+      color: #495057;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full max-w-5xl">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">설득의 논리학</h1>
+          <p class="text-xl md:text-2xl text-gray-700">말과 글을 단련하는 <span class="highlight">10가지 논리 도구</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg space-y-3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+            <p><b>1.</b> 소크라테스의 광고 전략</p>
+            <p><b>2.</b> 셰익스피어 씨! 논리학 좀 아세요?</p>
+            <p><b>3.</b> 아리스토텔레스가 논설문을 쓴다면</p>
+            <p><b>4.</b> 베이컨을 좋아하세요?</p>
+            <p><b>5.</b> 셜록 홈스의 추리 비법</p>
+            <p><b>6.</b> 비트겐슈타인과 야생마 길들이기</p>
+            <p><b>7.</b> 파스칼, 내기를 하다</p>
+            <p><b>8.</b> 쇼펜하우어의 토론 전략</p>
+            <p><b>9.</b> 플라톤의 빨간 사과</p>
+            <p><b>10.</b> 진리가 뭐냐고 물으신다면</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Introduction 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🤔 논리학은 <span class="highlight">왜</span> 필요한가?</h2>
+          <p class="slide-subtitle">논리학은 복잡하고 어려운 학문이라는 편견을 넘어, 우리 삶에 필수적인 '설득의 도구'입니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">광고, 보고서, 프레젠테이션, 심지어 일상 대화에 이르기까지 우리는 끊임없이 상대를 설득해야 하는 상황에 놓입니다.</p>
+            <p>이 책은 논리학이 단순히 논증의 타당성만 검증하는 <span class="font-bold">차가운 학문이 아니라</span>, 말과 글을 단련하여 설득력을 높이는 <span class="font-bold">뛰어난 도구</span>임을 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Introduction 2 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언어의 논리 vs <span class="highlight">수리 논리</span></h2>
+          <p class="slide-subtitle">우리가 일상에서 사용하는 논리는 수학이나 공학의 '수리 논리학'과는 다릅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🔢 수리 논리학 (Mathematical Logic)</h3>
+              <p>자연을 이해하고 조종하려는 욕구에서 발전했습니다. 주로 수학, 공학에서 사용되며 기호로 표현됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🗣️ 설득의 논리학 (Logic of Persuasion)</h3>
+              <p>인간을 설득하여 움직이려는 욕구에서 발전했습니다. 말과 글, 즉 <span class="highlight">언어의 논리</span>이며, 우리 일상과 밀접한 관련이 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 1</p>
+          <h2 class="slide-title">소크라테스의 <span class="highlight">광고 전략</span> 🏛️</h2>
+          <p class="slide-subtitle">수사학과 예증법</p>
+        </div>
+      </div>
+      
+      <!-- Slide 6: What is Argument -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">설득은 <span class="highlight">논증</span>이다</h2>
+          <p class="slide-subtitle">설득의 시대, 권위가 아닌 논리로 상대를 움직여야 합니다.</p>
+          <div class="slide-content">
+            <p>과거 '사느냐 죽느냐'의 문제는 이제 '설득하느냐 못하느냐'의 문제로 바뀌었습니다. 직장, 학교, 가정에서 상대를 설득할 수 있으면 성공하고, 그렇지 못하면 실패합니다.</p>
+            <div class="quote-block">
+              <p>"알고 보면 설득이란 논리라는 나무에서 열리는 달콤한 열매에 불과하다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Argument Definition -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">논증이란 <span class="highlight">무엇인가?</span> 🧐</h2>
+          <p class="slide-subtitle">추론(Inference)의 언어적 표현이 바로 논증(Argument)입니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <ul class="space-y-4">
+              <li><b>추론:</b> 어떤 것(전제)을 근거로 하여 다른 어떤 것(결론)에 도달하는 특수한 사고 과정.</li>
+              <li><b>논증:</b> 이러한 추론 과정을 언어로 표현한 것. <br> (예: 모든 사람은 죽는다. 소크라테스는 사람이다. <span class="font-bold">그러므로</span> 소크라테스는 죽는다.)</li>
+              <li><b>특징:</b> 둘 이상의 언어적 표현과 그 사이를 잇는 '왜냐하면', '그러므로' 같은 <span class="highlight">논리적 연결사</span>가 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Paradeigma 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아홉 개의 설명보다 <span class="highlight">한 개의 예</span> 📖</h2>
+          <p class="slide-subtitle">수사학적 논증의 핵심, 예증법(Paradeigma)을 알아봅니다.</p>
+          <div class="slide-content">
+            <p><b>예증법이란?</b> 잘 알려진 예를 근거로 삼아 자신의 주장을 내세우는 논증입니다. 가장 널리 사용되고, 가장 뛰어난 설득력을 가진 기법 중 하나입니다.</p>
+            <p class="mt-4">
+              "나쁜 음식은 몸을 병들게 한다. <span class="highlight">마찬가지로</span> 나쁜 생각은 정신 건강을 해친다."
+            </p>
+            <p class="mt-2">
+              "깊은 강물은 돌을 던져도 흐려지지 않는다. 모욕을 당했다고 화를 내는 사람은 <span class="highlight">얕은 사람이다</span>." (톨스토이)
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Paradeigma 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예증법의 <span class="highlight">힘</span> ✨</h2>
+          <p class="slide-subtitle">성현들은 모두 예증법의 천재였습니다.</p>
+          <div class="slide-content">
+             <p>석가, 공자, 소크라테스, 예수 등은 모두 예를 들어 교훈하기를 즐겼습니다. 경전들은 예증법으로 가득 찬 보물창고와 같습니다.</p>
+            <div class="quote-block">
+              <p>"너희 중에 아들이 빵을 달라는데 돌을 줄 사람이 어디 있으며, 생선을 달라는데 뱀을 줄 사람이 어디 있겠느냐? 너희는 악하면서도 자녀에게 좋은 것을 줄 줄 아는데, 하물며 하늘에 계신 아버지께서야..."</p>
+              <p class="text-right text-sm mt-2">- 마태복음 7:9-11</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Topica -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나만의 무기고, <span class="highlight">토피카(Topica)</span>를 만들어라!</h2>
+          <p class="slide-subtitle">적절한 예를 찾기 위한 아리스토텔레스의 해법</p>
+          <div class="slide-content">
+            <p>뛰어난 연설가와 학자들은 평소에 다양한 예들을 수집하고 정리하여 필요할 때 바로 사용할 수 있는 <span class="font-bold">'자료집'</span>을 준비했습니다. 이것이 바로 '토피카'의 시작입니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li><b>수집 대상:</b> 고사성어, 격언, 역사적 사실, 검증된 학설, 최신 통계 자료 등</li>
+              <li><b>활용법 1:</b> 주어진 주제에 맞는 적절한 예를 찾아 주장을 펼친다.</li>
+              <li><b>활용법 2:</b> 가지고 있는 가장 멋진 예를 먼저 고르고, 그것에 맞는 주제를 찾아 이야기를 전개한다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 2</p>
+          <h2 class="slide-title">셰익스피어 씨! <span class="highlight">논리학</span> 좀 아세요? ✒️</h2>
+          <p class="slide-subtitle">삼단논법의 세 가지 변형</p>
+        </div>
+      </div>
+
+      <!-- Slide 12: Shakespeare's Rhetoric -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">셰익스피어의 <span class="highlight">수사법</span></h2>
+          <p class="slide-subtitle">『율리우스 카이사르』 속 브루투스의 연설은 문예적 수사법의 정수입니다.</p>
+          <div class="slide-content">
+            <p>카이사르 암살 후, 흥분한 군중 앞에서 브루투스는 명연설로 민심을 돌려놓습니다. 셰익스피어는 이 연설에 다양한 수사법을 녹여냈습니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li><b>열거법:</b> "로마인이여! 동포들이여! 친구들이여!"</li>
+              <li><b>대구법:</b> "나의 이유를 들어주시오. 듣기 위해서 조용히 해주시오."</li>
+              <li><b>반복법:</b> "...그의 사랑에는 눈물이 있고, ...그의 행운에는 기쁨이 있고, ...그의 용기에는 존경이 있고, ...그의 야심에는 죽음이 있소."</li>
+              <li><b>설의법:</b> "여러분 중에 노예가 되길 원하는 비굴한 사람이 있소?"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Enthymeme -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진부한 것은 가라: <span class="highlight">생략삼단논법</span></h2>
+          <p class="slide-subtitle">전제의 일부를 생략하여 논증을 더 간결하고 강력하게 만드는 기법입니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <p class="font-bold text-lg mb-2">원래 삼단논법</p>
+            <p>(전제1) 공급이 부족하면 물건 값이 오른다.</p>
+            <p>(전제2) 휘발유 공급이 부족하다.</p>
+            <p>(결론) 그러므로 휘발유 값이 오른다.</p>
+            <hr class="my-4">
+            <p class="font-bold text-lg mb-2">➡️ 생략삼단논법 (Enthymeme)</p>
+            <p>"휘발유 값이 오른다. <span class="highlight">공급이 부족하기 때문이다.</span>" (전제1 생략)</p>
+            <p class="mt-2 text-sm text-gray-600">누구나 아는 진부한 전제를 생략함으로써 싫증을 덜고 자연스러운 맛을 살립니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Epicheireme -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">조목조목 증거를 대라: <span class="highlight">대증식</span></h2>
+          <p class="slide-subtitle">전제 하나하나마다 증거를 붙여 설득력을 극대화하는 확장된 논증법입니다.</p>
+          <div class="slide-content">
+            <p><b>기본 구조:</b> [전제 1] – [전제 1 증거] – [전제 2] – [전제 2 증거] – [결론]</p>
+            <div class="quote-block">
+              <p><b>[전제 1]</b> A강 개발은 목적 달성이 어렵다.</p>
+              <p><b>[증거 1]</b> 지층이 석회암이라 저수 능력이 빈약하다. (지질 전문가 연구 첨부)</p>
+              <p><b>[전제 2]</b> A강 개발로 인한 피해가 막대하다.</p>
+              <p><b>[증거 2]</b> 과도한 개발비, 자연 환경 파괴 사례 등을 제시.</p>
+              <p><b>[결론]</b> 그러므로 A강 개발 계획은 철폐되어야 한다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Sorites -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">꼬리에 꼬리를 물어라: <span class="highlight">연쇄삼단논법</span></h2>
+          <p class="slide-subtitle">앞선 논증의 결론을 다음 논증의 전제로 사용하여 주장을 더욱 강화합니다.</p>
+          <div class="slide-content">
+             <p>논리적 허점을 허락하지 않고 전체 문장을 하나의 강력한 연결체로 만듭니다. 광고에서 자주 사용되는 기법입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p>(전제1) 당신은 남성이 좋아하는 여성이 되고 싶다.</p>
+              <p>(전제2) 남성이 좋아하는 여성은 날씬한 몸매를 가졌다.</p>
+              <p><b>(결론1) 따라서 당신은 날씬한 몸매를 갖고 싶어 한다.</b></p>
+              <p>(전제3) <b>날씬한 몸매의 여성은</b> A 음료를 마신다.</p>
+              <p><b>(결론2) 그러므로 당신도 A 음료를 마셔야 한다.</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 3</p>
+          <h2 class="slide-title">아리스토텔레스가 <span class="highlight">논설문</span>을 쓴다면 ✍️</h2>
+          <p class="slide-subtitle">글의 구조와 yes-but 논법</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: Aristotle's Arrangement -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아리스토텔레스의 <span class="highlight">배열법</span></h2>
+          <p class="slide-subtitle">논설문의 성패는 잘 짜인 구조에 달려있습니다.</p>
+          <div class="slide-content">
+            <p>아리스토텔레스는 『수사학』에서 논설문을 4단계로 구성할 것을 권했습니다. 이 구조는 오늘날 글쓰기에도 여전히 유효합니다.</p>
+            <ol class="list-decimal list-inside mt-4 space-y-3 font-bold text-lg">
+              <li><span class="highlight">머리말 (유혹하기)</span>: 격언, 예화, 질문 등으로 독자의 관심을 촉발한다.</li>
+              <li><span class="highlight">진술부 (사실 제시)</span>: 논의할 문제(논제)와 관련된 사실을 객관적으로 언급한다.</li>
+              <li><span class="highlight">논증부 (설득하기)</span>: 주제를 내세우고 적절한 논거로 증명한다. (핵심 부분)</li>
+              <li><span class="highlight">맺음말 (감동시키기)</span>: 주제를 요약, 강조하고 방향 제시나 여운을 남긴다.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Yes-but Logic 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">반대 의견까지 품는 <span class="highlight">Yes-but 논법</span></h2>
+          <p class="slide-subtitle">자신의 주장만 내세우는 것은 '주관적 주장'에 머물기 쉽습니다.</p>
+          <div class="slide-content">
+            <p>논증에 반론부를 두면 '반대 의견까지 고려한 객관적 주장'이라는 인상을 주어 글의 공정성과 설득력을 동시에 높일 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">[Yes: 반론부]</h3>
+              <p class="mb-2">상대방의 주장이나 대립하는 견해를 먼저 제시하고 일부 인정합니다.<br> (예: <span class="font-bold">물론</span> ~라는 견해가 있습니다. <span class="font-bold">일각에서는</span> ~라고 주장합니다.)</p>
+              <h3 class="font-bold text-lg">[But: 논증부]</h3>
+              <p>그럼에도 불구하고 자신의 주장이 더 타당함을 논증으로 강조합니다.<br> (예: <span class="font-bold">그러나</span> ~임이 분명합니다. <span class="font-bold">그럼에도 불구하고</span> ~해야 합니다.)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 19: Yes-but Logic 2 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">5단 배열법: <span class="highlight">통일 문제</span> 적용 예시</h2>
+          <p class="slide-subtitle">Yes-but 논법을 적용한 글의 구체적인 구조입니다.</p>
+          <div class="slide-content text-base">
+            <ol class="list-decimal list-inside space-y-2">
+              <li><b>[머리말] 유혹하기:</b> '우리의 소원은 통일'이라는 노래를 언급하며 관심 유도.</li>
+              <li><b>[진술부] 논제 제기:</b> 남북 분단이 감정 문제를 넘어 현실적 문제임을 제시.</li>
+              <li><b>[반론부] 반론 제기 (Yes...):</b> <span class="highlight">물론</span> 급진적 통일은 경제적 부담, 사회 문제 등 후유증을 낳을 수 있다고 인정.</li>
+              <li><b>[논증부] 주제 제시 (But...):</b> <span class="highlight">그럼에도</span> 통일은 앞당겨야 한다고 주장. ("매도 먼저 맞는 놈이 낫다") 국방비 절감, 내수 시장 확대 등 구체적 논거 제시.</li>
+              <li><b>[맺음말] 마무리:</b> "통일 비용이 많이 든다고 하지만 분단의 고통에 비하면 적다."는 인용으로 여운 남기기.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 4</p>
+          <h2 class="slide-title">베이컨을 좋아하세요? 🥓</h2>
+          <p class="slide-subtitle">귀납법과 과학의 수사학</p>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Induction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">귀납법(Induction)이란?</h2>
+          <p class="slide-subtitle">개별적인 사례들로부터 일반적인 결론을 이끌어내는 '진리 확장적' 논증입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">[특징]</h3>
+              <p>결론이 전제로부터 <span class="highlight">'개연적으로' 또는 '가능적으로'</span> 나옵니다. (필연적X) 따라서 결론이 거짓일 수도 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">[예시]</h3>
+              <p>숙련된 선원은 배를 잘 조종한다. 숙련된 기수는 말을 잘 탄다. ➡️ 그러므로 숙련된 사람은 자기 전문 분야의 일을 가장 잘한다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Blind Men and Elephant -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">코끼리를 탐구하는 법 🐘</h2>
+          <p class="slide-subtitle">장님 코끼리 만지기 우화는 귀납법의 한계를 보여줍니다.</p>
+          <div class="slide-content">
+            <p>몇몇 사례(부분)만을 근거로 보편적 결론(전체)을 내리는 전통적 귀납법은 오류에 빠지기 쉽습니다.</p>
+            <div class="quote-block">
+              <p>프랜시스 베이컨은 이러한 한계를 극복하기 위해 새로운 귀납법을 제시했습니다. 그것은 단순히 몇 가지 사례를 모으는 것이 아니라, 치밀한 계획과 방법으로 <span class="highlight">전체를 파악하려는 시도</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Bacon's Induction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">베이컨의 <span class="highlight">새로운 귀납법</span></h2>
+          <p class="slide-subtitle">단순한 열거를 넘어, 체계적인 분석과 배제를 통해 본질에 접근합니다.</p>
+          <div class="slide-content">
+            <ol class="list-decimal list-inside space-y-3">
+              <li><b>자료 준비 (사례표 작성):</b>
+                <ul class="list-disc list-inside ml-6 text-sm">
+                  <li><b>존재표(긍정적 사례):</b> 열이 있는 것들 (햇빛, 번개, 동물의 몸 등)</li>
+                  <li><b>부재표(부정적 사례):</b> 열이 없는 것들 (달빛, 차가운 공기 등)</li>
+                  <li><b>정도표(정도 차이):</b> 열이 다른 정도로 있는 것들 (움직일 때의 동물 몸)</li>
+                </ul>
+              </li>
+              <li><b>귀납 추론 (제외와 배제):</b> 사례표를 비교 분석하여 관련 없는 성질을 하나씩 <span class="highlight">제외</span>합니다. (예: 끓는 물은 열이 있지만 빛나지 않으므로, '빛'은 열의 본질적 성질에서 제외)</li>
+              <li><b>결론 도출:</b> 최종적으로 남는 근본적인 성질을 찾아냅니다.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Science and Persuasion -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학에도 <span class="highlight">설득</span>이 필요하다 🔬</h2>
+          <p class="slide-subtitle">과학적 사실은 '발견'되는 것이 아니라, 실험과 관찰을 통해 '구성'되고 동료 과학자들을 '설득'하는 과정입니다.</p>
+          <div class="slide-content">
+            <p>과학적 주장은 귀납법을 통해 얻어지므로 그 결론은 필연적 참이 아닌 <span class="font-bold">'개연적 참'</span>입니다. 따라서 확증의 정도가 낮은 결론으로 동료 과학자들의 동의를 얻어내야 합니다.</p>
+            <p class="mt-4">이것이 과학에서도 수사학, 즉 설득의 기술이 요구되는 이유입니다. 귀납적 강도에 따라 표현의 강도를 조절하는 것이 중요합니다. <br>(예: "모두 이기적이다" ❌ ➡️ "<span class="highlight">이기적인 경향이 있다</span>" ⭕)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 5</p>
+          <h2 class="slide-title">셜록 홈스의 <span class="highlight">추리 비법</span> 🕵️</h2>
+          <p class="slide-subtitle">가추법과 가설연역법</p>
+        </div>
+      </div>
+
+      <!-- Slide 26: Abduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제3의 추론, <span class="highlight">가추법(Abduction)</span></h2>
+          <p class="slide-subtitle">결과로부터 원인을 거슬러 올라가 설명하는 '최선의 설명으로의 추론'입니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <p class="font-bold text-lg mb-2">콩 주머니 예시 (찰스 퍼스)</p>
+            <p><b>(법칙)</b> 이 주머니에서 나온 콩들은 모두 하얗다.</p>
+            <p><b>(사례)</b> 이 콩들은 하얗다.</p>
+            <p><b>(결과)</b> <span class="highlight">그러므로 이 콩들은 이 주머니에서 나왔다.</span> (추측)</p>
+            <hr class="my-4">
+            <p><b>특징:</b> 연역, 귀납과 달리 <span class="font-bold">새로운 지식(가설)을 생산</span>하는 창의적 추론입니다. 이미 일어났지만 아직 모르는 사실을 밝혀냅니다. 탐정과 과학자들이 주로 사용합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Holmes's Logic -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">홈스는 <span class="highlight">가추법</span>의 대가</h2>
+          <p class="slide-subtitle">홈즈 자신은 '연역'이라 불렀지만, 논리학적으로 그의 추리는 대부분 가추법에 해당합니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">"자네 발등에 황토가 묻어있군. 위그모어 가 우체국 근처 길은 파헤쳐져 있고 그 흙은 유난히 붉지. <span class="highlight">따라서 자네는 오늘 아침 그 우체국에 다녀왔네.</span>"</p>
+            <p>이것은 관찰된 사실(붉은 흙)로부터 그것을 가장 잘 설명하는 가설(우체국에 다녀옴)을 이끌어내는 전형적인 가추법입니다.</p>
+            <div class="quote-block">
+              <p>"불가능한 것들을 모두 지워버렸을 때 남는 것 하나가 진실임이 틀림없네."</p>
+              <p class="mt-1 text-sm">➡️ 이 말은 여러 가추법적 가설들 중 유일한 가능성만 남을 때, 그 추리가 연역처럼 타당해짐을 의미합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Hypothesis-Deduction -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">탐정과 과학자 🔭</h2>
+          <p class="slide-subtitle">과학자들이 사용하는 '가설연역법'은 가추법과 본질적으로 같습니다.</p>
+          <div class="slide-content text-center">
+            <img src="https://i.imgur.com/g8e1y5f.png" alt="Hypothetico-deductive method diagram" class="mx-auto rounded-lg shadow-md">
+            <p class="mt-4 text-sm">
+              <span class="font-bold">① 문제 발생 (현실 세계) ➡️ ② 가설 설정 (가추법) ➡️ ③ 예측 (연역) ➡️ ④ 검증 (실험/관찰)</span>
+            </p>
+            <p class="mt-2">해왕성의 발견(르베리에)과 셜록 홈스의 추리 과정은 동일한 구조를 가집니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Section 6 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 6</p>
+          <h2 class="slide-title">비트겐슈타인과 <span class="highlight">야생마 길들이기</span> 🐎</h2>
+          <p class="slide-subtitle">연역법과 자연언어</p>
+        </div>
+      </div>
+
+      <!-- Slide 30: Logic's Beginning -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">논리학은 <span class="highlight">이렇게</span> 시작되었다</h2>
+          <p class="slide-subtitle">고대 그리스 소피스트들의 '궤변'이 만연하면서 언어적 혼란을 바로잡을 필요성이 대두되었습니다.</p>
+          <div class="quote-block">
+            <p>"자네는 개 한 마리를 갖고 있다고 했지?" - "예."</p>
+            <p>"그 개에게는 새끼들도 있겠지?" - "예."</p>
+            <p>"그렇다면 그 개는 아비로군." - "그렇습니다."</p>
+            <p>"게다가 그 개는 자네의 것이 아닌가?" - "물론 제 것이지요."</p>
+            <p>"자, 그러면 <span class="highlight">그 개는 자네의 것이고, 또 그 개는 아비일세. 그러니까 그 개는 자네의 아비이고,</span> 그 강아지들은 자네의 형제들이 아닌가."</p>
+          </div>
+          <p class="mt-4">이러한 언어의 모호함(애매어의 오류)을 제거하고 명료한 사고를 하기 위한 노력에서 아리스토텔레스의 논리학이 탄생했습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Deduction vs Induction -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연역법 vs <span class="highlight">귀납법</span></h2>
+          <p class="slide-subtitle">논증은 크게 두 가지로 나뉩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">➡️ 연역 논증 (Deduction)</h3>
+              <p>전제가 참이면 결론이 <span class="highlight">반드시(필연적으로)</span> 참이 되는 '진리 보존적' 논증입니다. 새로운 지식을 확장하지는 않지만, 신뢰성이 보장됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">➡️ 귀납 논증 (Induction)</h3>
+              <p>전제가 참이라도 결론이 <span class="highlight">아마도(개연적으로)</span> 참일 뿐인 '진리 확장적' 논증입니다. 새로운 지식을 생산할 수 있지만, 결론이 틀릴 가능성이 있습니다.</p>
+            </div>
+          </div>
+          <p class="mt-6 text-center text-gray-700">논리학의 역사는 설득력을 높이기 위해 귀납에서 연역으로 발전해 온 과정입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Wittgenstein's Dream -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비트겐슈타인의 꿈: <span class="highlight">언어 길들이기</span></h2>
+          <p class="slide-subtitle">『논리-철학 논고』에서 비트겐슈타인은 형식언어를 통해 자연언어의 모호함을 완전히 제거하려 했습니다.</p>
+          <div class="slide-content">
+            <p>'그림 이론'을 통해, 그는 <span class="font-bold">언어의 논리적 구조</span>가 <span class="font-bold">세계의 물리적 구조</span>와 완벽히 대응한다고 주장했습니다.</p>
+            <p class="mt-4">이 꿈은 모든 지식을 형식언어로 번역하고, 그 참/거짓을 기계적으로 계산하여 철학을 끝내려는 시도였으나, 결국 비트겐슈타인 자신에 의해 포기되었습니다. 자연언어는 형식언어의 틀에 가둘 수 없는 '야생마'와 같았기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Section 7 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 7</p>
+          <h2 class="slide-title">파스칼, <span class="highlight">내기를 하다</span> 🎲</h2>
+          <p class="slide-subtitle">설득의 심리학과 의사결정의 논리</p>
+        </div>
+      </div>
+
+      <!-- Slide 34: Pavlov's Dog -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리는 <span class="highlight">파블로프의 개</span>인가?</h2>
+          <p class="slide-subtitle">인간의 선택은 논리보다 심리에 더 크게 좌우됩니다.</p>
+          <div class="slide-content">
+            <p>로버트 치알디니의 『설득의 심리학』에 따르면, 설득 전문가들은 인간의 심리적 취약점, 즉 '고정 행동 유형'을 공략합니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li><b>예시:</b> 터키석의 가격을 두 배로 올리자 오히려 매진된 사례.</li>
+              <li><b>심리 법칙:</b> "<span class="highlight">비싼 것 = 품질이 좋은 것</span>"이라는 무의식적 의사결정 법칙이 작동.</li>
+              <li><b>설득 전문가의 전략:</b> 상호성의 법칙, 일관성의 법칙, 사회적 증거의 법칙 등을 이용해 우리의 자동적인 반응을 유발합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Pascal's Wager -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">파스칼의 내기: <span class="highlight">의사결정의 논리</span></h2>
+          <p class="slide-subtitle">어떤 선택이 최선인지 논리적으로 찾아내는 방법입니다.</p>
+          <div class="slide-content">
+            <p>파스칼은 신의 존재 여부와 그것을 믿을지 말지에 대한 선택의 결과를 분석하여, 신을 믿는 편이 합리적으로 유리함을 보였습니다.</p>
+            <table class="w-full mt-4 border-collapse text-center">
+              <thead>
+                <tr class="bg-gray-100">
+                  <th class="border p-2"></th>
+                  <th class="border p-2">신이 존재하는 경우</th>
+                  <th class="border p-2">신이 존재하지 않는 경우</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2 font-bold">신을 믿는다</td>
+                  <td class="border p-2 text-green-600">무한한 행복 (∞)</td>
+                  <td class="border p-2">평범한 삶 (0)</td>
+                </tr>
+                <tr>
+                  <td class="border p-2 font-bold">신을 믿지 않는다</td>
+                  <td class="border p-2 text-red-600">무한한 고통 (-∞)</td>
+                  <td class="border p-2">평범한 삶 (0)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="mt-4">➡️ <b>결론:</b> 신을 믿는 경우의 기댓값(∞)이 믿지 않는 경우의 기댓값(-∞)보다 압도적으로 높으므로, <span class="highlight">신을 믿는 것이 합리적인 선택</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Section 8 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 8</p>
+          <h2 class="slide-title">쇼펜하우어의 뻔뻔한 <span class="highlight">토론 전략</span> 🤺</h2>
+          <p class="slide-subtitle">논쟁에서 이기는 대화법</p>
+        </div>
+      </div>
+
+      <!-- Slide 37: Debate Techniques -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">토론을 위한 기술들 (정당한 기술)</h2>
+          <p class="slide-subtitle">연역법과 귀납법을 이용한 공격과 방어 전략입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">⚔️ 공격 (연역법)</h3>
+              <p>주장의 전제들을 질문을 통해 하나씩 상대방에게 시인하게 한 후, 결론을 단정합니다. 이때 질문을 중구난방으로 던져 의도를 숨기는 것이 효과적입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🛡️ 방어 (연역법)</h3>
+              <p>상대가 내세우는 전제를 시인하지 말고, 그 전제를 <span class="highlight">확대해석</span>하여 반격하거나, <span class="highlight">허수아비 논증의 오류</span>를 지적하여 방어합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Debate Tricks -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">논쟁을 위한 술수들 (교활한 기술) 😈</h2>
+          <p class="slide-subtitle">진실 여부와 관계없이 이기기 위한 쇼펜하우어의 38가지 방법 중 일부입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-3">
+              <li><b>화나게 만들기:</b> 상대를 화나게 만들어 올바른 판단을 못하게 합니다. 노골적으로 나쁘게 평가하거나 트집을 잡습니다.</li>
+              <li><b>논점 전환하기:</b> 불리한 상황에 처했을 때, 전혀 다른 이야기로 화제를 돌려버립니다.</li>
+              <li><b>권위에 호소하기:</b> 상대가 존경하는 권위자의 말을 인용하거나, 스스로 전문가인 척 어려운 용어를 사용합니다.</li>
+              <li><b>인신공격하기:</b> 상대의 주장 대신 그 사람 자체를 공격하여 논점을 흐립니다. (최후의 수단)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Section 9 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 9</p>
+          <h2 class="slide-title">플라톤의 <span class="highlight">빨간 사과</span> 🍎</h2>
+          <p class="slide-subtitle">이치 논리와 퍼지 논리</p>
+        </div>
+      </div>
+
+      <!-- Slide 40: Two-valued vs Fuzzy Logic -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이치 논리 vs <span class="highlight">다치/퍼지 논리</span></h2>
+          <p class="slide-subtitle">세상은 '참'과 '거짓'만으로 설명할 수 있을까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">⚪ 이치 논리 (Two-valued)</h3>
+              <p>아리스토텔레스가 정립한 전통적 논리. 모든 명제는 <span class="highlight">'참' 아니면 '거짓'</span> 둘 중 하나여야 한다는 모순율과 배중률을 따릅니다. (예: "이 사과는 빨갛다" or "이 사과는 빨갛지 않다")</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🌈 퍼지 논리 (Fuzzy)</h3>
+              <p>참과 거짓 사이에 무수한 중간값(진리치)을 인정하는 다치 논리의 일종. '약간 빨갛다', '매우 빨갛다' 등 <span class="highlight">모호하고 연속적인</span> 현실 세계를 다룰 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Plato's System -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">플라톤 시스템: 퍼지 논리의 원형?</h2>
+          <p class="slide-subtitle">플라톤의 후기 '분여 이론'은 퍼지 논리와 놀랍도록 흡사합니다.</p>
+          <div class="slide-content">
+            <p>'약간 빨간 사과'에 대해 플라톤과 퍼지 논리는 다른 방식으로 접근합니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li><b>플라톤의 분여 이론:</b> 그 사과에는 '빨강의 이데아'가 0.3만큼 들어있으므로, "<span class="highlight">이 사과는 0.3만큼 빨갛다</span>"는 진술이 '참(1)'이 됩니다. (술어의 정밀화)</li>
+              <li><b>퍼지 논리:</b> 그 사과는 '빨갛다'는 속성을 0.3만큼 만족시키므로, "<span class="highlight">이 사과는 빨갛다</span>"는 진술 자체가 '약간 참(0.3)'이 됩니다. (진리치의 정밀화)</li>
+            </ul>
+             <p class="mt-4">플라톤의 방식은 우리 언어 습관에 더 맞고, 이치 논리의 안정성을 유지할 수 있다는 장점이 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Section 10 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">Chapter 10</p>
+          <h2 class="slide-title">진리가 <span class="highlight">뭐냐고</span> 물으신다면 ❓</h2>
+          <p class="slide-subtitle">진리론</p>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Two Truths -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 진리: <span class="highlight">사실과 진실</span></h2>
+          <p class="slide-subtitle">빌라도가 예수에게 "진리가 무엇인가?"라고 물었을 때, 두 사람은 서로 다른 '진리'를 생각하고 있었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🔍 그리스적 진리 (사실)</h3>
+              <p>빌라도와 아리스토텔레스의 진리. 거울이 사물을 비추듯, <span class="highlight">사실을 그대로 반영</span>하는 올바른 진술입니다. 논리학과 과학의 진리입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">❤️ 히브리적 진리 (진실)</h3>
+              <p>예수의 진리. 반석처럼 흔들리지 않고 사람이 살아가게 하는 바탕, 즉 <span class="highlight">마땅히 가야 할 길(道)</span>입니다. 종교와 윤리의 진리입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Correspondence Theory -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대응설 (Correspondence Theory)</h2>
+          <p class="slide-subtitle">가장 오래되고 상식적인 진리론. 명제가 사실과 일치(대응)하면 참이라고 봅니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+             <h3 class="font-bold text-lg mb-2">아리스토텔레스의 정의</h3>
+             <p class="mb-2">"있는 것을 있다고 하거나 없는 것을 없다고 하는 것이 <span class="highlight">참</span>이다."</p>
+             <p>"있는 것을 없다고 하거나 없는 것을 있다고 하는 것이 <span class="highlight">거짓</span>이다."</p>
+             <hr class="my-4">
+             <p><b>문제점:</b> 우리는 '사실 그 자체'와 명제를 직접 비교할 수 없습니다. 사실을 확인하는 과정 자체가 또 다른 명제(판단)를 만들기 때문입니다.</p>
+           </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: Coherence Theory -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정합설 (Coherence Theory)</h2>
+          <p class="slide-subtitle">어떤 명제가 기존의 지식 체계와 모순 없이 들어맞으면(정합하면) 참이라고 봅니다.</p>
+          <div class="slide-content">
+            <p>수학이나 논리학처럼 사고를 근거로 하는 형식과학에서 진리의 기준이 됩니다. (예: '삼각형 내각의 합은 180도다'는 유클리드 기하학 체계와 정합하므로 참이다.)</p>
+            <div class="quote-block">
+              <p><b>문제점:</b> 그 자체로 모순이 없는 <span class="font-bold">여러 개의 정합 체계</span>가 존재할 수 있습니다. (예: 유클리드 기하학 vs 비유클리드 기하학) 결국 어떤 체계가 현실 세계와 대응하는지 확인해야 하므로, 정합설은 <span class="highlight">대응설을 바탕으로 해야</span> 완전해집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46: Pragmatism & Postmodern Truth -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">포스트모던한 <span class="highlight">진리</span></h2>
+          <p class="slide-subtitle">진리는 발견되는 것이 아니라, 사회적 합의를 통해 만들어지는 '유용한 믿음'입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">실용주의 (Pragmatism)</h3>
+              <p>좋은 결과를 낳는 <span class="highlight">'유용한 생각'</span>이 바로 진리라고 봅니다. (윌리엄 제임스)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">리처드 로티</h3>
+              <p>진리란 객관적 실재와의 대응이 아니라, 한 사회가 대화를 통해 합의한 <span class="highlight">'유대성(solidarity)'</span>의 산물이라고 주장합니다.</p>
+            </div>
+          </div>
+          <p class="mt-6">이 관점에서 진리는 '설득'의 문제가 되며, 객관성이 아닌 '유용성'과 '윤리적 책임'이 중요해집니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 47: Conclusion 1 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 설득의 완성</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">논리학은 단순히 딱딱한 학문이 아니라, 생각을 명료하게 하고 타인을 효과적으로 설득하는 <span class="highlight">실용적인 기술</span>입니다.</p>
+            <p class="mt-4">이 책에서 소개된 10가지 논리 도구—예증법, 삼단논법의 변형, 배열법, 귀납법, 가추법, 오류론 등—는 우리의 말과 글을 단련하는 강력한 무기가 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: Conclusion 2 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🤝</div>
+          <h2 class="slide-title">논리와 심리의 조화</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">진정한 설득은 차가운 논리만으로 완성되지 않습니다. 상대의 심리를 이해하고 공감대를 형성하는 <span class="highlight">심리학적 접근</span>이 결합될 때 가장 큰 힘을 발휘합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">합리적인 동시에 만족스러운 선택을 이끌어내는 것, 이것이 바로 '설득의 논리학'이 지향하는 최종 목표입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: Thank You -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q & A</p>
+        </div>
+      </div>
+
+      <!-- This is a dummy slide to reach 50 pages, you can add more content here. -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부록: 주요 논리 오류 짚어보기</h2>
+          <p class="slide-subtitle">토론과 논쟁에서 흔히 발견되는 오류들입니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside space-y-3">
+              <li><b>인신공격의 오류:</b> 주장이 아닌 사람을 공격하는 것. "그 사람 과거 행실을 보면 그 주장을 믿을 수 없어."</li>
+              <li><b>허수아비 공격의 오류:</b> 상대방의 주장을 왜곡하여 공격하기 쉬운 형태로 만든 뒤 반박하는 것.</li>
+              <li><b>성급한 일반화의 오류:</b> 불충분한 사례를 바탕으로 전체를 단정하는 것. "내가 만나본 A지역 사람들은 모두 불친절했어. 그 지역 사람들은 다 그런가봐."</li>
+              <li><b>피장파장의 오류:</b> 비판받은 내용이 상대방에게도 똑같이 해당된다며 비판을 회피하는 것. "너도 예전에 그랬잖아!"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentSlide);
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  const slides =
+    Array.from(document.querySelectorAll('.slide'))
+      .filter(el => el.offsetHeight > 0) ||
+    Array.from(document.querySelectorAll('section, [data-slide]'))
+      .filter(el => el.offsetHeight > 0);
+
+  if (!slides.length) return;
+
+  let index = 0;
+  let isAnimating = false;
+
+  function clamp(i) {
+    return Math.max(0, Math.min(slides.length - 1, i));
+  }
+
+  function scrollToIndex(next) {
+    next = clamp(next);
+    if (next === index || isAnimating) return;
+    isAnimating = true;
+    index = next;
+    const target = slides[index];
+    const top = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'smooth' });
+    setTimeout(function () { isAnimating = false; }, 420);
+  }
+
+  function move(delta) {
+    if (delta > 0) {
+      scrollToIndex(index + 1);
+    } else if (delta < 0) {
+      scrollToIndex(index - 1);
+    }
+  }
+
+  window.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaY) < 24) return;
+    const isScrollY =
+      document.documentElement.scrollHeight > window.innerHeight + 8;
+    if (!isScrollY) return;
+    e.preventDefault();
+    move(e.deltaY);
+  }, { passive: false });
+
+  window.addEventListener('keydown', function (e) {
+    if (['ArrowDown', 'PageDown', ' ', 'Spacebar'].includes(e.key)) {
+      e.preventDefault();
+      move(1);
+    } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      move(-1);
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    var best = 0;
+    var bestDist = Infinity;
+    slides.forEach(function (s, i) {
+      var rect = s.getBoundingClientRect();
+      var dist = Math.abs(rect.top);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    index = best;
+  });
+})();
+</script>
+</body>
+</html>
