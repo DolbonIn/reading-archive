@@ -1,5 +1,15 @@
 [
   {
+    "slug": "니체-인생수업-니체가-세상에-남긴-66가지-인생지혜",
+    "title": "니체 인생수업 - 니체가 세상에 남긴 66가지 인생지혜",
+    "author": "프리드리히 니체",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/니체-인생수업-니체가-세상에-남긴-66가지-인생지혜.html",
+    "cover": "assets/covers/니체-인생수업-니체가-세상에-남긴-66가지-인생지혜.jpg"
+  },
+  {
     "slug": "넷-포지티브",
     "title": "넷 포지티브",
     "author": "폴 폴먼•앤드루 윈스턴 지음│이경식 옮김",
@@ -428,16 +438,6 @@
     "description": "",
     "presentation": "presentations/다산의-마지막-편지.html",
     "cover": "assets/covers/다산의-마지막-편지.jpg"
-  },
-  {
-    "slug": "니체-인생수업-니체가-세상에-남긴-66가지-인생지혜",
-    "title": "니체 인생수업 - 니체가 세상에 남긴 66가지 인생지혜",
-    "author": "프리드리히 니체",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/니체-인생수업-니체가-세상에-남긴-66가지-인생지혜.html",
-    "cover": "assets/covers/니체-인생수업-니체가-세상에-남긴-66가지-인생지혜.jpg"
   },
   {
     "slug": "그레이트-마인드셋",
