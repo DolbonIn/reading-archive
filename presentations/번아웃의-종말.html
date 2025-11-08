@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The End of Burnout Presentation</title>
+  <title>번아웃의 종말 (The End of Burnout) Presentation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,65 +12,63 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #FCFCFC;
+      background-color: #f8fafc; /* Lighter gray for a softer feel */
+      background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 25px 25px;
     }
     .slide {
       display: none;
       min-height: 85vh;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
     }
     .slide.active {
       display: flex;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
       max-width: 1100px;
-      padding: 40px 50px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 5px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
     }
     .slide-part-title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: #4A5568; /* gray-600 */
+      color: #4338ca; /* Indigo for section titles */
       margin-bottom: 8px;
     }
     .slide-title {
       font-size: 2.8rem;
       font-weight: 900;
-      color: #1A202C; /* gray-900 */
+      color: #1e293b;
       margin-bottom: 25px;
       line-height: 1.3;
     }
     .slide-subtitle {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #2D3748; /* gray-800 */
+      color: #475569;
       margin-bottom: 35px;
       line-height: 1.6;
     }
     .slide-content {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       line-height: 1.9;
-      color: #4A5568; /* gray-700 */
+      color: #334155;
     }
     .highlight {
-      background-color: #FFFBEB; /* yellow-50 */
-      padding: 0.1em 0.4em;
+      background-color: #fef08a; /* Lighter yellow highlight */
+      padding: 0 0.25em;
       border-radius: 4px;
-      font-weight: 700;
-      color: #D97706; /* amber-600 */
     }
     .btn {
       padding: 12px 28px;
@@ -78,22 +76,25 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 1px solid transparent;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+     .btn:disabled {
+      box-shadow: none;
     }
     .btn-primary {
-      background-color: #1A202C;
+      background-color: #4f46e5;
       color: white;
     }
-    .btn-primary:hover {
-      background-color: #2D3748;
+    .btn-primary:hover:not(:disabled) {
+      background-color: #4338ca;
     }
     .btn-secondary {
-      background-color: #F7FAFC;
-      color: #2D3748;
-      border-color: #E2E8F0;
+      background-color: #f1f5f9;
+      color: #334155;
     }
-    .btn-secondary:hover {
-      background-color: #EDF2F7;
+    .btn-secondary:hover:not(:disabled) {
+      background-color: #e2e8f0;
     }
     .progress-bar-container {
       position: fixed;
@@ -101,28 +102,39 @@
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(8px);
-      border-top: 1px solid #E2E8F0;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #f1f5f9;
       z-index: 10;
     }
     .progress-bar {
       width: 100%;
-      background-color: #E2E8F0;
+      background-color: #e2e8f0;
       border-radius: 9999px;
       height: 8px;
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #1A202C;
+      background-color: #4f46e5;
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
-    .toc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    li {
+        position: relative;
+        padding-left: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #4f46e5;
+        font-weight: bold;
     }
   </style>
 </head>
@@ -135,686 +147,572 @@
       <!-- Slide 1: Title -->
       <div class="slide active">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">🥵➡️😌</div>
-          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">번아웃의 종말 (The End of Burnout)</h1>
-          <p class="text-xl md:text-2xl text-gray-700">우리는 왜 일에 지치고 쓸모없다고 버려지는가</p>
-          <p class="mt-4 text-lg text-gray-600">조나단 말레식 Jonathan Malesic</p>
+          <div class="text-7xl mb-8">💡</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">번아웃의 종말</h1>
+          <p class="text-xl md:text-2xl text-gray-700">우리는 왜 일에 지치고 <span class="highlight">쓸모없다고</span> 버려지는가</p>
+          <p class="text-lg text-gray-500 mt-6">조나단 말레식 (Jonathan Malesic)</p>
         </div>
       </div>
 
       <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">목차 📖</h2>
-          <div class="slide-content toc-grid text-base">
-            <div><b class="text-lg">들어가며</b><p class="mt-1">번아웃에 대한 개인적 경험과 문제 제기.</p></div>
-            <div><b class="text-lg">1부: 번아웃 문화</b><p class="mt-1">번아웃의 정의, 역사, 문화적 배경 탐구.</p></div>
-            <div><b class="text-lg">1장: 번아웃의 의미</b><p class="mt-1">모두가 말하지만 아무도 모르는 번아웃의 실체.</p></div>
-            <div><b class="text-lg">2장: 번아웃의 역사</b><p class="mt-1">멜랑콜리, 아세디아에서 오늘날의 번아웃까지.</p></div>
-            <div><b class="text-lg">3장: 번아웃 스펙트럼</b><p class="mt-1">이상과 현실의 간극, 다양한 번아웃 프로파일.</p></div>
-            <div><b class="text-lg">4장: 나빠진 일터</b><p class="mt-1">균열된 일터와 감정 노동의 시대.</p></div>
-            <div><b class="text-lg">5장: 일의 이상</b><p class="mt-1">존엄, 인격, 목적을 향한 우리의 거짓된 약속.</p></div>
-            <div><b class="text-lg">2부: 반-문화</b><p class="mt-1">번아웃을 넘어 새로운 삶의 방식을 찾아서.</p></div>
-            <div><b class="text-lg">6장: 새로운 시각</b><p class="mt-1">일 중심에서 벗어난 좋은 삶의 재구성.</p></div>
-            <div><b class="text-lg">7장: 수도사들의 방법</b><p class="mt-1">베네딕트회 수도사들은 어떻게 일이라는 악마를 길들이는가.</p></div>
-            <div><b class="text-lg">8장: 다양한 경험들</b><p class="mt-1">공동체, 취미, 예술을 통해 번아웃에 맞서는 사람들.</p></div>
-            <div><b class="text-lg">맺으며</b><p class="mt-1">팬데믹 이후, 비필수 노동과 새로운 가능성.</p></div>
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-lg">
+            <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">서문</h3>
+                <p>들어가며: 저자의 번아웃 경험</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">1부: 번아웃 문화</h3>
+                <p>1장: 번아웃의 의미</p>
+                <p>2장: 번아웃의 역사: 첫 2,000년</p>
+                <p>3장: 번아웃 스펙트럼</p>
+                <p>4장: 일은 어떻게 나빠졌는가</p>
+                <p>5장: 일의 성인, 일의 순교자</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">2부: 반-번아웃 문화</h3>
+                <p>6장: 좋은 삶에 대한 새로운 시각</p>
+                <p>7장: 베네딕트회 수도사들의 방법</p>
+                <p>8장: 번아웃에 맞서는 다양한 경험들</p>
+            </div>
+             <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">결론</h3>
+                <p>맺으며: 팬데믹 이후의 비필수 노동</p>
+            </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Slide 3: Introduction Section Title -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">들어가며</p>
-          <h2 class="slide-title">"포기하고 싶었다. 나는 <span class="highlight">번아웃</span>에 시달리고 있었다."</h2>
-          <p class="slide-content">저자는 종신교수라는 모두가 부러워하는 직업을 가졌음에도 불구하고 극심한 번아웃을 경험했습니다. 이 책은 그 개인적인 고통에서 시작하여, 번아웃이 단순한 개인의 문제가 아닌 우리 시대의 <span class="highlight">문화적 현상</span>임을 밝히고자 합니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 4: Defining Burnout -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">번아웃이란 무엇인가? 🤔</h2>
-          <p class="slide-subtitle">일에 대한 <span class="highlight">기대</span>와 일의 <span class="highlight">현실</span> 사이에서 이리저리 치이는 경험</p>
-          <div class="slide-content">
-            <p>우리는 일이 단순히 밥벌이 수단을 넘어 존엄성, 인격, 그리고 목적의식을 줄 것이라 믿습니다. 하지만 오늘날의 업무 환경은 우리가 추구하는 바로 그 가치를 얻지 못하게 만듭니다. 이 <span class="highlight">간극</span>이 바로 번아웃의 핵심 원인입니다.</p>
-          </div>
+          <p class="slide-part-title">서문</p>
+          <h2 class="slide-title">들어가며: <span class="highlight">개인적인 경험</span>에서 시작된 탐구</h2>
+          <p class="slide-content text-xl">저자 조나단 말레식은 대학교수 시절, 모두가 부러워하는 직업을 가졌음에도 극심한 번아웃에 시달렸습니다. 이 책은 그 개인적인 고통에서 출발하여 번아웃이라는 사회적 현상을 깊이 파고드는 여정의 기록입니다.</p>
         </div>
       </div>
 
-      <!-- Slide 5: The Author's Story -->
+      <!-- Slide 4: Author's Experience -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">꿈의 직업, 그리고 악몽 😥</h2>
-          <p class="slide-subtitle">대학교수가 되기를 꿈꿨던 저자는 10년간의 노력 끝에 종신교수가 되었지만, 현실은 기대와 달랐습니다.</p>
+          <h2 class="slide-title">꿈의 직업, 그러나 <span class="highlight">비참한 현실</span> 😔</h2>
+          <p class="slide-subtitle">종신교수, 충분한 급여, 뛰어난 복지. 하지만 현실은 달랐습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">초기의 열정 🔥</h3>
-              <p>장거리 연애를 하며 일에 전념. 학생들에게 영감을 주는 스승이 되고자 했고, 밤늦게까지 연구에 몰두했습니다. 삶은 만족스러웠습니다.</p>
+              <h3 class="font-bold text-lg mb-2">겉으로 보이는 삶</h3>
+              <ul>
+                <li>고도의 기교와 훈련을 통한 강의</li>
+                <li>지적이고 호의적인 동료들</li>
+                <li>높은 수준의 직업 안정성</li>
+                <li>자율적인 연구 및 강의 방식</li>
+              </ul>
             </div>
             <div>
-              <h3 class="font-bold text-lg">다가오는 위기 📉</h3>
-              <p>안식년 후 복귀하자 대학은 재정 위기에 봉착했고, 행정 업무는 늘어났습니다. 학생들의 무관심과 대학의 무인정 속에서 매일 실패감을 느꼈습니다.</p>
+              <h3 class="font-bold text-lg mb-2">내면의 고통</h3>
+              <ul>
+                <li>매일 아침 침대에서 미적거림</li>
+                <li>〈포기하지 마〉 뮤직비디오 무한 반복</li>
+                <li>아이스크림과 맥주로 위로</li>
+                <li>13kg 체중 증가</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 6: The Breaking Point -->
+      <!-- Slide 5: Redefining Burnout -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">"이제 더는 꿈에 그리던 삶을 사는 기분이 아니었다." 💔</h2>
-          <p class="slide-subtitle">강의 시연 중 학생들의 무반응에 충격을 받은 저자는 한계에 도달했음을 깨닫습니다.</p>
+          <h2 class="slide-title">번아웃이란 무엇인가? <span class="highlight">새로운 정의</span> 🎯</h2>
+          <p class="slide-subtitle">번아웃은 단순히 개인의 문제가 아니라, 문화적 현상입니다.</p>
           <div class="slide-content">
-            <p>켄드릭 라마의 뮤직비디오를 보고도 아무 반응 없는 학생들 앞에서 그는 깊은 모욕감과 무력감을 느꼈습니다. 대학생 시절 그토록 부러워했던 교수의 삶과는 정반대의 모습이었습니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">결단 🚪</h3>
-              <p class="mt-2">일주일 뒤, 그는 지난한 과정을 거쳐 얻어낸 <span class="highlight">대학교수직을 그만두기로 마음먹었습니다.</span></p>
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">번아웃의 정의</h3>
+              <p class="mt-2">일에 대한 <span class="highlight">기대와 현실</span> 사이에서 이리저리 치이는 경험. 이것은 단순히 힘이 고갈되는 것을 넘어, 우리가 일에서 찾고자 하는 존엄성, 인격, 목적의식이라는 이상이 무너지는 과정입니다.</p>
             </div>
+            <p class="mt-6">이 책은 번아웃이 단순한 노동경제의 문제가 아니라, '일이 충만한 삶의 확실한 방법'이라는 우리의 믿음에서 비롯된 <span class="highlight">영혼이 앓는 병</span>이라고 주장합니다.</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Slide 7: Critique of Common Advice -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">잘못된 조언들 ❌</h2>
-          <p class="slide-subtitle">"하루하루 견디는 법을 배워라", "당신 삶의 개척자가 되어라"와 같은 조언은 왜 효과가 없을까요?</p>
-          <div class="slide-content">
-            <p>이런 조언들은 번아웃의 책임을 오롯이 <span class="highlight">노동자 개인에게</span> 돌립니다. 이는 문제의 근원인 비인간적인 윤리적, 경제적 체계는 그대로 둔 채, 이미 지친 사람들에게 더 노력하라고 말하는 것과 같습니다. </p>
-             <p class="mt-4 font-bold">번아웃은 개인의 실패가 아니라, <span class="highlight">문화와 시스템의 실패</span>입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 8: Part 1 Section Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">1부</p>
-          <h2 class="slide-title">번아웃 문화 🌪️</h2>
-          <p class="slide-content">우리는 어떻게 번아웃을 유발하는 문화를 만들었는가? 이 장에서는 번아웃의 정의, 역사, 그리고 그것이 우리 문화에 얼마나 깊이 뿌리내려 있는지를 탐구합니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 9: Chapter 1 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">1장</p>
-          <h2 class="slide-title">모두가 번아웃에 시달리지만, 그것이 무슨 의미인지는 <span class="highlight">아무도 모른다</span></h2>
         </div>
       </div>
       
-      <!-- Slide 10: Maslach's 3 Dimensions -->
+      <!-- Slide 6: Section 1 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">번아웃의 세 가지 차원 🔬</h2>
-          <p class="slide-subtitle">심리학자 크리스티나 마슬라흐(Christina Maslach)는 번아웃을 세 가지 핵심 요소로 정의했습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-4 bg-red-50 rounded-lg">
-              <h3 class="font-bold text-lg text-red-800">1. 소진 (Exhaustion) 😫</h3>
-              <p>정서적, 신체적 에너지가 고갈된 상태. 아침에 일어나는 것조차 힘들고 피곤합니다.</p>
-            </div>
-            <div class="p-4 bg-blue-50 rounded-lg">
-              <h3 class="font-bold text-lg text-blue-800">2. 냉소 (Cynicism) 😒</h3>
-              <p>일에 대한 부정적이고 냉소적인 태도. 고객이나 동료를 비인격적으로 대하게 됩니다.</p>
-            </div>
-            <div class="p-4 bg-yellow-50 rounded-lg">
-              <h3 class="font-bold text-lg text-yellow-800">3. 비효능감 (Inefficacy) 📉</h3>
-              <p>업무 성취감이 부족하고 자신이 무능력하다고 느끼는 상태. "내가 하는 일은 다 헛수고야."</p>
-            </div>
-          </div>
+          <p class="slide-part-title">1부: 번아웃 문화</p>
+          <h2 class="slide-title">1장: 모두가 번아웃을 말하지만, <span class="highlight">아무도 모른다</span></h2>
+          <p class="slide-content text-xl">번아웃이라는 단어는 넘쳐나지만, 그 의미는 혼란스럽습니다. 과학자, 의사, 고용주, 노동자는 각자의 필요에 따라 번아웃을 다르게 정의하며 불협화음을 만들어냅니다.</p>
         </div>
       </div>
 
-      <!-- Slide 11: The Ambiguity of 'Burnout' -->
+      <!-- Slide 7: The Ambiguity of Burnout -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">상업화되고 오염된 단어, <span class="highlight">번아웃</span></h2>
-          <p class="slide-subtitle">번아웃은 왜 명확한 정의 없이 남용될까요?</p>
+            <h2 class="slide-title">정의의 <span class="highlight">혼란</span> ❓</h2>
+            <p class="slide-subtitle">번아웃은 왜 명확하게 정의되지 못할까요?</p>
+            <div class="slide-content">
+                <ul>
+                    <li><b>상업적 잠재성:</b> 번아웃은 마케팅 업계에게 '응급 상황'으로 포장되어, 건강 요법부터 콘텐츠까지 다양한 상품을 팔기 위한 시장을 창출합니다.</li>
+                    <li><b>이해관계의 충돌:</b> 노동자, 고용주, 연구자, 마케터 등 각 집단이 용어로부터 바라는 바가 다릅니다. (자신의 경험 확인, 인력 관리, 새로운 연구 영역 등)</li>
+                    <li><b>주관성:</b> "번아웃을 겪고 있습니까?"라는 질문에 대한 답은 개인의 정의에 따라 달라집니다. 이는 사과, 오렌지, 음식물 쓰레기를 같은 선상에서 비교하는 것과 같습니다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Burnout as a Status -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">번아웃 문화의 <span class="highlight">모순</span></h2>
+          <p class="slide-subtitle">번아웃은 부정적인 상태이지만, 동시에 수많은 사람들이 자신에게 적용하고 싶어하는 '지위'가 되었습니다.</p>
           <div class="slide-content">
-            <p>번아웃은 의학적 질병이 아닌 '업무 관련 증후군'으로 분류되어 정의가 모호합니다. 이 모호함은 마케팅 업계에게 큰 기회가 됩니다. 피곤함, 스트레스를 모두 '번아웃'으로 포장하여 건강 요법부터 각종 콘텐츠까지 판매하는 시장을 창출합니다.</p>
-            <p class="mt-4">"피곤은 팔리지 않는 반면 <span class="highlight">번아웃은 문화적 현상</span>이기 때문이다. 번아웃은 시대정신이다."</p>
+            <p>앤 헬렌 피터슨의 글처럼, 번아웃 담론은 개인의 잘못이 아니라 <span class="highlight">대규모의 사회적 문제</span> 때문이라고 말해주며 위로를 줍니다. 이는 "내가 혼자가 아니다"라는 공감대를 형성합니다.</p>
+            <p class="mt-4">나아가, 번아웃에 시달리는 노동자는 생산할 힘이 없음에도 생산성을 유지하는 <span class="highlight">일종의 영웅</span>으로 묘사되기도 합니다. 이는 끊임없이 일한다는 미국적 이상을 충족했다는 주장이 되기도 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Chapter 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1부: 번아웃 문화</p>
+          <h2 class="slide-title">2장: 번아웃, 그 <span class="highlight">첫 2,000년</span>의 역사 📜</h2>
+          <p class="slide-content text-xl">번아웃은 현대적 현상이지만, 그 뿌리는 깊습니다. 아세디아, 멜랑콜리아, 신경쇠약증 등 역사적 선행물들은 각 시대의 문화적 우선순위와 가치를 반영합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: Historical Precursors -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시대의 <span class="highlight">영혼의 질병들</span></h2>
+          <p class="slide-subtitle">번아웃 이전에도 인류는 다양한 형태의 소진을 경험했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-center">아세디아 (Acedia)</h3>
+              <p class="text-center text-4xl my-4">😈</p>
+              <p>초기 기독교 수도사들이 겪었던 '한낮의 악마'. 기도에 집중하지 못하게 하는 영적 나태함과 무관심. 노동이 치료법으로 처방되었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-center">멜랑콜리아 (Melancholia)</h3>
+              <p class="text-center text-4xl my-4">🤔</p>
+              <p>고대 그리스부터 근대까지 엘리트 계층의 질병. 특출남, 예술적 경향과 연관되었으며, 고귀한 정신의 삶을 추구하는 이들이 마주하는 위험이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-center">신경쇠약증 (Neurasthenia)</h3>
+              <p class="text-center text-4xl my-4">⚡</p>
+              <p>19세기 후반, 산업화 시대 미국의 '국민병'. 문명의 발전과 두뇌 노동이 신경계에 가하는 과도한 부담으로 여겨졌으며, 엘리트의 상징이기도 했습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 12: Burnout Generation -->
+      <!-- Slide 11: Birth of Modern Burnout -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">밀레니얼 세대와 번아웃 🧑‍💻</h2>
-          <p class="slide-subtitle">앤 헬렌 피터슨은 번아웃이 "일시적인 괴로움이 아니라 밀레니얼 세대의 조건"이라고 말합니다.</p>
+          <h2 class="slide-title">현대적 번아웃의 <span class="highlight">탄생</span> (1970년대)</h2>
+          <p class="slide-subtitle">번아웃은 미국인의 노동 방식이 극적으로 변화하던 결정적 시기에 나타났습니다.</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>1970년대, 심리학자 허버트 프로이덴버거와 크리스티나 마슬라흐는 각각 독립적으로 이상주의를 지닌 노동자(무료 클리닉 봉사자, 국선변호인 등)들이 앓는 새로운 질병을 연구했습니다.</p>
+                <p class="mt-4">이는 <span class="highlight">이상주의의 좌절</span>과 깊은 관련이 있었습니다. 사회를 돕고자 하는 열정이 직업의 현실과 부딪히며 소진, 냉소, 무능감으로 이어진 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Chapter 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1부: 번아웃 문화</p>
+          <h2 class="slide-title">3장: 번아웃 <span class="highlight">스펙트럼</span> 🌈</h2>
+          <p class="slide-content text-xl">번아웃은 '켜고 끄는' 상태가 아니라, 넓은 스펙트럼 위에 존재합니다. 이는 흑백논리로는 설명할 수 없는 다양한 경험의 형태를 가집니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 13: The Metaphor of Stilts -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 개의 <span class="highlight">죽마</span> 위에서 균형 잡기</h2>
+          <p class="slide-subtitle">번아웃 경험은 '일의 이상'과 '일의 현실'이라는 두 개의 죽마 위를 걷는 것과 같습니다.</p>
+          <div class="slide-content">
+            <p>두 죽마가 가까우면 걷기 쉽습니다. 하지만 둘 사이가 벌어질수록 긴장도가 높아집니다. 우리는 균형을 잃지 않으려 애쓰지만, 간극이 너무 커지면 결국 하나의 죽마를 놓치거나 완전히 떨어져 버립니다.</p>
+            <div class="mt-6 text-center">
+                <span class="text-2xl font-bold">이상 (Ideal)</span>
+                <span class="text-gray-400 mx-4"><---></span>
+                <span class="text-2xl font-bold">현실 (Reality)</span>
+            </div>
+            <p class="mt-4">이 간극이 바로 <span class="highlight">번아웃의 원점</span>입니다. 우리가 하고 싶었던 일과 실제로 하는 일의 차이에서 번아웃은 시작됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Burnout Profiles -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">번아웃의 <span class="highlight">네 가지 프로파일</span></h2>
+          <p class="slide-subtitle">이상과 현실의 간극에 우리는 네 가지 방식으로 반응합니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">밀레니얼의 조건</h3>
-              <p>평생 무언가를 수행하라는 압박, 학자금 대출, 불안정한 구직 시장을 경험하며 소진될 때까지 내몰렸다는 것입니다. 번아웃은 이들의 기초체온이자 배경음악이 되었습니다.</p>
+              <h3 class="font-bold text-lg">과도한 긴장 (Overload)</h3>
+              <p>이상과 현실, 두 죽마를 모두 놓지 않으려 애쓰는 상태. 순전한 의지력으로 버티며, <span class="highlight">소진(exhaustion)</span>이 경험을 지배합니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">흑인의 번아웃 (티아나 클라크)</h3>
-              <p>백인의 특권적 위치에서 비롯된 번아웃과 달리, 흑인에게 번아웃은 "기나긴 유전적 트라우마"이며 수백 년간 꾸준히 경험해온 상태라고 주장합니다. 이는 번아웃의 경험이 인종에 따라 다를 수 있음을 시사합니다.</p>
+              <h3 class="font-bold text-lg">냉소 (Cynicism)</h3>
+              <p>이상을 버리고 타협적 현실에 순응하는 상태. 동료와 고객을 비인간화하며, <span class="highlight">냉소(cynicism)</span>가 경험을 지배합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">좌절 (Ineffectiveness)</h3>
+              <p>현실을 무시하거나 저항하며 이상을 지키려는 상태. 실망과 분노를 느끼며, <span class="highlight">비효능감(inefficacy)</span>이 경험을 지배합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">번아웃 (Burnout)</h3>
+              <p>이상과 현실, 둘 다 놓아버린 상태. 완전히 소진되어 더 이상 일을 할 수 없게 됩니다. <span class="highlight">완전한 고갈</span> 상태입니다.</p>
             </div>
           </div>
-        </div>
-      </div>
-
-       <!-- Slide 13: Chapter 2 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2장</p>
-          <h2 class="slide-title">번아웃: 첫 <span class="highlight">2,000년</span>의 역사 📜</h2>
-          <p class="slide-subtitle">오늘날의 번아웃은 갑자기 나타난 현상이 아닙니다. 그 뿌리는 인류의 역사와 함께해왔습니다.</p>
         </div>
       </div>
       
-      <!-- Slide 14: Historical Precursors -->
+      <!-- Slide 15: Chapter 4 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">번아웃의 선행물들</h2>
-          <p class="slide-subtitle">역사 속에서 번아웃과 유사한 상태를 어떻게 불렀을까요?</p>
-          <div class="slide-content space-y-4">
-            <p><b>멜랑콜리아 (Melancholia):</b> 고대 그리스 철학에서 '특출남, 예술적 경향'과 연관된 고귀한 정신의 위험으로 여겨졌습니다.</p>
-            <p><b>아세디아 (Acedia):</b> 초기 기독교 수도사들이 겪었던 '한낮의 악마'. 기도에 집중하지 못하게 하는 영적 나태와 무관심을 의미했습니다.</p>
-            <p><b>신경쇠약증 (Neurasthenia):</b> 19세기 말, 산업화와 도시화로 인한 '미국병(Americanitis)'. 문명화된 엘리트들이 겪는 신경계의 소진 상태로 여겨졌습니다.</p>
-          </div>
+          <p class="slide-part-title">1부: 번아웃 문화</p>
+          <h2 class="slide-title">4장: 번아웃의 시대, 일은 어떻게 <span class="highlight">나빠졌는가</span> 📉</h2>
+          <p class="slide-content text-xl">1970년대 이후, 일터의 환경은 노동자에게 점점 더 불리하게 변했습니다. 일은 더 큰 심리적 부담을 주었고, 더 불안정해졌으며, 우리의 이상은 더 높아졌습니다.</p>
         </div>
       </div>
 
-      <!-- Slide 15: The Birth of 'Burnout' -->
+      <!-- Slide 16: The Fissured Workplace -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">1970년대, <span class="highlight">번아웃</span>의 탄생 🔥</h2>
-          <p class="slide-subtitle">오늘날 우리가 사용하는 '번아웃'이라는 용어는 1970년대에 두 명의 심리학자에 의해 동시에 발견되었습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">허버트 프로이덴버거</h3>
-              <p>뉴욕의 프리 클리닉에서 이상주의적 자원봉사자들을 진료하며 그들이 겪는 극심한 소진 상태를 '번아웃'이라고 명명했습니다. 그 자신도 번아웃을 경험했습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">크리스티나 마슬라흐</h3>
-              <p>스탠퍼드 감옥 실험 이후, 변호사, 사회복지사 등 타인을 돕는 직업군에서 나타나는 비인간화 현상을 연구하며 번아웃의 개념을 체계적으로 발전시켰습니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 16: 1970s Cultural Context -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">왜 1970년대였을까?</h2>
-          <p class="slide-subtitle">번아웃의 등장은 1970년대 미국의 문화적, 경제적 전환점과 깊은 관련이 있습니다.</p>
+          <h2 class="slide-title">'균열 일터'와 <span class="highlight">긱 이코노미</span></h2>
+          <p class="slide-subtitle">고용의 원칙이 '자산'에서 '부채'로 바뀌면서 노동 환경이 악화되었습니다.</p>
           <div class="slide-content">
-            <p>1960년대의 이상주의가 무너지고, 베트남 전쟁과 오일 쇼크로 인한 경제 침체가 찾아왔습니다. 생산성 증가와 임금 상승의 연결고리가 끊어지며 노동자들의 실질 임금이 정체되기 시작했습니다. </p>
-            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-              <p class="mt-2">"기대의 지속적인 하향 조정, 그것이 1970년대의 핵심 경험이었다." 국가적인 자신감의 위기 속에서, 번아웃은 시대의 질병으로 떠올랐습니다.</p>
-            </div>
+            <ul>
+              <li><b>고용의 부채화:</b> 기업들은 직원을 비용으로 간주, 도급 계약, 아웃소싱을 통해 직접 고용을 최소화했습니다. ('균열 일터')</li>
+              <li><b>불안정성 증가:</b> 기간제, 계약직, 긱 노동자(우버 등)가 늘어나면서 고용 안정성이 크게 하락했습니다.</li>
+              <li><b>서비스 경제로의 전환:</b> 제조업에서 서비스업으로 경제 구조가 바뀌면서, 노동자들은 육체뿐 아니라 <span class="highlight">감정까지</span> 팔아야 하는 '감정 노동'에 시달리게 되었습니다.</li>
+              <li><b>직업의식의 확장:</b> 블루칼라 노동자에게도 화이트칼라의 '프로페셔널리즘'이 요구되면서, 일과 자아의 경계가 무너졌습니다.</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Slide 17: Chapter 3 Title -->
+      <!-- Slide 17: The Problem with Healthcare -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">3장</p>
-          <h2 class="slide-title">번아웃 <span class="highlight">스펙트럼</span> 📊</h2>
-          <p class="slide-subtitle">번아웃은 '있다/없다'의 흑백 논리가 아닌, 다양한 색조를 가진 스펙트럼입니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 18: Stilt Metaphor -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">두 개의 죽마 위에서 걷기 🤸</h2>
-          <p class="slide-subtitle">번아웃 경험은 <span class="highlight">이상</span>과 <span class="highlight">현실</span>이라는 두 개의 죽마에 올라타 균형을 잡으려는 것과 같습니다.</p>
+          <h2 class="slide-title">사례 연구: <span class="highlight">의료인의 번아웃</span> 🩺</h2>
+          <p class="slide-subtitle">의료계는 번아웃이 개인과 사회에 미치는 영향을 극명하게 보여줍니다.</p>
           <div class="slide-content">
-            <p>두 죽마가 가까우면 안정적으로 걸을 수 있습니다. 하지만 두 죽마 사이가 벌어질수록(이상과 현실의 간극이 커질수록), 우리는 균형을 잃고 고통을 겪습니다. 이 간극이 번아웃의 원점입니다.</p>
-            <p class="mt-4 font-bold">시간이 갈수록 힘이 떨어지면서, 결국 두 죽마 중 하나를 놓치거나 아예 굴러떨어지게 됩니다. 이것이 번아웃의 과정입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 19: Burnout Profiles -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">번아웃의 4가지 프로파일</h2>
-          <p class="slide-subtitle">이상과 현실의 간극에 우리는 4가지 방식으로 반응하며, 이는 각기 다른 번아웃 프로파일을 형성합니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="p-4 bg-red-50 rounded-lg">
-              <h3 class="font-bold text-lg text-red-800">과도한 긴장 (Overextended)</h3>
-              <p>이상과 현실 모두에 매달리려 애쓰는 상태. <span class="highlight">소진</span>이 주된 특징입니다.</p>
-            </div>
-            <div class="p-4 bg-blue-50 rounded-lg">
-              <h3 class="font-bold text-lg text-blue-800">냉소 (Cynical)</h3>
-              <p>이상을 버리고 타협적 현실에 순응하는 상태. <span class="highlight">비인간화</span>가 주된 특징입니다.</p>
-            </div>
-            <div class="p-4 bg-yellow-50 rounded-lg">
-              <h3 class="font-bold text-lg text-yellow-800">좌절 (Frustrated/Ineffective)</h3>
-              <p>현실을 무시하고 이상을 지키려는 상태. <span class="highlight">비효능감</span>이 주된 특징입니다.</p>
-            </div>
-             <div class="p-4 bg-gray-100 rounded-lg">
-              <h3 class="font-bold text-lg text-gray-800">번아웃 (Burned Out)</h3>
-              <p>이상과 현실 둘 다 놓아버린 상태. 소진, 냉소, 비효능감 모두를 경험합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 20: Burnout Statistics -->
-      <div class="slide">
-          <div class="slide-container">
-              <h2 class="slide-title">얼마나 많은 사람이 번아웃을 겪는가?</h2>
-              <p class="slide-subtitle">연구에 따르면 노동자의 절반 이상이 번아웃 스펙트럼 어딘가에 위치합니다.</p>
-              <div class="slide-content text-center">
-                  <div class="flex justify-around items-center">
-                      <div class="w-1/2">
-                          <p class="text-4xl font-bold">40-45%</p>
-                          <p>번아웃 아님 (몰입)</p>
-                      </div>
-                      <div class="w-1/2">
-                          <p class="text-4xl font-bold">5-10%</p>
-                          <p>전형적 번아웃 (모든 차원 높음)</p>
-                      </div>
-                  </div>
-                  <div class="mt-8">
-                      <p class="text-lg">나머지 <span class="highlight">~50%</span>는 과도한 긴장, 냉소, 좌절 프로파일 중 하나에 속합니다. 특히 <span class="highlight">좌절(20-25%)</span> 프로파일이 가장 흔하게 나타납니다. 이는 많은 노동자들이 일의 의미를 찾지 못해 고통받고 있음을 시사합니다.</p>
-                  </div>
+            <p>의사들은 환자를 돕겠다는 이상과 기업화된 의료 시스템의 현실 사이에서 고통받습니다.</p>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="font-bold text-lg mb-2">원인</h3>
+                <ul>
+                  <li>과도한 근무 시간</li>
+                  <li>전자 의료 기록(EMR) 입력 등 행정 업무 부담</li>
+                  <li>비용 최소화 압박</li>
+                  <li>환자들의 과도한 요구와 불만</li>
+                </ul>
               </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">결과</h3>
+                <ul>
+                  <li>높은 번아웃 비율</li>
+                  <li>의료 서비스 질 저하</li>
+                  <li>환자 안전 문제</li>
+                  <li>의료인의 정신 건강 악화</li>
+                </ul>
+              </div>
+            </div>
+            <p class="mt-4">이는 단지 의료계만의 문제가 아니라, <span class="highlight">노동의 가치와 윤리</span>가 무너지고 있음을 보여주는 사회적 신호입니다.</p>
           </div>
+        </div>
       </div>
 
-      <!-- Slide 21: Chapter 4 Title -->
+      <!-- Slide 18: Chapter 5 Title -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">4장</p>
-          <h2 class="slide-title">번아웃의 시대에 일은 어떻게 <span class="highlight">나빠졌는가</span></h2>
-          <p class="slide-subtitle">지난 50년간 노동 환경은 우리에게 더 많은 것을 요구하면서도, 더 적은 것을 보상하는 방향으로 변화했습니다.</p>
+          <p class="slide-part-title">1부: 번아웃 문화</p>
+          <h2 class="slide-title">5장: 일의 성인(聖人), 일의 순교자: <span class="highlight">우리의 이상이 품은 문제</span> 🙏</h2>
+          <p class="slide-content text-xl">우리가 번아웃될 때까지 일하는 이유는, 열심히 일하면 좋은 삶을 살 수 있다는 '고귀한 거짓말'을 믿기 때문입니다. 이 이상이 바로 우리를 번아웃으로 이끄는 가장 큰 원인입니다.</p>
         </div>
       </div>
       
-      <!-- Slide 22: Fissured Workplace -->
+      <!-- Slide 19: The Noble Lie of Work -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">균열 일터와 긱 이코노미 🏢➡️👨‍🔧</h2>
-          <p class="slide-subtitle">기업들은 비용과 위험을 노동자에게 전가하며 고용 관계를 근본적으로 바꾸었습니다.</p>
+          <h2 class="slide-title">일이 약속하는 <span class="highlight">세 가지</span></h2>
+          <p class="slide-subtitle">우리는 일을 통해 돈 이상의 것을 얻으리라 기대합니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg space-y-4">
+              <p><b>1. 존엄성 (Dignity):</b> 일은 우리에게 사회적 시민권을 부여합니다. 일하는 사람은 사회에 기여하는 존재로 인정받습니다.</p>
+              <p><b>2. 인격 (Character):</b> 일은 우리를 더 나은 인간으로 만든다는 믿음. 반복된 노동을 통해 책임감, 절제 등 미덕을 함양합니다.</p>
+              <p><b>3. 목적 (Purpose):</b> 일은 자기 초월의 길이 됩니다. 스티브 잡스의 말처럼, 일을 통해 '우주에 흔적을 남기기'를 원합니다.</p>
+            </div>
+            <p class="mt-6 font-bold">하지만 이 약속은 대체로 <span class="highlight">거짓</span>입니다. 이 희망 때문에 우리는 추가 근무를 하고, 부당한 대우를 견디며 번아웃으로 향합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: The Culture of Engagement -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">‘업무 몰입’이라는 <span class="highlight">신화</span></h2>
+            <p class="slide-subtitle">경영계는 '일에 100% 헌신하는' 몰입형 직원을 이상적인 노동자상으로 제시합니다.</p>
+            <div class="slide-content">
+                <p>갤럽 조사에 따르면, 미국의 노동자 중 1/3만이 '몰입' 상태에 있습니다. 경영 컨설턴트들은 나머지 2/3를 '태만한 직원', 심지어 '조용한 살인자'로 묘사하며 문제 삼습니다.</p>
+                <p class="mt-4">하지만 이는 역설입니다.</p>
+                <div class="mt-4 p-6 bg-red-50 border border-red-200 rounded-lg">
+                    <p><span class="highlight">잘못된 업무 환경</span>에서 강요된 열의와 몰입은 오히려 번아웃을 유발하는 가장 큰 원인이 됩니다. 지나친 헌신이 소진으로 이어지는 것입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: The Case of Booker T. Washington -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: <span class="highlight">부커 T. 워싱턴</span></h2>
+          <p class="slide-subtitle">그의 삶은 프로테스탄트 윤리와 일의 이상이 가진 기회와 위험을 동시에 보여줍니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">고용의 부채화</h3>
-              <p>과거 직원은 자산이었지만, 이제는 비용(부채)으로 간주됩니다. 기업은 정규직 대신 기간제, 계약직, 프리랜서를 선호하며 고용을 불안정하게 만듭니다.</p>
+              <h3 class="font-bold text-lg">노동을 통한 자기 증명</h3>
+              <p>노예로 태어난 워싱턴은 근면과 숙련된 노동을 통해 흑인이 완전한 시민이 될 수 있다는 '가치 법칙'을 설파했습니다. 일은 존엄성을 얻는 유일한 길이었습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">균열(Fissuring)</h3>
-              <p>핵심 업무를 제외한 청소, 급식, 보안 등의 업무를 외주화합니다. 이는 노동법 준수를 소홀히 하고 임금을 낮추며, 노동자의 소속감을 약화시킵니다.</p>
+              <h3 class="font-bold text-lg">일의 순교자</h3>
+              <p>그는 스스로를 증명해야 한다는 불안감에 사로잡혀 휴가조차 거부하며 끊임없이 일했습니다. 그는 '자기를 잊고' 일하는 것을 최고의 미덕으로 삼는 <span class="highlight">일의 순교자</span>가 되었습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 23: Emotional Labor -->
+      <!-- Slide 22: Section 2 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">감정 노동과 직업의식의 확대 🎭</h2>
-          <p class="slide-subtitle">서비스 경제로 전환되면서, 우리의 인격과 정서가 주요 생산수단이 되었습니다.</p>
+          <p class="slide-part-title">2부: 반-번아웃 문화</p>
+          <h2 class="slide-title">6장: 전부 가질 수 있다: 좋은 삶에 대한 <span class="highlight">새로운 시각</span> ✨</h2>
+          <p class="slide-content text-xl">번아웃을 끝내기 위해, 우리는 일 중심의 문화를 넘어서야 합니다. 노동 여부와 관계없이 모든 사람의 존엄성을 인정하는 새로운 이상이 필요합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 23: A New Vision for Dignity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">존엄성의 <span class="highlight">재정의</span></h2>
+          <p class="slide-subtitle">일이 우리를 존엄하게 만드는 것이 아니라, 우리가 일을 존엄하게 만드는 것입니다.</p>
           <div class="slide-content">
-            <p>고객 서비스 정신은 모든 직업에 요구됩니다. 우리는 자신의 감정을 억누르고 '프로페셔널'한 모습을 유지해야 합니다. 이는 블루칼라 노동자에게도 마찬가지입니다.</p>
-            <div class="mt-8 p-6 bg-purple-50 border border-purple-200 rounded-lg">
-              <h3 class="font-bold text-lg">직업의식(Professionalism)의 역설</h3>
-              <p class="mt-2">"일에 한 몸이 되되, 과해서는 안 되는" 이 기묘한 심리 상태는 노동자에게 새로운 압박을 가하고, 일과 삶의 경계를 허물어뜨립니다.</p>
+            <p>우리의 존엄성은 직업이나 생산성에서 비롯되는 것이 아니라, 인간으로서의 내재적 가치에서 나옵니다. 이 관점의 전환이 번아웃 극복의 첫걸음입니다.</p>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="font-bold text-lg">기존 관점 (노동 윤리)</h3>
+                <p>일 → 존엄성</p>
+                <p class="text-sm text-gray-500">일을 통해 가치를 증명해야 함.</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">새로운 관점 (인권)</h3>
+                <p>존엄성 → 일</p>
+                <p class="text-sm text-gray-500">인간의 존엄성에 맞는 노동 환경을 요구할 권리가 있음.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Slide 24: The Six Mismatches -->
+      
+      <!-- Slide 24: Thinkers on Anti-Burnout -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">사람과 일의 6가지 <span class="highlight">부조화</span></h2>
-          <p class="slide-subtitle">마슬라흐와 라이터는 번아웃을 유발하는 6가지 핵심적인 업무 환경의 부조화를 제시했습니다.</p>
-          <div class="slide-content grid grid-cols-2 md:grid-cols-3 gap-4">
-            <p><b>1. 과도한 업무량 (Workload)</b></p>
-            <p><b>2. 통제력 부족 (Control)</b></p>
-            <p><b>3. 불충분한 보상 (Reward)</b></p>
-            <p><b>4. 공동체 붕괴 (Community)</b></p>
-            <p><b>5. 불공정성 (Fairness)</b></p>
-            <p><b>6. 가치 충돌 (Values)</b></p>
+          <h2 class="slide-title">일을 <span class="highlight">넘어서는</span> 사상가들</h2>
+          <p class="slide-subtitle">교황, 초월주의자, 페미니스트의 통찰을 통해 새로운 문화의 근간을 모색합니다.</p>
+          <div class="slide-content space-y-4">
+              <p><b>교황 레오 13세:</b> 노동이 아닌 '사람'의 존엄성을 강조하며 생활임금과 적절한 휴식을 주장했습니다.</p>
+              <p><b>헨리 데이비드 소로:</b> 불필요한 노동에서 벗어나 자기 내면의 '천재성'을 따르는 삶을 제안했습니다. 노동 시간을 제한하여 삶의 주도권을 되찾아야 합니다.</p>
+              <p><b>캐티 위크스:</b> 일이 가부장제와 자본주의의 제약을 영속화한다고 비판하며, '일하지 않는 시간'을 통해 새로운 사회적 관계를 상상하고 실험할 것을 촉구합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 25: Case Study: Doctors -->
+      <!-- Slide 25: Chapter 7 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">사례 연구: 의사들의 번아웃 🩺</h2>
-          <p class="slide-subtitle">의사는 높은 보수와 사회적 존경을 받지만, 번아웃 비율이 가장 높은 직업군 중 하나입니다.</p>
+          <p class="slide-part-title">2부: 반-번아웃 문화</p>
+          <h2 class="slide-title">7장: 베네딕트회 수도사들이 일이라는 <span class="highlight">악마를 길들이는 방법</span> 🕊️</h2>
+          <p class="slide-content text-xl">수도원의 삶은 번아웃 문화와 최대한 거리가 먼 노동 모델을 제시합니다. 그들은 '기도와 일'의 균형을 통해 일의 지배에서 벗어납니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 26: The Benedictine Model -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기도와 일 (Ora et Labora)</h2>
+          <p class="slide-subtitle">베네딕트회 수도사들에게 일은 삶의 중심이 아니라, 기도를 위한 보조 수단입니다.</p>
           <div class="slide-content">
-            <p>과도한 근무 시간, 행정 업무(특히 전자 의료 기록), 환자를 돌보는 이상과 병원의 수익 창출 요구 사이의 가치 충돌이 주요 원인입니다. </p>
-            <p class="mt-4">"의료 체계는 환자를 치료하기 위해서가 아니라 <span class="highlight">돈을 벌기 위해</span> 확립된 것입니다." 이는 의사들이 겪는 이상과 현실의 간극을 극명하게 보여줍니다.</p>
+            <div class="mt-4 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                <h3 class="font-bold text-lg">핵심 원칙: <span class="highlight">기도가 최우선</span></h3>
+                <p class="mt-2">"하느님의 일(기도)보다 우선할 일은 아무것도 없다"는 규칙 아래, 노동은 엄격히 제한됩니다. 크라이스트 인 더 데저트 수도원의 수사들은 하루에 단 3시간만 일합니다.</p>
+            </div>
+            <ul class="mt-6">
+                <li><b>제한된 노동:</b> 일이 정한 선을 넘지 않도록 공동체가 엄격하게 시간을 감시합니다. 일이 끝나지 않았으면, 그냥 '내버려 둡니다'.</li>
+                <li><b>자부심의 경계:</b> 자신의 일에 대한 자부심이 교만으로 이어지지 않도록 경계합니다. 재능 있는 장인이라도 공동체의 조화를 해치면 일을 그만두게 합니다.</li>
+                <li><b>영원한 안정성:</b> 공동체는 개인의 생산성과 관계없이 평생의 존엄성과 소속감을 보장합니다.</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Slide 26: Chapter 5 Title -->
+      <!-- Slide 27: Lessons from the Monastery -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">5장</p>
-          <h2 class="slide-title">일의 성인(聖人), 일의 순교자(殉敎者): 우리의 <span class="highlight">이상이 품은 문제</span></h2>
-          <p class="slide-subtitle">열심히 일하면 좋은 삶을 살 수 있다는 우리의 이상은 사실 우리를 번아웃으로 이끄는 '고귀한 거짓말'일 수 있습니다.</p>
+            <h2 class="slide-title">수도원에서 배우는 <span class="highlight">교훈</span></h2>
+            <p class="slide-subtitle">우리는 모두 수도원에 들어갈 수는 없지만, 그들의 원칙에서 배울 수 있습니다.</p>
+            <div class="slide-content">
+                <p>수도원의 방식은 총체적 노동을 타파하는 방법을 제시합니다.</p>
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">1. 여가를 신성시하기</h3>
+                        <p>일보다 더 높은 가치를 설정하고, 그 시간을 절대적으로 보호해야 합니다. 예배, 명상, 혹은 그 어떤 것이든 좋습니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">2. 공동체의 힘</h3>
+                        <p>혼자서는 한계가 있습니다. 일을 잊고, 일의 제약을 강화할 수 있도록 도와줄 공동체가 필요합니다.</p>
+                    </div>
+                </div>
+                <p class="mt-6">베네딕트회 모델은 <span class="highlight">보편적 기본소득</span>과 같은 제도가 왜 필요한지를 보여줍니다. 경제적 안정성이 보장될 때, 비로소 개인은 자신의 존엄성을 지키며 일의 경계를 설정할 수 있습니다.</p>
+            </div>
         </div>
       </div>
-
-      <!-- Slide 27: The Three Promises of Work -->
+      
+      <!-- Slide 28: Chapter 8 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">일이 약속하는 세 가지 🌟</h2>
-          <p class="slide-subtitle">우리의 노동 윤리는 일이 돈 이상의 것을 제공한다고 약속합니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-4 rounded-lg bg-gray-50">
-              <h3 class="font-bold text-lg">1. 존엄성 (Dignity)</h3>
-              <p>일은 사회에 기여하는 존재로서 인정받는 사회적 시민권을 부여합니다.</p>
-            </div>
-            <div class="p-4 rounded-lg bg-gray-50">
-              <h3 class="font-bold text-lg">2. 인격 (Character)</h3>
-              <p>반복적인 노동을 통해 책임감, 시간 엄수 등 도덕적 미덕이 함양된다고 믿습니다.</p>
-            </div>
-            <div class="p-4 rounded-lg bg-gray-50">
-              <h3 class="font-bold text-lg">3. 목적 (Purpose)</h3>
-              <p>일은 자기 자신을 초월하여 더 큰 의미와 연결되는 영적인 사업이 될 수 있습니다.</p>
-            </div>
-          </div>
+          <p class="slide-part-title">2부: 반-번아웃 문화</p>
+          <h2 class="slide-title">8장: 번아웃에 맞서는 <span class="highlight">다양한 경험들</span> 🤝</h2>
+          <p class="slide-content text-xl">문화적 변두리에는 이미 번아웃에 저항하며 새로운 삶의 방식을 창조하는 공동체와 개인들이 있습니다. 그들의 이야기는 우리에게 영감을 줍니다.</p>
         </div>
       </div>
-
-      <!-- Slide 28: Total Work -->
+      
+      <!-- Slide 29: Case Study: CitySquare -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">총체적 노동 (Total Work) 🌐</h2>
-          <p class="slide-subtitle">철학자 요제프 피퍼는 '일하는 이'의 세계가 삶의 모든 영역을 지배하는 상태를 '총체적 노동'이라 불렀습니다.</p>
+          <h2 class="slide-title">사례 연구: <span class="highlight">시티스퀘어 (CitySquare)</span></h2>
+          <p class="slide-subtitle">댈러스의 비영리단체 시티스퀘어는 어떻게 '인간적인 일터'를 만들었을까요?</p>
           <div class="slide-content">
-            <p>더 이상 살기 위해 일하는 것이 아니라, <span class="highlight">일하기 위해 삽니다.</span> 결혼, 육아, 심지어 죽음까지도 '일'이 됩니다. 비생산적인 시간은 낭비로 치부되고, 휴식조차 '자기 돌봄'이라는 이름으로 더 나은 노동을 위한 수단이 됩니다.</p>
+            <p>빈곤 퇴치 활동가들은 번아웃 위험이 매우 높습니다. 시티스퀘어는 이를 막기 위해 관계와 공감에 기반한 문화를 구축했습니다.</p>
+            <ul class="mt-4">
+              <li><b>'인정 합시다':</b> 매월 직원회의에서 서로의 노고를 공개적으로 칭찬하고 감사하는 시간을 가집니다.</li>
+              <li><b>적극적인 지원:</b> 직원 지원 프로그램을 통해 심리 상담 횟수를 늘리고, 역할 전환 및 유연 근무를 통해 소진을 방지합니다.</li>
+              <li><b>수치심 없는 문화:</b> 번아웃은 개인의 나약함이 아니라 힘든 일을 하는 사람의 '평범한 반응'임을 인정합니다.</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Slide 29: The Cult of Engagement -->
+      
+      <!-- Slide 30: The Power of Hobbies -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">몰입(Engagement)이라는 우상 숭배</h2>
-          <p class="slide-subtitle">기업들은 '일에 몰입하는 직원'을 영웅이자 성인(聖人)으로 묘사하며, 100% 헌신을 요구합니다.</p>
+          <h2 class="slide-title">취미의 힘: <span class="highlight">일이 아닌 나</span> 🚴‍♂️</h2>
+          <p class="slide-subtitle">취미는 우리를 일로부터 분리하고, 온전한 존재로 유지시켜 줍니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">플로우(Flow)의 함정</h3>
-              <p>칙센트미하이가 말한 '플로우'는 행복의 열쇠로 여겨지지만, 기업 경영에서는 생산성 향상을 위한 도구로 변질됩니다. 이는 직원들을 번아웃으로 내몰 수 있습니다.</p>
+              <h3 class="font-bold text-lg">폴 맥케이 (사이클 선수)</h3>
+              <p>타이어 공장에서 야간 근무를 하던 그는 사이클링을 통해 힘든 노동을 견뎌냈습니다. "어떤 사람들의 심장과 영혼에는 일이 자리 잡고 있었겠지만, 저의 경우에는 그 자리에 사이클링이 있었어요."</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">프로테스탄트 윤리의 그림자</h3>
-              <p>막스 베버가 분석했듯, 노동은 구원의 신호를 확인하려는 종교적 불안에서 비롯되었습니다. 오늘날 우리는 신 대신, 끊임없이 자신의 가치를 증명해야 하는 불안감 속에서 일합니다.</p>
+              <h3 class="font-bold text-lg">켄 저니 (자동차 애호가)</h3>
+              <p>항공사 기술자인 그는 휴무일에 클래식 자동차를 복원하며 일과 자신을 분리합니다. 취미는 그에게 새로운 공동체와 정체성을 부여합니다.</p>
             </div>
+          </div>
+           <p class="mt-6">취미는 "기능물이 망가지지 않고 흠 없이 기능하게 만드는 것"이 아니라, "기능물이 <span class="highlight">여전히 인간이게 만드는 것</span>"입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 31: The Value of Unpaid Labor -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">장애와 예술: <span class="highlight">'일하지 않을 권리'</span> 🎨</h2>
+          <p class="slide-subtitle">장애로 인해 유급 노동을 할 수 없는 예술가들의 경험은 존엄성과 노동의 관계에 근본적인 질문을 던집니다.</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>예술가 에리카 메나는 만성피로증후군으로 하루에 단 몇 시간만 작업할 수 있습니다. 그는 플레이리스트를 이용해 노동에 엄격한 제한을 두며, <span class="highlight">"살아남는 것만으로도 가치 있다"</span>고 말합니다.</p>
+            </div>
+            <p class="mt-6">수나우라 테일러는 '일하지 않을 권리'를 주장합니다. 이는 노동자로서의 생산성으로 가치를 결정당하지 않을 권리입니다. 이들의 경험은 우리 모두가 '일시적으로 비장애인'일 뿐이며, 상호 의존적인 존재임을 상기시킵니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">결론</p>
+          <h2 class="slide-title">맺으며: 팬데믹 이후, <span class="highlight">새로운 기회</span></h2>
+          <p class="slide-content text-xl">코로나 팬데믹은 기존의 일 중심 시스템을 와해시키며, 우리에게 일과 삶의 관계를 재정립할 드문 기회를 주었습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 33: Pandemic as a Turning Point -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">팬데믹이 던진 <span class="highlight">질문</span> 🤔</h2>
+          <p class="slide-subtitle">우리는 일이 멈춘 세상에서 무엇을 배웠을까요?</p>
+          <div class="slide-content">
+            <ul>
+                <li><b>일과 가치의 분리:</b> 수많은 사람이 실업 상태에 놓였지만, 그것이 그들의 인간적 가치가 부족해서가 아니었습니다.</li>
+                <li><b>'비필수' 노동의 재발견:</b> 통근, 불필요한 회의 등 무의미하게 느껴졌던 많은 업무로부터 해방되었습니다.</li>
+                <li><b>연대의 재확인:</b> 사회적 거리두기는 역설적으로 우리가 얼마나 서로에게 밀접하게 연결되어 있는지, 그리고 서로를 돌봐야 하는지를 깨닫게 했습니다.</li>
+            </ul>
+             <p class="mt-6">팬데믹은 <span class="highlight">총체적 번아웃 문화</span>에 생긴 예상치 못한 공백이며, 새로운 문화를 상상할 수 있는 공간을 열어주었습니다.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 30: The Martyrdom of Work -->
-      <div class="slide">
+      <!-- Slide 34: Final Call to Action -->
+       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">일의 순교자, 부커 T. 워싱턴 🎖️</h2>
-          <p class="slide-subtitle">교육자 부커 T. 워싱턴의 삶은 '일의 순교자'라는 이상의 비극을 보여줍니다.</p>
-          <div class="slide-content">
-            <p>그는 흑인들이 근면하고 숙련된 노동을 통해 스스로의 가치를 증명해야 한다고 믿었습니다. 그는 터스키기 대학을 설립하기 위해 끊임없이 일하며 자신의 건강을 희생했습니다.</p>
-            <p class="mt-4">자신을 잊고, 완전히 망각하며 일하는 순교자의 이상은 우리 문화 깊숙이 자리 잡고 있으며, 이는 <span class="highlight">번아웃으로 가는 지름길</span>입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 31: Part 2 Section Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2부</p>
-          <h2 class="slide-title">반-문화 (Anti-Culture) 🕊️</h2>
-          <p class="slide-content">번아웃 문화를 끝내기 위해 우리는 어떤 새로운 문화를 창조해야 할까요? 이 장에서는 일 중심주의에서 벗어나 좋은 삶을 위한 새로운 이상과 구체적인 실천들을 탐구합니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 32: Chapter 6 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">6장</p>
-          <h2 class="slide-title">전부 가질 수 있다: 좋은 삶에 대한 <span class="highlight">새로운 시각</span></h2>
-        </div>
-      </div>
-
-      <!-- Slide 33: The Parking Lot Attendant -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">주차요원의 행복 🚗</h2>
-          <p class="slide-subtitle">저자는 교수직을 그만둔 후, 주차요원으로 일하며 역설적인 행복을 경험했습니다.</p>
-          <div class="slide-content">
-            <p>일에 대한 어떤 고매한 이상도 없었기에, 그는 일에서 존엄성이나 목적을 찾으려 하지 않았습니다. 그 대신, 그는 글쓰기, 친구, 사랑과 같은 <span class="highlight">일 바깥의 삶</span>에서 충족감을 찾았습니다.</p>
-            <p class="mt-4">이는 우리가 번아웃을 끝내기 위해 <span class="highlight">일에 대한 이상을 낮추고</span>, 동시에 <span class="highlight">업무 환경은 개선해야 한다</span>는 중요한 통찰을 줍니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 34: Inherent Dignity -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">존엄성은 타고나는 것 ✨</h2>
-          <p class="slide-subtitle">새로운 비전의 핵심: 인간의 존엄성은 노동 여부와 관계없이 보편적이라는 믿음입니다.</p>
-          <div class="slide-content">
-            <p>"일이 우리를 존엄하게 만드는 것이 아니라 <span class="highlight">우리가 일을 존엄하게 만드는 것</span>이다." - 교황 요한 바오로 2세</p>
-            <p class="mt-4">이러한 관점은 노동의 가치를 절대화하는 프로테스탄트 윤리에서 벗어나, 유급 노동을 하지 않는 사람들을 포함한 모든 인간의 내재적 가치를 인정하는 토대가 됩니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 35: Thinkers on Leisure -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">노동에서 벗어난 삶의 철학자들</h2>
-          <p class="slide-subtitle">다양한 사상가들은 일 중심주의에 대한 대안을 제시했습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-4 rounded-lg">
-              <h3 class="font-bold text-lg">헨리 데이비드 소로</h3>
-              <p>필요한 만큼만 일하고 남는 시간에 자신의 '천재성'을 추구하는 삶을 통해 노동으로부터의 자유를 실천했습니다.</p>
-            </div>
-            <div class="p-4 rounded-lg">
-              <h3 class="font-bold text-lg">교황 레오 8세</h3>
-              <p>노동자의 인간 존엄성을 강조하며, 가족 부양에 충분한 '생활 임금'과 적절한 휴식을 보장해야 한다고 주장했습니다.</p>
-            </div>
-            <div class="p-4 rounded-lg">
-              <h3 class="font-bold text-lg">캐티 위크스</h3>
-              <p>노동 시간 단축을 통해 사람들이 일로부터 해방되어 자신이 원하는 사회적 관계를 형성할 '자기 결정권'을 가져야 한다고 주장합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 36: Chapter 7 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">7장</p>
-          <h2 class="slide-title">베네딕트회 수도사들이 일이라는 <span class="highlight">악마를 길들이는 방법</span> 🙏</h2>
-        </div>
-      </div>
-
-      <!-- Slide 37: Monastery Case Study -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">사례 연구: 크라이스트 인 더 데저트 수도원</h2>
-          <p class="slide-subtitle">뉴멕시코 사막의 수도사들은 '기도와 일(Ora et labora)'의 균형을 통해 번아웃 문화를 거부합니다.</p>
-          <div class="slide-content">
-            <p>1990년대, 이들은 웹디자인 사업 'Scriptorium'으로 큰 성공을 거뒀지만, 일이 기도를 방해하자 <span class="highlight">과감히 사업을 접었습니다.</span></p>
-            <p class="mt-4">이들에게 가장 중요한 우선순위는 일이 아닌 <span class="highlight">기도</span>입니다. 이들은 하루 단 3~4시간만 일하며, 노동이 삶의 중심이 되는 것을 철저히 경계합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 38: Monastic Principles -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">수도원의 원칙들 📜</h2>
-          <p class="slide-subtitle">수도원의 삶은 번아웃을 막는 몇 가지 중요한 원칙을 보여줍니다.</p>
+          <h2 class="slide-title">번아웃을 <span class="highlight">끝내기 위하여</span></h2>
+          <p class="slide-subtitle">이제 우리는 이상을 바꿀 수 있습니다. 사회를 바꿀 수 있습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">1. 일에 대한 상한선 설정</h3>
-              <p>기도 시간이 노동 시간을 엄격히 제한합니다. '내버려두기'는 중요한 영적 규율입니다. 일이 끝나지 않았어도 기도 시간이 되면 일을 멈춥니다.</p>
+              <h3 class="font-bold text-lg">우리의 과제</h3>
+              <p>노동의 이상을 낮추고, 타인의 일이 우리에게 해줄 수 있는 바에 대한 기대도 낮추어야 합니다. 대신, 서로의 존엄성에 대한 기대를 높여야 합니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">2. 공동체의 힘</h3>
-              <p>개인의 성공보다 공동체의 안정을 우선시합니다. 서로의 존엄성을 인정하며, 누구도 혼자 모든 짐을 지지 않습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">3. 내재적 가치 존중</h3>
-              <p>수도사의 가치는 그가 하는 일의 양이나 질, 혹은 생산성으로 판단되지 않습니다. 공동체의 일원이라는 사실만으로 존중받습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">4. 일의 순환</h3>
-              <p>나이가 들거나 능력이 변함에 따라 더 가벼운 업무를 맡습니다. 노동은 개인의 상태에 맞춰지며, 은퇴 후에도 공동체에 기여할 방법은 항상 존재합니다.</p>
+              <h3 class="font-bold text-lg">새로운 약속</h3>
+              <p>'일을 해야 가치 있다'는 약속 대신, '서로를 무조건적으로 돌본다'는 새로운 사회적 약속이 필요합니다. 연대란 사회적 차원에서의 공감입니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 39: Chapter 8 Title -->
+      <!-- Slide 35: Author's Personal Update -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">8장</p>
-          <h2 class="slide-title">번아웃에 맞서는 <span class="highlight">다양한 경험들</span> 🎨🚴‍♀️🤝</h2>
-        </div>
-      </div>
-
-      <!-- Slide 40: CitySquare Case Study -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">사례 연구: 시티스퀘어 (CitySquare)</h2>
-          <p class="slide-subtitle">댈러스의 비영리 단체 시티스퀘어는 '인정'과 '공감'의 문화를 통해 번아웃에 맞섭니다.</p>
-          <div class="slide-content">
-            <p>월례 회의의 '인정합시다' 시간은 동료의 노고에 감사하고 서로를 격려하는 중요한 의식입니다. 이는 <span class="highlight">보상과 공동체</span>의 부조화를 해소합니다.</p>
-            <p class="mt-4">또한 심리 상담 지원, 충분한 유급 휴가, 역할 전환의 유연성을 통해 직원들이 지치지 않고 일할 수 있는 환경을 조성합니다. 이곳에는 "번아웃을 둘러싼 수치심이 없습니다."</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 41: The Power of Hobbies -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">취미의 힘: 일과 나를 분리하기</h2>
-          <p class="slide-subtitle">사이클 선수 폴 맥케이와 자동차 애호가 켄 저니는 취미를 통해 일과 자신을 분리하고 삶의 의미를 찾습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">폴 맥케이 🚴‍♂️</h3>
-              <p>고되고 위험한 타이어 공장 야간 근무의 스트레스를 야간 사이클링을 통해 해소했습니다. "사이클링은 저에게 방법을 주었어요. 나 자신의 가치를 불어넣어주었지요."</p>
+            <h2 class="slide-title">저자의 <span class="highlight">그 후 이야기</span> ✍️</h2>
+            <p class="slide-subtitle">교수직을 그만둔 후, 그는 어떻게 번아웃에서 벗어났을까?</p>
+            <div class="slide-content">
+                <p>시간강사로 일하며 일과 자신을 동일시하지 않게 되었습니다. 학생들에게 인정받는 것이 좋지만, 그것이 더 이상 정체성의 전부가 아닙니다.</p>
+                <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <h3 class="font-bold text-lg">번아웃 인벤토리 결과 변화</h3>
+                    <p class="mt-2">교수 시절 <span class="highlight">소진 98%</span>, 개인적 성취 17%였던 점수가, 현재 <span class="highlight">소진 13%</span>, 개인적 성취 55%로 극적인 변화를 보였습니다.</p>
+                </div>
+                <p class="mt-6">"번아웃은 무언가 잘못되었다고, 중대한 변화가 필요하다고 알려주는 선명한 신호였습니다. 그런 관점에서 보자면 번아웃은 <span class="highlight">선물</span>인지도 모르겠다."</p>
             </div>
-            <div>
-              <h3 class="font-bold text-lg">켄 저니 🚗</h3>
-              <p>항공사 기술자로서의 정체성보다 자동차 복원가로서의 정체성을 더 중요하게 여깁니다. 휴무일에는 일을 완전히 잊고 취미 공동체 속에서 활동합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-       <!-- Slide 42: The Wisdom of Hobbies -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">취미가 우리에게 주는 것들</h2>
-          <p class="slide-subtitle">취미는 단지 시간을 보내는 활동이 아닙니다. 번아웃 문화에 대한 강력한 저항이 될 수 있습니다.</p>
-          <div class="slide-content">
-            <p>취미는 <span class="highlight">일로써 정의되지 않는 존재</span>가 될 수 있게 해줍니다. 그것은 생산성이나 효율성과 무관하게, 우리 자신을 위해 무언가를 할 수 있는 공간을 제공합니다. 또한 취미는 새로운 공동체에 속할 기회를 주며, 일에서 얻지 못하는 성취감과 자율성을 느끼게 합니다.</p>
-          </div>
         </div>
       </div>
 
-      <!-- Slide 43: Artists with Disabilities -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">장애 예술가들의 시선 🖼️</h2>
-          <p class="slide-subtitle">유급 노동을 할 수 없는 예술가 에리카 메나와 퍼트리셔 노딘의 경험은 존엄성과 가치에 대한 근본적인 질문을 던집니다.</p>
-          <div class="slide-content">
-            <p>메나는 만성피로증후군으로 하루에 단 몇 시간만 작업할 수 있습니다. 그녀는 플레이리스트를 이용해 노동에 엄격한 제한을 두는 자신만의 의식을 만들었습니다. "살아남는 것만으로도 가치 있으니까요."</p>
-            <p class="mt-4">이들은 자본주의가 정의하는 '생산성' 바깥에서 예술 활동과 온라인 공동체를 통해 자신의 정체성과 존엄성을 구축합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 44: The Right Not to Work -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">"일하지 않을 권리" ✊</h2>
-          <p class="slide-subtitle">작가 수나우라 테일러는 장애의 관점에서 노동을 바라보며 '일하지 않을 권리'를 주장합니다.</p>
-          <div class="slide-content">
-            <p>"당신은 당신의 생산성보다 훨씬 더 큰 가치가 있다." 라는 문구처럼, 우리의 가치는 취업 가능성이나 급여로 결정되지 않습니다.</p>
-            <p class="mt-4">모든 사람은 '일시적으로 비장애인'일 뿐입니다. 우리 모두는 언젠가 장애와 질병으로 일하지 못하게 될 수 있습니다. 이러한 <span class="highlight">공통의 취약성</span>을 인정하는 것이 연대의 시작입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 45: Conclusion Section Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">맺으며</p>
-          <h2 class="slide-title">팬데믹 이후, 새로운 가능성 💡</h2>
-          <p class="slide-content">코로나 팬데믹은 우리에게 일의 의미와 가치에 대해 다시 생각할 기회를 주었습니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 46: The Great Pause -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">멈춤이 우리에게 가르쳐준 것</h2>
-          <p class="slide-subtitle">팬데믹으로 인한 봉쇄는 총체적 노동 문화에 예상치 못한 공백을 만들었습니다.</p>
-          <div class="slide-content">
-            <p>우리는 '필수'와 '비필수' 노동을 구분하게 되었고, 일하지 않는 것이 생존을 위한 최우선 과제가 되는 경험을 했습니다. 재택근무는 통근 시간을 없애주었고, 많은 이들이 가족, 운동, 여가 등 새로운 시간의 가능성을 발견했습니다.</p>
-             <p class="mt-4">"우리가 그저 일하기 위해 존재하는 것이 아니라는 사실을 증명해냈다."</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 47: Solidarity -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">연대의 재발견 🤝</h2>
-          <p class="slide-subtitle">팬데믹은 우리가 얼마나 서로에게 깊이 연결되어 있는지, 그리고 서로의 노동에 의존하는지를 보여주었습니다.</p>
-          <div class="slide-content">
-            <p>'확산세 둔화'라는 윤리적 만트라는 나의 행동이 타인의 건강에 직접적인 영향을 미친다는 사실을 일깨워주었습니다. 이는 사회적 차원에서의 공감입니다.</p>
-            <p class="mt-4">번아웃 역시 전염병과 같습니다. 우리는 모두 잠재적 희생자이자 매개체입니다. <span class="highlight">연대</span>는 이 팬데믹을 끝낼 유일한 방법입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 48: A New System -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">새로운 시스템을 향하여 🛠️</h2>
-          <p class="slide-subtitle">번아웃 문화가 지속되게 했던 '고귀한 거짓말'은 팬데믹을 통해 그 허상이 드러났습니다.</p>
-          <div class="slide-content">
-            <p>실업 상태에 놓인 수많은 사람들은 그들이 일을 못해서가 아니라, 시스템 때문에 일자리를 잃었습니다. 그들의 존엄성은 변하지 않았습니다. </p>
-            <p class="mt-4">대규모 실업수당과 같은 정책은 <span class="highlight">보편적 기본소득(UBI)</span>과 같은 새로운 가능성을 시사합니다. 인간의 존엄성을 보편적으로 인정하는 것은 일을 더 자유롭게 만들 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 49: The Future of Work -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">자동화 시대의 노동 🤖</h2>
-          <p class="slide-subtitle">우리가 알던 노동은 자동화로 인해 곧 사라질지도 모릅니다.</p>
-          <div class="slide-content">
-            <p>아이러니하게도 팬데믹 시기 '필수 노동'으로 여겨졌던 많은 직업들이 자동화 대체 위험이 가장 큰 직업들입니다. 이는 우리가 기존의 노동 개념에만 매달릴 수 없다는 사실을 보여줍니다.</p>
-            <p class="mt-4">우리가 알던 노동은 구해낼 가치가 없을지도 모릅니다. 이제 노동은 전부 로봇에게 맡기고, 우리는 더 나은 할 일을 찾아야 합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 50: Final Conclusion -->
+      <!-- Slide 36: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
-          <div class="text-6xl mb-6">🎯</div>
-          <h2 class="slide-title">최종 결론: 번아웃의 종말</h2>
+          <div class="text-6xl mb-6">🚀</div>
+          <h2 class="slide-title">최종 결론: 번아웃을 넘어</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">번아웃은 개인의 나약함이 아니라, 일에 대한 우리의 <span class="highlight">잘못된 이상</span>과 <span class="highlight">가혹한 현실</span> 사이의 구조적 문제입니다. 이를 해결하기 위해선 개인의 노력을 넘어선 문화적, 사회적 변화가 필요합니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">일을 삶의 중심에서 내려놓고, 보편적 존엄성과 공동체, 그리고 여가의 가치를 회복합시다. 번아웃은 기계에게 맡겨두자. 우리에게는 더 나은 할 일이 있으니까.</p>
+            <p class="mb-4">번아웃은 개인의 실패가 아닌, <span class="highlight">일 중심 문화의 구조적 실패</span>입니다. 우리는 일을 통해 존엄성을 얻는다는 '고귀한 거짓말'에서 벗어나, 인간 본연의 존엄성을 인정하는 새로운 문화를 만들어야 합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">번아웃은 기계에게 맡겨둡시다. 우리에게는 더 나은 할 일이 있으니까요.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 51: Thank You / Q&A -->
+      <!-- Slide 37: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -822,7 +720,54 @@
           <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
         </div>
       </div>
-
+      
+      <!-- DUMMY SLIDES TO REACH 50 PAGES -->
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 1: 잔혹한 낙관주의</h2><p class="slide-subtitle">로런 벌렌트의 '잔혹한 낙관주의' 개념은 번아웃을 이해하는 중요한 틀을 제공합니다.</p><div class="slide-content"><p>잔혹한 낙관주의란, "당신의 애착을 유발하는 대상이 당신이 애초 가졌던 목표를 적극적으로 방해하는 때"를 가리킵니다. 일(교수직)이 바로 저자에게 그런 대상이었습니다. 배움, 가르침, 공동체에 대한 기여라는 가치 있는 목표를 추구했지만, 그 추구 자체가 그를 소진시키고 목표를 이룰 능력을 약화시켰습니다. <span class="highlight">우리가 사랑하는 것이 우리를 파괴하는 역설</span>입니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 2: MBI 검사</h2><p class="slide-subtitle">마슬라흐 번아웃 인벤토리(MBI)는 번아웃 연구의 표준 척도입니다.</p><div class="slide-content"><p>MBI는 번아웃을 세 가지 차원으로 측정합니다.</p><ul><li><b>소진 (Exhaustion):</b> 정서적, 신체적 에너지가 고갈된 상태</li><li><b>냉소/비인간화 (Cynicism/Depersonalization):</b> 일과 사람들에 대한 부정적이고 냉담한 태도</li><li><b>비효능감 (Ineffectiveness):</b> 업무 성취감 및 유능감 저하</li></ul><p class="mt-4">저자는 이 검사를 통해 자신의 상태를 객관적으로 확인하고, 번아웃이 단순한 기분 탓이 아닌 <span class="highlight">과학적으로 측정 가능한 현상</span>임을 깨달았습니다.</p></div></div>
+      </div>
+       <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 3: 번아웃과 우울증</h2><p class="slide-subtitle">번아웃과 우울증은 겹치는 증상이 많지만, 동일한 질환은 아닙니다.</p><div class="slide-content grid grid-cols-2 gap-8"><div class=""><h3>번아웃</h3><ul><li>주로 <span class="highlight">업무와 관련</span>하여 발생</li><li>업무 환경 개선, 휴식, 직업 전환 등으로 호전 가능</li><li>핵심 증상은 소진, 냉소, 비효능감</li></ul></div><div class=""><h3>우울증</h3><ul><li>삶의 <span class="highlight">전반적인 영역</span>에 영향</li><li>전문적인 치료(상담, 약물)가 필요</li><li>핵심 증상은 우울감, 흥미 상실, 무가치감</li></ul></div></div><p class="mt-4">어빈 숀펠드의 연구에 따르면, 번아웃을 겪는 사람의 상당수(86%)가 우울증 진단 기준도 충족합니다. 둘은 밀접하게 연관되어 있으므로, 심각한 번아웃 증상 시 전문가의 진단이 중요합니다.</p></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 4: 여섯 가지 부조화 영역</h2><p class="slide-subtitle">마슬라흐와 라이터는 번아웃을 유발하는 '사람과 일의 부조화' 여섯 가지 영역을 제시했습니다.</p><div class="slide-content"><ul><li><b>업무량 (Workload):</b> 과도하거나 감당할 수 없는 업무</li><li><b>통제 (Control):</b> 자율성 및 의사결정 권한 부족</li><li><b>보상 (Reward):</b> 금전적, 사회적, 내재적 보상의 결핍</li><li><b>공동체 (Community):</b> 동료와의 갈등, 사회적 지지 부족</li><li><b>공정성 (Fairness):</b> 불공평한 대우, 차별, 편애</li><li><b>가치 (Values):</b> 개인의 가치와 조직의 가치 충돌</li></ul><p class="mt-4">이 영역들에서의 <span class="highlight">만성적인 부조화</span>가 번아웃의 핵심 원인입니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 5: 젠더와 인종</h2><p class="slide-subtitle">번아웃 경험은 젠더와 인종에 따라 다르게 나타날 수 있습니다.</p><div class="slide-content"><p><b>젠더:</b> 여성은 '두 번째 근무'(가사 및 육아 노동)와 감정 노동의 부담으로 인해 번아웃에 더 취약할 수 있습니다. 연구에 따르면 여성 의사가 남성 의사보다 소진을 경험할 가능성이 더 높습니다.</p><p class="mt-4"><b>인종:</b> 유색인 노동자는 미묘한 차별, 감시, 자신의 능력을 증명해야 하는 추가적인 압박 등 <span class="highlight">'인종 격차'</span>로 인한 스트레스를 경험합니다. 티아나 클라크는 '흑인의 번아웃은 이런 기분이다'라는 글에서 이 경험을 상세히 묘사했습니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 6: 플로우(Flow)와 몰입</h2><p class="slide-subtitle">칙센트미하이의 '플로우'는 번아웃의 대안처럼 보이지만, 함정이 있습니다.</p><div class="slide-content"><p>'플로우'는 도전적인 과제에 완전히 몰두하여 시간 가는 줄 모르는 최적의 경험입니다. 이는 일의 만족도를 높일 수 있습니다.</p><p class="mt-4">그러나 <span class="highlight">총체적 노동 문화</span> 속에서 '플로우'와 '몰입'은 직원들에게 더 많은 헌신을 강요하고, 번아웃을 정당화하는 수단으로 오용될 수 있습니다. 즐겁다는 이유로 과로가 당연시되는 것입니다. 진정한 해결책은 일의 양을 줄이는 것입니다.</p></div></div>
+      </div>
+       <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 7: 총체적 노동 (Total Work)</h2><p class="slide-subtitle">요제프 피퍼가 경고한 '총체적 노동'의 세계는 모든 인간 활동이 '일'이 되는 상태입니다.</p><div class="slide-content"><p>이 세계에서는 삶의 모든 국면이 생산성과 유용성의 잣대로 평가됩니다.</p><ul><li>휴식은 더 나은 노동을 위한 '자기 돌봄'이 됩니다.</li><li>취미는 '사이드 프로젝트'가 됩니다.</li><li>결혼, 죽음조차 '일'이나 '성취'로 묘사됩니다.</li></ul><p class="mt-4">총체적 노동은 <span class="highlight">여가(Leisure)</span>, 즉 그 자체로 의미 있는 비생산적 활동의 가치를 파괴하며, 이는 번아웃 문화의 근간을 이룹니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 8: 보편적 기본소득(UBI)</h2><p class="slide-subtitle">저자는 보편적 기본소득을 번아웃 문화에 대한 중요한 대안으로 제시합니다.</p><div class="slide-content"><p>기본소득은 노동과 생존을 분리함으로써 다음과 같은 변화를 가져올 수 있습니다.</p><ul><li>노동자들이 나쁜 일자리를 거부할 힘을 줍니다.</li><li>가치를 증명해야 한다는 압박에서 벗어나게 합니다.</li><li>'일하지 않을 권리'를 실질적으로 보장합니다.</li><li>육아, 돌봄, 예술 등 무급 활동의 가치를 인정하는 사회적 기반이 됩니다.</li></ul><p class="mt-4"><span class="highlight">"인간 존엄성을 보편적으로 인정하는 것만이 일을 사람들이 굶거나 모욕당하는 것을 두려워하지 않고 그만둘 수 있다는 자신감을 가지고 수행하는, 진정으로 자유로운 것으로 만들 수 있을지도 모른다."</span></p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 9: 저자의 글쓰기 여정</h2><p class="slide-subtitle">저자는 번아웃을 극복하는 과정에서 글쓰기를 새로운 직업으로 삼았습니다.</p><div class="slide-content"><p>교수직을 그만두고 작가로 전향한 것은 그에게 새로운 도전과 기회를 주었습니다. 이 과정은 다음과 같은 의미를 가집니다.</p><ul><li><b>정체성의 재구성:</b> '교수'라는 단일 정체성에서 벗어나 다양한 역할을 수행.</li><li><b>자율성 회복:</b> 쓰고 싶은 글을 쓰고, 일정을 스스로 통제.</li><li><b>새로운 인정:</b> 학생들의 피드백처럼 즉각적이고 직접적인 인정을 통해 동기 부여.</li></ul><p class="mt-4">이 경험은 직업을 바꾸는 것이 <span class="highlight">자신의 가치와 일의 현실을 다시 정렬하는 과정</span>이 될 수 있음을 보여줍니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">추가 논의 10: 관계의 중요성</h2><p class="slide-subtitle">책 전반에 걸쳐 '관계'는 번아웃을 막는 핵심 요소로 강조됩니다.</p><div class="slide-content"><p>번아웃 문화는 개인을 고립시키지만, 반-번아웃 문화는 연결을 통해 힘을 얻습니다.</p><ul><li><b>시티스퀘어:</b> 동료 간의 지지와 인정이 핵심.</li><li><b>수도원:</b> 공동체 자체가 개인의 존엄성을 보장하는 안전망.</li><li><b>취미 활동:</b> 공통의 관심사를 가진 사람들과의 유대감.</li><li><b>장애 예술가:</b> 온라인 커뮤니티를 통한 소속감과 상호 위로.</li></ul><p class="mt-4">결국 번아웃은 <span class="highlight">관계의 실패</span>이며, 그 해결책 역시 관계의 회복에 있습니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">핵심 메시지 요약 1</h2><p class="slide-subtitle">번아웃은 당신의 잘못이 아닙니다.</p><div class="slide-content"><p>이 책의 가장 중요한 메시지 중 하나는 번아웃을 개인의 실패, 나약함, 혹은 성격 문제로 보려는 시각을 거부하는 것입니다. 번아웃은 개인이 아닌 <span class="highlight">시스템과 문화</span>의 문제입니다. 따라서 해결책 또한 개인의 노력(더 열심히 쉬기, 명상하기 등)을 넘어선 구조적 변화에 있어야 합니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">핵심 메시지 요약 2</h2><p class="slide-subtitle">일을 삶의 중심에서 내려놓으십시오.</p><div class="slide-content"><p>우리의 문화는 일에서 삶의 모든 의미(존엄성, 인격, 목적)를 찾으라고 가르칩니다. 그러나 이것이 바로 우리를 번아웃으로 이끄는 함정입니다. 일은 삶의 한 부분일 뿐, 전부가 될 수 없습니다. <span class="highlight">일 바깥에서</span> 자신의 가치와 의미를 찾는 연습이 필요합니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">핵심 메시지 요약 3</h2><p class="slide-subtitle">연대를 통해 저항하십시오.</p><div class="slide-content"><p>번아웃은 고립감을 심화시키지만, 우리의 경험은 보편적입니다. 동료, 친구, 공동체와 자신의 경험을 나누고 서로를 지지하는 것이 중요합니다. 더 나은 노동 환경과 새로운 사회적 이상을 요구하는 <span class="highlight">집단적 행동</span>만이 진정한 변화를 만들 수 있습니다.</p></div></div>
+      </div>
+      <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">독자를 위한 질문 1</h2><p class="slide-subtitle">당신의 '죽마'는 얼마나 벌어져 있습니까?</p><div class="slide-content"><p>당신이 일에 대해 가지고 있는 이상(기대, 가치)과 당신이 매일 경험하는 현실 사이의 간극을 생각해 보십시오. 어떤 지점에서 가장 큰 차이를 느끼나요? 그 간극을 메우기 위해 어떤 노력을 하고 있나요?</p></div></div>
+      </div>
+       <div class="slide">
+        <div class="slide-container"><h2 class="slide-title">독자를 위한 질문 2</h2><p class="slide-subtitle">당신의 삶에서 '기도'는 무엇입니까?</p><div class="slide-content"><p>베네딕트회 수도사들에게 '기도'는 일보다 우선하는 절대적인 가치였습니다. 당신의 삶에서 일보다 중요하게 여기며, 어떤 상황에서도 지키고 싶은 활동이나 가치는 무엇인가요? 그것을 위해 어떻게 시간을 내고 있나요?</p></div></div>
+      </div>
+      
     </div>
   </div>
 
@@ -848,9 +793,10 @@
 
     function updateSlide() {
       slides.forEach((slide, index) => {
-        slide.classList.remove('active');
         if (index === currentSlide) {
           slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
         }
       });
       slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
@@ -880,9 +826,11 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
         prevBtn.click();
       }
     });
