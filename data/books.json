@@ -180,6 +180,16 @@
     "cover": "assets/covers/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.jpg"
   },
   {
+    "slug": "나는-좌절의-스페셜리스트입니다",
+    "title": "나는 좌절의 스페셜리스트입니다",
+    "author": "백혜선",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나는-좌절의-스페셜리스트입니다.html",
+    "cover": "assets/covers/나는-좌절의-스페셜리스트입니다.jpg"
+  },
+  {
     "slug": "나는-왜-사랑할수록-불안해질까",
     "title": "나는 왜 사랑할수록 불안해질까",
     "author": "제시카 바움 (Jessica Baum)",
@@ -258,16 +268,6 @@
     "description": "",
     "presentation": "presentations/나는-죽을-때까지-재미있게-살고-싶다.html",
     "cover": "assets/covers/나는-죽을-때까지-재미있게-살고-싶다.jpg"
-  },
-  {
-    "slug": "나는-좌절의-스페셜리스트입니다",
-    "title": "나는 좌절의 스페셜리스트입니다",
-    "author": "백혜선",
-    "date": "2025-11-08",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/나는-좌절의-스페셜리스트입니다.html",
-    "cover": "assets/covers/나는-좌절의-스페셜리스트입니다.jpg"
   },
   {
     "slug": "그가-나에게-말하지-않는-것-로라-데이브-지음-김소정-옮김",
