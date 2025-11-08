@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>패턴 파괴 (Optimal Outcomes) 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8fafc;
+      background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 25px 25px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 5px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #4338ca;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #1e293b;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #475569;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #334155;
+    }
+    .highlight {
+      background-color: #e0e7ff;
+      color: #4338ca;
+      padding: 0.1em 0.4em;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #4338ca;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #3730a3;
+    }
+    .btn-secondary {
+      background-color: #e2e8f0;
+      color: #334155;
+    }
+    .btn-secondary:hover {
+      background-color: #cbd5e1;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #4338ca;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+        list-style-type: '✓  ';
+        padding-left: 2rem;
+    }
+    li {
+        margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">💡</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">패턴 파괴 (Optimal Outcomes)</h1>
+          <p class="text-xl md:text-2xl text-gray-700">최적의 성과와 관계를 만드는 <span class="highlight">갈등고리 해결 프로젝트</span></p>
+          <p class="mt-8 text-lg text-gray-500">제니퍼 골드먼 웨츨러 저</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">1부: 갈등고리 이해하기</h3>
+                <p><b>머리말:</b> 우리가 갈등을 제대로 볼 때</p>
+                <p><b>1장:</b> 갈등 습관과 갈등 패턴</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">2부: 갈등 패턴 파괴하기</h3>
+                <p><b>2장:</b> 갈등을 지도화하라</p>
+                <p><b>3장:</b> 감정을 활용하라</p>
+                <p><b>4장:</b> 이상적 가치와 그림자 가치</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">3부: 갈등고리에서 벗어나기</h3>
+                <p><b>5장:</b> 이상적 미래를 상상하라</p>
+                <p><b>6장:</b> 패턴 파괴 경로를 설계하라</p>
+                <p><b>7장:</b> 패턴 파괴 경로를 검증하라</p>
+                <p><b>8장:</b> 최적의 결과를 선택하라</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-indigo-700 mb-2">마무리</h3>
+                <p>핵심 요약 및 결론</p>
+                <p>Q&A</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Section Title 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">갈등고리 <span class="highlight">이해하기</span></h2>
+          <p class="slide-content text-xl">반복되는 갈등의 본질을 파악하고, 우리의 무의식적인 반응이 어떻게 상황을 악화시키는지 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: The Author's Story -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시작점: <span class="highlight">엄마와의 갈등</span></h2>
+          <p class="slide-subtitle">저자는 반복되는 엄마와의 전화 통화 갈등을 통해 '갈등고리'라는 개념을 발견합니다.</p>
+          <div class="slide-content">
+            <p>사소한 전화 문제로 시작된 갈등은 매번 똑같은 패턴으로 전개되었습니다.</p>
+            <ul class="mt-4">
+                <li><b>상황:</b> 바쁜 저자에게 엄마가 계속 전화를 건다.</li>
+                <li><b>저자의 반응:</b> "지금 바빠요"라며 퉁명스럽게 대답.</li>
+                <li><b>엄마의 반응:</b> "넌 엄마랑 통화할 시간도 없니?"라며 비난.</li>
+                <li><b>결과:</b> 싸움이 격화되고, 관계는 점점 나빠짐. 거의 어쩔 수 없는 지경에 이름.</li>
+            </ul>
+            <p class="mt-4 font-bold">이것이 바로 벗어나기 힘든 <span class="highlight">갈등고리(Conflict Loop)</span>의 전형적인 예시입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: What is a Conflict Loop? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">갈등고리란 <span class="highlight">무엇인가?</span> 🔄</h2>
+          <p class="slide-subtitle">갈등은 또 다른 갈등을 낳습니다. 이 악순환의 고리가 바로 '갈등고리'입니다.</p>
+          <div class="slide-content">
+             <p>1970년대 모튼 도이치 박사는 갈등이 일단 시작되면 저절로 계속되는 경향이 있음을 발견했습니다.</p>
+             <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>한 번 갈등이 생기면, 우리는 더 많은 갈등을 유발하는 방식으로 <span class="highlight">생각하고, 느끼고, 행동</span>하게 됩니다. 이러한 생각, 감정, 행동은 또다시 더 큰 갈등을 초래하며 악순환이 지속됩니다.</p>
+             </div>
+             <p class="mt-6">우리의 '갈등 습관'이 다른 사람의 습관과 결합하여 특정 '상호작용 패턴'을 만들고, 이로 인해 갈등고리에서 벗어날 수 없게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Two Core Principles -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">탈출을 위한 <span class="highlight">두 가지 핵심 원칙</span></h2>
+            <p class="slide-subtitle">갈등고리에서 벗어나기 위해서는 두 가지 핵심적인 행동이 필요합니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div class="p-6 bg-indigo-50 rounded-lg border border-indigo-200">
+                    <h3 class="font-bold text-2xl mb-2">1. 멈춰서 관찰하라 🧘</h3>
+                    <p>잠깐 멈춰 현재 상황이 어떤지 살피는 것입니다. '마음챙김' 훈련과 유사하며, 이를 통해 상황을 다른 관점에서 보고, 현재를 있는 그대로 인정하게 됩니다.</p>
+                </div>
+                <div class="p-6 bg-indigo-50 rounded-lg border border-indigo-200">
+                    <h3 class="font-bold text-2xl mb-2">2. 패턴을 파괴하라 💥</h3>
+                    <p>관찰을 통해 찾아낸 갈등 패턴을 파괴하는 구체적인 행동을 하는 것입니다. 익숙한 시나리오에 새롭게 반응하여 전과는 다른 방향으로 움직이도록 돕습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Chapter 1 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">갈등 습관과 <span class="highlight">갈등 패턴</span></h2>
+          <p class="slide-subtitle">우리는 의도와 상관없이 갈등고리를 영속시키는 네 가지 주요 습관을 가지고 있습니다. 자신의 습관을 아는 것이 첫걸음입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: 4 Conflict Habits -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">네 가지 <span class="highlight">갈등 습관 유형</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">1. 타인 비난형 😠</h3>
+              <p>원하는 것을 얻기 위해 적극적으로 상대를 비난하고 공격합니다. (예: 하비에르)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">2. 회피형 🏃</h3>
+              <p>갈등이 발생했을 때 아예 외면하고 대립을 피합니다. (예: 타라)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">3. 자아비판형 😔</h3>
+              <p>갈등 상황에서 자신의 잘못을 인정하고 스스로를 비난합니다. (예: 마커스)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">4. 끈질긴 협력 추구형 🤝</h3>
+              <p>상대가 원치 않아도 원만한 해결을 위해 계속해서 협력을 시도합니다. (예: 아키코)</p>
+            </div>
+          </div>
+          <p class="mt-6 text-center font-semibold">당신의 주요 갈등 습관은 무엇인가요? 이 습관을 아는 것만으로도 변화는 시작됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 9: 5 Conflict Patterns -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다섯 가지 흔한 <span class="highlight">갈등 패턴</span></h2>
+          <p class="slide-subtitle">두 사람의 갈등 습관이 만나 특정 상호작용 패턴을 만들어냅니다.</p>
+          <div class="slide-content text-lg space-y-3 max-w-2xl mx-auto text-center">
+            <p class="p-3 bg-red-100 rounded-md">😠 <b>비난</b> – 😔 <b>자아비판</b> 패턴</p>
+            <p class="p-3 bg-yellow-100 rounded-md">😠 <b>비난</b> – 🏃 <b>회피</b> 패턴 (하비에르 & 타라)</p>
+            <p class="p-3 bg-blue-100 rounded-md">🤝 <b>협력 추구</b> – 🏃 <b>회피</b> 패턴 (아키코 & 타라)</p>
+            <p class="p-3 bg-gray-100 rounded-md">🏃 <b>회피</b> – 🏃 <b>회피</b> 패턴</p>
+            <p class="p-3 bg-red-200 rounded-md">😠 <b>비난</b> – 😠 <b>비난</b> 패턴 (저자 & 엄마)</p>
+          </div>
+           <p class="mt-6 font-bold text-center">이 패턴을 인식하는 것이 갈등고리를 끊는 열쇠입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: Section Title 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">갈등 패턴 <span class="highlight">파괴하기</span></h2>
+          <p class="slide-content text-xl">갈등을 새로운 시각으로 바라보고, 감정과 가치를 활용하여 기존의 패턴에서 벗어나는 구체적인 방법을 배웁니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Chapter 2 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">갈등을 <span class="highlight">지도화하라</span> 🗺️</h2>
+          <p class="slide-subtitle">단순한 '우리 대 그들' 구도에서 벗어나, 한 걸음 물러나 넓은 시야로 갈등의 전체 그림을 그려봅니다.</p>
+          <div class="slide-content">
+            <p>'갈등 지도화'는 갈등에 관련된 모든 사람, 그룹, 그리고 그 외 요인들을 시각적으로 표현하는 기법입니다. 이를 통해 우리는 이전에는 보지 못했던 <span class="highlight">변화의 지렛대</span>를 찾아낼 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Conflict Map Example -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">사례: 밥과 샐리의 <span class="highlight">갈등 지도</span></h2>
+            <p class="slide-subtitle">단순한 두 사람의 문제가 아님을 보여주는 지도</p>
+            <div class="slide-content flex justify-center items-center p-4">
+                <img src="https://i.imgur.com/kP5aB9t.png" alt="Conflict Map Example" class="max-w-full md:max-w-2xl rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x600/e0e7ff/4338ca?text=밥의+갈등+지도';">
+            </div>
+            <p class="text-sm text-center text-gray-500 mt-2">밥과 샐리의 갈등 지도 예시. 경영팀, 영업팀, CFO, 벤처 캐피털, 각자의 배경까지 포함하여 복합적인 관계를 보여준다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 13: What the Map Reveals -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">지도를 통해 <span class="highlight">드러난 것들</span></h2>
+            <p class="slide-subtitle">밥은 갈등 지도를 그리며 자신의 문제가 샐리 한 사람과의 문제가 아님을 깨달았습니다.</p>
+            <div class="slide-content">
+                <ul>
+                    <li><b>CFO와 벤처 캐피털리스트:</b> 샐리의 연봉을 재협상하라는 외부 압력이 존재했습니다.</li>
+                    <li><b>회사 전체 임직원:</b> 회사 이익을 위한 리더의 역할과 공정성에 대한 책임감이 있었습니다.</li>
+                    <li><b>각자의 배경:</b> 서로 다른 성장 환경이 '보상'과 '리더십'에 대한 생각에 영향을 미쳤습니다.</li>
+                </ul>
+                <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <h3 class="font-bold text-lg">핵심 통찰 ✨</h3>
+                    <p class="mt-2">흑백처럼 보이던 상황을 더 복합적인 시선으로 바라보면, <span class="highlight">변화를 가능하게 하는 새로운 지렛대</span>를 발견할 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Chapter 3 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">감정을 <span class="highlight">활용하라</span> 😊😠😢</h2>
+          <p class="slide-subtitle">감정을 억누르거나 없애는 대신, 감정을 파악하고 건설적인 행동을 위한 촉매제로 활용하는 방법을 배웁니다.</p>
+          <div class="slide-content">
+            <p>자신의 감정을 먼저 인정하고 이해해야 타인의 감정에 공감할 수 있습니다. 자신의 감정을 잘 활용하는 것이야말로 까다로운 감정의 역학에서 벗어나는 가장 효과적인 방법입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Emotional Traps -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">세 가지 <span class="highlight">감정의 덫</span></h2>
+          <p class="slide-subtitle">우리는 종종 세 가지 감정의 덫에 빠져 상황을 악화시킵니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg text-center">
+              <h3 class="font-bold text-lg">1. 반사적 반응의 덫</h3>
+              <p class="text-sm mt-2">감정에 따라 즉각적으로 반응합니다. (예: 밥의 분노 표출)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg text-center">
+              <h3 class="font-bold text-lg">2. 이해하기 어려운 감정의 덫</h3>
+              <p class="text-sm mt-2">자신이 무엇을 느끼는지조차 알지 못합니다. (예: 제러드)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg text-center">
+              <h3 class="font-bold text-lg">3. 숨어 있는 감정의 덫</h3>
+              <p class="text-sm mt-2">감정을 억누르다 엉뚱한 방식으로 표출합니다. (예: 아멜리아)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Using Emotions Constructively -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정 활용 4단계 <span class="highlight">프로세스</span></h2>
+          <p class="slide-subtitle">감정을 건설적인 변화의 에너지로 전환하는 방법입니다.</p>
+          <div class="slide-content">
+            <ol class="list-decimal list-inside space-y-4 text-lg">
+                <li><b>멈추기 (Pause):</b> 선제적 또는 반응적으로 멈춤의 시간을 가져 감정의 진행 속도를 늦춥니다.</li>
+                <li><b>인정하기 (Acknowledge):</b> 자신의 감정을 알아차리고 명확한 이름을 붙여줍니다.</li>
+                <li><b>가라앉히기 (Settle):</b> 흙탕물이 가라앉기를 기다리듯, 감정이 자연스럽게 진정될 시간을 줍니다.</li>
+                <li><b>귀 기울이고 행동하기 (Listen & Act):</b> 감정이 보내는 메시지("이건 옳지 않아", "위험해")를 듣고 건설적인 패턴 파괴 행동으로 연결합니다.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 4 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">이상적 가치와 <span class="highlight">그림자 가치</span></h2>
+          <p class="slide-subtitle">우리 내면에는 자랑스럽게 드러내는 '이상적 가치'와, 숨기고 싶어하는 '그림자 가치'가 공존합니다.</p>
+          <div class="slide-content">
+            <p>칼 융의 '그림자 자아' 개념에서 착안한 이 원리는 내면의 가치 충돌이 어떻게 외부 갈등으로 이어지는지 설명합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Ideal vs Shadow Values -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이상적 가치 vs <span class="highlight">그림자 가치</span></h2>
+          <p class="slide-subtitle">두 가치의 충돌이 갈등의 핵심 원인일 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">😇 이상적 가치 (Ideal Value)</h3>
+              <p>자랑스럽게 드러내고, 중요하게 여기는 가치입니다.</p>
+              <p class="mt-2 text-sm">예: 협력, 위험 감수, 진실성, 배려</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">👤 그림자 가치 (Shadow Value)</h3>
+              <p>사회적 메시지나 개인적 경험 때문에 부끄러워하거나 숨기는 가치입니다.</p>
+              <p class="mt-2 text-sm">예: 권위, 안정성, 경쟁심, 자율성</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <h3 class="font-bold text-lg">사례: 밥의 내적 갈등</h3>
+            <p class="mt-2">밥은 <span class="highlight">'협력'</span>(이상적 가치)을 중시했지만, 샐리가 자신의 말을 따르지 않자 <span class="highlight">'권위'</span>(그림자 가치)에 대한 욕구가 분노로 표출되었습니다. 또한 '재정적 안정성'이라는 자신의 그림자 가치를 샐리에게 투사하여 그녀를 '욕심쟁이'라고 비난했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 19: The Both/And Principle -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"둘 다/그리고" <span class="highlight">원칙</span></h2>
+          <p class="slide-subtitle">서로 다른 두 가치는 상호 배타적인 것이 아니라, 함께 공존할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>우리는 흔히 가치가 상호 배타적이라고 생각하지만, 실제로는 그렇지 않습니다. '둘 다/그리고(both/and)' 원칙은 이분법적 사고에서 벗어나게 해줍니다.</p>
+            <ul class="mt-4">
+                <li>밥은 <span class="highlight">협력적인 리더</span>가 되는 것과 <span class="highlight">CEO로서의 권위</span>를 갖는 것 둘 다 추구할 수 있습니다.</li>
+                <li>밥은 <span class="highlight">위험을 감수하는 기업가 정신</span>과 <span class="highlight">재정적 안정성</span>에 대한 염려 둘 다 가질 수 있습니다.</li>
+            </ul>
+            <p class="mt-6 font-bold">자신의 그림자 가치를 인정하고 존중할 때, 우리는 비로소 내적 갈등을 해결하고 외부 갈등에 건설적으로 대처할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Section Title 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">갈등고리에서 <span class="highlight">벗어나기</span></h2>
+          <p class="slide-content text-xl">구체적인 미래를 그리고, 그 미래로 나아가는 경로를 설계하며, 최적의 결과를 선택하여 마침내 갈등고리를 탈출합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Chapter 5 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">이상적 미래를 <span class="highlight">상상하라</span> 🔭</h2>
+          <p class="slide-subtitle">과거의 문제와 비난에서 벗어나, 우리가 진정으로 원하는 미래의 모습을 구체적으로 그리는 단계입니다.</p>
+          <div class="slide-content">
+             <p>이상적 미래는 우리를 갈등고리 밖으로 끌어당기는 <span class="highlight">강력한 힘(Pulling Force)</span>이 됩니다. 실현 가능성은 잠시 잊고, 오감을 모두 활용하여 생생하게 상상하는 것이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Using All Senses -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오감을 활용한 <span class="highlight">미래 그리기</span></h2>
+          <p class="slide-subtitle">마틴 루서 킹 목사의 "I Have a Dream" 연설처럼, 모든 감각을 동원하여 미래를 생생하게 만들어보세요.</p>
+          <div class="slide-content grid grid-cols-2 md:grid-cols-3 gap-4">
+            <p class="p-3 bg-gray-100 rounded-md text-center">👁️ 무엇이 보이나요?</p>
+            <p class="p-3 bg-gray-100 rounded-md text-center">👂 무엇이 들리나요?</p>
+            <p class="p-3 bg-gray-100 rounded-md text-center">👃 어떤 냄새가 나나요?</p>
+            <p class="p-3 bg-gray-100 rounded-md text-center">👅 어떤 맛이 나나요?</p>
+            <p class="p-3 bg-gray-100 rounded-md text-center">🖐️ 어떤 느낌이 드나요?</p>
+            <p class="p-3 bg-gray-100 rounded-md text-center">❤️ 어떤 감정을 경험하나요?</p>
+          </div>
+          <p class="mt-6 font-semibold">예시) 카밀라는 가족들이 함께 요리하며 웃는 모습, 음식 냄새, 서로를 껴안는 따뜻한 온기를 상상했습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Chapter 6 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">패턴 파괴 경로를 <span class="highlight">설계하라</span> 🗺️</h2>
+          <p class="slide-subtitle">상상 속 미래를 현실로 만들기 위한 구체적인 행동 계획, 즉 '패턴 파괴 경로'를 만듭니다.</p>
+          <div class="slide-content">
+             <p>이 경로는 우리를 갈등고리 안에서 밖으로 밀어내는 <span class="highlight">힘(Pushing Force)</span>입니다. 성공적인 경로는 세 가지 특징을 가집니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Path Characteristics -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성공적인 경로의 <span class="highlight">3가지 특징</span></h2>
+          <p class="slide-subtitle">오바마 대통령의 '맥주 회담' 사례에서 이 특징들을 찾아볼 수 있습니다.</p>
+          <div class="slide-content space-y-4">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">1. 놀라울 정도로 다르다 (Surprisingly Different)</h3>
+              <p>기존의 방식(조사단 꾸리기, 성명 발표)과 전혀 다른, 백악관에서의 맥주 회동이라는 예상 밖의 접근.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">2. 단순하다 (Simple)</h3>
+              <p>복잡한 정치적 절차 대신, '세 남자가 모여 맥주를 마시는 것'이라는 단순한 행동.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">3. 단계적으로 발전한다 (Builds on Itself)</h3>
+              <p>초대에서 시작하여, 가족과의 백악관 투어, 맥주 회동, 그리고 이후의 점심 약속으로 이어지는 단계적 발전.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Designing the Path Steps -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">경로 설계 <span class="highlight">5단계</span></h2>
+          <p class="slide-subtitle">나 자신에게서 시작하여 점차 범위를 확장해 나갑니다.</p>
+          <div class="slide-content">
+            <ol class="list-decimal list-inside space-y-3">
+              <li><b>자신에게서 출발하라:</b> 먼저 나 자신이 할 수 있는 작은 행동(명상, 자기 성찰)부터 시작합니다.</li>
+              <li><b>한 사람을 고르자:</b> 갈등 지도에 있는 인물 중 한 명을 선택하여, 단순하고 새로운 방식으로 접근합니다.</li>
+              <li><b>소그룹을 포함시키자:</b> 관련된 소그룹을 참여시켜 새로운 아이디어나 지지를 얻습니다.</li>
+              <li><b>더 큰 그룹을 포함시키자:</b> 더 많은 사람들을 모아 함께 논의하고 행동합니다.</li>
+              <li><b>확대하라:</b> 이전 단계의 성공을 바탕으로 더 큰 범위로 활동을 확장합니다.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Chapter 7 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7장</p>
+          <h2 class="slide-title">패턴 파괴 경로를 <span class="highlight">검증하라</span> ✅</h2>
+          <p class="slide-subtitle">우리의 행동이 초래할 수 있는 '의도치 않은 결과'를 미리 예측하고 대비하는 단계입니다.</p>
+          <div class="slide-content">
+             <p>우리는 두 가지 함정에 빠지기 쉽습니다: 결과를 생각지 않고 무모하게 행동하거나, 결과를 지나치게 염려하여 아무것도 하지 않는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Predict, Prevent, Prepare -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예측, 예방, 그리고 <span class="highlight">대비</span></h2>
+          <p class="slide-subtitle">의도치 않은 결과를 관리하기 위한 3단계 접근법.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg text-center">
+              <h3 class="font-bold text-lg">1. 예측 (Predict)</h3>
+              <p class="text-sm mt-2">나의 행동이 10분, 10개월, 10년 뒤에 어떤 영향을 미칠지 상상해봅니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg text-center">
+              <h3 class="font-bold text-lg">2. 예방 (Prevent)</h3>
+              <p class="text-sm mt-2">부정적인 결과가 발생하지 않도록 미리 조치를 취합니다. (예: 밥이 회의 전 샐리에게 미리 연봉안을 공유)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg text-center">
+              <h3 class="font-bold text-lg">3. 대비 (Prepare)</h3>
+              <p class="text-sm mt-2">예방 노력에도 불구하고 부정적인 결과가 발생했을 때 어떻게 대응할지 계획합니다. (예: 샐리가 화를 낼 경우, 심호흡 후 다시 이야기하자고 제안)</p>
+            </div>
+          </div>
+          <p class="mt-8 font-semibold">또한, 안전한 환경에서 '미니 실험'을 통해 경로를 테스트하고 피드백을 얻는 것이 중요합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 8 Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">8장</p>
+          <h2 class="slide-title">최적의 결과를 <span class="highlight">선택하라</span> ✨</h2>
+          <p class="slide-subtitle">나아가기를 망설이는 이유를 파악하고, 여러 선택지를 비교하여 마침내 최상의 결과를 선택하고 실행에 옮깁니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Reasons for Hesitation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">망설임의 <span class="highlight">네 가지 이유</span></h2>
+          <p class="slide-subtitle">변화 앞에서 주저하는 것은 결국 '익숙한 곳'에 머물고 싶은 마음 때문입니다.</p>
+          <div class="slide-content space-y-3">
+            <p><b>1. 실현 불가능한 이상적 미래에 대한 환상:</b> 현실성 없는 완벽한 미래만을 좇는 경우.</p>
+            <p><b>2. 실현 불가능한 도피성 대안에 대한 환상:</b> '해고'나 '퇴사'처럼 실제로는 실행 불가능한 대안에 기대는 경우.</p>
+            <p><b>3. 실현 가능한 도피성 대안의 과소평가:</b> 실제로는 더 나은 선택일 수 있는 대안(이직 등)의 가치를 낮게 평가하는 경우.</p>
+            <p><b>4. 변화에 대한 두려움과 익숙함:</b> 행동을 바꾸는 것의 불편함과 현재 갈등 상황의 '뉴노멀'에 안주하려는 마음.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 30: The Final Evaluation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">최종 평가: <span class="highlight">세 가지 방안 비교</span></h2>
+          <p class="slide-subtitle">세 가지 선택지의 실현 가능성, 비용, 편익을 의식적으로 비교하여 최적의 결과를 찾아냅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg">1. 이상적 미래 추구</h3>
+              <p class="text-sm mt-2">새로운 행동을 통해 원하는 미래를 만들어가는 방안.</p>
+            </div>
+            <div class="p-4 bg-gray-100 rounded-lg">
+              <h3 class="font-bold text-lg">2. 현재 갈등 상황 유지</h3>
+              <p class="text-sm mt-2">아무것도 바꾸지 않고 현재 상황에 머무르는 방안.</p>
+            </div>
+            <div class="p-4 bg-yellow-50 rounded-lg">
+              <h3 class="font-bold text-lg">3. 도피성 대안 선택</h3>
+              <p class="text-sm mt-2">관계를 끊거나 환경을 떠나는 방안.</p>
+            </div>
+          </div>
+           <div class="mt-8 p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
+                <h3 class="font-bold text-lg">최적의 결과 (Optimal Outcome)란? 🏆</h3>
+                <p class="mt-2"><span class="highlight">비용은 가장 낮고, 편익은 가장 크며, 실현 가능성이 있는</span> 방안입니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Bob's Evaluation Table -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">사례: 밥의 <span class="highlight">선택지 평가</span></h2>
+            <div class="slide-content overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3"></th>
+                            <th scope="col" class="px-6 py-3">이상적 미래 (협상)</th>
+                            <th scope="col" class="px-6 py-3">갈등 상황 유지</th>
+                            <th scope="col" class="px-6 py-3">도피성 대안 (해고)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium">예상 비용</th>
+                            <td class="px-6 py-4">새로운 행동의 불편함, 부담감</td>
+                            <td class="px-6 py-4">관계 악화, 업무 비효율, 재정 손실</td>
+                            <td class="px-6 py-4">우정 상실, 고객/지식 상실</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b">
+                            <th scope="row" class="px-6 py-4 font-medium">예상 편익</th>
+                            <td class="px-6 py-4">재정 문제 해결, 관계 회복, 팀 재투자 가능</td>
+                            <td class="px-6 py-4">새로운 행동 불필요, 익숙함에서 오는 안도감</td>
+                            <td class="px-6 py-4">급여 문제 해결, 신경 쓸 일 감소</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4 font-bold text-center">결론: 밥에게 최적의 결과는 불편함을 감수하고 <span class="highlight">이상적 미래를 추구</span>하는 것이었습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 32: The Courage Muscle -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">용기 근육을 <span class="highlight">키워라</span> 💪</h2>
+          <p class="slide-subtitle">변화에 대한 두려움을 극복하는 최고의 방법은 용기를 내는 것입니다.</p>
+          <div class="slide-content">
+            <p>용기와 두려움은 '편리공생' 관계입니다. 두려움이 있어야 용기가 솟아나고, 용기가 커지면 두려움이 줄어듭니다. 두려움이 없는 상태가 아니라, <span class="highlight">두려움을 극복하는 것이 진정한 용기</span>입니다.</p>
+            <blockquote class="mt-6 p-4 italic border-l-4 bg-gray-50 border-gray-300">
+                <p>"용기란 두려움이 없는 상태가 아니라 두려움을 극복하는 것이다." - 넬슨 만델라</p>
+            </blockquote>
+            <p class="mt-6">망설임의 이유를 찾고, 두려움에 말을 걸고, 건설적인 행동을 시작하세요. 불편한 마음을 있는 그대로 느끼고 그 기분에서 벗어날 수 있을 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">핵심 요약: 갈등고리 탈출법</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">반복되는 갈등에서 벗어나는 것은 단순히 문제를 해결하는 것이 아니라, <span class="highlight">자신과 관계를 성장시키는 여정</span>입니다.</p>
+            <ol class="text-left list-decimal list-inside mt-6 space-y-2">
+                <li><b>이해하기:</b> 나의 갈등 습관과 패턴을 파악합니다.</li>
+                <li><b>파괴하기:</b> 갈등 지도, 감정, 가치를 활용해 기존 패턴을 깹니다.</li>
+                <li><b>벗어나기:</b> 이상적 미래를 그리고, 경로를 설계하고 검증하여 최적의 결과를 선택합니다.</li>
+            </ol>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신의 행동은 전염성 있는 리더십입니다. 당신이 먼저 갈등에서 벗어나면 다른 사람들도 벗어나도록 도울 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+      <!-- ... Adding more slides to reach 50+ ... -->
+
+      <!-- Slide 35: Deeper Dive: Why Win-Win Fails -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'윈윈' 협상의 <span class="highlight">한계</span></h2>
+          <p class="slide-subtitle">때로는 전통적인 협상 기법만으로는 충분하지 않습니다.</p>
+          <div class="slide-content">
+            <p>저자는 하버드 협상 프로그램을 통해 '윈윈' 기법을 배웠지만, 깊은 감정과 가치가 얽힌 반복적인 갈등에는 한계가 있음을 깨달았습니다.</p>
+            <ul class="mt-4">
+              <li><b>감정적 요소:</b> 분노, 슬픔, 죄책감 같은 감정은 합리적 문제 해결을 방해합니다.</li>
+              <li><b>가치 충돌:</b> 뿌리 깊은 가치관의 차이는 단순한 이해관계 조정을 넘어섭니다.</li>
+              <li><b>과거의 역사:</b> 오랜 기간 쌓여온 부정적 경험은 신뢰를 무너뜨리고 협상을 어렵게 만듭니다.</li>
+            </ul>
+            <p class="mt-4 font-bold">'최적의 결과' 기법은 이러한 <span class="highlight">심리적, 감정적, 가치적 측면</span>을 다루기 위해 고안되었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Deeper Dive: Blame Habit -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">습관 심층 분석: <span class="highlight">타인 비난형</span></h2>
+          <p class="slide-subtitle">공격은 최선의 방어라고 믿는 유형</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">특징</h3>
+              <p>원하는 것을 얻기 위해 경쟁하고, 문제가 생기면 외부에서 원인을 찾습니다. 상대방의 행동을 쉽게 예측하지만(공격 또는 회피), 이로 인해 갈등이 악화되거나 교착 상태에 빠집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">숨겨진 비용</h3>
+              <p>단기적인 승리를 얻을지는 몰라도, 장기적으로는 관계, 시간, 에너지, 집중력을 잃게 됩니다. 진정한 파괴의 위력은 신뢰를 무너뜨리는 데 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Deeper Dive: Avoidance Habit -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">습관 심층 분석: <span class="highlight">회피형</span></h2>
+          <p class="slide-subtitle">'좋은 게 좋은 것'이라며 문제를 외면하는 유형</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">특징</h3>
+              <p>대립을 피하려는 의도는 좋지만, 문제 자체를 외면하는 수준까지 이릅니다. 말수가 줄고, 상황 개선보다 악화를 초래할 때가 많습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">결과</h3>
+              <p>"속이 부글부글 끓는 상태"로 갈등이 길어집니다. 문제는 해결되지 않은 채 남아 있다가 결국 다시 수면 위로 떠오르며, 이전보다 더 강렬한 갈등으로 폭발할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Deeper Dive: Self-Criticism Habit -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">습관 심층 분석: <span class="highlight">자아비판형</span></h2>
+          <p class="slide-subtitle">"모든 게 내 탓"이라며 스스로를 공격하는 유형</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">특징</h3>
+              <p>자신의 잘못에서 교훈을 얻고 개선하려는 선한 목표를 가졌습니다. 자신의 행동에 책임을 지려는 태도는 장점입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">왜곡된 결과</h3>
+              <p>자신의 행동이 '잘못됐다'는 차원을 넘어 '나쁘다'고 느끼면, 굴욕감 때문에 새로운 교훈을 얻기 힘들어집니다. 부정적인 혼잣말은 오히려 성장 가능성을 줄이고 갈등에서 벗어나지 못하게 만듭니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Deeper Dive: Collaboration Habit -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">습관 심층 분석: <span class="highlight">협력 추구형</span></h2>
+          <p class="slide-subtitle">"함께하면 해결할 수 있다"고 믿는 유형</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">특징</h3>
+              <p>원만한 갈등 해결을 목표로, 다른 사람과 협력하기 위해 노력합니다. 특히 우리 사회가 협력을 소중히 여긴다는 점에서 긍정적으로 보입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">역효과</h3>
+              <p>무턱대고 끈질기게 협력하려 하면 기대한 효과를 얻기 힘듭니다. 상대방이 관심이 없을 때 시간과 에너지를 낭비하게 되고, 선의가 악용될 수도 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Deeper Dive: Mapping Hot Spots -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지도화 심화: <span class="highlight">'핫스팟' 찾기</span></h2>
+          <p class="slide-subtitle">지도가 너무 복잡하게 느껴질 때, 변화의 시작점을 찾는 방법</p>
+          <div class="slide-content">
+            <p>상황이 극도로 복잡하게 느껴진다면, 먼저 '핫스팟(Hot Spot)'이 어디인지 자문해 보세요.</p>
+            <ul class="mt-4">
+              <li><b>가장 직접적으로 갈등과 관련된 인물은 누구인가?</b></li>
+              <li><b>어떤 문제가 제일 골치 아픈가?</b></li>
+              <li><b>변화에 가장 도움이 될 지렛대는 어디에 있는가?</b> (이성적이거나 도움이 될 목소리를 낼 가능성이 있는 인물)</li>
+            </ul>
+            <p class="mt-4 font-bold">핫스팟에 집중하면 문제의 근원과 가장 가까운 인물, 그리고 역학 관계를 더 나은 쪽으로 끌고 갈 수 있는 인물에게 초점을 맞출 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Deeper Dive: Your Role in the Map -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지도 속 나의 역할 <span class="highlight">정의하기</span></h2>
+          <p class="slide-subtitle">나는 이 갈등의 일부인가, 아니면 중립적인 관찰자인가?</p>
+          <div class="slide-content">
+            <p>지도화 작업은 갈등 상황 안에서 자신이 어떤 역할을 했는지 정의하는 데 도움이 됩니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">자문해 볼 질문 🤔</h3>
+              <ul class="list-disc list-inside mt-2">
+                <li>나는 어떻게 이 상황에 끼어들게 되었는가?</li>
+                <li>나는 어떤 역할을 해왔는가? (당사자, 중재자, 관찰자 등)</li>
+                <li>앞으로 두 가지 역할을 모두 해내는 내 모습을 상상할 수 있는가?</li>
+                <li>만약 그렇다면 상상 속에서 나는 어떤 역할을 하는가?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Deeper Dive: Shadow Value Origin -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그림자 가치는 <span class="highlight">왜 생기는가?</span></h2>
+          <p class="slide-subtitle">가치에 대한 '엇갈린 메시지'가 원인입니다.</p>
+          <div class="slide-content">
+            <p>우리는 성장 과정에서 특정 가치에 대해 상반된 메시지를 받습니다. 이로 인해 어떤 가치는 그림자 속으로 밀려나게 됩니다.</p>
+            <blockquote class="mt-6 p-4 italic border-l-4 bg-gray-50 border-gray-300">
+                <p><b>저자의 예시:</b> 학교에서는 '치열한 경쟁'을 통해 보상받았지만(경쟁심=긍정), 대학의 교수는 '지나치게 경쟁적'이라고 지적했습니다(경쟁심=부정). 이 엇갈린 메시지로 인해 '경쟁심'은 저자의 그림자 가치가 되었습니다.</p>
+            </blockquote>
+            <p class="mt-6">누군가의 이상적 가치가 다른 누군가에게는 수치스러운 그림자 가치가 될 수 있는 이유는 바로 이 <span class="highlight">사회적 조건화(Social Conditioning)</span>가 가정, 공동체, 조직마다 다르기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Deeper Dive: Overcoming Fear -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두려움이라는 <span class="highlight">마지막 관문</span></h2>
+          <p class="slide-subtitle">갈등 상황에 머무는 것 역시 불편하지만, 우리는 그 불편함에 익숙해져 있습니다.</p>
+          <div class="slide-content">
+            <p>변화가 두려운 가장 큰 이유는 행동을 바꿀 때 으레 수반되는 '불편한 감정'을 피하고 싶기 때문입니다. 우리는 새로운 불편함보다는 익숙한 불편함을 선택하는 경향이 있습니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+                <h3 class="font-bold text-lg">선택의 기로 🚦</h3>
+                <p class="mt-2">우리가 해야 할 선택은 '불편한가, 그렇지 않은가'가 아닙니다. 진짜 질문은 이것입니다:</p>
+                <p class="font-bold mt-2">"어떤 종류의 불편함을 선택할 것인가?"</p>
+                <p>1. 새로운 패턴 파괴 행동에서 비롯된 <span class="highlight">성장의 불편함</span>인가?</p>
+                <p>2. 아니면, 현재 갈등에 머물러 있는 데서 비롯된 <span class="highlight">정체의 불편함</span>인가?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Final Step - Spreading the Outcome -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">최적의 결과를 <span class="highlight">퍼뜨려라</span> 🌐</h2>
+            <p class="slide-subtitle">당신 한 사람의 변화는 주변으로 퍼져나가는 긍정적인 파급 효과를 만듭니다.</p>
+            <div class="slide-content">
+                <p>패턴 파괴 경로를 따라 갈등고리에서 벗어나는 멋진 점은, 일단 당신이 갈등 패턴을 깨면 다른 사람들 역시 그 패턴에서 벗어나게 된다는 것입니다.</p>
+                <blockquote class="mt-6 p-4 italic border-l-4 bg-gray-50 border-gray-300">
+                    <p>"자유로워지려면 자신을 옭아매는 사슬을 끊어야 할 뿐 아니라 다른 사람의 자유도 존중하고 높여주어야 한다." - 넬슨 만델라</p>
+                </blockquote>
+                <p class="mt-6">당신의 새로운 행동은 <span class="highlight">전염성 있는 리더십</span>의 한 형태입니다. 일단 스스로 갈등에서 벗어나면, 다른 사람들 역시 갈등에서 벗어나도록 도울 수 있습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Practical Exercise 1 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">실습 1: 나의 <span class="highlight">갈등 습관 찾기</span></h2>
+            <p class="slide-subtitle">잠시 시간을 내어 자신의 주요 갈등 습관을 생각해봅시다.</p>
+            <div class="slide-content">
+                <p>최근 겪었던 갈등 상황을 떠올려보세요. 아래 네 가지 유형 중 당신은 주로 어떻게 반응했나요?</p>
+                <form class="mt-6 space-y-4">
+                    <div><label class="flex items-center"><input type="radio" name="habit" class="mr-2"> 타인 비난형: 상대방의 잘못을 지적했다.</label></div>
+                    <div><label class="flex items-center"><input type="radio" name="habit" class="mr-2"> 회피형: 대화를 피하거나 주제를 바꿨다.</label></div>
+                    <div><label class="flex items-center"><input type="radio" name="habit" class="mr-2"> 자아비판형: '내가 더 잘했어야 했는데'라고 생각했다.</label></div>
+                    <div><label class="flex items-center"><input type="radio" name="habit" class="mr-2"> 협력 추구형: 상대방이 원하지 않는 것 같아도 계속 해결책을 제시했다.</label></div>
+                </form>
+                <p class="mt-6 text-sm">대답하기 어렵다면, 어떤 습관이 가장 편안하게 혹은 매혹적으로 느껴지는지 생각해보세요. 정답은 없습니다. 솔직하게 자신을 파악하는 것이 첫걸음입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Practical Exercise 2 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">실습 2: 나의 <span class="highlight">가치 찾기</span></h2>
+            <p class="slide-subtitle">자신에게 중요한 가치를 찾아봅시다.</p>
+            <div class="slide-content">
+                <p><b>1. 이상적 가치 찾기:</b> 당신이 자랑스럽게 여기고 중요하게 생각하는 가치는 무엇인가요? (예: 성장, 정직, 자유, 안정, 협력)</p>
+                <textarea class="w-full mt-2 p-2 border rounded-md" rows="2" placeholder="여기에 3-5가지 이상적 가치를 적어보세요..."></textarea>
+                
+                <p class="mt-6"><b>2. 그림자 가치 찾기:</b> 실제로는 가치 있게 생각하지만, 그렇다고 말하기는 쉽지 않은 가치는 무엇인가요? 억울하게 비난받는다고 느꼈던 순간을 떠올려보세요. (예: 경쟁심, 권위, 자율성, 인정)</p>
+                <textarea class="w-full mt-2 p-2 border rounded-md" rows="2" placeholder="여기에 1-2가지 그림자 가치를 적어보세요..."></textarea>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Practical Exercise 3 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">실습 3: 이상적 미래 <span class="highlight">상상하기</span></h2>
+            <p class="slide-subtitle">현재 겪고 있는 갈등 하나를 선택하고, 그 갈등이 완벽하게 해결된 미래를 상상해보세요.</p>
+            <div class="slide-content">
+                <p>눈을 감고 5분 동안 오감을 모두 사용해 상상해보세요. 그리고 아래에 간단히 기록해보세요.</p>
+                <ul class="mt-4 space-y-2">
+                    <li><b>보이는 것:</b> 사람들의 표정, 주변 환경 등</li>
+                    <li><b>들리는 것:</b> 대화 내용, 주변 소리 등</li>
+                    <li><b>느껴지는 것:</b> 감정, 신체적 느낌(온기 등)</li>
+                </ul>
+                <textarea class="w-full mt-2 p-2 border rounded-md" rows="4" placeholder="갈등이 해결된 미래의 모습을 구체적으로 묘사해보세요..."></textarea>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: The Power of Spreading Change -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">변화의 <span class="highlight">선순환</span></h2>
+          <p class="slide-subtitle">당신의 최적의 결과는 다른 사람들에게도 긍정적인 영향을 미칩니다.</p>
+          <div class="slide-content">
+            <p>책의 마지막 사례들은 주인공의 변화가 어떻게 주변 사람들의 변화로 이어졌는지 보여줍니다.</p>
+            <ul class="mt-4">
+              <li><b>록산느:</b> 용기를 내어 이직한 결과, 새로운 환경에서 능력을 인정받고 가족들도 새로운 삶에 적응했습니다.</li>
+              <li><b>타라:</b> 회피 패턴을 깨고 하비에르와 건설적으로 소통하자, COO 자리를 양보하고 자신에게 더 맞는 역할을 찾았습니다.</li>
+              <li><b>밥:</b> 샐리와의 관계를 회복하고 회사를 성공적으로 매각했습니다. 그의 용기 있는 행동이 긍정적인 결과를 낳았습니다.</li>
+            </ul>
+            <p class="mt-4 font-bold">하나의 패턴 파괴는 또 다른 긍정적인 변화의 시작점이 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: Summary of the 8-Step Method -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">최적의 결과: <span class="highlight">8단계 요약</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-4">
+            <p><b>1. 갈등 습관과 패턴 주목하기:</b> 자신의 반응 패턴을 인식한다.</p>
+            <p><b>2. 갈등 지도화하기:</b> 전체 상황을 복합적으로 조망한다.</p>
+            <p><b>3. 감정 활용하기:</b> 감정을 정보와 에너지로 사용한다.</p>
+            <p><b>4. 가치 존중하기:</b> 나의 이상적/그림자 가치를 이해한다.</p>
+            <p><b>5. 이상적 미래 상상하기:</b> 나아가고 싶은 방향을 그린다.</p>
+            <p><b>6. 패턴 파괴 경로 설계하기:</b> 구체적인 행동 계획을 세운다.</p>
+            <p><b>7. 경로 검증하기:</b> 의도치 않은 결과를 예측하고 대비한다.</p>
+            <p><b>8. 최적의 결과 선택하기:</b> 비용/편익을 분석하고 용기있게 행동한다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Final Takeaway -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">마지막 메시지 💬</h2>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="text-2xl font-semibold">갈등에서 벗어나는 것은</p>
+                <p class="my-4 text-4xl font-black text-indigo-700">문제를 없애는 것이 아니라,<br>더 나은 패턴을 만드는 것입니다.</p>
+                <p class="text-xl">이 책의 훈련법들을 실천하여, 반복되는 갈등에서 벗어나 당신의 삶에 <span class="highlight">최적의 결과</span>를 만들어내세요.</p>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  const slides =
+    Array.from(document.querySelectorAll('.slide'))
+      .filter(el => el.offsetHeight > 0) ||
+    Array.from(document.querySelectorAll('section, [data-slide]'))
+      .filter(el => el.offsetHeight > 0);
+
+  if (!slides.length) return;
+
+  let index = 0;
+  let isAnimating = false;
+
+  function clamp(i) {
+    return Math.max(0, Math.min(slides.length - 1, i));
+  }
+
+  function scrollToIndex(next) {
+    next = clamp(next);
+    if (next === index || isAnimating) return;
+    isAnimating = true;
+    index = next;
+    const target = slides[index];
+    const top = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'smooth' });
+    setTimeout(function () { isAnimating = false; }, 420);
+  }
+
+  function move(delta) {
+    if (delta > 0) {
+      scrollToIndex(index + 1);
+    } else if (delta < 0) {
+      scrollToIndex(index - 1);
+    }
+  }
+
+  window.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaY) < 24) return;
+    const isScrollY =
+      document.documentElement.scrollHeight > window.innerHeight + 8;
+    if (!isScrollY) return;
+    e.preventDefault();
+    move(e.deltaY);
+  }, { passive: false });
+
+  window.addEventListener('keydown', function (e) {
+    if (['ArrowDown', 'PageDown', ' ', 'Spacebar'].includes(e.key)) {
+      e.preventDefault();
+      move(1);
+    } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      move(-1);
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    var best = 0;
+    var bestDist = Infinity;
+    slides.forEach(function (s, i) {
+      var rect = s.getBoundingClientRect();
+      var dist = Math.abs(rect.top);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    index = best;
+  });
+})();
+</script>
+</body>
+</html>

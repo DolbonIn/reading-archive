@@ -1,5 +1,15 @@
 [
   {
+    "slug": "패턴-파괴",
+    "title": "패턴 파괴",
+    "author": "제니퍼 골드먼 웨츨러 지음, 김현정 옮김",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/패턴-파괴.html",
+    "cover": "assets/covers/패턴-파괴.jpg"
+  },
+  {
     "slug": "천재가-어딨어-개정판-양장본-hardcover",
     "title": "천재가 어딨어 (개정판) (양장본 Hardcover)",
     "author": "그랜트스나이더",
