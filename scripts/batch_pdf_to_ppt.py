@@ -34,6 +34,7 @@ if __package__ in (None, ""):
         COVERS_DIR,
         DATA_FILE,
         DEFAULT_COVER,
+        PRESENTATIONS_DIR,
         ROOT,
         extract_cover,
         run_pipeline,
@@ -45,6 +46,7 @@ else:  # pragma: no cover - module import path
         COVERS_DIR,
         DATA_FILE,
         DEFAULT_COVER,
+        PRESENTATIONS_DIR,
         ROOT,
         extract_cover,
         run_pipeline,
@@ -112,6 +114,94 @@ def persist_entry(result: dict, existing: Dict[str, dict]) -> None:
     existing[entry["slug"]] = entry
 
 
+def write_placeholder_presentation(*, slug: str, title: str, author: Optional[str], cover_rel: str, size_bytes: int) -> Path:
+    """Create a placeholder HTML file noting that the PDF exceeded our limit."""
+    placeholder_path = PRESENTATIONS_DIR / f"{slug}.html"
+    placeholder_path.parent.mkdir(parents=True, exist_ok=True)
+
+    def resolve_cover_src(path: str) -> str:
+        if not path:
+            return "../" + DEFAULT_COVER
+        clean = path.lstrip("./")
+        if clean.startswith(("http://", "https://", "/")):
+            return clean
+        return f"../{clean}"
+
+    cover_src = resolve_cover_src(cover_rel)
+    size_mb = size_bytes / (1024 * 1024)
+    subtitle = author or "알 수 없는 저자"
+    placeholder_html = f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} · 대용량 PDF 안내</title>
+  <style>
+    body {{
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      background: radial-gradient(circle at top, #1b2340 0%, #090d1a 60%, #04060c 100%);
+      color: rgba(255, 255, 255, 0.92);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+      box-sizing: border-box;
+    }}
+    main {{
+      max-width: 760px;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55);
+      padding: clamp(32px, 5vw, 56px);
+      text-align: center;
+    }}
+    img {{
+      width: clamp(180px, 40%, 280px);
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      margin-bottom: 24px;
+    }}
+    h1 {{
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }}
+    p {{
+      line-height: 1.7;
+      margin: 12px 0;
+      color: rgba(255, 255, 255, 0.78);
+    }}
+    .badge {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge">PDF 용량 {size_mb:.1f}MB</div>
+    <img src="{cover_src}" alt="{title} 표지" loading="lazy" />
+    <h1>{title}</h1>
+    <p>{subtitle}</p>
+    <p>이 도서는 원본 PDF 용량이 80MB를 초과하여 AI 프레젠테이션 생성을 건너뛰었습니다.<br/>
+    표지와 메타데이터는 준비되어 있으며, 슬라이드 요약은 추후 별도로 업로드될 예정입니다.</p>
+  </main>
+</body>
+</html>
+"""
+    placeholder_path.write_text(placeholder_html, encoding="utf-8")
+    return placeholder_path
+
+
 def handle_large_pdf(
     *,
     pdf_path: Path,
@@ -119,6 +209,7 @@ def handle_large_pdf(
     author: Optional[str],
     slug: str,
     existing: Dict[str, dict],
+    size_bytes: int,
 ) -> dict:
     """Create manifest + cover entry without running Gemini for oversized PDFs."""
     print(f"[스킵] 80MB 초과: {pdf_path.name} (표지 + manifest만 갱신)")
@@ -143,6 +234,13 @@ def handle_large_pdf(
         "presentation": presentation_rel,
         "cover": cover_rel,
     }
+    write_placeholder_presentation(
+        slug=slug,
+        title=title,
+        author=author,
+        cover_rel=cover_rel,
+        size_bytes=size_bytes,
+    )
     update_manifest(entry)
     existing[slug] = entry
     return entry
@@ -510,6 +608,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                 author=author,
                 slug=slug_candidate,
                 existing=existing,
+                size_bytes=size_bytes,
             )
             successes.append(pdf_path)
             continue

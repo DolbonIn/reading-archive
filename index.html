@@ -9,45 +9,101 @@
 </head>
 <body>
   <div id="app">
+    <!-- Ambient background -->
     <div class="background" aria-hidden="true">
-      <div class="grid-overlay"></div>
-      <div class="parallax">
-        <span class="glow glow-1"></span>
-        <span class="glow glow-2"></span>
-        <span class="glow glow-3"></span>
-      </div>
+      <div class="bg-gradient"></div>
+      <div class="bg-orbit orbit-1"></div>
+      <div class="bg-orbit orbit-2"></div>
+      <div class="bg-noise"></div>
     </div>
 
-    <header class="header-bar">
-      <h1>READING ARCHIVE</h1>
-      <span class="chip">AI GENERATED BOOKSHELF</span>
+    <!-- Top bar: brand + quick stats -->
+    <header class="top-bar">
+      <div class="brand">
+        <div class="brand-mark">
+          <span class="brand-dot"></span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-label">Reading Archive</span>
+          <span class="brand-sub">AI Generated Deck Library</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="stat-pill">
+          <span class="stat-label">Total Decks</span>
+          <span id="stat-total" class="stat-value">0</span>
+        </div>
+        <div class="view-toggle" role="radiogroup" aria-label="뷰 전환">
+          <button class="view-toggle__btn is-active" data-view="grid" aria-pressed="true">Grid</button>
+          <button class="view-toggle__btn" data-view="stack" aria-pressed="false">Cascade</button>
+        </div>
+      </div>
     </header>
 
-    <main class="app-layout" aria-live="polite">
-      <section class="bookshelf-wrapper" aria-label="AI 책장">
-        <div class="shelf-stage">
-          <div class="gradient-overlay" aria-hidden="true"></div>
-          <div id="bookshelf" class="shelf-stack" aria-live="polite"></div>
-          <div class="stage-shadow" aria-hidden="true"></div>
-        </div>
-        <div id="empty-state" class="empty-state" hidden></div>
-        <div class="controls">
-          <span>마우스를 움직이면 서가가 3D로 기울어집니다</span>
-          <span>책을 클릭하면 프레젠테이션이 열립니다</span>
+    <!-- Search / filters -->
+    <section class="filters" aria-label="검색 및 필터">
+      <div class="search-box">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="제목, 키워드, 태그로 검색..."
+          autocomplete="off"
+          aria-label="책 검색"
+        />
+        <span class="search-hint">/ 키를 눌러 바로 검색</span>
+      </div>
+      <div class="pill-filters">
+        <button class="pill is-active" data-filter="all">All</button>
+        <button class="pill" data-filter="mindset">Mindset</button>
+        <button class="pill" data-filter="business">Business</button>
+        <button class="pill" data-filter="psychology">Psychology</button>
+        <button class="pill" data-filter="philosophy">Philosophy</button>
+      </div>
+    </section>
+
+    <main class="layout" aria-live="polite">
+      <!-- Bookshelf -->
+      <section class="shelf" aria-label="AI 책장">
+        <div id="bookshelf" class="shelf-list" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <div class="empty-pill">No matches</div>
+          <p>검색 조건에 맞는 프레젠테이션이 없습니다.</p>
+          <p class="empty-sub">필터를 초기화하거나 다른 키워드를 입력해 보세요.</p>
         </div>
       </section>
 
-      <aside id="info-panel" class="info-panel" aria-live="polite">
-        <div class="cover">
-          <img id="info-cover" src="assets/covers/default.svg" alt="책 표지" />
+      <!-- Detail side panel -->
+      <aside id="info-panel" class="detail-panel" aria-live="polite">
+        <div class="detail-header">
+          <span class="detail-label">Deck Preview</span>
         </div>
-        <h2 id="info-title">책 제목</h2>
-        <p id="info-meta">저자 · 날짜</p>
-        <p id="info-description" class="description"></p>
-        <div id="info-tags" class="tags"></div>
-        <a id="info-button" class="view-button" href="#" target="_blank" rel="noopener">AI 프레젠테이션 열기</a>
+        <div class="detail-cover">
+          <img id="info-cover" src="assets/covers/default.svg" alt="책 표지" />
+          <div class="detail-cover-glow"></div>
+        </div>
+        <div class="detail-body">
+          <h2 id="info-title" class="detail-title">책을 선택해 상세 정보를 확인하세요</h2>
+          <p id="info-meta" class="detail-meta">AI가 생성한 슬라이드, PDF 기반 요약</p>
+          <p id="info-description" class="detail-description"></p>
+          <div id="info-tags" class="detail-tags"></div>
+        </div>
+        <a
+          id="info-button"
+          class="detail-button"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          프레젠테이션 열기
+        </a>
       </aside>
     </main>
+
+    <!-- Footer hint -->
+    <footer class="footer-hint">
+      <span>Tip</span>
+      <span>책에 마우스를 올리면 오른쪽에서 실시간 미리보기가 열립니다. 클릭하면 새 탭에서 AI 프레젠테이션이 실행됩니다.</span>
+    </footer>
   </div>
 
   <script defer src="assets/js/shelf.js"></script>
