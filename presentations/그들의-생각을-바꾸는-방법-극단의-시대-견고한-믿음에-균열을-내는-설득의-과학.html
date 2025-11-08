@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>그들의 생각을 바꾸는 방법 - 프레젠테이션</title>
+  <title>How Minds Change Presentation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,9 +21,12 @@
       min-height: 85vh;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
     .slide.active {
       display: flex;
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
@@ -59,11 +62,8 @@
       color: #333;
     }
     .highlight {
-      background-color: #E7F5FF;
-      color: #007BFF;
-      padding: 0.1em 0.4em;
-      border-radius: 6px;
-      font-weight: 700;
+      background-color: #FFDD00;
+      padding: 0 0.25em;
     }
     .btn {
       padding: 12px 28px;
@@ -71,22 +71,21 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 1px solid #ddd;
+      border: none;
     }
     .btn-primary {
-      background-color: #007BFF;
+      background-color: #111;
       color: white;
-      border-color: #007BFF;
     }
     .btn-primary:hover {
-      background-color: #0056b3;
+      background-color: #333;
     }
     .btn-secondary {
-      background-color: #F8F9FA;
+      background-color: #F0F0F0;
       color: #333;
     }
     .btn-secondary:hover {
-      background-color: #E2E6EA;
+      background-color: #E0E0E0;
     }
     .progress-bar-container {
       position: fixed;
@@ -107,7 +106,7 @@
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #007BFF;
+      background-color: #111;
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
@@ -117,370 +116,492 @@
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
   <div class="w-full">
-    <!-- Slides Container -->
     <div id="slides-container">
 
       <!-- Slide 1: Title -->
       <div class="slide active">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">🧠💡</div>
-          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">그들의 생각을 바꾸는 방법</h1>
-          <p class="text-xl md:text-2xl text-gray-700">극단의 시대, 견고한 믿음에 균열을 내는 <span class="highlight">설득의 과학</span></p>
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">How Minds Change</h1>
+          <p class="text-xl md:text-2xl text-gray-700">The Science of Belief, Opinion, and Persuasion by <span class="highlight">David McRaney</span></p>
         </div>
       </div>
 
       <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">목차 📚</h2>
-          <div class="slide-content text-lg space-y-3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
-            <p><b>1. 들어가며:</b> 아버지를 바꾸고 싶었던 이유</p>
-            <p><b>2. 탈진실의 시대:</b> 한 음모론자의 변화</p>
-            <p><b>3. 딥 캔버싱:</b> 20분간의 기적</p>
-            <p><b>4. 드레스와 크록스:</b> 인지의 과학</p>
-            <p><b>5. 불평형:</b> 변화를 받아들이는 고통</p>
-            <p><b>6. 웨스트보로:</b> 증오 집단을 떠나는 이유</p>
-            <p><b>7. 부족 심리:</b> 우리는 왜 '우리'가 되는가</p>
-            <p><b>8. 논증과 토론의 힘:</b> 진화의 산물</p>
-            <p><b>9. 설득의 심리학:</b> 메시지 관통 전략</p>
-            <p><b>10. 길거리 인식론:</b> 어떻게, 왜 믿는가</p>
+          <h2 class="slide-title">목차</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+            <p><b>1. 들어가며:</b> 저자의 여정과 비관론 탈피</p>
+            <p><b>2. 설득의 과학:</b> 강요 vs. 설득</p>
+            <p><b>3. 딥 캔버싱:</b> 20분 만에 마음을 바꾸는 기술</p>
+            <p><b>4. 탈진실의 시대:</b> 찰리 비치의 이야기</p>
+            <p><b>5. 지각의 과학:</b> 드레스 색깔 논쟁</p>
+            <p><b>6. 불평형:</b> 믿음이 흔들릴 때</p>
+            <p><b>7. 부족 심리:</b> 우리는 왜 집단에 속하려 하는가</p>
+            <p><b>8. 논증과 토론의 힘:</b> 집단 지성의 진화</p>
+            <p><b>9. 설득의 심리학:</b> 메시지 전달의 4가지 조건</p>
+            <p><b>10. 길거리 인식론:</b> 소크라테스식 대화법</p>
             <p><b>11. 사회 변화의 순간:</b> 폭포 효과</p>
-            <p><b>12. 결론:</b> 우리가 뿌려놓은 변화의 씨앗들</p>
+            <p><b>12. 결론 및 Q&A</b></p>
           </div>
         </div>
       </div>
 
-      <!-- Part 1: Intro -->
+      <!-- Section 1: Introduction -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">들어가며</p>
-          <h2 class="slide-title">나는 <span class="highlight">아버지의 마음</span>을 바꾸고 싶었다</h2>
-          <p class="slide-content">이 책은 마음이 어떻게 바뀌는지 이해하기 위한 여정입니다. 저자는 오랫동안 '사람은 바뀌지 않는다'는 비관주의자였지만, 가짜 뉴스를 믿는 아버지와 음모론자들의 생각이 한순간에 뒤집히는 것을 목격하며 설득의 원리를 파헤치기 시작했습니다.</p>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">왜 설득에 <span class="highlight">실패</span>하는가? 🤔</h2>
-            <p class="slide-subtitle">우리는 흔히 사실과 증거를 제시하면 상대방이 생각을 바꿀 것이라고 착각합니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg text-red-600">❌ 잘못된 접근</h3>
-                    <p>상대방의 오류를 증명하는 증거를 들이미는 것. 이는 오히려 상대방을 방어적으로 만들고 자신의 생각을 더 고집하게 만듭니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-green-600">✅ 올바른 질문</h3>
-                    <p>"나는 왜 그들의 마음을 바꾸고 싶은가?" 이 질문은 모든 설득의 시작점이 되어야 합니다. 진정한 동기를 파악하는 것이 중요합니다.</p>
-                </div>
-            </div>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">💡 핵심 통찰</h3>
-                <p class="mt-2">설득은 '강요하지 않고' 생각을 바꾸는 행위입니다. 상대방이 스스로 마음을 바꾸도록 이끄는 것이며, 이는 승자와 패자를 가르는 말싸움이 아닙니다.</p>
-            </div>
+          <p class="slide-part-title">Part 1: 들어가며</p>
+          <h2 class="slide-title">저자의 여정: <span class="highlight">비관론에서 낙관론으로</span></h2>
+          <p class="slide-content">데이비드 맥레이니는 원래 '사람은 바뀌지 않는다'고 믿는 비관론자였습니다. 이 책은 그가 어떻게 그 믿음을 바꾸고, 타인의 마음을 바꿀 수 있다는 확신을 갖게 되었는지에 대한 장대한 여정을 담고 있습니다.</p>
         </div>
       </div>
       
-      <!-- Part 2: Post-Truth -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">1장</p>
-          <h2 class="slide-title">탈진실의 시대와 <span class="highlight">한 음모론자</span>의 변화 🎬</h2>
-          <p class="slide-content">9·11 테러 음모론의 리더였던 찰리 비치. 그는 어떻게 수년간 믿어온 신념을 한순간에 뒤집고 음모론을 철회하게 되었을까요?</p>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">찰리 비치의 <span class="highlight">깨달음의 순간</span> 💥</h2>
-          <p class="slide-subtitle">BBC 다큐멘터리 〈음모론 여행〉에 참여한 그는 반박 증거를 마주하며 생각이 흔들리기 시작했습니다.</p>
+          <h2 class="slide-title">변화의 목격</h2>
+          <p class="slide-subtitle">저자는 아버지를 비롯해 음모론자, 정치 극단주의자들이 한순간 가치관을 바꾸는 장면을 목격하며 자신의 신념에 의문을 품게 됩니다.</p>
           <div class="slide-content">
-            <ul class="list-disc list-inside space-y-3">
-              <li><b>전문가와의 만남:</b> 폭파, 건축, 항공 전문가들은 그의 음모론이 물리적으로 불가능함을 설명했습니다.</li>
-              <li><b>희생자 유가족과의 대화:</b> 무엇보다 유가족을 직접 만나면서 그는 자신이 틀렸을 수 있다는 가능성을 절감했습니다.</li>
-              <li><b>"펑! 하고 터지는 느낌":</b> 찰리는 자신의 신념 체계가 무너지는 순간을 "내 안에서 갑자기 뭔가가 '펑!' 하고 터지는 것 같았다"고 표현했습니다.</li>
-            </ul>
-            <p class="mt-6 font-bold">하지만 동행한 다른 음모론자들은 똑같은 증거를 보고도 믿음을 바꾸지 않았습니다. 오히려 더 완강해졌습니다. 왜일까요?</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Part 3: Deep Canvassing -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2장</p>
-          <h2 class="slide-title">딥 캔버싱: <span class="highlight">20분</span> 만에 유권자의 마음을 바꾼 대화법 🤝</h2>
-          <p class="slide-content">LA 성소수자 센터에서 개발한 '딥 캔버싱'은 짧은 대화로 타인의 마음을 움직이는 획기적인 설득 기법입니다. 그 비밀은 무엇일까요?</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-          <div class="slide-container">
-              <h2 class="slide-title">딥 캔버싱의 핵심 원리 🎂</h2>
-              <p class="slide-subtitle">객관적 사실이나 논리로 상대를 이기려 하지 않습니다. 대신, 상대가 스스로 자신의 생각을 되돌아보게 만듭니다.</p>
-              <div class="slide-content text-center">
-                  <div class="p-6 bg-gray-50 rounded-lg shadow-inner">
-                      <h3 class="text-xl font-bold mb-2">① 라포르 (Rapport)</h3>
-                      <p class="text-gray-600">친밀감 형성, 강요할 의도가 없음을 전달</p>
-                      <div class="w-full h-2 bg-blue-200 my-2 rounded-full"></div>
-                      <h3 class="text-xl font-bold mb-2">② 나의 이야기 (My Story)</h3>
-                      <p class="text-gray-600">자신의 경험담을 짧게 공유 (전체의 10%)</p>
-                      <div class="w-full h-2 bg-blue-300 my-2 rounded-full"></div>
-                      <h3 class="text-xl font-bold mb-2">③ 상대방의 이야기 (Their Story)</h3>
-                      <p class="text-gray-600">진심 어린 관심으로 경청 (전체의 90%)</p>
-                  </div>
-                  <p class="mt-4 font-bold">핵심은 <span class="highlight">정보 전달</span>이 아닌, 개인적 경험을 통한 <span class="highlight">감정적 연결</span>입니다.</p>
-              </div>
-          </div>
-      </div>
-      
-      <!-- Part 4: The Dress -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">3장</p>
-          <h2 class="slide-title">드레스 색깔 논쟁과 <span class="highlight">SURFPAD</span> 법칙 👗</h2>
-          <p class="slide-content">파검 vs 흰금. 전 세계를 분열시킨 드레스 사진은 우리 뇌가 어떻게 현실을 인식하고 처리하는지에 대한 중요한 단서를 제공합니다.</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">뇌는 진실을 보지 못한다 🙈</h2>
-            <p class="slide-subtitle">우리가 경험하는 세계는 뇌 안에서 실행되는 일종의 <span class="highlight">시뮬레이션</span>입니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">💡 움벨트(Umwelt)</h3>
-                    <p>모든 생명체는 각자의 감각 세계에 한정됩니다. 우리가 인식하는 현실은 객관적 현실의 일부일 뿐입니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">💡 뇌의 보정 기능</h3>
-                    <p>뇌는 과거 경험(사전 확률)을 바탕으로 모호한 정보를 해석하고, 빠진 정보를 '만들어' 채워 넣습니다. 딸기 사진이 빨간 픽셀 없이도 빨갛게 보이는 것처럼요.</p>
-                </div>
-            </div>
-             <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-                <h3 class="font-bold text-lg">SURFPAD 법칙</h3>
-                <p class="mt-2">상당한 불확실성(<span class="highlight">S</span>ubstantial <span class="highlight">U</span>ncertainty)이 갈라진(<span class="highlight">R</span>amified, <span class="highlight">F</span>orked) 사전 확률(<span class="highlight">P</span>riors) 및 가정(<span class="highlight">A</span>ssumptions)과 만나면 의견 불일치(<span class="highlight">D</span>isagreement)가 발생한다.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Part 5: Disequilibrium -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">4장</p>
-          <h2 class="slide-title">불평형: 변화를 받아들이는 <span class="highlight">심리적 고통</span> 🌪️</h2>
-          <p class="slide-content">생각이 바뀌기 전, 우리는 인지적 불편함과 혼란을 겪습니다. 이 '불평형' 상태는 어떻게 마음의 변화로 이어질까요?</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">동화 vs 조절: 피아제의 이론 👶</h2>
-            <p class="slide-subtitle">새로운 정보를 마주했을 때 우리 뇌가 작동하는 두 가지 방식</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="p-6 border rounded-lg bg-gray-50">
-                    <h3 class="font-bold text-lg text-center">➡️ 동화 (Assimilation)</h3>
-                    <p class="mt-2">새로운 정보를 기존의 이해 체계(모델)에 끼워 맞추는 것. 모델 자체는 변하지 않습니다. <br/> (예: '말'을 보고 '다리 넷 달린 큰 개'라고 생각하는 아이)</p>
-                </div>
-                <div class="p-6 border rounded-lg bg-blue-50">
-                    <h3 class="font-bold text-lg text-center">🔄 조절 (Accommodation)</h3>
-                    <p class="mt-2">기존 모델로는 새로운 정보를 설명할 수 없을 때, 모델 자체를 수정하거나 새로운 모델을 만드는 것. <br/>(예: '말'이라는 새로운 범주를 학습하는 아이)</p>
-                </div>
-            </div>
-            <p class="mt-6 text-center font-bold">대부분의 경우 뇌는 에너지를 아끼기 위해 <span class="highlight">동화</span>를 선호합니다.</p>
-        </div>
-      </div>
-
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">정서적 <span class="highlight">티핑 포인트</span> ⚖️</h2>
-          <p class="slide-subtitle">언제 우리는 '동화'를 멈추고 '조절'을 시작할까요?</p>
-          <div class="slide-content">
-            <ul class="list-disc list-inside space-y-3">
-              <li><b>인지 부조화:</b> 자신의 믿음과 상충하는 증거가 계속 쌓이면 심리적 불편함(인지 부조화)이 커집니다.</li>
-              <li><b>변칙 현상의 축적:</b> 기존 모델로 설명할 수 없는 예외(변칙)들이 무시할 수 없는 수준에 이르면, 뇌는 '보존 모드'에서 '학습 모드'로 전환됩니다.</li>
-              <li><b>정서적 티핑 포인트:</b> 더 이상 기존 모델을 고수하는 것이 불가능하다고 느끼는 임계점. 이 지점을 넘어서야 비로소 마음의 근본적인 변화가 시작됩니다.</li>
+            <ul class="list-disc pl-5 space-y-2">
+              <li><b>개인적 경험:</b> 동성애자 삼촌을 돕는 아버지의 모습을 통해 편견을 넘어서는 행동을 목격합니다.</li>
+              <li><b>사회적 현상:</b> 미국 내 동성 결혼에 대한 여론이 불과 몇 년 만에 급격히 바뀌는 것을 보며 집단적 마음의 변화 가능성을 확인합니다.</li>
+              <li>이는 <span class="highlight">'단속평형설'</span>처럼, 오랫동안 유지되던 평형 상태가 특정 계기로 급격히 변하는 사회적 변화 패턴을 보여줍니다.</li>
             </ul>
           </div>
         </div>
       </div>
       
-      <!-- Part 6: Westboro -->
+      <!-- Section 2: Science of Persuasion -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">5장</p>
-          <h2 class="slide-title">웨스트보로: 증오 집단을 <span class="highlight">떠나는 이유</span> 🚪</h2>
-          <p class="slide-content">미국에서 가장 악명 높은 증오 집단 '웨스트보로 침례교회'. 그곳에서 나고 자란 사람들은 어떻게 그 강력한 믿음의 공동체를 등지게 될까요?</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">믿음이 흔들려서가 <span class="highlight">아니었다</span></h2>
-            <p class="slide-subtitle">메건과 잭 펠프스-로퍼 남매는 교리가 틀렸다고 생각해서 교회를 떠난 것이 아니었습니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">초기 균열 ⚡</h3>
-                    <p>교회 내부의 모순(새로운 규칙, 장로들의 권위주의)과 개인적인 경험(잭의 허리 부상, 메건의 트위터 활동)이 계기가 되었습니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">외부와의 연결 🤝</h3>
-                    <p>트위터를 통해 만난 데이비드 아비트볼처럼, 그들을 '인간'으로 대하며 끈기 있게 대화해준 외부인들이 결정적인 역할을 했습니다.</p>
-                </div>
-            </div>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">💡 핵심 통찰</h3>
-                <p class="mt-2">그들은 교회를 나온 <span class="highlight">이후에</span> 생각이 바뀌었습니다. 공동체를 잃는다는 사회적 위협이 사라지자, 비로소 새로운 정보를 받아들일 준비가 된 것입니다.</p>
-            </div>
-        </div>
-      </div>
-      
-      <!-- Part 7: Tribal Psychology -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">6장</p>
-          <h2 class="slide-title">부족 심리: 우리는 왜 <span class="highlight">'우리'</span>가 되어야 하는가 👥</h2>
-          <p class="slide-content">인간은 옳은 행동을 하는 것보다, 집단의 좋은 구성원이 되는 것을 더 중요하게 여기도록 진화했습니다. 이것이 설득의 가장 큰 장벽입니다.</p>
-        </div>
-      </div>
-
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">사회적 죽음 > <span class="highlight">신체적 죽음</span></h2>
-          <p class="slide-subtitle">우리의 뇌는 집단으로부터의 배척(사회적 죽음)을 생존에 대한 심각한 위협으로 인식합니다.</p>
-          <div class="slide-content">
-            <ul class="list-disc list-inside space-y-3">
-              <li><b>최소 집단 패러다임:</b> 아무리 사소하고 임의적인 기준으로 나뉘어도, 사람들은 즉시 '우리 집단(내집단)'을 편애하고 '저들 집단(외집단)'을 배척합니다.</li>
-              <li><b>신념과 정체성:</b> 특정 믿음(정치, 종교, 음모론 등)이 집단 정체성의 일부가 되면, 그 믿음에 대한 공격은 자기 자신에 대한 공격으로 받아들여집니다.</li>
-              <li><b>방어기제 작동:</b> 자신의 신념이 반박당하면, 뇌는 마치 숲에서 곰을 만났을 때처럼 투쟁-도피 반응을 보입니다. 이성적 사고가 마비되는 것입니다.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Part 8: Argumentative Theory -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">7장</p>
-          <h2 class="slide-title">논증과 토론의 힘: <span class="highlight">진화의 산물</span> 🗣️💬</h2>
-          <p class="slide-content">인간의 '추론' 능력은 고독하게 진리를 탐구하기 위해서가 아니라, 사회적 환경 속에서 타인을 설득하고 내 주장을 정당화하기 위해 진화했습니다.</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">혼자서는 <span class="highlight">게으르고</span>, 함께하면 <span class="highlight">똑똑하다</span></h2>
-            <p class="slide-subtitle">우리는 자신의 주장에 대해서는 관대하지만, 타인의 주장에 대해서는 매우 뛰어난 비판자가 됩니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">🤦‍♂️ 개인의 추론 (My-Side Bias)</h3>
-                    <p>혼자 생각할 때 우리는 자신의 입장을 뒷받침하는 근거만 찾으려는 '확증 편향'에 빠지기 쉽습니다. 우리는 자신의 논리적 허점을 잘 보지 못합니다.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">🧐 집단의 추론 (Group Reasoning)</h3>
-                    <p>하지만 집단 토론에서는 다릅니다. 각자 편향된 주장을 내놓지만, 서로의 주장을 평가하고 비판하는 과정을 통해 집단 전체는 더 나은 결론에 도달할 수 있습니다.</p>
-                </div>
-            </div>
-            <p class="mt-6 font-bold text-center">결론: 추론의 진정한 힘은 <span class="highlight">대화와 토론</span> 속에서 발휘됩니다.</p>
-        </div>
-      </div>
-
-      <!-- Part 9: Psychology of Persuasion -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">8장</p>
-          <h2 class="slide-title">설득의 심리학: 메시지를 관통시키는 <span class="highlight">두 가지 경로</span> 🛣️</h2>
-          <p class="slide-content">정교화 가능성 모델(ELM)은 메시지가 우리 마음에 도달하는 두 가지 주요 경로, '중심 경로'와 '주변 경로'를 설명합니다.</p>
+          <p class="slide-part-title">Part 2: 설득의 과학</p>
+          <h2 class="slide-title">강요 vs. <span class="highlight">설득</span></h2>
+          <p class="slide-subtitle">마음을 바꾸는 것은 억지로 생각을 주입하는 '강요'가 아니라, 상대방이 스스로 생각의 과정을 돌아보게 만드는 '설득'의 과정입니다.</p>
         </div>
       </div>
 
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">중심 경로 vs <span class="highlight">주변 경로</span></h2>
-          <p class="slide-subtitle">언제, 어떻게 메시지를 처리하는가?</p>
+          <h2 class="slide-title">설득의 정의: 두 학자의 견해</h2>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-6 border rounded-lg bg-blue-50">
-              <h3 class="font-bold text-lg">🧠 중심 경로 (Central Route)</h3>
-              <p><b>조건:</b> 동기와 능력이 높을 때 (개인적 관련성, 중요성)</p>
-              <p><b>처리:</b> 메시지의 논리, 근거, 질을 주의 깊게 분석하고 평가합니다.</p>
-              <p><b>결과:</b> 태도 변화가 일어나면 강력하고 오래 지속됩니다.</p>
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">대니얼 오키프 (Daniel O’Keefe)</h3>
+              <p class="mt-2">"상대방이 <span class="highlight">어느 정도 자유를 지닌 상황</span>에서 커뮤니케이션을 통해 그의 정신 상태에 영향을 미치려는 의도적 활동"</p>
             </div>
-            <div class="p-6 border rounded-lg bg-gray-50">
-              <h3 class="font-bold text-lg">👀 주변 경로 (Peripheral Route)</h3>
-              <p><b>조건:</b> 동기나 능력이 낮을 때 (관련성 낮음, 피곤함)</p>
-              <p><b>처리:</b> 메시지 내용보다 주변 단서에 의존합니다. (모델의 매력, 전문가의 권위, 논증의 개수 등)</p>
-              <p><b>결과:</b> 태도 변화가 일어나도 일시적이고 약합니다.</p>
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">리처드 펄로프 (Richard Perloff)</h3>
+              <p class="mt-2">"자발적 수용을 통해 타인의 태도나 믿음을 바꾸기 위한 메시지. 상대방이 <span class="highlight">자유롭게 거부할 수 있다고 느껴야</span> 윤리적 설득이다."</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Part 10: Street Epistemology -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">9장</p>
-          <h2 class="slide-title">길거리 인식론: '무엇을' 믿는가에서 <span class="highlight">'어떻게'</span> 믿는가로 🧐</h2>
-          <p class="slide-content">소크라테스식 대화법을 활용하여, 상대방이 자신의 믿음이 형성된 방법론 자체를 성찰하도록 돕는 기법입니다.</p>
-        </div>
-      </div>
-      
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">길거리 인식론의 <span class="highlight">9단계</span></h2>
-          <p class="slide-subtitle">주장을 반박하는 대신, 그 주장에 이르게 된 과정을 함께 탐구합니다.</p>
-          <div class="slide-content space-y-2 text-base">
-            <p><b>1. 라포르 형성:</b> 안전하고 존중받는 분위기를 만듭니다.</p>
-            <p><b>2. 주장 요청:</b> 대화하고 싶은 주장을 명확히 합니다.</p>
-            <p><b>3. 주장 확인:</b> 상대의 주장을 자신의 언어로 요약하며 정확히 이해했는지 확인합니다.</p>
-            <p><b>4. 정의 명확화:</b> 주장에 사용된 핵심 용어의 정의를 합의합니다. ('신', '정의' 등)</p>
-            <p><b>5. 확신의 정도 묻기:</b> 0~100 사이의 숫자로 확신의 정도를 묻습니다.</p>
-            <p><b>6. 이유 묻기:</b> 그만큼 확신하는 주된 이유를 묻습니다.</p>
-            <p><b>7. 이유의 타당성 묻기:</b> 그 이유가 결론을 내리기에 신뢰할 만한 방법인지 함께 탐구합니다. (핵심 단계)</p>
-            <p><b>8. 경청, 요약, 반복:</b> 대화 내내 상대의 말을 주의 깊게 듣고 요약하며 이해를 확인합니다.</p>
-            <p><b>9. 마무리:</b> 대화에 감사하며 정중하게 마무리합니다.</p>
+          <h2 class="slide-title">설득의 핵심: <span class="highlight">자기 설득</span></h2>
+          <p class="slide-subtitle">모든 설득은 결국 자기 설득입니다. 사람들은 자신의 욕구, 동기, 내면의 반박을 토대로 스스로 생각을 바꿉니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">효과적인 설득 기법은 상대방의 결론 자체가 아니라, 그 결론에 이르게 된 <span class="highlight">동기</span>에 초점을 맞춥니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 핵심 원리</h3>
+              <p class="mt-2">"줄을 움직이려면 밀지 말고 당겨야 한다." - 심리학자 조엘 웰런</p>
+              <p class="mt-1">상대방이 스스로 생각의 끈을 당겨 움직이게 만들어야 합니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Part 11: Social Change -->
+      <!-- Section 3: Deep Canvassing -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">10장</p>
-          <h2 class="slide-title">사회 변화의 순간: <span class="highlight">네트워크와 폭포 효과</span> 🌊</h2>
-          <p class="slide-content">개인의 작은 생각 변화는 어떻게 사회 전체를 뒤흔드는 거대한 변화로 이어질까요? 그 비밀은 네트워크 구조와 '동조 임계점'에 있습니다.</p>
+          <p class="slide-part-title">Part 3: 딥 캔버싱</p>
+          <h2 class="slide-title">20분 만에 유권자의 마음을 바꾼 <span class="highlight">대화법</span></h2>
+          <p class="slide-content">딥 캔버싱은 짧은 대화를 통해 상대방이 스스로 자신의 견해를 되돌아보게 만들어 근본적인 태도 변화를 이끌어내는 강력한 설득 기법입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">딥 캔버싱의 탄생 🗳️</h2>
+          <p class="slide-subtitle">이 기법은 캘리포니아의 동성 결혼 금지 법안(제안 8호) 통과 이후, LA 성 소수자 센터의 리더십 랩(Leadership LAB)에서 개발되었습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li><b>충격적 패배:</b> 여론조사와 달리 법안이 통과되자, 활동가들은 "왜 사람들의 마음이 바뀌었을까?"라는 질문을 던졌습니다.</li>
+              <li><b>직접 대화 시도:</b> 반대자들을 직접 만나 그 이유를 묻는 과정에서, 많은 사람들이 자신의 결정에 대해 이야기하고 싶어 한다는 사실을 발견했습니다.</li>
+              <li><b>핵심 발견:</b> <span class="highlight">개인적인 경험과 감정</span>을 공유하는 비판단적 대화가 사람들의 뿌리 깊은 편견을 흔들 수 있음을 확인했습니다.</li>
+            </ul>
+          </div>
         </div>
       </div>
       
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">변화의 <span class="highlight">폭포 효과(Cascade Effect)</span></h2>
-            <p class="slide-subtitle">사회적 행동은 마치 도미노처럼 퍼져나갑니다.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">📊 동조 임계점 (Conformity Threshold)</h3>
-                    <p>개인이 특정 행동을 따르기 위해 필요한, 이미 그 행동을 하고 있는 다른 사람들의 비율. 사람마다 이 임계점은 다릅니다. (혁신가: 0%, 조기 수용자: 10%, 다수: 30% 등)</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">🔗 확산 취약 클러스터</h3>
-                    <p>다양한 임계점을 가진 사람들이 적절하게 섞여 연결된 네트워크 구조. 작은 충격(초기 수용자의 변화)이 전체 네트워크로 빠르게 퍼져나갈 수 있는 조건을 갖춘 집단입니다.</p>
-                </div>
+          <h2 class="slide-title">딥 캔버싱의 <span class="highlight">3단 케이크</span> 모델 🍰</h2>
+          <p class="slide-subtitle">스티브 딜라인은 대화의 구조를 3단 케이크에 비유합니다. 성공적인 대화는 아래층에서 위층으로 차근차근 쌓아 올려야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 gap-4">
+            <div class="p-4 bg-gray-100 rounded-lg text-center">
+              <h3 class="font-bold text-lg">Top Layer: 라포르 (Rapport)</h3>
+              <p>친밀감 형성, 강요할 의도가 없음을 전달</p>
             </div>
-            <p class="mt-6 font-bold">💡 사회 변화는 한 명의 위대한 영웅이 아니라, <span class="highlight">적절한 네트워크 구조</span>와 작은 불씨를 통해 시작됩니다. 담배꽁초 하나가 거대한 산불을 일으키는 것처럼요.</p>
+            <div class="p-4 bg-gray-200 rounded-lg text-center">
+              <h3 class="font-bold text-lg">Middle Layer: 나의 이야기 (My Story)</h3>
+              <p>자신의 경험담을 간략하게 공유</p>
+            </div>
+            <div class="p-4 bg-gray-300 rounded-lg text-center">
+              <h3 class="font-bold text-lg">Bottom Layer: 상대방의 이야기 (Their Story)</h3>
+              <p>가장 큰 부분. 진심 어린 관심으로 상대의 경험을 경청</p>
+            </div>
+          </div>
         </div>
       </div>
       
-      <!-- Conclusion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학적 검증과 논란</h2>
+          <p class="slide-subtitle">딥 캔버싱의 효과는 《사이언스》지에 게재된 논문을 통해 과학적으로 입증되었으나, 이후 연구 부정 행위로 철회되는 시련을 겪었습니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">하지만 이후 브룩먼과 칼라의 후속 연구를 통해 <span class="highlight">딥 캔버싱의 효과는 다시 한번, 더 엄격하게 검증</span>되었습니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔬 연구 결과</h3>
+              <p class="mt-2">10분간의 대화로 트랜스젠더에 대한 편견을 가진 유권자 10명 중 1명의 태도를 바꿀 수 있었으며, 그 효과는 장기간 지속되었습니다. 이는 과거 14년간의 자연적인 여론 변화율을 뛰어넘는 수치입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 4: Charlie Veitch -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 탈진실의 시대</p>
+          <h2 class="slide-title">한 음모론자의 전향: <span class="highlight">찰리 비치 이야기</span></h2>
+          <p class="slide-content">유명한 9·11 음모론 유튜버였던 찰리 비치가 어떻게 자신의 신념을 버리게 되었는지, 그리고 그 과정에서 겪은 심리적 변화와 사회적 고립을 살펴봅니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">BBC <음모론 여행></h2>
+          <p class="slide-subtitle">모든 것의 시작은 BBC의 다큐멘터리 촬영이었습니다. 제작진은 음모론자들에게 반박 증거와 전문가들을 만나게 했습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li><b>예상된 반응:</b> 대부분의 음모론자들은 증거를 마주할수록 오히려 기존의 믿음이 더 강해지는 <span class="highlight">'역화 효과'</span>를 보였습니다.</li>
+              <li><b>찰리의 균열:</b> 하지만 찰리는 달랐습니다. 그는 폭파 전문가, 건물 설계자, 그리고 9·11 희생자 유가족을 만나면서 자신의 확신에 회의를 느끼기 시작했습니다.</li>
+              <li><b>깨달음의 순간:</b> 그는 "내 안에서 갑자기 뭔가 '펑!' 하고 터지는 것 같았습니다"라고 표현하며, 특히 희생자 가족과의 만남이 결정적이었다고 말합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신념의 대가: <span class="highlight">사회적 죽음</span></h2>
+          <p class="slide-subtitle">찰리가 자신의 생각 변화를 담은 영상을 올리자, 그는 음모론 커뮤니티로부터 엄청난 비난과 공격을 받았습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">비난과 낙인</h3>
+              <p>정부의 첩자, 배신자, 돈에 매수된 사람이라는 비난에 휩싸였습니다. 동료들은 그를 '역겨운 짐승'처럼 취급했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">가족을 향한 공격</h3>
+              <p>상황은 악화되어 그의 가족까지 공격 대상이 되었습니다. 조카들의 사진이 합성된 끔찍한 이미지가 유포되는 등 극심한 괴롭힘을 당했습니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 font-bold text-center">이 사례는 신념이 단순한 사실의 문제가 아니라, <span class="highlight">소속감과 정체성의 문제</span>임을 명확히 보여줍니다.</p>
+        </div>
+      </div>
+
+      <!-- Section 5: Science of Perception -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5: 지각의 과학</p>
+          <h2 class="slide-title">파검 vs. 흰금: <span class="highlight">드레스 색깔 논쟁</span></h2>
+          <p class="slide-content">2015년 인터넷을 뜨겁게 달군 드레스 사진은 우리가 어떻게 현실을 다르게 인식하는지, 그리고 그 인식이 어떻게 확고한 믿음이 되는지를 보여주는 완벽한 사례입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌는 진실을 보지 못한다 🙈</h2>
+          <p class="slide-subtitle">우리가 경험하는 세계는 실제 현실의 복사본이 아니라, 뇌가 과거의 경험과 기대를 바탕으로 재구성한 '시뮬레이션'입니다.</p>
+          <div class="slide-content">
+            <p>신경과학자 파스칼 월리시는 이 현상을 <span class="highlight">SURFPAD 법칙</span>으로 설명합니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">SURFPAD 법칙</h3>
+              <p class="mt-2"><b>S</b>ubstantial <b>U</b>ncertainty (상당한 불확실성)이<br>
+              <b>R</b>amified or <b>F</b>orked <b>P</b>riors/<b>A</b>ssumptions (갈라진 사전 경험/가정)과 만나면<br>
+              <b>D</b>isagreement (의견 불일치)가 발생한다.</p>
+            </div>
+            <p class="mt-4">드레스 사진의 애매한 조명(불확실성)을, 사람들이 살아온 빛 환경(사전 경험)에 따라 뇌가 다르게 해석했기 때문에 의견이 갈린 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소박실재론 (Naive Realism)</h2>
+          <p class="slide-subtitle">우리는 자신의 주관적 현실을 객관적 진실로 착각하는 경향이 있습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-3">
+              <li>자신의 방식이 명백히 옳다고 느끼기 때문에, 다르게 보는 사람은 틀렸거나, 비이성적이거나, 편향되었다고 생각합니다.</li>
+              <li>드레스 색깔 논쟁에서 양측이 서로를 이해하지 못하고 격렬하게 대립했던 이유가 바로 이것입니다.</li>
+              <li>이는 정치, 종교 등 더 복잡한 이슈에서 <span class="highlight">극단적인 의견 충돌이 발생하는 근본적인 원리</span>를 설명해줍니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Disequilibrium -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6: 불평형</p>
+          <h2 class="slide-title">믿음이 흔들릴 때: <span class="highlight">변화를 받아들이는 고통</span></h2>
+          <p class="slide-content">마음의 변화는 편안한 과정이 아닙니다. 기존의 믿음 체계가 흔들리는 '불평형' 상태는 고통스럽지만, 성장의 필수적인 단계입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">동화와 조절: 피아제의 이론</h2>
+          <p class="slide-subtitle">장 피아제는 우리가 새로운 정보를 마주했을 때 두 가지 방식으로 처리한다고 설명했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">🔄 동화 (Assimilation)</h3>
+              <p class="mt-2">새로운 정보를 <span class="highlight">기존의 믿음 체계에 끼워 맞추는</span> 과정. 기존 모델을 유지하려는 경향입니다. (예: 색이 다른 카드를 보고 '회갈색'이라고 우김)</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">🔧 조절 (Accommodation)</h3>
+              <p class="mt-2">기존의 믿음 체계를 <span class="highlight">수정하여 새로운 정보를 받아들이는</span> 과정. 모순되는 증거가 계속 쌓일 때 발생합니다. (예: '색깔이 조작된 카드가 있구나!'라고 깨달음)</p>
+            </div>
+          </div>
+          <p class="mt-8">우리는 본능적으로 '조절'의 고통을 피하고 '동화'를 선호하지만, <span class="highlight">변칙 현상(anomaly)</span>이 계속 축적되면 결국 모델을 수정하게 됩니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정서적 티핑 포인트 (Affective Tipping Point) 🤯</h2>
+          <p class="slide-subtitle">데이비드 레들로스크의 연구는 믿음과 상충하는 정보가 일정 수준을 넘어서면, 더 이상 무시할 수 없게 되어 마음을 바꾸게 되는 '임계점'이 존재함을 보여줍니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li><b>초기 단계:</b> 소량의 반대 정보는 오히려 기존 믿음을 강화합니다 (동화).</li>
+              <li><b>임계점 도달:</b> 반대 정보가 약 30%를 넘어서자, 피험자들은 불안을 느끼며 자신의 평가를 수정하기 시작했습니다 (조절).</li>
+              <li><b>생존 메커니즘:</b> 이는 압도적인 반대 증거를 무시하는 것이 생존에 불리하기 때문에 진화한 안전장치로 볼 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 7: Tribal Psychology -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 7: 부족 심리</p>
+          <h2 class="slide-title">좋은 구성원이 되기 위해 <span class="highlight">악행을 벌인다</span></h2>
+          <p class="slide-content">우리의 뇌는 진실을 찾는 것보다 소속된 집단에서 인정받고 살아남는 것을 더 중요하게 여기도록 진화했습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'우리' 대 '저들': 최소 집단 패러다임</h2>
+          <p class="slide-subtitle">헨리 타이펠의 실험은 아무리 사소하고 임의적인 기준으로 집단을 나누어도, 사람들은 즉시 자기 집단을 편애하고 타 집단을 차별하기 시작한다는 것을 보여주었습니다.</p>
+          <div class="slide-content">
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔴 실험 요약</h3>
+              <p class="mt-2">단순히 점 개수를 추정하는 방식으로 그룹을 나눴을 뿐인데도, 학생들은 자기 그룹에게 더 많은 보상을 주려고 했습니다. 심지어 <span class="highlight">상대 그룹보다 더 많이 받는 것이 보장된다면, 절대적인 금액이 더 적더라도 그 선택을 선호</span>했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사회적 죽음 > 신체적 죽음</h2>
+          <p class="slide-subtitle">사회학자 브룩 해링턴의 공식 'SD > PD'는 우리가 집단에서 배척당하는 것(Social Death)을 물리적으로 죽는 것(Physical Death)보다 더 두려워한다는 것을 의미합니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li>우리의 믿음과 태도는 심리적 자아의 일부가 되어, 이에 대한 공격은 신체적 위협처럼 느껴집니다.</li>
+              <li>이것이 바로 김벨과 해리스의 연구에서 정치적 믿음에 반하는 증거를 봤을 때 뇌가 <span class="highlight">투쟁-도피 반응</span>을 보인 이유입니다.</li>
+              <li>진실을 받아들이는 것이 집단에서의 소외를 의미한다면, 우리는 기꺼이 진실을 외면합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8: Power of Argument -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 8: 논증과 토론의 힘</p>
+          <h2 class="slide-title">편향되고 게으른 <span class="highlight">우리의 뇌</span></h2>
+          <p class="slide-content">인간의 추론 능력은 혼자서 진실을 탐구하기 위해 진화한 것이 아니라, 집단 내에서 다른 사람을 설득하고 자신의 주장을 정당화하기 위해 발달했습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상호작용주의 모델</h2>
+          <p class="slide-subtitle">메르시에와 스페르베르는 추론의 기능이 '집단 환경에서 논증을 펼치는 것'이라고 주장합니다. 우리는 본질적으로 사회적 추론가입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">개인의 추론 👎</h3>
+              <p class="mt-2">혼자 추론할 때는 자신의 입장을 뒷받침하는 증거만 찾는 <span class="highlight">확증 편향</span>에 빠지기 쉽고, 자신의 논리적 허점을 잘 찾아내지 못합니다. (게으르고 편향됨)</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">집단의 추론 👍</h3>
+              <p class="mt-2">하지만 집단으로 토론할 때, 우리는 다른 사람의 논증에서 허점을 기가 막히게 찾아냅니다. 이 과정을 통해 <span class="highlight">집단 전체는 더 나은 결론에 도달</span>할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진실이 승리하는 시나리오</h2>
+          <p class="slide-subtitle">인지 반응 검사 실험은 집단 추론의 힘을 명확히 보여줍니다.</p>
+          <div class="slide-content">
+            <p>"기계 5대로 부품 5개를 만드는 데 5분이 걸린다. 100대로 100개를 만드는 데는 몇 분이 걸릴까?"</p>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="p-4 bg-red-100 rounded-lg">
+                <h3 class="font-bold text-lg">혼자 풀 때</h3>
+                <p>83%가 적어도 한 문제 이상 틀렸습니다. 많은 사람들이 직관적으로 '100분'이라고 답합니다.</p>
+              </div>
+              <div class="p-4 bg-green-100 rounded-lg">
+                <h3 class="font-bold text-lg">세 명 이상 집단에서 풀 때</h3>
+                <p>아무도 틀리지 않았습니다. 집단 내 누군가가 올바른 답('5분')을 제시하고 토론을 통해 나머지를 설득했기 때문입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 9: Psychology of Persuasion -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 9: 설득의 심리학</p>
+          <h2 class="slide-title">메시지를 효과적으로 관철시키는 <span class="highlight">심리 전략</span></h2>
+          <p class="slide-content">정교화 가능성 모델(ELM)은 사람들이 메시지를 처리하는 두 가지 경로가 있으며, 어떤 경로를 택하느냐에 따라 설득 전략이 달라져야 함을 설명합니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 처리 경로</h2>
+          <p class="slide-subtitle">메시지를 받아들이는 사람의 동기와 능력에 따라 처리 경로가 결정됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">🛣️ 중심 경로 (Central Route)</h3>
+              <p class="mt-2"><b>높은 정교화 가능성.</b> 메시지의 논리와 근거를 주의 깊게 분석합니다. 설득이 되면 <span class="highlight">태도 변화가 오래 지속</span>됩니다. 논증의 질이 중요합니다.</p>
+            </div>
+            <div class="p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">🏞️ 주변 경로 (Peripheral Route)</h3>
+              <p class="mt-2"><b>낮은 정교화 가능성.</b> 메시지 내용보다는 화자의 매력, 유명세, 논증의 개수 등 <span class="highlight">주변 단서에 의존</span>합니다. 설득이 빠르지만 변화는 일시적입니다.</p>
+            </div>
+          </div>
+          <p class="mt-6"><b>예시:</b> 면도기 광고에서 유명인 모델을 쓰는 이유는 대부분의 시청자가 주변 경로로 정보를 처리하기 때문입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">설득을 위한 4가지 조건 (라스웰 모델)</h2>
+          <p class="slide-subtitle">효과적인 설득은 누가, 무엇을, 누구에게, 어떤 채널로 전달하는지에 따라 결정됩니다.</p>
+          <div class="slide-content space-y-3">
+            <p><b>1. 누가 (Source):</b> 메시지 전달자는 <span class="highlight">신뢰할 수 있어야</span> 합니다. (전문성, 진실성, 소속감)</p>
+            <p><b>2. 무엇을 (Message):</b> <span class="highlight">흔한 반론을 함께 제시</span>하면 영향력이 더 커집니다. (양면 메시지)</p>
+            <p><b>3. 누구에게 (Audience):</b> 청자의 처리 능력과 동기(정교화 가능성)를 고려해야 합니다.</p>
+            <p><b>4. 어떤 채널을 통해 (Channel):</b> 매체는 메시지에 적합해야 하며, <span class="highlight">대면 커뮤니케이션</span>이 가장 효과적입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 10: Street Epistemology -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 10: 길거리 인식론</p>
+          <h2 class="slide-title">단 한 번의 대화로 충분하다: <span class="highlight">질문의 힘</span></h2>
+          <p class="slide-content">길거리 인식론(Street Epistemology)은 소크라테스식 질문법을 사용하여 사람들이 자신의 믿음이 어떻게 형성되었는지 스스로 탐구하도록 돕는 대화 기법입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">길거리 인식론의 목표 🎯</h2>
+          <p class="slide-subtitle">목표는 상대방의 마음을 바꾸는 것이 아니라, 그들이 <span class="highlight">"어떻게" 그리고 "왜" 믿게 되었는지</span> 그 방법론을 스스로 검토하게 하는 것입니다.</p>
+          <div class="slide-content">
+            <p>앤서니 매그너보스코가 정립한 이 기법의 핵심은 <span class="highlight">메타 인지(생각에 대한 생각)</span>를 유도하는 것입니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 핵심 질문</h3>
+              <p class="mt-2">"그 믿음이 사실이라는 것을 어떻게 알게 되셨나요?"<br>"그 믿음에 도달하는 데 사용하신 방법이 신뢰할 만한 방법이라고 생각하시나요?"<br>"만약 그 믿음이 사실이 아니라면, 그것을 알고 싶으신가요?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">길거리 인식론 9단계 요약</h2>
+          <div class="slide-content text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <p><b>1. 라포르 형성:</b> 진솔한 태도로 신뢰를 쌓고 대화에 동의를 구합니다.</p>
+            <p><b>2. 주장 요청:</b> 대화하고 싶은 구체적인 주장을 제시해달라고 합니다.</p>
+            <p><b>3. 주장 확인:</b> 상대의 주장을 자신의 말로 요약하며 정확히 이해했는지 확인합니다.</p>
+            <p><b>4. 정의 명확화:</b> 주장에 사용된 핵심 용어의 정의를 상대방의 언어로 명확히 합니다.</p>
+            <p><b>5. 확신 정도 묻기:</b> 0~100 사이의 숫자로 주장에 대한 확신 정도를 묻습니다.</p>
+            <p><b>6. 이유 묻기:</b> 그만큼 확신하는 가장 큰 이유가 무엇인지 묻습니다.</p>
+            <p><b>7. 타당성 묻기:</b> 그 이유에 도달한 '방법'의 신뢰성에 대해 질문을 던집니다. (핵심 단계)</p>
+            <p><b>8. 경청, 요약, 반복:</b> 대화 내내 상대의 말을 경청하고 요약하며 이해를 확인합니다.</p>
+            <p><b>9. 마무리:</b> 시간을 내준 것에 감사하며 정중하게 대화를 마칩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 11: Social Change -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 11: 사회 변화의 순간</p>
+          <h2 class="slide-title">진정한 변화를 이끄는 <span class="highlight">네트워크의 조건</span></h2>
+          <p class="slide-content">사회적 변화는 한 명의 영웅이 아니라, 네트워크의 특정 조건이 충족되었을 때 발생하는 '폭포 효과(Cascade Effect)'의 결과입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">동조 임계점과 폭포 효과 🌊</h2>
+          <p class="slide-subtitle">사회학자 마크 그래노베터는 각 개인이 행동을 바꾸기 위해 필요한 주변 사람들의 수, 즉 '동조 임계점'이 다르다고 설명합니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-2">
+              <li><b>초기 수용자 (낮은 임계점):</b> 몇 명만 행동을 바꿔도 따라서 바꿉니다.</li>
+              <li><b>다수 (중간 임계점):</b> 상당수의 사람들이 바꿔야 따라서 바꿉니다.</li>
+              <li><b>완강한 저항자 (높은 임계점):</b> 거의 모든 사람이 바꿔야만 마지못해 따릅니다.</li>
+              <li><span class="highlight">폭포 효과</span>는 낮은 임계점을 가진 사람들로부터 시작된 작은 변화가 점차 높은 임계점을 가진 사람들에게까지 퍼져나가며 전체 시스템을 바꾸는 현상입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">산불의 비유 🔥</h2>
+          <p class="slide-subtitle">물리학자 덩컨 와츠는 사회 변화를 산불에 비유합니다. 중요한 것은 던져진 담배꽁초(아이디어)가 아니라, 숲의 상태(네트워크의 민감성)입니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">수많은 담배꽁초가 던져져도 숲이 축축하면 불이 나지 않습니다. 하지만 오랜 가뭄으로 숲이 바싹 마른 상태에서는 <span class="highlight">단 하나의 담배꽁초만으로도 대형 산불</span>이 일어날 수 있습니다.</p>
+            <p>마찬가지로, 사회가 변화에 취약한 상태(확산 취약 클러스터 형성)에 있을 때, 사소해 보이는 하나의 사건(예: 스톤월 항쟁)이 거대한 사회 변화를 촉발할 수 있습니다.</p>
+            <p class="mt-4 font-bold">👉 세상을 변화시키려면, 우리는 끊임없이, 집요하게 시스템을 두드려야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-6xl mb-6">🎯</div>
-          <h2 class="slide-title">결론: 우리가 뿌려놓은 변화의 씨앗들</h2>
+          <h2 class="slide-title">최종 결론</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">마음을 바꾸는 것은 논쟁에서 이기는 것이 아닙니다. 그것은 상대방의 관점을 이해하고, 그들이 스스로의 생각의 길을 되짚어보도록 <span class="highlight">안전한 공간</span>을 열어주는 것입니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">우리가 시작한 작은 대화 하나하나가, 세상을 변화시키는 거대한 폭포의 시작일 수 있습니다. 그러니 계속, 집요하게 두드려야 합니다.</p>
+            <p class="mb-4">마음의 변화는 가능하며, 이는 우리의 가장 강력한 능력 중 하나입니다. 설득은 상대방을 이기는 것이 아니라, 그들이 <span class="highlight">스스로 생각의 과정을 탐험하도록 안내하는</span> 협력적인 여정입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">진정한 변화는 사실을 제시하는 것을 넘어, 공감과 경청, 그리고 인간적인 연결에서 시작됩니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Thank You / Q&A -->
+      <!-- Slide: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -546,11 +667,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
         prevBtn.click();
       }
     });
