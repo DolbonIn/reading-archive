@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ryuichi Sakamoto: How Many More Full Moons Will I See?</title>
+  <title>나는 앞으로 몇 번의 보름달을 볼 수 있을까</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       background-color: #FCFCFC;
       background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
       background-size: 30px 30px;
@@ -21,6 +21,7 @@
       min-height: 85vh;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
     }
     .slide.active {
       display: flex;
@@ -32,6 +33,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
     .slide-part-title {
       font-size: 1.2rem;
@@ -108,736 +114,457 @@
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
-    ul {
-        list-style-type: disc;
-        padding-left: 2rem;
-    }
-    li {
-        margin-bottom: 0.5rem;
-    }
   </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
   <div class="w-full">
-    <!-- Slides Container: Add your slides here -->
+    <!-- Slides Container -->
     <div id="slides-container">
 
       <!-- Slide 1: Title -->
       <div class="slide active">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">🌕</div>
-          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">How Many More Full Moons Will I See?</h1>
-          <p class="text-xl md:text-2xl text-gray-700">The Final Story of <span class="highlight">Ryuichi Sakamoto</span></p>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나는 앞으로 몇 번의 보름달을 볼 수 있을까</h1>
+          <p class="text-xl md:text-2xl text-gray-700">세계적인 음악가 <span class="highlight">류이치 사카모토</span>가 마지막으로 전하는 이야기</p>
         </div>
       </div>
 
-      <!-- Slide 2: Who is Ryuichi Sakamoto? -->
+      <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Who is <span class="highlight">Ryuichi Sakamoto?</span> 🎹</h2>
+          <h2 class="slide-title">목차</h2>
           <div class="slide-content text-lg space-y-3">
-            <p>A world-renowned musician, composer, and activist born in Tokyo in 1952.</p>
-            <p><b>Pioneer:</b> He made his solo debut in 1978 with <i>Thousand Knives</i> and formed the pioneering electronic music trio <span class="font-bold">Yellow Magic Orchestra (YMO)</span> in the same year.</p>
-            <p><b>Award-Winner:</b> He won numerous awards for his film scores, including a BAFTA for <i>Merry Christmas, Mr. Lawrence</i> and an Academy Award, Golden Globe, and Grammy for <i>The Last Emperor</i>.</p>
-            <p><b>Activist:</b> He was a passionate advocate for environmental and peace issues, founding the forest conservation organization 'more trees' and supporting young musicians from disaster-stricken areas through the 'Tohoku Youth Orchestra'.</p>
-            <p>He passed away on March 28, 2023, leaving behind a profound legacy.</p>
+            <p><b>1. 암과 살아간다:</b> 베르톨루치와 볼스, 죽음에 대한 생각, 투병 생활</p>
+            <p><b>2. 어머니를 위한 레퀴엠:</b> 9/11 이후의 음악, 북극권 여행, 창작의 변화</p>
+            <p><b>3. 자연에는 대적할 수 없다:</b> 동일본 대지진, 반핵 활동, '모어 트리스'</p>
+            <p><b>4. 여행과 창작:</b> 아이슬란드, 백남준과 존 케이지, 영화제와 노가쿠</p>
+            <p><b>5. 첫 번째 좌절:</b> 첫 암 진단, 미국의 의료, <레버넌트> 작업의 고뇌</p>
+            <p><b>6. 더 큰 산을 향해:</b> 앨범 <async>의 탄생, 새로운 표현 형식의 모색</p>
+            <p><b>7. 새로운 재능과의 만남:</b> 젊은 아티스트들과의 교류, 이우환과의 만남</p>
+            <p><b>8. 미래에 남기는 것:</b> 마지막 피아노 솔로, 마지막 앨범 <12>, 남기는 말</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 3: Table of Contents -->
+      <!-- Slide 3: Section 1 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Table of Contents</h2>
-          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-            <p><b>1. Living with Cancer:</b> Confronting mortality.</p>
-            <p><b>2. Requiem for Mother:</b> Music and memory.</p>
-            <p><b>3. You Can't Fight Nature:</b> The Tsunami Piano.</p>
-            <p><b>4. Travel and Creation:</b> Finding inspiration.</p>
-            <p><b>5. The First Frustration:</b> Facing limitations.</p>
-            <p><b>6. Towards a Bigger Mountain:</b> The journey of 'async'.</p>
-            <p><b>7. Meeting New Talents:</b> The next generation.</p>
-            <p><b>8. Leaving for the Future:</b> The final works.</p>
-            <p><b>9. Conclusion:</b> An enduring legacy.</p>
-          </div>
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">암과 살아간다</h2>
+          <p class="slide-content">2014년 암 진단 이후 죽음을 마주하며 변화한 생각들, 그리고 투병 과정의 기록.</p>
         </div>
       </div>
 
-      <!-- Slide 4: Section 1 Title -->
+      <!-- Slide 4: Standard Content Slide -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">Part 1: The Final Chapter</p>
-          <h2 class="slide-title">Living with <span class="highlight">Cancer</span></h2>
-          <p class="slide-content">The book begins with a profound question that shaped Sakamoto's final years, turning an abstract line from a film into a daily, personal meditation.</p>
-        </div>
-      </div>
-
-      <!-- Slide 5: The Opening Question -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">"How many more full moons will I see?"</h2>
-          <p class="slide-subtitle">This question, which became the title of his memoir, originated from a line spoken by author Paul Bowles in the film <i>The Sheltering Sky</i>.</p>
+          <h2 class="slide-title">베르톨루치와 <span class="highlight">볼스</span></h2>
+          <p class="slide-subtitle">"나는 앞으로 몇 번의 보름달을 볼 수 있을까."</p>
           <div class="slide-content">
-            <p>For a long time, the line remained a powerful but distant quote. However, after his first cancer diagnosis in 2014, it became a deeply personal reflection on his own mortality.</p>
+            <p>영화 <마지막 사랑>에 나온 이 대사는 암 진단 이후 자주 떠오르는 생각이 되었습니다. 베르나르도 베르톨루치 감독의 작품으로, 원작자 폴 볼스가 직접 영화 마지막에 등장해 나지막이 말합니다.</p>
+            <p class="mt-4">"인간은 자신의 죽음을 예측하지 못하고, 인생을 마르지 않는 샘이라고 생각한다. ... 앞으로 몇 번이나 더 보름달을 바라볼 수 있을까? 기껏해야 스무 번 정도 아닐까. 그러나 사람들은 기회가 무한하다고 여긴다."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Content with a special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">앨범 <async>과 <span class="highlight">fullmoon</span></h2>
+          <p class="slide-subtitle">죽음에 대한 생각은 2017년 앨범 <async>의 곡 'fullmoon'으로 이어졌습니다.</p>
+          <div class="slide-content">
+            <p>폴 볼스의 구절을 영화에서 샘플링하고, 여러 언어로 번역해 낭독하도록 했습니다.</p>
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">The Original Quote</h3>
-              <p class="mt-2">"Because we don’t know when we will die, we get to think of life as an inexhaustible well... How many more times will you watch the full moon rise? Perhaps twenty. And yet it all seems limitless."</p>
+              <h3 class="font-bold text-lg">베르톨루치의 마지막 목소리</h3>
+              <p class="mt-2">이탈리아어 낭독은 베르톨루치 감독에게 직접 부탁했습니다. 그는 흔쾌히 수락했고, 녹음된 음성 데이터를 보내주었습니다. 이 곡을 완성한 지 1년 만에 그가 세상을 떠나면서, <span class="highlight">이것이 그의 생전 마지막 목소리 출연</span>이 되었습니다.</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Slide 6: "fullmoon" and Bertolucci -->
-      <div class="slide">
-          <div class="slide-container">
-              <h2 class="slide-title">From Quote to Composition 🎶</h2>
-              <p class="slide-subtitle">This meditation on mortality directly inspired the track "fullmoon" on his 2017 album, <i>async</i>.</p>
-              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                      <h3 class="font-bold text-lg">A Global Chorus</h3>
-                      <p>Sakamoto sampled the quote and had it translated and read by native speakers in various languages, creating a global chorus contemplating the same question.</p>
-                  </div>
-                  <div>
-                      <h3 class="font-bold text-lg">Bertolucci's Final Performance</h3>
-                      <p>For the final Italian narration, he casually asked director Bernardo Bertolucci. Bertolucci agreed immediately, recording the lines that would become one of his last vocal performances before his death a year later.</p>
-                  </div>
-              </div>
-          </div>
       </div>
       
-      <!-- Slide 7: The Cancer Journey -->
-      <div class="slide">
+      <!-- Slide 6: Two Column Layout -->
+       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">A Difficult <span class="highlight">Journey</span></h2>
-          <p class="slide-subtitle">Sakamoto provides a frank and detailed account of his battle with cancer.</p>
-          <div class="slide-content">
-            <ul>
-              <li><b>2014:</b> First diagnosed with oropharyngeal (throat) cancer, which was successfully treated.</li>
-              <li><b>June 2020:</b> Diagnosed with rectal cancer during a check-up in New York.</li>
-              <li><b>December 2020:</b> Discovered in Japan that the cancer had metastasized to his liver and lymph nodes—a fact his New York hospital had failed to communicate. This led to a profound <span class="font-bold">loss of trust</span>.</li>
-              <li><b>January 2021:</b> Underwent a massive, 20-hour surgery in Japan to remove multiple tumors.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 8: The Grim Prognosis -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">Confronting the <span class="highlight">Prognosis</span></h2>
-            <p class="slide-subtitle">After discovering the metastasis, he was given a blunt prognosis by a Japanese doctor.</p>
-            <div class="slide-content">
-                <div class="p-6 bg-red-50 border border-red-200 rounded-lg">
-                    <h3 class="font-bold text-lg text-red-800">"You have about 6 months left."</h3>
-                    <p class="mt-2">He was shocked and angered by the doctor's tone, which left no room for hope. It was a purely statistical, objective assessment that felt devoid of humanity.</p>
-                </div>
-                <p class="mt-8">Incredibly, the very next day, Sakamoto performed a <span class="font-bold">pre-scheduled online solo piano concert</span>. He felt he played poorly, his mind in turmoil, but those who knew him well praised the performance, finding a unique depth in it.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 9: Post-Surgery Delirium -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Mind's <span class="highlight">Labyrinth</span> 🧠</h2>
-          <p class="slide-subtitle">After the 20-hour surgery, he experienced several bouts of intense delirium, a common side effect of general anesthesia.</p>
-          <div class="slide-content">
-              <ul>
-                  <li>He woke up convinced he was in a regional hospital in <span class="font-bold">Korea</span>, trying to communicate with nurses in broken Korean.</li>
-                  <li>He messaged his assistant, "I'm going to be late for the meeting," while unable to move his body.</li>
-                  <li>He was haunted by a continuous loop of an old Japanese TV commercial jingle he didn't even like.</li>
-                  <li>Though frightening, he also found the experience fascinating, a glimpse into the surreal, automatic, and vast storage of the subconscious brain.</li>
-              </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 10: Love and Recovery -->
-      <div class="slide">
-          <div class="slide-container">
-              <h2 class="slide-title">Saved by <span class="highlight">Love</span> ❤️</h2>
-              <p class="slide-subtitle">Recovery was a difficult process, marked by physical pain, complications, and emotional despair.</p>
-              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                      <h3 class="font-bold text-lg">Fighting Back</h3>
-                      <p>Nurses urged him to get out of bed and walk to prevent muscle atrophy. Despite the pain and weakness, he forced himself to sit on the sofa, read, and listen to music.</p>
-                  </div>
-                  <div>
-                      <h3 class="font-bold text-lg">"Romi-Julie"</h3>
-                      <p>Due to COVID-19 restrictions, his partner couldn't visit. Instead, every evening they would wave their smartphone flashlights to each other across the street—a ritual they nicknamed 'Romi-Julie' (Romeo and Juliet).</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- Slide 11: The Nature of Time -->
-      <div class="slide">
-          <div class="slide-container">
-              <h2 class="slide-title">Questioning <span class="highlight">Time</span></h2>
-              <p class="slide-subtitle">Sakamoto's illness intensified his lifelong philosophical inquiry into the nature of time.</p>
-              <div class="slide-content">
-                  <p>He argues that music is often called a "time-based art," progressing along a linear path. However, his experiences led him to question this premise.</p>
-                  <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <h3 class="font-bold text-lg">Time as an Illusion</h3>
-                    <p class="mt-2">After years of reading philosophy and physics, he concluded that the concept of 'absolute time'—a constant, forward-moving force independent of the observer—is an illusion <span class="font-bold">created by the human brain</span>.</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- Slide 12: Impulse to Destroy -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Impulse to <span class="highlight">Destroy</span></h2>
-          <p class="slide-subtitle">A surprising experience after the premiere of his theatrical work <i>TIME</i> at the Holland Festival.</p>
-          <div class="slide-content">
-            <p>After years of work, he watched the "final" performance and suddenly felt a powerful urge to destroy it. He has always disliked "formal" or fixed things, and the idea of a work being "complete" and static felt like a creative death. This impulse was a new and startling experience for him, a testament to his desire for art to remain a living, changing entity.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 13: On "Merry Christmas, Mr. Lawrence" -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Shadow of a <span class="highlight">Masterpiece</span></h2>
-          <p class="slide-subtitle">He discusses his complicated relationship with his most famous work.</p>
+          <h2 class="slide-title">암의 발견과 <span class="highlight">전이</span></h2>
+          <p class="slide-subtitle">2014년 중인두암, 그리고 2020년 직장암 진단. 투병은 계속되었습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">A 30-Second Flash</h3>
-              <p>The iconic melody came to him in a flash of inspiration, taking only about 30 seconds to form in his mind at the piano.</p>
+              <h3 class="font-bold text-lg">뉴욕에서의 오진</h3>
+              <p>2020년 6월, 뉴욕에서 직장암 진단을 받고 방사선 치료를 시작했지만 암은 사라지지 않았습니다. 그해 12월 일본에서 건강검진을 받은 결과, 직장암이 이미 간과 림프에도 전이되었다는 사실을 알게 되었습니다. 뉴욕 병원이 이를 발견하지 못했다는 사실에 큰 불신을 느꼈습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">Acceptance</h3>
-              <p>For over 10 years, he refused to play the piece in concert, tired of its overwhelming popularity. He finally came to terms with its importance to his audience after seeing Carole King perform "You've Got A Friend" and realizing the joy it brought people.</p>
+              <h3 class="font-bold text-lg">시한부 선고</h3>
+              <p>일본의 종양내과 의사는 "이대로 두면 6개월 정도밖에 더 살지 못합니다"라고 딱 잘라 말했습니다. 희망의 여지를 남기지 않는 비관적인 말투에 충격을 받았고, 깊은 좌절감에 휩싸였습니다. 이 의사와는 맞지 않는다고 생각했습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 14: On Life and Death -->
+      <!-- Slide 7: Standard Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Life's True <span class="highlight">Form</span></h2>
-          <p class="slide-subtitle">Sakamoto's thoughts on accepting the natural course of life and death.</p>
+          <h2 class="slide-title">선고 다음 날의 <span class="highlight">콘서트</span></h2>
+          <p class="slide-subtitle">시한부 선고를 받은 바로 다음 날, 온라인 피아노 콘서트가 예정되어 있었습니다.</p>
           <div class="slide-content">
-            <p>He reflects that in a pre-modern era, he would have died at 62 with his first cancer diagnosis, and that would have been considered a long life. The relentless modern pursuit of prolonging life at any cost felt questionable to him.</p>
+             <p>‘Ryuichi Sakamoto: Playing the Piano 12122020’이라는 이름으로 공개된 콘서트였습니다. 정신 상태는 최악이었고, 열악한 환경에서 진행했기에 연주를 잘했는지 스스로도 전혀 자신이 없었습니다.</p>
+             <p class="mt-4 font-bold">하지만 신기하게도, 오래 알고 지낸 사람일수록 그날의 연주를 칭찬했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Content with a special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">섬망 증상과 <span class="highlight">사랑</span></h2>
+          <p class="slide-subtitle">20시간의 대수술 후, 예상치 못한 섬망 증세를 겪었지만 사랑으로 이겨냈습니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">수술 후 눈을 뜨자 '이곳은 한국의 병원이다'라는 착각이 들거나, 있지도 않은 컴퓨터가 다크웹에 해킹당하는 환각에 시달렸습니다. 몹시 두려우면서도 뇌 구조의 흥미로움을 깨닫는 신기한 경험이었습니다.</p>
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">A Natural End</h3>
-                <p class="mt-2">He expresses admiration for the philosophy of "Today is a good day to die," a mindset that embraces death as a natural part of life, not a failure to be fought off with painful treatments. While he still underwent treatment, he fundamentally believed in living and dying naturally.</p>
+              <h3 class="font-bold text-lg">로미줄리 💑</h3>
+              <p class="mt-2">코로나로 면회가 금지되어 파트너와 직접 만날 수 없었습니다. 그래서 매일 저녁 병원 맞은편 도로를 사이에 두고 서로 스마트폰 불빛을 켜 흔들며 인사하는 습관이 생겼습니다. <span class="highlight">"로미오와 줄리엣이 된 것 같다"</span>는 이야기에 이 습관의 이름은 '로미줄리'가 되었습니다. 괴로울 때야말로 사랑에 구원받는다는 생각이 듭니다.</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Slide 15: Section 2 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 2: Music and Memory</p>
-          <h2 class="slide-title">Requiem for a <span class="highlight">Mother</span></h2>
-          <p class="slide-content">This section explores the influences and experiences that shaped his music after 2009, including travel, loss, and artistic breakthroughs.</p>
-        </div>
-      </div>
       
-      <!-- Slide 16: Music Sets You Free -->
+      <!-- Slide 9: Standard Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Music Sets You Free 🕊️</h2>
-          <p class="slide-subtitle">The title of his 2009 autobiography, <i>"Ongaku wa Jiyuu ni Suru"</i> (Music Makes You Free), was a deliberate commentary.</p>
+          <h2 class="slide-title">시간에 대한 <span class="highlight">의구심</span></h2>
+          <p class="slide-subtitle">음악은 시간의 예술입니다. 암 진단 이후, 시간에 대한 생각은 제게 중요한 테마가 되었습니다.</p>
           <div class="slide-content">
-            <p>It's a satirical twist on the infamous Nazi slogan "Arbeit macht frei" (Work sets you free). For Sakamoto, music was the true source of liberation.</p>
-            <p class="mt-4">This idea became even more potent for him in the face of political turmoil like 9/11 and his own personal "prison" of cancer. Even when the body is not free, the act of creating and listening to music offers moments of escape from pain and suffering.</p>
+            <p>건강할 때는 시간의 영원함이나 일방향성을 전제로 생각했지만, 생의 유한함에 직면한 지금은 다른 각도에서 생각해볼 필요를 느낍니다.</p>
+            <p class="mt-4">수년간 아리스토텔레스부터 현대 물리학자들의 책까지 읽으며 내린 결론은, 뉴턴이 말한 '절대 시간'은 틀렸다는 것입니다. <span class="highlight">시간은 뇌가 만들어내는 환상</span>이라는 것이 지금의 제 결론입니다.</p>
+            <p class="mt-4">이러한 생각은 릴케의 시에서 영감을 얻은 곡 <지금 시간이 기울어>와 극장 작품 <타임>으로 이어졌습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 17: Journey to the Arctic -->
+      <!-- Slide 10: Standard Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Journey to the <span class="highlight">Arctic</span></h2>
-          <p class="slide-subtitle">A 2008 trip to Greenland as part of the "Cape Farewell" art-and-science project became a pivotal experience.</p>
+          <h2 class="slide-title">파괴 충동과 <span class="highlight">대표작</span></h2>
+          <p class="slide-subtitle">"모처럼 연명했으니 남은 생에 <메리 크리스마스 미스터 로런스>를 뛰어넘는 작품을 만들어보고 싶다."</p>
+          <div class="slide-content">
+            <p>대표작의 대중적 이미지에 염증을 느껴 10년간 봉인했던 시기도 있었습니다. 하지만 캐럴 킹의 콘서트에서 관객들이 그녀의 대표곡을 기다리는 것을 보고, 제 대표곡을 기다리는 관객의 존재를 부정할 수 없음을 납득하게 되었습니다.</p>
+            <p class="mt-4">물론 여전히 '메리 크리스마스 미스터 로런스로 잘 알려진 사카모토 류이치'라는 수식어에는 거부감이 있습니다. 하지만 이제는 그 이미지를 바꾸려 애쓰기보다, <span class="highlight">담담하게 만들고 싶은 음악을 꾸준히 만들어가는 것</span>으로 충분하다고 생각합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">어머니를 위한 레퀴엠</h2>
+          <p class="slide-content">2009년 이후의 활동과 창작 세계의 변화, 그리고 가족에 대한 기억.</p>
+        </div>
+      </div>
+
+      <!-- Slide 12: Standard Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">음악으로 <span class="highlight">자유로워지다</span></h2>
+          <p class="slide-subtitle">2009년 자서전의 제목은 나치 수용소의 표어 '노동이 자유롭게 한다'를 의도적으로 풍자한 것입니다.</p>
+          <div class="slide-content">
+            <p>독일어로 'Musik macht frei', 영어로 'Music sets you free'가 됩니다. 9.11 테러 이후의 제국주의적 행보와 암이라는 또 다른 감옥에 갇히면서, 음악이 주는 자유를 더욱 강렬하게 느끼게 되었습니다.</p>
+            <p class="mt-4">몸이 자유롭지 못하더라도 음악을 만들고 듣는 순간만큼은 고통과 불쾌한 생각을 떨쳐버릴 수 있었습니다. <span class="highlight">'Music sets me free'를 몸소 실감</span>했죠.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Two Column Layout -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">북극권 여행과 <span class="highlight">《Out of Noise》</span></h2>
+          <p class="slide-subtitle">2008년 그린란드 여행은 앨범 《Out of Noise》에 결정적인 영감을 주었습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">The Sound of Nature</h3>
-              <p>Seeing the aurora borealis and the massive icebergs, some formed 20,000 years ago, gave him a profound sense of nature's sublime power and humanity's insignificance.</p>
+              <h3 class="font-bold text-lg">자연의 경이로움 🧊</h3>
+              <p>영국 아티스트들의 '케이프 페어웰' 프로젝트에 참여해 열흘간 그린란드를 여행했습니다. 밤하늘의 오로라와 바다 위 수많은 빙산들의 모습은 동물적 관능 그 자체였고, 자연이 인간의 상상을 훨씬 뛰어넘는 존재임을 실감했습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">Field Recordings</h3>
-              <p>The journey directly inspired his album <i>Out of Noise</i>. He made numerous field recordings, capturing the sounds of melting ice and even ringing a bell inside an ice cave.</p>
+              <h3 class="font-bold text-lg">소음 속의 음악 🎶</h3>
+              <p>프로젝트명은 'Music comes out of noise'였습니다. 소음 속에서 음악이 나타난다는 뜻이죠. 빙하 동굴 속에서 종을 울려 녹음하고, 눈이 녹는 소리, 바닷물 소리 등 그린란드에서의 필드 레코딩 결과물이 앨범에 가득 담겼습니다.</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 18: A Night the Performance Changed -->
-      <div class="slide">
-          <div class="slide-container">
-              <h2 class="slide-title">Entering "The Zone"</h2>
-              <p class="slide-subtitle">During a grueling European tour in 2009, he had a breakthrough experience at Cadogan Hall in London.</p>
-              <div class="slide-content">
-                  <p>He describes it as something athletes call "being in the zone." For two hours, he played in a state of "no-mind" (無我), where all conscious thought disappeared and his fingers moved on their own. He made no mistakes.</p>
-                  <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                      <h3 class="font-bold text-lg">A New Level</h3>
-                      <p class="mt-2">His partner, who had watched countless performances, told him that his playing fundamentally changed from that night onward. It was a rare and profound moment of transcendence where it felt as if "the god of music descended from heaven."</p>
-                  </div>
-              </div>
-          </div>
-      </div>
 
-      <!-- Slide 19: A Sunflower-like Mother -->
+      <!-- Slide 14: Standard Content -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">A <span class="highlight">Sunflower</span>-like Mother 🌻</h2>
-            <p class="slide-subtitle">He fondly remembers his mother, Keiko, who passed away in 2010.</p>
-            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">Contrast and Balance</h3>
-                    <p>He contrasts his quiet, scholarly father with his bright, fashionable, and sociable mother. He felt this duality in his parents sometimes led to a split in his own personality.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg">First Movie Memory</h3>
-                    <p>A passionate fan of Italian cinema, she took him to see his very first film as a child: Federico Fellini's <i>La Strada</i>. He couldn't remember the plot, but the main theme song remained etched in his memory.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 20: Requiem for a Mother -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">The Cycle of Seasons</h2>
-            <p class="slide-subtitle">Shortly after his mother's death, he composed a Concerto for Koto and Orchestra.</p>
-            <div class="slide-content">
-                <p>The piece was inspired by the idea that seasons truly begin in winter (a time for seeds to grow) and end in autumn. This cycle reminded him of the cycle of human life.</p>
-                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <h3 class="font-bold text-lg">A Tacit Requiem</h3>
-                    <p class="mt-2">Though he never stated it publicly, he reveals that the concerto was a requiem for his mother. The piece begins in the quiet of winter and flows towards its end in autumn, mirroring his thoughts of her during its creation.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 21: Section 3 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 3: Art and Activism</p>
-          <h2 class="slide-title">You Can't Fight <span class="highlight">Nature</span></h2>
-          <p class="slide-content">The 3/11 Great East Japan Earthquake and Fukushima nuclear disaster marked a pivotal moment, deepening his commitment to activism and reshaping his artistic philosophy.</p>
-        </div>
-      </div>
-
-      <!-- Slide 22: The 3/11 Earthquake -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">March 11, 2011 🌊</h2>
-          <p class="slide-subtitle">He was in a Tokyo recording studio when the massive earthquake struck.</p>
+          <h2 class="slide-title">연주가 달라진 밤: <span class="highlight">The Zone</span></h2>
+          <p class="slide-subtitle">2009년 유럽 투어 중 런던 카도간 홀에서의 경험은 제 연주를 한 단계 끌어올렸습니다.</p>
           <div class="slide-content">
-            <p>His first instinct, he amusingly notes, was to save the expensive microphone before hiding under the desk. The experience of the long, unfamiliar shaking was terrifying.</p>
-            <p class="mt-4">In the following days, the horror unfolded with news of the tsunami and the subsequent hydrogen explosions at the Fukushima Daiichi Nuclear Power Plant. He watched in horror as the worst-case scenario he had been warning against for years became a reality.</p>
+            <p>수십 번의 공연을 반복하며 연주의 질은 점점 달라집니다. 그날 밤, 저는 운동선수들이 말하는 '존에 들어간' 상태를 경험했습니다.</p>
+            <p class="mt-4">아무런 잡념 없이 연주에 빠져들었다가 정신을 차려보니 두 시간이 흘러 있었습니다. 하늘에서 음악의 신이 내려와 저를 한 단계 높은 스테이지에 데려다 놓은 느낌이었습니다. 그 공연을 기점으로 <span class="highlight">제 연주의 레벨이 완전히 달라졌다</span>고 파트너는 말했습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 23: The "Tsunami Piano" -->
+      <!-- Slide 15: Content with a special block -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">The "Tsunami Piano"</h2>
-          <p class="slide-subtitle">In the disaster's aftermath, he discovered a piano that had been submerged in the tsunami.</p>
+          <h2 class="slide-title">해바라기 같은 <span class="highlight">어머니</span> 🌻</h2>
+          <p class="slide-subtitle">어머니와의 사별은 큰 상실감을 남겼지만, 그녀는 제게 큰 영향을 준 존재였습니다.</p>
           <div class="slide-content">
-            <p>The instrument was completely broken, but he was fascinated by the sound it made. He felt it was the sound of a man-made object being forcibly returned to its natural state.</p>
+            <p>과묵한 규슈 출신의 아버지와 대조적으로, 쾌활하고 사교적인 도쿄 출신의 어머니는 밝은 해바라기 같았습니다. 모자 디자이너였던 어머니는 패셔너블했고, 이탈리아 영화를 무척 좋아하셨습니다.</p>
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">Nature's Reclaiming</h3>
-                <p class="mt-2">"The tsunami was the result of the force of nature, so the piano was a victim of it. You could even say that the piano was tuned by nature."</p>
+              <h3 class="font-bold text-lg">계절의 순환, 그리고 레퀴엠</h3>
+              <p class="mt-2">어머니가 돌아가시고 얼마 지나지 않아, 고토 연주가 사와이 가즈에 씨의 위촉으로 <고토와 오케스트라를 위한 협주곡>을 썼습니다. 사계절이 겨울에서 시작된다는 오리쿠치 시노부의 이론에 영감을 받아, 가을에 끝나는 구성으로 만들었습니다. 이 곡은 돌아가신 <span class="highlight">어머니께 바치는 레퀴엠</span>이었습니다.</p>
             </div>
-            <p class="mt-4">He rescued the piano, and its unique sounds were featured heavily on his album <span class="font-bold"><i>async</i></span> and in the installation piece <span class="font-bold"><i>IS YOUR TIME</i></span>.</p>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 24: Connection with Korea -->
+
+      <!-- Slide 16: Section 3 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Connection with <span class="highlight">Korea</span> 🇰🇷</h2>
-          <p class="slide-subtitle">He details his long and warm relationship with Korea.</p>
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">자연에는 대적할 수 없다</h2>
+          <p class="slide-content">3.11 동일본 대지진과 후쿠시마 원전 사고 이후의 사회적 활동과 예술적 성찰.</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: Standard Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">동일본 대지진과 <span class="highlight">쓰나미 피아노</span></h2>
+          <p class="slide-subtitle">2011년 3월 11일, 지진은 제 삶과 음악에 또 다른 거대한 전환점이 되었습니다.</p>
+          <div class="slide-content">
+            <p>재해지의 잔해 더미 속에서 발견된 악기 파편들은 단순한 파편으로 보이지 않았습니다. 지진 피해로 망가진 악기를 고쳐 다시 음악을 연주하게 할 수는 없을까 하는 생각에 '어린이 음악 재생 기금'을 설립했습니다.</p>
+            <p class="mt-4">쓰나미로 흙탕물을 뒤집어쓴 피아노를 직접 보러 갔습니다. 망가진 건반을 누르자, 완전히 흐트러진 조율의 현이 뭐라 말할 수 없이 정취 있는 소리를 냈습니다. <span class="highlight">자연의 힘에 의해 인간의 에고가 파괴되어, 비로소 자연 본연의 모습으로 회귀한 것</span> 같은 느낌이었습니다. 이 '쓰나미 피아노'의 소리는 앨범 <async>에 사용되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Two Column Layout -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'모어 트리스'와 <span class="highlight">'NO NUKES'</span></h2>
+          <p class="slide-subtitle">환경과 평화 문제에 대한 발언을 이어가며 다양한 사회 활동을 펼쳤습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">Mutual Respect</h3>
-              <p>During his first major concert in 2000, he was impressed by the humility and ambition of Korean music professionals. He felt a sense of camaraderie as a fellow Asian artist.</p>
+              <h3 class="font-bold text-lg">More Trees 🌳</h3>
+              <p>삼림보전단체 '모어 트리스' 활동의 일환으로, 쓰나미 피해 지역 주민들을 위해 목재 임시주택을 짓는 'LIFE311' 프로젝트를 시작했습니다. 2017년 생일에는 중국 팬들이 내몽골 사막에 1,170그루의 나무를 심어주어 큰 감동을 받기도 했습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">A Fan of Hallyu</h3>
-              <p>He became a huge fan of the Korean Wave, from dramas like <i>Winter Sonata</i> and <i>Mr. Sunshine</i> to films like <i>Parasite</i> and artists like BTS, watching them frequently on Netflix.</p>
+              <h3 class="font-bold text-lg">No Nukes ☢️</h3>
+              <p>후쿠시마 원전 사고 이후 탈원전 음악 페스티벌 'NO NUKES'를 시작했습니다. '고작 전기'라는 발언으로 비난받기도 했지만, '인간의 생명과 전기 중 어느 쪽이 중요한가'라는 질문을 던지고 싶었습니다. 대안은 재생 가능 에너지에 있습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 25: The 'more trees' Project -->
+      <!-- Slide 19: Section 4 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">'more trees' and LIFE311</h2>
-          <p class="slide-subtitle">His environmental activism took on new urgency after the 3/11 disaster.</p>
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">여행과 창작</h2>
+          <p class="slide-content">새로운 장소와 사람들과의 만남이 어떻게 창작의 원동력이 되었는가.</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: Standard Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이슬란드와 <span class="highlight">백남준</span></h2>
+          <p class="slide-subtitle">새로운 땅과의 만남은 항상 새로운 영감을 주었습니다.</p>
           <div class="slide-content">
-            <p>Through his 'more trees' foundation, he launched the 'LIFE311' project to build temporary wooden houses for tsunami victims in Rikuzentakata, using timber from the nearby forestry town of Sumita.</p>
-            <p class="mt-4">He was outraged when bureaucracy initially blocked funding. 'more trees' decided to raise the 300 million yen itself, successfully gathering around 240 million yen and inspiring local officials to push back against the government.</p>
+            <p>2013년, 처음으로 아이슬란드를 방문했습니다. 금융 위기를 극복하고 총에너지의 100%를 자연 에너지로 조달하는 모습에 큰 인상을 받았습니다.</p>
+            <p class="mt-4">워싱턴 D.C.의 스미스소니언 박물관에서 열린 백남준 회고전 기념 이벤트에 참여했습니다. 10대 시절부터 저의 아이돌이었던 그를 1984년에 처음 만났고, 뉴욕 소호의 아틀리에를 방문하며 친분을 쌓았습니다. 그의 친구 존 케이지의 집에도 함께 방문했던 기억이 생생합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 26: "Just Electricity" -->
+      <!-- Slide 21: Standard Content -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">"It's <span class="highlight">Just</span> Electricity"</h2>
-          <p class="slide-subtitle">He addresses the controversy over a speech he gave at an anti-nuclear rally.</p>
+          <h2 class="slide-title">영화제라는 <span class="highlight">공간</span> 🎬</h2>
+          <p class="slide-subtitle">베르톨루치의 초청으로 베네치아 영화제 심사위원을 맡으며 영화제의 매력을 알게 되었습니다.</p>
           <div class="slide-content">
-            <p>The media focused on his phrase "Taka ga denki" (It's just electricity), leading to immense criticism. He clarifies his point was never to belittle electricity's value, but to ask a simple question:</p>
+            <p>주위로부터 동떨어져 있지만 그 안에서는 전 세계 영화인들의 긴밀한 소통이 이루어지는 신기한 공간입니다. 그곳에서 대만의 차이밍량 감독을 만나 그의 작품 <너의 얼굴> 음악을 만들게 되었고, 중국의 후 보 감독의 유작 <코끼리는 그곳에 있어>를 보고 큰 충격을 받기도 했습니다.</p>
+            <p class="mt-4">세분화된 음악 업계와 달리, 거대한 스케일로 전 세계에 작품을 전파하는 영화의 확장 방식이 부럽게 느껴졌습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Content with a special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노가쿠에 <span class="highlight">다가가기</span></h2>
+          <p class="slide-subtitle">오랫동안 기피했던 일본 전통 예술에 점차 흥미를 가지게 되었습니다.</p>
+          <div class="slide-content">
+            <p>내셔널리즘과 군국주의를 상기시킨다는 이유로 노가쿠나 가부키 같은 전통 예술을 피해왔습니다. 하지만 50세 무렵 아프리카에서 새의 아름다움에 감탄하며 '이것이야말로 화조풍월의 세계구나'라고 깨달은 것을 계기로 점차 관심을 갖게 되었습니다.</p>
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">The Core Question</h3>
-                <p class="mt-2">"Between human life and electricity, which is more important?" The answer, he states, should obviously be 'life'. His argument was that we should not risk lives for the most dangerous form of power generation when safer, renewable alternatives exist.</p>
+              <h3 class="font-bold text-lg">LIFE-WELL</h3>
+              <p class="mt-2">2013년, YCAM 10주년 기념으로 노무라 만사이, 다카타니 시로와 함께 노가쿠 퍼포먼스 <LIFE-WELL>을 상연했습니다. W. B. 예이츠의 희곡 <매의 우물에서>를 기반으로 한 실험적인 무대였습니다. 이 경험을 통해 일본 악기의 강렬한 존재감과 프리페어드 피아노의 가능성을 탐구했습니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 27: Section 4 Title -->
+      <!-- Slide 23: Section 5 Title -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">Part 4: Inspiration and Creation</p>
-          <h2 class="slide-title">Travel and <span class="highlight">Creation</span></h2>
-          <p class="slide-content">Exploring the world, meeting other artists, and finding inspiration in unexpected places were central to Sakamoto's creative process.</p>
+          <p class="slide-part-title">Part 5</p>
+          <h2 class="slide-title">첫 번째 좌절</h2>
+          <p class="slide-content">2014년 첫 암 진단과 치료, 그리고 영화 <레버넌트> 작업 과정에서 겪었던 창작의 고통.</p>
         </div>
       </div>
 
-      <!-- Slide 28: Learning from Iceland -->
-      <div class="slide">
+      <!-- Slide 24: Two Column Layout -->
+       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Learning from <span class="highlight">Iceland</span> 🇮🇸</h2>
-          <p class="slide-subtitle">A 2013 trip to Iceland for the Sonar festival left a deep impression.</p>
+          <h2 class="slide-title">치료와 <span class="highlight">치유</span></h2>
+          <p class="slide-subtitle">암 진단 후, 서양의학과 대체의학을 병행하며 새로운 삶의 방식을 모색했습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">A Model for the Future</h3>
-              <p>He was fascinated by how Iceland recovered from the 2008 financial crisis by rejecting endless economic growth and holding its bankers accountable. He saw it as a model of sustainability.</p>
+              <h3 class="font-bold text-lg">미국의 의료 🏥</h3>
+              <p>뉴욕에서 방사선 치료를 받으며 미국의 의료 시스템을 경험했습니다. 디지털화된 서비스는 편리했지만, 차가운 실내 온도와 병원에서 제공되는 콜라는 충격적이었습니다. 서양의학과 대체의학의 거리가 일본보다 가깝다는 인상도 받았습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">100% Renewable Energy</h3>
-              <p>He was inspired by Iceland's use of 70% hydropower and 30% geothermal power. He was surprised to find the geothermal turbines were made by Mitsubishi, lamenting that Japan, a volcanic nation, wasn't doing the same.</p>
+              <h3 class="font-bold text-lg">하와이에서의 요양 🏝️</h3>
+              <p>치료 후 요양을 위해 하와이를 찾았습니다. '힐링 뮤직'이라는 말을 싫어했지만, 하와이의 바람을 맞으며 이것이야말로 진정한 의미의 '치유'가 아닐까 생각했습니다. 포레의 음악을 들으며 그의 매력을 재발견하는 등, 충분한 여유 시간을 가지며 처음으로 깨달은 사실들이 많았습니다.</p>
             </div>
           </div>
-        </div>
       </div>
 
-      <!-- Slide 29: A Dislike of Tourism -->
+      <!-- Slide 25: Standard Content -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">"I Hate Sightseeing!" 😩</h2>
-            <p class="slide-subtitle">Sakamoto makes a clear distinction between traveling for work and being a tourist.</p>
-            <div class="slide-content">
-                <p>He recounts a story from Portugal where a well-meaning record label rep took him on an all-day tour. After hours of being stuck in traffic, his patience snapped.</p>
-                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                  <h3 class="font-bold text-lg">An Explosive Moment</h3>
-                  <p class="mt-2">He jumped out of the car, yelled "I hate sightseeing!" at the stunned rep, and walked all the way back to his hotel. He later felt terrible and apologized, but the story illustrates his intense focus on work over leisure.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-      
-      <!-- Slide 30: Nam June Paik & John Cage -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">Encounters with <span class="highlight">Giants</span></h2>
-          <p class="slide-subtitle">He recalls his memorable meetings with two of his idols, Nam June Paik and John Cage.</p>
+          <h2 class="slide-title">영화 <레버넌트>와 <span class="highlight">좌절</span></h2>
+          <p class="slide-subtitle">"지금 전 세계에서 이냐리투 감독한테 직접 음악을 부탁받는 사람이 몇 명이나 될 거 같아? 암이 재발해서 죽어도 좋으니까 그냥 해."</p>
           <div class="slide-content">
-            <ul>
-              <li><b>Nam June Paik (1984):</b> He was deeply moved when Paik, whom he revered, greeted him warmly like an old friend in Tokyo. He later visited Paik's spartan, roof-leaking studio in New York.</li>
-              <li><b>John Cage:</b> With Paik, he visited the home of composer John Cage. Cage, a mushroom expert, shared a story about losing all his possessions three times while traveling. Each time, he saw it not as a loss, but as a welcome opportunity to <span class="font-bold">reset his life</span>, a Zen-like attitude that impressed Sakamoto.</li>
-            </ul>
+            <p>파트너의 설득에, 암 치료 후 요양 중인 상태에서 알레한드로 곤잘레스 이냐리투 감독의 영화 <레버넌트: 죽음에서 돌아온 자>의 음악 작업을 수락했습니다. '소리의 중첩(layers of the sounds)'이라는 추상적인 요구는 힘든 작업이었습니다.</p>
+            <p class="mt-4">항암 치료 후유증인 '케모 브레인'으로 집중력이 떨어지는 등, 체력과 지력의 한계 속에서 처음으로 <span class="highlight">창작의 좌절</span>을 맛보았습니다. 본래 가진 힘을 100% 쏟아내지 못했다는 후회가 남았습니다. 하지만 이 씁쓸한 경험 덕분에 새로운 세계가 열리기도 했습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 31: The Film Festival World -->
+      <!-- Slide 26: Section 6 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">The World of <span class="highlight">Film Festivals</span> 🎬</h2>
-          <p class="slide-subtitle">Serving as a jury member at festivals like Venice and Berlin was a gateway to a new world.</p>
-          <div class="slide-content">
-            <p>It was Bernardo Bertolucci who first invited him to be a juror. This world provided an incredible opportunity to meet other filmmakers, discover unknown films from around the globe, and engage in a concentrated, high-level dialogue about cinema that he found was missing in the more siloed music industry. He formed lasting friendships with directors like Taiwan's Tsai Ming-liang.</p>
-          </div>
+          <p class="slide-part-title">Part 6</p>
+          <h2 class="slide-title">더 큰 산을 향해</h2>
+          <p class="slide-content">예술가 이우환에게서 영감을 받아 탄생한 앨범 <async>와 새로운 예술 형식에 대한 도전.</p>
         </div>
       </div>
 
-      <!-- Slide 32: Section 5 Title -->
+      <!-- Slide 27: Content with a special block -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">Part 5: Confronting Limits</p>
-          <h2 class="slide-title">The First <span class="highlight">Frustration</span></h2>
-          <p class="slide-content">This section details Sakamoto's first encounters with the physical limitations of aging and the immense challenge of his return to work after cancer treatment.</p>
-        </div>
-      </div>
-
-      <!-- Slide 33: The First Sign of Aging -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The First Sign: <span class="highlight">Presbyopia</span></h2>
-          <p class="slide-subtitle">At age 42, he experienced the first undeniable sign of aging.</p>
+          <h2 class="slide-title">모노파(もの派)와 타르콥스키, 그리고 <span class="highlight">《async》</span></h2>
+          <p class="slide-subtitle">8년 만의 오리지널 앨범은 '가공의 타르콥스키 영화 사운드트랙'이라는 컨셉으로 만들어졌습니다.</p>
           <div class="slide-content">
-            <p>In a recording studio, he suddenly found he couldn't focus on the sheet music in his hands. The notes were a blur. For someone who had always had 1.5 (20/13) vision, the experience was a profound shock.</p>
-            <p class="mt-4">Moving the score back and forth, he found the focal point had shifted further away. He had to get reading glasses, and he recalls that seeing the world through them for the first time felt like entering a different dimension, making him wonder what else he had been missing.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 34: A Palm Reading Prophecy -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">A Fateful <span class="highlight">Prophecy</span></h2>
-          <p class="slide-subtitle">A few years later, a casual moment at a party with musician Taeko Onuki took a serious turn.</p>
-          <div class="slide-content">
-            <p>She playfully asked to read his palm, but her expression suddenly hardened. In a dead serious tone, she told him:</p>
-            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <h3 class="font-bold text-lg">"You won't live much longer if you continue like this."</h3>
-            </div>
-            <p class="mt-4">The warning was so sincere that it spurred him to explore alternative health practices for the first time, including Noguchi Seitai (a form of Japanese bodywork) and a macrobiotic diet. It was a crucial turning point in his approach to his own health.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 35: The Revenant - The Comeback -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Revenant: A Painful <span class="highlight">Return</span></h2>
-          <p class="slide-subtitle">His first major project after his 2014 cancer treatment was scoring Alejandro Iñárritu's <i>The Revenant</i>.</p>
-          <div class="slide-content">
-            <p>The offer came when he was still recovering. A music supervisor on the film, who had also survived cancer, told him, "Getting back to work is the best thing for you."</p>
-            <p class="mt-4">His partner was even more blunt: "How many people in the world get a direct request from Iñárritu? It's fine if the cancer comes back and you die, just do it." It was, he says, a cruel but effective push.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 36: The First True Failure -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">A Taste of <span class="highlight">Failure</span></h2>
-          <p class="slide-subtitle">Working on <i>The Revenant</i> was the first time in his life he felt he had truly failed.</p>
-          <div class="slide-content">
-            <p>He was battling not only physical exhaustion but also "chemo brain," a cognitive fog that made concentration difficult. For the first time, he felt his physical and mental abilities couldn't match his creative ambitions.</p>
-            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
-              <h3 class="font-bold text-lg text-red-800">"I couldn't give 100%."</h3>
-              <p class="mt-2">Several of his pieces were rejected in favor of the temp music, and he didn't have the energy to fight for them or create better alternatives. The experience was deeply humbling and left him with a lasting sense of regret.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 37: "Trust Me!" -->
-      <div class="slide">
-        <div class="slide-container">
-            <h2 class="slide-title">One Last Stand: <span class="highlight">"Trust me!"</span></h2>
-            <p class="slide-subtitle">There was one scene where he refused to back down.</p>
-            <div class="slide-content">
-                <p>For a pivotal, dreamlike scene where the protagonist reunites with his deceased son, Iñárritu wanted to use the temporary guide music. Sakamoto fought hard for his own composition, which he felt was superior.</p>
-                <p class="mt-4">In a final, desperate plea, he simply told the demanding director, "Trust me!" and pushed through with the recording.</p>
-                <p class="mt-4 font-bold">His piece was chosen. The victory was so sweet that he later made "Trust me!" t-shirts for the entire music team.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 38: Section 6 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 6: A New Direction</p>
-          <h2 class="slide-title">Towards a <span class="highlight">Bigger Mountain</span></h2>
-          <p class="slide-content">After the struggles of <i>The Revenant</i>, Sakamoto found a new creative path, culminating in his 2017 masterpiece, <i>async</i>.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 39: The Genesis of "async" -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Genesis of <span class="highlight"><i>async</i></span></h2>
-          <p class="slide-subtitle">His first original album in 8 years, it was a radical departure from his previous work.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">Rejecting the Brain's Habit</h3>
-              <p>Inspired by the "Mono-ha" art movement, which focused on materials in their unaltered state, he wanted to create music that defied the brain's habit of finding patterns and meaning.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">Imaginary Soundtrack</h3>
-              <p>The central concept became creating a "soundtrack for an imaginary Andrei Tarkovsky film." Tarkovsky himself believed films didn't need added music, as the recorded soundscape was already musical. Sakamoto embraced this idea.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 40: The Sound of "async" -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Sound of <span class="highlight"><i>async</i></span></h2>
-          <p class="slide-subtitle">He collected sounds from various sources, focusing on their raw, physical properties.</p>
-          <div class="slide-content">
-            <ul>
-              <li>He recorded the sounds of stones he found on the streets of New York.</li>
-              <li>He recorded the sound of rain on his garden's glass roof during a downpour.</li>
-              <li>He captured the unique resonance of sound sculptures by Harry Bertoia.</li>
-              <li>Most famously, he used the sounds of the "Tsunami Piano."</li>
-            </ul>
-            <p class="mt-4">The result was a non-linear, asynchronous listening experience designed for a 3D space, challenging the very idea of a conventional album.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 41: A New Path -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">A New Path <span class="highlight">Found</span></h2>
-          <p class="slide-subtitle">Completing <i>async</i> was a profound personal and artistic victory.</p>
-          <div class="slide-content">
-            <p>For most of his career, he felt he lacked a signature "Sakamoto sound," unlike artists such as Brian Eno. He had always just pursued whatever interested him at the moment.</p>
+            <p>새 앨범 제작에 난항을 겪던 중, 대학 시절 감명받았던 '모노파' 아티스트 이우환의 작품이 떠올랐습니다. 사물에서 의미를 찾아내려는 뇌의 습성을 부정하고, 사물 그 자체를 바라보는 '모노파'의 철학을 음악으로 구현하고자 했습니다.</p>
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">"I don't want to lose what I've gained here."</h3>
-                <p class="mt-2">With <i>async</i>, he felt he had finally discovered a new mountain to climb. The album was so personal he joked he didn't want anyone else to hear it. From this point on, he decided to nurture and expand upon the world he had created with this album.</p>
+              <h3 class="font-bold text-lg">Asynchronization</h3>
+              <p class="mt-2">타이틀 《async》는 '비동기'라는 뜻입니다. 모든 것이 동기화되어가는 시대의 흐름에 의도적으로 등을 돌리고자 하는 마음을 담았습니다. 이 앨범을 통해 처음으로 <span class="highlight">'이 성취의 연장선에 있는 더 높은 산으로 향할 거야'</span>라는 강한 생각이 들었습니다.</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Slide 42: Section 7 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 7: Passing the Torch</p>
-          <h2 class="slide-title">Meeting New <span class="highlight">Talents</span></h2>
-          <p class="slide-content">In his later years, Sakamoto found great joy and inspiration in connecting with a new generation of artists who had been influenced by his work.</p>
-        </div>
-      </div>
-
-      <!-- Slide 43: A New Generation -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">A New Generation of <span class="highlight">Admirers</span></h2>
-          <p class="slide-subtitle">He was surprised and delighted to meet younger artists who considered him a "sensei."</p>
-          <div class="slide-content">
-            <ul>
-              <li><b>Flying Lotus & Thundercat:</b> He was shocked that leading figures of the 21st-century Black music scene were deeply influenced by him. He collaborated with Flying Lotus and fondly recalls Thundercat's "otaku" passion for <i>Dragon Ball</i>.</li>
-              <li><b>Oneohtrix Point Never (OPN):</b> He bonded with Daniel Lopatin over a shared love for Tarkovsky and analog synthesizers.</li>
-              <li><b>Se So Neon (새소년):</b> He was instantly captivated by the Korean indie band's leader, Hwang So-yoon, and her guitar playing, striking up a friendship despite their 40-year age gap.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 44: Meeting BTS's Suga -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">Meeting <span class="highlight">SUGA</span> of BTS</h2>
-          <p class="slide-subtitle">In September 2022, he met with Suga in Tokyo.</p>
-          <div class="slide-content">
-            <p>He was impressed by the global superstar's humility and sincere dedication to music. Suga shared that his musical journey began at age 12 after watching a re-release of <i>The Last Emperor</i> and becoming fascinated by the score.</p>
-            <p class="mt-4">This unexpected connection, born from a work he created decades ago, led to a new collaboration: Sakamoto provided a piano arrangement for "Snooze," a track on Suga's solo album.</p>
-          </div>
-        </div>
-      </div>
       
-      <!-- Slide 45: Section 8 Title -->
+      <!-- Slide 28: Section 7 Title -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">Part 8: The Final Works</p>
-          <h2 class="slide-title">Leaving for the <span class="highlight">Future</span></h2>
-          <p class="slide-content">Knowing his time was limited, Sakamoto focused on creating a definitive record of his work for posterity.</p>
+          <p class="slide-part-title">Part 7</p>
+          <h2 class="slide-title">새로운 재능과의 만남</h2>
+          <p class="slide-content">플라잉 로터스, 썬더캣, 새소년 등 젊은 아티스트들과의 교류를 통해 새로운 자극을 받다.</p>
         </div>
       </div>
 
-      <!-- Slide 46: The Last Solo Performance -->
-      <div class="slide">
+      <!-- Slide 29: Two Column Layout -->
+       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">Playing the Piano <span class="highlight">2022</span></h2>
-          <p class="slide-subtitle">Dissatisfied with his 2020 online concert performed in the depths of his illness, he decided to record one last, perfect piano solo.</p>
-          <div class="slide-content">
-            <p>He booked NHK's 509 Studio in Tokyo, which he considered to have the best acoustics in Japan. The project was filmed with meticulous care, with lighting and camera positions changing for each song.</p>
-            <p class="mt-4">The performance was a final chance to present his music with the strength he had left. He acknowledged that he no longer had the stamina for a live concert, but found peace in having "left behind a performance I could be satisfied with before I die."</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 47: The Final Album: "12" -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Final Album: <span class="highlight"><i>12</i></span></h2>
-          <p class="slide-subtitle">Released on his 71st birthday, January 17, 2023, <i>12</i> is an intimate "sound diary."</p>
+          <h2 class="slide-title">젊은 거장들과의 <span class="highlight">교류</span></h2>
+          <p class="slide-subtitle">전혀 예상치 못했던 젊은 세대와의 연결은 큰 기쁨과 놀라움이었습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">Musical Sketches</h3>
-              <p>While recovering from his 2021 surgery, he would occasionally play his synthesizer and piano, simply wanting to be enveloped in sound. He recorded these sketches without any grand concept, titling them only with the date they were recorded.</p>
+              <h3 class="font-bold text-lg">플라잉 로터스와 썬더캣 🎶</h3>
+              <p>21세기 블랙 뮤직 신을 이끄는 플라잉 로터스와 썬더캣이 제 음악의 영향을 받았다는 사실에 스스로도 놀랐습니다. 그들과의 만남과 교류는 큰 자극이 되었습니다. 썬더캣은 70세 기념 헌정 앨범에서 'Thousand Knives'를 커버하기도 했습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">Raw and Unplanned</h3>
-              <p>Unlike his other highly conceptual albums, <i>12</i> is raw, unplanned, and immediate. He notes, "Right now, for me, this kind of raw, unadorned music feels more satisfying." It is the sound of an artist in his final days, communing directly with sound itself.</p>
+              <h3 class="font-bold text-lg">새소년과 이우환 🎨</h3>
+              <p>한국의 밴드 '새소년'의 음악에 매료되어 그들과 교류하게 되었고, 존경하는 예술가 이우환 선생님의 회고전 음악을 의뢰받아 작업하는 영광을 누렸습니다. 세대를 넘어선 예술적 교감은 계속되었습니다.</p>
+            </div>
+          </div>
+      </div>
+
+      <!-- Slide 30: Section 8 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 8</p>
+          <h2 class="slide-title">미래에 남기는 것</h2>
+          <p class="slide-content">마지막 날들을 마주하며, 미래를 위해 남기고자 했던 음악과 생각들.</p>
+        </div>
+      </div>
+
+      <!-- Slide 31: Standard Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마지막 피아노 솔로 <span class="highlight">연주</span></h2>
+          <p class="slide-subtitle">2020년의 온라인 솔로 연주에 대한 후회를 만회하고 싶었습니다.</p>
+          <div class="slide-content">
+            <p>몸과 마음의 상태가 최악이었던 2020년의 연주가 마지막이 된다고 생각하니 분한 마음이 들었습니다. 그래서 더 늦기 전에, 미래에 남길 만한 연주 장면을 담아두고자 'Playing the Piano 2022'를 기획했습니다.</p>
+            <p class="mt-4">일본에서 가장 소리의 울림이 좋다고 생각하는 NHK 방송 센터의 509 스튜디오를 빌려, 30명의 스태프, 3대의 4K 카메라와 함께 촬영했습니다. <span class="highlight">"죽기 전에 스스로 납득할 만한 연주를 남겼다"</span>는 사실에 안도하고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Content with a special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마지막 앨범, <span class="highlight">《12》</span></h2>
+          <p class="slide-subtitle">마치 일기를 쓰듯, 투병 중의 소리들을 기록한 마지막 앨범.</p>
+          <div class="slide-content">
+            <p>2021년 초 큰 수술을 받고 체력이 회복되자, 만들겠다는 의식도 없이 그저 소리를 느끼고 싶어 신시사이저를 만지작거렸습니다. 그렇게 쌓인 음원 스케치들을 앨범으로 만들게 되었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">계획 없는 음악</h3>
+              <p class="mt-2">수록곡 12곡은 모두 레코딩한 날짜가 제목입니다. 어떤 확고한 컨셉트 없이, 그저 싱겁게 연주했던 신시사이저와 피아노 음원을 담았을 뿐입니다. 하지만 지금의 저에게는 <span class="highlight">이처럼 어떠한 계획도 없이 만들어진 날 것 그대로의 음악</span>이 더 만족스럽게 느껴집니다.</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 48: The Epilogue - A Diary -->
-      <div class="slide">
+
+      <!-- Slide 33: Two Column Layout -->
+       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">From the <span class="highlight">Diary</span></h2>
-          <p class="slide-subtitle">The epilogue shares excerpts from his final diary entries, revealing his state of mind.</p>
-          <div class="slide-content">
-            <ul class="list-disc pl-5 space-y-2">
-              <li><b>Oct 11, 2022:</b> "Living is a pain."</li>
-              <li><b>Nov 21, 2021:</b> "Smash the walls!"</li>
-              <li><b>Dec 27, 2021:</b> "When everyone's ego disappears, you can give a good performance."</li>
-              <li><b>Apr 18, 2022:</b> "Now that it has come to this, I am prepared to accept any fate."</li>
-              <li><b>Mar 24, 2023:</b> "No energy."</li>
-            </ul>
+          <h2 class="slide-title">마지막 나날들: <span class="highlight">에필로그</span></h2>
+          <p class="slide-subtitle">스즈키 마사후미가 기록한 사카모토 류이치의 마지막 순간들.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">마지막 외식과 만남</h3>
+              <p>"죽기 전에 한 번 더 아라키의 스시를 먹고 싶어." 그의 염원에 따라, 스시 명인 아라키 미츠히로가 그를 위해 특별히 스시를 쥐어주었습니다. 이것이 그의 마지막 외식이었습니다. 2023년 3월 8일, 마지막 인터뷰를 가졌고, 그것이 마지막 만남이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">마지막 지휘</h3>
+              <p>2023년 3월 26일, 병상에서 도호쿠 유스 오케스트라의 온라인 공연을 보던 중, 요시나가 사유리가 시를 낭독하자 누운 채로 오른팔을 허공에 흩날리며 지휘했습니다. 이것이 그가 마지막으로 지휘한 음악이었습니다. 그는 3월 28일 세상을 떠났습니다.</p>
+            </div>
           </div>
-        </div>
       </div>
 
-      <!-- Slide 49: The Final Days -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">The Final <span class="highlight">Days</span></h2>
-          <p class="slide-subtitle">The epilogue, written by editor Masafumi Suzuki, details Sakamoto's last months with profound respect.</p>
-          <div class="slide-content">
-            <ul>
-              <li>He continued working, creating a final piece of music for his friends at the DUMB TYPE art collective.</li>
-              <li>He created a 'Funeral Playlist' of songs to be played at his own service.</li>
-              <li>He watched over the Tohoku Youth Orchestra's performance remotely from his hospital bed, conducting with his arm in the air.</li>
-              <li>On March 28, 2023, at 4:32 AM, he passed away at the age of 71.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 50: Ars Longa, Vita Brevis -->
+      <!-- Slide 34: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
-            <div class="text-6xl mb-6">🎼</div>
-            <h2 class="slide-title">Ars longa, vita brevis.</h2>
-            <div class="slide-content max-w-4xl mx-auto">
-                <p class="mb-4">The book ends with the classic Latin aphorism that perfectly encapsulates his life's work: <span class="highlight">"Art is long, life is short."</span></p>
-                <p class="mt-8 font-bold text-xl text-gray-800">Ryuichi Sakamoto's life may have been short, but his art is eternal.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 51: Conclusion -->
-      <div class="slide">
-        <div class="slide-container text-center">
-          <div class="text-6xl mb-6">FIN</div>
-          <h2 class="slide-title">Conclusion</h2>
+          <div class="text-6xl mb-6">🎼</div>
+          <h2 class="slide-title">Ars longa, vita brevis.</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4"><i>How Many More Full Moons Will I See?</i> is more than a memoir. It is a final, generous gift from a master artist—a profound meditation on creativity, mortality, the relationship between sound and silence, and the enduring power of music to set us free.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">His music, and his story, will continue to inspire for generations.</p>
+            <p class="mb-4">"예술은 길고, 인생은 짧다."<br>이 말로 류이치 사카모토는 자신의 이야기를 마칩니다. 그의 음악과 생각은 그의 삶을 넘어 우리 곁에 영원히 남아있을 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">음악은, 자유롭게 하기에.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 52: Thank You / Q&A -->
+      <!-- Slide 35: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
-          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Thank You</h1>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
           <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
         </div>
       </div>
@@ -851,9 +578,9 @@
       <div id="progress" class="progress"></div>
     </div>
     <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
-      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> Prev</button>
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
       <span id="slideCounter" class="text-gray-600 font-medium"></span>
-      <button id="nextBtn" class="btn btn-primary">Next <i class="fa-solid fa-arrow-right ml-2"></i></button>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
     </div>
   </div>
 
@@ -865,49 +592,49 @@
     const nextBtn = document.getElementById('nextBtn');
     const progressBar = document.getElementById('progress');
 
-    function updateSlide() {
+    function showSlide(slideIndex) {
       slides.forEach((slide, index) => {
-        slide.classList.remove('active');
-        if (index === currentSlide) {
-          slide.classList.add('active');
-        }
+        slide.classList.toggle('active', index === slideIndex);
       });
-      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
-      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+      slideCounter.textContent = `Slide ${slideIndex + 1} / ${slides.length}`;
+      progressBar.style.width = `${((slideIndex + 1) / slides.length) * 100}%`;
+      
+      prevBtn.disabled = slideIndex === 0;
+      nextBtn.disabled = slideIndex === slides.length - 1;
 
-      prevBtn.disabled = currentSlide === 0;
-      nextBtn.disabled = currentSlide === slides.length - 1;
-
-      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
-      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
-      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
-      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+      prevBtn.classList.toggle('opacity-50', slideIndex === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', slideIndex === 0);
+      nextBtn.classList.toggle('opacity-50', slideIndex === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', slideIndex === slides.length - 1);
     }
 
-    nextBtn.addEventListener('click', () => {
+    function next() {
       if (currentSlide < slides.length - 1) {
         currentSlide++;
-        updateSlide();
+        showSlide(currentSlide);
       }
-    });
+    }
 
-    prevBtn.addEventListener('click', () => {
-      if (currentSlide > 0) {
+    function prev() {
+       if (currentSlide > 0) {
         currentSlide--;
-        updateSlide();
+        showSlide(currentSlide);
       }
-    });
+    }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') {
-        nextBtn.click();
+        next();
       } else if (e.key === 'ArrowLeft') {
-        prevBtn.click();
+        prev();
       }
     });
 
     // Initial setup
-    updateSlide();
+    showSlide(currentSlide);
   </script>
 
 </body>

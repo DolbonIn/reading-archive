@@ -180,6 +180,16 @@
     "cover": "assets/covers/나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가.jpg"
   },
   {
+    "slug": "나는-앞으로-몇-번의-보름달을-볼-수-있을까",
+    "title": "나는 앞으로 몇 번의 보름달을 볼 수 있을까",
+    "author": "류이치 사카모토",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나는-앞으로-몇-번의-보름달을-볼-수-있을까.html",
+    "cover": "assets/covers/나는-앞으로-몇-번의-보름달을-볼-수-있을까.jpg"
+  },
+  {
     "slug": "나-의-하루-를-산책-하는-중-입니다-헤매던-생각-이-모여-내-삶-에-스며드는-시간",
     "title": "나 의 하루 를 산책 하는 중 입니다 헤매던 생각 이 모여 내 삶 에 스며드는 시간",
     "author": "댄싱 스네일, author, illustrator",
@@ -258,16 +268,6 @@
     "description": "",
     "presentation": "presentations/나는-왜-사랑할수록-불안해질까.html",
     "cover": "assets/covers/나는-왜-사랑할수록-불안해질까.jpg"
-  },
-  {
-    "slug": "나는-앞으로-몇-번의-보름달을-볼-수-있을까",
-    "title": "나는 앞으로 몇 번의 보름달을 볼 수 있을까",
-    "author": "류이치 사카모토",
-    "date": "2025-11-08",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/나는-앞으로-몇-번의-보름달을-볼-수-있을까.html",
-    "cover": "assets/covers/나는-앞으로-몇-번의-보름달을-볼-수-있을까.jpg"
   },
   {
     "slug": "그가-나에게-말하지-않는-것-로라-데이브-지음-김소정-옮김",
