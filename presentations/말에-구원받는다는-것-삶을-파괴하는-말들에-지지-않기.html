@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presentation: 말에 구원받는다는 것 (Being Saved by Words)</title>
+  <title>Presentation: 말에 구원받는다는 것</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,6 @@
       min-height: 85vh;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
     }
     .slide.active {
       display: flex;
@@ -33,15 +32,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
     }
     .slide-part-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #4f46e5;
+      color: #555;
       margin-bottom: 8px;
     }
     .slide-title {
@@ -59,16 +54,13 @@
       line-height: 1.6;
     }
     .slide-content {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1.9;
       color: #333;
     }
     .highlight {
-      background-color: #eef2ff;
+      background-color: #FFDD00;
       padding: 0 0.25em;
-      border-radius: 4px;
-      font-weight: 700;
-      color: #4338ca;
     }
     .btn {
       padding: 12px 28px;
@@ -76,19 +68,18 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 1px solid transparent;
+      border: none;
     }
     .btn-primary {
-      background-color: #4f46e5;
+      background-color: #111;
       color: white;
     }
     .btn-primary:hover {
-      background-color: #4338ca;
+      background-color: #333;
     }
     .btn-secondary {
       background-color: #F0F0F0;
       color: #333;
-      border-color: #ddd;
     }
     .btn-secondary:hover {
       background-color: #E0E0E0;
@@ -112,24 +103,10 @@
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #4f46e5;
+      background-color: #111;
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li {
-      padding-left: 2em;
-      text-indent: -1.5em;
-    }
-    ul li::before {
-      content: "✓";
-      color: #4f46e5;
-      margin-right: 0.5em;
-      font-weight: bold;
     }
   </style>
 </head>
@@ -142,63 +119,55 @@
       <!-- Slide 1: Title -->
       <div class="slide active">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">📖</div>
+          <div class="text-7xl mb-8">🗣️</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">말에 구원받는다는 것</h1>
           <p class="text-xl md:text-2xl text-gray-700">삶을 파괴하는 말들에 지지 않기</p>
-          <p class="mt-8 text-lg font-bold">아라이 유키 (Arai Yuki)</p>
+          <p class="text-lg md:text-xl text-gray-600 mt-4">아라이 유키 저</p>
         </div>
       </div>
 
       <!-- Slide 2: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">목차 📜</h2>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-lg">
-            <p><b>1. 들어가며:</b> 파괴된 말에 분개하다</p>
-            <p><b>2. 1화:</b> 미치는 게 정상</p>
-            <p><b>3. 2화:</b> 격려를 포기하지 않기</p>
-            <p><b>4. 3화:</b> '희대'라는 말의 태도</p>
-            <p><b>5. 4화:</b> 마이너스 감정 처리 비용</p>
-            <p><b>6. 5화:</b> '지역'이 아닌 '이웃'</p>
-            <p><b>7. 6화:</b> 사가미하라 사건이 망가뜨린 것</p>
-            <p><b>8. 7화:</b> 나라에 쓸모없던 사람</p>
-            <p><b>9. 8화:</b> 책임의 '층'</p>
-            <p><b>10. 9화:</b> 분위기에 지워지는 목소리</p>
-            <p><b>11. 10화:</b> 선을 지키는 말</p>
-            <p><b>12. 11화:</b> 마음의 병의 '애당초론'</p>
-            <p><b>13. 12화:</b> 살아 있다는 느낌이 죽어갈 때</p>
-            <p><b>14. 13화:</b> 살아가는 데 사양이 필요한가?</p>
-            <p><b>15. 14화:</b> '자기 책임'의 연쇄를 끊을 때</p>
-            <p><b>16. 15화:</b> 인정받으려 하지 마라</p>
-            <p><b>17. 16화:</b> 내 천 자로 잔다고 하는구나</p>
-            <p><b>18. 17화:</b> 말이 '문학'이 될 때</p>
-            <p><b>19. 마지막 이야기:</b> 저자의 고백</p>
-            <p><b>20. 결론:</b> 정리되지 않는 것들을 귀히 여기다</p>
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-2">
+            <p><b>1. 들어가며:</b> '파괴된 말'에 대한 분노</p>
+            <p><b>2. 1화:</b> 미치는 게 정상 - '자기 책임'의 압박</p>
+            <p><b>3. 2화:</b> 격려를 포기하지 않기 - 진정한 위로의 말을 찾아서</p>
+            <p><b>4. 3화:</b> 사전에는 없는, '희대'라는 말의 태도</p>
+            <p><b>5. 4화:</b> 마이너스 감정을 처리하는 비용 - 여성의 고통</p>
+            <p><b>6. 5화:</b> '지역'에서 살고 싶다는 뜻이 아니야 - 이웃의 의미</p>
+            <p><b>7. 6화:</b> 장애인 시설 살상 사건이 망가뜨린 것</p>
+            <p><b>8. 7화:</b> 나라를 위한 쓸모가 없었던 사람</p>
+            <p><b>9. 8화:</b> 책임의 '층' - 미나마타병과 사회의 책임</p>
+            <p><b>10. 9화:</b> 분위기에 지워지는 목소리 - 제도와 현실의 괴리</p>
+            <p><b>11. 10화:</b> 선을 지키는 말 - 인간의 존엄성</p>
+            <p><b>12. 나가며:</b> 정리되지 않는 것들을 귀히 여기다</p>
           </div>
         </div>
       </div>
 
-      <!-- Section: 들어가며 -->
+      <!-- Section 1: Introduction -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">들어가며: Introduction</p>
+          <p class="slide-part-title">들어가며</p>
           <h2 class="slide-title">‘파괴된 말’에 분개하다 😠</h2>
-          <p class="slide-content text-xl">"최근 사회를 가득 채운 말들이 무서운 속도로 파괴되고 있다는 불안과 초조감이 제 안에 쌓여갔습니다. 누군가를 깎아내리고 침묵하게 하며, 삶을 <span class="highlight">'편안하게도', '즐겁게도'</span> 하지 않는 말을 접하는 경험이 늘었기 때문입니다."</p>
+          <p class="slide-content">이 책은 ‘말이 계속 파괴되고 있는 상황’에 경종을 울리고, 그 현실에 분개하며, 그에 맞서 싸우고자 하는 책입니다. 누군가를 깎아내리고 침묵하게 만드는 말, 삶을 편안하게도 즐겁게도 하지 않는 말들이 늘어나는 현실을 함께 나누고 싶습니다.</p>
         </div>
       </div>
 
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">말의 무게가 사라진 시대</h2>
-          <p class="slide-subtitle">오늘날 말은 어디에서 위협받고 있는가?</p>
+          <h2 class="slide-title">'증오'를 담은 말과 <span class="highlight">맞닥뜨리는 장소</span></h2>
+          <p class="slide-subtitle">말은 까다롭습니다. 사람을 살리기도, 죽이기도 합니다. 하지만 최근, 말과 맞닥뜨리는 장소, 방식, 빈도가 명백히 달라졌습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg mb-2">혐오 표현의 일상화 혐오</h3>
-              <p>소셜 미디어를 넘어 길거리까지 나온 증오, 모멸, 폭력의 언어. 익명을 넘어 얼굴과 이름을 드러내고 행해지는 '증오 표현'이 만연하고 있습니다.</p>
+              <h3 class="font-bold text-lg">과거의 폭력적인 말</h3>
+              <p>주로 '개인적인 원한'의 범위 안에서 사용되었습니다. 복잡한 감정을 가진 인간에게 필요한 부분이기도 했습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg mb-2">담보가 없는 언어 🗣️</h3>
-              <p>정치인들이 책임을 회피하고 논의를 끊어내는 말을 반복합니다. "전혀 문제없다", "그런 비판은 당치 않다"와 같은 말들은 신뢰를 파괴하며, 말의 '담보' 가치를 상실하게 합니다.</p>
+              <h3 class="font-bold text-lg">현재의 폭력적인 말 💬</h3>
+              <p>누구의 원한인지도 모를 비정상적인 난폭함이 <span class="highlight">소셜 미디어</span>와 길거리에서 익명이 아닌, 얼굴과 이름을 드러낸 채 사용됩니다. 이는 사람의 존엄성을 상처 입히는 언어가 생활 영역에 뒤섞이는 것을 의미합니다.</p>
             </div>
           </div>
         </div>
@@ -206,463 +175,459 @@
 
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">이 책의 목적: <span class="highlight">혼과 존엄성</span> 찾기</h2>
-          <p class="slide-subtitle">'무엇이 파괴되었는가?'에 대한 질문</p>
+          <h2 class="slide-title">‘담보’로서의 무게가 <span class="highlight">없는 언어</span></h2>
+          <p class="slide-subtitle">사회의 큰 영향력을 가진 사람들의 말 또한 위험해졌습니다. 그들은 대화를 끊고, 설명을 거절하며, 책임을 흐리고, 대립을 부추기는 말을 망설임 없이 내뱉습니다.</p>
           <div class="slide-content">
-            <p>파괴된 것은 말의 <span class="highlight">'혼', '존엄성', '우아함'</span>, 즉 말에 따라붙는 존귀하고 긍정적인 힘입니다.</p>
-            <p class="mt-4">이 책은 '파괴된 것은 OOO이다'라는 쉬운 결론을 내리지 않습니다. 대신, 말의 혼과 존엄성을 느낄 수 있는 말의 실례와 그 말을 한 사람의 에피소드를 하나하나 소개하고자 합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">말의 '담보'란? 🤔</h3>
+              <p class="mt-2">'언질을 잡다'라는 표현처럼, 말은 '담보'가 될 수 있을 만큼 소중하고, 발화자 자신의 언동을 구속할 만큼 <span class="highlight">무겁다는 뜻</span>입니다. 사람과 사람이 토론하고 교섭할 수 있는 것은 말 자체에 '담보'로서의 무게가 있기 때문입니다.</p>
+            </div>
+            <p class="mt-4">하지만 지금은 말의 일관성이나 신뢰성보다 그때그때 우위를 점하는 일이 더 중요해진 듯합니다. '담보'의 가치조차 없는 말들로 국가와 사회가 운영된다는 것은 상상만 해도 무서운 일입니다.</p>
           </div>
         </div>
       </div>
-
-      <!-- Section: 1화 -->
+      
+      <!-- Section 2: Chapter 1 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">제1화: Chapter 1</p>
+          <p class="slide-part-title">제 1화</p>
           <h2 class="slide-title">미치는 게 정상 🧠</h2>
-          <p class="slide-content text-xl">"어떤 시점에서 보기에는 이른바 미친 상태라고 해도 그것이 억압에 대한 반역으로서 자연스럽게 나타난 상태라면 그 자체는 정상입니다." - 요시다 오사미, 정신장애인 운동가</p>
+          <p class="slide-content">사회에서 괴롭힘, 차별을 당하는 사람들은 혹독한 상황에서 자신을 어떻게 표현하고 있을까요? 이 장에서는 '입을 다물게 만드는 압력'에 대해 이야기합니다.</p>
         </div>
       </div>
 
-       <div class="slide">
+      <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">입을 다물게 만드는 <span class="highlight">압력</span></h2>
-          <p class="slide-subtitle">우울증에 걸린 선배의 이야기: 개인의 문제가 아닌 사회의 문제</p>
+          <p class="slide-subtitle">직장 내 괴롭힘으로 우울증에 걸린 A 선배의 이야기</p>
           <div class="slide-content">
-            <p>우울증에 걸린 자신을 '나약하다'고 여기며 받아들이지 못했던 선배. 그는 과거에 아픈 동료를 향해 "저러고도 월급을 받다니 부럽다"고 비난했던 자신의 말이 스스로에게 되돌아오는 악순환에 빠졌습니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">자기 책임론의 함정</h3>
-              <p class="mt-2">"그만두라고 말했어야지" 같은 말은 형태만 다른 <span class="highlight">자기 책임론</span>입니다. 이런 말들이 쌓여 '삶의 괴로움을 짊어진 사람'의 입을 다물게 만드는 압력이 됩니다.</p>
+            <p>A 선배는 '우울증에 걸린 자신'을 받아들이지 못했습니다. 그는 과거에 마음의 병으로 휴직한 동료들을 향해 "일을 못 하는 사람이 있으니 내 부담이 커진다" 와 같은 말을 했었습니다.</p>
+            <p class="mt-4">자신이 바로 그 '그런 사람들'의 처지가 되자, 그는 그 사실을 부정하며 도움을 청하지 못하고 스스로를 더욱 채찍질했습니다. 그가 내뱉었던 <span class="highlight">차가운 언어</span>가 부메랑이 되어 자신에게 돌아온 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보이지 않는 압력의 <span class="highlight">연쇄</span></h2>
+          <p class="slide-subtitle">"그만두라고 말했어야지" 와 같은 말은 형태만 다른 '자기 책임론'입니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-bold text-lg">말하기의 간단함, 그리고 숨 막힘 🗣️➡️🤐</h3>
+                  <p>타인의 어려움을 개인의 문제로 떠넘기는 말은 하기 쉽습니다. 깊이 생각할 필요도, 번거롭지도 않습니다. 하지만 이런 말은 사회에 쌓여, 결국 <span class="highlight">자신과 주위의 숨을 막히게 합니다.</span></p>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">'삶의 괴로움'을 짊어진 이들</h3>
+                  <p>병, 장애, 빈곤, 범죄 피해 등 '삶의 괴로움'을 짊어진 사람들의 입을 다물게 만드는 압력이 급속히 높아지고 있습니다. 이런 말의 축적은 우리 사회의 가치관 기반을 만듭니다.</p>
+                </div>
             </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">맞서기 위한 말: <span class="highlight">요시다 오사미</span></h2>
+          <p class="slide-subtitle">정신병에 대한 편견이 심했던 1974년, '전국 「정신병」자 집단'에 참가했던 요시다 오사미 씨의 말입니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">"어떤 시점에서 보기에는 이른바 미친 상태라고 해도 그것이 억압에 대한 반역으로서 자연스럽게 나타난 상태라면 그 자체는 <span class="highlight">정상</span>입니다."</h3>
+              <p class="mt-2 text-right">- 요시다 오사미</p>
+            </div>
+            <p class="mt-4">당시 '마음이 병들었다'는 것은 '그 사람이 약하다·나쁘다·이상하다'는 결론으로 이어졌습니다. 하지만 요시다 씨는 마음의 병이 <span class="highlight">«억압에 대한 반역»</span>이므로 «정상»이라고 단언했습니다. 이는 "그렇다면 이상한 건 무엇인가? 누구인가?"라는 질문을 되던지는 강력한 말이었습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Section: 2화 -->
+      <!-- Section 3: Chapter 2 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">제2화: Chapter 2</p>
+          <p class="slide-part-title">제 2화</p>
           <h2 class="slide-title">격려를 포기하지 않기 💪</h2>
-          <p class="slide-content text-xl">동일본 대지진 이후, 우리는 '격려하는 말'을 잃어버렸다. "힘내세요" 같은 흔한 말은 때로 실례가 된다. 순수하게 남을 격려하는 말은 과연 존재할까?</p>
+          <p class="slide-content">남을 격려하는 말이란 무엇일까요? 애초에 말로 사람을 격려하는 것이 가능할까요? 이 장에서는 2011년 동일본 대지진을 계기로 '격려하는 말'에 대한 고민을 나눕니다.</p>
         </div>
       </div>
 
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">격려의 <span class="highlight">양면성</span></h2>
-          <p class="slide-subtitle">"힘내", "지지 마"는 야단칠 때도 쓰는 말</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">의도와 다른 메시지</h3>
-              <p>괴롭힘당하는 아이에게 "이런 놈에게 지지 말고 힘내"라고 말하는 것은 '네가 약하니까 당하는 거야'라는 메시지로 읽힐 수 있습니다. 이는 가해자의 논리와 같습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">말 찾기를 계속하다</h3>
-              <p>만능의 격려 표현은 없습니다. 하지만 우리는 누군가의 말에서 격려받는 경험을 합니다. '말로 격려하기'는 분명 가능합니다. 우리는 말을 믿고 '말 찾기'를 계속해야 합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">한센병 요양소의 시인들 ✒️</h2>
-          <p class="slide-subtitle">야마시타 미치스케의 말에서 배우는 격려의 의미</p>
+          <h2 class="slide-title">‘격려하는 말’이 없다는 <span class="highlight">어려운 문제</span></h2>
+          <p class="slide-subtitle">대지진 이후, 우리는 피해자들에게 힘이 되고 싶었지만 "힘내세요" 같은 흔한 말은 실례가 될 것 같아 조심스러웠습니다.</p>
           <div class="slide-content">
-             <p>"옛날에 환자는 어떤 의미에서 모두 시인이지 않았을까. 스스로 깨닫지 못했을 뿐. 꺾이려는 마음을 격려하고 동료를 위로하는 말을 알고 있었으니까."</p>
-             <p class="mt-4">가혹한 차별 속에서 서로를 지탱하기 위해 말을 나누었던 사람들. 어떤 어려운 상황에서도 말로 남을 격려하기를 포기하지 않았던 사람들이 있었다는 사실이 우리에게 '말 찾기'를 계속할 용기를 줍니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 3화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제3화: Chapter 3</p>
-          <h2 class="slide-title">사전에는 없는, <span class="highlight">‘희대(希待)’</span>라는 말의 태도</h2>
-          <p class="slide-content text-xl">어린 시절, "다음 학기에는 더 열심히 합시다. 기대하고 있습니다"라는 말이 괴로웠다. '기대(期待)'는 왜 무거울까?</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">기대(期待)와 희대(希待)</h2>
-          <p class="slide-subtitle">보답을 바라는 마음 vs 보답을 바라지 않는 믿음</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">기대(期待): 무거운 짐</h3>
-              <p>'기대'에는 크든 작든 보답을 바라는 마음이 섞여 있습니다. '누군가를 위해', '무언가를 위해'라는 방향성은 때로 상대를 지치게 만듭니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">희대(希待): 따뜻한 양식</h3>
-              <p>과거 오카노우에 병원에서 만들어진 조어. '인간의 선한 성품과 자기 치유력'을 믿고 그 가능성을 <span class="highlight">'무조건'</span>적으로 신뢰하는 자세. 보답을 바라지 않고 상대를 믿어보는 태도입니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">고민을 곁에서 지켜주는 말</h2>
-          <p class="slide-subtitle">'희대'는 진통제가 아니다</p>
-          <div class="slide-content">
-             <p>'희대'는 지금 고민하는 사람의 고민을 바로 없애주지 않습니다. 그러나 고민하는 사람을 존중하고 <span class="highlight">"지금은 고민해도 괜찮다"</span>면서 곁에 머물러주는 듯한 말입니다.</p>
-             <p class="mt-4">고민은 강제로 해결되지 않습니다. 오히려 고민하고 있다는 사실 자체를 인정받기만 해도 마음이 편해지는 경우가 많습니다. 그저 믿으며 곁에 머물러주는 말이 존재한다는 것을 많은 사람이 알았으면 좋겠습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 4화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제4화: Chapter 4</p>
-          <h2 class="slide-title">마이너스 감정을 처리하는 비용 💸</h2>
-          <p class="slide-content text-xl">어린이집 입소 전쟁 '호카쓰(保活)'. 그 과정에서 겪는 '분열'의 고통. 그리고 이 사회가 여성의 자존감을 어떻게 깎아내리는가에 대한 이야기.</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">여성의 고통에 언어를 부여하다</h2>
-          <p class="slide-subtitle">페미니스트 운동가 다나카 미쓰의 외침</p>
-          <div class="slide-content">
-            <div class="p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
-                <p class="text-2xl font-bold text-center text-indigo-800">"이 세상이 아무리 비참하더라도, 그렇다고 해서 이 내가 비참해도 좋을 리는 없다고 생각해."</p>
-            </div>
-            <p class="mt-6">1970년대, 남성의 가치관이 사회 질서 그 자체였던 시대. 다나카 미쓰는 '사회=남자'인 세상에서 배제되고 분열된 여성들의 고통을 절실한 문장으로 표현했습니다. 그녀의 말은 시대를 넘어 누군가의 고통과 함께합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 5화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제5화: Chapter 5</p>
-          <h2 class="slide-title">'지역'에서 살고 싶다는 뜻이 아니야 🏘️</h2>
-          <p class="slide-content text-xl">행정 서류에 자주 등장하는 '지역(地域)'이라는 말. 편리하지만 생생함이 없는 이 말의 위험성을 장애인 운동가 요코타 히로시는 지적했습니다.</p>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">'지역'이 아니야, <span class="highlight">'이웃'</span>이지.</h2>
-          <p class="slide-subtitle">요코타 히로시와 푸른잔디회의 투쟁</p>
-          <div class="slide-content">
-            <p>푸른잔디회는 '지역에서 살게 해달라'고 호소했습니다. 그들이 말한 '지역'은 행정 구역이 아닌, 당신의 <span class="highlight">'이웃'</span>을 의미했습니다.</p>
-             <ul>
-                <li>"장애인도 당신의 '이웃'에서 살고 싶다."</li>
-                <li>"당신의 '이웃'에서 당신이 생활하듯이 살고 싶다."</li>
-             </ul>
-             <p class="mt-4">'지역 생활'에는 찬성하지만 '우리 이웃은 좀...'이라는 반응은 '지역'이라는 말이 어떻게 분리와 배제의 벽이 되는지를 보여줍니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 6화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제6화: Chapter 6</p>
-          <h2 class="slide-title">사가미하라 사건이 망가뜨린 것 💔</h2>
-          <p class="slide-content text-xl">2016년 장애인 시설 살상 사건. 이 사건은 우리 사회가 지녀야 할 모습과 사회 성립에 필요한 요소들을 되돌릴 수 없을 만큼 손상시켰습니다.</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">침묵은 선택지가 아니다</h2>
-          <p class="slide-subtitle">우리는 시대의 갈림길에 서 있다</p>
-          <div class="slide-content">
-            <p>특정 존재를 배척하는 증오에 대한 사회의 저항감은 옅어졌습니다. 이런 상황을 보고도 못 본 척 넘길 것인가, 아니면 다음 세대를 위해 지금 맞설 것인가.</p>
-            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
-              <p class="font-bold text-lg text-red-800">"누군가를 망설임 없이 증오하는 사회는 '나' 또한 망설이지 않고 증오할 것입니다. 그런 사회가 싫다면 지금 '침묵한다'는 선택지는 없습니다."</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">'사는 의미'를 논하는 폭력</h2>
-          <p class="slide-subtitle">"장애인은 사는 의미가 없다"는 말에 어떻게 반론할 것인가?</p>
-          <div class="slide-content">
-            <p>이 말에 반론하려 하면, '장애인이 살아갈 의미'를 입증해야 한다는 부조리한 착각에 빠지게 됩니다. 우리가 논의해야 할 것은 <span class="highlight">'장애 유무로 사람을 가르지 않고 함께 살아가기 위해 무엇이 필요한가'</span> 입니다.</p>
-            <p class="mt-4">자신이 살아있는 의미를 간결하게 설명할 수 있는 사람은 없습니다. 누군가에게 '사는 의미'를 증명하라고 요구하는 것 자체가 폭력입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 7화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제7화: Chapter 7</p>
-          <h2 class="slide-title">나라를 위한 쓸모가 없었던 사람  wartime</h2>
-          <p class="slide-content text-xl">전시(戰時) 장애인들은 '나라에 쓸모 없는 사람'이라는 이유로 극심한 박해를 받았습니다. '쓸모없다는 낙인'이 주는 공포는 어떤 것이었을까요?</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">강요된 '자발적' 찬미</h2>
-          <p class="slide-subtitle">억압적인 사회는 어떻게 작동하는가</p>
-          <div class="slide-content">
-            <p>박해받는 사람은 더 박해받지 않기 위해 세상의 분위기를 필사적으로 읽습니다. 전시 장애인 문학에 전쟁을 열렬히 찬미하는 작품이 많은 것은, '전쟁에 쓸모없기' 때문에 "나는 이렇게나 전쟁에 대해 생각하고 있습니다"라고 표현하지 않으면 안 되었기 때문입니다.</p>
-            <p class="mt-4 font-bold">이는 노골적인 '강제'보다 훨씬 무섭습니다. '자발적으로 그렇게 생각하도록 만들어지는 것'입니다. '자발적으로 말한 사람'만이 상처받기 때문입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 8화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제8화: Chapter 8</p>
-          <h2 class="slide-title">책임의 '층(層)' 겹겹이 쌓인</h2>
-          <p class="slide-content text-xl">참혹한 사건이 일어났을 때, 책임은 어디에 있을까? 범인 개인에게만 있을까, 아니면 사회 전체에 있을까? 미나마타병 운동가 오가타 마사토는 책임을 '지층'에 비유합니다.</p>
-        </div>
-      </div>
-      
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">미나마타병과 책임의 지층</h2>
-          <p class="slide-subtitle">개인의 책임과 사회의 책임은 대립하지 않는다</p>
-          <div class="slide-content">
-            <p>오가타 마사토는 가해 기업 '짓소'의 책임과, 풍요를 위해 화학 물질을 원했던 '사회와 세상'의 책임을 <span class="highlight">지층처럼 쌓인 관계</span>로 설명합니다.</p>
-            <ul>
-                <li><b>1층:</b> 범인(가해 기업)의 직접적인 책임</li>
-                <li><b>2층:</b> 인간을 '생산성'으로 평가하는 현대 사회의 존재 양식</li>
-                <li><b>3층:</b> 그 사회의 일원으로서 풍요를 누리는 나 자신의 책임</li>
+            <ul class="list-disc pl-5 space-y-3">
+              <li><b>"힘내", "지지 마"</b>: 이미 한계까지 힘을 낸 사람들에게는 야단치는 말처럼 들릴 수 있습니다.</li>
+              <li><b>"괜찮아"</b>: "no thank you"의 의미로도 쓰이며, 남과 거리를 두는 말로 변하기도 합니다.</li>
+              <li><b>"혼자가 아니에요"</b>: 새로운 격려의 말로 등장했지만, "당신만 힘든 것이 아니다(그러니 견뎌라)"라는 뜻으로 변질될 수 있습니다.</li>
             </ul>
-             <p class="mt-4">어느 한 '층'에 대해 생각했다고 해서 다른 '층'의 책임을 면할 수는 없습니다. 우리는 이 겹겹이 쌓인 '책임의 층' 전체를 생각해야 합니다.</p>
+            <p class="mt-6">우리가 쓰는 언어에는 어떤 문맥에서도 <span class="highlight">순수하게 남을 격려하는 의미만을 지니는 말</span>은 존재하지 않는 듯합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Section: 9화 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">제9화: Chapter 9</p>
-          <h2 class="slide-title">분위기에 지워지는 목소리 🌬️</h2>
-          <p class="slide-content text-xl">"제도 자체보다는 (휴가를 낼 수 있는) 분위기가 중요하죠." 이 말은 왜 위험할까? '제도보다 분위기'가 우선될 때, 어떤 일이 벌어지는가.</p>
+          <h2 class="slide-title">한센병 요양소를 겪은 사람, <span class="highlight">야마시타 미치스케</span></h2>
+          <p class="slide-subtitle">'말을 믿는다'는 것의 의미는, 실제로 '말을 믿었던 사람들'이 남긴 말에서 배울 수밖에 없습니다.</p>
+          <div class="slide-content">
+             <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <p class="text-lg italic">"옛날에 환자는 어떤 의미에서 모두 시인이지 않았을까. 스스로 깨닫지 못했을 뿐. 꺾이려는 마음을 격려하고 동료를 위로하는 말을 알고 있었으니까."</p>
+              <p class="mt-2 text-right font-semibold">- 야마시타 미치스케 (한센병 회복자)</p>
+            </div>
+            <p class="mt-4">극심한 차별 속에서 살아간 요양소의 환자들은 서로를 의지하고 지탱하기 위해 말을 나누었습니다. 끔찍한 일이 일어났을 때 "말은 무력하다"고들 하지만, 야마시타 씨의 말은 <span class="highlight">어떤 어려운 상황에서도 말로 남을 격려하기를 포기하지 않은 사람들</span>이 있었음을 전해줍니다.</p>
+          </div>
         </div>
       </div>
-
+      
        <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">분위기는 누구에게 감옥인가?</h2>
-          <p class="slide-subtitle">다수에게는 공기, 소수자에게는 감옥</p>
-          <div class="slide-content">
-            <p>제도보다 분위기의 위력이 더 크면, 사람은 분위기에 좌우되어 살아갑니다. 분위기를 만드는 쪽에 속한 사람은 불편하지 않지만, 그 외의 사람들은 만들어진 분위기 속에서 살아갈 것을 강요당합니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">도쿄 의대 입시 차별 사건</h3>
-              <p class="mt-2">'여자는 일을 시키기 어렵다'는 분위기가 '입시'라는 엄정한 제도의 골조를 무너뜨렸습니다. 이는 '제도보다 분위기'가 우선된 최악의 사례입니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 10화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제10화: Chapter 10</p>
-          <h2 class="slide-title">선을 지키는 말 🛡️</h2>
-          <p class="slide-content text-xl">'인권'이란 무엇인가? '인간으로서의 존엄을 지키기 위해 사람은 모두 누구에게도 절대로 침해받을 수 없는 선을 지닌다. 그 선을 소중히 여기자'는 의미입니다.</p>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">우리는 인형이 아니다</h2>
-          <p class="slide-subtitle">후추치료교육센터 투쟁의 외침</p>
-          <div class="slide-content">
-            <p>1970년대, '동양 최고' 시설이라 불렸던 곳에서는 입소자의 사생활도, 존엄도 없었습니다. 남성 직원이 여성 장애인의 목욕을 돕는 일도 있었습니다. 이에 저항했던 미쓰이 기누코는 외쳤습니다.</p>
-             <div class="my-6 p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
-                <p class="text-2xl font-bold text-center text-indigo-800">"우리는 인형이 아니다……. 우리는 인간이다."</p>
-            </div>
-            <p>이 단순하지만 강력한 말로부터 우리는 <span class="highlight">'절대로 침해해서는 안 되는 선이란 무엇인가'</span>를 배우고 생각할 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 11화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제11화: Chapter 11</p>
-          <h2 class="slide-title">마음의 병의 '애당초론' そもそも</h2>
-          <p class="slide-content text-xl">"애당초 생산성이 없는 사람에게 세금을 써봤자"처럼, '애당초론'은 경직된 사회를 만듭니다. 하지만 "애당초 생산성이란 게 뭔데!"라고 되물으면, 새로운 질문을 던지는 계기가 됩니다.</p>
-        </div>
-      </div>
-
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">'고치는 것'이 목표가 아닌 장소</h2>
-          <p class="slide-subtitle">히라카와 병원 '조형 교실'과 '달래다(癒す)'의 의미</p>
+          <h2 class="slide-title">말을 믿는다는 것: <span class="highlight">친구를 위한 추도시</span> 📝</h2>
+          <p class="slide-subtitle">1949년 겨울, 야마시타 씨의 친구는 요양소 바깥 밭으로 고구마 서리를 하러 갔다가 붙잡혀 뭇매를 맞고 감방에 갇힌 뒤 상처가 도져 사망했습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">애당초 '병들다'는 것은?</h3>
-              <p>마음의 병이 생긴 것은 그 사람의 '마음' 때문일까, 아니면 그를 둘러싼 '환경' 때문일까? '조형 교실'은 이런 근본적인 질문을 던지게 하는 장소입니다.</p>
+              <h3 class="font-bold text-lg">사라진 존재</h3>
+              <p>당시 환자들은 신분을 감춘 경우가 많아 유족도, 유품도 없었습니다. '그 사람이 살았다는 사실'이 남지 않는다는 것은 너무나 슬픈 일입니다. 그래서 야마시타 씨는 친구를 위해 추도시를 지었습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">'치료'가 아닌 '달램'</h3>
-              <p>이곳에서는 '치료하다'가 아닌 '달래다'라는 말을 씁니다. '달래다'는 '어떻게든', '겨우겨우', '그럼에도' 오늘 하루를 살아냈다는 되뇌임에 깃든 기도와 같은 느낌입니다.</p>
+              <h3 class="font-bold text-lg">시(詩)라는 행위</h3>
+              <p>시를 짓는다고 죽은 친구가 돌아오거나 차별이 사라지지는 않습니다. 하지만 말로 남겨두면, 언젠가 누군가가 친구를 생각하며 기도해줄지도 모릅니다. <span class="highlight">'말을 믿는다'</span>는 것은 바로 이런 일입니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Section: 12화 -->
+      <!-- Section 4: Chapter 3 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">제12화: Chapter 12</p>
-          <h2 class="slide-title">살아 있다는 느낌이 죽어갈 때 🍂</h2>
-          <p class="slide-content text-xl">기초생활수급자가 조금 비싼 일용품을 쓴다고 비난하는 사회. 소소한 바람조차 논리적으로 설명하고 인정받아야 할까? 이런 작은 포기가 쌓인 사회는 어떻게 될까?</p>
+          <p class="slide-part-title">제 3화</p>
+          <h2 class="slide-title">사전에는 없는, ‘희대<span class="highlight">希待</span>’라는 말의 태도</h2>
+          <p class="slide-content">때로는 '기대'라는 말이 무겁게 느껴질 때가 있습니다. 상대에게 부담이 아니라 마음의 양식이 될 수 있는 말이 있을까요? 여기, 과거 한 정신병원에서 만들어진 신기한 말을 소개합니다.</p>
         </div>
       </div>
-
+      
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">다진 오뎅은 오뎅이 아니지</h2>
-          <p class="slide-subtitle">하나다 슌초와 '살아 있다는 느낌'</p>
+          <h2 class="slide-title">‘기대’는 왜 <span class="highlight">무거울까?</span></h2>
+          <p class="slide-subtitle">'기대'라는 말에는 크든 작든 보답을 바라는 마음이 섞여 있습니다.</p>
           <div class="slide-content">
-            <p>장애인 운동가 하나다 슌초는 노인홈 식사로 나온 '다진 오뎅'을 보고 "다진 오뎅은 오뎅이 아니지"라고 분개했습니다. 이는 단순히 음식 투정이 아닙니다.</p>
-            <p class="mt-4">'맛있는 것을 맛있게 먹고 싶다'는 소소한 욕구. <span class="highlight">'살아 있다는 느낌'</span>은 바로 이런 욕구가 충족될 때 느끼는 감각입니다. 하지만 세상은 '어쩔 수 없다'며 이런 감각조차 제한하려 합니다. 그의 한마디는 그에 대한 저항의 말이었습니다.</p>
+            <p>올림픽 선수에게 "기대하겠습니다!"라고 말하는 것은, '스스로를 위해 뛰길 바란다'는 뜻보다 '메달을 따서 우리에게 감동을 주길 바란다'는 메시지가 되기 쉽습니다.</p>
+            <p class="mt-4">'누군가를 위해', '무언가를 위해'라는 마음은 소중하지만, 타인이 일방적으로 밀어붙이면 사람은 더욱 지치게 됩니다. <span class="highlight">나는 무엇을 위해 힘을 내야 하나?</span> 라는 고민을 할 시간이 필요합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Section: 13화 -->
-      <div class="slide">
+       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">제13화: Chapter 13</p>
-          <h2 class="slide-title">살아가는 데 사양이 필요 있을까? 🤔</h2>
-          <p class="slide-content text-xl">"첫 까마귀 '살아가는 데 사양이 필요 있는가'" - 하나다 슌초의 하이쿠. 이 구절에는 삶을 '사양'하라고 강요받은 사람의 경험이 담겨 있습니다.</p>
+          <h2 class="slide-title">오카노우에 병원의 <span class="highlight">획기적인 도전</span> 🏥</h2>
+          <p class="slide-subtitle">1969년, 일본에서 처음으로 '완전 개방제'를 실시한 선진적인 정신과 병원, 오카노우에. 그곳에는 자물쇠도, 철창도 없었습니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">폐쇄적인 정신 의료</h3>
+              <p>당시 일본의 정신병원은 환자가 많을수록 이익이 나는 구조 때문에 치료보다 관리를 우선했습니다. 철창에 갇힌 환자들은 살아갈 기력을 빼앗겼습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">개방을 향한 노력</h3>
+              <p>오카노우에 병원은 환자들을 통제하지 않고, 진지하게 마주하며 신뢰 관계를 맺었습니다. 그 정신을 어느 옛 직원은 <span class="highlight">«희대希待»</span>라는 말로 표현합니다.</p>
+            </div>
+          </div>
         </div>
       </div>
       
-       <div class="slide">
+      <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">사양이 부른 죽음</h2>
-          <p class="slide-subtitle">'사양 압력'은 모두에게 균일하게 가해지지 않는다</p>
+          <h2 class="slide-title">희대(<span class="highlight">希待</span>)란 무엇인가?</h2>
+          <p class="slide-subtitle">«인간의 선한 성품과 자기 치유력»을 믿고 그 «가능성»을 «무조건»적으로 신뢰하는 자세입니다.</p>
           <div class="slide-content">
-            <p>장애인이나 환자는 때로 '사양'하면서 목숨을 걸어야 합니다. '밥 먹고 싶다', '화장실 가고 싶다' 같은 기본적인 욕구조차 사양해야 하는 상황이 있습니다.</p>
-             <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <p class="font-bold text-lg text-yellow-800">"어느 정도의 '사양'은 미덕일지 모르지만, 누군가에게 '목숨이 걸린 사양을 강제하는 것'은 폭력이다. 하지만 많은 사람이 '사양하다가 사람이 죽는다'고 생각하지 않는다. 하지만 소수자·약자에게 '사양이 부른 죽음'은 현실이 될 수 있는 공포다."</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">보답을 바라지 않고 상대를 믿어보는 태도 ✨</h3>
+              <p class="mt-2">이는 '기대'처럼 상대에게 '좋은 환자'가 되라는 메시지를 주지 않습니다. 지금 고민하는 사람을 존중하고 "지금은 고민해도 괜찮다"면서 곁에 머물러주는 듯한 말입니다. 고민은 강제로 해결되지 않으며, 고민하고 있다는 사실 자체를 인정받는 것만으로도 마음이 편해지는 경우가 많습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Section: 14화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제14화: Chapter 14</p>
-          <h2 class="slide-title">'서로 입 다물리기'의 연쇄를 끊어야 할 때 ⛓️</h2>
-          <p class="slide-content text-xl">"다쳐도 자기 책임이니까요." 한 아이의 말에서 시작되는 '자기 책임'이라는 말의 섬뜩함에 대한 고찰.</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">멈추지 않는 자기 책임론</h2>
-          <p class="slide-subtitle">모리타 다케지의 가르침: 용기는 조건이 필요하다</p>
-          <div class="slide-content">
-            <p>차별당하는 사람에게 "용기를 내어 맞서라"고 말하는 것은 쉽습니다. 하지만 운동가 모리타 다케지는 말합니다. "용기는 하늘에서 떨어지거나 땅에서 솟는 것이 아니라, 용기를 낼 수 있는 <span class="highlight">주체적, 객관적 조건</span>을 필요로 한다."</p>
-            <p class="mt-4">고립된 약자는 개죽음당할 뿐입니다. 그렇기에 차별당하는 사람에게 용기를 내라고 부추기는 대신, 용기를 낼 수 있는 조건, 즉 <span class="highlight">고립되지 않는 연대감</span>을 키워야 합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 15화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제15화: Chapter 15</p>
-          <h2 class="slide-title">인정받으려고 하지 마라 🌟</h2>
-          <p class="slide-content text-xl">"아라이 군, 인정받으려고 하지 마. 사람은 자기 상상력 범위 내에 들어가는 것만 인정할 수 있어. 그러니 누군가한테 인정받는다는 건 그 사람의 상상력 범위 내에 다 들어갔다는 뜻이야. 타인의 상상력을 뛰어넘어버려." - 하나다 슌초</p>
-        </div>
-      </div>
-      
+      <!-- Section 5: Chapter 4 -->
        <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">인정의 욕망과 글쓰기</h2>
-          <p class="slide-subtitle">세상의 분위기에 맞서는 글</p>
-          <div class="slide-content">
-            <p>'인정받고 싶다'는 마음이 강해지면 자신의 신념보다 상대의 욕구를 더 신경 쓰게 됩니다. 주장의 일관성보다 주목받는 것 자체가 목표가 되기 쉽습니다.</p>
-            <p class="mt-4">하지만 하나다 슌초가 써온 글들은 세상의 분위기를 읽는 글이 아니라, <span class="highlight">세상의 분위기에 맞서는 글</span>이었습니다. 그의 제자로서 어떤 글을 써야 하는가. 그 길을 보여준 말이었습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 16화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제16화: Chapter 16</p>
-          <h2 class="slide-title">내 천(川) 자로 잔다고 하는구나</h2>
-          <p class="slide-content text-xl">한평생 요양소에서 살아온 한센병 회복자는 '부부가 아이를 사이에 두고 川 자처럼 나란히 누워 자는 모습'을 뜻하는 흔한 관용 표현을 몰랐습니다.</p>
-        </div>
-      </div>
-
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">차별이 빼앗은 것</h2>
-          <p class="slide-subtitle">한 사람의 인생에서 사라진 평범한 경험</p>
-          <div class="slide-content">
-            <p>그가 그 말을 몰랐다는 사실이 경악스러웠습니다. 그것은 단순히 하나의 단어를 모르는 것이 아니었습니다. 가족과 함께하는 평범한 일상, 그 경험 전체가 그의 인생에서 지워졌다는 것을 의미했습니다.</p>
-            <p class="mt-4 font-bold">'차별이 빼앗은 것', '차별이 부숴버린 것'의 크기를 상상하기만 해도 가슴이 찢어질 듯 아픕니다. 이 작업을 계속하는 이유는 "내 천 자로 잔다고 하는구나"라던 그 사람의 목소리가 귓가에 남아 있기 때문입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 17화 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">제17화: Chapter 17</p>
-          <h2 class="slide-title">말이 '문학'이 될 때 📚</h2>
-          <p class="slide-content text-xl">문학이란 무엇인가? 요컨대 '곰 인형' 같은 무언가라고 생각합니다. 없다고 생명이 위험하거나 생활이 무너지진 않지만, 힘들 때 살며시 자신을 지탱해주는 것.</p>
-        </div>
-      </div>
-
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">온기가 문학이 되는 순간</h2>
-          <p class="slide-subtitle">ALS 환자인 어머니를 돌보는 가와구치 유미코의 글</p>
-          <div class="slide-content">
-            <p>"죽음만이 불가역적이다. 살아서 피부에 온기가 남아 있는 동안에는 개선 가능성이, 희망이 계속 남아 있다."</p>
-            <p class="mt-4">이 글에서 주목하고 싶은 것은 '피부에 온기가 남아 있는'이라는 표현입니다. ALS 상태의 어머니는 움직일 수 없지만, 그 체온으로 딸의 마음을 녹이고 있었습니다. 사람에게는 다른 사람의 체온으로밖에 녹일 수 없는 것이 있습니다. 그 체온을 단순한 '온도'가 아닌, 그 이상의 <span class="highlight">'무언가'</span>로 받아들이려는 힘이 '문학'이 아닐까 생각합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Section: 마지막 이야기 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">마지막 이야기: Author's Confession</p>
-          <h2 class="slide-title">장애인과의 불행한 첫 만남 🤝</h2>
-          <p class="slide-content text-xl">교사가 되기 위한 실습에서 지적 장애인 시설에 갔습니다. 폐쇄적이고 엄격한 분위기, 말이 통하지 않는다는 공포 속에서 '장애인=무서운 존재'라는 차가운 인상이 마음속에 굳어졌습니다.</p>
+          <p class="slide-part-title">제 4화</p>
+          <h2 class="slide-title">마이너스 감정을 처리하는 <span class="highlight">비용</span> 💸</h2>
+          <p class="slide-content">수신자를 특정할 수 없는 마이너스 감정은 결국 개인이 자기 내면에서 처리할 수밖에 없습니다. 그 처리 비용으로 거액의 '자존감'이 지불됩니다. 이 장에서는 '육아'와 '돌봄' 영역에서 여성이 어떻게 자존감을 깎아내리는지 이야기합니다.</p>
         </div>
       </div>
       
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">고정관념을 깨뜨려준 만남</h2>
-          <p class="slide-subtitle">운동가들과의 교류가 나를 구원했다</p>
+          <h2 class="slide-title">'호카쓰(保活)'의 <span class="highlight">괴로움</span></h2>
+          <p class="slide-subtitle">호카쓰(아이를 어린이집에 보내기 위한 활동)의 진정한 어려움은 '그만큼 온갖 말로 설명해도 이해할 마음이 없는 사람에게는 조금도 이해받지 못한다'는 데 있습니다.</p>
           <div class="slide-content">
-            <p>실습 후, '나는 차별적인 인간'이라는 자기혐오에 빠졌습니다. 하지만 그 후 장애인 운동가들과 만나면서 내 안의 장애인상이 녹아내렸습니다. 그들은 내가 멋대로 쌓아 올린 '장애인상'과는 한참 다른, 이상하고 조리에 맞지 않는(멋진) 사람들이었습니다.</p>
-            <p class="mt-4">그들이 가르쳐준 가장 큰 것은 <span class="highlight">'옳다', '훌륭하다', '쓸모 있다'는 가치관 자체를 의심하는 감각</span>이었습니다. 그 만남이 없었다면, 나는 차갑게 굳은 장애인상을 끌어안고 '나는 차별하지 않는 이성적 인간'이라는 자아상을 지키려 했을 것입니다.</p>
+            <p>입소 신청 서류는 '포기하라는 건가?' 싶을 정도로 까다롭습니다. 제출한 사람의 땀과 눈물은 고려되지 않고, 관공서의 계산식에 따라 포인트로 환산됩니다. 포인트가 낮으면 아이는 어린이집에 들어갈 수 없고, 부모는 일을 못 하게 됩니다.</p>
+            <p class="mt-4">이 과정에서 다른 부모는 경쟁자가 되고, 아이를 맡길 수 있게 된 안도감과 탈락한 사람들에 대한 죄책감이 뒤섞여 <span class="highlight">'난처한 부모들'을 더욱 분열</span>시킵니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다양성이란 <span class="highlight">무엇일까?</span> 🤔</h2>
+          <p class="slide-subtitle">남성과 여성이 "일과 육아를 병행하기 힘들다"고 말했을 때, 돌아오는 반응은 다릅니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">남성의 경우 👨‍💼</h3>
+              <p>대개 "아내분은 뭐 하세요?"라는 질문이 돌아올 뿐, "그럼 일을 그만두지?"와 같은 말을 듣는 경우는 거의 없습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">여성의 경우 👩‍💼</h3>
+              <p>"일을 그만두지?", "일 타령하면 아이가 불쌍하지 않아?", "낳은 것도 일하는 것도 스스로 원해서 한 일이잖아" 같은 말들이 돌아옵니다. <span class="highlight">이런 말들은 사실 살상력이 꽤 높습니다.</span></p>
+            </div>
+          </div>
+          <p class="slide-content mt-6">다양성을 존중한다는 것은, '안이하게 각자의 사정을 침범하지 않으면서, 각자의 사정을 헤아리는 일'입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'여성의 고통'에 언어를 부여한 사람, <span class="highlight">다나카 미쓰</span></h2>
+          <p class="slide-subtitle">1970년대, '사회=남자'인 세상에서 배제되고 분열된 여성들의 고통을 서술한 다나카 미쓰.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-pink-50 border border-pink-200 rounded-lg">
+              <h3 class="font-bold text-lg">"이 세상이 아무리 비참하더라도, 그렇다고 해서 이 내가 비참해도 좋을 리는 없다고 생각해."</h3>
+              <p class="mt-2 text-right">- 다나카 미쓰</p>
+            </div>
+            <p class="mt-4">당시 "고통스럽다"고 말하면 '고통스럽다고 느끼는 사람이 이상하다'고 여겨졌습니다. 다나카 씨는 "여성이 고통스러운 이유는 이것이다!"라고 선언하며, 많은 이들이 느꼈지만 표현하지 못했던 고통에 <span class="highlight">절실한 문장</span>을 부여했습니다. 자신의 고통을 끝까지 파고든 그 말은 시대를 넘어 누군가의 고통과 함께합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 6: Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 5화</p>
+          <h2 class="slide-title">‘지역’에서 살고 싶다는 뜻이 <span class="highlight">아니야</span> 🏘️</h2>
+          <p class="slide-content">우리는 '지역'이라는 말을 너무나 당연하게 사용합니다. 하지만 행정 용어로서의 '지역'은 생생한 삶의 실감을 담지 못합니다. 뇌성마비 운동가 요코타 히로시 씨는 이 말에 의문을 제기합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전설의 운동가와 <span class="highlight">푸른잔디회</span></h2>
+          <p class="slide-subtitle">1957년 결성된 뇌성마비 장애인 당사자 단체 '푸른잔디회'. 밟히고 밟혀도 잔디처럼 힘차게 살아가자는 바람이 담겨있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">장애인 운동의 전환</h3>
+              <p>이전의 운동이 "불운한 장애인을 알아주세요"라고 호소했다면, 푸른잔디회는 달랐습니다. 그들은 세상의 <span class="highlight">장애인 차별과 맞서 싸웠습니다.</span></p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">"지역에서 생활한다"</h3>
+              <p>복지 업계의 슬로건 '시설에서 지역으로'의 발상 역시 푸른잔디회에서 시작되었습니다. 그들은 시설에서 뛰쳐나와 자력으로 공동 주택에서 살기 시작했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">‘지역’이 아니야. <span class="highlight">‘이웃’이지.</span></h2>
+          <p class="slide-subtitle">요코타 히로시 씨는 '지역'이라는 말을 싫어했습니다. "뻔한 빈말이라서요" 라고 말했습니다.</p>
+          <div class="slide-content">
+            <div class="p-6 bg-green-50 border border-green-200 rounded-lg">
+                <p class="text-2xl font-bold text-center">"'지역'이 아니야. '이웃'이지."</p>
+            </div>
+            <p class="mt-4">'이웃'이라는 말에는 생생한 생활의 실감이 있습니다. 하지만 '지역'에는 그것이 없습니다. "지역 생활에는 찬성하지만, 우리 '이웃'은 좀..." 같은 반응이 이를 증명합니다.</p>
+            <p class="mt-4">요코타 씨와 동료들이 외친 것은 '지역에서 살게 해달라'가 아니었습니다. <span class="highlight">장애인도 당신의 '이웃'에서, 당신이 생활하듯이 살고 싶다</span>는 호소였습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 7: Chapter 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 6화</p>
+          <h2 class="slide-title">장애인 시설 살상 사건이 <span class="highlight">망가뜨린 것</span></h2>
+          <p class="slide-content">2016년, 사가미하라시의 장애인 시설에서 일어난 비극적인 사건. 이 사건은 우리가 살아가는 사회가 지녀야 할 모습과 성립에 필요한 요소들을 되돌릴 수 없을 만큼 손상시켰습니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시대의 <span class="highlight">갈림길</span></h2>
+          <p class="slide-subtitle">특정한 사람들의 존재를 배척하는 증오 감정을 노골적으로 드러내는 행동에 대한 우리 사회의 저항감은 옅어지고 말았습니다.</p>
+          <div class="slide-content">
+            <p>드러난 증오는 장애인에게도 향합니다. 장애인이 거리에서 신변의 위험을 느끼게 하는 분위기는 사건 전에도 존재했고, 지금은 더욱 음울한 무게가 더해졌습니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <p class="mt-2 text-lg">이런 상황을 보고도 못 본 척하며 넘길 것인가. 다음 세대가 이어받지 못하도록 지금 여기서 맞설 것인가. 한 치의 과장도 없이, 우리는 <span class="highlight">시대의 갈림길</span>에 서 있습니다. '누군가'를 망설임 없이 증오하는 사회는 '나' 또한 망설이지 않고 증오할 것입니다. 그런 사회가 싫다면 지금 '침묵한다'는 선택지는 없습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'사는 의미'는 말로 표현할 수 없는 것</h2>
+          <p class="slide-subtitle">"장애인은 사는 의미가 없다"는 말에 반론하려고 하면, '장애인이 살아갈 의미'를 입증해야 한다는 착각에 빠지기 쉽습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">부조리한 요구 🚫</h3>
+              <p>'사람이 살아가는 의미'는 가볍게 논할 수 없습니다. 장애 유무와 상관없이 '자신이 살아 있는 의미'를 간결하게 설명할 수 있는 사람은 없습니다. 제3자로부터 그 설명을 요구받을 이유도, 사회에 증명해야 할 의무도 없습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">논의의 본질</h3>
+              <p>우리가 논의해야 할 문제는 '장애 유무로 사람을 가르지 않고 함께 살아가기 위해 무엇이 필요한가?'입니다. 특정 사람들의 '사는 의미'에 대해 논의하는 것 자체가 그들에게는 공포스러운 일입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8: Chapter 8 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 8화</p>
+          <h2 class="slide-title">책임의 ‘층<span class="highlight">層</span>’</h2>
+          <p class="slide-content">처참한 사건의 '책임'을 논할 때 우리는 '범인 개인'의 문제와 '사회 전체'의 문제라는 이분법에 빠지기 쉽습니다. 미나마타병 환자 오가타 마사토 씨는 '책임'을 지층에 비유하며 더 깊은 사유를 제시합니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미나마타병과 싸우다: <span class="highlight">오가타 마사토</span></h2>
+          <p class="slide-subtitle">미나마타병은 기업 '짓소'가 유발한 일본 최대 규모의 공해병입니다. 책 『짓소는 나였다』에서 오가타 씨는 '책임'을 «지층»에 비유합니다.</p>
+          <div class="slide-content">
+            <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="italic">"인간의 책임이다, 인간이 잘못했다고 주장하면 예컨대 짓소의 책임이라는 주장과는 대립된다고 여겨집니다... 하지만 두 책임은 대립하지 않아요. 지층처럼 세로축을 공유하는 관계이므로 대립할 수 없습니다."</p>
+            </div>
+            <p class="mt-4">책임은 하나의 층에만 있지 않습니다. 겹겹이 쌓인 '책임의 층' 전체를 생각해야 합니다. 어느 한 '층'에 대해 생각했다고 해서 다른 '층'의 책임을 면할 수는 없습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">책임의 <span class="highlight">지층 구조</span> 🌍</h2>
+          <p class="slide-subtitle">미나마타병과 사가미하라 사건의 책임은 여러 층으로 쌓여 있습니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-4">
+              <li><b>가장 얕은 층:</b> 가해 기업(짓소) / 범인 개인. 일차적인 책임이 있습니다.</li>
+              <li><b>중간 층:</b> 사회와 세상. 경제 성장을 위해 화학 물질을 원했던 사회. 인간을 '생산성'으로 평가하는 사회의 존재 양식.</li>
+              <li><b>가장 깊은 층:</b> 나 자신. 화학 물질로 만들어진 물건을 쓰는 나. 넓은 의미의 '책임'에서 자유롭지 않은 나.</li>
+            </ul>
+            <p class="mt-6">깊고 깊은 '층'에서는 미나마타병과 사가미하라 사건의 '책임'이 겹쳐 보이기까지 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 9: Chapter 9 -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 9화</p>
+          <h2 class="slide-title">분위기에 지워지는 <span class="highlight">목소리</span> 🌬️</h2>
+          <p class="slide-content">'제도'가 있어도 '분위기' 때문에 그것을 사용하지 못하는 경우가 많습니다. 제도보다 분위기의 위력이 더 크면, 사람은 분위기에 좌우되어 살아갑니다. 이 장에서는 권리에 둔감해지는 사회의 위험성을 경고합니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제도보다 <span class="highlight">분위기</span></h2>
+          <p class="slide-subtitle">출산 휴가나 육아 휴직 제도가 있어도, 사내 분위기 때문에 쓰기 어렵다는 말. 이 말은 누가 하느냐에 따라 의미가 달라집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">약자의 말</h3>
+              <p>입지가 약한 사람이 '분위기 때문에 힘들다'고 말하는 것은 현실에 대한 고충 토로입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">강자의 말 😠</h3>
+              <p>사내 분위기를 만드는 위치에 있는 사람이 남 일처럼 말하는 것은 무책임합니다. <span class="highlight">'강자가 약자를 그때그때 분위기에 따라 대우해도 된다'</span>는 뜻이기 때문입니다.</p>
+            </div>
+          </div>
+           <p class="slide-content mt-6">분위기란 주류 다수에게는 공기 같지만, 소수자에게는 <span class="highlight">감옥</span>과 같습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">권리에 둔감해지면 <span class="highlight">차별에도 둔감해진다</span></h2>
+          <p class="slide-subtitle">의대 입시 여성 차별 사건은 '여자는 일을 시키기 어렵다'는 분위기가 엄정한 제도의 골조를 무너뜨린 최악의 사례입니다.</p>
+          <div class="slide-content">
+            <p>이때 "차별이 아니라 구별이다"라는 주장이 등장했습니다. 하지만 <span class="highlight">'불이익이 발생하는 구별'은 '차별'일 뿐입니다.</span></p>
+            <p class="mt-4">우리 사회는 '권리'라는 개념에 둔감하고, 그와 짝을 이루어 '차별'에 대해서도 희미한 감수성을 지녔습니다. '차별'을 알아차리는 감수성을 무디게 만들지 않기 위해서라도 우리는 '권리'에 민감해져야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 10: Chapter 14 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제 14화</p>
+          <h2 class="slide-title">‘서로 입 다물리기’의 연쇄를 <span class="highlight">끊어야 할 때</span></h2>
+          <p class="slide-content">"다쳐도 자기 책임이니까요." 아이의 입에서 나온 '자기 책임'이라는 말은 우리 사회에 이 말이 얼마나 깊이 침투했는지 보여줍니다. 이 장에서는 '자기 책임'이라는 말의 섬뜩함과 그 연쇄를 끊어야 할 필요성에 대해 이야기합니다.</p>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'자기 책임'이라는 말의 <span class="highlight">섬뜩함</span> 😱</h2>
+          <p class="slide-subtitle">'자기 책임'이라는 말에 섬뜩함을 느끼는 세 가지 이유</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-3">
+              <li><b>의미의 확대:</b> 2004년 이라크 인질 사건 이후, '사회가 이대로 괜찮은지 문제를 제기하는' 온갖 상황에 이 말의 불똥이 튀고 있습니다. (성폭력, 빈곤, 질병, 육아, 노후 문제 등)</li>
+              <li><b>입을 다물게 하는 말:</b> 왜곡된 사회에 "여기에 문제가 있다!"라고 외치면, "그건 당신의 노력과 능력 문제"라는 '자기 책임론'이 그 목소리를 틀어막습니다.</li>
+              <li><b>타인의 고통을 상상하는 능력 해치기:</b> '자신의 행동에서 비롯된 결과이니 스스로 해결해야 한다'는 논리는 타인의 고통에 공감하고 연대할 필요가 없다고 말하는 것과 같습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">멈추지 않는 <span class="highlight">'서로 입 다물리기'</span>의 연쇄</h2>
+          <p class="slide-subtitle">'자기 책임'이라는 말에 깊이 상처받은 경험이 있는 사람이, 자신과 처지가 비슷한 사람에게 같은 말을 내뱉는 사태가 연쇄적으로 일어납니다.</p>
+          <div class="slide-content">
+            <p>상처받은 사람은 경우에 따라 '자신을 상처 입힌 논리'를 자신과 비슷한 처지의 다른 이에게 내세웁니다. 사회의 존재 방식에 분노하면서도, 힘든 상황에서 도움을 구해서는 안 된다는 생각을 주입당한 사람들. 그들의 눈에 사회에 문제를 제기하는 모습은 '무책임'하고 '질서를 무너뜨리는' 행위로 비칩니다.</p>
+            <p class="mt-4">이런 부정적 연쇄에 제동을 걸지 못하면, 사회 문제를 지적할 «용기»를 탄생시키는 기반이 파괴됩니다. 우리는 <span class="highlight">'부조리와 싸우는 법'</span>을 배워야만 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부조리와 <span class="highlight">싸우는 법</span> ⚔️</h2>
+          <p class="slide-subtitle">모리타 다케지 씨의 가르침에 따르면, 부조리한 사회와 싸울 «용기»를 얻기 위해서는 <span class="highlight">고립되지 않고 고립시키지 않는 것</span>이 중요합니다.</p>
+          <div class="slide-content">
+            <p>차별당하는 사람은 대개 정신적·경제적으로 위기에 몰려 있고, 고립된 상태에서 맞서 싸워봤자 사회에 짓눌려버리기 때문입니다. 애당초 차별과 싸우는 것은 두려운 일입니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <h3 class="font-bold text-lg">우리가 할 일 🤝</h3>
+                <p class="mt-2">'자기 책임'이 '사람을 고립시키는 말'이라면, 우리는 '사람을 고립시키지 않는 말'을 찾아 서로 나눠야 합니다. '지금 이 순간 화난 사람·분노하는 사람·억울한 사람'을 고립시키지 않는 일부터 시작해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <!-- Conclusion -->
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">나가며</p>
+          <h2 class="slide-title">정리되지 않는 것들을 <span class="highlight">귀히 여기다</span></h2>
+          <p class="slide-subtitle">이 책은 '요약하기'가 아니라 '일부를 보여주기'를 통해 말의 힘을 전하고자 했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">'요약하기'의 위험성 ✂️</h3>
+              <p>세상을 '안이한 요약주의'로 바라보는 것은 위험합니다. 빠르고, 짧고, 이해하기 쉬운 것만을 추구하면, 인간과 세계를 단순한 숫자로 환산하고 '요약해서 이해할 수 있다'는 망신(妄信)에 빠지게 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">'일부를 보여주기'의 힘 ✨</h3>
+              <p>깔끔하게 말로 정리할 수 없는 것의 귀중함이 있습니다. 너무 커서 다 표현할 수 없는 것의 일부를 보여줌으로써, 미처 표현하지 못한 전체를 상상하게 만드는 방법입니다. 이 책에서 소개한 장애와 질병과 함께 살아온 사람들의 말들이 바로 그것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-6xl mb-6">🎯</div>
-          <h2 class="slide-title">결론: 정리되지 않는 것들의 귀중함</h2>
+          <h2 class="slide-title">최종 결론</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">최근 사회는 '안이한 요약주의'로 달려가고 있습니다. 빠르고, 짧고, 이해하기 쉬운 말들만 대접받습니다. 하지만 깔끔하게 말로 정리할 수 없는 것의 귀중함이 있습니다. 한 사람의 인생은 결코 요약될 수 없습니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">우리는 모두 '요약'할 수 없는 인생을, 깔끔하게 말로 정리할 수 없는 채로 살아갑니다. 그 <span class="highlight">'정리되지 않음'</span>이야말로 귀하다고 생각합니다.</p>
+            <p class="mb-4">높은 사람들이 책임을 회피하고, 허상을 부풀리고, 적을 만들어 누군가를 위협하기 위해 말을 사용할 때, 우리는 긍정적인 감정을 느낄 수 없는 말들 속에서 살아가게 됩니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">많은 사람이 말을 포기하고 경시하면 세상에는 의미 없는 일만 일어날 것입니다. 다음 세대에게 이런 세상을 물려주지 않기 위해, <span class="highlight">나를 도와주었던 말들에게 은혜를 갚기 위해</span>, 우리는 말을 포기하지 않아야 합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Thank You -->
+      <!-- Slide: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -717,7 +682,6 @@
       if (currentSlide < slides.length - 1) {
         currentSlide++;
         updateSlide();
-        window.scrollTo(0, 0);
       }
     });
 
@@ -725,15 +689,16 @@
       if (currentSlide > 0) {
         currentSlide--;
         updateSlide();
-        window.scrollTo(0, 0);
       }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        nextBtn.click();
-      } else if (e.key === 'ArrowLeft') {
-        prevBtn.click();
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
       }
     });
 
