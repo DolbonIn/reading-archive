@@ -1,5 +1,15 @@
 [
   {
+    "slug": "나의-아프고-아름다운-코끼리",
+    "title": "나의 아프고 아름다운 코끼리",
+    "author": "바바라 포어자머",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나의-아프고-아름다운-코끼리.html",
+    "cover": "assets/covers/나의-아프고-아름다운-코끼리.jpg"
+  },
+  {
     "slug": "나라는-착각-뇌는-어떻게-인간의-정체성을-발명하는가",
     "title": "나라는 착각 - 뇌는 어떻게 인간의 정체성을 발명하는가",
     "author": "그레고리 번스",
@@ -428,16 +438,6 @@
     "description": "",
     "presentation": "presentations/내가-천-개의-인생에서-배운-것들-돈-명예-시간-그-무엇보다-소중한-것에-관하여.html",
     "cover": "assets/covers/내가-천-개의-인생에서-배운-것들-돈-명예-시간-그-무엇보다-소중한-것에-관하여.jpg"
-  },
-  {
-    "slug": "나의-아프고-아름다운-코끼리",
-    "title": "나의 아프고 아름다운 코끼리",
-    "author": "바바라 포어자머",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/나의-아프고-아름다운-코끼리.html",
-    "cover": "assets/covers/나의-아프고-아름다운-코끼리.jpg"
   },
   {
     "slug": "그레이트-마인드셋",
