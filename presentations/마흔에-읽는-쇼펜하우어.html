@@ -12,18 +12,21 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #FCFCFC;
-      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-      background-size: 30px 30px;
+      background-color: #f8f7f5; /* A softer, warmer background */
+      background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
     .slide {
       display: none;
       min-height: 85vh;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
     }
     .slide.active {
       display: flex;
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
@@ -32,11 +35,15 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 5px 10px rgba(0,0,0,0.02);
+      border: 1px solid #eee;
     }
     .slide-part-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #555;
+      color: #005f73; /* A deep teal color for section titles */
       margin-bottom: 8px;
     }
     .slide-title {
@@ -54,13 +61,14 @@
       line-height: 1.6;
     }
     .slide-content {
-      font-size: 1.1rem;
+      font-size: 1.15rem; /* Slightly larger for readability */
       line-height: 1.9;
       color: #333;
     }
     .highlight {
-      background-color: #FFDD00;
-      padding: 0 0.25em;
+      background-color: #ffd60a; /* A vibrant yellow */
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
     }
     .btn {
       padding: 12px 28px;
@@ -68,21 +76,23 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: none;
+      border: 2px solid transparent;
     }
     .btn-primary {
-      background-color: #111;
+      background-color: #003049; /* Dark blue for primary action */
       color: white;
     }
     .btn-primary:hover {
-      background-color: #333;
+      background-color: #001d2d;
     }
     .btn-secondary {
       background-color: #F0F0F0;
       color: #333;
+      border-color: #ddd;
     }
     .btn-secondary:hover {
       background-color: #E0E0E0;
+      border-color: #ccc;
     }
     .progress-bar-container {
       position: fixed;
@@ -90,8 +100,8 @@
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
       border-top: 1px solid #eee;
       z-index: 10;
     }
@@ -99,20 +109,29 @@
       width: 100%;
       background-color: #eee;
       border-radius: 9999px;
-      height: 8px;
+      height: 10px;
       margin-bottom: 15px;
+      overflow: hidden; /* Ensure progress bar stays within bounds */
     }
     .progress {
-      background-color: #111;
+      background-color: #005f73; /* Match section title color */
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
+    }
+    .quote-block {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background-color: #f8f9fa;
+        border-left: 4px solid #005f73;
+        font-style: italic;
+        color: #343a40;
     }
   </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
 
-  <div class="w-full">
+  <div class="w-full max-w-5xl">
     <!-- Slides Container: Add your slides here -->
     <div id="slides-container">
 
@@ -125,520 +144,613 @@
         </div>
       </div>
 
-      <!-- Slide 2: Table of Contents -->
+      <!-- Slide 2: Quote -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-subtitle" style="font-size: 1.8rem; line-height: 1.7;">“삶의 지혜는 즐겁고 행복하게 사는 <span class="highlight">기술</span>이다.”</p>
+            <p class="text-xl text-gray-600 mt-8">- 쇼펜하우어 -</p>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">목차</h2>
+          <h2 class="slide-title">목차 📜</h2>
           <div class="slide-content text-lg space-y-3">
-            <p><b>1. 시작하며:</b> 상대적인 삶이 아니라 절대적인 삶을 위하여</p>
-            <p><b>2. 1장: 마흔, 왜 인생이 괴로운가:</b> 쇼펜하우어의 진리</p>
-            <p><b>3. 2장: 왜 있는 그대로 인정해야 하는가:</b> 쇼펜하우어의 자신</p>
-            <p><b>4. 3장: 무엇으로 내면을 채워야 하는가:</b> 쇼펜하우어의 행복</p>
-            <p><b>5. 4장: 어떤 사람으로 살아야 하는가:</b> 쇼펜하우어의 관계</p>
-            <p><b>6. 5장: 어디에서 행복을 찾아야 하는가:</b> 쇼펜하우어의 인생</p>
-            <p><b>7. 결론:</b> 요약 및 최종 메시지</p>
+            <p><b>프롤로그:</b> 왜 마흔에 쇼펜하우어인가?</p>
+            <p><b>1장. 마흔, 왜 인생이 괴로운가:</b> 쇼펜하우어의 진리</p>
+            <p><b>2장. 왜 있는 그대로 인정해야 하는가:</b> 쇼펜하우어의 자신</p>
+            <p><b>3장. 무엇으로 내면을 채워야 하는가:</b> 쇼펜하우어의 행복</p>
+            <p><b>4장. 어떤 사람으로 살아야 하는가:</b> 쇼펜하우어의 관계</p>
+            <p><b>5장. 어디에서 행복을 찾아야 하는가:</b> 쇼펜하우어의 인생</p>
+            <p><b>결론:</b> 쇼펜하우어가 주는 지혜</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Section Title - Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">왜 마흔에 <span class="highlight">쇼펜하우어</span>인가?</h2>
+          <p class="slide-content">인생을 사계절로 나눈다면 40대는 늦여름이 끝나고 초가을쯤 열매를 맺어야 할 때입니다. 성공의 기쁨과 함께 실패의 아픔도 많이 겪는 복잡한 시기, 쇼펜하우어는 바로 이 시기를 위한 철학을 이야기합니다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 5: Who is Schopenhauer? -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쇼펜하우어는 <span class="highlight">누구인가?</span> 🤔</h2>
+          <p class="slide-subtitle">염세주의 철학자, 그러나 역설적인 긍정주의자</p>
+          <div class="slide-content space-y-4">
+            <p><b>아르투어 쇼펜하우어 (1788-1860):</b> 19세기 독일 철학자. 칸트, 플라톤 등 서양 철학뿐만 아니라 동양 철학의 영향도 받아 자신만의 독창적인 철학을 구축했습니다.</p>
+            <p>초기에는 헤겔의 그늘에 가려 주목받지 못했지만, 40대 중반부터 그의 저서가 알려지기 시작하며 세계적인 명성을 얻었습니다.</p>
+            <p>그의 철학은 '의지와 표상으로서의 세계'를 중심으로 하며, 인생의 본질을 '고통'으로 보았지만, 그럼에도 불구하고 의미 있게 살아가는 지혜를 탐구했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Why his philosophy is needed -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">왜 그의 철학이 <span class="highlight">필요한가?</span></h2>
+            <p class="slide-subtitle">"산다는 것은 괴로운 것이다." - 인생의 본질을 직시하기</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-2">😩 가짜 행복을 좇는 고통</h3>
+                    <p>출세, 부, 명예 등 외부적인 것에 무게 중심을 둔 행복. 좇을수록 공허해지고 더 큰 괴로움을 낳습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">😌 진짜 행복을 좇는 고통</h3>
+                    <p>자기 자신에 대한 깊은 통찰을 통해 얻는 행복. 자신을 긍정하고, 타인에게 기죽지 않으며, 스스로의 힘으로 사는 품격입니다.</p>
+                </div>
+            </div>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>쇼펜하우어는 말합니다. 우리는 지금까지 가짜 행복을 좇는 고통을 겪었을지 모릅니다. 이제는 <span class="highlight">진짜 행복을 좇는 고통</span>을 겪어야 할 때입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Five Key Lessons -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쇼펜하우어가 주는 <span class="highlight">5가지 지혜</span> 💎</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>1. 삶의 지혜:</b> 위로가 아닌 냉철한 조언과 깨달음을 줍니다.</p>
+            <p><b>2. 행복의 발견:</b> 행복을 외부가 아닌 자기 안에서 찾는 법을 알려줍니다.</p>
+            <p><b>3. 자신에게 집중:</b> 타인에게 의지하는 불행에서 벗어나 자신에게 집중하는 법.</p>
+            <p><b>4. 자긍심:</b> 허영심을 버리고 자신이 지닌 가치를 믿는 자긍심을 갖는 법.</p>
+            <p><b>5. 시간의 의미:</b> 두 번 다시 오지 않는 현재를 현명하게 사는 법.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 3: Section Title -->
+      <!-- Slide 8: Section Title - Chapter 1 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">시작하며</p>
-          <h2 class="slide-title">상대적인 삶이 아니라 <span class="highlight">절대적인 삶</span>을 위하여</h2>
-          <p class="slide-content">인생을 사계절에 비유한다면, 40대는 늦여름이 끝나고 초가을에 열매를 맺는 시기입니다. 이 시기는 성공의 기쁨과 함께 실패의 아픔도 많이 겪으며, 삶에 대한 깊은 성찰을 시작하게 됩니다.</p>
+          <p class="slide-part-title">1장. 마흔, 왜 인생이 괴로운가</p>
+          <h2 class="slide-title">삶은 전부 <span class="highlight">의지</span>에 달려 있다</h2>
+          <p class="slide-content">"이 세상의 모든 생물은 살려는 의지를 충분히 갖고 있으나 이 의지가 충분히 만족되지 않기 때문에 산다는 것은 괴로운 것이다."</p>
         </div>
       </div>
 
-      <!-- Slide 4: Who is Schopenhauer? -->
+      <!-- Slide 9: All Life is Suffering -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">쇼펜하우어는 <span class="highlight">누구인가?</span></h2>
-          <p class="slide-subtitle">아르투어 쇼펜하우어 (1788-1860)</p>
+          <h2 class="slide-title">"모든 인생은 <span class="highlight">고통</span>이다." 🌊</h2>
+          <p class="slide-subtitle">쇼펜하우어의 깨달음은 40년을 넘게 살아온 사람이라면 공감할 수 있습니다.</p>
           <div class="slide-content">
-            <p>1810년 괴팅겐 대학교에서 의학을 공부하다 철학으로 전향하여 칸트와 플라톤 철학을 공부했습니다. 그의 철학은 서양 철학뿐만 아니라 동양 철학의 영향도 받았습니다.</p>
-            <p class="mt-4">30대에는 베를린 대학교에서 강의를 시도했지만, 당시 최고 철학자였던 헤겔과의 경쟁에서 참담한 실패를 맛보았습니다. 이후 학계를 떠나 은둔의 삶을 선택했습니다.</p>
+            <p>삶의 욕망 자체가 고통이라는 가르침은 불교의 '일체개고(一切皆苦)'와 통합니다. 인간은 언젠가 죽는 존재이기에 욕망, 집착, 소유욕은 모두 헛된 것입니다.</p>
+            <p class="mt-4">욕망의 파도를 잘 다스리는 것이 마음의 행복을 얻는 출발점입니다. 행복이라는 화려한 이름 뒤에 가려진 <span class="highlight">삶의 어두운 면</span>을 직시할 용기가 필요합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 5: Schopenhauer's Fame -->
+      <!-- Slide 10: Will to Live -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">고난 속에서 핀 <span class="highlight">명성</span></h2>
+          <h2 class="slide-title">살고자 하는 의지: <span class="highlight">인간의 본능</span></h2>
+          <p class="slide-subtitle">삶은 긍정적인 면과 부정적인 면을 동시에 가집니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">초기의 무관심</h3>
-              <p>그의 주저 『의지와 표상으로서의 세계』는 큰 주목을 받지 못했습니다. 그러나 그는 자신의 천재성이 후대에 평가받을 것이라 믿으며 불행해하지 않았습니다.</p>
+              <h3 class="font-bold text-lg">아리스토텔레스의 '이성'</h3>
+              <p>인간의 목적은 행복이며, 이는 이성에 맞는 삶을 통해 실현된다고 보았습니다. 인간의 고유한 기능인 이성을 최대한 발휘하는 것이 잘 사는 법입니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">뒤늦은 인정</h3>
-              <p>40대 중반부터 그의 이름이 알려지기 시작했고, 수필집 『소품과 부록』이 세계적인 명성을 안겨주었습니다. 45세부터 명성이 높아져 60대에는 세계 여러 대학에서 그의 철학을 주제로 강의가 열렸습니다.</p>
+              <h3 class="font-bold text-lg">쇼펜하우어의 '본능'</h3>
+              <p>행복은 환상이자 망상이라고 보았습니다. 우리의 삶은 이성이 아니라, 기관사 없는 기차처럼 삶에 대한 욕망(충동)에 이끌려 달려갑니다.</p>
             </div>
+          </div>
+           <div class="quote-block">
+              <p>"마른 씨앗은 3,000년 동안 생명력을 유지하다가 마침내 유리한 환경이 생기면 식물로 성장한다."</p>
+              <p class="mt-2">- 쇼펜하우어는 이 세계의 본질이 합리성이 아니라 <span class="highlight">'삶에의 의지'</span>라고 말했습니다.</p>
+           </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Realizing Pain, Realizing Life -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고통을 깨달아야 <span class="highlight">인생을 깨닫는다</span></h2>
+          <p class="slide-subtitle">마흔 이후, 인생과 행복, 고통에 대한 발상의 전환이 일어납니다.</p>
+          <div class="slide-content">
+            <p>쇼펜하우어의 인생은 40대 중반이 넘어서야 풀리기 시작했습니다. 그에게 마흔은 견디기 힘든 고통을 인내하며 넘어야 할 인생의 위기이자 <span class="highlight">전환점</span>이었습니다.</p>
+            <p class="mt-4">세상을 이해하는 데는 경험뿐만 아니라 다양한 관점과 시각이 필요합니다. 청춘은 지혜롭지 못하지만 무모한 용기가 있습니다. 마흔 이후 행복한 삶을 누리고 싶다면 경험과 지식을 쌓고, 자기 통찰을 거듭해야 합니다.</p>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 6: The Philosopher Loved by World-Renowned Figures -->
+
+      <!-- Slide 12: Pendulum of Life -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">세계 명사들이 사랑한 <span class="highlight">철학자</span></h2>
-            <p class="slide-subtitle">쇼펜하우어는 철학자, 과학자, 예술가 등 다양한 분야의 명사들에게 큰 영향을 미쳤습니다.</p>
-            <div class="slide-content">
-                <p><b>철학자:</b> 프리드리히 니체, 쇠렌 키르케고르, 비트겐슈타인 등</p>
-                <p><b>과학자:</b> 찰스 다윈, 알베르트 아인슈타인</p>
-                <p><b>문학가:</b> 헤르만 헤세, 프란츠 카프카, 톨스토이</p>
-                <p><b>음악가:</b> 리하르트 바그너</p>
-                <p class="mt-4">니체는 "그가 가르친 것은 지나갔으나 그가 살았던 것은 남으리라. 이 사람을 보라. 그는 누구에게도 굴복하지 않았노라."라고 말하며 깊은 존경심을 표했습니다.</p>
+            <h2 class="slide-title">인생은 고통과 권태를 오가는 <span class="highlight">시계추</span> 🕰️</h2>
+            <p class="slide-subtitle">"삶은 진자처럼 고통과 무료함 사이를 왔다 갔다 하는데, 사실 이 두 가지가 삶의 궁극적인 요소다."</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-red-600">고통 (Pain)</h3>
+                    <p>결핍에서 비롯됩니다. 가난한 사람은 돈이 없어 고통에 시달립니다. 모든 의욕의 기초는 결핍, 부족, 즉 고통입니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-blue-600">권태 (Boredom)</h3>
+                    <p>과잉에서 비롯됩니다. 부유한 사람은 넘쳐나는 돈을 어떻게 써야 할지 몰라 권태를 느낍니다. 안전과 과잉은 무료함을 낳습니다.</p>
+                </div>
             </div>
         </div>
       </div>
 
-      <!-- Slide 7: Why Schopenhauer's Philosophy is Necessary -->
+      <!-- Slide 13: The Paradox of Desire -->
       <div class="slide">
         <div class="slide-container">
-            <h2 class="slide-title">왜 쇼펜하우어 <span class="highlight">철학이</span> 필요한가?</h2>
-            <p class="slide-subtitle">"산다는 것은 괴로운 것이다."</p>
+          <h2 class="slide-title">욕망의 <span class="highlight">최대 만족</span>과 <span class="highlight">최대 결핍</span></h2>
+          <p class="slide-subtitle">욕망이 충족되지 않으면 불행하지만, 너무 쉽게 충족되면 공허와 무료감에 빠집니다.</p>
+          <div class="slide-content space-y-4">
+            <p>뷔페에 가면 처음에는 모든 음식을 다 먹을 수 있을 것 같지만, 배가 차면서 만족감이 생기고 결국엔 음식의 맛을 비판하게 됩니다. 배가 고플 때와 부를 때가 다른 것입니다.</p>
+            <p>인간의 감정은 시계추처럼 지속적이지 않고 유동적입니다. 따라서 <span class="highlight">영원한 충족과 행복감</span>은 없습니다.</p>
+            <p class="font-bold">욕망의 최대 만족은 권태이고, 욕망의 최대 결핍은 고통입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Overcoming Emptiness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내면의 공허감 <span class="highlight">극복하기</span></h2>
+          <p class="slide-subtitle">"정신이 풍요로워질수록 내면의 공허가 들어갈 공간이 줄어들기 때문이다."</p>
+          <div class="slide-content">
+            <p>우리는 욕구의 결핍과 과잉, 양극단을 피하고 <span class="highlight">중간</span>을 택해야 합니다. 현명한 사람은 행복과 불행의 원인을 바깥이 아닌 자신의 안에서 찾습니다.</p>
+            <p class="mt-4">고뇌를 바라보는 자신의 관점을 바꾸려 노력하고, 무료함의 근원인 내면의 공허를 극복하기 위해 외적인 자극 대신 <span class="highlight">내적인 풍부함</span>을 추구해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Necessity of Desire -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">욕망은 <span class="highlight">필연이다</span></h2>
+            <p class="slide-subtitle">"의욕의 주체는 영원히 애타게 갈망하는 탄탈로스와 같다."</p>
             <div class="slide-content">
-                <p>마흔은 '인생은 고통'이라는 쇼펜하우어의 말에 공감하게 되는 시기입니다. 그는 고통을 '가짜 행복'을 좇는 고통과 '진짜 행복'을 좇는 고통, 두 가지로 나누었습니다.</p>
-                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <h3 class="font-bold text-lg">진짜 행복을 향한 길</h3>
-                    <p class="mt-2">쇼펜하우어는 가짜 행복을 좇는 것을 멈추고, 자기 자신을 긍정하고 타인에게 비굴하지 않으며 스스로의 힘으로 살아가는 '진짜 행복'을 좇는 고통을 겪어야 한다고 말합니다. 그는 우리에게 삶의 지혜와 깨달음을 줍니다.</p>
+                <p>그리스 신화의 탄탈로스처럼, 인간은 목마름을 완벽하게 충족할 수 없기에 불행할 수밖에 없습니다. 하나의 소망이 성취되어도 열 개의 소망은 이뤄지지 않고 남습니다.</p>
+                <div class="quote-block">
+                  <p>"모든 의욕은 욕구에서, 즉 결핍이나 고뇌에서 생긴다. 이 욕구는 충족되면 끝난다. (...) 이는 마치 거지에게 늘 던져 주는 적선이 오늘 그의 목숨을 이어 주어 고통을 내일까지 연장시키는 것과 같다."</p>
                 </div>
             </div>
         </div>
       </div>
       
-      <!-- Slide 8: Section Title -->
+      <!-- Slide 16: Section Title - Chapter 2 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">1장: 마흔, 왜 인생이 괴로운가</p>
-          <h2 class="slide-title">쇼펜하우어의 <span class="highlight">진리</span></h2>
-          <p class="slide-content">이 장에서는 삶의 본질적인 고통과 욕망의 속성에 대해 쇼펜하우어가 어떻게 통찰했는지 살펴봅니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 9: Life is Entirely Dependent on Will -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">삶은 전부 <span class="highlight">의지</span>에 달려 있다</h2>
-          <p class="slide-subtitle">"이 세상의 모든 생물은 살려는 의지를 충분히 갖고 있으나 이 의지가 충분히 만족되지 않기 때문에 산다는 것은 괴로운 것이다."</p>
-          <div class="slide-content">
-            <p>쇼펜하우어에게 가장 큰 고통은 역설적이게도 삶에 대한 염증만큼이나 컸던 '삶에 대한 애착'이었습니다. 그는 모든 인생은 고통이라고 보았으며, 이는 삶의 욕망 자체가 고통이라는 불교의 가르침과도 통합니다.</p>
-            <p class="mt-4">인간 본성의 욕망이 고통의 원인이지만, 동시에 그 힘든 시간을 견디게 하는 힘 또한 삶에 대한 애착과 열망에서 나옵니다. 따라서 욕망을 잘 다스리는 것이 행복의 출발점입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 10: The Will to Live is Human Instinct -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">살고자 하는 의지는 <span class="highlight">인간의 본능</span>이다</h2>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">이성 vs. 본능</h3>
-              <p>아리스토텔레스는 행복을 '이성에 맞는 삶'으로 보았지만, 쇼펜하우어는 본능의 관점에서 행복을 '환상이자 이룰 수 없는 망상'이라고 보았습니다. 우리의 삶은 정신이 아니라 충동에 의해 이끌린다고 생각했습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">삶에의 의지</h3>
-              <p>"개똥밭에 굴러도 이승이 낫다"는 속담처럼, 인간은 삶에 대한 맹목적인 집착과 욕망을 가지고 있습니다. 쇼펜하우어는 이 세계의 본질을 합리성이 아닌 '삶에의 의지'라고 말했습니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 11: To Understand Pain is to Understand Life -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">고통을 깨달아야 <span class="highlight">인생을 깨닫는다</span></h2>
-          <p class="slide-subtitle">마흔 이후는 인생과 행복, 고통에 대한 생각의 전환이 일어나는 시기입니다.</p>
-          <div class="slide-content">
-            <p>쇼펜하우어의 인생은 40대 중반이 넘어서야 풀리기 시작했습니다. 그에게 마흔은 인생의 위기이자 전환점이었습니다. 만약 그가 40대에 포기했다면 명성과 행복을 누리지 못했을 것입니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">성숙의 조건</h3>
-              <p class="mt-2">세상을 이해하기 위해서는 풍부한 경험과 다양한 관점이 필요하며, 이는 최소 40년의 성숙 기간을 필요로 합니다. 마흔 이후 행복한 삶을 원한다면 경험과 지식을 쌓고, 자기 통찰을 거듭해야 합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 12: Human Beings Seek Reasons to Desire Because They Desire -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">인간은 욕망하기 때문에 <span class="highlight">욕망할 이유를 찾는다</span></h2>
-          <p class="slide-subtitle">"인간은 무수한 욕망의 덩어리다."</p>
-          <div class="slide-content">
-            <p>인간은 식욕, 수면욕, 성욕 등 기본적인 욕구가 충족되지 않을 때 고통을 느낍니다. 쇼펜하우어는 이러한 욕망이 신체와 분리될 수 없다고 보았습니다. 눈은 보려고 하고, 귀는 들으려고 하며, 입은 먹으려고 하는 것처럼, 신체는 인간의 욕망에 대응합니다.</p>
-            <p class="mt-4">욕망의 덩어리인 인간이 양극단의 욕망을 잘 통제하여 균형을 이루는 것이 행복에 이르는 길입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-       <!-- Slide 13: Life is a Pendulum Swinging Between Pain and Boredom -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">인생은 고통과 권태를 왔다 갔다 하는 <span class="highlight">시계추</span></h2>
-          <p class="slide-subtitle">"삶은 진자처럼 고통과 무료함 사이를 왔다 갔다 하는데, 사실 이 두 가지가 삶의 궁극적인 요소다."</p>
-          <div class="slide-content">
-            <p>쇼펜하우어는 불행의 두 가지 원인으로 고통과 권태를 꼽았습니다. 가난한 사람은 돈이 없어 고통에 시달리고, 부유한 사람은 넘쳐나는 돈을 어떻게 사용해야 할지 몰라 권태를 느낍니다.</p>
-            <p class="mt-4">결핍은 고통이고 과잉은 무료함입니다. 인간에게는 배고픔도 고통이지만 포만감 또한 불쾌한 것입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 14: Section Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2장: 왜 있는 그대로 인정해야 하는가</p>
-          <h2 class="slide-title">쇼펜하우어의 <span class="highlight">자신</span></h2>
-          <p class="slide-content">타고난 성격과 기질이 행복과 불행에 미치는 영향을 이해하고, 어떻게 자신의 관점을 바꿀 수 있는지 알아봅니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 15: Change Your Perspective on Happiness and Unhappiness -->
-      <div class="slide">
-        <div class="slide-container">
+          <p class="slide-part-title">2장. 왜 있는 그대로 인정해야 하는가</p>
           <h2 class="slide-title">행복과 불행에 대한 <span class="highlight">관점을 바꿔라</span></h2>
-          <p class="slide-subtitle">"선량하고 온화하고 부드러운 성격을 지닌 사람은 몹시 궁핍한 상황에서도 만족을 느낄 수 있다. 하지만 인색하고 시기심 많고 못된 성격을 지닌 사람은 아무리 거대한 부를 쌓아 올려도 만족을 느끼지 못한다."</p>
+          <p class="slide-content">"선량하고 온화하고 부드러운 성격을 지닌 사람은 몹시 궁핍한 상황에서도 만족을 느낄 수 있다. 하지만 인색하고 시기심 많고 못된 성격을 지닌 사람은 아무리 거대한 부를 쌓아 올려도 만족을 느끼지 못한다."</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: Character is Destiny -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기질 속에 <span class="highlight">나의 길이 있다</span></h2>
+          <p class="slide-subtitle">쇼펜하우어는 인간의 성격이 변하지 않는다고 보았습니다.</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 인간의 성격이 변하지 않으며, 타고난 기질과 성격이 행복과 불행을 결정한다고 주장했습니다. 낙천적인 사람은 행복을 누리고, 우울한 사람은 염세주의자가 된다는 것입니다.</p>
-            <p class="mt-4">그의 말대로라면 행복과 불행은 운명처럼 정해져 있습니다. 하지만 그는 교육과 노력을 통해 성격의 후천적인 개선과 변화가 가능하다고도 보았습니다.</p>
+            <p>타고난 성격이 그 사람의 일생을 결정한다고 가정하면, 우리의 노력과 무관하게 행복과 불행이 미리 결정된다는 의미가 됩니다. 낙천적인 사람은 행복을 누리고, 우울한 사람은 염세주의자가 된다는 관점입니다.</p>
+            <p class="mt-4">모든 개인은 각자의 본성에 의해 고통의 양이 결정됩니다. 따라서 고통과 행복은 외적인 상황에 좌우되지 않고, 오직 <span class="highlight">본성의 척도와 개인적 소양</span>에 의해 결정됩니다. 그릇이 큰 사람은 많은 고통을 견디지만, 그릇이 작은 사람은 작은 고통에도 불평합니다.</p>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 16: Distinguish Between What You Want to Do and What You Can Do -->
+
+      <!-- Slide 18: Changing the View -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">하고 싶은 것과 할 수 있는 것을 <span class="highlight">분별하라</span></h2>
-          <p class="slide-subtitle">"인간은 자신이 하고자 하는 것과 할 수 있는 것이 무엇인지를 알아야 한다. 그럼으로써 비로소 인간은 성격을 나타내게 된다. 또 그런 후에야 진정 무엇인가를 성취할 수 있다."</p>
+          <h2 class="slide-title">고쳐 쓰지 못하면 <span class="highlight">바꿔 쓸 수 있다</span></h2>
+          <p class="slide-subtitle">성격이 바뀌지 않더라도, 세상을 바라보는 관점은 바꿀 수 있습니다.</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 후천적으로 성격을 바꿀 수 있다면 노력 여하에 따라 누구나 행복해질 수 있다고 보았습니다. '획득된 성격'의 개념에 따르면 행복은 숙명적으로 결정되는 것이 아니라 스스로 선택하여 만들어 가는 것입니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">행복의 전제 조건</h3>
-              <p class="mt-2">자신이 하고자 하는 것(욕망)과 할 수 있는 것(능력)을 분별하는 자기 인식이 행복의 전제 조건입니다. 오랜 시행착오와 경험을 통해 진정으로 원하는 바와 할 수 있는 바를 알아야만 참된 행복을 성취할 수 있습니다.</p>
+            <p>쇼펜하우어는 타고난 성격이 평생 바뀌지 않는다고 전제하면서도, <span class="highlight">교육과 자기 성찰</span> 등 노력에 의해 성격의 후천적인 개선과 변화가 가능하다고 보았습니다.</p>
+            <p class="mt-4">우리의 성격을 바꿈으로써, 현상을 바라보는 시야를 넓힘으로써 세상을 다르고 풍부하게 볼 수 있습니다. '나는 누구인가'에 대한 오랜 성찰을 통해 자신의 성격을 개선할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Want vs. Can -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">하고 싶은 것과 <span class="highlight">할 수 있는 것을 분별하라</span></h2>
+          <p class="slide-subtitle">"인간은 자신이 하고자 하는 것과 할 수 있는 것이 무엇인지를 알아야 한다. 그럼으로써 비로소 인간은 성격을 나타내게 된다."</p>
+          <div class="slide-content">
+             <p>자신이 하고자 하는 것(욕망)과 할 수 있는 것(능력)을 분별하는 <span class="highlight">자기 인식</span>이 행복의 전제 조건입니다. 처음부터 자신의 성격을 아는 것은 불가능하며 많은 시행착오와 경험이 필요합니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">🐟🐠🐡</h3>
+                <p class="mt-2">"물고기는 물에 있어야, 새는 공중에 있어야, 두더지는 땅속에 있어야만 행복하다." - 자신의 개성에 맞는 일과 생활 방식을 찾아야 행복할 수 있습니다.</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 17: Do Not Imagine Happiness and Unhappiness -->
+      <!-- Slide 20: Happiness is Subjective -->
       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복은 지극히 <span class="highlight">주관적인 선택</span>이다</h2>
+          <p class="slide-subtitle">가치의 기준을 타인이 아닌 자신에게서 구해야 합니다.</p>
+          <div class="slide-content">
+            <p>우리가 할 수 있는 유일한 일은 자신의 개성을 최대한 유리하게 이용하고 인격에 부합하는 일에 노력을 경주하는 것입니다.</p>
+            <p class="mt-4">행복은 자신만의 탁월한 능력을 최대로 발휘하는 데 있습니다. 운동 신경이 뛰어난 사람이 하루 종일 앉아 연구를 한다면 불행할 것입니다. 자신의 성격에 맞는 일을 찾아 올바른 선택을 하는 것이 행복을 위한 가장 중요한 출발점입니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 21: Don't Imagine Happiness -->
+       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">행복과 불행을 <span class="highlight">상상하지 마라</span></h2>
-          <p class="slide-subtitle">"상상력은 아무 할 일 없이 기껏해야 즐거운 공중누각을 쌓아 올린다."</p>
+          <p class="slide-subtitle">지나친 상상력과 기억은 불행의 씨앗입니다.</p>
           <div class="slide-content">
-            <p>지능이 행복과 일치하지는 않습니다. 쇼펜하우어는 지능이 생존을 위한 도구일 뿐이며, 오히려 행복은 그런 지성이 과도하게 작동하여 생겨나는 상상이나 기억을 제한해야 얻을 수 있다고 보았습니다.</p>
-            <p class="mt-4">지능이 발달한 고등 동물일수록 고통이 증가하며, 인간 가운데는 천재가 가장 고통을 많이 겪는다고 생각했습니다. 이는 정신적 재능이 뛰어날수록 감수성이 예민하여 고통을 더 크게 느끼기 때문입니다.</p>
+            <p>쇼펜하우어에 따르면, 지능이 발달한 고등 동물일수록 고통이 증가합니다. 특히 천재는 가장 큰 고통을 겪습니다. 정신적 재능이 뛰어날수록 신경 기능이 활발하여 고통을 느끼는 감수성이 예민하기 때문입니다.</p>
+            <div class="quote-block">
+                <p>"지식을 더하는 자는 근심을 더하느니라." (전도서 1:18)</p>
+                <p class="mt-2">죽음 자체보다 죽음을 생각하는 것이 더 큰 고뇌의 원인이 되듯, 인간이 겪는 고통의 대부분은 <span class="highlight">상상력, 회상, 예상</span>이라는 지성 활동에서 비롯됩니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 18: The Total Amount of Pain Does Not Change -->
-      <div class="slide">
+       <!-- Slide 22: Look to the Present -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돌아보지 말고, <span class="highlight">내다보지 마라</span></h2>
+          <p class="slide-subtitle">인간은 행복이라는 환상에 사로잡혀 살아갑니다.</p>
+          <div class="slide-content">
+            <p>고통스러운 현실을 피해 행복을 미래에 두지 말고, 과거의 고통에 너무 집착하면 안 됩니다.</p>
+             <p class="mt-4">"무엇보다 공중누각을 쌓아서는 안 된다. 쌓아 올리자마자 한숨을 쉬면서 다시 허물어뜨리면 그 대가가 너무 크기 때문이다. 하지만 그보다는 단순히 일어날지도 모르는 재난을 눈앞에 떠올리며 미리 불안해하지 않아야 한다."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: The Unchanging Sum of Suffering -->
+       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">고통의 총량은 <span class="highlight">변하지 않는다</span></h2>
-          <p class="slide-subtitle">"자살이란 비참한 이 세상에서 실제적인 구원을 받는 것이 아니라 단지 엉터리 구원을 받는 것에 지나지 않으므로, 최고의 도덕적 목표에 도달하는 것에 배치된다."</p>
+          <p class="slide-subtitle">자살은 비참한 세상에서 실제적인 구원이 아니라 엉터리 구원일 뿐입니다.</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 죽음을 통한 구원은 실패할 것이라고 보았습니다. 죽음을 통해 고통은 줄어들지 않고 오히려 주변 사람들에게 고통을 증가시킬 뿐입니다.</p>
-            <p class="mt-4">개인이 사라져도 세계를 이루는 의지는 변하지 않으며, 세계의 고통 총량에도 변함이 없습니다. 따라서 자살은 자신의 고통만을 제거하려는 어리석은 짓이라고 비판했습니다.</p>
+            <p>개인이 몇 명 사라진다 해도 이 세계를 이루는 의지는 변하지 않고 그대로입니다. 개인의 고통이 사라졌다고 해도 <span class="highlight">세계의 고통 총량</span>에는 변함이 없습니다.</p>
+             <p class="mt-4">"마치 무지개를 구성한 하나의 물방울이 아무리 교체되더라도 무지개 자체는 여전히 남아 있는 것처럼, 아무런 영향도 받지 않고 한결같이 남아 있기 때문이다."</p>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 19: All Human History is a History of Suffering -->
-      <div class="slide">
+
+      <!-- Slide 24: All Life is Suffering -->
+       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">모든 인생사는 <span class="highlight">수난의 역사다</span></h2>
-          <p class="slide-subtitle">"도피가 용기라면 자살을 결심한 사람만큼 용감한 사람은 없을 것이다."</p>
+          <p class="slide-subtitle">자살은 삶의 부정이 아니라, 역설적으로 삶에 대한 무한한 사랑과 긍정을 보여줍니다.</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 염세주의 철학자로서 자살을 찬미한 것으로 알려져 있지만, 실제로는 죽음을 두려워했으며 자살을 시도조차 하지 않았습니다. 그는 자살이 삶 자체를 부정하는 것이 아니라, 삶에 대한 강한 애착과 희망이 좌절되었을 때 나타나는 역설적인 긍정이라고 보았습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 20: Section Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">3장: 무엇으로 내면을 채워야 하는가</p>
-          <h2 class="slide-title">쇼펜하우어의 <span class="highlight">행복</span></h2>
-          <p class="slide-content">행복의 90%를 좌우하는 건강의 중요성부터 마음의 안정을 찾는 법, 그리고 예술과 독서를 통해 내면을 풍요롭게 하는 방법을 배웁니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 21: 90% of Happiness Depends on Health -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">행복의 90퍼센트는 <span class="highlight">건강에 좌우된다</span></h2>
-          <p class="slide-subtitle">"건강한 거지가 병든 왕보다 더 행복하다."</p>
-          <div class="slide-content">
-            <p>쇼펜하우어는 행복의 첫 번째 조건으로 건강을 꼽았습니다. 건강을 희생하면서 다른 것을 추구하는 것은 어리석은 일이며, 몸이 건강해야 기분도 좋고 어려움을 잘 견딜 수 있습니다.</p>
-            <p class="mt-4">우리의 행복은 명랑한 기분에 좌우되는데, 그 기분은 건강 상태에 따라 달라집니다. 행복에 가장 직접적인 영향을 주는 것은 명랑한 마음이며, 이는 건강에서 비롯됩니다.</p>
+            <p>너무나 인생을 사랑했기 때문에 그 절망감에 자살로 삶을 마무리하는 것입니다. 자신의 상태가 너무 비참해서 자살을 선택하는 경우는 용기 있는 마무리로 볼 수 있습니다.</p>
+            <div class="quote-block">
+                <p>"누구나 내일이 오지 않길 한 번 이상은 원했다."</p>
+                <p class="mt-2">- 우리가 살고 싶지 않다는 말은 그만큼 살고 싶다는 뜻입니다.</p>
+            </div>
           </div>
         </div>
       </div>
       
-      <!-- Slide 22: There Can Be No Happiness Without Peace of Mind -->
+      <!-- Slide 25: Section Title - Chapter 3 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">마음의 안정이 없는 <span class="highlight">행복은 있을 수 없다</span></h2>
+          <p class="slide-part-title">3장. 무엇으로 내면을 채워야 하는가</p>
+          <h2 class="slide-title">행복의 <span class="highlight">90퍼센트</span>는 건강에 좌우된다</h2>
+          <p class="slide-content">"건강한 거지가 병든 왕보다 더 행복하다."</p>
+        </div>
+      </div>
+
+      <!-- Slide 26: Health and Happiness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">건강한 정신력을 위해 💪</h2>
+          <p class="slide-subtitle">쇼펜하우어는 행복의 첫 번째 조건으로 건강을 꼽습니다.</p>
+          <div class="slide-content">
+            <p>몸이 일단 건강해야 기분도 좋고 웬만한 어려움을 잘 견딜 수 있습니다. 우리의 행복은 <span class="highlight">명랑한 기분</span>에 좌우되는데, 그 기분은 건강 상태에 따라 달라집니다.</p>
+            <p class="mt-4">똑같은 상황에서도 몸이 건강하면 기분이 좋겠지만, 병에 걸리면 짜증 나고 불안해질 수밖에 없습니다.</p>
+            <p class="font-bold mt-6">"나무도 튼튼하게 자라려면 바람이 필요하다. 인간도 건강하려면 운동이 필요하다."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Peace of Mind -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음의 안정이 없는 <span class="highlight">행복은 없다</span></h2>
           <p class="slide-subtitle">건강 다음으로 행복에 중요한 요소는 마음의 평정입니다.</p>
+          <div class="slide-content">
+            <p>인간은 돌아가는 바퀴에 묶인 익시온처럼 삶의 의지에 지배받아 끊임없이 움직입니다. 마음의 안정 없이는 진정한 행복이 없기에, 우리는 <span class="highlight">익시온의 바퀴를 멈추도록</span> 노력해야 합니다.</p>
+            <p class="mt-4">쇼펜하우어가 추구하는 행복은 '마음의 평온'입니다. 정념을 없애고 조용함을 얻기 위해 마음의 동요를 최대한 줄여야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Finding Peace -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음의 평정을 찾는 <span class="highlight">4가지 방법</span> 🧘</h2>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">익시온의 바퀴</h3>
-              <p>쇼펜하우어는 인간의 마음 상태를 끊임없이 돌아가는 익시온의 바퀴에 비유했습니다. 마음의 안정 없이는 진정한 행복이 없으므로, 이 바퀴를 멈추도록 노력해야 한다고 말했습니다.</p>
+              <h3 class="font-bold text-lg">1. 불필요한 인간관계 정리</h3>
+              <p>대화할 가치가 없는 사람을 만나면 마음이 상할 수 있습니다. 타인과 비교하지 않고 질투심을 갖지 말아야 합니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">마음의 평정을 찾는 법</h3>
-              <p>1. 불필요한 인간관계를 정리하라.<br>2. 질투를 경계하라.<br>3. 큰 희망을 걸지 마라.<br>4. 세상에는 거짓이 많다는 점을 알아라.</p>
+              <h3 class="font-bold text-lg">2. 질투를 경계하라</h3>
+              <p>자신의 것을 남의 것과 비교하지 말고 즐겨야 합니다. 자기보다 형편이 나쁜 사람을 살펴보는 것도 위안이 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">3. 큰 희망을 걸지 마라</h3>
+              <p>우리는 우주의 먼지와 같은 존재입니다. 실패를 겪어도 태어나지 않은 것보다는 낫습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">4. 세상에는 거짓이 많음을 알라</h3>
+              <p>행복은 화려한 겉모습에 있지 않습니다. 즐거움보다 슬픔을 살펴야 행복의 알맹이를 알 수 있습니다.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 23: Cultivate an Artistic Sense -->
+      <!-- Slide 29: Artistic Sense -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">예술 감각을 <span class="highlight">갖춰라</span></h2>
-          <p class="slide-subtitle">"음악은 아주 위대하고 대단히 근사한 예술이다. 인간의 마음 깊은 곳에 참으로 커다란 영향을 미친다."</p>
+          <h2 class="slide-title">예술 감각을 <span class="highlight">갖춰라</span> 🎨🎼</h2>
+          <p class="slide-subtitle">쇼펜하우어는 인생의 고통을 완화하는 방법을 예술에서 찾았습니다.</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 인생의 고통을 완화하는 방법으로 예술을 꼽았습니다. 예술의 역할은 단순한 위로가 아니라, 고통의 원인인 '의지'를 인식하게 하는 것입니다.</p>
-            <p class="mt-4">특히 음악은 '의지의 직접적인 표현'으로서 우리의 마음에 깊은 감동을 주며, 고통스러운 현실을 잊게 하는 카타르시스 효과를 줍니다. 그는 인생이 힘들 때 클래식을 들을 것을 권장했습니다.</p>
+            <p>아름다운 풍경이나 좋은 음악을 들으면 고뇌가 가라앉는 것을 느낍니다. 예술의 역할은 고통의 원인인 '의지'를 인식하고 느끼게 하는 것입니다.</p>
+            <p class="mt-4">자연이라는 객관에 완전히 몰입하면 개별성이 잊히면서 '이데아'라는 세계를 보게 됩니다. 고통스러운 자아에서 벗어나 순수한 마음으로 대상과 하나가 될 때, 고통의 세계는 사라집니다.</p>
+            <p class="font-bold mt-6">"음악은 의지의 직접적인 표현이다."</p>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 24: Shift the Center of Gravity of Life from Outside to Inside -->
+
+      <!-- Slide 30: Center of Gravity -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">인생의 무게 중심을 밖에서 <span class="highlight">안으로 옮겨라</span></h2>
+          <h2 class="slide-title">인생의 무게 중심을 <span class="highlight">밖에서 안으로</span></h2>
           <p class="slide-subtitle">"평생에 걸쳐 매일 매시간 그 자신 자체일 수만 있다면 더 이상 아무것도 필요할 게 없다."</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 인생을 향유하는 방식을 세 가지, 즉 재생적 즐거움(생리적 욕구), 육체적 즐거움(운동 등), 정신적 즐거움(사유, 독서, 예술 등)으로 나누었습니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">내면의 중요성</h3>
-              <p class="mt-2">무게 중심이 바깥에 있는 사람은 출세, 명예 등을 추구하지만, 안에 있는 사람은 혼자 있는 시간을 가지며 예술, 문학, 철학 등을 가까이합니다. 마흔부터는 삶의 무게 중심을 점차 밖에서 안으로 옮겨 자신의 내면을 깊이 성찰해야 합니다.</p>
-            </div>
+            <p>인생을 향유하는 방식은 크게 <span class="highlight">재생적 즐거움</span>(식사, 휴식), <span class="highlight">육체적 즐거움</span>(운동, 산책), <span class="highlight">정신적 즐거움</span>(사유, 독서, 예술)으로 나뉩니다.</p>
+            <p class="mt-4">마흔 이후부터는 삶의 무게 중심을 점차 밖(출세, 명예, 부)에서 안(자신의 내면 성찰)으로 옮겨야 합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 25: Life is Short, and Time and Strength are Limited -->
+      <!-- Slide 31: Value of Reading -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">인생은 짧고 시간과 힘은 <span class="highlight">한정돼 있다</span></h2>
-          <p class="slide-subtitle">"우리의 행복이 주머니에 무엇이 들어 있느냐 하는 것보다는 머릿속에 무엇이 들어 있느냐 하는 것에 달려 있다."</p>
+          <h2 class="slide-title">인생은 짧고, 시간과 힘은 <span class="highlight">한정돼 있다</span></h2>
+          <p class="slide-subtitle">쇼펜하우어는 행복을 위한 필수 조건으로 '교양'을 꼽았고, 이를 위한 독서를 권했습니다.</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 행복의 필수 조건으로 '교양'을 꼽았으며, 교양을 쌓기 위한 독서의 가치를 강조했습니다. 그는 사유의 힘을 키우기 위한 방법으로 독서를 권했지만, 독서의 장점과 단점을 고려해야 한다고 말했습니다.</p>
-            <p class="mt-4 font-bold">양서를 읽기 위한 세 가지 조건: 1. 고전을 읽어라. 2. 두 번 읽어라. 3. 악서를 피하라.</p>
+            <p>"우리의 행복이 주머니에 무엇이 들어 있냐 하는 것보다는 머릿속에 무엇이 들어 있느냐 하는 것에 달려 있다."</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">양서를 읽기 위한 세 가지 조건</h3>
+                <p class="mt-2">1. <b>고전을 읽을 것:</b> 위대한 정신의 소유자가 쓴 작품을 읽어야 한다.</p>
+                <p class="mt-2">2. <b>두 번을 읽을 것:</b> 중요한 책은 즉시 두 번 읽어야 사물의 맥락을 파악할 수 있다.</p>
+                <p class="mt-2">3. <b>악서를 피할 것:</b> 단지 돈을 벌기 위해 쓴 책을 경계해야 한다.</p>
+            </div>
           </div>
         </div>
       </div>
       
-       <!-- Slide 26: Style is the Physiognomy of the Mind -->
+      <!-- Slide 32: Power of Style -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">문체는 정신의 <span class="highlight">관상이다</span></h2>
-          <p class="slide-subtitle">글쓰기는 자신의 사유를 언어로 표현하는 것입니다. 가장 좋은 글은 누구나 쉽게 이해하는 글입니다.</p>
+          <p class="slide-subtitle">사색은 좋은 문장을 만들어 내는 원동력입니다.</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 글의 단순함, 소박함, 명료함을 중요하게 여겼습니다. 그는 독자적인 사고를 하는 사람이 허세를 부리는 문체를 쓰지 않는다고 말하며, 누구나 이해할 수 있는 글쓰기를 제안했습니다.</p>
+            <p>쇼펜하우어는 글의 <span class="highlight">단순함, 소박함, 명료함</span>을 중요하게 여겼습니다. 글쓰기는 자신의 사유를 언어로 표현하는 것이기 때문입니다.</p>
             <p class="mt-4">"아무도 이해하지 못하게 글을 쓰는 것처럼 쉬운 것은 없다. 반대로 중요한 사상을 누구나 이해할 수 있게 표현한 것만큼 어려운 것도 없다."</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 27: Section Title -->
+      <!-- Slide 33: Section Title - Chapter 4 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">4장: 어떤 사람으로 살아야 하는가</p>
-          <h2 class="slide-title">쇼펜하우어의 <span class="highlight">관계</span></h2>
-          <p class="slide-content">사랑, 연애, 결혼의 본질을 파헤치고, 타인과의 관계에서 어떻게 거리감을 유지하며 자신을 지킬 수 있는지 알아봅니다.</p>
+          <p class="slide-part-title">4장. 어떤 사람으로 살아야 하는가</p>
+          <h2 class="slide-title">영원을 위해 <span class="highlight">사랑한다</span> ❤️‍🔥</h2>
+          <p class="slide-content">"사랑은 수많은 모습을 하고 나타난다. 슬픔과 환희, 고통과 즐거움, 천국과 지옥의 경험을 동시에 할 수 있는 것이 바로 사랑이다."</p>
         </div>
       </div>
 
-      <!-- Slide 28: Love for Eternity -->
+      <!-- Slide 34: Love is an Ideal and Reality -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">영원을 위해 <span class="highlight">사랑한다</span></h2>
-          <p class="slide-subtitle">"사랑은 수많은 모습을 하고 나타난다. 슬픔과 환희, 고통과 즐거움, 천국과 지옥의 경험을 동시에 할 수 있는 것이 바로 사랑이다."</p>
-          <div class="slide-content">
-            <p>쇼펜하우어에게 남녀의 사랑은 정신적인 사랑이 아니라 육체적인 관계를 염두에 둔 성적 본능에서 비롯됩니다. 남녀의 사랑에서 최종적인 목적은 후손을 낳는 것이고, 그 전제는 육체적인 접촉입니다.</p>
-            <p class="mt-4">사랑은 영원한 생존에 대한 의지의 발현입니다. 우리가 끊임없이 누군가를 사랑한다면 인류의 생명은 영원히 이어질 것이며, 사랑은 우리가 살아 있음을 나타내는 영원한 상징입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 29: Love is an Ideal and a Reality -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">사랑은 이상향이자 <span class="highlight">현실이다</span></h2>
+          <h2 class="slide-title">사랑은 <span class="highlight">이상향이자 현실</span>이다</h2>
           <p class="slide-subtitle">"우리의 다른 본능처럼 사랑은 환상의 옷을 입고 나타나는 경우가 많다."</p>
           <div class="slide-content">
-            <p>연애할 때 느끼는 모든 행복 감정은 환상에 불과합니다. 사랑에 빠지면 상대에게 없던 매력도 생겨나고, 이성적 판단이 마비될 정도로 사랑의 환상은 강력합니다.</p>
-            <p class="mt-4">쇼펜하우어는 모든 연애가 성적인 환상을 통해 이루어지며, 그 바탕에는 남성의 성욕이 자리 잡고 있다고 보았습니다. 사랑의 목적은 현실적으로 2세를 낳는 데 있으며, 이를 통해 인류의 종족 유지라는 목적이 은밀하게 달성됩니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 30: Marriage is a Shared Existence -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">결혼은 공동의 <span class="highlight">실존이다</span></h2>
-          <p class="slide-subtitle">"결혼은 이해할 수 없는 행위들의 반복이다."</p>
-          <div class="slide-content">
-            <p>성행위 후 허탈감을 느끼듯, 결혼 후 속았다는 느낌을 갖는 경우가 많습니다. 이는 성욕이라는 허망한 것에 대한 깨달음 때문입니다. 성욕에 눈이 멀 때는 서로를 갈구하지만, 그 정열은 금방 식어버립니다.</p>
-            <p class="mt-4">사랑만 믿고 결혼했지만 돈 문제, 가치관 차이 등으로 이혼에 이르는 경우가 많습니다. 이는 사랑에 눈이 멀어 현실을 제대로 보지 못한 자신의 탓이며, 사랑은 종족 보존을 위한 자연의 기만이라고 쇼펜하우어는 말했습니다.</p>
+            <p>사랑에 빠지면 모든 것이 기쁨과 넉넉함으로 다가옵니다. 하지만 사랑은 현실적인 조건이나 미래 계획을 외면한 환상에 가깝습니다.</p>
+            <p class="mt-4">쇼펜하우어에게 연애는 정신적 교감이 아닌, <span class="highlight">'생명의 보존'</span>이라는 본질을 가진 신체적 조건에 기반합니다. 모든 연애는 성적인 환상을 통해 이뤄집니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 31: Humans Love to Become More Perfect -->
+      <!-- Slide 35: Marriage -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">인간은 더 완벽해지기 위해 <span class="highlight">사랑을 한다</span></h2>
-          <p class="slide-subtitle">"결혼은 자신의 권리는 절반으로 줄이고, 의무는 배로 늘리는 행위다."</p>
+          <h2 class="slide-title">결혼은 공동의 <span class="highlight">실존이다</span> 💍</h2>
+          <p class="slide-subtitle">"결혼은 이해할 수 없는 행위들의 반복이다."</p>
           <div class="slide-content">
-            <p>쇼펜하우어에게 사랑은 인류 전체의 생존 문제와 연결됩니다. 우리는 자신의 결함과 정반대 성격의 결함을 가진 상대방에게 매력을 느끼는데, 이는 무의식적으로 미래에 낳을 아이를 고려하기 때문입니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">보완의 매력</h3>
-              <p class="mt-2">남성이든 여성이든 사랑을 통해 자신의 결함을 보완할 가능성이 있기 때문에 좋은 유전자가 매력을 끕니다. 우리는 사랑을 통해 자신을 보다 완전하게 유지할 수 있다고 믿습니다.</p>
-            </div>
+            <p>결혼은 최근 선택지가 되었지만, 여전히 중요한 문제입니다. 뜨겁던 사랑이 식고, 돈 문제, 가치관 차이로 갈등이 생겨 이혼에 이르기도 합니다.</p>
+            <p class="mt-4">이런 원인은 사랑에 눈이 멀어 닥쳐올 현실을 제대로 보지 못한 탓입니다. 쇼펜하우어에 따르면, 사랑은 <span class="highlight">종족 보존을 위한 자연의 기만</span>입니다.</p>
           </div>
         </div>
       </div>
       
-      <!-- Slide 32: Maintain Your Distance -->
+      <!-- Slide 36: Completeness in Love -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간은 더 <span class="highlight">완벽해지기 위해</span> 사랑을 한다</h2>
+          <p class="slide-subtitle">"모든 연애는 인류의 생존에 대한 진지한 성찰이다."</p>
+          <div class="slide-content">
+            <p>우리는 자신의 결함과 정반대 성격의 결함을 가진 상대방에게 매력을 느낍니다. 이는 <span class="highlight">미래의 후손</span>을 위한 무의식적인 고려입니다.</p>
+            <p class="mt-4">남성이든 여성이든 사랑을 통해 자신의 결함을 보완할 가능성이 있기 때문에 좋은 유전자가 매력을 끕니다. 우리는 사랑을 자신의 쾌락이 아니라 미래의 생명을 낳기 위한 행위로 봐야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Maintaining Distance -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">당신의 거리를 <span class="highlight">유지하라</span></h2>
-          <p class="slide-subtitle">"서로 견딜 수 있는 적당한 간격을 발견했다. 그것은 바로 정중함과 예의다."</p>
+          <p class="slide-subtitle">고슴도치의 우화: 너무 가깝지도, 너무 멀지도 않게</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 '고슴도치의 우화'를 통해 인간관계의 딜레마를 설명했습니다. 추운 날씨에 고슴도치들은 서로의 온기를 나누려 하지만, 가시에 찔려 떨어지기를 반복하다 결국 적당한 거리를 찾게 됩니다.</p>
-            <p class="mt-4">인간관계의 어려움 속에서 타인에게 상처를 주지 않고 공존하는 지혜, 즉 정중함과 예의라는 적당한 거리 두기가 필요합니다.</p>
+            <p>추운 날씨에 고슴도치들은 서로의 온기를 나누려 하지만, 가시 때문에 서로를 찌릅니다. 결국 그들은 서로의 가시를 견딜 수 있는 <span class="highlight">적당한 거리</span>를 찾게 됩니다.</p>
+            <p class="mt-4">인간관계도 마찬가지입니다. 우리는 타인에게 상처를 주지 않고 공존하는 지혜를 배워야 합니다. 쇼펜하우어는 이를 <span class="highlight">'정중함과 예의'</span>라고 말했습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 33: Learn How to Be Alone -->
+      <!-- Slide 38: Learning to be Alone -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">혼자 있는 법을 <span class="highlight">익혀라</span></h2>
           <p class="slide-subtitle">"인간이 사교적으로 되는 것은 고독을, 고독한 상태의 자기 자신을 견딜 능력이 없어서다."</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 고독을 위대한 사람의 특성이라고 보았습니다. 행복은 오직 자신의 고독 안에서 생겨나며, 그 원천인 고독을 피하지 말고 견디는 법을 배워야 한다고 강조했습니다.</p>
-            <p class="mt-4">다른 사람과 어울리기 좋아하는 것은 고독을 견딜 능력이 없고 내면이 공허하다는 증거입니다. 진정으로 가치 있는 삶은 홀로 지낼 수 있는 능력을 키우는 데 있습니다.</p>
+            <p>고독은 위대한 사람의 특성입니다. 행복은 오직 자신의 고독 안에서 생겨납니다. 원천인 고독을 피하지 말고 그것을 견디는 법을 배워야 합니다.</p>
+            <div class="quote-block">
+                <p>"인간은 혼자 있을 때만 온전히 그 자신일 수 있다. 그러므로 고독을 사랑하지 않는 자는 자유도 사랑하지 않는 자라고 할 수 있다."</p>
+            </div>
           </div>
-        </div>
-      </div>
-      
-      <!-- Slide 34: Feel Empathy for the Pain of Others -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">타인의 고통에 <span class="highlight">연민을 느껴라</span></h2>
-          <p class="slide-subtitle">"동정심이야말로 우리 내부에 존재하는 근원적인 비이기적 특성이며, 이기주의적 개인이 타자를 도우려 하는 것은 기적 같은 일로 찬사를 받아야 한다."</p>
-          <div class="slide-content">
-            <p>쇼펜하우어에게 동정심은 세상 모든 고통을 자신의 고통으로 느낌으로써 이기심의 벽을 허무는 것입니다. 그는 진정으로 가치 있는 일은 타인을 불쌍히 여기는 것이며, 동정심만이 비이기적 행위의 유일한 원천이라고 말했습니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 35: Section Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">5장: 어디에서 행복을 찾아야 하는가</p>
-          <h2 class="slide-title">쇼펜하우어의 <span class="highlight">인생</span></h2>
-          <p class="slide-content">행복한 순간의 덧없음을 이해하고, 현재를 충실히 살아가며 자신만의 색깔을 찾는 법을 통해 진정한 행복의 의미를 탐구합니다.</p>
         </div>
       </div>
 
-      <!-- Slide 36: Happy Moments are Too Short -->
+      <!-- Slide 39: Compassion -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">행복한 순간은 <span class="highlight">너무나 짧다</span></h2>
-          <p class="slide-subtitle">"행복은 결핍에서 만족으로 '빠른 전이'다."</p>
+          <h2 class="slide-title">타인의 고통에 <span class="highlight">연민을 느껴라</span></h2>
+          <p class="slide-subtitle">"동정심이야말로 우리 내부에 존재하는 근원적인 비이기적 특성이다."</p>
           <div class="slide-content">
-            <p>행복이 짧고 고통이 길게 느껴지는 이유는 행복은 찰나의 꿈처럼, 고통은 현실적으로 느껴지기 때문입니다. 쇼펜하우어는 행복이란 결핍에서 충족으로 넘어가는 '짧은 순간'이라고 말했습니다.</p>
-            <p class="mt-4">영원한 행복은 없으므로 작은 행복감에 만족할 줄 알아야 합니다. 행복은 멀고 큰 곳이 아닌, 일상 가까운 곳에 있습니다.</p>
+            <p>동정심은 세상 모든 고통을 자신의 고통으로 느낌으로써 이기심의 벽을 허물어뜨리는 것입니다. 쇼펜하우어는 진정으로 가치 있는 일이 타인을 불쌍히 여기는 것이며, 동정심만이 비이기적 행위의 유일한 원천이라고 말했습니다.</p>
+            <p class="mt-4">고통은 다른 사람과 나누면 그만큼 줄어들기 때문에 연민, 공감, 동정은 타인과 교제하는 데 가장 중요한 덕목입니다.</p>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 37: The Present Never Comes Twice -->
+
+      <!-- Slide 40: Section Title - Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장. 어디에서 행복을 찾아야 하는가</p>
+          <h2 class="slide-title">행복한 순간은 너무나 <span class="highlight">짧다</span></h2>
+          <p class="slide-content">"행복은 결핍에서 만족으로 '빠른 전이'다."</p>
+        </div>
+      </div>
+
+      <!-- Slide 41: Fleeting Happiness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복은 항상 <span class="highlight">과정형이다</span></h2>
+          <p class="slide-subtitle">영원하고 지속적인 행복은 없기에, 우리는 작은 행복감에 만족할 수 있어야 합니다.</p>
+          <div class="slide-content">
+            <p>행복은 멀고 크고 높은 곳에 있는 것이 아니라 <span class="highlight">일상 가까운 곳</span>에 있습니다. 결핍이 채워질 때 느끼는 주관적인 만족감입니다.</p>
+            <p class="mt-4">음식을 먹을 때 첫 숟가락, 사람을 처음 만났을 때의 설렘, 첫 출근의 긴장감. 이런 순간들이 결핍을 채워 만족으로 넘어가는 가장 행복한 단계입니다. 행복은 빨리 잊히고, 또 다른 결핍이 우리를 기다립니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: The Present Moment -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">현재는 두 번 다시 <span class="highlight">오지 않는다</span></h2>
           <p class="slide-subtitle">"오늘이라는 날이 단 한 번뿐이고 두 번 다시는 찾아오지 않는 것임을 항시 명심하는 게 좋을 것이다."</p>
           <div class="slide-content">
-            <p>동물은 현재만을 살기 때문에 근심과 불안이 없지만, 인간은 과거에 대한 후회와 미래에 대한 걱정으로 고통받습니다. 쇼펜하우어는 이런 장점을 동물에게서 배워야 한다고 말했습니다.</p>
-            <p class="mt-4">과거와 미래는 실재하지 않으며, 우리가 살아가는 현재에만 충실해야 합니다. "네가 헛되이 보낸 오늘은 어제 죽은 이가 그토록 그리던 내일이다."</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 38: Find Your Own Color -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">자신만의 <span class="highlight">색깔을 찾아라</span></h2>
-          <p class="slide-subtitle">"너라고 나보다 나을 게 없다!"</p>
-          <div class="slide-content">
-            <p>남이 시키는 것 말고 자신이 원하는 것을 할 때 인간은 행복해집니다. 남과 다른 자신만의 색깔을 찾는 일, 누구나 가는 길이 아닌 내가 가는 길이 행복에 이르는 길입니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">개성의 중요성</h3>
-              <p class="mt-2">마흔부터는 개성이 뚜렷한 삶을 살아야 합니다. 남의 기대와 욕망에 맞춰 살아선 안 되며, '삶을 위한 삶'이라는 생존을 위해 자아실현이라는 가장 높은 욕구를 잊어서는 안 됩니다.</p>
+            <p>동물은 현재만을 살기 때문에 근심과 불안이 없습니다. 인간은 과거에 대한 후회와 미래에 대한 걱정으로 현재에 충실하지 못합니다.</p>
+            <div class="quote-block">
+                <p>"미래가 행복을 가져다준다는 생각으로 급히 쫓아가는 반면에 현재는 거들떠보지도 즐기지도 않고 지나쳐 버리는 사람들이 있다. 현재만이 진실하고 현실적이고 확실한 것을 결코 잊어서는 안 된다."</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 39: How Much You Own is Not Important -->
+
+      <!-- Slide 43: Finding Your Color -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자신만의 <span class="highlight">색깔을 찾아라</span></h2>
+          <p class="slide-subtitle">"너라고 나보다 나을 게 없다!" - 타인의 평가의 틀을 과감히 깰 필요가 있습니다.</p>
+          <div class="slide-content">
+            <p>남이 시키는 것 말고 자신이 원하는 것을 할 때 인간은 행복해집니다. 남과 다른 자신만의 색깔을 찾는 일, 누구나 가는 길이 아닌 <span class="highlight">내가 가는 길</span>이 행복에 이르는 길입니다.</p>
+            <p class="mt-4">가장 인간답게 사는 일은 자신만의 욕망을 아는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Ownership is Not Important -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">얼마나 소유했는지는 <span class="highlight">중요하지 않다</span></h2>
           <p class="slide-subtitle">"돈은 바닷물과 같다. 마시면 마실수록 목이 마르다."</p>
           <div class="slide-content">
-            <p>부가 인간의 본래 소유물이 아니라 운에 의해 줄어들 수 있다는 사실을 알게 되면, 부에 대한 욕망이나 집착이 줄어듭니다. 부에 대한 욕심을 줄이면 행복감이 늘어날 수 있습니다.</p>
-            <p class="mt-4">재산이나 부의 가치와 비교해 더 가치 있는 것은 지적인 교양입니다. 돈을 채워도 정신이 텅 비어 있으면 행복할 수 없습니다. 돈은 소유하는 사람보다 사용하는 사람의 태도에서 그 가치가 달라집니다.</p>
+            <p>얼마를 벌어야 행복할까? 그 한계를 정하는 일은 어렵습니다. 사람마다 행복을 위해 갖춰야 할 부는 욕망에 따라 다르기 때문에 상대적입니다.</p>
+            <p class="mt-4">부가 인간의 본래 소유물이 아니라 운에 의해 줄어들 수 있다는 사실을 알게 되면, 부에 대한 욕망이나 집착이 줄어듭니다. 돈을 잃어도 행복감을 되찾는 데 오래 걸리지 않습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 40: The Evaluation of Others is Not Important -->
+      <!-- Slide 45: The Opinion of Others -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">타인의 평가는 <span class="highlight">중요하지 않다</span></h2>
           <p class="slide-subtitle">"자존감을 갖고 살아라."</p>
-          <div class="slide-content">
-            <p>참된 행복의 조건을 안에서 찾아야 한다면 타인의 평가는 행복과 무관할 수 있습니다. 우리는 늘 타인에게 좋은 인상을 주려 하지만, 그 과정에서 허영심이 커지고 본래 모습을 잃게 됩니다.</p>
-            <p class="mt-4">쇼펜하우어는 허영심과 구분되는 '자긍심'의 중요성을 말했습니다. 자긍심은 자신이 갖고 있는 장점에 대한 확고한 확신이며, 흔들리지 않는 자긍심은 행복의 조건에서 가장 중요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">허영심</h3>
+              <p>본래 모습보다 더 좋게 타인으로부터 갈채를 받으려는 욕심. 타인의 마음에 기대하는 희망입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">자긍심</h3>
+              <p>자신이 갖고 있는 장점에 대한 확고한 확신. 자신의 마음에서 내리는 직접적인 높은 평가입니다.</p>
+            </div>
           </div>
+          <p class="mt-6">흔들리지 않는 자긍심을 갖기 위해서는 타인의 호감을 얻으려는 허영심을 없애야 합니다. <span class="highlight">자긍심은 행복의 조건에서 가장 중요합니다.</span></p>
         </div>
       </div>
-      
-      <!-- Slide 41: Who I Am is Important -->
+
+      <!-- Slide 46: Who You Are -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">나 자신이 <span class="highlight">누구인지가 중요하다</span></h2>
           <p class="slide-subtitle">"우리 인생의 첫 40년은 본문이고, 그다음 30년은 그 본문에 대한 주석이다."</p>
           <div class="slide-content">
-            <p>쇼펜하우어는 운명의 차이를 만드는 세 가지로 '인격, 소유, 평판'을 꼽았습니다. 그중 가장 중요한 것은 '인격'입니다. 인격은 우리가 원래 갖고 태어나는 것으로, 누구도 빼앗아 갈 수 없는 절대적인 가치를 지닙니다.</p>
-            <p class="mt-4">행복의 참된 원인은 밖에 있는 것이 아니라 우리 안에 있습니다. 우리의 행복은 우리가 이 세계를 어떻게 보느냐에 따라 만들어집니다.</p>
+            <p>운명의 차이를 만드는 세 가지는 <span class="highlight">'인격, 소유, 평판'</span>입니다. 이 중 가장 중요한 것은 '인격'입니다.</p>
+            <p class="mt-4">인격은 건강, 힘, 기질, 도덕적 성격, 지능 등을 포함하며, 누구도 빼앗아 갈 수 없는 것입니다. 행복의 참된 원인은 밖에 있는 것이 아니라 우리 안에 있습니다. 우리의 인격이 세상을 바라보는 관점을 결정하고, 그 관점이 세계를 결정합니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 42: Conclusion -->
+      <!-- Slide 47: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-6xl mb-6">🎯</div>
-          <h2 class="slide-title">최종 결론</h2>
+          <h2 class="slide-title">결론: 마흔, 쇼펜하우어의 지혜</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">쇼펜하우어 철학은 마흔이라는 인생의 전환점에서 겪는 마음의 위기를 다스리는 지혜를 줍니다. 고통의 본질을 이해하고, 욕망을 다스리며, 타인의 시선에서 벗어나 <span class="highlight">자신의 내면을 채우는 것</span>이 진정한 행복의 길임을 알려줍니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">결국 행복은 외부 조건이 아닌, 우리 자신의 인격과 세상을 바라보는 관점에 달려 있습니다.</p>
+            <p class="mb-4">쇼펜하우어는 인생의 본질이 고통임을 직시하게 합니다. 그는 위로 대신, 그 고통 속에서도 품격과 의미를 찾을 수 있는 <span class="highlight">냉철한 지혜</span>를 선물합니다.</p>
+             <p class="mt-4">행복은 외부에서 오는 것이 아니라, 건강한 몸, 평온한 마음, 그리고 자신에 대한 깊은 이해와 긍정에서 비롯됩니다. 타인의 시선에서 벗어나 자신만의 색깔로 현재를 살아가는 것, 그것이 쇼펜하우어가 마흔에게 전하는 핵심 메시지입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">운명은 나아질 수 있습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 43: Thank You / Q&A -->
+      <!-- Slide 48: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -677,7 +789,7 @@
           slide.classList.add('active');
         }
       });
-      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
       progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
 
       prevBtn.disabled = currentSlide === 0;
@@ -704,9 +816,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft') {
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
         prevBtn.click();
       }
     });
