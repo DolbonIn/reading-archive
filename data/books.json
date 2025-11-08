@@ -1,5 +1,15 @@
 [
   {
+    "slug": "나는-왜-사랑할수록-불안해질까",
+    "title": "나는 왜 사랑할수록 불안해질까",
+    "author": "제시카 바움 (Jessica Baum)",
+    "date": "2025-11-08",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/나는-왜-사랑할수록-불안해질까.html",
+    "cover": "assets/covers/나는-왜-사랑할수록-불안해질까.jpg"
+  },
+  {
     "slug": "나는-앞으로-몇-번의-보름달을-볼-수-있을까",
     "title": "나는 앞으로 몇 번의 보름달을 볼 수 있을까",
     "author": "류이치 사카모토",
@@ -428,16 +438,6 @@
     "description": "",
     "presentation": "presentations/나는-좌절의-스페셜리스트입니다.html",
     "cover": "assets/covers/나는-좌절의-스페셜리스트입니다.jpg"
-  },
-  {
-    "slug": "나는-왜-사랑할수록-불안해질까",
-    "title": "나는 왜 사랑할수록 불안해질까",
-    "author": "제시카 바움 (Jessica Baum)",
-    "date": "2025-11-05",
-    "tags": [],
-    "description": "",
-    "presentation": "presentations/나는-왜-사랑할수록-불안해질까.html",
-    "cover": "assets/covers/나는-왜-사랑할수록-불안해질까.jpg"
   },
   {
     "slug": "그레이트-마인드셋",
