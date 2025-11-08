@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>거인의 노트 - 프레젠테이션</title>
+  <title>거인의 노트 - 김익한</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,26 +12,25 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #FCFCFC;
-      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-      background-size: 30px 30px;
+      background-color: #f8f9fa;
     }
     .slide {
       display: none;
       min-height: 85vh;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
+      padding: 2rem;
     }
     .slide.active {
       display: flex;
-      opacity: 1;
     }
     .slide-container {
       width: 100%;
       max-width: 1100px;
       padding: 50px 60px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.02);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -39,31 +38,32 @@
     .slide-part-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #555;
+      color: #4A5568; /* Tailwind gray-600 */
       margin-bottom: 8px;
     }
     .slide-title {
       font-size: 2.8rem;
       font-weight: 900;
-      color: #111;
+      color: #1A202C; /* Tailwind gray-900 */
       margin-bottom: 25px;
       line-height: 1.3;
     }
     .slide-subtitle {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #444;
+      color: #2D3748; /* Tailwind gray-800 */
       margin-bottom: 35px;
       line-height: 1.6;
     }
     .slide-content {
       font-size: 1.1rem;
       line-height: 1.9;
-      color: #333;
+      color: #1A202C; /* Tailwind gray-900 */
     }
     .highlight {
-      background-color: #FFDD00;
+      background-color: #FFEE93;
       padding: 0 0.25em;
+      border-radius: 4px;
     }
     .btn {
       padding: 12px 28px;
@@ -71,21 +71,22 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: none;
+      border: 1px solid transparent;
     }
     .btn-primary {
-      background-color: #111;
+      background-color: #2D3748; /* Tailwind gray-800 */
       color: white;
     }
     .btn-primary:hover {
-      background-color: #333;
+      background-color: #1A202C; /* Tailwind gray-900 */
     }
     .btn-secondary {
-      background-color: #F0F0F0;
-      color: #333;
+      background-color: #EDF2F7; /* Tailwind gray-200 */
+      color: #2D3748; /* Tailwind gray-800 */
+      border-color: #E2E8F0; /* Tailwind gray-300 */
     }
     .btn-secondary:hover {
-      background-color: #E0E0E0;
+      background-color: #E2E8F0; /* Tailwind gray-300 */
     }
     .progress-bar-container {
       position: fixed;
@@ -93,27 +94,27 @@
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border-top: 1px solid #eee;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #E2E8F0;
       z-index: 10;
     }
     .progress-bar {
       width: 100%;
-      background-color: #eee;
+      background-color: #EDF2F7; /* Tailwind gray-200 */
       border-radius: 9999px;
       height: 8px;
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #111;
+      background-color: #2D3748; /* Tailwind gray-800 */
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
   </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+<body class="flex flex-col items-center justify-center min-h-screen">
 
   <div class="w-full">
     <!-- Slides Container -->
@@ -122,58 +123,45 @@
       <!-- Slide 1: Title -->
       <div class="slide active">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">✒️</div>
+          <div class="text-7xl mb-8">✍️</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">거인의 노트</h1>
           <p class="text-xl md:text-2xl text-gray-700">인생에서 무엇을 보고 <span class="highlight">어떻게 기록할 것인가</span></p>
-          <p class="mt-4 text-lg text-gray-500">김익한 지음</p>
-        </div>
-      </div>
-
-      <!-- Slide 2: Table of Contents -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">목차 📜</h2>
-          <div class="slide-content text-lg space-y-4">
-            <p><b>들어가며:</b> 기록하면 인생의 방향이 보인다</p>
-            <p><b>1부. 기록하는 인간:</b> 성장을 위한 기록의 힘</p>
-            <p><b>2부. 거인의 요약법과 분류법:</b> 생각을 정리하는 기술</p>
-            <p><b>3부. 거인의 다섯 가지 기록법:</b> 삶의 영역별 기록 실천법</p>
-            <p><b>마무리:</b> 기록으로 찾는 인생의 주인</p>
-          </div>
+          <p class="mt-8 text-lg text-gray-600">김익한 지음</p>
         </div>
       </div>
       
-      <!-- Slide 3: Introduction 1 -->
+      <!-- Slide 2: Author Intro -->
       <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">들어가며</p>
-          <h2 class="slide-title">왜 '기록'에 <span class="highlight">주목</span>해야 하는가?</h2>
-          <p class="slide-subtitle">저자 김익한은 역사와 실천 사이에서 방황하던 중 '기록학'에서 인생의 돌파구를 찾았습니다.</p>
-          <div class="slide-content">
-            <p>'역사는 이론, 기록은 실천'이라는 이분법적 사고를 넘어, 이론(역사)을 추구해야 실천(기록)에 도달하고, 실천(기록)을 통해 이론(역사)에 도달할 수 있음을 깨달았습니다.</p>
-            <p class="mt-4">기록은 <span class="font-bold">생각의 도구이자 역사의 재료</span>이며, 개인의 삶을 성장시키는 최고의 무기입니다.</p>
-          </div>
+        <div class="slide-container text-center">
+            <h2 class="slide-title">발표자: <span class="highlight">김익한</span></h2>
+            <div class="text-left max-w-3xl mx-auto space-y-4 slide-content">
+                <p>🎓 대한민국의 기록을 책임지는 <span class="font-bold">국내 1호이자 최고의 기록학자</span>.</p>
+                <p>🏛️ 25년 동안 기록에 매진하여 현 국가기록관리 제도의 틀을 만들었습니다.</p>
+                <p>🏫 명지대 기록정보과학전문대학원 교수, 한국기록학회장, 한국국가기록연구원장 역임.</p>
+                <p>📺 현재 22만 구독 유튜브 채널 <span class="font-bold">⟨김교수의 세 가지⟩</span>를 운영하는 기록전파자.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Core Message -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">💡</div>
+          <h2 class="slide-title">기록하는 순간, <br><span class="highlight">삶이 달라진다!</span></h2>
+          <p class="slide-subtitle">한계라는 벽에 부딪혀 좌절한 당신을 성공으로 안내할 <br> <span class="font-bold text-2xl">3단계 성장 기록법</span></p>
         </div>
       </div>
 
-      <!-- Slide 4: 3-Step Growth Method -->
+      <!-- Slide 4: Table of Contents -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">핵심 원리: <span class="highlight">3단계</span> 성장 기록법 🚀</h2>
-          <p class="slide-subtitle">기록하는 순간 삶이 달라집니다! 한계라는 벽에 부딪힌 당신을 성공으로 안내할 성장 기록법입니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="p-6 bg-gray-50 rounded-lg">
-              <h3 class="font-bold text-2xl mb-2">1️⃣ 기록하라</h3>
-              <p>공부, 대화, 생각, 일상, 일의 다섯 영역을 기록하며 지식, 마인드, 역량을 키웁니다.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-lg">
-              <h3 class="font-bold text-2xl mb-2">2️⃣ 반복하라</h3>
-              <p>반복을 통해 기록의 질을 높입니다. 원석을 보석으로 가공하는 과정입니다.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-lg">
-              <h3 class="font-bold text-2xl mb-2">3️⃣ 지속하라</h3>
-              <p>성장을 습관으로 만듭니다. 하루, 일주일, 한 달 단위로 꾸준히 실행합니다.</p>
-            </div>
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+            <p><b>1. 왜 기록인가:</b> 기록의 힘과 저자의 여정</p>
+            <p><b>2. 성장 기록법:</b> 3단계 성장 메커니즘</p>
+            <p><b>3. 기록의 기술:</b> 요약과 분류의 원리</p>
+            <p><b>4. 거인의 5가지 기록법:</b> 삶의 5대 영역</p>
+            <p><b>5. 결론:</b> 기록하는 삶으로의 초대</p>
           </div>
         </div>
       </div>
@@ -181,397 +169,292 @@
       <!-- Slide 5: Section 1 Title -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">PART 1</p>
-          <h2 class="slide-title">기록하는 인간 🚶‍♂️</h2>
-          <p class="slide-content text-2xl">기록을 통해 성장하고 자유를 얻는 인간의 본질을 탐구합니다. 왜 기록해야 하는가에 대한 근본적인 질문에 답합니다.</p>
+          <p class="slide-part-title">Part 1: 왜 기록인가?</p>
+          <h2 class="slide-title">기록하면 <br><span class="highlight">인생의 방향이 보인다</span></h2>
+          <p class="slide-content">기록은 단순한 메모를 넘어, 복잡한 세상 속에서 자신의 길을 찾는 가장 강력한 도구입니다. 저자는 어떻게 기록에서 해답을 찾았을까요?</p>
         </div>
       </div>
 
-      <!-- Slide 6: Memo vs Record -->
+      <!-- Slide 6: Author's Journey -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">메모와 기록의 <span class="highlight">차이점</span></h2>
-          <p class="slide-subtitle">우리는 종종 메모와 기록을 혼용하지만, 둘 사이에는 중요한 차이가 있습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-xl mb-2">📝 메모 (Memo)</h3>
-              <p>기록의 원천입니다. 순간의 생각, 스쳐 지나가는 아이디어, 대화 내용 등 조각난 글들을 즉각적으로 잡아두는 행위입니다.</p>
+            <h2 class="slide-title">저자의 여정: <span class="highlight">기록에서 찾은 해답</span></h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-2">🤔 방황과 고민</h3>
+                    <p>역사와 실천 사이에서 방황하던 대학 시절, 학문만으로는 넘을 수 없는 벽을 온몸으로 마주했습니다. 이론과 현실의 괴리 속에서 갈증을 느꼈습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">✨ 발견과 깨달음</h3>
+                    <p>치열한 고민 끝에 찾은 답은 바로 ‘기록’이었습니다. 기록은 <span class="font-bold">이론(역사)</span>과 <span class="font-bold">실천(기록)</span>을 연결하는 최고의 무기임을 깨달았습니다.</p>
+                </div>
             </div>
-            <div>
-              <h3 class="font-bold text-xl mb-2">📚 기록 (Record)</h3>
-              <p>체계적인 정리입니다. 조각난 메모들을 모아 의미 있는 구조로 정리하고, 가치를 부여하는 행위입니다. 진정한 '내 것'으로 만드는 과정입니다.</p>
-            </div>
-          </div>
         </div>
       </div>
 
-      <!-- Slide 7: Why Record? -->
+      <!-- Slide 7: Memo vs. Record -->
       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">우리는 왜 <span class="highlight">기록</span>해야 하는가?</h2>
-          <p class="slide-subtitle">기록은 단순히 무언가를 남기는 행위를 넘어, 우리의 삶을 근본적으로 바꾸는 두 가지 강력한 힘을 가집니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-6 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-xl mb-2">🌱 1. 지속적인 성장</h3>
-              <p>기록은 외부의 지식을 흡수하고(Input), 내면의 잠재력을 끌어내는(Output) 과정을 통해 우리를 끊임없이 성장시킵니다. 성장을 멈춘 인간에게 다음은 없습니다.</p>
-            </div>
-            <div class="p-6 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-xl mb-2">🕊️ 2. 삶의 주도권 확보</h3>
-              <p>어지럽혀진 생각과 일상을 정리함으로써 불필요한 일을 덜어내고, 원하는 것을 주체적으로 할 수 있는 '자유'를 얻게 됩니다. 진정한 자유는 질서 속에서 탄생합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 8: Growth Mechanism -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">나만의 <span class="highlight">성장 메커니즘</span> 만들기</h2>
-          <p class="slide-subtitle">'성공'보다 '성장'에 집중할 때, 무의식이 우리를 성공으로 이끕니다.</p>
-          <div class="slide-content">
-            <p>성장을 위해서는 '계획'과 '미친 지속성'이 필요합니다. 계획의 시작은 바로 '나'를 아는 것, 즉 메타인지입니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 메타인지를 위한 3가지 질문</h3>
-              <p class="mt-2">1. 나의 목표는 무엇인가? (하고 싶은 일, 이루고 싶은 것)</p>
-              <p class="mt-2">2. 나는 어떤 일상을 보내는가? (일, 취미, 휴식 시간 배분)</p>
-              <p class="mt-2">3. 나는 어떤 습관을 가지고 있는가? (목표와 일치하는가?)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 9: Volatile Knowledge -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">휘발되는 지식을 <span class="highlight">붙잡아라</span> 🧠</h2>
-          <p class="slide-subtitle">우리의 뇌는 모든 정보를 기억하지 못합니다. 기록은 단기 기억을 장기 기억으로 전환하는 가장 효과적인 수단입니다.</p>
-          <div class="slide-content">
-            <p>기록의 3단계 과정은 뇌에게 '이 정보는 중요하다!'는 신호를 보냅니다.</p>
-            <ol class="list-decimal list-inside mt-4 space-y-2">
-              <li><b>집중해서 보고 듣기:</b> 정보를 받아들이는 첫 단계</li>
-              <li><b>생각해서 기록하기:</b> 나의 언어로 정보를 가공하는 자기화 과정</li>
-              <li><b>기록한 것을 되돌아보기:</b> 반복을 통해 기억을 공고히 하는 단계</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 10: Memory Method -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">기록형 인간의 <span class="highlight">기억법</span></h2>
-          <p class="slide-subtitle">기억은 담금질할수록 오래 남습니다. 세 번의 담금질로 기억을 우리 머릿속에 공고히 자리 잡게 만드세요.</p>
-           <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <h3 class="font-bold text-2xl text-center">"기록하고, 되뇌고, 말하라"</h3>
-              <div class="grid grid-cols-3 gap-4 mt-4 text-center">
-                  <div><span class="text-4xl">✍️</span><p class="font-bold mt-2">1. 기록하기</p><p class="text-sm">자기식으로 해석하여 메모</p></div>
-                  <div><span class="text-4xl">🤔</span><p class="font-bold mt-2">2. 되뇌기</p><p class="text-sm">메모한 것을 다시 꺼내 보기</p></div>
-                  <div><span class="text-4xl">🗣️</span><p class="font-bold mt-2">3. 말하기</p><p class="text-sm">말과 글로 내뱉어 보기</p></div>
+          <div class="slide-container">
+              <h2 class="slide-title">메모와 기록, <span class="highlight">무엇이 다른가?</span></h2>
+              <p class="slide-subtitle">많은 사람이 기록을 메모와 동일시하지만, 진짜 내 것이 되려면 메모를 기록으로 발전시켜야 합니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-xl text-center">📝 메모 (Memo)</h3>
+                      <p class="mt-3">기록의 <span class="highlight">원천</span>입니다. 시간 부족, 빠른 대화 등 너저분하게 적어 둔 조각난 글들입니다. 원석을 발견하는 과정입니다.</p>
+                  </div>
+                  <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-xl text-center">📚 기록 (Record)</h3>
+                      <p class="mt-3">조각난 메모를 모아 <span class="highlight">체계적으로 정리</span>한 것입니다. 메모를 제대로 정리하는 행위이며, 보석으로 가공하는 과정입니다.</p>
+                  </div>
               </div>
+          </div>
+      </div>
+
+      <!-- Slide 8: Why Record? -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리는 왜 <span class="highlight">기록해야</span> 하는가?</h2>
+          <div class="slide-content space-y-6">
+            <div>
+              <h3 class="font-bold text-lg">🚀 1. 기록은 나를 지속 성장시킨다</h3>
+              <p>기록은 외부의 지식을 받아들이고(Input), 내면의 잠재력을 끄집어내는(Output) 두 가지 성장 방식을 모두 가능하게 합니다. 이 둘이 맞물릴 때 폭발적인 성장이 일어납니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🧭 2. 기록은 내 삶의 주도권을 갖게 한다</h3>
+              <p>어지럽혀진 방을 정리하듯, 기록은 머릿속 생각을 정리해 <span class="highlight">진정한 자유</span>를 줍니다. 불필요한 일을 덜어내고, 원하는 것을 주체적으로 할 수 있게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: 성장 기록법</p>
+          <h2 class="slide-title">나만의 <span class="highlight">성장 메커니즘</span> 만들기</h2>
+          <p class="slide-content">성공하겠다는 마음은 무의식에 넣어두고, 우리의 의식은 매일의 성장에 집중해야 합니다. 성장을 계획하고 미친듯이 지속하기 위한 3단계 메커니즘을 소개합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 10: 3-Step Growth Recording Method -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">3단계 성장 기록법 📈</h2>
+            <div class="flex justify-center items-center space-x-4 md:space-x-8 text-center">
+                <div class="p-4 rounded-lg bg-blue-50">
+                    <div class="text-4xl">1️⃣</div>
+                    <h3 class="font-bold text-lg mt-2">기록하라</h3>
+                    <p class="text-sm mt-1">자신을 인식하는<br>첫 단계</p>
+                </div>
+                <div class="text-3xl text-gray-400">➡️</div>
+                <div class="p-4 rounded-lg bg-green-50">
+                    <div class="text-4xl">2️⃣</div>
+                    <h3 class="font-bold text-lg mt-2">반복하라</h3>
+                    <p class="text-sm mt-1">기록을 정제하고<br>업그레이드</p>
+                </div>
+                 <div class="text-3xl text-gray-400">➡️</div>
+                <div class="p-4 rounded-lg bg-yellow-50">
+                    <div class="text-4xl">3️⃣</div>
+                    <h3 class="font-bold text-lg mt-2">지속하라</h3>
+                    <p class="text-sm mt-1">모든 과정을<br>습관으로 정착</p>
+                </div>
+            </div>
+            <p class="mt-8 text-lg text-gray-700">이 과정들이 모여 당신만의 <span class="highlight">성장 메커니즘과 시스템</span>이 완성됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 11: Step 1 Detail -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">1단계: <span class="highlight">기록하라</span> ✍️</h2>
+              <p class="slide-subtitle">무엇을 어떻게 기록하고 활용하느냐에 따라 성장에 가속이 붙거나, 그 자리에 멈춰 설 수도 있습니다.</p>
+              <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                  <h3 class="font-bold text-lg">기록의 5대 핵심 영역</h3>
+                  <p class="mt-2 slide-content">
+                  <span class="font-bold">공부, 대화, 생각, 일상, 일</span>의 다섯 영역을 기록하며 지식, 마인드, 역량을 키웁니다. 이 기록들이 지식이 되고 성장의 토대가 됩니다.
+                  </p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 12: Step 2 Detail -->
+       <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">2단계: <span class="highlight">반복하라</span> 🔄</h2>
+              <p class="slide-subtitle">단순히 되풀이하는 것이 아니라, 자기화와 분류를 통해 기록을 정제하고 업그레이드하는 과정입니다.</p>
+               <div class="slide-content">
+                  <p>기록이 <span class="font-bold">원석</span>을 발견하고 선별하는 과정이라면, 반복은 기술을 숙련시켜 <span class="font-bold">보석</span>으로 가공하는 과정입니다. 어제의 업무 기록에 오늘 느낀 점을 더하고, 내일은 고민한 내용을 추가하며 기록의 질을 높입니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 13: Step 3 Detail -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">3단계: <span class="highlight">지속하라</span> 🏃</h2>
+            <p class="slide-subtitle">성장을 습관으로 만들기 위해서는 꾸준함이 필요합니다. 작은 습관의 반복이 인생에 걸친 큰 실행으로 이어집니다.</p>
+             <div class="slide-content">
+                <p>목표를 높이 잡고 자신을 몰아붙이기보다 <span class="font-bold">하루, 일주일, 한 달 단위</span>로 차근차근 실행해 나가세요. 어제보다 더 나은 삶을 위한 자신만의 시스템을 만드는 것이 핵심입니다.</p>
             </div>
         </div>
       </div>
       
-      <!-- Slide 11: Self-Internalization -->
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">자기화(自己化), <span class="highlight">나의 것</span>으로 만들기</h2>
-          <p class="slide-subtitle">'어떤 지식이나 의견 따위를 받아들여 자신의 것으로 만드는 것'</p>
-          <div class="slide-content">
-            <p>순간의 생각을 통해 낯선 정보를 나만의 방식으로 해석할 때, 그 정보는 선명한 이미지로 뇌리에 강력하게 남습니다.</p>
-            <p class="mt-4 font-bold">자기화의 기능:</p>
-            <ul class="list-disc list-inside mt-2">
-              <li><b>선별 기능:</b> 나에게 중요한 정보만 골라냅니다.</li>
-              <li><b>익숙함으로 변환:</b> 낯선 개념을 익숙한 단어와 논리로 바꾸어 쉽게 기억하게 합니다.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 12: Inner Assets -->
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">내 안의 잠재성, <span class="highlight">내적 자산</span>을 활용하라</h2>
-          <p class="slide-subtitle">기록은 외부 지식 흡수뿐만 아니라, 내 안에 이미 존재하는 자산을 꺼내는 행위입니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-4 bg-gray-50 rounded-lg"><b>이해력:</b> 지식/경험을 해석, 체계화</div>
-            <div class="p-4 bg-gray-50 rounded-lg"><b>사고력:</b> 생각을 깊고 넓게 발전</div>
-            <div class="p-4 bg-gray-50 rounded-lg"><b>문제해결력:</b> 원인 파악 및 해결</div>
-            <div class="p-4 bg-gray-50 rounded-lg"><b>추진력:</b> 하고자 하는 일을 실행</div>
-            <div class="p-4 bg-gray-50 rounded-lg"><b>대인력:</b> 원만한 관계 유지</div>
-          </div>
-           <p class="mt-6">부족한 부분이 있다면 포기하지 마세요. 그것이 바로 새로운 <span class="highlight">성장 가능성</span>입니다.</p>
-        </div>
-      </div>
-
-      <!-- Slide 13: Finding True Desire -->
+      <!-- Slide 14: Section 3 Title -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">진짜 <span class="highlight">욕망</span>을 찾아가는 과정</h2>
-          <p class="slide-subtitle">타인이 주입한 성공이 아닌, 내면의 진짜 목소리를 듣는 법</p>
-          <div class="slide-content">
-            <p>삶이 무의미하고 불안하다면, 기록을 통해 '자기와의 대화'를 시작해야 합니다. 자유는 나 자신을 만나는 것에서 시작됩니다.</p>
-            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">📝 자기 대화 기록법</h3>
-              <p class="mt-2"><b>1. 내가 현재 바라는 것 적기:</b> 감정과 생각을 솔직하게 쏟아내기. 반복과 지속이 중요합니다.</p>
-              <p class="mt-2"><b>2. '가면 판단' 하기:</b> 부모, 사회 등 타인이 나에게 기대하는 역할(페르소나)과 그로 인한 나의 행동을 분리해서 바라보기. 무엇을 버리고 무엇을 추구할지 명확해집니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 14: Section 2 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">PART 2</p>
-          <h2 class="slide-title">거인의 요약법과 분류법 📚</h2>
-          <p class="slide-content text-2xl">흩어진 정보를 핵심만 남기고, 의미 있는 구조로 재구성하는 기술을 배웁니다. 기록의 효율을 극대화하는 방법입니다.</p>
+          <p class="slide-part-title">Part 3: 기록의 기술</p>
+          <h2 class="slide-title">거인의 <span class="highlight">요약법과 분류법</span></h2>
+          <p class="slide-content">기록의 진정한 힘은 '집중'에서 나옵니다. 많이 쓰는 것이 아니라, 핵심만 남기고 버리는 용기가 필요합니다. 어떻게 요약하고 분류할 수 있을까요?</p>
         </div>
       </div>
 
       <!-- Slide 15: The Art of Summarization -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">기록의 고수는 <span class="highlight">많이 쓰지 않는다</span></h2>
-          <p class="slide-subtitle">기록의 진정한 힘은 '기억'이 아니라 '집중'에서 나옵니다. 요약은 최고의 집중 훈련입니다.</p>
+          <h2 class="slide-title">요약의 기술: <span class="highlight">핵심만 남기고 다 버려라</span></h2>
+          <p class="slide-subtitle">요약은 기억을 압축하고 새롭게 창조하는 일입니다. 100개 중 중요한 10개를 골라내는 법을 배워야 합니다.</p>
           <div class="slide-content">
-            <p>100개의 기록 중 가치 있는 10개를 골라내는 능력, 이것이 기록학의 핵심입니다. 모래알 속에서 빛나는 보석을 발견하는 일과 같습니다.</p>
-            <p class="mt-4 font-bold">"기록은 곧 요약이고, 기록한다는 것은 요약하는 행위를 반복하는 것이다."</p>
+            <p>요약이 익숙하지 않다면 <span class="font-bold">키워드 2개만 메모하는 것</span>부터 시작해보세요. 20분짜리 유튜브 영상에서 키워드 2개, 두꺼운 책에서 키워드 2개를 뽑는 것입니다. '이것만은 잊어서는 안 된다'고 생각하는 것을 찾으려 집중하게 되고, 버리는 용기를 기를 수 있습니다.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 16: The Courage to Discard -->
+      <!-- Slide 16: The Power of "Self-Transformation" -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">핵심만 남기고 <span class="highlight">버리는 용기</span></h2>
-          <p class="slide-subtitle">요약이 어렵다면, 딱 두 개의 키워드만 뽑는 것부터 시작해보세요.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-xl mb-2">🤔 버리지 못하는 마음</h3>
-              <p>모든 정보가 중요해 보이고, 하나라도 놓치면 안 될 것 같은 불안감. 결국 아무것도 남지 않게 됩니다.</p>
+            <h2 class="slide-title">핵심 기술: <span class="highlight">자기화(自己化)</span></h2>
+            <p class="slide-subtitle">‘어떤 지식이나 의견 따위를 받아들여 자신의 것으로 만드는 것’</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">자기화한 것만이 남는다</h3>
+                    <p>자기화되지 않은 지식은 오래 기억되지 않습니다. 자기식으로 요약하는 행위 자체가 기억 작용을 활성화시킵니다. 자신의 색깔이 묻은 '내 것'은 절대 쉽게 잊히지 않습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">낯섦을 익숙하게 만들기</h3>
+                    <p>자기화는 낯선 개념을 나에게 익숙한 단어와 논리로 변환하여 효과적으로 기억하게 만듭니다. 이해가 안 되는 것은 과감하게 버리고, 내가 이해한 것만 기록하세요.</p>
+                </div>
             </div>
-            <div>
-              <h3 class="font-bold text-xl mb-2">🗑️ 버리는 용기</h3>
-              <p>핵심을 찾기 위해 나머지를 과감히 버릴 때, 오히려 가장 중요한 것이 선명하게 남습니다. 유능한 기록형 인간의 조건입니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 17: Summary vs Patchwork -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">짜깁기와 요약의 <span class="highlight">결정적 차이</span></h2>
-          <p class="slide-subtitle">리포트 점수가 낮았다면, 당신은 요약이 아닌 짜깁기를 했을 가능성이 높습니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-xl mb-2">🧩 짜깁기 (Patchwork)</h3>
-              <p>단순히 여러 곳에서 가져온 자료를 그대로 복사하여 붙여넣고 편집하는 행위. 나의 생각이 없습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-xl mb-2">💡 요약 (Summary)</h3>
-              <p>자료를 내 머릿속에서 소화하고, 각각을 요약한 뒤, 논리에 맞게 재구성하고 나의 통찰을 더하는 창조적 행위(에디톨로지).</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 18: Classification -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">막막하다면 <span class="highlight">나눠 보라</span> (분류)</h2>
-          <p class="slide-subtitle">분류는 뒤죽박죽 섞인 잠재적 가치들 속에서 특정 부분을 선택하여 삶에 활용하는 기술입니다.</p>
-          <div class="slide-content">
-            <p><b>"코로나19에 대해 어떻게 생각하세요?"</b> 라는 막연한 질문보다, <b>"코로나19의 경제적 측면에 대해 어떻게 생각하세요?"</b> 처럼 분류된 질문이 생각을 더 깊고 뾰족하게 만듭니다.</p>
-            <p class="mt-4">글쓰기도 마찬가지입니다. 잠재적 생각들을 분류하고 정리하면 자연스럽게 글의 얼개(내비게이션)가 완성됩니다.</p>
-          </div>
         </div>
       </div>
       
-      <!-- Slide 19: The Master Note System -->
+       <!-- Slide 17: Classification -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">분류의 힘: <span class="highlight">막막하다면 나눠 보라</span></h2>
+          <p class="slide-subtitle">뒤죽박죽 섞인 생각의 조각들을 잘 분류하기만 해도 문제 해결의 실마리를 찾을 수 있습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">고민을 분류하는 3가지 기준</h3>
+              <p class="mt-2 slide-content">
+                <span class="font-bold">1. 배경:</span> 이 고민이 생긴 배경은 무엇인가? <br>
+                <span class="font-bold">2. 원인:</span> 이 고민을 발생시킨 원인은 무엇인가? <br>
+                <span class="font-bold">3. 방향:</span> 이 고민을 어떤 방향으로 풀 것인가? <br>
+                <br>
+                분류를 통해 우리는 생각의 방향을 알 수 있고, 고민에 대한 답이 이미 내 안에 있음을 발견하게 됩니다.
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 거인의 다섯 가지 기록법</p>
+          <h2 class="slide-title">삶의 모든 순간을 <br><span class="highlight">성장으로 바꾸는 기록</span></h2>
+          <p class="slide-content">공부, 대화, 생각, 일상, 일. 삶을 구성하는 5가지 주요 영역에서 능률을 높이기 위해 어떻게 기록해야 하는지 구체적인 방법을 알아봅니다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 19: Area 1: Study -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">영역 1: 공부</p>
+            <h2 class="slide-title">정보 ➡️ 지식 ➡️ <span class="highlight">지혜</span></h2>
+            <p class="slide-subtitle">책을 읽고 키워드로 기록하며 정보(information)를 나를 거쳐 지식(knowledge)으로 만듭니다.</p>
+            <div class="slide-content">
+              <p>더 나아가, 이 지식을 반복하고 현재 상황에 비추어 편집할 때 비로소 <span class="font-bold">지혜(wisdom)</span>가 됩니다. 공부 기록의 핵심은 단순히 아는 것을 넘어, 지혜를 발휘하는 데 있습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Area 2: Conversation -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">영역 2: 대화</p>
+            <h2 class="slide-title">주고받으면서 쌓이는 <br><span class="highlight">다이얼로그의 신비</span></h2>
+            <p class="slide-subtitle">대화는 단순한 정보 교환이 아니라, 서로의 생각을 벽돌 쌓듯 쌓아 제3의 새로운 결과물을 만드는 과정입니다.</p>
+            <div class="slide-content">
+              <p>대화의 맥락을 기록하세요. 상대방의 이야기뿐 아니라 나의 이야기까지 함께 담아야 진정한 대화 기록입니다. 대화 속에서 떠오르는 <span class="font-bold">'순간의 생각'</span>을 포착하고 기록하여 지혜를 놓치지 마세요.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Area 3: Thought -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">영역 3: 생각</p>
+            <h2 class="slide-title">기록이 쌓이면 <span class="highlight">아이디어가 된다</span></h2>
+            <p class="slide-subtitle">아이디어는 갑자기 떨어지는 것이 아니라, 우리 안에 있는 생각을 밖으로 끄집어내는 작업입니다.</p>
+            <div class="slide-content">
+              <p>생각을 기록하는 것은 아이디어를 내기 위한 <span class="font-bold">사전 예열 작업</span>입니다. 흩어진 기록들을 종합하고 연상하는 시간을 통해 아이디어가 떠오를 가능성이 급격히 커집니다. 생각하기를 포기하지 말고 기록하세요.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Area 4: Daily Life -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">영역 4: 일상</p>
+            <h2 class="slide-title">신기루가 아닌 <span class="highlight">진짜 삶에 집중하라</span></h2>
+            <p class="slide-subtitle">미디어 속 화려한 삶이 아닌, 나의 평범한 일상을 기록함으로써 우리는 진정한 삶의 의미와 숨겨진 가능성을 발견할 수 있습니다.</p>
+            <div class="slide-content">
+              <p>장면(Scene) 기록을 해보세요. 나의 하루를 있는 그대로 단어로 옮겨보는 것입니다. '9시, 커피+클래식 음악', '10시, 부족한 아침잠 보충'. 특별할 것 없는 일상 기록을 통해 평소 생각 없이 하던 일들에 의미가 부여됩니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Area 5: Work -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">영역 5: 일</p>
+            <h2 class="slide-title">유능해지고 싶다면 <span class="highlight">일을 기록하라</span></h2>
+            <p class="slide-subtitle">일 기록의 핵심은 '어떻게 하면 일을 잘할 수 있을까'를 스스로 생각하는 것입니다.</p>
+            <div class="slide-content">
+              <p>상사의 지시를 메모할 때, 업무 내용(What)과 함께 그의 숨은 의도(Why)를 파악하려 노력하세요. 기록은 업무의 전체 맥락에서 현재 작업의 위치를 알려주는 <span class="font-bold">내비게이션</span> 역할을 합니다. 요약과 분류를 통해 불필요한 작업을 '빼기'가 가능해집니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Bonus: Genius & Recording -->
        <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">한곳에 메모하고 <span class="highlight">나누어 정리하라</span></h2>
-          <p class="slide-subtitle">효율적인 기록 관리를 위한 '만능 노트' 시스템</p>
-          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">📝 기록의 흐름</h3>
-              <p class="mt-2"><b>1단계 (수집):</b> 모든 종류의 메모(생각, 대화, 지식 등)를 하나의 '만능 노트'에 자유롭게 기록합니다.</p>
-              <p class="mt-2"><b>2단계 (정리):</b> 시간을 내어 만능 노트의 메모들을 '생각'을 더해 종류별 노트(지식 노트, 대화 노트 등)로 옮겨 '종합(synthesis)'합니다.</p>
-              <p class="mt-2">이 과정에서 흩어진 정보가 연결되어 지식과 지혜로 발전합니다.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Slide 20: Section 3 Title -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">PART 3</p>
-          <h2 class="slide-title">거인의 다섯 가지 기록법 🛠️</h2>
-          <p class="slide-content text-2xl">공부, 대화, 생각, 일상, 일. 우리 삶을 구성하는 다섯 가지 주요 영역에서 기록을 구체적으로 실천하는 방법을 알아봅니다.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 21: Area 1: Study -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">1. 공부 기록 📖</p>
-          <h2 class="slide-title">정보를 <span class="highlight">지혜로</span> 만드는 법</h2>
-          <p class="slide-subtitle">정보에 '나'를 거친 '연결(스토리)'이 더해지면 지식이 되고, 지식에 '의지적 행위(결정)'가 더해지면 지혜가 됩니다.</p>
-          <div class="slide-content">
-            <p class="font-bold">효과적인 공부 기록법:</p>
-            <ul class="list-disc list-inside mt-2 space-y-1">
-                <li><b>책에 직접 표시하며 읽기:</b> 키워드 동그라미, 밑줄 등 낙서하듯 메모하며 저자와 대화합니다.</li>
-                <li><b>어려운 책은 천천히 읽기:</b> 하루 10쪽만 읽겠다는 생각으로 부담을 내려놓으면 이해력이 높아집니다.</li>
-                <li><b>세 가지 원칙 기억하기:</b> 확실성(설명 가능할 정도), 요약성(키워드 중심), 종합성(나의 순서로 재정렬)을 적용합니다.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 22: Area 2: Conversation -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">2. 대화 기록 💬</p>
-          <h2 class="slide-title">대화는 어떻게 <span class="highlight">지식</span>이 되는가</h2>
-          <p class="slide-subtitle">대화의 핵심은 '주고받는 것(Dialogue)'입니다. 서로의 말에 벽돌을 쌓듯 생각을 더해갈 때, 새로운 지식이 탄생합니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">경청의 재정의</h3>
-              <p>단순히 듣는 것이 아니라, 상대의 말을 이해하고 내 안에서 소화하여 나의 의견을 더하기 위한 사전 작업입니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">맥락 기록하기</h3>
-              <p>대화 전체를 받아쓰는 것이 아니라, 대화의 목적, 상대의 감정, 핵심 키워드를 포착하여 대화의 흐름을 기록합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 23: Area 3: Thought -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">3. 생각 기록 🤔</p>
-          <h2 class="slide-title">기록이 쌓이면 <span class="highlight">아이디어</span>가 된다</h2>
-          <p class="slide-subtitle">아이디어는 갑자기 떠오르는 것이 아니라, 기록된 생각들을 꺼내고 연결하는 작업의 결과입니다.</p>
-          <div class="slide-content">
-             <p>고민이 해결되지 않을 때, 그 생각을 기록하면 복잡한 생각의 특징에 '논리성'을 부여할 수 있습니다. 이를 통해 해결의 실마리를 찾게 됩니다.</p>
-             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">무의식 기록하기</h3>
-                <p class="mt-2">나의 행동을 바꾸고 싶다면, 나의 무의식을 들여다봐야 합니다. <b>'현재 상황 - 나의 감정 - 과거 경험'</b> 세 가지를 기록하며 그 연결고리를 찾아보세요.</p>
-             </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 24: Geniuses are Recorders -->
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">천재는 <span class="highlight">기록</span>으로 이루어진다</h2>
+          <h2 class="slide-title">천재는 <span class="highlight">기록으로 이루어진다</span></h2>
           <p class="slide-subtitle">역사상 가장 창의적인 인물들은 모두 기록의 대가였습니다.</p>
           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-xl mb-2">레오나르도 다빈치 🎨</h3>
-              <p>14,000쪽에 달하는 노트에 아이디어 스케치, 발명품 설계도, 글 등을 남겼습니다. 그의 창의성은 기록에서 비롯되었습니다.</p>
+              <h3 class="font-bold text-lg">레오나르도 다빈치</h3>
+              <p>아이디어 스케치, 발명품 설계도, 심지어 요리법까지 약 14,000쪽에 달하는 노트를 남겼습니다. 그의 작품은 요약과 편집의 결과물입니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-xl mb-2">이순신 장군 🌊</h3>
-              <p>『난중일기』는 일상, 업무, 대화를 종합적으로 서술한 개인 기록의 최고봉입니다. 기록을 통해 자신을 관리하고 최고의 전략을 이끌어냈습니다.</p>
+              <h3 class="font-bold text-lg">이순신 장군</h3>
+              <p>『난중일기』는 일상, 일, 대화가 담긴 종합 기록의 정수입니다. 기록을 통해 자신을 관리하고 최고의 전략을 이끌어냈습니다. 기록은 전략의 도구이자 자신을 비추는 거울이었습니다.</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Slide 25: Area 4: Daily Life -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">4. 일상 기록 🏠</p>
-          <h2 class="slide-title">신기루가 아닌 <span class="highlight">진짜 삶</span>에 집중하라</h2>
-          <p class="slide-subtitle">미디어와 SNS가 보여주는 화려한 삶이 아닌, 나의 사소한 일상 속에 진정한 삶의 의미가 있습니다.</p>
-          <div class="slide-content">
-            <p>일상을 기록하면 평소 생각 없이 하던 일들에 의미가 부여됩니다. 숨겨진 가능성을 발견하는 작은 기회들의 연속이 됩니다.</p>
-            <p class="mt-4 font-bold">나의 하루를 '장면 기록' 해보세요. 시간대별로 한 일을 키워드로 적고, 그때의 감정을 함께 기록합니다. 이 과정을 통해 나다움을 찾는 첫걸음을 뗄 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-      
-       <!-- Slide 26: Diary Method -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">4. 일상 기록 🏠</p>
-          <h2 class="slide-title">기록형 인간의 <span class="highlight">다이어리 사용법</span></h2>
-          <p class="slide-subtitle">"기록은 핵심만 간단하게!"</p>
-           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                <h3 class="font-bold text-lg">하루 속 핵심 일정 정하기</h3>
-                <p class="mt-2">오늘 할 일 중 가장 중요한 일정 하나를 선택합니다. 그 핵심 일정이 하루의 중심을 잡아주어 나머지 일들이 자연스럽게 정리됩니다.</p>
-                <p class="mt-4"><b>CSF (Critical Success Factors, 핵심 성공 요인)</b>를 함께 적어보세요. '회의 잘하기(계획)' 옆에 '팀원 의견 잘 듣기(CSF)'라고 적는 식입니다. 일상이 전략적으로 변합니다.</p>
-             </div>
-        </div>
-      </div>
 
-
-      <!-- Slide 27: Area 5: Work -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">5. 일 기록 💼</p>
-          <h2 class="slide-title">유능해지고 싶다면 <span class="highlight">일을 기록</span>하라</h2>
-          <p class="slide-subtitle">일 기록의 핵심은 '생각'입니다. '어떻게 하면 일을 잘할 수 있을까?'를 스스로 고민하는 과정이 담겨야 합니다.</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">회의록의 맥락 기록</h3>
-              <p>단순히 오간 말을 받아 적는 것이 아니라, 회의의 '차례(구조)'를 잡고 키워드 위주로 정리하여 전체 맥락을 파악할 수 있게 합니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">상사 지시의 의도 파악</h3>
-              <p>상사가 '무엇을' 지시했는지(Input)를 넘어, '왜' 지시했는지(의도)를 파악하고 기록해야 합니다. 이것이 핵심을 놓치지 않는 비결입니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slide 28: Author's Diary Method -->
-      <div class="slide">
-        <div class="slide-container">
-           <p class="slide-part-title">5. 일 기록 💼</p>
-          <h2 class="slide-title">내 삶을 바꾼 <span class="highlight">월간 다이어리</span> 작성법</h2>
-          <p class="slide-subtitle">1년 단위 계획은 너무 길어 실패하기 쉽습니다. 저자는 월간 다이어리를 통해 유학을 성공적으로 마칠 수 있었습니다.</p>
-          <div class="slide-content">
-            <p>한 달에 노트 한 권을 채운다는 생각으로 기록하면, 매달 큰 성취감을 느낄 수 있습니다. 이 성취감은 내 삶을 스스로 컨트롤할 수 있다는 자신감으로 이어집니다.</p>
-             <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <h3 class="font-bold text-lg">⭐ 핵심 Tip</h3>
-                <p class="mt-2">다이어리는 <b>월간</b>으로 쓰되, 목표는 <b>주간</b>으로 설정하세요. 너무 먼 목표는 쉽게 포기하게 됩니다. 주간 목표를 세우고 매일 실행하며 점검하는 습관이 성공으로 이끕니다.</p>
-             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ... We can add more detailed slides for each chapter to reach 50 ... -->
-      
-       <!-- Slide 29 -->
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">결론: 기록은 <span class="highlight">거인의 어깨</span></h2>
-          <p class="slide-subtitle">"난쟁이가 거인의 어깨에 올라타면 거인보다 더 멀리 볼 수 있다."</p>
-          <div class="slide-content">
-            <p>비록 지금의 내가 난쟁이일지라도, 매일의 기록이 쌓이면 우리는 그 위에서 더 멀리 보고 더 깊이 생각할 수 있습니다.</p>
-            <p class="mt-4">내가 남긴 기록을 디딤돌 삼아 가장 높은 곳에 선, <b class="text-xl">거인(巨人)이 된 자신</b>을 마주할 수 있을 것입니다. 이것이 바로 이 책의 제목이 『거인의 노트』인 이유입니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 50: Conclusion -->
+      <!-- Slide 25: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-6xl mb-6">🎯</div>
           <h2 class="slide-title">최종 결론</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">기록은 단순히 남기는 행위가 아니라, 나 자신을 발견하고 성장시키며, 삶의 주도권을 찾아오는 가장 <span class="highlight">단순하고도 강력한 도구</span>입니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">기록하고, 반복하고, 지속하십시오. 당신의 삶이 달라집니다.</p>
+            <p class="mb-4">기록은 단순한 습관을 넘어, 삶을 변화시키는 가장 강력한 시스템입니다. <span class="highlight">기록하고, 반복하고, 지속하며</span> 나만의 성장 메커니즘을 만드세요.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">기록을 무기 삼아 스스로의 한계를 뛰어넘고, 삶의 주인이 되십시오.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 51: Thank You / Q&A -->
+      <!-- Slide 26: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -579,7 +462,7 @@
           <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
         </div>
       </div>
-      
+
     </div>
   </div>
 
@@ -637,9 +520,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
         nextBtn.click();
-      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
         prevBtn.click();
       }
     });
