@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>도파민 네이션 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8fafc;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 50px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 60vh;
+    }
+    .slide-part-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #1f2937;
+    }
+    .highlight {
+      background-color: #eef2ff;
+      color: #4338ca;
+      font-weight: 700;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background-color: #4f46e5;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #4338ca;
+    }
+    .btn-secondary {
+      background-color: #e5e7eb;
+      color: #374151;
+      border-color: #d1d5db;
+    }
+    .btn-secondary:hover {
+      background-color: #d1d5db;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #e5e7eb;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e5e7eb;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #4f46e5;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .emoji-title {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="emoji-title">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">도파민 네이션</h1>
+          <p class="text-xl md:text-2xl text-gray-700">쾌락 과잉 시대에서 <span class="highlight">균형 찾기</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>머리말:</b> 탐닉의 시대에서 살아가기</p>
+            <p><b>1부: 쾌락과 고통의 이중주</b></p>
+            <ul class="list-disc list-inside ml-4 space-y-2">
+              <li>1장: 자위 기계를 만드는 남자</li>
+              <li>2장: 행복에 중독된 사람들</li>
+              <li>3장: 뇌는 쾌락과 고통을 어떻게 이해하는가</li>
+            </ul>
+            <p><b>2부: 중독과 구속의 딜레마</b></p>
+             <ul class="list-disc list-inside ml-4 space-y-2">
+              <li>4장: DOPAMINE - 나와 중독을 이해하는 7단계</li>
+              <li>5장: 자기 구속 - 중독 관리를 위한 3가지 접근법</li>
+              <li>6장: 처방약의 두 얼굴</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Table of Contents 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖 (계속)</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>3부: 탐닉의 시대에서 균형 찾기</b></p>
+            <ul class="list-disc list-inside ml-4 space-y-2">
+              <li>7장: 고통 마주보기</li>
+              <li>8장: 있는 그대로 말하라</li>
+              <li>9장: 나를 살리는 수치심</li>
+            </ul>
+            <p><b>맺음말:</b> 저울의 교훈</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Section Title - 머리말 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="emoji-title">🎢</div>
+          <h2 class="slide-title">머리말: <span class="highlight">탐닉의 시대에서 살아가기</span></h2>
+          <p class="slide-subtitle">우리는 왜 쾌락을 좇을수록 더 불행해지는가?</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: 머리말 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결핍에서 <span class="highlight">풍요</span>로</h2>
+          <p class="slide-subtitle">과거 인류의 생존 과제는 '결핍'과의 싸움이었습니다.</p>
+          <div class="slide-content">
+            <p>하지만 현대 사회는 다릅니다. 우리는 역사상 그 어느 때보다 풍요로운 시대를 살고 있습니다. 음식, 뉴스, 쇼핑, 게임, 소셜 미디어 등 쾌락을 약속하는 자극들이 넘쳐납니다.</p>
+            <p class="mt-4">문제는 우리의 뇌가 이런 <span class="highlight">풍요의 시대</span>에 맞게 진화하지 않았다는 것입니다. 우리의 뇌는 여전히 결핍의 시대에 맞춰져 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: 머리말 2 (Two-column) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쾌락과 고통의 <span class="highlight">저울</span> ⚖️</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">쾌락을 느낄 때</h3>
+              <p>뇌의 보상 회로에 '도파민'이 분비되면서 저울이 쾌락 쪽으로 기웁니다. 쾌락이 클수록 저울은 더 많이, 더 빨리 기웁니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">항상성 (Homeostasis)</h3>
+              <p>하지만 우리 뇌는 균형을 유지하려는 강력한 '항상성' 메커니즘을 가지고 있습니다. 저울이 한쪽으로 기울면, 뇌는 반대편에 무게를 실어 수평을 맞추려고 합니다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
+            <p class="font-bold">이것이 바로 쾌락 뒤에 고통이 따르는 이유입니다. 즐거운 경험 후 찾아오는 미묘한 허무함이나 갈망이 바로 그 증거입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: 머리말 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현대판 피하주사침: <span class="highlight">스마트폰</span> 📱</h2>
+           <p class="slide-subtitle">스마트폰은 쉴 새 없이 디지털 도파민을 전달합니다.</p>
+          <div class="slide-content">
+            <p>'나는 아직 무언가에 중독된 적이 없다'고 자신하는 사람이라도, 머지않아 스마트폰 속에서 자신을 중독시키는 무언가를 만나게 될 것입니다.</p>
+            <p class="mt-4">이 책은 신경과학과 뇌과학을 기반으로, 그리고 중독의 고통을 겪고 회복한 환자들의 생생한 이야기를 통해 우리가 이 <span class="highlight">탐닉의 시대</span>에서 어떻게 균형을 찾을 수 있는지 탐구합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="emoji-title">🎭</div>
+          <h2 class="slide-title">1부: 쾌락과 고통의 <span class="highlight">이중주</span></h2>
+          <p class="slide-subtitle">우리 모두는 각자의 '자위 기계'를 가지고 있다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 9: Chapter 1 - Jacob's Story -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장: 자위 기계를 만드는 남자</p>
+          <h2 class="slide-title">제이콥의 이야기: 강박적 과용의 극단</h2>
+          <div class="slide-content">
+            <p>제이콥은 어린 시절부터 시작된 성 중독으로 고통받았습니다. 그는 자신의 쾌락을 극대화하기 위해 레코드 플레이어를 개조해 '자위 기계'를 만들었습니다.</p>
+            <p class="mt-4">그의 이야기는 인터넷과 기술이 어떻게 중독을 강화하고 새로운 형태의 강박적 행동을 만들어내는지를 보여줍니다. 온라인 포르노, 전기 자극 커뮤니티 등 기술은 그의 중독을 더욱 깊게 만들었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 1 - Author's Story -->
+      <div class="slide">
+        <div class="slide-container">
+           <p class="slide-part-title">1장: 자위 기계를 만드는 남자</p>
+          <h2 class="slide-title">우리 모두의 <span class="highlight">'자위 기계'</span> 📚</h2>
+          <p class="slide-subtitle">저자 역시 로맨스 소설에 병적으로 집착했던 경험을 고백합니다.</p>
+          <div class="slide-content">
+            <p>전자책 단말기는 그녀에게 언제 어디서든 자극적인 콘텐츠에 접근할 수 있는 통로가 되었습니다. 이는 제이콥의 이야기와 본질적으로 다르지 않습니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p class="font-bold">핵심 메시지: <span class="highlight">"저마다 자신만의 자위 기계에 사로잡혀 있다."</span> 우리를 사로잡는 대상은 다를지라도, 그 기저의 뇌 과학적 메커니즘은 동일합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Chapter 2 - Addiction to Happiness -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장: 행복에 중독된 사람들</p>
+          <h2 class="slide-title">고통 없는 삶을 추구하는 현대인</h2>
+          <p class="slide-subtitle">우리는 불편하거나 고통스러운 감정을 피하기 위해 끊임없이 무언가를 합니다.</p>
+          <div class="slide-content">
+            <p>데이비드는 사회 불안을 해소하기 위해 애더럴(Adderall)에 의존했고, 이는 결국 더 큰 문제로 이어졌습니다. 케빈은 "느낌이 좋으면 하라"는 쾌락주의적 철학으로 살았지만, 결국 '별로였다'고 고백합니다.</p>
+            <p class="mt-4">고통을 피하려는 시도는 역설적으로 우리를 더 큰 고통으로 이끕니다. 우리는 <span class="highlight">행복'에' 중독</span>되어 사소한 불편함조차 견디지 못하게 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Chapter 2 - The Paradox of Happiness -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장: 행복에 중독된 사람들</p>
+          <h2 class="slide-title">풍요가 낳은 <span class="highlight">불안과 우울</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h3 class="font-bold text-lg mb-2">📈 늘어나는 정신 질환</h3>
+                <p>세계행복보고서에 따르면, 부유한 국가들에서 오히려 행복 점수가 하락하고 불안 및 우울증 사례가 증가하고 있습니다. 풍요로운 환경이 반드시 행복으로 이어지지는 않는다는 증거입니다.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">🏃‍♂️ 고통으로부터의 도피</h3>
+                <p>우리는 지루함을 견디지 못해 끊임없이 스마트폰을 보고, 작은 스트레스도 약물로 해결하려 합니다. 하지만 고통을 회피하려는 모든 시도는 결국 고통을 더 악화시킬 뿐입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Chapter 3 - Section Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="emoji-title">⚖️</div>
+            <p class="slide-part-title">3장: 뇌는 쾌락과 고통을 어떻게 이해하는가</p>
+            <h2 class="slide-title">쾌락-고통 저울의 <span class="highlight">비밀</span></h2>
+        </div>
+      </div>
+
+      <!-- Slide 14: Chapter 3 - Dopamine -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">도파민은 '쾌락'이 아니다? 💥</h2>
+          <p class="slide-subtitle">도파민은 쾌락 그 자체보다 '보상을 얻기 위한 동기 부여'에 더 큰 역할을 합니다.</p>
+          <div class="slide-content">
+            <p>도파민은 특정 행동이나 약물의 중독 가능성을 측정하는 지표입니다. 뇌의 보상 경로에서 도파민이 더 많이, 더 빠르게 분비될수록 중독성은 더 커집니다.</p>
+            <ul class="list-disc list-inside ml-4 mt-4 space-y-2">
+                <li>초콜릿: <span class="highlight">55%</span> 증가</li>
+                <li>섹스: <span class="highlight">100%</span> 증가</li>
+                <li>니코틴: <span class="highlight">150%</span> 증가</li>
+                <li>코카인: <span class="highlight">225%</span> 증가</li>
+                <li>암페타민: <span class="highlight">1000%</span> 증가</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Chapter 3 - The Balance Analogy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리 뇌 속의 <span class="highlight">저울</span></h2>
+          <div class="slide-content text-center">
+            <p class="mb-4">쾌락을 경험하면 저울은 쾌락 쪽으로 기웁니다. (➡️)</p>
+            <div class="text-6xl my-4">😋 <span class="text-blue-500">⚖️</span> 😐</div>
+            <p class="mb-4">뇌는 균형을 맞추기 위해 보이지 않는 '그렘린(Gremlin)'들을 고통 쪽에 태웁니다. (⬅️)</p>
+            <div class="text-6xl my-4">😋 <span class="text-gray-500">⚖️</span> 😩</div>
+            <p class="font-bold">중요한 점: 균형을 맞춘 후, 저울은 반대편인 고통 쪽으로 기울어집니다. 이것이 바로 '현타' 또는 갈망의 순간입니다.</p>
+            <div class="text-6xl mt-4">😐 <span class="text-red-500">⚖️</span> 😩</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Chapter 3 - Tolerance & Neuroadaptation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신경 적응과 <span class="highlight">내성</span></h2>
+          <p class="slide-subtitle">반복적인 쾌락 자극은 저울의 균형을 바꿉니다.</p>
+          <div class="slide-content">
+            <p>강력한 쾌락 자극에 반복적으로 노출되면, 고통 쪽 그렘린들은 사라지지 않고 저울에 눌러앉습니다. 그들은 더 많아지고, 더 무거워집니다.</p>
+            <p class="mt-4">결과적으로, <b>'쾌락 설정값(Hedonic Setpoint)'</b>이 고통 쪽으로 이동합니다. 이제는 같은 쾌락을 느끼기 위해 더 강한 자극이 필요해지고(<span class="highlight">내성</span>), 평상시에도 만성적인 결핍과 불쾌감을 느끼게 됩니다.</p>
+            <div class="text-5xl mt-6 text-center">🤕🤕🤕<span class="text-red-500">⚖️</span>😐</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="emoji-title">🔗</div>
+          <h2 class="slide-title">2부: 중독과 구속의 <span class="highlight">딜레마</span></h2>
+          <p class="slide-subtitle">스스로를 묶어 자유를 얻는 방법</p>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 4 - DOPAMINE intro -->
+      <div class="slide">
+        <div class="slide-container">
+           <p class="slide-part-title">4장: 나와 중독을 이해하는 7단계</p>
+           <h2 class="slide-title"><span class="highlight">D O P A M I N E</span> 프레임워크</h2>
+           <p class="slide-subtitle">중독에서 벗어나기 위한 실용적인 7단계 접근법입니다.</p>
+           <div class="slide-content">
+             <p>이 체계는 알코올이나 약물 같은 전통적인 중독뿐만 아니라, 스마트폰, 소셜 미디어, 쇼핑 등 현대 사회의 다양한 강박적 과용 문제에 적용할 수 있습니다.</p>
+           </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19-25: DOPAMINE slides -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title"><span class="highlight">D</span>ata (데이터): 너 자신을 알라 📊</h2>
+            <p class="slide-subtitle">먼저 자신의 상태를 정확히 파악해야 합니다.</p>
+            <div class="slide-content">
+                <p>무엇을, 얼마나 많이, 얼마나 자주 사용하는지 구체적인 사실들을 기록하고 모으는 것에서 시작합니다. 추상적인 '문제'가 아닌, 측정 가능한 '데이터'로 접근하는 것이 중요합니다.</p>
+            </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title"><span class="highlight">O</span>bjectives (목적): 핑계 없는 무덤 없다 🎯</h2>
+            <p class="slide-subtitle">그 행동을 하는 '이유'는 무엇인가?</p>
+            <div class="slide-content">
+                <p>모든 중독적 행동에는 나름의 논리와 근거(목적)가 있습니다. 재미, 소속감, 불안 해소, 고통 회피 등 그 행동이 자신에게 어떤 긍정적인 기능을 했는지 솔직하게 파악해야 합니다.</p>
+            </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title"><span class="highlight">P</span>roblems (문제): 중독의 악영향 찾기 📉</h2>
+            <p class="slide-subtitle">그 행동으로 인해 어떤 문제가 발생했나요?</p>
+            <div class="slide-content">
+                <p>건강, 관계, 경제, 도덕적 문제 등 중독 대상이 야기하는 부정적인 결과를 명확히 인식해야 합니다. 당장은 보이지 않더라도 결국에는 문제가 발생한다는 사실을 직시해야 합니다.</p>
+            </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title"><span class="highlight">A</span>bstinence (절제): 30일의 인내 (도파민 단식) 🗓️</h2>
+            <p class="slide-subtitle">최소 4주간 중독 대상을 완전히 끊어보는 실험입니다.</p>
+            <div class="slide-content">
+                <p>이 기간은 뇌의 보상 경로를 재설정하고, 항상성을 회복하며, 행동과 감정 사이의 진정한 인과관계를 파악하는 데 필수적입니다. 처음 2주는 금단 증상으로 힘들지만, 이후 2주간 뇌가 회복되는 것을 경험하게 됩니다.</p>
+            </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title"><span class="highlight">M</span>indfulness (마음챙김): 고통 들여다보기 🧘</h2>
+            <p class="slide-subtitle">금단 증상으로 인한 불편한 감정들을 판단 없이 관찰합니다.</p>
+            <div class="slide-content">
+                <p>고통스러운 감정에서 도망치려 하지 않고, 있는 그대로 느끼고 받아들이는 연습입니다. 이는 현재의 순간에 머무는 능력을 길러주며, 충동적인 행동을 막는 데 도움이 됩니다.</p>
+            </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title"><span class="highlight">I</span>nsight (통찰): 진짜 나와 대면하기 ✨</h2>
+            <p class="slide-subtitle">절제 기간 후, 자신의 행동을 명확하게 통찰하게 됩니다.</p>
+            <div class="slide-content">
+                <p>중독 대상에 의존하는 동안에는 보이지 않았던 것들이 보이기 시작합니다. '대마초가 불안감을 없애주는 줄 알았는데, 사실은 불안감의 원인이었다'는 식의 깨달음을 얻게 됩니다.</p>
+            </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title"><span class="highlight">N</span>ext Steps & <span class="highlight">E</span>xperiment (다음 단계와 실험) 🚀</h2>
+            <p class="slide-subtitle">앞으로 어떻게 관계를 맺을 것인가?</p>
+            <div class="slide-content">
+                <p>회복된 뇌로 앞으로의 계획을 세웁니다. 계속 절제할 것인가, 아니면 조절하며 사용할 것인가? 목표를 세우고, 시행착오를 겪으며 무엇이 자신에게 효과적인지 실험하고 알아내는 과정입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Chapter 5 - Self-Binding intro -->
+       <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">5장: 중독 관리를 위한 3가지 접근법</p>
+            <h2 class="slide-title">자기 구속 (Self-Binding) ⛓️</h2>
+            <p class="slide-subtitle">의지력의 한계를 인정하고, '나'와 '유혹' 사이에 의도적으로 장벽을 만드는 전략입니다.</p>
+             <div class="slide-content">
+                <p>이는 그리스 신화에서 세이렌의 유혹을 이기기 위해 자신을 돛대에 묶었던 오디세우스의 지혜와 같습니다. 우리는 충동이 닥치기 전에, 아직 이성적인 판단이 가능할 때 미리 행동해야 합니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Chapter 5 - 3 Strategies -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자기 구속의 <span class="highlight">세 가지 전략</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg mb-2">1. 물리적 구속 (공간) 🗺️</h3>
+              <p>중독 대상과 나 사이에 물리적 거리나 장벽을 만듭니다. (예: 스마트폰을 다른 방에 두기, 집에 술을 두지 않기, 게임기 처분하기)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg mb-2">2. 순차적 구속 (시간) ⏳</h3>
+              <p>시간을 기준으로 접근을 제한합니다. (예: 주말에만 게임하기, 오후 9시 이후에는 스마트폰 사용 안 하기)</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg mb-2">3. 범주적 구속 (의미) 🚫</h3>
+              <p>중독을 유발하는 특정 '범주' 전체를 차단합니다. (예: 모든 종류의 외설물 피하기, 스포츠 도박을 피하기 위해 스포츠 뉴스도 보지 않기)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 6 - Two Faces of Meds -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">6장: 처방약의 두 얼굴</p>
+            <h2 class="slide-title">약은 해결책이 될 수 있을까? 💊</h2>
+            <p class="slide-subtitle">크리스의 이야기는 오피오이드 유지 요법(부프레노르핀)이 어떻게 한 사람의 인생을 구원했는지 보여줍니다.</p>
+            <div class="slide-content">
+                <p>약물 치료는 쾌락-고통 저울을 인위적으로 수평 상태로 되돌려, 개인이 다시 삶을 되찾도록 도울 수 있습니다. 하지만 이는 복잡한 문제를 동반합니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Chapter 6 - The Dark Side -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">처방약의 <span class="highlight">그림자</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">1. 중독 가능성</h3>
+              <p>쾌락 쪽을 누르는 모든 약물은 중독 가능성을 가집니다. 각성제, 신경 안정제 등 많은 처방약이 오남용될 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">2. 장기적 부작용</h3>
+              <p>장기적으로 정신 질환을 악화시키거나(지발성 불쾌감), 감정 자체를 무디게 만들어 인간성의 본질적인 부분을 앗아갈 수 있습니다.</p>
+            </div>
+          </div>
+           <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+                <p class="font-bold">⚠️ 경고: 약물은 근본적인 해결책이 아닐 수 있으며, 사회경제적 맥락(가난, 트라우마)을 고려하지 않은 처방은 문제를 악화시킬 수 있습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="emoji-title">🧘‍♀️</div>
+          <h2 class="slide-title">3부: 탐닉의 시대에서 <span class="highlight">균형 찾기</span></h2>
+          <p class="slide-subtitle">쾌락을 좇는 대신 고통을 끌어안기</p>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Chapter 7 - Facing Pain -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">7장: 고통 마주보기</p>
+            <h2 class="slide-title">고통이 선물하는 <span class="highlight">쾌락</span> 🧊</h2>
+            <p class="slide-subtitle">쾌락을 직접 좇는 대신, 의도적으로 고통과 마주함으로써 뇌의 균형을 쾌락 쪽으로 되돌릴 수 있습니다.</p>
+            <div class="slide-content">
+                <p>코카인 중독에서 회복 중이던 마이클은 우연히 '찬물 목욕'을 시작했습니다. 극심한 고통 뒤에 찾아오는 엄청난 쾌감과 안정감을 통해 그는 약물 없이도 활력을 되찾았습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Chapter 7 - Hormesis -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">호르메시스(Hormesis)의 과학 🧬</h2>
+          <p class="slide-subtitle">"What doesn't kill you makes you stronger."</p>
+          <div class="slide-content">
+            <p>적당한 양의 고통이나 스트레스(운동, 추위, 단식 등)는 우리 몸의 방어 및 회복 시스템을 활성화시켜 결과적으로 우리를 더 건강하고 강하게 만듭니다.</p>
+            <p class="mt-4">고통 자극은 쾌락-고통 저울의 <span class="highlight">고통 쪽</span>을 누릅니다. 이에 대한 반작용으로, 뇌는 균형을 맞추기 위해 쾌락 쪽으로 기울게 되고, 우리는 이후 더 오랫동안 기분 좋은 상태를 유지할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Chapter 8 - Radical Honesty -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">8장: 있는 그대로 말하라</p>
+          <h2 class="slide-title">솔직함이 뇌를 <span class="highlight">치유한다</span> 🗣️</h2>
+          <div class="slide-content">
+            <p>거짓말은 고립과 결핍의 사고방식을 낳습니다. 반면, '근본적인 솔직함(Radical Honesty)'은 우리의 뇌를 변화시키고 관계를 개선하며 중독을 막는 강력한 도구입니다.</p>
+            <ul class="list-disc list-inside ml-4 mt-4 space-y-2">
+                <li>자신의 행동을 명확히 의식하게 됩니다.</li>
+                <li>타인과의 친밀한 관계(옥시토신 분비)를 형성합니다.</li>
+                <li>현재와 미래의 자신에 대한 책임감을 갖게 합니다.</li>
+                <li>전두엽 피질을 활성화하여 충동 조절 능력을 강화합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Chapter 8 - Abundance vs Scarcity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">여유 vs <span class="highlight">결핍</span>의 사고방식</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg mb-2">🤝 여유의 사고방식 (솔직함)</h3>
+              <p>주변 사람들이 약속을 지키고 진실을 말할 때, 우리는 세상을 예측 가능하고 안전한 곳으로 믿게 됩니다. 미래에 대한 긍정적 기대를 갖고 즉각적인 만족을 지연시킬 수 있습니다.</p>
+            </div>
+            <div class="p-4 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-lg mb-2">🏃‍♂️ 결핍의 사고방식 (거짓말)</h3>
+              <p>거짓과 깨진 약속으로 가득한 세상에서는 미래를 신뢰할 수 없습니다. 불확실한 미래의 큰 보상보다 눈앞의 작은 이득을 선택하게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Chapter 9 - Shame -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">9장: 나를 살리는 수치심</p>
+            <h2 class="slide-title">수치심의 <span class="highlight">역설</span></h2>
+            <p class="slide-subtitle">수치심은 중독을 강화하기도, 중독에서 벗어나게 하기도 하는 양날의 검입니다.</p>
+            <div class="slide-content">
+              <p>수치심은 '나 자신이 나쁘다'고 느끼는 감정이며, 죄책감은 '내 행동이 나빴다'고 느끼는 감정입니다. 중요한 것은 이 감정에 대해 주변 사람들이 어떻게 반응하느냐입니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Chapter 9 - Two Types of Shame -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">파괴적 수치심 vs <span class="highlight">친사회적 수치심</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 rounded-lg border border-red-300 bg-red-50">
+              <h3 class="font-bold text-lg mb-2 text-red-700">🌪️ 파괴적 수치심</h3>
+              <p>거부, 비난, 회피의 반응을 마주할 때 발생합니다. 이는 더 큰 고립과 비밀, 거짓말로 이어져 결국 중독의 사이클을 강화합니다. (과용 → 수치심 → 고립/거짓말 → 과용…)</p>
+            </div>
+            <div class="p-4 rounded-lg border border-green-300 bg-green-50">
+              <h3 class="font-bold text-lg mb-2 text-green-700">🫂 친사회적 수치심</h3>
+              <p>수용, 공감, 구원의 반응을 마주할 때 발생합니다. 솔직한 고백을 통해 공동체와의 유대감을 회복하고, 책임감 있는 행동으로 이어져 중독에서 벗어나게 합니다. (과용 → 수치심 → 솔직함 → 수용/연결 → 회복)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Conclusion - Section Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="emoji-title">🎯</div>
+          <h2 class="slide-title">맺음말: <span class="highlight">저울의 교훈</span></h2>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Lessons 1-5 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">저울의 교훈 (1/2)</h2>
+            <div class="slide-content space-y-3">
+                <p><b>1. 끊임없는 쾌락 추구(그리고 고통 회피)는 고통을 낳는다.</b></p>
+                <p><b>2. 회복은 절제로부터 시작된다.</b></p>
+                <p><b>3. 절제는 뇌의 보상 경로를 재설정하여, 더 단순한 쾌락에도 기뻐할 수 있도록 한다.</b></p>
+                <p><b>4. 자기 구속은 욕구와 소비 사이에 '선택의 공간'을 만들어준다.</b></p>
+                <p><b>5. 약물 치료는 항상성을 회복시킬 수 있지만, 그로 인해 무엇을 잃는지도 생각해야 한다.</b></p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Lessons 6-10 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">저울의 교훈 (2/2)</h2>
+            <div class="slide-content space-y-3">
+                <p><b>6. 고통 쪽을 자극하면 우리의 평형 상태는 쾌락 쪽으로 다시 맞춰진다.</b> (단, 고통에 중독되지 않도록 주의하라.)</p>
+                <p><b>7. 근본적인 솔직함은 친밀감을 높이고, 마음가짐을 여유 있게 만든다.</b></p>
+                <p><b>8. 친사회적 수치심은 우리가 인간의 무리에 속해 있음을 확인시킨다.</b></p>
+                <p><b>9. 세상으로부터 도망치는 대신 세상에 몰입함으로써 탈출구를 찾을 수 있다.</b></p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 40: Final Message -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="emoji-title">💡</div>
+            <h2 class="slide-title">세상 속으로 걸어가기</h2>
+            <p class="slide-subtitle max-w-4xl mx-auto">도피처를 찾는 대신, 우리에게 주어진 삶에 완전히 몰입하는 방법을 찾아야 합니다. 피하려는 대상으로부터 도망치지 말고, 그 자리에 멈춰 서서 마주하십시오. 그 안에 경이롭고 의미 있는 세상이 기다리고 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 41: Thank You -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="emoji-title">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+        </div>
+      </div>
+
+      <!-- Slide 42: Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="emoji-title">🙋‍♀️🙋‍♂️</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Q & A</h1>
+          <p class="text-xl md:text-2xl text-gray-600">질문 있나요?</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+</body>
+</html>
