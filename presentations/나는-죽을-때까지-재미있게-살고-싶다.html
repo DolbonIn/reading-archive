@@ -12,60 +12,63 @@
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
     }
     .slide {
       display: none;
-      min-height: 90vh; /* Increased height for better spacing */
+      min-height: 85vh;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
-      border-radius: 1rem;
-      background-color: white;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      margin: 1rem auto;
-      max-width: 1200px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
     .slide.active {
       display: flex;
+      opacity: 1;
     }
     .slide-container {
       width: 100%;
       max-width: 1100px;
-      padding: 40px 50px;
+      padding: 50px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
     .slide-part-title {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      color: #0077b6;
-      margin-bottom: 12px;
+      color: #555;
+      margin-bottom: 8px;
     }
     .slide-title {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 900;
       color: #111;
       margin-bottom: 25px;
-      line-height: 1.2;
+      line-height: 1.3;
     }
     .slide-subtitle {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 500;
       color: #444;
       margin-bottom: 35px;
       line-height: 1.6;
     }
     .slide-content {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1.9;
       color: #333;
     }
     .highlight {
-      background-color: #ffd60a;
-      padding: 0 0.3em;
-      border-radius: 4px;
+      background-color: #FFDD00;
+      padding: 0 0.25em;
     }
     .btn {
       padding: 12px 28px;
@@ -73,22 +76,32 @@
       font-weight: 700;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 2px solid transparent;
+      border: 1px solid transparent;
     }
     .btn-primary {
-      background-color: #0077b6;
+      background-color: #111;
       color: white;
     }
     .btn-primary:hover {
-      background-color: #005f8e;
+      background-color: #333;
+    }
+    .btn-primary:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
     }
     .btn-secondary {
-      background-color: #f0f0f0;
+      background-color: #F0F0F0;
       color: #333;
       border-color: #ddd;
     }
     .btn-secondary:hover {
-      background-color: #e0e0e0;
+      background-color: #E0E0E0;
+    }
+    .btn-secondary:disabled {
+      background-color: #f5f5f5;
+      color: #ccc;
+      border-color: #eee;
+      cursor: not-allowed;
     }
     .progress-bar-container {
       position: fixed;
@@ -96,7 +109,7 @@
       left: 0;
       width: 100%;
       padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.98);
+      background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       border-top: 1px solid #eee;
       z-index: 10;
@@ -105,48 +118,29 @@
       width: 100%;
       background-color: #eee;
       border-radius: 9999px;
-      height: 10px;
+      height: 8px;
       margin-bottom: 15px;
     }
     .progress {
-      background-color: #0077b6;
+      background-color: #111;
       height: 100%;
       border-radius: 9999px;
       transition: width 0.3s ease;
     }
-     .quote-box {
-        margin-top: 2rem;
-        padding: 2rem;
-        background-color: #e9f5ff;
-        border-left: 5px solid #0077b6;
-        border-radius: 8px;
-      }
-      .quote-text {
-        font-size: 1.2rem;
-        font-style: italic;
-        color: #023e8a;
-      }
-      .quote-author {
-        text-align: right;
-        margin-top: 1rem;
-        font-weight: 700;
-        color: #0077b6;
-      }
   </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-40">
 
-  <div class="w-full">
+  <div class="w-full max-w-7xl">
     <!-- Slides Container -->
     <div id="slides-container">
 
       <!-- Slide 1: Title -->
       <div class="slide active">
         <div class="slide-container text-center">
-          <div class="text-7xl mb-8">⛵</div>
+          <div class="text-7xl mb-8">💡</div>
           <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나는 죽을 때까지<br>재미있게 살고 싶다</h1>
-          <p class="text-xl md:text-2xl text-gray-700 mt-6">멋지게 나이 들고 싶은 사람들을 위한 <span class="highlight">인생의 기술 53</span></p>
-          <p class="text-lg text-gray-600 mt-4">- 이근후 지음 -</p>
+          <p class="text-xl md:text-2xl text-gray-700">이근후 교수의 <span class="highlight">멋지게 나이 드는 법</span></p>
         </div>
       </div>
 
@@ -154,574 +148,623 @@
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">목차 📖</h2>
-          <div class="slide-content text-lg space-y-3">
-            <p><b>Part 1.</b> 저자 소개: 재미있게 사는 삶의 철학</p>
-            <p><b>Part 2.</b> 10주년 서문: 변화하는 세상을 사는 지혜</p>
-            <p><b>Part 3.</b> 프롤로그: 당신은 어떻게 나이 들고 싶은가</p>
-            <p><b>Part 4.</b> 제1장: 나는 죽을 때까지 재미있게 살고 싶다</p>
-            <p><b>Part 5.</b> 제2장: 이렇게 나이 들지 마라</p>
-            <p><b>Part 6.</b> 제3장: 마흔 살에 알았더라면 더 좋았을 것들</p>
-            <p><b>Part 7.</b> 제4장: 사람은 무엇으로 사는가</p>
-            <p><b>Part 8.</b> 제5장: 인생의 새로운 출발점에 서 있는 그대에게</p>
-            <p><b>Part 9.</b> 결론 및 Q&A</p>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>서문:</b> 각자의 자리에서 또 열심히 살아주시기를</p>
+            <p><b>1장.</b> 나는 죽을 때까지 재미있게 살고 싶다</p>
+            <p><b>2장.</b> 이렇게 나이 들지 마라</p>
+            <p><b>3장.</b> 마흔 살에 알았더라면 더 좋았을 것들</p>
+            <p><b>4장.</b> 사람은 무엇으로 사는가</p>
+            <p><b>5장.</b> 인생의 새로운 출발점에 서 있는 그대에게</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: 10주년 서문 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">출간 10주년 서문</p>
+          <h2 class="slide-title">각자의 자리에서 또 열심히 <span class="highlight">살아주시기를</span> 부탁드립니다</h2>
+          <p class="slide-subtitle">지난 10년간 '인간 이근후'는 이렇게 살아왔습니다. 여러분도 각자의 자리에서 또 열심히 살아주시기를 부탁드립니다.</p>
+          <div class="slide-content">
+            88세가 된 지금, 거의 날마다 죽음을 떠올립니다. 오늘이 마지막 날이구나, 그러면 하루가 절실해집니다. 보고 듣고 느끼는 이 모든 '살아있음'이 기껍고 소중합니다. <br>이 책의 무엇이 사람들의 마음을 움직였을까 생각해 봅니다. '자기 객관화'를 할 수 있는 작은 거울이 되지 않았을까 짐작합니다.
           </div>
         </div>
       </div>
 
-      <!-- Part 1: Author Intro -->
+      <!-- Slide 4: SMART 원칙 소개 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">Part 1: 저자 소개</p>
-          <h2 class="slide-title">재미있게 사는 삶의 <span class="highlight">철학</span></h2>
-          <p class="slide-content">정신과 전문의 이근후 교수의 삶과 지혜를 통해 '재미있게 나이 드는 법'을 탐색합니다.</p>
+          <h2 class="slide-title">빠르게 변하는 세상, <span class="highlight">SMART</span> 원칙으로 살아가기</h2>
+          <p class="slide-content">빠르게 변화하는 세상에서 어떻게 살아야 합니까?'라는 질문에, 'SMART' 원칙을 일상에서 실천해 볼 것을 권합니다.</p>
         </div>
       </div>
-
+      
+      <!-- Slide 5: SMART - S & M -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">저자 <span class="highlight">이근후</span>는 누구인가?</h2>
-          <p class="slide-subtitle">정신과 의사, 교수, 그리고 '걸어 다니는 종합병원'</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+          <h2 class="slide-title">SMART 원칙 ①</h2>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-xl text-blue-700 mb-2">치열했던 삶의 여정 🌪️</h3>
-              <p>1950년대의 가난, 4·19와 5·16 반대 시위로 인한 수감 생활, 생활고 등 수많은 위기를 겪었지만 결코 절망하지 않았습니다. 그는 살아있다는 것 자체에 감사하는 법을 깨달았습니다.</p>
+              <h3 class="font-bold text-2xl mb-2">S: Simplifying 🤔</h3>
+              <p><b>삶을 단순화시켜라.</b><br>사고의 단순화입니다. 지나간 일에 집착하고 일어나지 않은 일을 미리 걱정하지 마십시오. 지금, 이 순간 할 일에 집중하십시오.</p>
             </div>
             <div>
-              <h3 class="font-bold text-xl text-green-700 mb-2">유쾌한 노년의 지혜 ✨</h3>
-              <p>20년 전 왼쪽 눈 실명, 당뇨, 고혈압 등 수많은 병과 함께 살아가지만, 유쾌한 태도를 잃지 않습니다. 육체는 쇠약해졌지만 매일 아침을 맞는 신비로움과 감사함은 더 커졌다고 말합니다.</p>
+              <h3 class="font-bold text-2xl mb-2">M: Moving 🏃</h3>
+              <p><b>움직여라.</b><br>우리 몸은 사용하지 않으면 퇴화합니다. 몸의 움직임은 곧 '정신'입니다. 뇌를 긍정적으로 변화시키는 것이 바로 신체의 움직임입니다.</p>
             </div>
           </div>
         </div>
       </div>
       
+      <!-- Slide 6: SMART - A & R -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">핵심 철학: <span class="highlight">살아있음에 대한 감사</span></h2>
-          <p class="slide-subtitle">수많은 죽음의 위기를 넘기며 깨달은 삶의 본질</p>
+          <h2 class="slide-title">SMART 원칙 ②</h2>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-2xl mb-2">A: Affecting 😊</h3>
+              <p><b>마음을 유연하게 하라.</b><br>나이가 들수록 감성이 쇠퇴합니다. 오감을 충분히 느끼는 것이야말로 삶의 기쁨이며, 잘 살아가는 힘이 되어 줍니다. 세상을 적극적으로 경험하고 참여하십시오.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl mb-2">R: Relaxing 🧘</h3>
+              <p><b>몸과 마음을 이완하라.</b><br>충분히 휴식하라는 뜻입니다. 휴식은 다음을 준비하는 에너지입니다. 아무것도 안 하고 생각을 멈추고 내려놓는 일도 좋은 휴식법입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: SMART - T -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">SMART 원칙 ③</h2>
+          <div class="mt-8 p-8 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-2xl mb-2">T: Together-ing 🤝</h3>
+              <p class="mt-2 text-lg"><b>함께하고 나눠라.</b><br>나의 모든 일상이 나눔과 연결되어 있음을 기억하십시오. 주고받음이 세상의 정연한 이치입니다. 서로가 서로에게 영향을 미쳐 원인이 되고 결과가 됩니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Prologue -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">당신은 <span class="highlight">어떻게</span> 나이 들고 싶은가?</h2>
+          <p class="slide-subtitle">"나이 든다는 것은 누구에게나 좋은 일이 아닙니다. 하지만 누구에게나 오는 것이기 때문에 이 또한 받아들여야 할 생의 궤적입니다."</p>
+           <div class="slide-content">
+            나이 들어 좋은 점이라기보다 나이 들면서 좋은 일, 즐거운 일을 만들어 가겠다는 <span class="highlight">마음가짐</span>이 훨씬 중요하지요.
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+           <p class="slide-part-title">Chapter 1</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">나는 죽을 때까지<br>재미있게 살고 싶다</h2>
+          <p class="text-xl text-gray-600">태어나서 죽을 때까지 삶의 궤적을 따라가다 보면 재미없는 나이가 어디 있으랴.</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: 뭐가 그리 억울한가 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뭐가 그리 억울한가 😠 vs 😄</h2>
+          <p class="slide-subtitle">현재 나의 상태를 다른 시기와 비교한다면 우리는 일생토록 후회하고 억울한 삶을 살아야 할 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">❌ 잘못된 관점</h3>
+              <p>젊음의 열정과 에너지가 사라졌다고 좌절합니다. 육체의 노화는 나쁜 것이라고만 생각합니다. '그래도 나는 다를 것'이라며 현실을 부정합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">✔️ 올바른 관점</h3>
+              <p>인생은 어느 시기건 그에 알맞은, 그때만 느낄 수 있는 즐거움이 있습니다. 힘없고 느리기만 한 늙음이 그윽한 인생의 향기를 품어 냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 11: 뭐가 그리 억울한가 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노화, 몸의 변화에 맞서는 <span class="highlight">가장 좋은 방법</span></h2>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">바로 '순응'입니다.</h3>
+              <p class="mt-2">"나이 먹어서 책을 보면 많이 알게 되고 그러면 앞에 나서게 되니, 그냥 뒤에 가만히 앉아 있으라고 눈을 나쁘게 했나 보다." - 배우 김혜자</p>
+              <p class="mt-4">나빠지는 청력과 시력에 거부감 없이 보청기와 돋보기를 쓰는 자세. 오히려 젊어서 듣지 못했던 소리, 보지 못했던 세세한 것까지 보도록 노력하게 만드는 고마운 물건입니다.</p>
+            </div>
+        </div>
+      </div>
+      
+       <!-- Slide 12: 죽음의 위기 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">죽음의 위기를 넘기며</p>
+          <h2 class="slide-title">내 인생은 <span class="highlight">'덤'</span>이라는 생각</h2>
+          <p class="slide-subtitle">어린 시절부터 전쟁, 가난, 병, 사고 등 많은 위기의 순간들을 용케 잘 지나왔습니다.</p>
           <div class="slide-content">
-            <p>저자는 몇 차례 죽음의 위기를 넘기며 '살아 있는 것 그 자체가 감사하다'는 사실을 깨달았습니다. 이러한 깨달음은 그의 삶 전체를 관통하는 핵심 철학이 되었습니다.</p>
+           몇 번의 죽을 고비를 넘긴 후 나는 '내 인생은 덤'이라는 생각으로 살아왔습니다. 그래서 매사에 후회가 적고 만족할 수 있었습니다. <br><b>내 행복의 비결을 하나 꼽으라면 바로 이것입니다.</b>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 13: 외로움에 대하여 1 -->
+      <div class="slide">
+        <div class="slide-container">
+           <h2 class="slide-title">왜 외롭다고 말하면서<br>아무것도 하지 않는가? 🤷</h2>
+          <p class="slide-subtitle">혼자 있는 게 두렵고, 외로움이 무섭다면 외롭지 않으려고 노력하면 됩니다. 이 당연한 이치를 회피한 채 찾아오지 않는 사람을 원망하는 것이야말로 불행을 자초하는 것입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 14: 외로움에 대하여 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">외로움을 없애는 <span class="highlight">가장 쉬운 방법</span> ❤️</h2>
+          <div class="slide-content">
+             <p>그것은 <b>다른 사람을 사랑하는 것</b>입니다. 사랑은 궁금증과 관심에서 시작합니다. '저 사람은 왜 저럴까? 무슨 생각을 할까?' 이런 궁금증이 있다면 바로 그것이 사랑입니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">사랑은 능력입니다.</h3>
+              <p class="mt-2">타고나는 것이 아니라 세상을 살아가면서 터득하고 학습하고 실천하면서 길러집니다. 나이 들어 외롭지 않으려면 무엇보다 사랑하는 능력을 갈고닦아야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 15: 대가족의 비결 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삼 대 열세 명, 한 지붕의 비결 👨‍👩‍👧‍👦</h2>
+          <p class="slide-subtitle">가족이 모여 살기로 하면서 자녀들에게 강조한 것은 <span class="highlight">상호 불간섭 주의</span>와 <span class="highlight">독립성 보장</span>이었습니다.</p>
+          <div class="slide-content">
+            한 지붕 아래 살더라도 철저하게 개인 생활을 보장하기 위함이었습니다. 너무 가까이 끌어안으면 고슴도치처럼 부지불식간에 서로를 찌를지도 모르는 일이니까요. 부모인 내가 자식 집에 갈 때도 반드시 전화를 걸어 허락을 먼저 구했습니다.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: 며느리에게 거절하는 법 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나는 며느리에게 <span class="highlight">거절하는 법</span>부터 가르쳤다</h2>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">💬 억눌린 마음</h3>
+              <p>내 뜻은 감추고 상대의 말만 수용하면 마음에 앙금이 쌓입니다. 억눌린 마음은 죄책감이나 상대에 대한 원망을 키우고, 갈등은 미움으로 변합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🗣️ 솔직한 마음</h3>
+              <p>솔직하게 'NO'를 말할 수 있어야 'YES'도 진짜 예스로 믿을 수 있습니다. 이 믿음의 토대에서 진정한 인간관계는 가능해집니다. 가족 관계에서는 더더욱 그렇습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: 당당하게 아파라 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일곱 가지 병과 함께, <span class="highlight">당당하게 아파라</span></h2>
+          <p class="slide-subtitle">나를 찾아온 병의 첫 번째 치료는 '받아들이는 것'에서 시작해야 합니다.</p>
+          <div class="slide-content">
+            아프지 않고 장수할 수 있다면 정말 보배로운 일입니다. 그러나 건강하지 못하다고, 한두 가지 병을 앓는다고 해서 불행해지는 것은 아닙니다. 건강하지 않아도 행복할 수 있도록 노력하는 것, 그것이 나이 들어 새롭게 맞이한 인생에서 해야 할 일입니다.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: 늦깎이 공부 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일흔 넘어 시작한 공부가 <span class="highlight">제일 재미있었던 까닭</span> 🎓</h2>
+           <div class="slide-content">
+             <p>일생 동안 해 온 공부의 단계를 놓고 보면, 일흔 넘은 나이에 사이버 대학에서 시작한 공부가 제일 재미있었습니다.</p>
+             <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p class="mt-2">나이가 들면 순수하게 즐기면서, 놀듯이, 오로지 공부만을 위한 공부를 할 수 있게 됩니다. 경쟁을 하거나 누구에게 칭찬을 들으려고 노력할 필요도 없기에 <span class="highlight">배움의 뿌듯함</span>을 온전히 느낄 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+           <p class="slide-part-title">Chapter 2</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">이렇게 나이 들지 마라</h2>
+          <p class="text-xl text-gray-600">나이 듦에 대한 흔한 오해와 편견들</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: 두려움에 대하여 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나이 드는 게 <span class="highlight">두렵기만 한</span> 사람들에게</h2>
+          <p class="slide-subtitle">노인의 몸이 젊은이와 다른 것은 엄연한 사실입니다. 자연스러운 현상입니다. 옛날에는 이러지 않았는데 하면서 억울해하거나 서글퍼할 일이 아닙니다.</p>
+           <div class="slide-content">
+            인간의 육체는 어느 시기가 지나면 점점 쇠약해집니다. 그러니 나이가 들수록 시간의 흐름에 따라 약해지는 몸을 보살피며 쉬엄쉬엄 살아가는 수밖에 없습니다. 몸의 변화를 부정하거나 외면하면 안 됩니다.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: 노익장이라는 환상 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노익장이라는 환상 🏋️‍♂️</h2>
+          <p class="slide-subtitle">방송에서는 '누구든 노력만 하면 이런 젊음을 쟁취할 수 있다'고 은근히 조장합니다. 과연 노력만으로 가능한 일인가?</p>
+          <div class="slide-content">
+            우리는 그 너머를 봐야 합니다. 젊은 육체를 유지하는 그 사람이 가진 <span class="highlight">삶의 열정</span>을 봐야 합니다. 그들이 건강과 젊음 유지에 많은 시간과 정성을 쏟듯, 나는 무엇에 에너지를 쏟을 것인지 생각해 봐야 합니다.
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: 약해진다는 생각 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나이 들면 <span class="highlight">약해진다는 생각</span>부터 버려라</h2>
+          <p class="slide-subtitle">스스로를 늙었다고 생각하면 그 결과야 불을 보듯 뻔하지 않겠는가.</p>
+          <div class="slide-content">
+            노후 대비에서 '노인은 약할 것이다'라는 생각만큼은 버려야 합니다. 그런 고정관념이 진짜 늙기도 전에 노인이 되게 만듭니다. 삶에 대한 의지를 약화시킵니다.
+            <br><b>자타가 공인하는 노인이 된 뒤에도 나는 지하철 경로석에 얼씬거리지 않았습니다. '나는 노인이 아니오'라는 허세가 아닙니다. 아직 서 있을 만하기 때문입니다.</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: 자식 인생에 간섭 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자식의 인생에 <span class="highlight">절대 간섭하지 마라</span></h2>
+          <p class="slide-subtitle">자식에게 부모는 하나의 벽입니다. 벽의 보호를 받으며 성장한 자식은 성인이 되어서도 습관처럼 벽을 의식합니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">⚠️ 걸림돌이 되는 부모</h3>
+              <p>자식이 성인이 된 뒤에는 더 이상 이래라저래라 강요해서는 안 됩니다. 미덥지 못하고 어수룩해 보이겠지만 과감히 놓아주어야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">✅ 디딤돌이 되는 부모</h3>
+              <p>생활의 중심을 자식에게로 이동하라. 부모가 연장자라는 이유로 모든 것을 부모 중심으로 맞춰서는 안 됩니다. 가정을 이끌면 가족 모두 힘들고 피곤해집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: 돈에 대한 생각 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무작정 돈을 모으기 전에 생각해야 할 것 💰</h2>
+          <p class="slide-subtitle">돈의 중요성만 강조되다 보니 반대로 돈이 중요하지 않다는 이야기도 만만치 않습니다. 그러나 자본주의 사회를 살아가는 데 1순위는 돈입니다.</p>
+          <div class="slide-content">
+            그러므로 우리에게 필요한 것은 돈을 제대로 다루는 훈련입니다. 돈에 대한 균형감이 진짜 행복을 만들어 줍니다.
             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 인생의 즐거움을 발견하는 법</h3>
-              <p class="mt-2">"누구든 재미있게 살겠다고 마음먹는다면 인생은 온통 재미있는 일로 가득 찰 것"이라고 저자는 말합니다. 행복은 특별한 조건이 아니라, <span class="highlight">마음먹기</span>에 달려있다는 것입니다.</p>
+              <p class="mt-2">노후에 유용하게 쓸 수 있는 것은 지난날의 저축입니다. 그런데 <span class="highlight">돈만 저축할 게 아니라 마음도 저축해야 합니다.</span> 돈 없으면 어떻게 살아야겠다는 각오도 다져야 합니다.</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Part 2: 10th Anniversary Foreword -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 2: 10주년 서문</p>
-          <h2 class="slide-title">변화하는 세상을 사는 지혜: <span class="highlight">SMART 원칙</span></h2>
-          <p class="slide-content">빠르게 변하는 세상 속에서 행복하게 살아가기 위한 5가지 실천법을 제안합니다.</p>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">S: Simplifying <span class="highlight">(단순화)</span></h2>
-          <p class="slide-subtitle">과거와 미래에 대한 걱정을 멈추고, 지금 이 순간에 집중하십시오.</p>
-          <div class="slide-content">
-            <p>환자들의 머릿속은 복잡합니다. 지나간 일에 집착하고 일어나지 않은 일을 미리 걱정합니다. 삶을 고통스럽게 하는 문제는 피하려 할수록 깊어집니다. <br><br><b>"이거저거 너무 많이 재고 따지지 말라"</b>는 것입니다. 당장 지금, 오늘 이 순간 할 일에 집중하는 것이 사고를 단순화하는 길입니다.</p>
-          </div>
-        </div>
-      </div>
       
+      <!-- Slide 25: 젊은이를 가르치려 들지 마라 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">M: Moving <span class="highlight">(움직여라)</span></h2>
-          <p class="slide-subtitle">몸의 움직임은 곧 '정신'입니다. 뇌를 긍정적으로 변화시키는 것은 신체의 움직임입니다.</p>
+          <h2 class="slide-title">젊은이를 <span class="highlight">가르치려 들지 마라</span> 👨‍🏫</h2>
+          <p class="slide-subtitle">"요즘 애들은..."이란 말을 입에 달고 사는 사람들이 있습니다.</p>
           <div class="slide-content">
-            <p>우리 몸은 사용하지 않으면 퇴화합니다. 격한 운동이 아니더라도 자주, 멀리 걷는 시간을 가져야 합니다. 뇌는 죽을 때까지 변화하며, 뇌를 긍정적으로 바꾸는 것이 바로 신체의 움직임입니다. 움직이면 뼈에서 '오스테오칼신' 호르몬이 분비되어 기억력과 인지능력을 개선하고 불안감을 해소합니다.</p>
+            나와 같은 노인 세대는 전쟁과 가난을 겪으며 엄청난 고생을 했습니다. 이런 고생이 결코 훈장은 아닙니다. 물질과 문화적 풍요로움을 누리며 살아가는 오늘날 젊은이들에게 아무리 전쟁과 가난, 고통을 이야기한들 따분한 소리로밖에 안 들립니다.
           </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">A: Affecting <span class="highlight">(마음을 유연하게)</span></h2>
-          <p class="slide-subtitle">오감을 충분히 느끼는 것이야말로 삶의 기쁨이며, 잘 살아가는 힘이 됩니다.</p>
-          <div class="slide-content">
-            <p>인간의 감성은 나이가 들수록 쇠퇴합니다. 똑같은 상황에도 사람들이 느끼는 감흥은 다릅니다. 세상을 적극적으로 경험하고 참여하여 감수성을 키워야 합니다. 저자는 눈이 보이지 않음에도 요양보호사에게 시를 읽어달라고 부탁하며 감각을 키우고 마음을 부드럽게 만드는 노력을 합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">R: Relaxing <span class="highlight">(이완하라)</span></h2>
-          <p class="slide-subtitle">휴식은 다음을 준비하는 에너지입니다. 일상적으로 지금 바로 실천할 수 있는 쉼이어야 합니다.</p>
-          <div class="slide-content">
-            <p>현대인들은 '휴식'을 위해서 또 다른 스트레스를 받습니다. 진정한 휴식은 특별한 곳으로 이동하는 것이 아닙니다. 아무것도 안 하고 여덟 팔자로 누워 있기, 생각을 멈추고 내려놓는 일도 좋은 휴식법입니다.<br><br>발명왕 에디슨의 장수 비결: "앉을 수 있는 곳에 앉고 누울 수 있는 곳에서는 누워 쉬었기 때문이다."</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">T: Together-ing <span class="highlight">(함께하고 나눠라)</span></h2>
-          <p class="slide-subtitle">나의 모든 일상이 나눔과 연결되어 있음을 기억하십시오. 일방적인 베풂은 없습니다.</p>
-          <div class="slide-content">
-            <p>주고받음이 세상의 정연한 이치입니다. 불교의 '인드라망' 비유처럼, 세계의 모든 것은 하나로 연결되어 서로 영향을 미칩니다. 환자를 진료하면서 베푼다는 생각 대신 '나 또한 치유받고 있다'는 생각을 하는 것과 같습니다. 나눔은 봉사라는 개념을 넘어, 우리 삶의 모든 순간에 존재합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Part 3: Prologue -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 3: 프롤로그</p>
-          <h2 class="slide-title">당신은 어떻게 <span class="highlight">나이 들고</span> 싶은가?</h2>
-          <p class="slide-content">나이 듦에 대한 두려움을 넘어, 즐거움을 만들어가는 주체적인 삶의 태도를 제안합니다.</p>
         </div>
       </div>
 
+      <!-- Slide 26: 새로운 길 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">나이 듦의 <span class="highlight">두려움 vs 즐거움</span></h2>
-          <p class="slide-subtitle">"나이 들면 뭐가 좋겠습니까? 좋은 것은 아무것도 없습니다." 그러나...</p>
+          <h2 class="slide-title">옛길과 새길 🛣️</h2>
+          <p class="slide-subtitle">젊은이들에게 옛날 가치관을 들이대는 것은 "문경새재로 가라"고 하는 것과 같습니다.</p>
           <div class="slide-content">
-            <p>저자는 나이 듦이 누구에게나 좋은 일은 아니라고 솔직하게 말합니다. 생물학적 노화, 사회적 쇠퇴, 죽음에 대한 두려움은 피할 수 없습니다. </p>
-            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 관점의 전환</h3>
-              <p class="mt-2">"하지만 누구에게나 오는 것이기 때문에 이 또한 받아들여야 할 생의 궤적입니다. 나이 들어 좋은 점이라기보다 나이 들면서 <span class="highlight">좋은 일, 즐거운 일을 만들어 가겠다는 마음가짐</span>이 훨씬 중요하지요."</p>
+            현명한 어른이라면 "요새 새로운 고속도로가 뚫렸더구나. 나는 안 가 보았지만 너는 그 길로 가 봐라"하고 말해 주어야 옳습니다. 시대가 바뀌었음을 인정해야 합니다. 자기 경험과 기억만 옳다고 고집할 일이 아닙니다.
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: 오늘을 사는 법 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오늘을 <span class="highlight">어제의 기분으로</span> 살지 마라</h2>
+          <p class="slide-subtitle">"매일 아침 깨끗한 새 정신으로 공부하기를 바란다!" - 초등학교 교장 선생님의 훈시</p>
+          <div class="slide-content">
+            깨끗한 새 정신을 가지라는 말은 머리를 맑게 비우라는 것입니다. 어제의 기분을 오늘로 이어가지 말고 새로운 마음가짐으로 시작하라는 뜻입니다. 어제 하루가 힘들고 우울했거나 뜻밖의 일로 어긋났더라도 그것으로 끝내고 새 하루를 맞아야 합니다.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: 인생은 채워지는 것 -->
+      <div class="slide">
+        <div class="slide-container">
+           <div class="text-6xl mb-6">⏳</div>
+          <h2 class="slide-title">"인생은 흘러가는 것이 아니라 <span class="highlight">채워지는 것</span>"</h2>
+          <p class="slide-subtitle">- 존 러스킨</p>
+          <div class="slide-content max-w-4xl mx-auto text-center">
+            하루하루를 보내는 것이 아니라 내가 가진 무엇으로 채워 가는 것입니다. 하루하루 '깨끗한 새 정신'으로 살아야 좋은 인생을 살 수 있습니다.<br><br><b>내가 오늘 무엇을 하느냐가 중요합니다. 내 인생의 하루를 그것과 바꾸고 있으니까.</b>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+           <p class="slide-part-title">Chapter 3</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">마흔 살에 알았더라면<br>더 좋았을 것들</h2>
+          <p class="text-xl text-gray-600">인생의 전환점에서 깨닫는 지혜</p>
+        </div>
+      </div>
+      
+      <!-- Slide 30: 내 뜻대로 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'내 뜻대로 되는 게 하나도 없다'라는 말은 <span class="highlight">틀렸다</span></h2>
+          <p class="slide-subtitle">미국 노인 병원에서 '일생 가장 후회되는 것' 1위는 '내 마음대로 하고 살 것을...'이었습니다. 과연 그럴까요?</p>
+          <div class="slide-content">
+            하고 싶은 대로 산다는 것의 진정한 의미는 내가 살고 싶은 삶을 만들어 가는 '노력'을 뜻합니다. 인생에서 크고 작은 장애를 만났을 때 의지를 발휘하고 이리저리 머리를 굴려 극복하는 것입니다. 무엇에도 굴복하지 않고 삶을 원하는 방향으로 이끄는 노력이 내 뜻대로 사는 것입니다.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: 최고의 재산 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부모가 아이에게 남겨 줄 수 있는 <span class="highlight">최고의 재산</span> 🎁</h2>
+           <div class="slide-content">
+             <div class="mt-8 p-8 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg text-blue-800">"부모가 자식에게 남겨 줄 수 있는 최고의 재산은 물질적인 것이 아니라 바로 '내 부모는 정말로 행복하고 즐거운 삶을 살았다'고 느끼는 것이다."</h3>
+              <p class="mt-4">- 가나모리 우라코 (일본 자녀교육 전문가)</p>
             </div>
-            <p class="mt-6">나이 들어 좋은 점은 '더 이상 누구의 눈치도 볼 필요 없다'는 것입니다. 명예보다는 즐거움, 책임보다는 재미를 택하며 살 수 있습니다.</p>
+            <p class="mt-6">삶의 좋은 기억은 나의 선택으로 만들어집니다. 이제 나는 내 삶의 마지막 모습이 나쁘게 기억되지 않기를 바랄 뿐입니다. 그래서 노화로 인한 아픔도 자연스럽게 받아들이고 게으르지 않으려 노력하며 즐거운 모습을 보여 주는 것입니다.</p>
           </div>
         </div>
       </div>
-
-      <!-- Part 4: Chapter 1 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 4: 제1장</p>
-          <h2 class="slide-title">나는 죽을 때까지 <span class="highlight">재미있게</span> 살고 싶다</h2>
-          <p class="slide-content">삶의 모든 순간에서 재미를 발견하고, 위기를 기회로 만들며, 관계 속에서 행복을 찾는 법에 대하여.</p>
-        </div>
-      </div>
       
+      <!-- Slide 32: 경쟁에 대하여 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">뭐가 그리 <span class="highlight">억울한가</span>? 🤔</h2>
-          <p class="slide-subtitle">인생은 어느 시기건 그에 알맞은, 그때만 느낄 수 있는 즐거움이 있습니다.</p>
+          <h2 class="slide-title">내가 누구인지 알게 되면 다른 사람과 <span class="highlight">경쟁할 필요가 없다</span></h2>
+          <p class="slide-subtitle">나 자신을 모르면 타인의 기준에 맞춰 살게 됩니다. 세상의 잣대에 나를 맞추면서 타인과 경쟁합니다.</p>
           <div class="slide-content">
-            <p>젊을 때는 나이 드는 것이 싫고 노인의 부정적인 모습만 떠올리지만, 실제 나이 들어 보니 재미있다는 것을 깨닫습니다. 스무 살의 즐거움과 쉰 살의 즐거움은 전혀 다릅니다. 그러나 달라서 더 특별하고 가치가 있습니다.</p>
-            <p class="mt-4">현재 나의 상태를 다른 시기와 비교한다면 우리는 일생토록 후회하고 억울한 삶을 살아야 할 것입니다. 지금을 살면서도 한 번도 제대로 살지 못하는 슬픈 삶입니다. <span class="highlight">지금 이 순간의 즐거움을 충분히 느끼며 사는 것</span>이 성공한 인생입니다.</p>
+            나를 사랑하면 주관이 세워집니다. 타인과 세상의 눈치를 보지 않고 소신껏 말하고 행동하게 됩니다. 내가 할 수 있는 일, 해야 하는 일에 집중할 뿐입니다. 진정으로 자기가 누구인지 알면 인생은 훨씬 쉬워집니다.
           </div>
         </div>
       </div>
       
+      <!-- Slide 33: 후회하지 않는 이유 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">노화에 맞서는 법: <span class="highlight">순응</span></h2>
-          <p class="slide-subtitle">몸의 변화에 맞서는 가장 좋은 방법은 순응입니다.</p>
+          <h2 class="slide-title">내가 지나온 삶을 <span class="highlight">후회하지 않는 이유</span></h2>
+          <p class="slide-subtitle">"나는 그때 내가 할 수 있는 만큼은 분명히 했다. 그것으로 된 것이다."</p>
+          <div class="slide-content">
+            모든 환자에게 100퍼센트 정상인처럼 행동하는 완치를 기대하기보다, 어떤 환자에게는 단지 조금 나아지는 것이 100퍼센트일 수도 있다는 사실을 받아들였기에 환자를 진심으로 대할 수 있었습니다. 결과가 불만족스럽다고 해도 내가 할 수 있는 만큼 하는 게 더 중요한 것입니다. 그래서 후회는 없습니다.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: 분노 다스리기 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나이 들수록 <span class="highlight">사소한 분노</span>를 잘 다스려야 한다 😡</h2>
+          <p class="slide-subtitle">'곱게 나이 먹어야지' 하는 말 속에는 나쁜 감정을 드러내지 않고 모나지 않은 행동으로 가족과 주위 사람들에게 폐를 끼치지 않겠다는 뜻이 담겨 있습니다.</p>
+          <div class="slide-content">
+            곱게 나이 드는 것은 하루아침에 이뤄지지 않습니다. 젊을 때부터 꾸준히 감정 관리를 해야 합니다. 인생의 어느 시기에는 '화'에 대해 진지하게 생각해 보아야 합니다. 그것은 젊을수록 좋습니다.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: 잘 쉬는 연습 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">잘 쉬는 <span class="highlight">연습</span>을 게을리 하지 마라 ☕</h2>
+          <p class="slide-subtitle">휴식마저 남들이 좋다고 하는 것을 따라야 직성이 풀리는 요즘 사람들.</p>
            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">❌ 잘못된 태도</h3>
-              <p>육체의 노화를 받아들이지 못하고 '그래도 나는 다를 것'이라고 생각합니다. 이런 생각에 붙들려 있으면 억울함과 애석함만 커질 뿐입니다.</p>
+              <h3 class="font-bold text-lg">휴식(休息)의 의미</h3>
+              <p>한자를 풀이하면 '사람(人)이 나무(木) 옆에 앉아 스스로(自) 마음(心)을 들여다보고 숨 쉬는 것'입니다. 휴식은 아주 단순하고 쉽고 편안합니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">✔️ 올바른 태도</h3>
-              <p>나빠지는 청력과 시력에 거부감 없이 보청기와 돋보기를 쓰는 것입니다. 그것들은 거추장스러운 것이 아니라, 젊어서 듣지 못했던 소리, 보지 못했던 세세한 것까지 보도록 노력하게 만드는 <span class="highlight">고마운 물건</span>입니다.</p>
+              <h3 class="font-bold text-lg">진정한 휴식</h3>
+              <p>자신의 몸과 마음을 가장 편하고 즐겁게 할 방법을 찾아내는 것이 나만의 진짜 휴식입니다. 하루에 한 번만이라도 조용한 시간을 틈타 크게 숨을 골라보는 여유를 가진다면, 굳이 요란한 휴가를 갈 필요가 없을 것입니다.</p>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Slide 36: Section 4 Title -->
       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">나이 듦의 <span class="highlight">새로운 감동</span> 💖</h2>
-          <p class="slide-subtitle">억울해하지만 않는다면, 나이 듦은 새로운 경험과 감동으로 가득합니다.</p>
-          <div class="slide-content">
-            <p>나이가 들면 좋은 점은 <span class="highlight">생활이 단순해진다</span>는 것입니다. 책임도 의무도 줄어듭니다. 시간이 늘어나고 인내심이 많아지며 감정이 섬세해집니다. 평소 바쁘다는 핑계로 하지 못했던 일들을 불어난 시간에 하나씩 해 보는 재미가 있습니다.</p>
-            <p class="mt-4 font-bold">"요즘 나는 매일 아침 잠자리에서 눈을 뜰 때마다 신기하다. ... 아침에 눈을 뜨면 가장 먼저 '와! 눈떴구나! 하하하' 하고 쾌재가 터져 나온다. 그 순간의 찰나적인 신비감이라니!"</p>
-          </div>
+        <div class="slide-container text-center">
+           <p class="slide-part-title">Chapter 4</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">사람은 무엇으로 사는가</h2>
+          <p class="text-xl text-gray-600">관계의 소중함에 대하여</p>
         </div>
       </div>
-      
+
+      <!-- Slide 37: 부부 관계 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">죽음의 위기에서 얻은 <span class="highlight">깨달음</span></h2>
-          <p class="slide-subtitle">"내 인생은 덤이다."</p>
+          <h2 class="slide-title">내가 웃으면 아내도 웃고,<br>아내가 웃으면 나도 웃는다 😊</h2>
+          <p class="slide-subtitle">50년 긴 세월 동안 큰 갈등 없이 지낼 수 있었던 것은 '사랑의 열정'이 아니라 '사랑의 관리' 덕분이었습니다.</p>
           <div class="slide-content">
-            <p>대학 시절 사라호 태풍이 불던 배 안에서 뱃멀미로 잠들어 죽음의 공포를 피했던 경험, 심장 혈관 수술로 50%의 생존 확률을 뚫고 살아난 경험 등. 저자는 여러 번의 죽을 고비를 넘긴 후, 자신의 인생을 '덤'으로 생각하며 살게 되었습니다.</p>
-            <div class="quote-box">
-              <p class="quote-text">이러한 생각은 매사에 후회가 적고 만족할 수 있게 만들었습니다. "내 행복의 비결을 하나 꼽으라면 바로 이것이다."</p>
-              <p class="quote-author">- 본문 중에서</p>
-            </div>
-             <p class="mt-4">"나나 당신이나 우리는 아직 살아 있는 <span class="highlight">행복한 존재</span>다."</p>
+            행복한 결혼을 결정짓는 것은 경제력이나 학벌이 아닙니다. 행복은 생의 기쁨과 슬픔, 괴로움을 함께 나누면서 서로 주고받는 긍정적인 상호작용입니다. 상대를 있는 그대로 바라보고, 불만스러운 점은 단지 조금 고쳐 주기를 바라는 마음. 그게 행복한 부부관계를 유지하는 비결입니다.
           </div>
         </div>
       </div>
 
+      <!-- Slide 38: 가훈 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">외로움, 어떻게 할까? 🤔</h2>
-          <p class="slide-subtitle">"왜 외롭다고 말하면서 아무것도 하지 않는가?"</p>
+          <h2 class="slide-title">따로 또 같이 행복해지기 위해<br>반드시 필요한 것, <span class="highlight">가훈</span></h2>
+          <p class="slide-subtitle">저희 집의 비결은 '예띠의 집 헌장'에 담겨 있습니다.</p>
           <div class="slide-content">
-            <p>노년의 삶을 가장 어렵게 만드는 것은 외로움입니다. 그러나 혼자 있는 것이 두렵고 외로움이 무섭다면, 외롭지 않으려고 노력하면 됩니다. 찾아오지 않는 사람을 원망하는 것은 불행을 자초하는 것입니다.</p>
-            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 외로움을 없애는 가장 쉬운 방법</h3>
-              <p class="mt-2">그것은 <span class="highlight">다른 사람을 사랑하는 것</span>입니다. 사랑은 거창한 것이 아니라 궁금증과 관심에서 시작합니다. '저 사람은 왜 저럴까?' '무슨 생각을 할까?' 이런 궁금증이 있다면 바로 그것이 사랑입니다. 나이가 들수록 다른 사람에게 먼저 관심을 가져야 합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">대가족의 비밀: <span class="highlight">상호 불간섭</span></h2>
-          <p class="slide-subtitle">삼 대 열세 명이 한 지붕 아래 행복하게 사는 비결</p>
-          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">존중과 독립성 🛡️</h3>
-              <p>가족이 모여 살기로 하면서 가장 강조한 것은 '상호 불간섭주의'와 '독립성 보장'이었습니다. 함께 살 공간은 모두의 힘을 보태 마련했고, 각 가구의 거주 공간, 내부 구조, 출입문은 각자의 취향대로 했습니다. 철저하게 개인 생활을 보장하기 위함이었습니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">분명한 원칙 📝</h3>
-              <p>부모가 자식 집에 갈 때도 반드시 먼저 전화로 허락을 구했습니다. 각 가정의 일이 가족 전체의 일보다 우선하도록 했습니다. 공통비용은 똑같이 나누고, 가족 식사도 철저한 합의를 거쳤습니다. 이러한 원칙들이 서로를 존중하는 단단한 신뢰를 만들었습니다.</p>
+             <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">예띠의 집 헌장 2조</h3>
+              <p class="mt-2">우리는 각 가정이 고유한 가치관과 종교관을 갖고 간섭 없이 살아가기를 원합니다. 서로 '같음'은 나누면서 즐기고 '<span class="highlight">다름'은 인정하고 존중합니다.</span></p>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Slide 39: 내가 만난 사람들 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">관계의 기술: <span class="highlight">거절하는 법</span></h2>
-          <p class="slide-subtitle">"나는 며느리에게 거절하는 법부터 가르쳤다"</p>
+          <h2 class="slide-title"><span class="highlight">내가 만난 사람들</span>이 곧 나의 인생이다</h2>
+          <p class="slide-subtitle">사람은 혼자 살아갈 수 없으며, 다른 사람을 통해 나를 알고 세상을 알아갑니다.</p>
           <div class="slide-content">
-            <p>거절은 인간관계에서 중요한 덕목입니다. 우리는 거절에 익숙하지 않습니다. 내 뜻을 감추고 상대의 말만 수용하면 마음에 앙금이 쌓이고, 억눌린 마음은 죄책감이나 원망을 키워 갈등으로 변합니다.</p>
-            <div class="quote-box">
-              <p class="quote-text">솔직하게 'NO'를 말할 수 있어야 'YES'도 진짜 예스로 믿을 수 있다. 이 믿음의 토대에서 진정한 인간관계는 가능해진다.</p>
-              <p class="quote-author">- 본문 중에서</p>
-            </div>
-            <p class="mt-4">특히 가족 관계에서는 더욱 그렇습니다. 싫다, 좋다는 뜻을 정확하게 전달하지 못하는 데서 고부갈등이 시작되는 경우가 많습니다. 진정한 소통은 <span class="highlight">솔직한 감정 표현</span>에서 시작됩니다.</p>
+            단점과 장점은 동전의 양면과 같아서 어떻게 바라보느냐의 차이에 따라 장점도 되고, 단점도 됩니다. 그래서 특별한 점입니다. 환자가 가진 특징을 장점으로 살려 치료에 이용하는 경우도 많습니다.<br><br><b>50여 년 경력의 정신과 의사가 일러 주는 인간관계의 비결은 상대의 특별한 점을 기억하라는 것입니다.</b>
           </div>
         </div>
       </div>
 
+      <!-- Slide 40: 손자 손녀 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">유쾌하게 공부하는 법 📖</h2>
-          <p class="slide-subtitle">"일흔 넘어 시작한 공부가 제일 재미있었던 까닭"</p>
+          <h2 class="slide-title">손자 손녀를 키우면서 깨달은 것들 👴👵</h2>
+          <p class="slide-subtitle">조부모가 되는 것은 인생에서 한 단계 올라섰음을 뜻합니다.</p>
           <div class="slide-content">
-            <p>76세에 고려사이버대학교 문화학과를 수석 졸업한 저자는 '놀듯이 공부하라'는 공자의 말을 인용합니다. 나이가 들면 순수하게 즐기면서, 오로지 공부만을 위한 공부를 할 수 있게 됩니다.</p>
-            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 나이 들어서 하는 공부의 즐거움</h3>
-              <p class="mt-2">경쟁을 하거나 누구에게 칭찬을 들으려고 노력할 필요가 없기에 배움의 뿌듯함을 온전히 느낄 수 있습니다. 은퇴 뒤 넉넉해진 시간은 <span class="highlight">'쓸데없는 공부'</span>를 하기에 가장 좋은 때입니다.</p>
-            </div>
+            조부모 또한 손자 손녀와 부모 사이에 다리가 되어 줍니다. 무엇보다 손주들을 객관적으로 볼 줄 알았기에, 어떤 상황에서는 제 부모보다 더 정확한 판단을 내릴 수 있었습니다.
           </div>
-        </div>
-      </div>
-      
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">가장 안전한 길: <span class="highlight">무모하게 살기</span></h2>
-          <p class="slide-subtitle">인생의 걸림돌이 역전의 기회가 될 수 있습니다.</p>
-          <div class="slide-content">
-            <p>정신과를 선택한 것, 전과자라는 딱지, 폐쇄 병동을 개방 병동으로 바꾼 일, 사이코드라마 도입 등 저자의 삶은 파격적이고 '무모한' 선택의 연속이었습니다.</p>
-             <p class="mt-4">"내 인생의 걸림돌이자 제약이었던 전과가 나에게 역전의 기회를 가져다 준 셈이다."<br><br>막다른 골목, 바닥이라고 생각했던 곳에서 오히려 좋은 스승과 많은 환자들을 만나며 풍부한 임상 경험을 쌓았습니다. <span class="highlight">안전하고 쉬운 길만이 정답은 아닙니다.</span> 때로는 무모한 도전이 예상치 못한 기회를 가져다줍니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Part 5: Chapter 2 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 5: 제2장</p>
-          <h2 class="slide-title">이렇게 <span class="highlight">나이 들지</span> 마라</h2>
-          <p class="slide-content">나이 듦에 대한 흔한 오해와 편견을 바로잡고, 더 성숙하고 지혜롭게 늙어가는 법을 제시합니다.</p>
         </div>
       </div>
 
+      <!-- Slide 41: 조부모의 역할 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">두려움 극복하기 😨➡️😊</h2>
-          <p class="slide-subtitle">"나이 드는 게 두렵기만 한 사람들에게"</p>
-          <div class="slide-content">
-            <p>노인의 몸이 젊은이와 다른 것은 엄연한 사실입니다. 체력이 떨어지고 몸 여기저기 고장이 나는 것은 자연스러운 현상입니다. 억울해하거나 서글퍼할 일이 아닙니다. 예전의 몸으로 돌아가고자 안간힘 쓸 일은 더더욱 아닙니다.</p>
-             <div class="mt-8 p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 몸의 변화를 받아들이기</h3>
-              <p class="mt-2">인간의 육체는 정점을 찍고 나면 하강 곡선을 그립니다. 나이가 들수록 시간의 흐름에 따라 약해지는 몸을 보살피며 <span class="highlight">쉬엄쉬엄 살아가는 수밖에 없습니다.</span> 그 변화를 부정하거나 외면하면 안 됩니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">편견을 버려라: <span class="highlight">노인은 약하다?</span></h2>
-          <p class="slide-subtitle">"나이 들면 약해진다는 생각부터 버려라"</p>
-          <div class="slide-content">
-            <p>노년에 이른 당사자조차 '나는 늙었다'고 생각하며 스스로를 약한 존재로 치부합니다. "몸이 예전 같지 않아", "기억력이 떨어졌어" 등의 말을 입에 달고 삽니다. 스스로 늙기를 자청하는 형국입니다.</p>
-             <p class="mt-4">그러나 노후 대비에서 <span class="highlight">'노인은 약할 것이다'라는 생각만큼은 버려야 합니다.</span> 그런 고정관념이 진짜 늙기도 전에 노인이 되게 만듭니다. 나이가 들었을 때 더 많은 일을 하기 위한 '종잣돈'으로 생각하고, 삶에 대한 의지를 약화시키지 말아야 합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">자녀와의 거리두기 🚶...🧍</h2>
-          <p class="slide-subtitle">"자식의 인생에 절대 간섭하지 마라"</p>
+          <h2 class="slide-title">새로운 시대의 <span class="highlight">조부모 역할</span></h2>
            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">부모라는 '벽' 🧱</h3>
-              <p>자식에게 부모는 하나의 벽입니다. 성장기에는 보호막이 되지만, 성인이 된 후에는 앞길을 막는 걸림돌이 되기도 합니다. 자식이 그 벽을 뛰어넘어야 완벽한 성장을 이룰 수 있습니다. 때로는 부모가 먼저 그 벽을 부숴 줘야 합니다.</p>
+              <h3 class="font-bold text-lg">따르는 역할</h3>
+              <p>조부모는 앞서가는 자리가 아니라 따르는 자리에 있어야 좋습니다. 손자 손녀 양육과 교육에 있어서는 그 부모를 믿고 짐을 덜어 주겠다는 마음으로 도와야 합니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">가정의 중심 이동 ➡️</h3>
-              <p>자식이 장성한 뒤에도 부모가 중심축이 되어 가정을 이끌면 가족 모두가 힘들어집니다. <span class="highlight">생활의 중심을 자식에게로 이동하라.</span> 부모가 연장자라는 이유로 모든 것을 부모 중심으로 맞춰서는 안 됩니다.</p>
+              <h3 class="font-bold text-lg">배우는 역할</h3>
+              <p>조부모가 생각하는 양육 방식은 오늘날의 교육법과 맞지 않을 수 있습니다. 손자 손녀에게 진짜 도움이 되기 위해서는 최근 양육 정보에 귀를 기울여야 옳습니다.</p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: 회갑 잔치 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사람들에게 <span class="highlight">회갑 잔치</span>를 권하는 이유 🎉</h2>
+          <p class="slide-subtitle">100세 시대를 맞은 오늘날, 회갑 잔치는 지금까지와는 전혀 다른 의미에서 새롭게 치러져야 합니다.</p>
+          <div class="slide-content">
+            회갑을 나이 듦의 상징, 늙음의 입구라고 여기는 것은 시대에 뒤떨어진 생각입니다. 하지만 오는 나이를 다소곳이 인정하고 그에 어울리는 삶의 태도와 행동을 확인해 보는 그런 자리로서의 회갑연은 꼭 필요합니다.<br><br><b>회갑은 아름다운 노년의 시작입니다.</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: 세대 차이 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">세대 차이의 <span class="highlight">즐거움을</span> 마음껏 누려라</h2>
+          <p class="slide-subtitle">나는 오히려 세대 차이가 즐겁습니다. 젊은 세대의 말과 행동, 옷차림, 헤어스타일 등 내가 상상하지 못했던 그들의 표현 방식이 새롭고 신기합니다.</p>
+          <div class="slide-content">
+            나이 든 이들이 즐겁게 살아가려면 오히려 젊은 세대의 소통 문화를 배워야 합니다. 그게 싫다고 고집을 부린다면 어쩔 수 없습니다. 부글부글 끓는 마음을 잘 다스리고 살아갈 밖에.
           </div>
         </div>
       </div>
       
+      <!-- Slide 44: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+           <p class="slide-part-title">Chapter 5</p>
+          <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">인생의 새로운 출발점에<br>서 있는 그대에게</h2>
+          <p class="text-xl text-gray-600">언제나 지금이 인생의 황금기입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 45: 인생의 황금기 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">돈, 어떻게 볼 것인가? 💰</h2>
-          <p class="slide-subtitle">"무작정 돈을 모으기 전에 생각해야 할 것"</p>
+          <h2 class="slide-title">인생의 황금기는 <span class="highlight">바로 지금이다</span> ✨</h2>
+          <p class="slide-subtitle">인생은 '여기(here)'와 '지금(now)'입니다. 행복을 즐길 시간과 공간은 바로 지금, 여기다.</p>
           <div class="slide-content">
-            <p>저자는 천성적으로 돈에 무감각했지만, 돈 때문에 힘들었던 기억도 없다고 말합니다. 1980년대 부동산 광풍 시절, 적금으로 받은 집 한 채 값의 돈을 아내와의 약속을 지키기 위해 유럽 여행으로 모두 써버린 일화를 소개합니다.</p>
-             <div class="quote-box">
-              <p class="quote-text">만약 그때 그 돈으로 땅을 샀더라면 수백 억대 자산가가 되었을 것이다. 그러나 그 돈이 있으나 없으나 나의 일상은 크게 달라지지 않았을 것이다.</p>
-              <p class="quote-author">- 본문 중에서</p>
-            </div>
-            <p class="mt-4">돈에 대한 균형감이 진짜 행복을 만들어 줍니다. 돈만 저축할 것이 아니라, <span class="highlight">마음도 저축해야 합니다.</span> 돈이 없으면 어떻게 살아야겠다는 각오도 다져야 합니다.</p>
+            이것을 깨닫지 못하는 이들은 항상 다른 곳, 바깥에만 시선을 두고 불행해합니다. 사람이 어떻게 늘 행복하기만 하느냐고 묻는 이들도 있는데, 그런 이분법적인 생각에서 벗어나야 합니다. 괴롭고 힘들지만 그럼에도 즐겁다고 말해야 하는 것입니다. 좋든 나쁘든, 나에게 닥친 이 순간에 충실할 때만이 인생은 즐거워집니다.
           </div>
         </div>
       </div>
 
-      <!-- Part 6: Chapter 3 -->
+      <!-- Slide 46: 다시 시작하고 싶다면 -->
       <div class="slide">
         <div class="slide-container">
-          <p class="slide-part-title">Part 6: 제3장</p>
-          <h2 class="slide-title">마흔 살에 알았더라면 <span class="highlight">더 좋았을 것들</span></h2>
-          <p class="slide-content">인생의 전환점에서 알아야 할 삶의 지혜와 태도에 대하여 이야기합니다.</p>
+          <h2 class="slide-title">어떤 일이든 <span class="highlight">다시 시작하고 싶다면</span></h2>
+          <p class="slide-subtitle">"한 컵의 물을 여러 가지로 쓰는 것입니다." 재주는 하나인데 그 재주를 열 번 써 먹으니 하는 일이 많아 보일 뿐이라는 뜻입니다.</p>
+          <div class="slide-content">
+            하나의 관심이 계속 다른 분야로 이어지면서 많은 일을 할 수 있었습니다. 가지는 무성하지만 뿌리는 하나인 것처럼, '사람 마음에 대한 관심'이 여러 일들과 연결되어 있습니다.
+          </div>
         </div>
       </div>
 
+      <!-- Slide 47: 함께하는 지혜 -->
        <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">'내 뜻대로'의 <span class="highlight">진정한 의미</span></h2>
-          <p class="slide-subtitle">"‘내 뜻대로 되는 게 하나도 없다’라는 말은 틀렸다"</p>
-          <div class="slide-content">
-            <p>미국의 한 노인 병원에서 '일생 가장 후회되는 것' 1위는 '내 마음대로 하고 살 것을…'이었습니다. 하지만 정말 우리는 마음대로 살지 못했을까요?</p>
-            <p class="mt-4">'하고 싶은 대로 산다'는 것의 진정한 의미는 <span class="highlight">내가 살고 싶은 삶을 만들어 가는 '노력'</span>을 뜻합니다. 인생에서 크고 작은 장애를 만났을 때 의지를 발휘하고 이리저리 머리를 굴려 극복하는 것입니다. 무엇에도 굴복하지 않고 삶을 원하는 방향으로 이끄는 노력이 바로 '내 뜻대로 사는 것'입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">긍정의 힘 💪</h2>
-          <p class="slide-subtitle">"'긍정'이란 말의 의미를 잘못 알고 있는 사람들에게"</p>
-          <div class="slide-content">
-            <p>보통 '긍정'이라 하면 모든 걸 그대로 받아들이는 것으로 오해합니다. 하지만 진정한 긍정은 나쁜 것도 무조건 좋게 받아들이라는 의미가 아닙니다.</p>
-             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 진정한 긍정이란?</h3>
-              <p class="mt-2">일단 나에게 일어난 상황을 수긍하고, 그 다음 해결책을 찾는 것입니다. <span class="highlight">삶이 좋은 쪽으로 흐르도록 하는 에너지</span>입니다. 나에게도 늘 좋은 일만 일어나지 않을 것이라는 사실을 깨닫는 것입니다. 이런 자세가 있다면 나쁜 일이라도 최악으로 흐르지 않도록 내 마음과 행동을 움직일 수 있습니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">최고의 유산: <span class="highlight">좋은 기억</span></h2>
-          <p class="slide-subtitle">"부모가 아이에게 남겨 줄 수 있는 최고의 재산"</p>
-          <div class="slide-content">
-            <p>삶은 작은 이야기의 연속입니다. 시시껄렁해 보이는 작은 이야기들이 모여 인생의 큰 무늬를 이룹니다. 좋은 기억을 많이 만들면서 살아가야 합니다.</p>
-            <div class="quote-box">
-              <p class="quote-text">일본의 자녀교육 전문가 가나모리 우라코는 말했다. "부모가 자식에게 남겨 줄 수 있는 최고의 재산은 물질적인 것이 아니라 바로 ‘내 부모는 정말로 행복하고 즐거운 삶을 살았다’고 느끼는 것이다.”</p>
-              <p class="quote-author">- 본문 중에서</p>
-            </div>
-            <p class="mt-4">삶의 좋은 기억은 <span class="highlight">나의 선택</span>으로 만들어집니다. 자식들에게 훌륭하지는 않더라도 즐겁고 행복한 삶을 살았던 아버지로 기억되었으면 하는 것이 저자의 바람입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">나를 아는 것 🙋</h2>
-          <p class="slide-subtitle">"내가 누구인지 알게 되면 다른 사람과 경쟁할 필요가 없다"</p>
+          <h2 class="slide-title">혼자가 아닌, <span class="highlight">함께의 지혜</span></h2>
+          <p class="slide-subtitle">인생의 시간을 아껴 쓰면서 최대한 효율적으로 누리는 노하우 두 가지.</p>
            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">나를 모를 때 ❓</h3>
-              <p>나 자신을 모르면 타인의 기준에 맞춰 살게 됩니다. 세상의 잣대에 나를 맞추면서 타인과 경쟁하고, 그 경쟁에서 이겨야 성공한 인생이라고 착각합니다. 경쟁은 끝이 없기에 기쁨은 오래가지 못합니다.</p>
+              <h3 class="font-bold text-lg">1. 다양한 경험</h3>
+              <p>자신의 능력과 호기심을 이용하여 되도록 많은 일을 해 볼 것.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">나를 알 때 ✨</h3>
-              <p>나를 사랑하면 주관이 세워집니다. 타인과 세상의 눈치를 보지 않고 소신껏 말하고 행동하게 됩니다. <span class="highlight">내가 할 수 있는 일, 해야 하는 일에 집중할 뿐입니다.</span> 진정으로 자기가 누구인지 알면 인생은 훨씬 쉬워집니다.</p>
+              <h3 class="font-bold text-lg">2. 협력</h3>
+              <p>나 혼자 힘으로 잘해 보겠다는 생각을 버리고 기꺼이 다른 사람의 힘을 빌릴 것.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">후회 없는 삶이란? 🗓️</h2>
-          <p class="slide-subtitle">"내가 지나온 삶을 후회하지 않는 이유"</p>
-          <div class="slide-content">
-            <p>정신과 의사로서 저자는 늘 '혹시 나 때문에 환자가 잘못된 것은 아닐까?'하는 '하얀' 죄의식을 안고 살았습니다. 그러나 완치를 기대하기보다, 환자가 조금이라도 나아지는 것에 집중했기에 환자를 진심으로 대할 수 있었습니다.</p>
-             <p class="mt-4">"결과가 불만족스럽다고 해도 내가 할 수 있는 만큼 하는 게 더 중요한 것이다. 그래서 그런지 후회는 없다. ... <span class="highlight">나는 그때 내가 할 수 있는 만큼은 분명히 했다.</span> 그것으로 된 것이다."</p>
-            <p class="mt-4">순간순간 뭔가 부족한 듯 느껴지고 잘한 것인지 의심스럽더라도, 내 몫의 주어진 일을 거부하지 않고 해냈다면 나이 든 뒤에 돌아보는 삶은 그런대로 만족스럽습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Part 7: Chapter 4 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 7: 제4장</p>
-          <h2 class="slide-title">사람은 <span class="highlight">무엇으로</span> 사는가</h2>
-          <p class="slide-content">인간관계의 본질과 결혼, 가족, 그리고 세대 차이를 넘나드는 소통의 지혜를 나눕니다.</p>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">결혼 50년의 고백 💌</h2>
-          <p class="slide-subtitle">"결혼한 지 50년이 지나서야 하는 부끄러운 고백"</p>
-          <div class="slide-content">
-            <p>저자는 아내 덕분에 행복한 삶을 살았다고 고백합니다. 부부의 행복은 순전히 100퍼센트 아내의 공이라며, 아내가 자신의 성격, 직업, 삶을 이해해 줬기 때문에 가능했다고 말합니다.</p>
-             <div class="mt-8 p-6 bg-pink-50 border border-pink-200 rounded-lg">
-              <h3 class="font-bold text-lg">🤝 동지적 관계</h3>
-              <p class="mt-2">아내를 동지적 관계로 생각했습니다. 신혼 초부터 부부의 이름을 나란히 적은 문패를 달았고, 이는 당시로서는 파격적인 행동이었습니다. 학자로서 서로의 영역을 존중하며 함께 여성학 강좌를 개설하는 등 <span class="highlight">학문적 동지이자 인생의 동무</span>로서 살아왔습니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">가족의 의미: <span class="highlight">가훈</span> 📜</h2>
-          <p class="slide-subtitle">"따로 또 같이 행복해지기 위해 반드시 필요한 것"</p>
-          <div class="slide-content">
-            <p>대가족 공동체의 비결은 '예띠의 집 헌장'이라는 가훈에 있습니다. 히말라야의 설인 '예띠'처럼 가족을 지켜주길 바라는 마음을 담았습니다. 이 헌장은 가족 모두가 참여한 토론을 통해 만들어졌습니다.</p>
-             <p class="mt-4 font-bold">"둘째, 우리는 각 가정이 고유한 가치관과 종교관을 갖고 간섭 없이 살아가기를 원합니다. 서로 <span class="highlight">'같음'은 나누면서 즐기고 '다름'은 인정하고 존중합니다.</span>"</p>
-            <p class="mt-4">이처럼 서로의 다름을 인정하고 존중하는 것이 가족 모두가 행복해지는 핵심 비결입니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">내가 만난 사람들 👨‍👩‍👧‍👦</h2>
-          <p class="slide-subtitle">"내가 만난 사람들이 곧 나의 인생이다"</p>
-           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-bold text-lg">인연의 그물망 🕸️</h3>
-              <p>사람은 혼자 살아갈 수 없으며, 다른 사람을 통해 나를 알고 세상을 알아갑니다. 저자는 만나는 사람들의 이름을 기억하기보다 그들의 장점이나 기질, 달란트를 기억하려 노력합니다. 그 장점이 필요한 일이 생기면 연락하여 인연을 이어갑니다.</p>
-            </div>
-            <div>
-              <h3 class="font-bold text-lg">인간관계의 비결 🗝️</h3>
-              <p>상대의 특별한 점을 기억하는 것입니다. 상대의 장점을 알면 인간관계가 쉬워집니다. 장점은 그를 이해하는 키워드가 되기 때문입니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">손주에게 배우다 👴❤️👧</h2>
-          <p class="slide-subtitle">"손자 손녀를 키우면서 깨달은 것들"</p>
-          <div class="slide-content">
-            <p>조부모가 되는 것은 인생에서 한 단계 올라섰음을 뜻합니다. 이전과는 다른 시각으로 세상을 바라보게 하고, 지난 삶을 돌아보며 부족한 것을 채울 기회가 됩니다.</p>
-            <p class="mt-4">손주들과의 관계는 잊고 있던 지난 시절을 다시 기억하게 하고, 자녀들과의 오해를 풀 기회를 줍니다. 또한 조부모는 손주와 부모 사이의 다리가 되어 줍니다. 조부모는 앞서가는 자리가 아니라, <span class="highlight">따르는 자리</span>에 있어야 하며, 부모를 믿고 짐을 덜어주겠다는 마음으로 도와야 합니다.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Part 8: Chapter 5 -->
-      <div class="slide">
-        <div class="slide-container">
-          <p class="slide-part-title">Part 8: 제5장</p>
-          <h2 class="slide-title">인생의 새로운 <span class="highlight">출발점</span>에<br>서 있는 그대에게</h2>
-          <p class="slide-content">인생의 황금기, 죽음, 그리고 새로운 시작에 대한 깊은 성찰을 담았습니다.</p>
-        </div>
-      </div>
-
-       <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">인생의 황금기는 <span class="highlight">바로 지금</span> ✨</h2>
-          <p class="slide-subtitle">"지금 네 나이가 제일 좋을 때다"</p>
-          <div class="slide-content">
-            <p>과거 대학 시절 교수님은 만날 때마다 저자에게 "지금 네 나이가 제일 좋을 때"라고 말했습니다. 저자는 그 의미를 한참 뒤에야 깨달았습니다.</p>
-             <p class="mt-4">"나는 지금이 내 일생 중에서 가장 행복한 시기라고 말한다. 다섯 살이면 다섯 살이 황금기고, 일흔 살이면 일흔 살이 황금기다."<br><br>인생은 '여기(here)'와 '지금(now)'입니다. 행복을 즐길 시간과 공간은 바로 지금, 여기입니다. 이것을 깨닫지 못하는 이들은 항상 다른 곳, 바깥에만 시선을 두고 불행해합니다. <span class="highlight">지금 하고 있는 일을 사랑하고, 지금 이 순간을 사랑하고, 지금 만나는 사람을 사랑하십시오.</span></p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">어떤 일이든 다시 <span class="highlight">시작하고 싶다면</span></h2>
-          <p class="slide-subtitle">나이가 한계일 수는 없습니다. '이 나이에' 하고 자신의 한계를 정하는 순간, 나머지 인생은 그저 죽음을 기다리는 시간이 될 뿐입니다.</p>
-          <div class="slide-content">
-            <p>저자는 수많은 일을 하지만, 그 뿌리는 '사람 마음 돌보기'라는 한 가지에 있습니다. 하나의 관심이 계속 다른 분야로 이어지면서 많은 일을 할 수 있었던 것입니다.</p>
-             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <h3 class="font-bold text-lg">💡 효율적으로 사는 법</h3>
-              <p class="mt-2">1. 자신의 능력과 호기심을 이용하여 되도록 많은 일을 해 볼 것.<br>2. 나 혼자 힘으로 잘해 보겠다는 생각을 버리고 기꺼이 다른 사람의 힘을 빌릴 것.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <!-- Slide 48: 인생을 안다고 자만하지 마라 -->
       <div class="slide">
         <div class="slide-container">
           <h2 class="slide-title">인생을 안다고 <span class="highlight">자만하지 마라</span></h2>
-          <p class="slide-subtitle">세상 모든 것에 내가 모르는 무엇이 있을지도 모른다는 생각은 삶을 겸손하게 만듭니다.</p>
           <div class="slide-content">
-            <p>히말라야의 '예띠' 전설은 과학적으로 증명되지 않았지만, 네팔 사람들에게는 실재하는 존재입니다. 눈에 보이는 것만 믿으려 하는 태도와 믿고 싶은 것만 믿으려는 태도 모두 경계해야 합니다.</p>
-            <div class="quote-box">
-              <p class="quote-text">인생의 2막을 준비하는 당신에게 첫 번째로 하고 싶은 당부는 바로 이것이다. 인생을 안다고 자만하지 마라. 보이지 않는다고 존재하지 않는 것은 아니다. 그리고 겸손함, 이 한 가지 미덕으로도 삶은 잘 살아갈 수 있는 것 같다.</p>
-              <p class="quote-author">- 본문 중에서</p>
+            <p>이 세상 모든 것에 내가 모르는 무엇이 있을지도 모른다는 생각이 타인에 대한 예의를 갖게 하고, 삶을 겸손하게 살아갈 수 있도록 합니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="mt-2">인생의 2막을 준비하는 당신에게 첫 번째로 하고 싶은 당부는 바로 이것입니다.<br><b>"인생을 안다고 자만하지 마라. 보이지 않는다고 존재하지 않는 것은 아니다."</b></p>
             </div>
           </div>
         </div>
       </div>
 
+       <!-- Slide 49: 취미 생활 -->
       <div class="slide">
         <div class="slide-container">
-          <h2 class="slide-title">오늘을 <span class="highlight">귀하게</span> 써야 하는 이유 💎</h2>
-          <p class="slide-subtitle">"그동안 해 놓은 일이 없다"고 말하는 친구에게</p>
-          <div class="slide-content">
-             <p>인생에서 정말 남는 것은 무엇일까요? 인류에 좋은 영향을 끼친 훌륭한 사람들은 이름과 업적을 남깁니다. 하지만 대다수는 평범하게 살다 갑니다.</p>
-             <p class="mt-4">삶은 내가 남기는 것이 아닙니다. 뒷사람에 의해 나의 모든 행적이 들추어져 남을 만한 것은 남게 됩니다. <span class="highlight">훗날 누군가에 의해 들추어졌을 때 부끄럽지 않은 삶</span>이기를 바라는 것, 그것이 우리가 할 수 있는 유일한 일입니다.</p>
-             <p class="mt-4 font-bold">"무엇을 남길까 신경 쓰지 말라. 그런 겉치레에 매달려 귀중한 시간을 낭비하지 말고, 마지막일지도 모를 오늘을 귀하게 쓰자."</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide">
-        <div class="slide-container">
-          <h2 class="slide-title">죽음에 대한 <span class="highlight">두 가지 정리</span></h2>
-          <p class="slide-subtitle">죽음을 떠올리며 나름대로 정리한 생각들</p>
+          <h2 class="slide-title">바쁘다는 핑계로 <span class="highlight">취미 생활</span>을<br>더 이상 미루지 마라</h2>
+          <p class="slide-subtitle">심리학자 윌리엄 네틀은 인간은 보통 '원하는 일'과 '좋아하는 일'이 다르다고 했습니다.</p>
            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-bold text-lg">1. 죽음은 '해체'다 흩어짐이다 💨</h3>
-              <p>죽음은 우리 몸과 마음이 해체되어 하나의 원소로 돌아가는 현상입니다. 분해된 원소는 바람, 물, 공기 중에 떠돌다가 다른 원소와 결합하여 또 어떤 물질로 변화될 수 있습니다. 죽음 그 자체는 지금 이 육신의 삶을 끝내는 것뿐입니다.</p>
+              <h3 class="font-bold text-lg">원하는 일 💼</h3>
+              <p>밤낮없이 일하면서도 즐겁지 않은 것은 승진이나 연봉을 위해 단지 그 일을 '원하기' 때문입니다. 원하는 것에 너무 사로잡힌 나머지 기쁨을 주는 '좋아하는 것'을 놓쳐 버릴 가능성이 높습니다.</p>
             </div>
             <div>
-              <h3 class="font-bold text-lg">2. 죽음은 '여정'이다 ✈️</h3>
-              <p>죽음은 이 세계에서 내가 모르는 어떤 세계로 가는 사이의 여정입니다. 수술 침대에서 마취에 들며 '못 깨어나면 행복한 죽음이고, 다시 깨어나면 더 살 수 있으니 이 또한 행복이다'라는 깨달음을 얻었습니다.</p>
+              <h3 class="font-bold text-lg">좋아하는 일 🎨</h3>
+              <p>기쁨과 즐거움, 긍정적인 감정을 늘리기 위해서는 '좋아하는 일'을 해야 합니다. 본업 외에 다른 취미나 즐거운 일을 하다 보면 자연스럽게 내 직업과 관계없는 사람들과 어울릴 기회가 생깁니다.</p>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Slide 50: 남은 인생에서 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남은 인생에서 내가 가장 잘하고 싶은 사람, <span class="highlight">아내</span></h2>
+          <p class="slide-subtitle">행복한 노후의 조건에서 자녀의 부양보다 배우자의 있고 없음이 훨씬 더 중요합니다. 자식보다 악처라는 말이 빈말은 아닌 것입니다.</p>
+          <div class="slide-content">
+             홀로 남겨지는 상황에 적응하기 위해서는 부부가 모두 생존해 있을 때부터 준비가 필요합니다. 배우자 사망 후에는 취미 생활 및 자원 봉사 활동에 참여하며 어려움을 극복하고 잘 적응해 나갈 수 있어야 합니다.<br><br><b>여하튼 살아 있을 때 잘해야 합니다.</b>
+          </div>
+        </div>
+      </div>
       
-      <!-- Part 9: Conclusion -->
+      <!-- Slide 51: Conclusion -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-6xl mb-6">🎯</div>
           <h2 class="slide-title">결론: 삶을 끝까지 데리고 노는 법</h2>
           <div class="slide-content max-w-4xl mx-auto">
-            <p class="mb-4">이 책은 삶의 목적이 아닌, '어떻게 살아야 하는가'라는 <span class="highlight">방법의 삶</span>에 대한 이야기입니다. 그것은 삶의 지도가 아닌 나침반을 갖는 것과 같습니다.</p>
-            <p class="mt-4">나이 듦의 재미를 선택하고, 현재에 집중하며, 관계 속에서 배우고, 끊임없이 새로운 것을 시도하는 '야금야금 이론'과 '차선의 철학'을 통해 우리는 인생의 황금기가 바로 '지금'임을 깨닫게 됩니다.</p>
-            <p class="mt-8 font-bold text-xl text-gray-800">우리는 언제나 지금을 살 뿐이기에, 당신의 삶은 가장 빛나는 황금기입니다.</p>
+            <p class="mb-4">나이 듦을 두려워 말고, 모든 순간을 '지금'이라는 황금기로 여기며, 야금야금 즐거움을 찾아 나서는 것이 핵심입니다. <span class="highlight">관계, 배움, 나눔</span> 속에서 삶의 재미를 발견하고, 마지막 순간까지 존엄과 유머를 잃지 마십시오.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">우리는 언제나 지금을 살 뿐이기에 그렇습니다.</p>
           </div>
         </div>
       </div>
 
+      <!-- Slide 52: Thank You / Q&A -->
       <div class="slide">
         <div class="slide-container text-center">
           <div class="text-7xl mb-8">👏</div>
@@ -729,25 +772,6 @@
           <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
         </div>
       </div>
-      
-      <!-- Dummy slides to reach 50 -->
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 1: <span class="highlight">현재를 살아라</span></h2><p class="slide-subtitle">과거의 후회와 미래의 불안에서 벗어나 '지금, 여기'에 집중하는 것이 행복의 시작입니다.</p><p class="slide-content">우리는 종종 지나간 일을 후회하거나 아직 오지 않은 미래를 걱정하느라 현재를 놓치곤 합니다. 하지만 행복은 오직 '지금' 이 순간에만 존재합니다. 오늘 하루를 온전히 살아내는 연습이 필요합니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 2: <span class="highlight">움직임을 멈추지 마라</span></h2><p class="slide-subtitle">신체적 활동은 정신적 건강과 직결됩니다. 걷고, 움직이고, 세상을 경험하십시오.</p><p class="slide-content">나이가 들수록 신체 활동이 줄어들기 쉽습니다. 하지만 몸을 움직이는 것은 뇌를 활성화하고 긍정적인 감정을 유발하는 가장 효과적인 방법 중 하나입니다. 거창한 운동이 아니더라도 산책, 가벼운 체조 등 일상 속 움직임을 늘리는 것이 중요합니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 3: <span class="highlight">관계를 가꿔라</span></h2><p class="slide-subtitle">인간은 관계 속에서 살아가는 존재입니다. 먼저 다가가고, 관심을 표현하고, 사랑하는 능력을 키워야 합니다.</p><p class="slide-content">외로움은 수동적으로 기다릴 때 찾아옵니다. 만나고 싶은 사람이 있다면 먼저 연락하고, 주변 사람들에게 관심을 표현하는 능동적인 자세가 필요합니다. 사랑 역시 배워고 연습해야 하는 능력입니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 4: <span class="highlight">평생 학습자가 되어라</span></h2><p class="slide-subtitle">배움에는 나이가 없습니다. 호기심을 잃지 않고 새로운 것을 배우는 즐거움을 누리십시오.</p><p class="slide-content">나이가 들었다고 해서 배움을 멈출 필요는 없습니다. 오히려 경쟁과 의무에서 벗어나 순수한 즐거움을 위한 공부를 할 수 있는 최고의 시기입니다. 새로운 지식은 삶에 활력을 불어넣고 세상을 보는 시야를 넓혀줍니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 5: <span class="highlight">나눔을 실천하라</span></h2><p class="slide-subtitle">내가 가진 것을 나누는 행위는 나 자신을 더욱 풍요롭게 만듭니다.</p><p class="slide-content">나눔은 거창한 것이 아닙니다. 따뜻한 말 한마디, 작은 미소, 내가 가진 지식이나 경험을 공유하는 것 모두가 나눔의 일부입니다. 주는 행위를 통해 우리는 더 큰 기쁨과 삶의 의미를 발견할 수 있습니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 6: <span class="highlight">자신을 알아가라</span></h2><p class="slide-subtitle">내가 진정으로 누구인지 알 때, 타인과의 불필요한 비교와 경쟁에서 자유로워질 수 있습니다.</p><p class="slide-content">자신에 대한 깊은 이해는 단단한 주관을 만들어 줍니다. 다른 사람의 시선이나 사회적 기준에 흔들리지 않고, 나만의 길을 걸어갈 수 있는 힘은 '자기 알기'에서 나옵니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 7: <span class="highlight">유머를 잃지 마라</span></h2><p class="slide-subtitle">삶의 어려움 속에서도 웃음을 잃지 않는 태도는 어떤 역경도 이겨낼 힘을 줍니다.</p><p class="slide-content">유머는 삶의 윤활유와 같습니다. 심각한 상황을 가볍게 넘길 수 있는 여유, 자신과 타인의 실수를 너그럽게 받아들이는 마음은 유머에서 비롯됩니다. 나이가 들수록 유머 감각은 더욱 중요한 덕목이 됩니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 8: <span class="highlight">죽음을 준비하라</span></h2><p class="slide-subtitle">죽음은 삶의 자연스러운 일부입니다. 이를 인식하고 준비할 때, 현재의 삶은 더욱 소중해집니다.</p><p class="slide-content">죽음을 외면하기보다 삶의 과정으로 받아들이는 태도가 필요합니다. 어떻게 죽음을 맞이할 것인지 생각해보는 것은, 역설적으로 어떻게 살아갈 것인지에 대한 깊은 성찰로 이어집니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 9: <span class="highlight">자연과 교감하라</span></h2><p class="slide-subtitle">자연은 우리에게 무한한 위로와 지혜를 줍니다.</p><p class="slide-content">산책을 하며 계절의 변화를 느끼고, 작은 풀꽃 하나에 관심을 기울이는 시간은 지친 마음을 치유하고 삶의 본질을 되돌아보게 합니다. 자연과의 교감은 우리를 더욱 겸손하고 풍요롭게 만듭니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">인생의 기술 10: <span class="highlight">감사하는 마음</span></h2><p class="slide-subtitle">살아있다는 사실 자체, 그리고 일상의 작은 것들에 감사하는 마음이 행복의 근원입니다.</p><p class="slide-content">저자의 삶을 관통하는 가장 중요한 태도는 바로 '감사'입니다. 아침에 눈을 뜨는 것, 숨을 쉬는 것, 사람들과 만나는 것 등 당연하게 여겨지는 모든 것에 감사할 때, 우리의 삶은 기쁨으로 채워집니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">도전의 가치: <span class="highlight">실패를 두려워 마라</span></h2><p class="slide-subtitle">안전한 길만이 정답은 아닙니다. 때로는 무모해 보이는 도전이 인생의 새로운 문을 열어줍니다.</p><p class="slide-content">저자는 안정적인 길 대신 정신과를 택했고, 기존의 관행을 깨는 파격적인 시도를 멈추지 않았습니다. 이러한 '무모함'이 결국 그의 삶을 풍요롭게 만들고 사회에 긍정적인 변화를 가져왔습니다. 실패의 가능성 때문에 도전을 망설이지 마십시오.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">가족 관계: <span class="highlight">존중과 거리</span></h2><p class="slide-subtitle">가까운 사이일수록 서로의 영역을 존중하고 적절한 거리를 유지하는 지혜가 필요합니다.</p><p class="slide-content">저자의 대가족은 '상호 불간섭'이라는 원칙 위에 세워졌습니다. 사랑이라는 이름으로 서로의 삶에 과도하게 개입하는 것은 오히려 갈등을 유발합니다. 부모와 자식, 부부 사이에서도 각자의 독립성을 인정하고 존중하는 것이 중요합니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">돈에 대한 태도: <span class="highlight">소유보다 경험</span></h2><p class="slide-subtitle">돈은 삶을 풍요롭게 하는 도구이지만, 그 자체가 목적이 되어서는 안 됩니다.</p><p class="slide-content">저자는 집 한 채 값의 돈으로 부동산 대신 가족과의 여행을 택했습니다. 물질적 소유가 주는 만족감은 일시적이지만, 소중한 사람과 함께한 경험과 기억은 평생의 자산이 됩니다. 돈을 어디에 어떻게 쓸 것인지에 대한 자신만의 철학을 세우는 것이 중요합니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">세상과 소통하기: <span class="highlight">열린 마음</span></h2><p class="slide-subtitle">나의 경험과 가치관만이 옳다는 생각에서 벗어나, 다음 세대의 문화를 이해하고 배우려는 노력이 필요합니다.</p><p class="slide-content">세대는 저마다 다른 언어와 문화를 가집니다. 기성세대는 젊은 세대의 문화를 '버릇없다'고 비판하기보다, 그들의 표현 방식을 이해하고 소통하려는 열린 마음을 가져야 합니다. 세대 차이는 갈등의 원인이 아니라, 새로운 것을 배우는 즐거운 기회가 될 수 있습니다.</p></div></div>
-      <div class="slide"><div class="slide-container"><h2 class="slide-title">마음 다스리기: <span class="highlight">분노와 화</span></h2><p class="slide-subtitle">사소한 감정에 휩쓸려 일생을 망치지 않도록, 자신의 감정을 관리하는 법을 꾸준히 연습해야 합니다.</p><p class="slide-content">곱게 나이 드는 것은 하루아침에 이루어지지 않습니다. 젊을 때부터 자신의 감정, 특히 분노와 화를 다스리는 연습을 해야 합니다. 화의 원인을 파악하고, 한 템포 늦추어 행동하는 습관을 통해 감정의 주인이 될 수 있습니다.</p></div></div>
-       <div class="slide"><div class="slide-container"><h2 class="slide-title">휴식의 재정의: <span class="highlight">진정한 쉼</span></h2><p class="slide-subtitle">쉼은 '아무것도 하지 않는 것'이 아니라, '나 자신을 돌보는 시간'입니다.</p><p class="slide-content">남들을 따라가는 휴가는 또 다른 스트레스를 낳을 수 있습니다. 진정한 휴식은 나만의 방법으로 몸과 마음을 편안하게 하는 것입니다. 명상, 조용한 산책, 좋아하는 음악 감상 등 일상 속에서 짧게라도 '나를 위한 쉼'의 시간을 갖는 것이 중요합니다.</p></div></div>
-       <div class="slide"><div class="slide-container"><h2 class="slide-title">아름다운 마무리: <span class="highlight">유언</span></h2><p class="slide-subtitle">내가 떠난 뒤 남은 사람들에게 무엇을 남길 것인가?</p><p class="slide-content">유언은 물질적인 분배를 넘어, 내가 살아온 삶의 가치와 사랑을 전하는 마지막 메시지입니다. 일상을 살아가는 나의 모습이 곧 유언이 된다는 생각으로, 하루하루를 성실하고 의미 있게 살아야 합니다. 사랑하는 사람들에게 '좋은 기억'을 남기는 것이 최고의 유산입니다.</p></div></div>
 
     </div>
   </div>
@@ -774,9 +798,10 @@
 
     function updateSlide() {
       slides.forEach((slide, index) => {
-        slide.classList.remove('active');
         if (index === currentSlide) {
           slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
         }
       });
       slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
@@ -784,11 +809,6 @@
 
       prevBtn.disabled = currentSlide === 0;
       nextBtn.disabled = currentSlide === slides.length - 1;
-
-      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
-      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
-      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
-      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
     }
 
     nextBtn.addEventListener('click', () => {
@@ -806,8 +826,8 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') { // Add spacebar for next slide
-        e.preventDefault(); // Prevent page scroll
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
         nextBtn.click();
       } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
