@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>권력의 심리학 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .quote-block {
+        border-left: 4px solid #ccc;
+        padding-left: 1.5rem;
+        font-style: italic;
+        color: #555;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">⚖️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">권력의 심리학</h1>
+          <p class="text-xl md:text-2xl text-gray-700">누가 권력을 쥐고, 권력은 우리를 어떻게 바꾸는가</p>
+          <p class="mt-4 text-lg text-gray-600">브라이언 클라스 저</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Central Questions -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 질문 🤔</h2>
+          <p class="slide-subtitle">이 책은 권력에 대한 네 가지 근본적인 질문에 답하고자 합니다.</p>
+          <div class="slide-content text-lg space-y-4">
+            <p>1. 더 <span class="highlight">악한 사람이</span> 권력을 가지게 되는가?</p>
+            <p>2. 권력은 사람을 <span class="highlight">나쁘게 만드는가?</span></p>
+            <p>3. 우리는 왜 <span class="highlight">악한 리더에게</span> 끌리는가?</p>
+            <p>4. 부패하지 않을 사람에게 권력을 주고, 그 권력이 <span class="highlight">공정하게 사용되도록</span> 하려면 어떻게 해야 하는가?</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-lg">
+            <p><b>1. 서문:</b> 두 개의 섬 이야기</p>
+            <p><b>2. 권력의 진화:</b> 평평하지 않은 세상의 시작</p>
+            <p><b>3. 권력자 프로파일:</b> 누가 권력을 원하는가?</p>
+            <p><b>4. 리더 선택의 오류:</b> 우리는 왜 잘못된 선택을 하는가?</p>
+            <p><b>5. 시스템의 영향:</b> 나쁜 시스템의 부산물</p>
+            <p><b>6. 부패의 메커니즘:</b> 모든 권력은 부패하는가?</p>
+            <p><b>7. 권력의 변화:</b> 권력은 우리를 어떻게 바꾸는가?</p>
+            <p><b>8. 권력과 건강:</b> 지배력과 스트레스의 관계</p>
+            <p><b>9. 해결책 I:</b> 더 나은 사람을 끌어들이는 전략</p>
+            <p><b>10. 해결책 II:</b> 책임의 무게를 견디는 법</p>
+            <p><b>11. 해결책 III:</b> 감시받는 사람들</p>
+            <p><b>12. 결론:</b> 부패하지 않는 권력을 위하여</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: 서문</p>
+          <h2 class="slide-title">고장 난 세상을 수리하기 위한 안내서: <span class="highlight">두 개의 섬</span></h2>
+          <p class="slide-content">권력의 본질에 대한 질문은 두 개의 외딴섬 이야기에서 시작됩니다. 인간 본성은 시스템에 따라 어떻게 다르게 발현될까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Two Column Layout - Two Islands -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비컨 섬 vs 아타 섬: <span class="highlight">인간 본성 실험</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🏝️ 비컨 섬 (1629년)</h3>
+              <p class="mb-2">바타비아호 난파선 생존자들의 이야기. 약제사 코르넬리스는 위계질서를 이용해 권력을 장악하고, 생존을 위해 100명 이상을 학살하는 폭군이 됩니다.</p>
+              <p class="font-bold text-red-600">결과: <span class="highlight">권력, 위계, 착취, 비극</span></p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🏝️ 아타 섬 (1965년)</h3>
+              <p class="mb-2">기숙학교를 탈출한 여섯 소년들의 이야기. 15개월간 리더 없이 협업하고, 다친 친구를 돌보며 평등한 공동체를 유지하며 생존합니다.</p>
+              <p class="font-bold text-green-600">결과: <span class="highlight">평등, 협력, 우정, 생존</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: The Core Dilemma -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">권력은 부패하는가, <span class="highlight">부패한 자를 끌어당기는가?</span></h2>
+          <p class="slide-subtitle">스탠퍼드 감옥 실험은 권력이 평범한 사람을 악하게 만든다고 시사했습니다. 하지만 정말 그럴까요?</p>
+          <div class="slide-content">
+            <p>최근 연구는 스탠퍼드 감옥 실험의 <span class="highlight">모집 광고</span> 자체에 문제가 있었음을 밝혀냈습니다. '감옥 생활 연구'라는 문구는 공격성, 권위주의, 나르시시즘 성향이 높은 사람들을 끌어들였습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 새로운 가설</h3>
+              <p class="mt-2">권력이 선한 사람을 악하게 만드는 힘이 아니라, <span class="highlight">애초에 악한 사람을 끌어당기는 자석일지도 모릅니다.</span> 즉, 권력은 부패하는 것이 아니라, 부패를 끌어당깁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: 권력의 진화</p>
+          <h2 class="slide-title">평평하지 않은 세상의 시작 🌍</h2>
+          <p class="slide-content">인류는 역사의 99% 이상을 위계질서 없는 평등한 사회에서 살았습니다. 무엇이 모든 것을 바꾸었을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: From Egalitarian to Hierarchy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수렵채집민 사회의 <span class="highlight">평등주의</span></h2>
+          <p class="slide-subtitle">!쿵족과 같은 수렵채집 사회는 권력의 집중을 막기 위한 정교한 사회적 장치를 가지고 있었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🍖 '고기에 대한 모욕'</h3>
+              <p>사냥에 성공한 사냥꾼을 칭찬하는 대신, 사냥감이 보잘것없다고 깎아내려 겸손을 유지하게 합니다. 이는 특정 개인이 영웅이 되어 권력을 독점하는 것을 막는 장치입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🏹 화살촉 교환</h3>
+              <p>사냥의 공로가 사냥꾼이 아닌 '화살촉 주인'에게 돌아가도록 화살촉을 정기적으로 교환합니다. 성공과 실패의 부담을 공동체 전체가 나누게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: The Great Equalizer -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">변화의 시작: <span class="highlight">원거리 무기</span> 🎯</h2>
+          <p class="slide-subtitle">인류 어깨의 진화로 가능해진 '던지기' 능력은 사회 구조를 근본적으로 바꾸었습니다.</p>
+          <div class="slide-content">
+              <p>침팬지 사회에서는 가장 크고 힘센 개체가 지배합니다. 하지만 인류는 원거리 무기(창, 활)를 통해 신체적 약자가 강자를 제압할 수 있게 되었습니다. 이는 권력과 완력의 전통적인 연결고리를 끊는 <span class="highlight">'무자비한 균형 장치'</span>였습니다.</p>
+              <p class="mt-4">이로 인해 위계질서는 평평해졌고, 지배 대신 <span class="highlight">협력</span>이 생존에 더 중요해졌습니다. 이것이 침팬지와 인간의 길을 가른 결정적 차이입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Agriculture and War -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">농업과 전쟁: <span class="highlight">위계의 재등장</span></h2>
+          <p class="slide-subtitle">약 1만 년 전, 두 가지 거대한 변화가 평평했던 세상을 다시 가파르게 만들었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🌾 농업 혁명</h3>
+              <p>잉여 생산물이 생겨나고, 이는 저장되고 불평등하게 분배될 수 있었습니다. 인구가 증가하고 사회가 더 커지고 복잡해지면서 위계질서가 필요해졌습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">⚔️ 전쟁의 규모 확대</h3>
+              <p>원거리 무기는 전쟁의 수학을 바꿨습니다. 더 많은 병사를 가진 집단이 기하급수적으로 유리해졌고, 이는 더 큰 집단을 형성하도록 압박했습니다. 큰 집단은 필연적으로 지휘관, 즉 <span class="highlight">권력자</span>를 필요로 했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3: 권력자 프로파일</p>
+          <h2 class="slide-title">누가 권력을 향해 <span class="highlight">뛰어드는가?</span></h2>
+          <p class="slide-content">권력은 아무나 추구하지 않습니다. 특정 성향을 가진 사람들이 권력에 더 강하게 이끌립니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 12: The Dark Triad -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어둠의 3요소: <span class="highlight">The Dark Triad</span> 😈</h2>
+          <p class="slide-subtitle">권력자를 이해하기 위해 알아야 할 세 가지 성격 특성입니다.</p>
+          <div class="slide-content space-y-3">
+            <p><b>1. 마키아벨리즘:</b> 목적을 위해 수단을 정당화하며, 타인을 조종하고 도덕적으로 무관심한 성향.</p>
+            <p><b>2. 나르시시즘:</b> 오만함, 자아도취, 과장, 타인의 인정을 갈구하는 성향.</p>
+            <p><b>3. 사이코패스 성향:</b> 공감 능력 결여, 충동성, 무분별함, 조작, 공격성.</p>
+            <p class="mt-4">이러한 특성을 가진 사람들은 권력을 획득하는 과정(면접, 경쟁)에서 오히려 유리할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Case Study - Steve Raucci -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">사례 연구: 스티브 라우치 💥</h2>
+            <p class="slide-subtitle">스키넥터디 교육구의 에너지 관리 담당자였던 그는 '어둠의 3요소'가 어떻게 작은 권력 속에서 파괴적으로 발현되는지 보여주는 극단적인 예시입니다.</p>
+            <div class="slide-content">
+                <ul class="list-disc list-inside space-y-2">
+                    <li>자신의 라이벌이었던 동료를 몰아내기 위해 에너지 사용량을 조작했습니다.</li>
+                    <li>자신에게 비판적인 사람들의 집에 폭발물을 설치하고 타이어를 찢는 등 위협을 가했습니다.</li>
+                    <li>자신을 '모두의 영웅'이라 칭하며 극심한 나르시시즘을 보였습니다.</li>
+                    <li>결국 그는 DNA 증거로 체포되어 최소 23년형을 선고받았습니다.</li>
+                </ul>
+                <p class="mt-4 font-bold">이는 <span class="highlight">작은 권력</span>이라도 잘못된 사람의 손에 들어가면 얼마나 위험할 수 있는지를 보여줍니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Corporate Psychopaths -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">양복 입은 뱀: <span class="highlight">기업의 사이코패스</span> 👔</h2>
+              <p class="slide-subtitle">사이코패스는 연쇄살인마뿐만 아니라 이사회실에도 존재합니다.</p>
+              <div class="slide-content">
+                  <p>연구에 따르면 일반 인구에서 사이코패스 성향을 가진 사람은 약 1%지만, 기업의 최고위 계층(CEO 등)에서는 그 비율이 <span class="highlight">4%에서 20%까지</span> 치솟습니다.</p>
+                  <p class="mt-4">이들은 공감 능력이 부족하여 냉정한 결정을 내리는 데 능숙하고, 피상적인 매력으로 면접을 통과하며, 자신의 이익을 위해 타인을 계산적으로 이용합니다. 이들은 종종 단기적으로는 성공한 리더처럼 보이지만, 장기적으로는 조직에 해를 끼칩니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 15: Self-Selection Problem -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">문제는 '지원자'다: <span class="highlight">자기 선택 편향</span></h2>
+              <p class="slide-subtitle">권력을 휘두르는 직업 자체가 특정 유형의 사람들을 끌어들입니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">👮‍♂️ 도라빌 경찰서의 홍보 영상</h3>
+                      <p>해골 로고, 중무장한 SWAT 팀, 전투적인 음악을 사용한 홍보 영상은 '공동체를 돕고 싶은' 사람보다 '점령군처럼 행동하고 싶은' 사람들에게 더 매력적입니다. 이는 경찰 조직에 부적합한 인물을 유인하는 결과를 낳습니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">🏡 HOA(주택소유자협회)의 폭군</h3>
+                      <p>대부분의 주민은 참여를 꺼리지만, 통제광이나 권력욕이 강한 소수의 사람이 자원하여 이웃의 삶을 통제하는 '이웃집 독재자'가 됩니다. 경쟁이 없기에 최악의 인물이 권력을 잡기 쉽습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 16: Solution Example - NZ Police -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">해결책 예시: <span class="highlight">뉴질랜드 경찰</span> 🥝</h2>
+          <p class="slide-subtitle">뉴질랜드 경찰은 채용 전략을 바꿔 지원자 풀을 성공적으로 개선했습니다.</p>
+          <div class="slide-content">
+              <p>기존의 공격적인 이미지를 버리고, 유머러스하고 인간적인 면모를 강조하는 홍보 영상을 제작했습니다. '경찰이 될 만큼 충분한 관심이 있나요?'라는 캠페인은 지역 사회를 돕고 공감 능력이 있는 사람들을 목표로 했습니다.</p>
+              <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">📈 결과</h3>
+                <p class="mt-2">전체 지원자 24% 증가, <span class="highlight">여성 지원자 29% 증가, 마오리족 지원자 32% 증가.</span> 조직의 이미지를 바꾸는 것만으로도 권력을 추구하는 사람들의 유형을 바꿀 수 있음을 보여주었습니다.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 리더 선택의 오류</p>
+          <h2 class="slide-title">지도자 선택에서 발생하는 오류 🧠</h2>
+          <p class="slide-content">우리의 '석기 시대 뇌'는 현대 사회의 리더를 선택하는 데 있어 여러 인지적 편향을 보입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 18: Cognitive Biases -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">우리가 빠지는 <span class="highlight">인지적 함정</span></h2>
+              <p class="slide-subtitle">우리는 무의식적으로 리더의 자질과 무관한 특성들에 근거해 판단합니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">📏 키 (Height)</h3>
+                      <p>미국 대통령들은 대부분 당대의 평균 신장보다 컸습니다. 실험 결과, 사람들은 단순히 키가 큰 남성을 더 리더답다고 인식하는 경향이 있습니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">♂️ 성별 (Gender)</h3>
+                      <p>특히 위기 상황에서 사람들은 더 남성적인 얼굴을 가진 리더를 선호하는 경향이 있습니다. 이는 보호와 힘을 중시했던 원시 시대의 '사바나 가설'로 설명됩니다.</p>
+                  </div>
+                   <div>
+                      <h3 class="font-bold text-lg">👀 외모 (Appearance)</h3>
+                      <p>스위스의 한 연구에서 아이들에게 두 정치인의 사진을 보여주고 '누가 배의 선장처럼 보이는지' 묻자, 아이들은 71%의 확률로 실제 선거 승자를 선택했습니다. 이는 우리가 매우 피상적인 단서로 리더십을 판단함을 보여줍니다.</p>
+                  </div>
+                   <div>
+                      <h3 class="font-bold text-lg">😎 자신감 (Overconfidence)</h3>
+                      <p>실제 능력과 무관하게, 자신감을 강하게 드러내는 사람이 더 유능하다고 인식됩니다. 무능하지만 자만하는 사람이 조용하고 유능한 사람보다 리더로 선택될 가능성이 높습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 19: 'Rent-a-Foreigner' -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: 중국의 <span class="highlight">'백인 대여'</span> 산업</h2>
+          <p class="slide-subtitle">이는 외모가 실체보다 중요하게 여겨지는 현상의 극단적인 예입니다.</p>
+          <div class="slide-content">
+            <p>중국의 일부 기업들은 사업가처럼 보이는 백인 남성(실제로는 아무 관련 없는)을 고용하여 개업식이나 회의에 참석시킵니다. 이들의 역할은 단지 '서구 기업과 관련이 있는 것처럼 보이는 것'입니다.</p>
+            <p class="mt-4 quote-block">목슬리의 사례: 존재하지 않는 캘리포니아 회사 'DOLOE & GOB8ANA'의 임원 행세를 하며 공장 개업식에 참석. 시장까지 참석한 이 행사에서 그는 단지 <span class="highlight">백인 남성이라는 이유만으로</span> 신뢰성을 부여하는 역할을 했습니다.</p>
+            <p class="mt-4">이는 우리가 리더나 전문가를 판단할 때 얼마나 쉽게 피상적인 신호에 속아 넘어가는지를 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5: 시스템의 영향</p>
+          <h2 class="slide-title">나쁜 시스템의 <span class="highlight">부산물</span></h2>
+          <p class="slide-content">때로는 개인이 악해서가 아니라, 그들이 속한 시스템이 악한 행동을 유도하거나 묵인합니다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 21: Rice Theory -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쌀 이론 (Rice Theory) 🍚 vs 🌾</h2>
+          <p class="slide-subtitle">조상들의 농경 방식이 후손들의 사고방식과 행동에 어떻게 영향을 미치는가?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">벼농사 문화 (남중국)</h3>
+              <p>협동이 필수적인 벼농사는 공동체주의적, 전체론적 사고방식을 형성했습니다. 스타벅스 실험에서 이 지역 사람들은 친구와 함께 앉고, 통로의 의자를 치우지 않는 경향을 보였습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">밀농사 문화 (북중국)</h3>
+              <p>독립적으로 가능한 밀농사는 개인주의적, 분석적 사고방식을 형성했습니다. 이 지역 사람들은 혼자 앉고, 의자를 제자리에 두는 등 더 '미국인'처럼 행동했습니다.</p>
+            </div>
+          </div>
+           <p class="slide-content mt-6 font-bold">이는 눈에 보이지 않는 <span class="highlight">문화적, 시스템적 힘</span>이 우리의 사소한 행동까지도 규정한다는 것을 보여줍니다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 22: Diplomat Parking Tickets -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">UN 외교관과 주차위반 딱지 🚗</h2>
+          <p class="slide-subtitle">뉴욕시 외교관들의 주차위반 기록은 '부패 문화'가 개인의 행동에 미치는 영향을 명확히 보여줍니다.</p>
+          <div class="slide-content">
+              <p>외교관 면책특권이 있던 시절, 쿠웨이트 외교관은 1인당 평균 249건의 미납 딱지를 기록한 반면, 노르웨이, 스웨덴, 일본 외교관은 단 한 건도 없었습니다. 이는 출신 국가의 <span class="highlight">부패 수준</span>과 강한 상관관계를 보였습니다.</p>
+              <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">시스템의 변화</h3>
+                <p class="mt-2">뉴욕시가 '삼진아웃' 제도를 도입해 처벌을 강화하자, 부패 국가 출신 외교관들의 위반 건수도 <span class="highlight">하루아침에 90% 이상 급감</span>했습니다. 사람은 그대로지만, 시스템이 바뀌자 행동이 바뀐 것입니다.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Case Study - King Leopold II -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">한 사람, 두 시스템: <span class="highlight">레오폴드 2세</span></h2>
+            <p class="slide-subtitle">한 사람이 서로 다른 시스템 하에서 어떻게 극단적으로 다른 행동을 보이는가.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">🇧🇪 벨기에 국왕</h3>
+                    <p>벨기에 내에서는 노동권을 개선하고 공공사업을 펼친 '건축왕'으로 불리는 등 개혁 군주로 평가받았습니다. 그는 책임과 감시가 있는 시스템 안에서 행동했습니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">🇨🇩 콩고 자유국 소유주</h3>
+                    <p>그의 '사유지'였던 콩고에서는 고무 채취 할당량을 채우기 위해 수백만 명을 학살하고 손목을 자르는 등 인류 역사상 최악의 잔학 행위를 저질렀습니다. 그곳에는 그를 막을 시스템이 없었습니다.</p>
+                </div>
+            </div>
+            <p class="slide-content mt-6 font-bold">이는 <span class="highlight">개인의 도덕성보다 시스템의 통제와 책임</span>이 부패를 막는 데 얼마나 중요한지를 보여주는 끔찍한 증거입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 24: Section 6 Title -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Part 6: 부패의 메커니즘</p>
+              <h2 class="slide-title">"모든 권력은 <span class="highlight">부패하는 경향이 있다"</span></h2>
+              <p class="slide-content">액턴 경의 유명한 격언은 사실일까요? 권력은 실제로 우리를 어떻게 변화시킬까요?</p>
+          </div>
+      </div>
+
+      <!-- Slide 25: The Four Distortions -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">권력 평가를 왜곡하는 <span class="highlight">네 가지 현상</span></h2>
+              <p class="slide-subtitle">권력이 실제보다 더 부패시키는 것처럼 보이는 이유들입니다.</p>
+              <div class="slide-content space-y-3">
+                  <p><b>1. 더러운 손 (Dirty Hands):</b> 리더는 때로 더 큰 선을 위해 도덕적으로 타협하는(예: 처칠, 링컨) '차악'을 선택해야만 하는 상황에 놓입니다. 이는 부패가 아니라 어려운 선택입니다.</p>
+                  <p><b>2. 나쁜 짓 학습 (Learning to Be Bad):</b> 권력자는 시간이 지나며 악행을 더 '효과적으로' 저지르는 법을 배웁니다. 원래 부패했지만, 기술이 늘어난 것일 수 있습니다 (예: 선거 조작 기술의 발전).</p>
+                  <p><b>3. 기회의 증가 (More Opportunities):</b> 권력자는 단순히 나쁜 짓을 할 기회가 더 많습니다. 메모리얼 병원의 의사 애나 푸는 의사였기에 환자의 생사를 결정할 끔찍한 선택에 직면했습니다.</p>
+                  <p><b>4. 현미경 아래 (Under the Microscope):</b> 권력자는 더 많은 감시를 받기 때문에 그들의 잘못이 더 쉽게 드러납니다. 버나드 메이도프의 사기는 수십 년간 지속되었지만, 결국 권력의 정점에 있었기에 발각되었습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 26: Section 7 Title -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Part 7: 권력의 변화</p>
+              <h2 class="slide-title">권력은 우리를 어떻게 <span class="highlight">바꾸는가</span></h2>
+              <p class="slide-content">권력은 뇌의 화학 작용을 변화시켜 우리의 생각과 행동 방식에 직접적인 영향을 미칩니다.</p>
+          </div>
+      </div>
+
+      <!-- Slide 27: The Power Paradox -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">켈트너의 <span class="highlight">'권력의 역설'</span></h2>
+              <p class="slide-subtitle">우리는 가장 선한 특성(공감, 협력, 이타심) 덕분에 권력을 얻지만, 권력을 얻는 순간 바로 그 특성들을 잃기 시작합니다.</p>
+              <div class="slide-content">
+                  <p>권력은 마치 '공감 스위치'를 끄는 것과 같습니다. 권력을 가진 사람들은:</p>
+                  <ul class="list-disc list-inside space-y-2 mt-4">
+                      <li>타인의 감정을 읽는 능력이 저하됩니다.</li>
+                      <li>더 이기적으로 행동하고(독재자 게임), 규칙을 어깁니다(비싼 차 실험).</li>
+                      <li>더 많은 위험을 감수하고(블랙잭 실험), 자신을 과대평가합니다.</li>
+                      <li>자신이 모든 것을 통제할 수 있다는 '환상 통제'에 빠지기 쉽습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 28: Case Study: Ma Anand Sheela -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: 마 아난드 실라 ☣️</h2>
+          <p class="slide-subtitle">오쇼 컬트의 2인자였던 그녀의 이야기는 권력이 어떻게 평범한 미술 학도를 미국 역사상 최악의 생물테러리스트로 만들었는지 보여줍니다.</p>
+          <div class="slide-content">
+            <p>처음에는 이상적인 공동체를 꿈꿨지만, 권력을 잡으면서 점차 편집증적이고 무자비해졌습니다. 지역 선거를 조작하기 위해, 그녀는 샐러드 바에 살모넬라균을 뿌려 750명 이상을 감염시켰습니다.</p>
+            <p class="mt-4 font-bold">그녀의 변명: "제 권력은 바그완에 대한 사랑의 힘이었습니다. 제 권력은 부패하지 않았습니다."</p>
+            <p class="mt-2">이는 권력이 어떻게 자기 합리화와 도덕적 분리를 초래하는지 보여주는 극단적 사례입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Section 8 Title -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Part 8: 권력과 건강</p>
+              <h2 class="slide-title">권력이 건강에 미치는 영향 ❤️‍🩹</h2>
+              <p class="slide-content">지위와 통제력은 우리의 생물학적 나이와 수명에 직접적인 영향을 줍니다.</p>
+          </div>
+      </div>
+
+      <!-- Slide 30: The Status Syndrome -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">마이클 마멋의 <span class="highlight">'지위 신드롬'</span></h2>
+              <p class="slide-subtitle">영국 공무원을 대상으로 한 화이트홀 연구는 사회적 지위와 건강 사이의 명확한 연관성을 보여주었습니다.</p>
+              <div class="slide-content">
+                  <p>핵심은 스트레스가 아니라 <span class="highlight">'통제력'</span>입니다. 높은 지위의 사람은 스트레스가 많더라도 자신의 삶에 대한 통제력이 높기 때문에 건강합니다. 반면, 낮은 지위의 사람은 요구는 많고 통제력은 적어 만성적인 생리학적 스트레스에 시달립니다.</p>
+                  <p class="mt-4 font-bold">결론: 낮은 지위에 있는 사람이 높은 지위의 사람보다 사망률이 3배 높습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 31: Baboon Studies -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">개코원숭이와 CEO의 공통점 🐒</h2>
+              <p class="slide-subtitle">동물 연구는 권력과 스트레스의 복잡한 관계를 보여줍니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">알파메일의 스트레스</h3>
+                      <p>안정적인 위계에서는 알파메일의 스트레스가 낮지만, 위계가 불안정하고 도전자가 많을 때는 극심한 스트레스를 받습니다. 이는 불안정한 권력이 건강에 해로울 수 있음을 시사합니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">CEO의 노화</h3>
+                      <p>기업 위기(예: 금융 위기)를 겪은 CEO들은 그렇지 않은 CEO들보다 평균적으로 1년 이상 더 빨리 늙는다는 연구 결과가 있습니다. 지위가 높더라도 통제 불가능한 스트레스는 건강에 치명적입니다.</p>
+                  </div>
+              </div>
+              <p class="slide-content mt-6 font-bold">결론적으로, <span class="highlight">안정적이고 통제 가능한 권력</span>은 건강에 좋지만, 불안정하고 도전받는 권력은 건강을 해칩니다.</p>
+          </div>
+      </div>
+
+      <!-- Slide 32: Section 9 Title -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 9: 해결책 I</p>
+            <h2 class="slide-title">더 나은 사람을 끌어들이는 <span class="highlight">전략</span></h2>
+            <p class="slide-content">시스템을 바꿔 권력을 원하는 사람들의 유형을 바꿀 수 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 33: Solution 1 - Widen the Pool -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">과제 1: 지원자 풀을 <span class="highlight">늘리고</span>, 선별 과정을 <span class="highlight">강화하라</span></h2>
+              <p class="slide-subtitle">최고의 인재를 원한다면, 더 많은 선택지를 만들어야 합니다.</p>
+              <div class="slide-content">
+                  <ul class="list-disc list-inside space-y-2">
+                      <li><b>심화 (Deepening):</b> 기존 지원자 풀 내에서 더 많은 사람을 유치합니다.</li>
+                      <li><b>확장 (Broadening):</b> 이전에는 지원하지 않았던 새로운 유형의 사람들을 유치합니다 (예: 여성, 소수자). 인도의 롤 모델 효과 연구는 여성 지도자가 배출된 마을의 소녀들이 더 큰 야망을 갖게 됨을 보여주었습니다.</li>
+                      <li><b>'쿼티 오류' 탈피:</b> 기존의 채용 방식을 맹목적으로 따르지 말고, 조직에 정말 필요한 자질이 무엇인지 고민해야 합니다. 카네기멜론 컴퓨터공학과의 성공 사례는 교육 과정을 바꿔 여성 비율을 7%에서 42%로 끌어올렸습니다.</li>
+                      <li><b>더 나은 선별:</b> 채용 과정에서 '어둠의 3요소'를 걸러내기 위한 심리 검사 등을 도입하는 것을 고려해야 합니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 34: Section 10 Title -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 10: 해결책 II</p>
+            <h2 class="slide-title">책임의 무게를 <span class="highlight">견디는 법</span></h2>
+            <p class="slide-content">권력자에게 그들의 결정이 미치는 인간적인 영향을 끊임없이 상기시켜야 합니다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 35: Solution 2 - Accountability -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">과제 5 & 6: 책임감을 <span class="highlight">상기시키고</span>, 사람을 <span class="highlight">추상화하지 마라</span></h2>
+              <p class="slide-subtitle">심리적 거리감을 줄여 더 인간적인 결정을 내리도록 유도합니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">📜 최후 수단의 편지 (Letters of Last Resort)</h3>
+                      <p>영국 총리는 취임 첫날, 핵 공격 시 보복 여부를 결정하는 편지를 작성합니다. 이는 권력의 엄청난 무게와 책임을 즉시 실감하게 만드는 장치입니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">👥 켄 파인버그의 교훈</h3>
+                      <p>9/11 피해자 보상 기금을 관리한 그는 숫자로만 희생자를 다루지 않고, 850명의 유족을 직접 만나 그들의 이야기를 들었습니다. 이는 그가 더 공감하고 인간적인 결정을 내리는 데 결정적인 역할을 했습니다.</p>
+                  </div>
+              </div>
+               <p class="slide-content mt-6 font-bold">결론: 권력자가 자신의 결정으로 영향을 받는 사람들을 직접 마주하게 만들면, <span class="highlight">비인간화</span>를 막고 더 책임감 있는 행동을 유도할 수 있습니다.</p>
+          </div>
+      </div>
+
+      <!-- Slide 36: Section 11 Title -->
+       <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 11: 해결책 III</p>
+            <h2 class="slide-title">감시받는 <span class="highlight">사람들</span></h2>
+            <p class="slide-content">권력 남용을 막기 위한 가장 효과적인 방법은 감시의 초점을 바꾸는 것입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 37: The Inverted Panopticon -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">과제 7 & 8: 역파놉티콘 - <span class="highlight">지배자를 감시하라</span></h2>
+              <p class="slide-subtitle">벤담의 파놉티콘은 소수가 다수를 감시하는 시스템입니다. 우리는 그 반대가 필요합니다.</p>
+              <div class="slide-content">
+                  <p>현대의 감시 기술은 대부분 직장 내 평범한 직원들이나 사회의 일반 시민들을 향해 있습니다. 하지만 진짜 큰 피해를 야기하는 것은 CEO, 정치인, 고위 공직자 등 <span class="highlight">권력자들의 잘못된 결정</span>입니다.</p>
+                   <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-lg">💡 해결책: 감시의 역전</h3>
+                      <p class="mt-2">감시의 초점을 권력의 상층부로 옮겨야 합니다. 언론인 아나스 아레메야우 아나스처럼 권력의 부패를 폭로하는 '잠입 저널리즘'이나, 인도의 '뇌물을 주었다' 웹사이트처럼 시민들이 부패를 고발하는 플랫폼은 권력자들에게 <span class="highlight">'언제나 지켜보고 있다'</span>는 감각을 심어줍니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 38: Random Audits -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">과제 9: 무작위성을 활용해 <span class="highlight">억지력을 높인다</span></h2>
+              <p class="slide-subtitle">언제 어디서 감시당할지 모른다는 불확실성은 부패를 효과적으로 억제합니다.</p>
+              <div class="slide-content">
+                  <p>뉴욕 경찰국(NYPD)의 무작위 청렴성 시험이 좋은 예입니다. 부패 경찰은 자신이 언제 함정 수사에 걸릴지 모르기 때문에 부패 행위를 저지를 가능성이 줄어듭니다. 중요한 것은 실제 감시의 횟수가 아니라, <span class="highlight">감시받을 수 있다는 '가능성'</span> 그 자체입니다.</p>
+                  <p class="mt-4">이는 선거 감시 등 다른 분야에도 적용될 수 있습니다. 모든 투표소를 감시할 수 없다면, 일부 투표소를 <span class="highlight">무작위로</span> 선택하여 집중적으로 감시함으로써 부정행위의 예측 가능성을 낮출 수 있습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+       <!-- Slide 39: Final Section -->
+      <div class="slide">
+        <div class="slide-container">
+            <p class="slide-part-title">Part 12: 결론</p>
+            <h2 class="slide-title">부패하지 않는 권력을 <span class="highlight">설계하기 위하여</span></h2>
+            <p class="slide-content">권력은 최악의 사람들을 끌어당기고, 가장 선한 사람들까지 부패시킬 수 있습니다. 하지만 우리는 더 나은 시스템을 만들 수 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 40: Cincinnatus -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">과제 10: '원칙을 지키는 구원자'를 <span class="highlight">기다리지 말고, 직접 만들어라</span></h2>
+              <p class="slide-subtitle">로마의 독재관 신시내투스는 위기 상황에서 권력을 잡고, 임무를 완수한 뒤 미련 없이 밭으로 돌아간 이상적인 리더의 표상입니다.</p>
+              <div class="slide-content">
+                  <p>우리는 조지 워싱턴과 같은 '현대의 신시내투스'가 나타나 우리를 구원해주길 기다려서는 안 됩니다. 시스템 자체가 부패한 사람들을 권력으로 끌어당기고 있기 때문입니다.</p>
+                  <p class="mt-4 font-bold">기다리는 대신, 더 많은 평범한 사람들이 신시내투스처럼 <span class="highlight">'처신'</span>해야 합니다. 권력을 추구하기보다는, 권력의 부름에 답할 수 있는 시스템을 만들어야 합니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 41: Summary of Solutions -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">요약: 더 나은 권력을 위한 <span class="highlight">10가지 과제</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+            <p>1. 지원자 풀을 늘릴 것</p>
+            <p>2. 선별 과정을 강화할 것</p>
+            <p>3. 무작위 선출을 활용할 것</p>
+            <p>4. 감독 기관을 구성할 것</p>
+            <p>5. 책임감을 상기시킬 것</p>
+            <p>6. 사람을 추상화하지 말 것</p>
+            <p>7. '언제나 지켜본다'는 감각을 줄 것</p>
+            <p>8. 감독의 초점을 지배자에게 맞출 것</p>
+            <p>9. 무작위성으로 억지력을 높일 것</p>
+            <p>10. '구원자'를 직접 만들 것</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 42: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">:dart:</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">권력은 부패하는 경향이 있지만, 그것은 불가항력이 아닙니다. 문제는 개인이 아니라 <span class="highlight">시스템</span>입니다. 우리는 더 나은 사람들을 권력으로 이끌고, 권력자들이 선하게 행동하도록 유도하는 더 나은 시스템을 설계할 수 있고, 또 그렇게 해야만 합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">우리의 목표는 완벽한 리더를 찾는 것이 아니라, 불완전한 인간이 다스리더라도 제대로 작동하는 시스템을 만드는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">:clap:</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+      <!-- ADDING MORE SLIDES TO REACH 50+ -->
+
+      <!-- Slide 44: More on Psychopathy -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">사이코패스의 공감 능력: <span class="highlight">켜고 끄는 스위치</span></h2>
+              <p class="slide-subtitle">사이코패스는 공감 능력이 없는 것이 아니라, 필요할 때만 의식적으로 '사용'합니다.</p>
+              <div class="slide-content">
+                  <p>뇌 스캔 연구에 따르면, 사이코패스는 보통 타인의 고통에 반응하지 않지만, "공감해보라"고 요청받으면 일반인과 유사한 뇌 활동을 보입니다.</p>
+                  <p class="mt-4">이것은 그들이 타인의 감정을 이해하고 예측하여 조종하는 데 매우 능숙한 이유를 설명합니다. 그들은 공감을 <span class="highlight">느끼는</span> 것이 아니라, 전략적으로 <span class="highlight">활용하는</span> 도구로 사용합니다. 이는 마치 포식자가 먹잇감의 행동을 예측하는 것과 같습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 45: More on Systems -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기본적 귀인 오류 (Fundamental Attribution Error)</h2>
+          <p class="slide-subtitle">우리는 타인의 행동을 평가할 때 <span class="highlight">상황(시스템)</span>은 과소평가하고 <span class="highlight">성격(개인)</span>은 과대평가하는 경향이 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">타인의 실수</h3>
+              <p>"저 사람은 원래 무례하고 이기적인 사람이야."</p>
+              <p class="text-sm">(예: 다른 차가 끼어들었을 때)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">나의 실수</h3>
+              <p>"어쩔 수 없는 상황이었어. 너무 바빴고, 길이 막혔어."</p>
+               <p class="text-sm">(예: 내가 다른 차 앞으로 끼어들었을 때)</p>
+            </div>
+          </div>
+          <p class="slide-content mt-6">이러한 오류 때문에 우리는 권력자의 악행을 시스템의 문제로 보지 않고, 단지 '그 사람이 나쁜 사람이라서'라고 결론 내리기 쉽습니다. 이는 근본적인 문제 해결을 어렵게 만듭니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 46: More on Selection -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">권력에 대한 갈망의 유전학 🧬</h2>
+              <p class="slide-subtitle">리더가 되려는 성향은 어느 정도 유전될까요?</p>
+              <div class="slide-content">
+                  <p>미네소타 쌍둥이 연구에 따르면, 지도자 역할을 맡을 가능성의 약 <span class="highlight">30%</span>가 유전적 요인으로 설명됩니다. 이는 특정 유전자('리더십 유전자' rs4950)가 야망, 외향성 등 리더십과 관련된 특성에 영향을 미칠 수 있음을 시사합니다.</p>
+                  <p class="mt-4">그러나 이는 결정론이 아닙니다. 유전자는 가능성을 제시할 뿐, 환경, 교육, 문화, 그리고 <span class="highlight">개인의 선택</span>이 훨씬 더 큰 역할을 합니다. 보카사 황제의 딸 마리 프랑스가 아버지의 폭력적인 성향 일부를 물려받았다고 고백했지만, 그녀는 폭군이 되지 않았습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 47: More on Power's Effects -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쿠키 몬스터 실험 🍪</h2>
+          <p class="slide-subtitle">사소한 권력조차 우리의 행동을 어떻게 바꾸는가?</p>
+          <div class="slide-content">
+            <p>세 명으로 구성된 그룹에게 과제를 주고, 한 명을 무작위로 '리더'로 지정했습니다. 잠시 후 쿠키 네 개가 담긴 접시가 들어왔습니다.</p>
+            <p class="mt-4 font-bold text-xl text-center">결과는 어땠을까요?</p>
+            <p class="mt-4">거의 모든 경우에, 임시로 권력을 부여받은 '리더'가 <span class="highlight">마지막 네 번째 쿠키</span>를 가져가, 입을 벌리고 먹으며 부스러기를 흘리는 등 무례한 행동을 보였습니다. 이는 아주 작은 권력이라도 우리를 더 이기적이고 타인의 시선을 의식하지 않게 만든다는 것을 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 48: More on Solutions - Kleroterion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고대 아테네의 지혜: <span class="highlight">클레로테리온</span></h2>
+          <p class="slide-subtitle">제비뽑기(Sortition)는 부패를 막고 시민의 참여를 유도하는 강력한 도구였습니다.</p>
+          <div class="slide-content">
+            <p>고대 아테네에서는 많은 공직자를 선거가 아닌 제비뽑기로 선출했습니다. 이는 특정 엘리트나 부유층이 권력을 독점하는 것을 막고, 야심가들이 권력을 추구하는 것을 억제했습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">현대적 적용</h3>
+                <p class="mt-2">오늘날 '시민 의회'나 '그림자 이사회'와 같이 무작위로 선출된 일반 시민들이 정책 결정에 참여하거나 기업을 감시하는 제도를 도입할 수 있습니다. 이는 <span class="highlight">권력을 원하지 않는 사람들</span>의 지혜를 활용하는 방법입니다.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: More on health -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">친구의 역할: <span class="highlight">사회적 네트워크와 면역력</span></h2>
+          <p class="slide-subtitle">권력 부족으로 인한 건강 악화를 막아주는 강력한 방패는 바로 '친구'입니다.</p>
+          <div class="slide-content">
+            <p>감기 바이러스 실험: 사회적 관계가 다양한 사람일수록(사교성 점수가 높은 사람), 감기 바이러스에 노출되었을 때 실제 감기에 걸릴 확률이 <span class="highlight">3배나 낮았습니다.</span></p>
+            <p class="mt-4">개코원숭이 연구: 낮은 서열의 원숭이는 면역력이 약화되지만, 다른 원숭이들과 그루밍(털 고르기)을 자주 하는 개체는 면역 체계의 회복력이 더 강했습니다.</p>
+            <p class="mt-4 font-bold">이는 사회적 지지가 스트레스의 부정적인 생물학적 효과를 완화시켜준다는 것을 의미합니다. 권력이 부족하더라도, 강력한 사회적 연결망이 있다면 건강을 지킬 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 50: The Peter Principle -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">피터의 원리 (Peter Principle) 📈</h2>
+          <p class="slide-subtitle">"모든 직원은 자신의 무능력 수준까지 승진하는 경향이 있다."</p>
+          <div class="slide-content">
+            <p>사람들은 자신의 현재 직책에서 능력을 인정받아 승진하지만, 결국 자신의 능력이 더 이상 통하지 않는 직책에 도달하면 그 자리에 머물게 됩니다. </p>
+            <p class="mt-4">이 '피터의 정체기'에 도달한 사람은 성과를 내지 못해 좌절하고, 승진이라는 동기를 잃게 됩니다. 이 상태는 부패의 유혹에 더 취약해질 수 있는 위험한 조합입니다.</p>
+            <p class="mt-4 font-bold"><span class="highlight">해결책: 순환 근무.</span> 한 자리에 너무 오래 머물지 않도록 사람들을 순환시키는 것은 피터의 원리와 부패의 위험을 동시에 줄일 수 있는 효과적인 전략입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 51: Final Thought -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">💡</div>
+            <h2 class="slide-title">권력은 <span class="highlight">도구</span>다</h2>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="text-xl">권력 자체는 선하지도 악하지도 않습니다. 그것은 세상을 더 나은 곳으로 만들 수도, 파괴할 수도 있는 강력한 도구일 뿐입니다.</p>
+                <p class="mt-6 text-xl">중요한 것은 누가 그 도구를 쥐고, 우리가 그 도구가 어떻게 사용되는지 감시하는 시스템을 어떻게 설계하느냐입니다.</p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 52: Another Case Study -->
+       <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">권력의 신호: <span class="highlight">자동차와 규칙 위반</span></h2>
+            <p class="slide-subtitle">켈트너의 또 다른 연구는 부와 지위가 사소한 규칙 위반에 미치는 영향을 보여줍니다.</p>
+            <div class="slide-content">
+                <p>횡단보도 실험: 연구 결과, 비싼 차(벤츠, BMW 등) 운전자가 값싼 차 운전자에 비해 보행자를 위해 멈추지 않고 지나갈 확률이 <span class="highlight">훨씬 높았습니다.</span> 특히 토요타 프리우스 운전자들이 가장 비양심적인 것으로 나타났습니다.</p>
+                <p class="mt-4">4방향 정지 교차로 실험에서도 비싼 차 운전자가 다른 차의 순서를 무시하고 먼저 지나가는 경우가 더 많았습니다.</p>
+                <p class="mt-4 font-bold">이는 부와 권력이 사람들에게 '규칙이 나에게는 적용되지 않는다'는 생각을 심어줄 수 있음을 시사합니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 53: More on Solutions -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">결과가 아닌 <span class="highlight">과정을 평가하라</span></h2>
+            <p class="slide-subtitle">운 좋은 나쁜 리더와 운 없는 좋은 리더를 구별하는 법.</p>
+            <div class="slide-content">
+                <p>미네소타 트윈스 감독 톰 켈리의 사례: 그는 2년 연속 최하위 성적을 냈지만, 구단주는 그의 '과정'을 믿고 유임시켰습니다. 그는 팀을 재편하는 중이었고, 적은 예산으로 최선을 다하고 있었습니다. 결과는? 바로 다음 해 월드 시리즈 우승.</p>
+                <p class="mt-4">무솔리니의 사례: '기차를 정시에 운행하게 했다'는 신화는 사실이 아닙니다. 철도 개혁은 그가 집권하기 전에 시작되었습니다. 그는 단지 좋은 결과를 자신의 공으로 돌렸을 뿐입니다.</p>
+                <p class="mt-4 font-bold">단순히 성공이나 실패라는 <span class="highlight">결과</span>만 보지 말고, 그 결정이 내려진 <span class="highlight">맥락과 과정</span>을 면밀히 살펴봐야만 리더를 제대로 평가할 수 있습니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 54 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-7xl mb-8">🧐</div>
+            <h2 class="slide-title">우리 자신을 돌아보기</h2>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="text-xl">우리는 권력자를 비판하지만, 동시에 우리 안에도 권력에 취약하고, 피상적인 것에 끌리며, 상황에 따라 행동이 변하는 모습이 있습니다.</p>
+                <p class="mt-6 text-xl">더 나은 시스템을 만드는 것은 단지 '그들'을 위한 것이 아니라, 우리 모두의 더 나은 본성을 이끌어내기 위한 '우리'를 위한 일이기도 합니다.</p>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
