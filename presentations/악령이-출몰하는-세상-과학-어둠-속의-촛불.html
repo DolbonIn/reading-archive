@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation: The Demon-Haunted World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f0f4f8; /* A slightly softer background */
+      background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 50px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #3B82F6; /* Blue for section titles */
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #1F2937;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #4B5563;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #374151;
+    }
+    .highlight {
+      background-color: #e0f2fe;
+      color: #0c4a6e;
+      font-weight: bold;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #2563EB;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #1D4ED8;
+    }
+    .btn-secondary {
+      background-color: #F3F4F6;
+      color: #374151;
+      border-color: #D1D5DB;
+    }
+    .btn-secondary:hover {
+      background-color: #E5E7EB;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #E5E7EB;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #E5E7EB;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #2563EB;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+      list-style-position: inside;
+      padding-left: 1.5rem; /* Indent list */
+    }
+    li {
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🕯️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">악령이 출몰하는 세상</h1>
+          <p class="text-xl md:text-2xl text-gray-700">어둠 속의 촛불, <span class="highlight">과학</span></p>
+          <p class="mt-4 text-lg text-gray-600">A Presentation on Carl Sagan's Book</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>서론:</b> 나의 스승들 - 과학적 사고의 기원</p>
+            <p><b>1장:</b> 가장 소중한 것 - 과학 vs. 유사 과학</p>
+            <p><b>2장:</b> 과학과 희망 - 어둠을 밝히는 방법</p>
+            <p><b>3장:</b> 달의 남자, 화성의 얼굴 - 패턴 인식의 함정</p>
+            <p><b>4장:</b> 외계인 - UFO와 납치 신화</p>
+            <p><b>6장:</b> 환각 - 마음이 만들어내는 현실</p>
+            <p><b>7장:</b> 악령의 출몰 - 미신의 역사</p>
+            <p><b>결론:</b> 과학이라는 촛불의 소중함</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">서론: 나의 스승들</p>
+          <h2 class="slide-title">과학적 사고의 <span class="highlight">씨앗</span> 🌱</h2>
+          <p class="slide-content">이 프레젠테이션은 칼 세이건의 어린 시절 경험을 통해 그가 어떻게 과학적 사고의 두 기둥인 '경이감'과 '의심'을 배우게 되었는지 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어린 시절의 경험 👦</h2>
+          <p class="slide-subtitle">1939년, 작가는 어린 시절의 작은 사건들을 통해 세상을 배우기 시작했습니다.</p>
+          <div class="slide-content">
+            <p>유리창을 깨뜨린 싸움과 그로 인한 상처는 그에게 '꿰매는' 일의 전문가였던 아버지의 직업을 상기시켰습니다. 아버지는 옷감 재단사였습니다.</p>
+            <p class="mt-4">이 경험은 예상치 못한 감정의 폭발이었지만, 누구도 그를 꾸짖지 않았습니다. 오히려 이 사건 이후 주변 아이들은 그에게 더 친절해졌습니다.</p>
+            <p class="mt-4 font-bold">이러한 경험들은 작가에게 <span class="highlight">원인과 결과</span>, 그리고 인간 행동의 복잡성에 대한 첫 번째 교훈을 주었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보이지 않는 세계 🌊</h2>
+          <p class="slide-subtitle">어머니와의 대화는 눈에 보이는 것과 보이지 않는 진실 사이의 차이를 가르쳐 주었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">어머니의 말씀</h3>
+              <p>"저 바다 너머에서는 사람들이 싸우고 서로 죽이고 있단다." 어머니는 보이지 않는 전쟁에 대해 말했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">상상과 현실</h3>
+              <p>작가는 그것이 보인다고 대답했지만, 어머니는 "너무 멀어서 보이지 않는다"고 잘라 말했습니다. 이 대화는 <span class="highlight">상상과 실제 증거</span>를 어떻게 구분할 수 있는지에 대한 중요한 질문을 던졌습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">숫자와 우주 🌌</h2>
+          <p class="slide-subtitle">아버지와의 숫자 공부는 무한한 세계에 대한 경이감을 심어주었습니다.</p>
+          <div class="slide-content">
+            <p>아버지는 '0'의 개념과 수에는 상한이 없다는 사실("어떤 수든 1을 더할 수 있거든.")을 가르쳐주었습니다.</p>
+            <p class="mt-4">1부터 1,000까지 숫자를 쓰는 과제를 통해 작가는 '큰 수'의 개념을 체감하며 깊은 감명을 받았습니다. 이 경험은 평생 잊지 못할 기억이 되었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">핵심 교훈 ✨</h3>
+              <p>부모님은 과학자는 아니었지만, <span class="highlight">경이감</span>과 <span class="highlight">의심</span>이라는 과학적 방법의 핵심이 되는 두 가지 사고방식을 가르쳐 주었습니다. 이것이 바로 그의 '첫 번째 스승'이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장: 가장 소중한 것</p>
+          <h2 class="slide-title">과학과 <span class="highlight">유사 과학</span>의 갈림길 🧭</h2>
+          <p class="slide-content">이 장에서는 과학과 대중문화에 만연한 유사 과학 사이의 근본적인 차이점을 탐구하고, 비판적 사고의 중요성을 강조합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"그 과학자"와의 만남 🚕</h2>
+          <p class="slide-subtitle">공항에서 만난 운전기사 '버클리 씨'와의 대화는 대중이 과학을 어떻게 오해하고 있는지를 보여주는 상징적인 사건이었습니다.</p>
+          <div class="slide-content">
+            <p>운전기사는 과학에 대해 질문했지만, 그의 관심사는 실제 과학이 아니었습니다. 그는 외계인, 채널링, 수정 구슬, 점성술과 같은 주제에 대해 이야기하고 싶어 했습니다.</p>
+            <p class="mt-4">세이건은 그의 주장에 대해 "증거가 빈약해요" 또는 "더 간단한 설명 방식이 있어요"라고 답하며 그를 실망시켜야 했습니다.</p>
+            <p class="mt-4 font-bold">이 경험은 지적 호기심이 있음에도 불구하고, <span class="highlight">진정한 과학과 모조품을 구분하는 방법</span>을 배우지 못한 사람들의 현실을 보여줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가라앉은 대륙의 신화 🏛️</h2>
+          <p class="slide-subtitle">아틀란티스와 레무리아 같은 '가라앉은 대륙'에 대한 믿음은 증거가 없음에도 불구하고 널리 퍼져 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">유사 과학의 주장</h3>
+              <p>아틀란티스인들은 '수정 과학'을 통해 마음을 읽고 생각을 전달했으며, 이집트 피라미드의 모델이 되었다고 주장합니다. 하지만 이를 뒷받침하는 <span class="highlight">어떠한 그럴싸한 증거도 없습니다.</span></p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">과학적 사실</h3>
+              <p>해양판 구조를 다룬 지질학적 증거나 해저 지형도는 유럽과 아메리카 대륙 사이에 또 다른 대륙이 존재할 수 없음을 명확히 보여줍니다. 이러한 과학적 사실은 대중에게 거의 알려지지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나쁜 과학이 좋은 과학을 몰아낸다 📉</h2>
+          <p class="slide-subtitle">대중문화는 비판적이고 회의적인 설명보다 쉽고 흥미로운 이야기를 선호합니다. 이를 '그레샴의 법칙'에 비유할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>회의주의적 관점에서 쓴 책은 잘 팔리지 않습니다. 반면, 아틀란티스 전설과 같은 맹목적인 이야기는 수백, 수천 배 더 많이 접하게 됩니다.</p>
+            <p class="mt-4">결과적으로, 아무리 영리하고 호기심 많은 사람이라도 균형 감각을 잃고 잘못된 길로 들어서기 쉽습니다. 이것이 '나쁜 과학'이 '좋은 과학'을 몰아내는 현상입니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg text-blue-800">과학 문맹의 위험성 ⚠️</h3>
+              <p>미국인의 약 95%가 '과학 문맹'이라는 사실은 심각한 문제입니다. 이는 과학 기술에 깊이 의존하는 현대 사회에서 <span class="highlight">위험천만하고 무모한 일</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">히포크라테스의 교훈 ⚕️</h2>
+          <p class="slide-subtitle">의학의 아버지 히포크라테스는 미신의 장막을 걷어내고 의술을 과학의 빛 아래로 가져왔습니다.</p>
+          <div class="slide-content">
+            <p>"사람들은 간질의 원인을 이해하지 못하기 때문에 신이 내린 벌이라고 생각한다. 만일 이해할 수 없는 모든 것을 신적인 것이라고 부른다면, 신적인 것은 끝이 없을 것이다."</p>
+            <p class="mt-4">히포크라테스는 질병 진단에 과학적 방법을 도입하고 <span class="highlight">신중하고 꼼꼼한 관찰</span>을 주장했습니다. 그는 "아무것도 우연으로 남겨 두지 마라. 아무것도 간과하지 마라."라고 말했습니다.</p>
+            <p class="mt-4 font-bold">이러한 과학적 접근 덕분에 의학은 발전했으며, 수십억 인류의 삶의 질을 향상시켰습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장: 과학과 희망</p>
+          <h2 class="slide-title">어둠 속의 <span class="highlight">촛불</span> 🕯️</h2>
+          <p class="slide-content">과학은 단지 지식의 집합이 아니라, 세상을 이해하고 미신과 어둠 속에서 길을 찾는 '생각의 방식'입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 13 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학, 생각의 방식 🧠</h2>
+          <p class="slide-subtitle">과학 대중화는 작가에게 자연스러운 귀결이었습니다. 그것은 지식을 나누는 사랑의 행위와 같습니다.</p>
+          <div class="slide-content">
+            <p>과학은 지식 이상의 것입니다. 그것은 <span class="highlight">생각의 방식</span>입니다. 세이건은 미래의 미국 사회가 비판 능력을 잃고 미신과 어둠 속으로 빠져들 것을 우려했습니다.</p>
+            <p class="mt-4">대중 매체의 지적 수준 저하, 무지를 찬양하는 듯한 콘텐츠의 유행은 미국이 멍청해지고 있다는 분명한 증거입니다.</p>
+            <p class="mt-4 font-bold">무지와 권력이 뒤섞이면, 우리는 스스로를 불태워 버릴 위험에 처하게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">오류 수정 장치 🛠️</h2>
+          <p class="slide-subtitle">과학이 성공한 핵심 이유는 그 안에 '오류 수정 장치'가 내장되어 있기 때문입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과학의 자기 비판</h3>
+              <p>과학은 우리를 사실의 영역으로 초대합니다. 비록 그 사실이 우리의 선입견과 일치하지 않더라도 말입니다. 과학은 대안적 가설들을 만들고, 그중 어느 것이 사실에 가장 잘 부합하는지 알아보라고 권합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">회의주의와 개방성</h3>
+              <p>새로운 아이디어에 대한 개방성과 동시에, 모든 아이디어를 <span class="highlight">엄격하고 회의적으로 검증</span>하는 섬세한 균형 감각을 유지하는 것이 과학적 사고 방식의 핵심입니다. 이는 민주주의를 지탱하는 본질적인 도구이기도 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">권위에 호소하지 말라 🚫</h2>
+          <p class="slide-subtitle">과학의 위대한 계명 중 하나는 '권위에 호소하는 논증을 믿지 말라'는 것입니다.</p>
+          <div class="slide-content">
+            <p>권위에 호소하는 논증은 대부분 거짓으로 입증되었습니다. 권위자라 하더라도 다른 모든 사람처럼 자기 주장을 입증해야 합니다.</p>
+            <p class="mt-4">과학의 이러한 독립성, 즉 기존의 지혜를 기꺼이 받아들이지 않는 특성은, 자기 비판 능력이 부족하고 절대적 확실성을 주장하는 교리에게는 <span class="highlight">위험하게</span> 여겨집니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg text-yellow-800">겸손함의 미덕 🙏</h3>
+              <p>과학은 우리를 우리가 바라는 세상이 아닌, <span class="highlight">있는 그대로의 현실 세계</span>로 인도합니다. 따라서 과학적 발견은 때로 이해하기 어렵고 마음을 채워주지 못할 때도 있습니다. 하지만 이것이 바로 과학의 정직함입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: Chapter 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장: 달의 남자, 화성의 얼굴</p>
+          <h2 class="slide-title">패턴을 찾는 <span class="highlight">본능</span> 🧩</h2>
+          <p class="slide-content">인간의 뇌는 무작위적인 정보 속에서 의미 있는 패턴, 특히 얼굴을 찾도록 타고났습니다. 이 장에서는 이러한 경향(파레이돌리아)과 그것이 어떻게 우리를 오해로 이끄는지 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 17 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">달 속의 남자 🌝</h2>
+          <p class="slide-subtitle">맨눈으로 달을 보면 무엇이 보일까요? 우리는 의미 없는 얼룩에서 익숙한 형상을 찾으려는 저항할 수 없는 충동에 사로잡힙니다.</p>
+          <div class="slide-content">
+            <p>세계의 신화와 전설을 보면, 사람들은 달에서 수많은 이미지를 보았습니다. 천을 짜는 여인, 토끼, 재규어 등 문화마다 다른 모습을 상상했습니다.</p>
+            <p class="mt-4">가장 공통적인 이미지는 <span class="highlight">달 속에 사람</span>이 있다는 것입니다. 물론 실제로는 사람처럼 보이지 않지만, 우리 뇌는 불완전한 정보 속에서 얼굴을 '만들어' 냅니다.</p>
+            <p class="mt-4 font-bold">이러한 패턴 추구 본능은 인간 생존에 필수적이었습니다. 아기는 태어나자마자 얼굴을 알아보고 부모와 유대를 형성합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">착시의 과학 🔭</h2>
+          <p class="slide-subtitle">'달의 남자'는 사실 태곳적에 일어난 천재지변의 흔적입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">밝은 부분 (고원)</h3>
+              <p>달의 밝은 부분은 약 45억 년 전에 형성된 오래된 크레이터 지대입니다. 이것이 얼굴의 이마, 뺨, 턱을 이룹니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">어두운 부분 (바다)</h3>
+              <p>어두운 부분은 크레이터가 형성된 후 분출된 현무암 용암으로 채워진 '바다(mare)'입니다. 이것이 눈과 입처럼 보입니다. 이 재앙들은 인류가 등장하기 훨씬 전에 일어났습니다.</p>
+            </div>
+          </div>
+          <p class="mt-8 text-center text-lg font-semibold">결국 '달의 남자'는 우주적 폭력 속에서 자신의 얼굴을 발견해 내는 <span class="highlight">인간적인 자기 도취</span>의 산물입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 19 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">화성의 운하 소동 👽</h2>
+          <p class="slide-subtitle">19세기 말, 화성 표면에 인공적인 '운하'가 있다는 주장은 전 세계적인 화성인 열풍을 일으켰습니다.</p>
+          <div class="slide-content">
+            <p>1877년, 천문학자들은 화성 표면에서 직선으로 된 선들을 관측했다고 보고했습니다. 이는 지성을 가진 존재가 만든 것이라는 추측으로 이어졌습니다.</p>
+            <p class="mt-4">이 '운하' 가설은 '화성인'이라는 대중 소설의 유행을 낳았고, 많은 사람들이 죽어가는 행성에서 수자원 보존을 위해 노력하는 고도로 발전된 문명을 상상했습니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg text-red-800">진실의 순간 🚀</h3>
+              <p>매리너 9호와 바이킹 탐사선 덕분에 우리는 화성의 상세한 지도를 얻을 수 있었습니다. 그 결과, <span class="highlight">운하의 흔적은 단 하나도 찾을 수 없었습니다.</span> 그것들은 대기의 불안정함 속에서 패턴을 찾으려는 인간의 눈과 뇌가 만든 인지 오류, 즉 환상이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">화성의 얼굴 (Face on Mars) 🗿</h2>
+          <p class="slide-subtitle">1976년 바이킹 탐사선이 촬영한 한 장의 사진은 또 다른 논쟁을 불러일으켰습니다.</p>
+          <div class="slide-content">
+            <p>화성의 시도니아(Cydonia) 지역에서 촬영된 사진에 사람 얼굴처럼 보이는 지형('인면암')이 있었습니다. 이는 고대 화성 문명의 기념비라는 주장으로 이어졌습니다.</p>
+            <p class="mt-4">하지만 이는 단순히 <span class="highlight">빛과 그림자의 속임수</span>였습니다. 더 정밀한 사진들은 그것이 평범한 언덕임을 보여주었습니다.</p>
+            <p class="mt-4 font-bold">화성의 운하와 얼굴 사건은 전문 과학자들조차 패턴 인식의 오류에 얼마나 쉽게 빠질 수 있는지를 보여주는 중요한 교훈을 담고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: Chapter 4 & 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장 & 6장: 외계인과 환각</p>
+          <h2 class="slide-title">내면의 우주, 외면의 <span class="highlight">미스터리</span> 🛸</h2>
+          <p class="slide-content">UFO 목격담과 외계인 납치 경험은 정말 외부 세계의 사건일까요, 아니면 우리 마음속 깊은 곳에서 비롯된 현상일까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 22 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">UFO 납치 시나리오 🛌</h2>
+          <p class="slide-subtitle">외계인에게 납치되었다고 주장하는 사람들의 이야기는 놀라울 정도로 비슷한 패턴을 보입니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>잠에서 깨어나 가위에 눌린 듯 움직일 수 없다.</li>
+              <li>키가 작고 머리가 큰 회색 존재들이 나타난다.</li>
+              <li>몸이 공중으로 떠올라 벽을 통과해 우주선으로 옮겨진다.</li>
+              <li>의학 실험실 같은 곳에서 고통스러운 신체검사(특히 생식기 관련)를 받는다.</li>
+              <li>황폐해진 지구의 미래를 보여주며 환경 파괴에 대한 훈계를 듣는다.</li>
+              <li>기억이 지워진 채 침대로 돌려보내진다.</li>
+            </ul>
+            <p class="mt-4 font-bold">이 경험은 너무나 기이해서, 사람들은 자신의 정신 상태를 의심하게 됩니다. 그러나 이 이야기는 <span class="highlight">문화적, 심리적 현상</span>으로 설명될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">환각: 흔한 경험 🧠✨</h2>
+          <p class="slide-subtitle">환각은 정신 질환의 증거가 아니라, 평범한 사람들이 흔하게 경험하는 현상입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">환각의 정의</h3>
+              <p>평범한 정상인들 중 10~25%가 평생 적어도 한 번은 생생한 환각(없는 목소리를 듣거나 형체를 보는 것)을 경험합니다. 이는 뇌가 만들어내는 지극히 자연스러운 현상일 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">환각의 원인</h3>
+              <p>감정적 스트레스, 고열, 불면, 감각 차단, LSD나 메스칼린 같은 환각제 복용 등 다양한 계기가 환각을 유발할 수 있습니다. 뇌는 스스로 환각을 유발하거나 억제하는 물질을 만들어냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수면 마비와 꿈 😴</h2>
+          <p class="slide-subtitle">외계인 납치 경험과 매우 유사한 심리 상태가 있습니다. 바로 '수면 마비(가위눌림)'입니다.</p>
+          <div class="slide-content">
+            <p>수면 마비는 완전히 깨어 있지도, 잠들어 있지도 않은 중간 상태에서 발생합니다. 몸을 움직일 수 없고 강한 불안감을 느끼며, 가슴에 무게감을 느끼고 호흡이 가빠집니다.</p>
+            <p class="mt-4">이 상태에서는 사람, 악령, 동물 등의 <span class="highlight">선명한 환각이나 환청</span>을 경험할 수 있습니다. 이는 외계인 납치 경험의 여러 요소와 정확히 일치합니다.</p>
+            <p class="mt-4 font-bold">결국 많은 납치 경험은 잠과 꿈의 경계에서 일어나는 강력한 심리적 현상으로 설명될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌 속의 자극 ⚡</h2>
+          <p class="slide-subtitle">뇌의 특정 부위를 자극하면 현실과 거의 구별할 수 없는 환각을 경험할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>신경 생리학자 와일더 펜필드는 뇌의 측두엽에 전기 자극을 주면 완전한 환각 증상을 일으킬 수 있음을 발견했습니다.</p>
+            <p class="mt-4">측두엽 간질 환자들은 기묘한 생물이 보이거나, 공중에 떠다니는 느낌, 시간이 사라진 것 같은 느낌 등 외계인 납치와 유사한 경험을 지속적으로 합니다.</p>
+            <p class="mt-4 font-bold">이는 많은 UFO 이야기가 외부의 사건이 아니라, <span class="highlight">우리 뇌 내부의 현상</span>일 수 있다는 강력한 증거를 제공합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section: Chapter 7 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7장: 악령이 출몰하는 세상</p>
+          <h2 class="slide-title">악령, 마녀, 그리고 <span class="highlight">외계인</span> 👿</h2>
+          <p class="slide-content">외계인 납치 이야기는 완전히 새로운 현상이 아닙니다. 그것은 악령과 마녀에 대한 고대의 믿음이 현대적으로 변형된 모습일 뿐입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 27 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고대의 '다이몬(Daimon)' 🏛️</h2>
+          <p class="slide-subtitle">고대 그리스인들은 신과 인간 사이를 매개하는 '다이몬'이라는 영적 존재를 믿었습니다.</p>
+          <div class="slide-content">
+            <p>소크라테스는 자신에게 철학적 영감을 주는 존재를 '자애로운 악령(benign demon)'이라고 설명했습니다.</p>
+            <p class="mt-4">플라톤에 따르면, 다이몬은 신과 인간 사이의 교류와 대화를 가능하게 하는 중간자적 존재였습니다. 이후 기독교 신학은 이러한 다이몬들을 모두 '악령'으로 규정했습니다.</p>
+            <p class="mt-4 font-bold">악령에 대한 믿음은 인간 마음속의 악을 외부의 존재에게 투사하는 <span class="highlight">시적 은유</span>를 넘어, 실재하는 위협으로 변모했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인큐버스와 서큐버스 🛌😈</h2>
+          <p class="slide-subtitle">중세 시대 사람들은 잠자는 인간을 유혹하는 악령의 존재를 굳게 믿었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">성적인 유혹</h3>
+              <p>여자를 유혹하는 남성 악령 '인큐버스'와 남자를 유혹하는 여성 악령 '서큐버스'에 대한 이야기는 널리 퍼져 있었습니다. 이들은 벽을 통과하고, 사람의 가슴을 짓눌렀다고 전해집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">외계인 납치와의 유사성</h3>
+              <p>이러한 묘사는 현대의 외계인 납치 이야기와 놀라울 정도로 유사합니다. 벽 통과, 성적인 접촉, 수면 중의 방문 등 핵심 요소가 동일합니다. 단지 그 존재를 부르는 <span class="highlight">이름만 바뀌었을 뿐</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마녀 사냥의 광기 🔥</h2>
+          <p class="slide-subtitle">악령에 대한 믿음은 유럽에서 수백만 명의 무고한 사람들을 고문하고 처형하는 마녀 사냥으로 이어졌습니다.</p>
+          <div class="slide-content">
+            <p>1484년 교황 인노첸시오 8세의 교서는 마녀사냥을 제도화했습니다. 고문으로 얻어낸 자백은 '증거'로 인정되었고, 재판은 돈벌이 수단으로 변질되었습니다.</p>
+            <p class="mt-4">악령, 외계인, 또는 어떤 초자연적 존재에 대한 믿음이 사회적, 정치적 도구로 사용될 때, 그것은 끔찍한 비극을 낳을 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-gray-100 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">시대의 가면 🎭</h3>
+              <p>외계인 납치 이야기는 신과 악령, 요정과 정령에 대한 우리의 오랜 믿음이 <span class="highlight">과학 시대의 옷을 입고 다시 나타난 것</span>입니다. 내용은 같지만 포장만 다릅니다. 우리는 여전히 어둠 속에서 설명을 갈망하고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Over 30 more slides needed. I will continue generating content -->
+
+      <!-- Slide 30 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진실을 향한 열망 vs. 도피 🏃‍♂️</h2>
+          <p class="slide-subtitle">왜 사람들은 증거가 부족한 초자연적 현상을 믿고 싶어 할까요?</p>
+          <div class="slide-content">
+            <p>정부가 부패하고 무능하다는 사실을 아는 것은 고통스럽습니다. 차라리 모르는 편이 나을까요? 무지는 누구에게 이익이 될까요?</p>
+            <p class="mt-4">과학이 우리가 우주의 중심이 아니라고 밝혀냈을 때, 우리의 자만심은 상처를 입습니다. 하지만 그 상처는 우리를 성숙시키고 새로운 존엄성을 가져다줄 수 있습니다.</p>
+            <p class="mt-4 font-bold"><span class="highlight">만족과 안심을 잃더라도</span>, 미망을 고집하는 것보다 우주를 있는 그대로 파악하는 것이 장기적으로 우리의 생존에 더 부합합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유사 과학의 유혹 🍬</h2>
+          <p class="slide-subtitle">유사 과학은 쉬운 답변을 제공하고 회의주의적 검토를 교묘하게 회피하며 우리의 공포심을 자극합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">쉬운 길</h3>
+              <p>버뮤다 삼각지대에 UFO가 있거나, 죽은 사람이 우리 손을 조종해 메시지를 쓴다면 세상은 더 흥미진진할 것입니다. 이러한 믿음은 <span class="highlight">강력한 감정적 호소력</span>을 가집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">과학의 역할</h3>
+              <p>과학은 종종 이런 욕구를 충족시키지 못합니다. 유사 과학은 과학의 방법과 발견을 사용하려 하지만, 그 본성(회의주의, 증거 기반)은 신뢰하지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소망이 현실이 된다는 믿음 ✨</h2>
+          <p class="slide-subtitle">일부 유사 과학의 핵심은 '소망이 현실화되리라'는 생각입니다.</p>
+          <div class="slide-content">
+            <p>마음속으로 갈망하는 것을 단순히 바라는 것만으로 얻을 수 있다는 생각은 매우 매력적입니다. 이는 고된 노력과 행운이 필요하다는 현실과 대비됩니다.</p>
+            <p class="mt-4">세이건은 어릴 적 만화 속 마술사 '자타라'를 흉내 내며 돌을 공중에 띄우려 했던 경험을 이야기합니다. 주문은 "라라올떠 여이돌." 이었지만, 아무 일도 일어나지 않았습니다.</p>
+            <p class="mt-4 font-bold">진짜 과학이 오해받을수록 유사 과학은 힘을 얻습니다. 과학에 대해 배운 게 없다면, <span class="highlight">진짜와 가짜를 구분할 수 없게 됩니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학 교육의 실패 🏫</h2>
+          <p class="slide-subtitle">세이건은 초·중·고등학교 시절, 가슴 떨리는 경이를 경험하게 하거나 진화론적으로 사고하게 하는 과학 교육을 받지 못했다고 회고합니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>실험 시간에는 정해진 결과를 내지 못하면 감점을 당했습니다.</li>
+              <li>스스로 탐구하고, 직관을 검증하고, 잘못된 개념을 바로잡을 기회가 없었습니다.</li>
+              <li>수업은 공식만 암기할 뿐 원리를 가르치지 않았습니다. (예: 제곱근 구하기)</li>
+              <li>정답만 맞히면 무엇을 하는지는 몰라도 상관없었습니다.</li>
+            </ul>
+            <p class="mt-4 font-bold">이러한 교육 방식은 과학에 대한 흥미를 잃게 만들고, <span class="highlight">비판적 사고 능력</span>을 저해합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대학: 새로운 세계 🎓</h2>
+          <p class="slide-subtitle">대학에서 비로소 그의 꿈은 이루어졌습니다. 그는 스스로 알고 남에게 설명할 수 있는 훌륭한 스승들을 만났습니다.</p>
+          <div class="slide-content">
+            <p>시카고 대학교에서 그는 엔리코 페르미, 수브라마니안 찬드라세카르, 해럴드 유리 등 당대 최고의 학자들에게 배울 수 있었습니다.</p>
+            <p class="mt-4">특히 제러드 카이퍼로부터 "봉투 뒷면을 가지고도 가능한" 간단한 계산 비법을 배웠습니다. 복잡한 문제를 근사적인 수식으로 풀어보고, 결과가 엉뚱하면 아이디어를 쉽게 버리는 훈련이었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">가장 중요한 가르침 👨‍👩‍👧</h3>
+              <p>하지만 세이건은 인생에서 가장 중요한 것을 가르쳐준 것은 학교 선생도, 대학 교수도 아니었다고 말합니다. 그것은 바로 1939년, 어둠 속에서 길을 찾도록 최초의 촛불이 되어 준 <span class="highlight">과학을 하나도 몰랐던 부모님</span>이었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학의 이중성: 양날의 검 🗡️</h2>
+          <p class="slide-subtitle">과학과 기술은 인류에게 풍요와 장수를 선물했지만, 동시에 파멸의 도구가 되기도 했습니다.</p>
+          <div class="slide-content">
+            <p><b>선물 🎁:</b> 의학과 농업의 진보는 인류 역사상 모든 전쟁에서 죽은 사람보다 훨씬 더 많은 생명을 구했습니다. 인간의 기대 수명은 지난 세기 동안 극적으로 증가했습니다.</p>
+            <p class="mt-4"><b>위험 💣:</b> 과학자들은 핵무기를 만들어냈고, 냉전 시기 동료 시민들을 방사능 위험에 노출시켰습니다. CFC, 신경가스 등 환경을 파괴하고 생명을 위협하는 기술도 개발했습니다.</p>
+            <p class="mt-4 font-bold">과학의 무시무시한 힘은 우리 모두에게, 특히 과학자들에게 <span class="highlight">새로운 책임</span>을 요구합니다. 사소한 실수가 커다란 대가를 치르게 하는 시대이기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무지가 축복인 곳에서... 🤔</h2>
+          <p class="slide-subtitle">...현명해지는 것은 어리석은 일일까요? 세이건은 이 딜레마에 대해 단호하게 답합니다.</p>
+          <div class="slide-content">
+            <p>토머스 그레이의 시 구절에 대한 에드먼드 웨이 틸의 해석:</p>
+            <blockquote class="mt-4 p-4 border-l-4 border-gray-300 bg-gray-50">
+              <p>"어떤 것이 네게 좋게 느껴지는 한에서 그것이 참인지 거짓인지 신경 쓰지 않는 것은, 네가 돈을 벌 수 있는 한에서 그 돈을 어떻게 벌든 마음 쓰지 않는 것과 마찬가지로 도덕적으로 나쁘다."</p>
+            </blockquote>
+            <p class="mt-4">만약 정부가 부패했다는 사실을 알면 낙담하게 됩니다. 그렇다면 모르는 것이 더 좋을까요? <span class="highlight">무지는 누구의 이익에 기여하는가?</span> 이 질문에 답해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학과 민주주의의 가치 🤝</h2>
+          <p class="slide-subtitle">과학의 가치와 민주주의의 가치는 서로 잘 부합하며, 많은 경우에 구분이 불가능합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">공통의 기원</h3>
+              <p>문명화된 형태의 과학과 민주주의는 같은 시대, 같은 장소(기원전 6-7세기 그리스)에서 시작되었습니다. 둘 다 <span class="highlight">자유로운 의견 교환</span>을 통해 발전합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">공통의 요구</h3>
+              <p>둘 다 인습에 얽매이지 않는 의견 개진과 활발한 논쟁을 장려하며, 합당한 이유, 정합적인 논변, 엄격한 증거 기준, 그리고 <span class="highlight">지적 성실성</span>을 요구합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학의 정신성(Spirituality) ✨</h2>
+          <p class="slide-subtitle">과학은 정신성이나 영성과 모순되지 않으며, 오히려 그 심대한 원천이 될 수 있습니다.</p>
+          <div class="slide-content">
+            <p>광대한 시공간 속에서 우리의 위치를 인식할 때, 생명의 복잡성과 아름다움을 파악할 때 솟구치는 감정, 즉 의기양양함과 겸손함이 결합된 감정은 확실히 영적입니다.</p>
+            <p class="mt-4">이러한 감정은 위대한 미술, 음악, 문학 작품을 마주할 때나, 간디나 마틴 루터 킹처럼 자신을 돌보지 않고 용감하게 실천하는 사람을 볼 때도 일어납니다.</p>
+            <p class="mt-4 font-bold"><span class="highlight">과학과 정신성이 상호 배타적이라는 생각</span>은 양쪽 모두에게 백해무익할 뿐입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예측 가능성: 과학의 힘 🔮</h2>
+          <p class="slide-subtitle">과학은 미래를 예측할 수 있는 강력한 능력을 가지고 있습니다.</p>
+          <div class="slide-content">
+            <p>일식이 언제 일어날지 알고 싶을 때, 마술사나 신비주의자가 아닌 과학자에게 물어보면 훨씬 더 훌륭한 답변을 들을 수 있습니다. 과학은 1,000년 뒤의 일식도 분 단위까지 정확하게 예측할 수 있습니다.</p>
+            <p class="mt-4">지독한 빈혈증에 걸렸을 때, 무당을 찾아갈 수도 있지만 비타민 B12를 복용하는 것이 효과적입니다.</p>
+            <p class="mt-4 font-bold">미래를 예측하는 데 있어, <span class="highlight">과학에 비견할 만한 예언력을 가진 종교나 제도는 이 행성에 존재하지 않습니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학적 방법의 실천 👨‍🔬</h2>
+          <p class="slide-subtitle">과학은 단순한 믿음이 아니라, 끊임없는 비교 검토를 통해 더 나은 것을 선택하는 과정입니다.</p>
+          <div class="slide-content">
+            <p>다른 어떤 것이 과학보다 더 효과적이라면, 우리는 그것을 옹호해야 합니다. 이것은 맹목적 숭배가 아닙니다.</p>
+            <p class="mt-4">모든 교리들을 비교해보고, 어떤 예언이 더 정확한지, 어떤 교리가 오류 수정 장치를 내장하고 있는지 주의 깊게 살펴보십시오.</p>
+            <p class="mt-4 font-bold">이러한 비교 검토가 바로 <span class="highlight">거짓 우상과 실제 사물을 구분하는 수단</span>이 되어 줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">혹독한 자기 비판의 문화 💬</h2>
+          <p class="slide-subtitle">과학 세계에서 남을 신랄하게 비판하는 것은 장려되고, 심지어 환영받는 일입니다.</p>
+          <div class="slide-content">
+            <p>박사 학위 구술 시험에서 학생들은 지도 교수를 포함한 전문가들의 무시무시한 질문 공세에 답해야 합니다. 자신의 논문에 있을 약점을 스스로 먼저 발견하는 것이 현명합니다.</p>
+            <p class="mt-4">학술지에 논문을 제출하면 익명의 심사 위원들이 저자가 바보 같은 실수를 범하지 않았는지, 논거가 타당한지, 새로운 내용이 있는지 등을 꼼꼼하게 검토합니다.</p>
+            <p class="mt-4 font-bold">과학자들은 자신의 아이디어에 애정을 느끼지만, 아이디어가 작동하지 않으면 <span class="highlight">폐기해야 한다는 공정한 규칙</span>을 따라야 합니다. 타당한 비판은 결국 자신에게 득이 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학의 겸손함: 뉴턴과 아인슈타인 🍎</h2>
+          <p class="slide-subtitle">과학은 거만하다는 비판을 받지만, 어떤 의미에서는 매우 겸허한 활동입니다. 과학은 기존의 믿음을 끊임없이 뒤집으며 발전합니다.</p>
+          <div class="slide-content">
+            <p>뉴턴의 역학은 인류 최고의 업적 중 하나였지만, 과학자들은 그 이론의 흠집을 지속적으로 찾아왔습니다. 속도가 빠르고 중력이 강한 경우, 뉴턴 물리학은 붕괴됩니다.</p>
+            <p class="mt-4">아인슈타인의 상대성 이론은 뉴턴 물리학이 진리에 다가갔지만 도달하지는 못한 근사적인 이론임을 밝혔습니다.</p>
+            <p class="mt-4 font-bold">오늘날 과학자들은 아인슈타인의 이론이 깨지는 영역을 탐색하고 있습니다. <span class="highlight">진리에 끝없이 접근할 수는 있어도, 결코 도달할 수는 없다</span>는 것을 알기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 43 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">종교와의 비교 ✝️☪️✡️</h2>
+          <p class="slide-subtitle">과학의 자기 수정 메커니즘은 조직화된 종교와 대조를 이룹니다.</p>
+          <div class="slide-content">
+            <p>세상의 어느 종교 지도자가 자신들의 믿음이 불완전하거나 틀릴 수 있다고 인정하고, 교리의 약점을 발견하기 위한 연구소를 세우겠습니까?</p>
+            <p class="mt-4">어떤 설교자가 '신 가설(God hypothesis)'을 공명정대하게 검증하려고 할까요?</p>
+            <p class="mt-4 font-bold">앤 드루얀의 말처럼, 과학은 언제나 우리 귀에 이렇게 속삭입니다: <span class="highlight">"명심해, 너는 미숙해. 너는 실수하고 있는지도 몰라. 전에도 틀린 적이 있잖아."</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">네 가지 이유 💡</h2>
+          <p class="slide-subtitle">과학을 모든 시민에게 전달하려는 노력에는 네 가지 중요한 이유가 있습니다.</p>
+          <div class="slide-content">
+            <ol class="list-decimal space-y-4">
+              <li><b>경제와 문명:</b> 과학은 신흥국이 빈곤에서 탈출할 왕도이며, 한 나라 경제와 문명을 이끌어 갑니다. 과학을 포기하는 것은 빈곤과 퇴보로 가는 길입니다.</li>
+              <li><b>조기 경보 체계:</b> 기술은 세계를 변화시키지만 위험을 야기할 수도 있습니다. 과학은 지구 환경의 변화 등을 누구보다 먼저 경고하는 필수적인 조기 경보 체계를 제공합니다.</li>
+              <li><b>우주적 맥락:</b> 과학은 인류, 생명, 지구, 우주가 어디서 왔고 무엇이며 어디로 가는지에 대한 심오한 답을 줍니다. 이는 인간의 다른 어떤 노력으로도 할 수 없었던 일입니다.</li>
+              <li><b>민주주의의 보루:</b> 과학은 신비주의, 미신, 부적절한 목적에 봉사하는 종교에 대항하는 보루입니다. 과학의 방법이 널리 퍼질수록 우리는 속임수에서 벗어나 더 나은 세계에 도달할 수 있습니다.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">회의주의의 민주화 🙋‍♀️🙋‍♂️</h2>
+          <p class="slide-subtitle">회의주의, 즉 의심의 정신을 갖추는 데는 고학력이 필요하지 않습니다. 중고차를 살 때 우리는 이미 그 정신을 발휘합니다.</p>
+          <div class="slide-content">
+            <p>우리는 어떤 지식을 건설적으로 평가하기 위해 의심의 정신을 필수적인 도구로 가지고 있어야 합니다.</p>
+            <p class="mt-4">하지만 우리 사회는 이러한 회의주의의 도구 상자를 시민들에게 제공하지 않습니다. 정치, 경제, 광고, 종교 문화에는 무엇이든 가볍게 믿어버리는 <span class="highlight">경신(輕信)의 풍조</span>가 만연해 있습니다.</p>
+            <p class="mt-4 font-bold">회의주의의 싹이 자라나지 못하도록 사회 곳곳에 포진한 이들은 바로 무언가를 팔려는 사람들, 여론에 영향을 미치려는 사람들, 권력을 가진 사람들입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">헛소리 탐지기 키트 🛠️</h2>
+          <p class="slide-subtitle">회의주의적 사고는 합리적인 논의를 구성하고 사기를 꿰뚫어 보기 위한 수단입니다. 다음은 그 도구들입니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>독립적인 <span class="highlight">확증</span>을 찾아라.</li>
+              <li>권위주의에 빠지지 마라. 과학에는 권위자가 없다. 전문가만 있을 뿐이다.</li>
+              <li>하나 이상의 가설을 만들어라.</li>
+              <li>자기애에 빠지지 마라. 자신의 가설이라고 특별 대우하지 마라.</li>
+              <li>정량화하라. 숫자로 표현할 수 있다면 더 명확해진다.</li>
+              <li>논증의 모든 연결 고리가 작동하는지 확인하라.</li>
+              <li>오컴의 면도날: 여러 가설이 있다면 가장 단순한 것을 선택하라.</li>
+              <li>가설이 <span class="highlight">반증 가능한지</span> 점검하라.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">논리적 오류 피하기 🚫</h2>
+          <p class="slide-subtitle">헛소리 탐지기는 흔한 논리적 오류를 식별하는 데도 도움이 됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <ul class="list-disc">
+                <li><b>인신공격 (ad hominem):</b> 논점이 아닌 사람을 공격하는 것.</li>
+                <li><b>권위에의 호소:</b> 단지 권위자가 말했다는 이유로 믿는 것.</li>
+                <li><b>무지에의 호소:</b> 증명되지 않았으므로 사실이라고 주장하는 것.</li>
+                <li><b>선결 문제 요구:</b> 답을 미리 정해놓고 논증하는 것.</li>
+                <li><b>선택적 관찰:</b> 유리한 것만 보고 불리한 것은 무시하는 것.</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="list-disc">
+                <li><b>소수 통계:</b> 너무 작은 표본으로 일반화하는 것.</li>
+                <li><b>상관관계와 인과관계의 혼동:</b> 함께 일어난다고 해서 원인-결과인 것은 아님.</li>
+                <li><b>잘못된 이분법:</b> 중간은 없고 흑백논리로만 보는 것.</li>
+                <li><b>미끄러운 비탈길:</b> 작은 시작이 파국으로 이어진다고 주장하는 것.</li>
+                <li><b>허수아비 때리기:</b> 상대 주장을 왜곡하여 공격하는 것.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">반과학: 과학에 대한 공격 🤺</h2>
+          <p class="slide-subtitle">오늘날 과학은 '너무 주관적'이라는 이유로 공격받고 있습니다.</p>
+          <div class="slide-content">
+            <p>일부 비평가들은 과학이 역사학처럼 주관적이며, 승자의 기록일 뿐이라고 주장합니다. 역사 기록이 종종 편향되어 있다는 것은 사실입니다.</p>
+            <p class="mt-4">하지만 과학은 역사와 다릅니다. 과학은 <span class="highlight">실험을 통해 재현하고 검증</span>할 수 있습니다. 1815년의 워털루 전투를 재현할 수는 없지만, 원자의 구조는 언제든 다시 실험으로 확인할 수 있습니다.</p>
+            <p class="mt-4 font-bold">과학자의 편견과 문화적 영향이 존재할 수 있지만, 과학의 자기 수정적이고 실험적인 본질은 그것을 극복하게 해줍니다. 과학이 임의적이라는 주장은 그 주장 자체가 편향된 것일 뿐입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자유로 가는 길 🗽</h2>
+          <p class="slide-subtitle">프레더릭 더글러스의 삶은 지식과 교육이 어떻게 억압에서 벗어나는 열쇠가 되는지를 보여줍니다.</p>
+          <div class="slide-content">
+            <p>노예였던 그는 글을 읽는다는 것의 '신비'를 발견하고, 주인의 방해에도 불구하고 몰래 읽기를 배웠습니다. 그의 주인은 이렇게 말했습니다: "공부를 시키면 세상에서 가장 뛰어난 깜둥이 하나를 망치게 될 거요. 노예가 된다는 게 그 후로는 영원히 그 애에게는 어울리지 않을 테니까."</p>
+            <p class="mt-4">주인의 말은 역설적으로 진실이었습니다. 베일리는 그 순간 "나는 노예를 벗어나 <span class="highlight">자유로 가는 길</span>을 이해한 것이다"라고 깨달았습니다.</p>
+            <p class="mt-4 font-bold">책은 우리가 사는 세계를 이해하고 민주적 사회에 참여하기 위한 열쇠입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과학 문맹의 대가 💸</h2>
+          <p class="slide-subtitle">오늘날 미국을 포함한 많은 사회가 심각한 과학 문맹 문제에 직면해 있습니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>미국 성인 절반 가까이가 지구가 태양 주위를 돈다는 사실을 모릅니다.</li>
+              <li>많은 학생들이 과학과 수학에서 다른 선진국 학생들에게 크게 뒤처져 있습니다.</li>
+              <li>평균적인 학생들은 과학과 기술에 대한 흥미를 잃고, 교사들은 열악한 환경에서 고군분투하고 있습니다.</li>
+              <li>이러한 지적 자본의 부족은 국가 경쟁력 약화와 민주주의의 위기로 이어집니다.</li>
+            </ul>
+            <p class="mt-4 font-bold">더글러스의 시대처럼, 오늘날에도 <span class="highlight">읽고 비판적으로 생각하는 능력</span>은 자유를 위한 필수 조건입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 과학은 촛불입니다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">우리는 악령이 출몰하는 세상에 살고 있습니다. 그 악령은 우리의 무지, 미신, 그리고 비판적 사고의 부재입니다. 과학은 그 어둠을 밝히는 작지만 강력한 촛불입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">회의주의와 경이감, 이 두 가지를 모두 소중히 여기고 실천하는 것이 우리 자신과 미래 세대를 위한 <span class="highlight">가장 중요한 과제</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
