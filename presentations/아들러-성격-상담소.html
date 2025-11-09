@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아들러 성격 상담소</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+      border-color: #111;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+      border-color: #ddd;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">📖</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">아들러 성격 상담소</h1>
+          <p class="text-xl md:text-2xl text-gray-700">기시미 이치로 저 | <span class="highlight">성격의 비밀</span>과 <span class="highlight">아들러식 카운슬링</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 🧭</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-lg">
+            <p><b>1. 서론:</b> 성격은 바꿀 수 있을까?</p>
+            <p><b>2. 공격형 성격:</b> 허영심, 질투, 미움</p>
+            <p><b>3. 방어형 성격:</b> 소극, 불안, 두려움</p>
+            <p><b>4. 성격의 목적:</b> 쾌활함, 완고함 등</p>
+            <p><b>5. 감정의 이해:</b> 화, 슬픔, 기쁨의 목적</p>
+            <p><b>6. 출생 순서:</b> 성격에 미치는 영향</p>
+            <p><b>7. 결론:</b> 성격을 바꾸면 인생이 바뀐다</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 1: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: 서론</p>
+          <h2 class="slide-title">성격은 바꿀 수 있을까? 🤔</h2>
+          <p class="slide-content">아들러 심리학의 핵심 질문에서 출발합니다. 우리의 성격은 정해진 운명일까요, 아니면 선택의 결과일까요?</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 명제: <span class="highlight">선택으로서의 성격</span></h2>
+          <p class="slide-subtitle">"성격은 타고나는 것이 아니라 선택하는 것이다!"</p>
+          <div class="slide-content">
+            <p>아들러 심리학은 성격을 천성이 아닌, 특정 목적을 달성하기 위해 우리가 '선택'한 삶의 방식(라이프스타일)으로 봅니다. 이는 곧 성격을 바꿀 수 있는 가능성이 우리 자신에게 있음을 의미합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쌍둥이 자매의 예시 👭</h2>
+          <p class="slide-subtitle">같은 환경, 다른 성격</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-center">언니: 활발하고 사교적 🎉</h3>
+              <p class="mt-2">밝고 명랑하며 친구가 많습니다. 외부 활동에 적극적입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-center">동생: 조용하고 내성적 📚</h3>
+              <p class="mt-2">소극적이고 혼자 있는 것을 선호합니다. 언니와 '정반대'가 되기로 스스로 '결정'한 것입니다.</p>
+            </div>
+          </div>
+           <p class="mt-8 text-center font-bold">➡️ 성격은 환경에 의해 결정되는 것이 아니라, 관계 속에서 스스로 선택한 결과입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">왜 '어두운 성격'을 <span class="highlight">선택</span>할까?</h2>
+          <p class="slide-subtitle">모든 성격에는 나름의 '메리트(이점)'가 있습니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">어둡고 소극적인 성격의 목적 🎯</h3>
+              <p class="mt-2">"나는 어두우니까 다른 사람과 관계 맺지 않아도 돼."</p>
+               <ul class="list-disc list-inside mt-2 space-y-1">
+                 <li>대인관계에서 상처받을 가능성을 원천 차단합니다.</li>
+                 <li>관계를 맺지 않음으로써 실패나 거절의 두려움을 피합니다.</li>
+                 <li>다른 사람의 주목을 끌고 걱정을 받게 만듭니다.</li>
+               </ul>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Part 2: Aggressive Type -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: 공격형 성격</p>
+          <h2 class="slide-title">허영심, 질투, 미움 😠</h2>
+          <p class="slide-content">자신의 약점과 열등감을 감추고, 타인과의 관계에서 '승리'하려는 자기중심적 성격 유형을 탐구합니다.</p>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1. 허영심: <span class="highlight">실제보다 뛰어나 보이고 싶은 욕심</span></h2>
+          <p class="slide-subtitle">자신의 불완전함을 감추기 위해 과장되게 강한 척하는 행동</p>
+          <div class="slide-content">
+             <p>칠판 지우개를 던지는 아이의 예시: 소년은 주목받고, 자신의 존재가 중요하다고 느끼고 싶어서(우월성 추구) 권위에 반항하는 것입니다. 실제보다 더 크고 강해 보이고 싶은 <span class="highlight">허영심</span>의 표현입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가치 저감 경향: <span class="highlight">남을 깎아내려 우월감을 느끼는 이유</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">행동 🗣️</h3>
+              <p>"심리학자시니, 제가 무슨 생각하는지 아시겠죠?" 와 같은 도발적인 질문을 던집니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">목적 🧠</h3>
+              <p>상대방(전문가)의 가치를 떨어뜨림으로써 상대적으로 자신의 가치를 높이고 우월감을 느끼려는 심리입니다. 이면에는 극심한 <span class="highlight">열등감</span>이 자리 잡고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2. 질투: <span class="highlight">열등감에서 비롯되는 나약함</span></h2>
+          <p class="slide-subtitle">자신 있는 사람은 질투하지 않습니다. 상대를 잃을까 봐 불안하지 않기 때문입니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">왕좌 폐위 👑</h3>
+              <p class="mt-2">첫째 아이가 동생의 탄생으로 부모의 사랑을 빼앗겼다고 느끼는 경험입니다. 이로 인해 강렬한 경쟁심과 질투가 싹트며, 이는 성인이 된 후의 연인 관계에서도 반복될 수 있습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 미움과 적의: <span class="highlight">자기중심적 사고 뒤의 감정</span></h2>
+          <p class="slide-subtitle">미움은 종종 '비판'이라는 세련된 형태로 위장됩니다.</p>
+          <div class="slide-content">
+            <p>인터넷에서 무차별적인 비판을 하는 사람들은 상대를 미워하는 것이 아니라 '비판'할 뿐이라고 포장합니다. 하지만 그 이면에는 상대를 굴복시키려는 미움과 적의가 숨어있을 가능성이 높습니다.</p>
+            <p class="mt-4">개인의 작은 욕구를 다른 사람의 행복보다 중시하는 것, 이것이 바로 <span class="highlight">적의</span>의 본질입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3: Defensive Type -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3: 방어형 성격</p>
+          <h2 class="slide-title">소극, 불안, 두려움 😥</h2>
+          <p class="slide-content">인생의 과제로부터 도망치기 위해 다양한 심리적 방어기제를 사용하는 성격 유형을 살펴봅니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1. 소극성: <span class="highlight">'이해받을 수 없을 것'이라는 믿음</span></h2>
+          <p class="slide-subtitle">소극적인 사람은 고립을 선택함으로써 자신의 특별함을 증명하려 합니다.</p>
+          <div class="slide-content">
+            <p>자신의 생각이나 감정을 설명하지 않으면서 "아무도 나를 이해해주지 않아"라고 타인을 탓합니다. 이는 결국 '나는 이해받지 못하는 특별한 존재'라는 자기 확신으로 이어지며, 대인관계에서 도망치기 위한 태도입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2. 불안: <span class="highlight">도망치기 위한 감정</span></h2>
+          <p class="slide-subtitle">불안이라는 감정을 만들어내어 인생의 과제를 회피하려는 결심의 버팀목으로 삼습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">두려움 (Fear) 😨</h3>
+              <p>구체적인 대상이 있습니다. (예: 커다란 개)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">불안 (Anxiety) 😟</h3>
+              <p>특정한 대상이 없습니다. '왠지 모르게' 불안하여 행동을 주저하게 만들고, 이것이 과제로부터 도망칠 <span class="highlight">핑계</span>가 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불안의 <span class="highlight">상대역</span></h2>
+          <p class="slide-subtitle">불안은 혼자만의 감정이 아니라, 누군가를 향한 메시지입니다.</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">어린 아이의 불안 🌙</h3>
+              <p class="mt-2">한밤중에 "어둠이 무서워"라고 호소하는 아이의 숨겨진 목표는 부모를 자기 곁에 머물게 하고, <span class="highlight">지배</span>하려는 것입니다. 불안 발작은 특정 '상대역'을 향한 증상이며, 그 사람과의 대인관계 개선이 문제 해결의 핵심입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 겁 많은 성격: <span class="highlight">도망치기 위한 수단</span></h2>
+          <p class="slide-subtitle">"Yes, but..." 화법을 사용하며 시작도 전에 실패의 이유를 찾습니다.</p>
+          <div class="slide-content">
+            <p>새로운 일에 도전하기 전, 그 일의 온갖 그늘진 측면(단점)을 찾아내어 '이 일은 이런 문제가 있어서 나랑은 안 맞아'라고 합리화합니다. 이는 '나는 할 수 없다'는 결론을 정당화하여, <span class="highlight">책임을 회피</span>하려는 목적을 가집니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 4: Purpose -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 성격의 목적</p>
+          <h2 class="slide-title">모든 성격에는 <span class="highlight">목적이 있다</span> 🎯</h2>
+          <p class="slide-content">쾌활함, 완고함, 기분파 등 다양한 성격들이 어떤 무자각적인 인생 목표(라이프스타일)를 위해 기능하는지 알아봅니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">라이프스타일과 성격</h2>
+          <p class="slide-subtitle">성격은 우리가 무의식 중에 설정한 '삶의 방식'이 겉으로 드러난 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">라이프스타일 🗺️</h3>
+              <p>'무자각적인 인생 목표'. 마음속 깊은 곳에서 원하는 삶의 방식. (예: '나는 사랑받는 사람으로 살고 싶다')</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">성격 😊😠😢</h3>
+              <p>라이프스타일이 겉으로 드러난 것. (예: 사랑받기 위해 '쾌활하고 상냥한 성격'을 선택)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">쾌활함의 양면성 😄</h2>
+          <p class="slide-subtitle">웃음은 사람을 이어주기도 하지만, 때로는 공격적인 경향을 갖기도 합니다.</p>
+          <div class="slide-content">
+             <ul class="list-disc list-inside mt-2 space-y-2">
+                 <li><b>긍정적 쾌활함:</b> 공동체 의식을 바탕으로 타인을 돕고 기쁘게 해주려는 마음에서 비롯됩니다.</li>
+                 <li><b>부정적 쾌활함 (샤덴프로이데):</b> 타인의 불행을 기뻐하며 우월감을 확인하는, 사람을 깔보는 듯한 웃음입니다.</li>
+             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">완고함과 비굴함, 그리고 오만함</h2>
+          <p class="slide-subtitle">모두 관계 속에서의 위치를 설정하려는 목적을 가집니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>완고함 (원리주의자):</b> 정해진 규칙과 원리에만 따르며 변화를 두려워합니다. 익숙한 길로만 가려는 태도는 새로운 대인관계를 회피하려는 목적이 있습니다.</p>
+            <p><b>비굴함:</b> 스스로를 상대보다 아래에 두어 복종함으로써 책임을 회피하고 안정을 얻으려 합니다.</p>
+            <p><b>오만함:</b> 다른 모든 사람 위에 서서 지배하려는 욕구입니다. 이면에는 강한 열등감이 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기분파와 비관주의</h2>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">기분파인 사람 🎢</h3>
+              <p class="mt-2">기분을 '변덕스럽게 바꾸는 것'은 원하는 것을 얻고 주변 사람들을 조종하기 위한 수단입니다. '지금은 더 이상 앞으로 나아가면 안 된다'고 판단한 순간, 기분을 바꿔 상황을 멈춥니다.</p>
+            </div>
+             <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">비관적인 사람 ⛈️</h3>
+              <p class="mt-2">스스로를 '비극의 주인공'으로 여깁니다. "나는 불운하다"고 생각함으로써 곤란한 과제로부터 도망칠 명분을 만듭니다. 이는 뒤틀린 형태의 <span class="highlight">허영심</span>입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Part 5: Emotions -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5: 감정의 이해</p>
+          <h2 class="slide-title">감정은 성격의 '항진(亢進)'이다 💥</h2>
+          <p class="slide-content">감정은 우발적으로 터져나오는 것이 아니라, 특정 목적을 달성하기 위해 우리가 사용하는 '도구'입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정의 두 종류</h2>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-center">분리 감정 ↔️</h3>
+              <p class="text-center text-4xl mt-2">😠😭😟</p>
+              <p class="mt-2 text-center">사람과 사람을 떼어놓는 감정<br/>(분노, 슬픔, 불안)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-center">결속 감정 🤝</h3>
+              <p class="text-center text-4xl mt-2">😊🥰🤗</p>
+              <p class="mt-2 text-center">사람과 사람을 이어주는 감정<br/>(기쁨, 연민, 수치심)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">분노의 목적: <span class="highlight">상대를 지배하라</span></h2>
+          <p class="slide-subtitle">"엉겁결에 욱해버렸다"는 것은 변명입니다. 분노는 계획된 도구입니다.</p>
+          <div class="slide-content">
+            <p>분노는 논리적인 설득보다 손쉽게 상대방을 굴복시키고 자기 의지를 관철시키는 '과도한 움직임'입니다. 상대가 말을 듣지 않을 때, 더 쉽고 빠르게 지배하기 위해 사용하는 감정입니다.</p>
+             <p class="mt-4 font-bold">➡️ 감정의 힘을 빌리는 사람은 다른 방법으로 우월성을 달성할 수 없다는 <span class="highlight">열등감</span>을 갖고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">슬픔의 목적: <span class="highlight">상대를 봉사하게 하라</span></h2>
+          <p class="slide-subtitle">눈물은 다른 사람의 눈시울을 뜨겁게 만드는 무기입니다.</p>
+          <div class="slide-content">
+            <p>우는 사람 앞에서는 더 이상 공격할 수 없습니다. 슬픔은 "당신이 나를 이렇게 슬프게 만들었다"는 비난이자, 상대방에게 동정심을 유발하여 자신에게 봉사하게 만드는 <span class="highlight">지배의 감정</span>입니다. 슬퍼하는 사람은 '받기만 하는' 일방적인 관계를 만듭니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 6: Birth Order -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6: 출생 순서의 영향</p>
+          <h2 class="slide-title">첫째, 둘째, 막내, 외동 👨‍👩‍👧‍👦</h2>
+          <p class="slide-content">형제 관계가 성격 형성에 미치는 영향을 아들러의 관점에서 분석합니다. '같은 환경'이란 착각일 뿐입니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1. 첫째: <span class="highlight">폐위된 왕</span></h2>
+          <p class="slide-subtitle">과거 지향적이며 권위와 질서를 중시하는 보수주의자.</p>
+          <div class="slide-content">
+            <p>동생의 탄생으로 부모의 사랑을 독점하던 '왕좌'에서 밀려난 경험을 합니다. 이로 인해 변화를 두려워하고 과거의 좋았던 시절을 그리워합니다. 힘과 권위의 중요성을 일찍 깨닫고, 법과 질서를 중시하는 경향이 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2. 둘째: <span class="highlight">영원한 경주자</span></h2>
+          <p class="slide-subtitle">앞서가는 첫째라는 '페이스메이커'를 보며 자랍니다.</p>
+          <div class="slide-content">
+            <p>태어날 때부터 경쟁에 익숙하며, 끊임없이 첫째를 따라잡고 추월하려 노력합니다. 요령이 좋고, 권위에 복종하지 않는 혁명가적 기질을 보이는 경우가 많습니다. "어떻게 하면 이길 수 있을까?"가 중요한 삶의 질문입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3. 막내: <span class="highlight">가족의 영원한 아기</span></h2>
+          <p class="slide-subtitle">왕좌에서 밀려나는 경험을 하지 않습니다.</p>
+          <div class="slide-content">
+            <p>가족 모두의 보호 속에서 자라며 응석받이가 되기 쉽습니다. 경쟁 상대가 많아 월등히 뛰어나게 성장하거나, 혹은 매우 의존적인 사람이 되기도 합니다. 다른 사람에게 도움을 요청하는 데 능숙한 것이 가장 큰 특징이자 장점입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">4. 외동: <span class="highlight">어른들과의 경쟁자</span></h2>
+          <p class="slide-subtitle">경쟁 상대는 형제가 아닌 부모입니다.</p>
+          <div class="slide-content">
+            <p>어른들과의 관계에 익숙해 일찍 성숙하며, 자기중심적이 되기 쉽습니다. 부모의 관심을 독차지하여 응석받이가 될 수도 있지만, 매우 자립적으로 성장할 수도 있습니다. 동료 관계보다는 연장자와의 관계에 더 편안함을 느낍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 7: Conclusion -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 7: 결론</p>
+          <h2 class="slide-title">성격을 바꾸면, <span class="highlight">인생이 바뀐다</span> ✨</h2>
+          <p class="slide-content">성격은 운명이 아닙니다. 바꿀 수 있다는 것을 아는 데서부터 변화는 시작됩니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성격은 '나' 자신이 아니다 💻</h2>
+          <p class="slide-subtitle">컴퓨터와 OS의 비유</p>
+          <div class="slide-content">
+            <p>컴퓨터 본체가 '나' 자신이라면, 성격은 그 위에 설치된 OS(운영체제)와 같습니다. OS가 바뀌면 컴퓨터의 성능과 기능이 완전히 달라지듯, 우리도 다른 성격(라이프스타일)을 '선택'하고 '설치'함으로써 전혀 다른 사람이 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">변화를 위한 두 가지 열쇠 🔑</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div>
+              <h3 class="font-bold text-lg text-center">1. '바꾸겠다'는 결심 굳히기</h3>
+              <p class="mt-2">"바꿀 수 없다"가 아니라 "바꾸고 싶지 않다"는 자신의 마음을 먼저 인정해야 합니다. 새로운 라이프스타일이 가져올 불확실성에 대한 두려움을 마주하고 변화를 '결심'하는 것이 첫걸음입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-center">2. 공동체 감각 회복하기</h3>
+              <p class="mt-2">새로운 라이프스타일의 방향은 '공동체 감각'에 기반해야 합니다. 타인을 '적'이 아닌 '동료'로 보고, 그들과 연결되어 협력하며 살아가는 것. 이것이 인생의 모든 고민을 해결하는 열쇠입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🚀</div>
+          <h2 class="slide-title">마지막 메시지: 용기</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">인생에는 두려운 일이 일어나는 것이 아니라, 우리가 두려워할 뿐입니다. 대인관계에서 상처받을 것을 두려워하지 말고, 인생의 과제에서 도망치지 말고, 직면하는 <span class="highlight">용기</span>를 가진다면 인생은 반드시 바뀔 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">성격을 바꾸는 데 필요한 것은 변화를 두려워하지 않는 용기입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
