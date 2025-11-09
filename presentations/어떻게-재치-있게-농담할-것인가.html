@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>어떻게 재치 있게 농담할 것인가?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🎤</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">어떻게 재치 있게 농담할 것인가?</h1>
+          <p class="text-xl md:text-2xl text-gray-700">유머의 기술을 익히고 싶은 <span class="highlight">현대인</span>을 위한 고대의 지혜</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📜 목차</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1. 들어가며:</b> 만담꾼 집정관, 키케로의 농담 기술</p>
+            <p><b>2. 제1부: 어떻게 재치 있게 농담할 것인가 (키케로, 『연설가에 대하여』)</b></p>
+            <p> &nbsp; &nbsp; - 웃음에 대한 5가지 근본 질문</p>
+            <p> &nbsp; &nbsp; - 농담의 2가지 유형: 대상 vs 언어</p>
+            <p> &nbsp; &nbsp; - 구체적인 농담 기법과 사례 분석</p>
+            <p><b>3. 제2부: 유머의 기술에 관하여 (퀸틸리아누스, 『연설가 교육』)</b></p>
+             <p> &nbsp; &nbsp; - 웃음을 끌어내기 힘든 이유</p>
+            <p> &nbsp; &nbsp; - 유머의 6가지 특징</p>
+            <p> &nbsp; &nbsp; - 농담의 종류와 기술</p>
+            <p><b>4. 결론:</b> 농담을 받아들이는 법과 최종 요약</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1: 들어가며</p>
+          <h2 class="slide-title">만담꾼 집정관, <span class="highlight">키케로</span>의 농담 기술</h2>
+          <p class="slide-content">유머는 학습 가능한 기술일까요, 아니면 타고나는 재능일까요? 2,000년 전, 로마의 위대한 연설가 키케로가 이 질문에 대해 깊이 고찰했습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Who was Cicero? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">키케로는 누구인가? 🤔</h2>
+          <p class="slide-subtitle">고대 로마의 정점이자 역사상 가장 유쾌한 인물</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🏛️ 정치가 & 변호사</h3>
+              <p>기원전 106년 출생. 43세에 로마 최고 권력인 집정관에 당선. 쿠데타를 진압하고 '로마의 구원자'라는 찬사를 받음. 은퇴 후에도 막강한 정치적 영향력을 행사.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">😂 유머리스트</h3>
+              <p>정치적 수완뿐만 아니라, 고대 자료에 따르면 '역사상 가장 유쾌한 두 사람 중 하나'로 꼽힐 정도의 유머 감각을 소유. 그의 농담은 모음집으로 만들어질 정도.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: The "Stand-up Consul" -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">별명: '만담꾼 집정관' 🎤</h2>
+          <p class="slide-subtitle">적들조차 인정한 그의 유머 감각</p>
+          <div class="slide-content">
+            <p>키케로 사후 500년 뒤 작가 마크로비우스는 키케로의 적들조차 그를 <span class="highlight">'만담꾼 집정관 (consularis scurra)'</span>이라고 불렀다고 기록했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">"Consularis Scurra"의 의미</h3>
+              <p class="mt-2">이는 단순히 '재미있는 집정관'을 넘어, '스탠드업 코미디언처럼 행동하는 최고 책임자'라는 놀라운 의미를 담고 있습니다. 그의 유머가 얼마나 즉흥적이고 대중적이었는지를 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: The Double-Edged Sword -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유머의 양면성: <span class="highlight">칭찬</span>인가, <span class="highlight">비난</span>인가?</h2>
+          <p class="slide-subtitle">플루타르코스가 지적한 유머의 모호성</p>
+          <div class="slide-content">
+            <p>전기 작가 플루타르코스는 모든 유머에는 모호성이 존재한다고 지적했습니다. 누군가와 '함께' 웃는 것과 누군가를 '비웃는' 것은 종이 한 장 차이입니다.</p>
+            <p class="mt-4">정치인과 만담꾼의 차이 역시 매우 얇아서, 키케로의 유머는 때로 저속한 만담이라는 비판을 받기도 했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Example of low-brow humor -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저속한 만담의 예시 🍖</h2>
+          <p class="slide-subtitle">키케로의 적대자들이 비판했던 농담</p>
+          <div class="slide-content">
+              <p>공직 후보자였던 한 인물의 아버지는 아들이 요리사가 되길 바랐습니다. 그가 지지를 부탁하러 다니자, 곁에 있던 키케로가 끼어들었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
+              <p class="text-2xl font-bold">“바비큐 파티나 준비하시오, 내가 지지해줄 테니!”</p>
+            </div>
+             <p class="mt-4">퀸틸리아누스는 이 농담을 "저속한 만담이었다"고 평하며, 재치와 저속함의 경계가 품위에 심각한 위협이 될 수 있음을 경고했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Humor as a Weapon -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유머는 <span class="highlight">전쟁 무기</span>다 ⚔️</h2>
+          <p class="slide-subtitle">오락이 아닌 권력을 위한 도구</p>
+          <div class="slide-content">
+            <p>키케로와 퀸틸리아누스는 단순한 오락으로서의 유머에는 관심이 없었습니다. 그들에게 농담은 <span class="highlight">전쟁 무기</span>였습니다.</p>
+            <ul class="list-disc pl-6 mt-4 space-y-2">
+                <li><b>전장:</b> 재판, 선거</li>
+                <li><b>병사:</b> 연설가, 대중 강연자</li>
+            </ul>
+            <p class="mt-4 font-bold">제대로 사용하면 사회적, 정치적 권력은 물론 선거 당선까지 안겨줄 수 있지만, 때로는 그 권력을 무너뜨리는 실마리가 되기도 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: The Power of a Single Joke -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">한마디 농담의 힘 💥</h2>
+          <p class="slide-subtitle">엄숙함을 무너뜨리는 가장 효율적인 방법</p>
+          <div class="slide-content">
+            <p>로마 시인 호라티우스는 농담의 효과를 정확히 포착했습니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="text-xl font-medium italic">“농담은 중요한 문제들을 심각하게 다루기보다는 <span class="highlight">효과적으로, 효율적으로</span> 지적한다.”</p>
+            </div>
+            <p class="mt-6">한 마디의 재치 있는 농담은 진지한 소송 절차의 인위적인 모습을 폭로하고, 배심원의 생각을 다른 방향으로 돌릴 수 있는 강력하고 위험한 전략입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Nature vs. Nurture -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유머, 타고나는가, 만들어지는가? 🧬 vs 📚</h2>
+          <p class="slide-subtitle">고대 로마인들의 생각</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">💧 체액설 (Nature)</h3>
+              <p>라틴어 '유머(humor)'는 원래 생화학적 의미로, 체액을 뜻했습니다. 로마인들은 유머에 적절한 비율의 체액을 갖고 태어나면 자연스럽게 유머러스한 사람이 된다고 믿었습니다. 즉, '타고난 재담꾼'이라는 개념입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🌱 학습 가능성 (Nurture)</h3>
+              <p>만일 타고나지 않았다면, 재담꾼이 될 수 있을까요? 만일 타고났다면, 그 능력을 더 발전시킬 수 있을까요? 이 질문이 바로 이 책의 핵심이며, 우리를 키케로의 『완벽한 연설가에 대하여』로 인도합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Section Title 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2: 키케로, 『연설가에 대하여』</p>
+          <h2 class="slide-title">제1부: 어떻게 재치 있게 <span class="highlight">농담할 것인가</span></h2>
+          <p class="slide-content">고대 로마의 거물들이 한자리에 모여 '농담의 기술'에 대해 벌이는 뜨거운 토론. 안토니우스, 카이사르, 크라수스가 유머의 본질을 파헤칩니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 12: The Opening Debate -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">토론의 시작: 안토니우스의 문제 제기</h2>
+          <p class="slide-subtitle">"유머는 규칙으로 가르칠 수 있는가?"</p>
+          <div class="slide-content">
+            <p><b>안토니우스의 주장:</b></p>
+            <p>"유머와 농담은 재미있지만 때로는 좋지 않은 영향을 미치기도 하네. 다른 모든 기술은 규칙으로 가르칠 수 있겠지만, 유머는 명백히 <span class="highlight">타고나는 것</span>이라 규칙만으로는 부족하다네."</p>
+            <p class="mt-4">그는 당대 최고의 재담가인 카이사르에게 이 주제에 대한 의견을 구하며 토론의 막을 엽니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Caesar's Counterargument -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">카이사르의 반론 🤔</h2>
+          <p class="slide-subtitle">"그리스 희극 책에서 배우려 했지만..."</p>
+          <div class="slide-content">
+            <p><b>카이사르의 경험:</b></p>
+            <p>그는 『유머에 관하여』라는 그리스 책들을 보며 무언가 배울 수 있으리라 기대했지만, 책의 저자들이 재담과 농담을 도식화하고 '규칙'을 가르치려 하자 너무 터무니없어서 웃음이 터질 수밖에 없었다고 말합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">카이사르의 결론</h3>
+              <p class="mt-2">"그래서, 적어도 나는 자네가 원하는 이 주제를 <span class="highlight">가르칠 수 없다</span>고 생각하네."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Two Types of Jokes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">농담의 두 가지 기본 형식 ✌️</h2>
+          <p class="slide-subtitle">카이사르가 제시한 농담의 분류</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 개인 특유의 익살 (Narrative)</h3>
+              <p>이야기 전체에 유머가 퍼져 있는 형식. 캐릭터, 상황, 스토리텔링을 통해 웃음을 유발합니다. 규칙이 필요 없으며, 유전적 요인(성대모사, 이야기꾼 기질)과 표정, 목소리, 말투가 중요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 한마디 공격 (One-liner)</h3>
+              <p>빠르고 예리하게 치고 나오는 방식. 재치 있는 말이 툭 튀어나와 허를 찌르는 농담입니다. 카이사르는 "여기에 어떻게 규칙이 있을 수 있겠나?"라며 이 역시 가르치기 어렵다고 말합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: The Toughest Challenge -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">재담꾼의 가장 어려운 일 🤫</h2>
+          <p class="slide-subtitle">웃음이 보장되어도 참아야 할 때</p>
+          <div class="slide-content">
+            <p>카이사르는 크라수스를 최고의 재담꾼으로 칭송하며, 그가 영리한 재담꾼들의 가장 어려운 점을 잘 해낸다고 말합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
+                <p class="text-2xl font-bold">"사람들과 상황을 살핀 후 머릿속에 떠오르는 재밌는 말이 확실한 웃음을 보장한대도 <span class="highlight">꾹 참아내는 것</span> 말일세."</p>
+            </div>
+            <p class="mt-4">이는 농담의 기술이 단순히 웃기는 말을 하는 능력을 넘어, 언제 말하지 않아야 하는지를 아는 '절제'의 미학임을 시사합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Caesar's Reluctance -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">"나는 연설가를 가르치는 돼지" 🐷</h2>
+          <p class="slide-subtitle">결국 토론에 참여하기로 한 카이사르</p>
+          <div class="slide-content">
+            <p>계속되는 요청에 카이사르는 마지못해 농담에 대한 자신의 생각을 풀어놓기로 합니다. 그는 자신의 처지를 '연설가를 가르치는 돼지'라는 속담에 빗대어 표현하며, 대가인 크라수스 앞에서 주제넘게 나서는 것에 대한 겸손함을 보입니다.</p>
+            <p class="mt-4">이로써 본격적인 농담 이론에 대한 논의가 시작됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Section Title: 5 Questions -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">웃음의 본질</p>
+          <h2 class="slide-title">웃음에 대한 <span class="highlight">5가지 근본 질문</span> 🤔</h2>
+          <p class="slide-content">카이사르는 논의의 전체적인 윤곽을 잡기 위해, 웃음에 관해 우리가 생각해보아야 할 5가지 핵심 질문을 제시합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 18: Question 1 & 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 1 & 2: 웃음의 근원 ❓</h2>
+          <p class="slide-subtitle">웃음이란 무엇이고 어디에서 오는가?</p>
+          <div class="slide-content">
+            <p><b>(1) 웃음이란 무엇인가?</b> 어떻게 갑자기 일어나고 사라져서 막을 수 없는가?</p>
+            <p><b>(2) 어디에서 생겨나는가?</b></p>
+            <p class="mt-6">카이사르는 이 질문들은 철학자 데모크리토스에게 묻는 것이 낫다며 한 발 물러섭니다. 하지만 그는 웃음이 만들어지는 곳, 즉 '폭소 지구'는 <span class="highlight">'수치스러운 추함'</span>으로 형성된다고 정의합니다. 우아하게 수치를 드러내고 비난하는 것이 웃음을 유발하는 유일하고 확실한 방식이라는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Question 3 & 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 3 & 4: 연설가의 활용법 ⚖️</h2>
+          <p class="slide-subtitle">연설가는 웃음을 사용해야 하는가, 그리고 얼마나?</p>
+          <div class="slide-content">
+            <p><b>(3) 연설가는 사람들을 웃기려 해야 하는가?</b> <span class="highlight">그렇다.</span> 웃음은 청중을 내 편으로 만들고, 긴장을 풀어주며, 상대를 무너뜨리는 등 다양한 효과가 있기 때문입니다.</p>
+            <p class="mt-4"><b>(4) 그렇다면 얼마나?</b> <span class="highlight">극도로 면밀하게 검토해야 한다.</span> 명백한 악이나 범죄, 극심한 고통은 놀림감으로 삼으면 안 됩니다. 또한, 존경받는 사람이나 대중이 사랑하는 사람을 폄하해서는 안 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Question 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 5: 농담의 유형들 📋</h2>
+          <p class="slide-subtitle">"농담의 유형에는 어떤 것들이 있는가?"</p>
+          <div class="slide-content">
+            <p>카이사르는 마지막 질문에 답하며 유머를 두 가지 핵심 유형으로 나눕니다. 이 분류는 이후 이어지는 모든 논의의 기반이 됩니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg grid grid-cols-2 gap-4 text-center">
+              <div>
+                <h3 class="font-bold text-xl">1. 대상에 기반한 농담</h3>
+                <p class="mt-2">사물, 상황, 인물 등 내용 자체에서 오는 유머</p>
+                <div class="text-4xl mt-2">📦</div>
+              </div>
+              <div>
+                <h3 class="font-bold text-xl">2. 언어에 기반한 농담</h3>
+                <p class="mt-2">말장난, 동음이의어 등 표현 방식에서 오는 유머</p>
+                <div class="text-4xl mt-2">🗣️</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Section Title: Joke Types -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">농담의 기술</p>
+          <h2 class="slide-title">농담의 <span class="highlight">구체적 유형</span>과 사례 분석</h2>
+          <p class="slide-content">카이사르가 분류한 두 가지 주요 유형(대상 기반, 언어 기반)에 따라 구체적인 농담 기술과 실제 로마 시대의 사례들을 살펴봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Type 1: Object-based Humor -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📦 대상에 관한 농담 (1): 이야기와 모방</h2>
+          <p class="slide-subtitle">내용 자체로 웃음을 주는 기술</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6 space-y-4">
+              <li><b>짧은 이야기처럼 풀어내기:</b> 실제로 있었던 일이든 지어낸 이야기든, 성격이나 상황을 드러내는 일화를 통해 웃음을 유발합니다. (예: 멤미우스와 라르구스의 주먹다짐 이야기)</li>
+              <li><b>모방 풍자:</b> 상대의 말투, 표정, 행동을 흉내 내어 웃음을 만듭니다. 연설가는 배우처럼 과장하지 않고, 청중이 스스로 상상하게끔 미묘하게 흉내 내는 것이 중요합니다. (예: 비극 배우의 노인 흉내)</li>
+              <li><b>주의점:</b> 외설적이거나 지나치게 과장된 흉내는 연설가의 품위를 떨어뜨리므로 피해야 합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Type 2: Language-based Humor -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🗣️ 언어에 관한 농담 (1): 말장난</h2>
+          <p class="slide-subtitle">표현 자체로 웃음을 주는 기술</p>
+          <div class="slide-content">
+            <p>언어에 기반을 둔 농담은 기민한 발언이나 생각의 '요점'으로 이루어집니다. 이는 <span class="highlight">만담꾼과 연설가를 구분</span>하는 중요한 지점이기도 합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">연설가 vs 만담꾼</h3>
+              <p class="mt-2">연설가는 주변 상황을 고려하고, 농담의 수준과 빈도를 조절하며, 목적 달성을 위해 농담을 사용합니다. 반면 만담꾼은 특별한 이유 없이 계속 농담을 던집니다. <span class="highlight">절제가 핵심</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: What People Like -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사람들은 어떤 농담을 좋아할까? 💖</h2>
+          <p class="slide-subtitle">대상과 언어가 교묘하게 섞일 때</p>
+          <div class="slide-content">
+            <p>카이사르는 사람들이 대상과 언어, 이 두 가지 요소가 섞여서 웃음이 나올 때의 농담을 가장 좋아한다고 분석합니다.</p>
+            <p class="mt-4">특히 진지한 이야기를 할 때 적용될 수 있는 원칙이 농담에도 똑같이 적용될 때, 그 반전의 묘미가 웃음을 유발합니다. </p>
+            <p class="mt-4 font-bold">예시: 도벽이 있는 노예 네로에게 했던 농담</p>
+            <p class="italic">"그에게만은 우리 집의 어느 문도 막혀 있거나 잠겨 있지 않지." (원래는 신뢰하는 노예에게 하는 칭찬)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Language Humor: Ambiguity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🗣️ 언어 유머(2): 동음이의어 (Ambiguity)</h2>
+          <p class="slide-subtitle">가장 기발하지만, 큰 웃음은 없을 수도 있는 유형</p>
+          <div class="slide-content">
+            <p>두 가지 이상의 의미를 지닌 단어나 문장을 사용하는 기술입니다. 사람들은 이를 매우 기발하다고 생각하지만, 때로는 큰 웃음보다는 감탄에 그칠 수 있습니다.</p>
+            <p class="mt-4 font-bold">사례: 축구를 좋아해 조각상을 깨뜨린 군인 티티우스</p>
+            <div class="mt-2 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p>동료들이 아침 운동에 왜 안 나왔냐고 묻자, 테렌티우스 베스파가 농담했다.</p>
+              <p class="text-xl font-bold mt-2 text-center">“아, 괜찮아. <span class="highlight">팔 하나</span> 부러졌대.”</p>
+              <p class="text-sm text-center mt-1">(라틴어에서 '팔'은 조각상의 팔과 사람의 팔 모두를 의미할 수 있음)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Language Humor: Paronomasia -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🗣️ 언어 유머(3): 파로노마시아 (Wordplay)</h2>
+          <p class="slide-subtitle">철자 하나만 살짝 바꾸는 기술</p>
+          <div class="slide-content">
+            <p>그리스인들이 '파로노마시아'라고 부르는 이 기술은, 발음이 비슷한 단어를 이용해 단어를 살짝 바꾸는 것입니다.</p>
+            <p class="mt-4 font-bold">카토의 농담 사례:</p>
+            <div class="mt-2 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>카토가 한 사내에게 "잠시 나와 단둘이 산책하러 갈래? 그래, 나가자(egredere)!"라고 말했다. 남자가 "왜 '나(ego)'가야 하지요?"라고 묻자 카토가 답했다.</p>
+              <p class="text-xl font-bold mt-2 text-center">“허, 그게 아니지. 왜 ‘너(te)’여야 할까?”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Language Humor: Quoting -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🗣️ 언어 유머(4): 인용하기 📜</h2>
+          <p class="slide-subtitle">시구, 속담 등을 비틀어 사용하는 기술</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">시구 인용/변형</h3>
+              <p>유명한 시의 한 구절을 그대로 가져오거나 살짝 바꿔서 상황에 맞게 사용하는 재치.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">속담 활용</h3>
+              <p>모두가 아는 속담을 예상치 못한 방식으로 사용하여 웃음을 유발. 단어를 바꾸면 효과가 사라지므로 '언어' 유머로 분류됩니다. (예: "뿌린 대로 거두리라.")</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Language Humor: Literal Interpretation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🗣️ 언어 유머(5): 문자 그대로 받아들이기</h2>
+          <p class="slide-subtitle">상대의 말을 의도와 다르게 해석하여 반격하는 기술</p>
+          <div class="slide-content">
+            <p>상대방이 한 말을 본래 의도가 아닌 문자 그대로의 의미로 받아쳐 농담으로 만드는 기술입니다. 오래된 거리공연 촌극에서 자주 사용되던 방식입니다.</p>
+            <p class="mt-4 font-bold">스키피오의 농담 사례:</p>
+            <div class="mt-2 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>선거위원이 다른 후보자에 대해 형식적으로 물었다. "루키우스 만리우스에 대해 무어라 말하겠는가?"</p>
+              <p class="text-xl font-bold mt-2 text-center">스키피오가 답했다: "제 생각에, 그는 <span class="highlight">신사이며 애국자</span>입니다."</p>
+              <p class="text-sm text-center mt-1">(질문의 의도는 '그를 지지하는가'였지만, 문자 그대로 '그에 대한 의견'을 답함)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 29: Object-based Humor: Anecdotes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📦 대상 유머(2): 일화, 역사, 유사성</h2>
+          <p class="slide-subtitle">이야기를 활용한 고난도 기술</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6 space-y-4">
+              <li><b>일화 이용하기:</b> 사람들이 그럴듯하게 느끼면서도, 정치적 올바름에서 약간 벗어나는 상상을 하게 만들어야 하므로 매우 어려운 기술입니다. (이솝 우화 등)</li>
+              <li><b>역사에서 재료 얻기:</b> 역사적 사실을 비꼬아 현재 상황에 빗대는 것입니다. (예: 카산드라라고 자칭한 티티우스에게 "당신의 상대인 아이아스들의 이름은 수도 없이 댈 수 있다네"라고 한 안토니우스의 농담)</li>
+              <li><b>유사성 (비교):</b> 두 대상의 유사점을 찾아 비유하는 기술입니다. (예: 토착민들을 갈취한 피소를 보고 "다람쥐처럼 배에 저장했다"고 한 농담)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Object-based Humor: Vivid Description -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📦 대상 유머(3): 생생한 묘사 묘사</h2>
+          <p class="slide-subtitle">신체적 결함을 더 심각한 것과 비교하기</p>
+          <div class="slide-content">
+            <p>신체적 결함이나 문제를 포착하여 그보다 더 심각하거나 우스꽝스러운 것과 비교하여 웃음을 유발합니다.</p>
+            <p class="mt-4 font-bold">헬비우스 만키아 사례:</p>
+            <div class="mt-2 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>못생긴 만키아에게 "당신 닮은꼴을 보여주겠소"라고 말한 뒤, 상점에 걸린 방패에 그려진 <span class="highlight">흉측한 갈리아 병사</span>의 그림을 가리켰다. 그 모습이 만키아와 꼭 닮아 웃음이 터졌다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Object-based Humor: Hyperbole -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📦 대상 유머(4): 과장법 (Hyperbole)</h2>
+          <p class="slide-subtitle">사실을 지나치게 축소하거나 확대하여 놀라게 하는 기술</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">확대</h3>
+              <p>크라수스의 농담: "멤미우스는 자신이 매우 큰 사람인지라 포럼으로 가는 길에 파비아누스 개선문 아래를 지날 때면 고개를 수그려야 한다고 생각한다."</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">축소</h3>
+              <p>스키피오의 농담: 미련한 사람에게 화가 나서 "그 사람 모친에게 애가 하나 더 있었다면 당나귀였을 듯하오!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 32: Object-based Humor: Irony -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📦 대상 유머(5): 아이러니와 반어법</h2>
+          <p class="slide-subtitle">생각과는 다른 말을 하여 웃음을 주는 세련된 방법</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6 space-y-4">
+              <li><b>모르는 척하기:</b> 말하는 내용과 전혀 다르게 생각하면서 전부 진심인 척하는 것입니다. 소크라테스가 이 분야의 대가로 꼽힙니다.</li>
+              <li><b>결함에 좋은 이름 붙이기:</b> 모르는 척하기와 비슷합니다. (예: 전투에 불참한 백부장을 내쫓으며 스키피오가 한 말: "나는 너무 부지런한 사람을 싫어해.")</li>
+              <li><b>다른 의도로 사용하기:</b> 상대가 한 말을 원래 의도와 다르게 받아쳐서 사용하는 기술입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Section Title 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3: 퀸틸리아누스, 『연설가 교육』</p>
+          <h2 class="slide-title">제2부: 유머의 기술에 <span class="highlight">관하여</span></h2>
+          <p class="slide-content">키케로 사후, 로마 제국 시대의 수사학자 퀸틸리아누스는 키케로의 이론을 계승하고 발전시키며 유머에 대한 새로운 통찰을 제공합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 34: Why Laughter is Hard -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">웃음을 끌어내기 <span class="highlight">힘든 이유</span> 😫</h2>
+          <p class="slide-subtitle">퀸틸리아누스가 분석한 유머의 어려움</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6 space-y-3">
+              <li><b>허위와 왜곡:</b> 농담은 보통 허위이고, 사실을 고의로 왜곡하며, 모욕을 포함합니다.</li>
+              <li><b>다양한 반응:</b> 사람들의 반응이 이성보다는 원초적 감정에서 나오기 때문에 예측이 어렵습니다.</li>
+              <li><b>정의의 부재:</b> 웃음의 근원은 아무도 제대로 설명하지 못했습니다. 추함, 수치스러움, 바보 같음, 섬뜩함 등 단 하나의 요소로 정의할 수 없습니다.</li>
+              <li><b>위험성:</b> 재치는 조롱과 매우 가깝기 때문에, 자칫하면 청중의 웃음이 연설가 자신에게로 돌아와 '우둔함'으로 낙인찍힐 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: The Power of Laughter -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">웃음의 지배적인 힘 💪</h2>
+          <p class="slide-subtitle">저항할 수 없는 강력한 감정</p>
+          <div class="slide-content">
+            <p>퀸틸리아누스는 웃음이 우리의 의지와 상관없이 발생하며, 몸 전체를 격렬하게 흔드는 <span class="highlight">지배적이고 압도적인 힘</span>이 있다고 말합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">분노를 소거하는 능력</h3>
+              <p class="mt-2">웃음은 분노와 적대감 같은 심각한 감정을 매우 빠르게 소거하고 문제의 방향을 전환하는 강력한 능력을 가지고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Tarentum Youths Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례: 타렌툼 청년들의 재치 🍷</h2>
+          <p class="slide-subtitle">농담으로 위기를 모면하다</p>
+          <div class="slide-content">
+            <p>피로스 왕에 대한 험담을 하다가 체포된 타렌툼의 청년들은 부정하거나 항변할 여지 없이 유죄가 명백했습니다.</p>
+            <p class="mt-4">상황을 모면하기 위해 그들 중 한 명이 시의적절한 농담을 던졌습니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
+              <p class="text-2xl font-bold">"아니, 우리가 술만 진탕 마시지 않았더라면 폐하를 죽였을 수도 있습니다."</p>
+            </div>
+            <p class="mt-6">이 한마디의 재치 있는 말이 그들에 대한 모든 악감정을 녹여버렸습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 37: Section Title: 6 Features of Humor -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">유머의 특징</p>
+          <h2 class="slide-title">유머의 <span class="highlight">여섯 가지</span> 특징 🎨</h2>
+          <p class="slide-content">퀸틸리아누스는 유머를 수없이 다양한 이름으로 부르며, 각각의 고유한 특징을 분석합니다. 그는 이를 여섯 가지 핵심 특징으로 정리합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 38: Features 1-3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">특징 1-3: 세련됨, 매력, 맛깔스러움</h2>
+          <p class="slide-subtitle">유머를 구성하는 섬세한 요소들</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6 space-y-4">
+              <li><b>1. 도시적인 세련됨 (Urbanitas):</b> 단어, 소리, 용례에서 '도시적'인 느낌과 지식인들 사이에서 나오는 세련미. '시골스러움'의 반대.</li>
+              <li><b>2. 매력 (Venustum):</b> 유머에 깃든 일종의 우아함과 매력.</li>
+              <li><b>3. 맛깔스러움 (Salsum):</b> '맛이 없지는 않음'을 의미. 이야기의 기본 조미료처럼, 우리가 모르는 사이에 마음을 사로잡고 지루함을 없애줍니다. 진짜 소금(sal)처럼 농담(sales)에 감칠맛을 더합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Features 4-6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">특징 4-6: 재치, 농담, 조롱</h2>
+          <p class="slide-subtitle">유머의 다양한 얼굴</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6 space-y-4">
+              <li><b>4. 재치 있는 말 (Facetum):</b> 그냥 재미있는 말과 달리, 정제된 고상함과 매력을 나타냅니다.</li>
+              <li><b>5. 농담 (Iocus):</b> '심각한 것'과 반대되는 개념으로, 이야기를 만들고 겁을 주거나 약속을 정하는 것까지 포함될 수 있습니다.</li>
+              <li><b>6. 짓궂은 조롱 (Dicacitas):</b> 모든 유머의 기본 요소인 '말하다(dicere)'에서 파생되었으며, 공격적인 언어를 의미합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: How to Use Humor -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어떻게 유머를 사용해야 하는가? 🎯</h2>
+          <p class="slide-subtitle">퀸틸리아누스의 실전 가이드라인</p>
+          <div class="slide-content">
+            <p>퀸틸리아누스는 유머 사용에 있어 <span class="highlight">상황적 맥락</span>을 매우 중요하게 생각합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">가장 먼저 조사할 것</h3>
+              <ul class="list-disc pl-5 mt-2 space-y-1">
+                  <li><b>연설가:</b> 나는 누구인가?</li>
+                  <li><b>소송:</b> 어떤 사건인가?</li>
+                  <li><b>재판관:</b> 듣는 이는 누구인가?</li>
+                  <li><b>상대편:</b> 공격 대상은 누구인가?</li>
+              </ul>
+            </div>
+            <p class="mt-4">극악무도한 범죄나 가슴 아픈 사건에서 농담을 던지는 검사나 변호사는 용납될 수 없으며, 너무 진지한 재판관은 웃음을 그냥 넘기지 않을 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Humor to Avoid -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">피해야 할 농담 🚫</h2>
+          <p class="slide-subtitle">품위와 자존심을 지키기 위한 원칙</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-6 space-y-3">
+              <li><b>지나친 과장:</b> 거리공연가처럼 과장된 표정이나 몸짓은 연설가에게 어울리지 않습니다.</li>
+              <li><b>잔인함:</b> 불행한 사람을 희생시키는 농담은 잔인합니다.</li>
+              <li><b>무례함:</b> 권위 있거나 존경받는 사람을 향한 경솔한 언행은 화자에게 해가 됩니다.</li>
+              <li><b>일반화:</b> 민족, 신분, 지위 등 전체 무리를 공격하는 일반화는 좋지 않습니다.</li>
+              <li><b>자기 파괴:</b> 자기 자신을 조롱거리로 삼는 것은 만담꾼의 방식이며 연설가에게는 적절하지 않습니다.</li>
+            </ul>
+             <p class="mt-4 font-bold">"웃음이 고결함을 잃는 대가로 따라온다면, 그런 웃음은 지나치게 비싼 값이 매겨진 것이다."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Joke Types by Quintilian -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">퀸틸리아누스의 농담 기술 🛠️</h2>
+          <p class="slide-subtitle">키케로의 이론을 기반으로 한 심화 기술</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">유사성 (Similarity)</h3>
+              <p>가장 중요한 요소. 사람, 동물, 무생물 등에서 유사점을 찾아 비교하고 과장합니다. (예: 마른 체형의 율리우스를 '쇠고리'라고 부른 것)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">반어법 (Irony)</h3>
+              <p>속마음과 반대로 말하는 기술. 여러 종류의 농담에 사용됩니다. (예: 집에 비가 새는 갑바가 우산을 빌려달라는 사람에게 "못 빌려주겠네. 내가 집에 있어서 말이야.")</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">수사적 표현 (Rhetoric)</h3>
+              <p>과장법, 은유, 대유 등 거의 모든 수사적 표현이 재치있게 사용될 수 있습니다. (예: 키가 큰 사람을 보고 "개선문에 머리를 찧었다"고 한 키케로의 농담)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">예상 깨기 (Surprise)</h3>
+              <p>가장 재미있고 매력적인 유형. 예상을 깨뜨리거나 상대의 말을 곡해하여 웃음을 유발합니다. (예: "저 남자는 다 가졌어. 돈과 장점 빼고.")</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Section Title 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4: 결론</p>
+          <h2 class="slide-title">에필로그: 농담을 어떻게 <span class="highlight">받아들일 것인가</span></h2>
+          <p class="slide-content">농담을 하는 기술만큼이나 중요한 것은 농담을 받는 기술입니다. 플루타르코스가 전하는 카토의 일화는 최고의 예시를 보여줍니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Cato's Response -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소 카토의 대응 🗿</h2>
+          <p class="slide-subtitle">상사의 조롱에 대처하는 현명한 자세</p>
+          <div class="slide-content">
+            <p>집정관이었던 키케로가 법정에서 상대 변호사였던 소 카토와 그의 스토아 철학을 계속해서 조롱했습니다. 관중부터 판사까지 웃음이 터지자, 카토는 일그러진 미소를 띠며 주변 사람들에게 이렇게 농담했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
+              <p class="text-2xl font-bold">"여러분, 우리 집정관님은 어찌나 웃긴 분이신지요!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: The Ultimate Strategy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">백전백승의 전략 🏆</h2>
+          <p class="slide-subtitle">분노와 눈물 대신 유머로 받아치기</p>
+          <div class="slide-content">
+            <p>카토의 대응에는 분노도, 눈물도, 비굴함도, 우월의식도 없었습니다. 그는 단지 <span class="highlight">함축적인 표현</span>을 사용함으로써 다음과 같은 효과를 거두었습니다.</p>
+            <ul class="list-disc pl-6 mt-4 space-y-2">
+              <li>농담을 던진 사람(키케로)을 광대와 익살꾼으로 만들어 버렸습니다.</li>
+              <li>상황의 주도권을 되찾고 사람들을 다시 자신의 편으로 돌려놓았습니다.</li>
+            </ul>
+            <p class="mt-4 font-bold">플루타르코스는 이 전략이 '백전백승'이라고 말합니다. 누군가 당신을 공개적으로 조롱한다면, 이 방법을 사용해보세요.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">:dart:</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">고대의 지혜는 오늘날에도 유효합니다. 유머는 단순한 웃음이 아니라, 인간 관계와 소통의 핵심을 꿰뚫는 강력한 <span class="highlight">전략적 도구</span>입니다. 키케로와 퀸틸리아누스는 유머가 학습 가능하며, 그 핵심은 '언제, 어디서, 누구에게, 어떻게' 사용할지를 아는 <span class="highlight">절제와 상황판단 능력</span>에 있음을 보여줍니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">웃음을 지배하는 자가 대화를 지배합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 47: Additional Slide for length -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현대적 적용: 직장에서의 유머 🏢</h2>
+          <p class="slide-subtitle">고대의 지혜를 오늘날 직장 생활에 적용하기</p>
+          <div class="slide-content">
+              <p>키케로의 '전장'이 오늘날의 '회의실'이라면, 농담은 여전히 강력한 무기입니다.</p>
+              <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li><b>분위기 전환:</b> 긴장된 회의나 어려운 협상에서 적절한 유머는 분위기를 부드럽게 만듭니다.</li>
+                  <li><b>설득력 강화:</b> 복잡한 아이디어를 재치 있는 비유로 설명하면 더 기억에 남고 설득력이 높아집니다. (대상 기반 유머)</li>
+                  <li><b>관계 형성:</b> 함께 웃는 경험은 팀원 간의 유대감을 강화합니다.</li>
+                  <li><b>주의점:</b> 퀸틸리아누스의 경고처럼, 상대의 지위, 상황, 기업 문화를 고려해야 합니다. 특히 상사를 대상으로 한 농담은 신중해야 합니다. (카토의 대응법 참고)</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 48: Additional Slide for length -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현대적 적용: SNS와 온라인 소통 📱</h2>
+          <p class="slide-subtitle">짧은 글 속 재치의 힘</p>
+          <div class="slide-content">
+              <p>텍스트 기반의 온라인 소통에서는 키케로가 말한 '언어에 기반한 농담'이 특히 효과적입니다.</p>
+               <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg grid grid-cols-2 gap-4">
+                  <div>
+                    <h3 class="font-bold text-lg">장점 👍</h3>
+                    <p>말장난, 중의적 표현, 재치 있는 해시태그 등은 짧은 글에 큰 임팩트를 줍니다. 이는 사람들의 관심을 끌고 메시지를 바이럴하게 만드는 데 도움이 됩니다.</p>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-lg">위험성 👎</h3>
+                    <p>비언어적 요소(표정, 억양)가 없어 오해의 소지가 큽니다. '비웃음'으로 해석될 가능성이 높으므로, 부정적인 유머나 공격적인 조롱은 피하는 것이 좋습니다. 이모티콘(😉)이 현대의 '윙크' 역할을 합니다.</p>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 49: Additional Slide for length -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유머 감각을 키우는 연습법 🏋️</h2>
+          <p class="slide-subtitle">일상에서 실천하는 고대의 지혜</p>
+          <div class="slide-content">
+            <p>유머가 학습 가능하다면, 어떻게 훈련할 수 있을까요?</p>
+            <ul class="list-disc pl-6 mt-4 space-y-3">
+              <li><b>관찰하기:</b> 주변의 재치 있는 사람들을 관찰하고 그들이 어떤 상황에서 어떤 유형의 농담을 사용하는지 분석해보세요. (키케로가 다른 연설가들을 분석했듯이)</li>
+              <li><b>많이 읽고 보기:</b> 다양한 책, 영화, 코미디 쇼를 접하며 재치 있는 표현과 상황 설정을 익히세요. 이는 농담의 '재료'를 모으는 과정입니다.</li>
+              <li><b>낮은 단계부터 시작하기:</b> 처음에는 가족이나 친한 친구처럼 안전한 환경에서 가벼운 농담(예: 문자 그대로 받아들이기, 과장법)을 연습해보세요.</li>
+              <li><b>기록하기:</b> 재미있는 생각이나 표현이 떠오르면 메모하는 습관을 들이세요. 키케로의 비서 티로가 그의 농담을 모았던 것처럼 말입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Final Thought -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">최고의 농담은 <span class="highlight">공감</span>에서 나온다 ❤️</h2>
+          <p class="slide-subtitle">기술을 넘어서는 유머의 본질</p>
+          <div class="slide-content">
+            <p>키케로와 퀸틸리아누스는 유머를 '기술'의 관점에서 분석했지만, 그들의 수많은 사례와 경고 속에는 한 가지 공통된 원칙이 숨어있습니다.</p>
+            <p class="mt-4">바로 <span class="highlight">인간과 상황에 대한 깊은 이해</span>입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>결국 최고의 농담은 단순히 웃기는 기술이 아니라, 상대방의 입장을 이해하고, 사회적 분위기를 읽으며, 모두가 함께 즐길 수 있는 포인트를 찾아내는 공감의 능력에서 비롯됩니다. 이것이 바로 2,000년이 지나도 변치 않는 유머의 진정한 기술일 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
