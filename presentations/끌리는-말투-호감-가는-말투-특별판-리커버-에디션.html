@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>끌리는 말투, 호감 가는 말투</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #4A5568; /* Tailwind's gray-600 */
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #1A202C; /* Tailwind's gray-900 */
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #2D3748; /* Tailwind's gray-800 */
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #2D3748; /* Tailwind's gray-800 */
+    }
+    .highlight {
+      background-color: #d8b4fe; /* A pleasant purple highlight */
+      color: #3b0764;
+      font-weight: 700;
+      padding: 0.1em 0.4em;
+      border-radius: 6px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #581c87; /* Purple */
+      color: white;
+      border-color: #581c87;
+    }
+    .btn-primary:hover {
+      background-color: #4c1d95;
+    }
+    .btn-primary:disabled {
+        background-color: #a8a29e;
+        border-color: #a8a29e;
+        cursor: not-allowed;
+    }
+    .btn-secondary {
+      background-color: #F1F5F9; /* Tailwind's slate-100 */
+      color: #475569; /* Tailwind's slate-600 */
+      border-color: #CBD5E1; /* Tailwind's slate-300 */
+    }
+    .btn-secondary:hover {
+      background-color: #E2E8F0; /* Tailwind's slate-200 */
+    }
+     .btn-secondary:disabled {
+        background-color: #f5f5f4;
+        color: #a8a29e;
+        border-color: #d6d3d1;
+        cursor: not-allowed;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #E5E7EB; /* Tailwind's gray-200 */
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #E5E7EB;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #581c87; /* Purple */
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-item {
+        padding: 12px;
+        border-radius: 8px;
+        transition: background-color 0.2s;
+    }
+    .toc-item:hover {
+        background-color: #f3e8ff; /* Light purple */
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full max-w-7xl">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center bg-purple-900 text-white">
+          <div class="text-7xl mb-8">🎙️</div>
+          <h1 class="text-5xl md:text-6xl font-black mb-4">끌리는 말투, 호감 가는 말투</h1>
+          <p class="text-xl md:text-2xl opacity-90">어떻게 말하느냐가 당신의 운명을 결정한다</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <p class="toc-item"><b>프롤로그:</b> 당신의 말이 예술이 되는 순간</p>
+            <p class="toc-item"><b>제1장 관계편:</b> 관계를 지키는 말하기 기술</p>
+            <p class="toc-item"><b>제2장 대화편:</b> 대화가 즐거워지는 기술</p>
+            <p class="toc-item"><b>제3장 감정편:</b> 감미로운 말이 사랑을 키운다</p>
+            <p class="toc-item"><b>제4장 설득편:</b> 백만 대군보다 강한 설득의 힘</p>
+            <p class="toc-item"><b>제5장 강연편:</b> 대중 앞 말하기는 공연 예술이다</p>
+            <p class="toc-item"><b>제6장 토론편:</b> 논리적인 말, 토론의 비밀 무기</p>
+            <p class="toc-item"><b>제7장 협상편:</b> 협상의 결과를 바꾸는 말</p>
+            <p class="toc-item"><b>제8장 취업편:</b> 말로 열리는 취업의 문</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 1: Prologue -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">당신의 말이 <span class="highlight">예술</span>이 되는 순간 ✨</h2>
+          <p class="slide-subtitle">말하기는 단순한 소통을 넘어, 사람의 마음을 움직이고 관계를 완성하며, 사회적 성공을 이끄는 능력입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">말하기는 <span class="highlight">재능</span>이다</h2>
+          <p class="slide-subtitle">누구나 말을 할 수 있지만, '잘' 말하는 것은 재능의 영역입니다.</p>
+          <div class="slide-content space-y-4">
+            <p>🗣️ <b>마음을 움직이는 힘:</b> 말하기에 따라 사람의 마음을 움직이는 능력이 발휘됩니다.</p>
+            <p>🤝 <b>인간관계의 완성:</b> 좋은 말하기는 인간관계를 완성시키고 사회적 성공을 돕습니다.</p>
+            <p>💪 <b>훈련이 필요한 능력:</b> 타고난 소질을 계발하듯, '말하기' 능력도 습득하고 훈련해야 합니다. 기술을 뛰어넘어 예술이 되도록 해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">말에는 <span class="highlight">종합적인 자질</span>이 반영된다</h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl mb-2">겉으로 보이지 않는 것들 🕵️‍♂️</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>환경, 지식, 경험</li>
+                        <li>교양, 성격</li>
+                        <li>인품과 인성</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl mb-2">평가의 기준 ⚖️</h3>
+                    <p>단순히 어휘량이나 억양의 문제가 아닙니다. 당신의 말은 상대가 당신을 평가하는 중요한 기준이 됩니다. 사회적 관계는 모두 말로 소통되기 때문입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Part 2: Chapter 1 (Relationships) -->
+       <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제1장: 관계편</p>
+          <h2 class="slide-title">관계를 지키는 <span class="highlight">말하기 기술</span> 🛡️</h2>
+          <p class="slide-subtitle">인간관계는 말 한마디로 돈독해지기도, 멀어지기도 합니다. 관계를 더욱 빛나게 하는 다양한 말하기 기술을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">영리한 방법으로 <span class="highlight">거절하자</span> 🙅</h2>
+          <p class="slide-subtitle">거절은 난이도가 높은 소통 방식입니다. 직설적인 거절은 오해를 낳기 쉽습니다. '완곡한 거절' 기술로 관계를 지키세요.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 완곡한 거절법이란?</h3>
+              <p class="mt-2">상대의 이해를 구하면서 실망과 불쾌감을 최소화하는 방법입니다. 마음은 불편하지 않으면서 상대도 기쁘게 거절을 받아들이게 만듭니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">거절의 기술 (1)</h2>
+            <div class="slide-content space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg text-purple-800">🔄 상대의 부탁 이유를 거절 사유로 전환한다</h3>
+                    <p><b>상황:</b> "이런 일에 경험이 많으시니 꼭 도와주세요."<br><b>대응:</b> "도와드리고 싶지만, 제 과거 경험이 오히려 이 일에 속박이 될 수 있겠네요. 더 적합한 분을 추천해드릴게요."<br><b>효과:</b> 상대를 배려하면서 대안까지 제시하여 고마움을 느끼게 합니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-purple-800">📅 다음 기회를 약속하며 거절을 표한다</h3>
+                    <p><b>상황:</b> 파티에 초대받았지만 가고 싶지 않을 때.<br><b>대응:</b> "초대해주셔서 감사합니다. 하지만 오늘 밤은 일이 있어 참석이 어렵네요. 다음에 기회가 되면 꼭 참석할게요."<br><b>효과:</b> '다음'이라는 미정의 기약으로 완벽한 거절이 되며, 직설적인 표현보다 훨씬 부드럽습니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">거절의 기술 (2)</h2>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-purple-800">🤔 상대의 감정을 먼저 읽어준다</h3>
+                    <p>상대의 심정에 공감하며 거절해야 상처나 악감정을 피할 수 있습니다.<br><b>예시:</b> "고객님께서 지금 바로 비행기에 탑승하셔야 하는 것을 잘 알고 있습니다. 저도 돕고 싶지만 표가 매진되어 다른 방법이 없네요. 정말 죄송합니다."</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-purple-800">↪️ 화제를 돌려 거절을 표한다</h3>
+                    <p>칭찬해달라는 속뜻이 담긴 질문에 답하기 곤란할 때 사용합니다.<br><b>상황:</b> "이 원피스 어때요?"<br><b>대응:</b> "이 계절에 참 어울리는 색이네요." 또는 "독특한 무늬가 돋보이네요."<br><b>효과:</b> 원피스와 관련된 다른 요소(색, 디자인, 유행)로 대화를 이어가면 상대는 질문을 잊게 됩니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">거절의 기술 (3)</h2>
+          <div class="slide-content space-y-6">
+            <div>
+              <h3 class="font-bold text-lg text-purple-800">💬 동문서답도 통한다</h3>
+              <p>곧이곧대로 대답하기 난처한 질문을 받았을 때, 다소 엉뚱하거나 과장된 대답으로 회피할 수 있습니다. 상대가 어리둥절하면 질문의 핵심을 몰랐다는 듯 먼저 웃어주면, 상대는 자신이 실례했다고 느낄 수 있습니다.</p>
+            </div>
+            <div class="mt-4 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 루스벨트의 재치</h3>
+              <p class="mt-2">군사기밀을 묻는 친구에게 루스벨트는 "비밀 지킬 수 있어?"라고 물었습니다. 친구가 "물론이지!"라고 답하자, 루스벨트는 미소지으며 "나도 그래."라고 답했습니다. 친구의 체면을 지키면서 불합리한 요구를 교묘하게 거절한 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">속담과 격언</span>을 활용하자 📜</h2>
+          <p class="slide-subtitle">선조의 지혜가 담긴 속담과 격언은 말의 설득력을 높이고 친화력을 발휘하게 합니다.</p>
+          <div class="slide-content">
+            <p><b>✅ 장점:</b> 간단명료하고 이해하기 쉬우며, 상황에 따라 절묘하게 사용할 수 있습니다. 직언보다 순화된 표현으로 상대를 배려하는 능력을 보여줍니다.</p>
+            <p class="mt-4"><b>❌ 주의점:</b> 문자 그대로 이해하면 안 됩니다. 내재된 의미를 정확히 파악하고, 대화의 문맥에 적합하게 사용해야 합니다. 무리한 인용은 금물입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3: Chapter 2 (Conversation) -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제2장: 대화편</p>
+          <h2 class="slide-title">대화가 <span class="highlight">즐거워지는</span> 기술 💬</h2>
+          <p class="slide-subtitle">대화는 단순히 말하기가 아닌 소통의 발단입니다. 칭찬, 경청, 목소리 관리 등 대화의 질을 높이는 구체적인 방법을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">칭찬은 사람 마음에 <span class="highlight">스민다</span> 😊</h2>
+          <p class="slide-subtitle">칭찬은 한 사람의 잠재력과 지혜를 자극하여 그에 걸맞게 행동하도록 유도합니다. 칭찬하는 법을 제대로 배워봅시다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">언제? <b>제때 해야 한다</b> ⏰</h3>
+              <p>상대가 좋은 일을 했거나 능력이 성장했을 때 칭찬과 격려를 아끼지 말아야 합니다. 최대의 성취감을 느끼게 하여 다음 단계로 도약하도록 돕습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">어떻게? <b>적당해야 한다</b> 👍</h3>
+              <p>과도한 칭찬은 자만에 빠지게 합니다. 장점을 긍정적으로 평가하고, 부족함은 신중하게 지적하며 격려해주면 좋은 성과로 이어집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">보이지 않는 곳에서도 <span class="highlight">칭찬하자</span> 🤫</h2>
+          <p class="slide-subtitle">상대 앞에서 하는 칭찬과 뒤에서 하는 칭찬은 다른 느낌을 줍니다.</p>
+          <div class="slide-content">
+            <p>보이지 않는 곳에서 칭찬하면 어떤 이익을 취하려는 목적이 아니기에 더욱 진실하게 느껴집니다. 만약 자신이 없는 자리에서 칭찬받은 사실을 상대가 알게 된다면 더욱 감동합니다.</p>
+            <div class="mt-8 p-6 bg-purple-50 border border-purple-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 칭찬의 힘</h3>
+              <p class="mt-2">공개적인 장소에서 하는 칭찬보다 당사자가 없는 곳에서 하는 칭찬의 위력이 더 셉니다. 이는 당신의 신뢰도를 높이는 가장 효과적인 방법 중 하나입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">말을 잘 <span class="highlight">들어야 한다</span> 👂</h2>
+          <p class="slide-subtitle">말을 재치 있게 잘하는 사람보다, 경청에 능한 사람이 신뢰와 호감을 얻습니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>스트레스 해소:</b> 경청은 말하는 사람의 스트레스를 덜어주고 생각을 정리하게 돕습니다.</p>
+            <p><b>존중의 표현:</b> 상대의 말을 조용히 들어주는 것은 존중과 동정심을 표하는 행위입니다.</p>
+            <p><b>호감의 시작:</b> 다른 사람의 관심을 받고 싶다면, 먼저 다른 사람에게 관심을 가져야 합니다. 상대가 원하는 질문을 하고, 그의 이야기에 귀를 기울이세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">듣기 수준을 <span class="highlight">높이자</span> 🚀</h2>
+            <p class="slide-subtitle">하버드 언어학자 스티븐 핑커가 제시한 듣기 유형을 통해 자신의 듣기 수준을 점검해봅시다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-bold">👂 듣는 둥 마는 둥 하는 유형</h3>
+                    <p>대화에 전혀 관심과 감흥이 없음을 명확히 드러냅니다. 다른 생각을 하거나 핸드폰을 만집니다.</p>
+                </div>
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-bold">💬 그냥 듣는 유형</h3>
+                    <p>듣는 동시에 대답할 준비를 합니다. 피드백은 빠르지만 깊이가 없습니다.</p>
+                </div>
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-bold">🧐 자세히 듣는 유형</h3>
+                    <p>일을 발전시키거나 완성하기 위해 듣습니다. 해결 방안을 제시하지만, 상대를 설득하지 못하면 인정받지 못합니다.</p>
+                </div>
+                <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <h3 class="font-bold text-blue-800">❤️ 마음을 다해 듣는 유형</h3>
+                    <p>사람 중심의 듣기입니다. 상대의 마음속 생각을 듣고 말에 담긴 뜻을 파악해 진심으로 들어줍니다. 조화로운 관계로 이어집니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      <!-- Part 4: Chapter 3 (Emotion) -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제3장: 감정편</p>
+          <h2 class="slide-title">감미로운 말이 <span class="highlight">사랑</span>을 키운다 ❤️</h2>
+          <p class="slide-subtitle">사랑은 마음의 감동을 고백하는 것입니다. 달콤한 말은 사랑의 시작과 유지를 위한 최고의 영양제입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">찬사를 <span class="highlight">사랑의 접착제</span>로 이용하자</h2>
+          <p class="slide-subtitle">혹시 감사보다 원망이, 격려보다 요구가 더 많지 않았나요? 사랑하는 사이일수록 서로 인정하고 사랑받고 있다는 느낌을 전달해야 합니다.</p>
+          <div class="slide-content">
+            <p>배우자의 인정과 찬사는 자아실현에 힘을 실어주고 생활과 일에 대한 자신감을 높여줍니다. 반대로 비난과 폄하가 많다면 부부 사이에 금이 갑니다.</p>
+            <p class="mt-4">상대가 거둔 작은 성과, 가족을 위한 헌신, 일상 속의 작은 지혜는 모두 칭찬할 만한 부분입니다. <span class="highlight">고마움과 칭찬을 지속한다면</span> 가정생활에 생기와 활력이 끊임없이 샘솟을 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">용감하게 <span class="highlight">고백하자</span> 💌</h2>
+          <p class="slide-subtitle">사랑을 먼저 표현하는 것은 약함의 표시가 아닙니다. 용감히 고백하는 사람은 자기감정의 궤적을 파악한 승리자입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 고백 전 준비사항 🧐</h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li><b>자기 이해:</b> 자신을 객관적으로 측정하고 평가합니다.</li>
+                <li><b>상대 이해:</b> 상대의 가치관, 성장 배경, 이상 등을 알아봅니다.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 고백의 기회 잡기 🏃‍♀️</h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li>우연히 마주쳤을 때 간단한 대화를 시작합니다.</li>
+                <li>직접 말 걸기 어렵다면 미소나 표정으로 관심을 표현합니다.</li>
+                <li>다른 사람의 힘을 빌려 칭찬을 전달하는 것도 좋은 방법입니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다툴 때와 <span class="highlight">화해할 때</span> 룰 지키기</h2>
+          <p class="slide-subtitle">부부간의 다툼은 피할 수 없지만, 그 수위에 주의를 기울여야 합니다. 관계를 망치지 않는 다툼의 원칙을 알아봅시다.</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-red-50 border border-red-200 rounded-lg">
+                <h3 class="font-bold text-lg">❌ 다툴 때 피해야 할 말</h3>
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li>"당신과 결혼한 걸 정말 후회해!"</li>
+                    <li>"우리 이혼하자!"</li>
+                    <li>상대의 단점을 찌르거나, 예전 일을 들춰내지 말자.</li>
+                    <li>오만한 태도로 비판하거나, 상처 주는 말을 함부로 하지 말자.</li>
+                </ul>
+            </div>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+                <h3 class="font-bold text-lg">🤝 화해하는 방법</h3>
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li>자세를 낮추고 화해하려는 성의를 보인다.</li>
+                    <li>사소한 질문으로 대화의 물꼬를 튼다. ("점심 뭐 먹을까?")</li>
+                    <li>잘못했다면 먼저 사과하고, 상대가 사과하면 받아준다.</li>
+                    <li>침묵보다는 하고 싶은 말을 하도록 기회를 준다.</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 5: Chapter 4 (Persuasion) -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제4장: 설득편</p>
+          <h2 class="slide-title">뛰어난 말재주가 <span class="highlight">백만 군사</span>보다 낫다 ⚔️</h2>
+          <p class="slide-subtitle">설득은 과장이나 강압이 아닙니다. 상대의 마음을 움직여 자기 의견에 공감하고 동의하게 만드는 진정한 설득의 예술을 배워봅시다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">설득의 기본, <span class="highlight">이해가 먼저다</span></h2>
+          <p class="slide-subtitle">상대를 설득하려면 그를 존중하고, 그의 의견을 이해하고, 배려해야 합니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>칭찬으로 심리 만족:</b> 긍정적 평가를 받고 냉정하게 돌아서는 사람은 없습니다. 칭찬으로 상대의 심리적 만족감을 높여주면 더 쉽게 설득당합니다.</p>
+            <p><b>굴복이 아닌 설득:</b> 상대의 생각을 강요해서 바꾸려 하지 마세요. 부드럽게 사실을 내세워 상대가 스스로 받아들이도록 유도하는 것이 현명합니다.</p>
+            <p><b>논쟁은 피하기:</b> 논쟁으로 번지면 감정이 격화되고 갈등만 커집니다. 반대 의견을 미리 짐작하고 자신의 논리를 탄탄하게 준비하는 것이 설득의 힘이 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">설득을 위한 <span class="highlight">덫</span>을 놓아라 🎯</h2>
+          <p class="slide-subtitle">상대가 자발적으로 행동하게 만들려면 약간의 기술이 필요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🤝 상대에게 선택권을 더해주자</h3>
+              <p>상대가 망설일 때 "어떻게 하면 좋을까요?"라고 물으며 몇 가지 구체적인 방안을 제공하세요. 이는 상대의 결정을 유도하면서 당신에게 유리한 방향으로 이끌 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">💔 측은지심을 불러일으키자</h3>
+              <p>원칙을 중시하는 사람에게는 논리보다 감성적 접근이 유효할 수 있습니다. 자신의 어려움을 토로하여 상대의 측은지심을 자극해 문제를 해결할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 6: Chapter 5 (Public Speaking) -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제5장: 강연편</p>
+          <h2 class="slide-title">대중 앞 말하기는 하나의 <span class="highlight">공연예술</span>이다 🎭</h2>
+          <p class="slide-subtitle">연설은 자기주장을 전달하기 위한 종합예술입니다. 청중의 공감을 불러일으키는 연설의 기술을 익혀봅시다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시작부터 청중의 귀를 <span class="highlight">사로잡자</span>  captivating</h2>
+          <p class="slide-subtitle">강연 시작 10분 이내에 청중의 흥미와 관심을 끌 수 있다면 강연은 순조롭게 진행될 가능성이 큽니다.</p>
+          <div class="slide-content space-y-3">
+            <p><b>😲 놀라운 사실 제시:</b> "모든 사람이 매일 물 한 방울만 절약해도..."</p>
+            <p><b>❓ 질문으로 생각 자극:</b> "여러분은 OOO에 와 본 적이 있으신가요?"</p>
+            <p><b>📜 명언 인용:</b> 쉽고 간결하며 강렬한 명언으로 강한 흡입력을 만듭니다.</p>
+            <p><b>😂 유머로 시작:</b> 웃음으로 주의력을 키우지만, 가볍거나 비하적인 유머는 피해야 합니다.</p>
+            <p><b>👀 이익과 관련된 이야기:</b> 물질적, 정신적 이익을 언급하여 집중력을 끌어모읍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몸짓도 <span class="highlight">연설의 일부</span>이다</h2>
+          <p class="slide-subtitle">비언어적 요소인 몸짓은 청중의 마음을 읽고 연설을 효과적으로 이끄는 중요한 도구입니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">긍정적 몸짓 😊</h3>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><b>미소 유지:</b> 열정과 우호의 상징.</li>
+                        <li><b>열린 자세:</b> 활짝 편 어깨로 소통 의지 표현.</li>
+                        <li><b>시선 교류:</b> 청중과 친구가 되길 원한다는 메시지.</li>
+                        <li><b>몸 기울이기:</b> 청중을 향해 몸을 기울여 관심과 호의 표현.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">부정적 몸짓 😟</h3>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><b>무표정, 찡그림:</b> 청중을 혼란에 빠뜨림.</li>
+                        <li><b>움츠린 어깨:</b> 방어적이고 소극적인 태도.</li>
+                        <li><b>팔짱 끼기:</b> 독단적이고 건방진 인상.</li>
+                        <li><b>몸 뒤로 젖히기:</b> 열의와 성의가 없어 보임.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Part 7: Chapter 6 (Debate) -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제6장: 토론편</p>
+          <h2 class="slide-title">논리적인 말은 토론의 <span class="highlight">비밀 무기</span> 🤫</h2>
+          <p class="slide-subtitle">토론은 다른 견해를 가진 상대를 자기 의견으로 설득하는 경쟁적인 의사소통입니다. 토론의 승리를 위한 전략을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">토론의 시작은 <span class="highlight">듣기</span>부터 👂</h2>
+          <p class="slide-subtitle">자신의 주장만 펼치는 것이 아니라, 상대의 말을 정확하게 듣고 논리적으로 분석하는 것이 더 중요합니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>허점 파악:</b> 상대의 논리를 들으며 허점을 파악하고 반론을 구상해야 합니다.</p>
+            <p><b>존중하는 태도:</b> 무표정한 얼굴로 냉정함을 유지하고, 상대가 발언할 때 경청하는 자세를 보여줍니다.</p>
+            <p><b>메모의 중요성:</b> 상대의 의견을 메모하며 핵심 단어와 논리를 요약합니다. 이는 반론 시 자신의 의견을 더 논리적으로 펼치게 돕습니다.</p>
+            <p><b>끝까지 듣기:</b> 토론은 설득이지 말의 전쟁이 아닙니다. 상대의 의견을 끝까지 들어야 오류를 찾아 반론할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">선제공격</span>이 답이다 🥊</h2>
+          <p class="slide-subtitle">토론 시작 시점에 먼저 공격하여 상대를 당혹스럽게 만들고, 토론의 주도권을 가져오는 전략입니다.</p>
+          <div class="slide-content">
+            <p>특히 토론 주제가 불리한 경우에 자주 쓰입니다. 핵심 용어의 정의를 자신에게 유리하게 먼저 규정함으로써 논점의 틀을 잡는 것이 효과적입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">💡 AREA 법칙으로 논리 강화</h3>
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li><b>Assertion (주장):</b> 핵심 주장을 명확하게 말한다.</li>
+                    <li><b>Reason (이유):</b> 그 주장을 하는 이유를 설명한다.</li>
+                    <li><b>Evidence/Example (증거/예시):</b> 객관적 자료로 이유를 뒷받침한다.</li>
+                    <li><b>Assertion (주장):</b> 처음의 주장을 다시 한번 강조하며 정리한다.</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 8: Chapter 7 (Negotiation) -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제7장: 협상편</p>
+          <h2 class="slide-title">올리는 말에 따라 <span class="highlight">결과</span>가 바뀐다 📈</h2>
+          <p class="slide-subtitle">협상은 '대화'와 '결정'의 연속입니다. 상대의 심리를 파악하고 진정한 요구를 알아채는 말의 기술이 협상의 성패를 좌우합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상대의 <span class="highlight">허를 찔러라</span> 🎯</h2>
+          <p class="slide-subtitle">진짜 목적을 숨긴 채 협상의 방향을 잡는 전략이 필요합니다.</p>
+          <div class="slide-content">
+            <p>의도적으로 덜 중요한 문제로 대화를 끌어가고, 그 부분에서 과감하게 양보하여 상대에게 만족감을 주세요. 그 후 진짜 목적을 드러내 문제를 제기하면 쉽게 합의에 이를 수 있습니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">⚠️ 주의사항</h3>
+              <p class="mt-2">초반에 논의하는 문제가 비록 당신의 주요 관심사가 아니더라도, 상대에게는 매우 중요한 문제인 것처럼 태도를 보여야 합니다. 작은 사안일수록 크게 양보하여 상대의 만족도를 높이세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">인내</span>하면 이긴다 🧘</h2>
+          <p class="slide-subtitle">협상은 때때로 인내심을 겨루는 과정입니다. 먼저 인내심을 잃는 편이 협상에서 패배합니다.</p>
+          <div class="slide-content">
+            <p>상대가 조급해할 때 냉정하고 침착하게 문제를 고려하는 것이 승리하는 협상가의 태도입니다.</p>
+            <p class="mt-4">특히 상대방의 의도를 잘 알지 못할 때는 침묵이 좋은 피드백이 될 수 있습니다. 잠깐의 침묵은 분위기를 전환하고, 상대가 먼저 상황을 설명하도록 유도하는 효과적인 방법입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 9: Chapter 8 (Employment) -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-part-title">제8장: 취업편</p>
+          <h2 class="slide-title">말로 자신을 보여주어야 <span class="highlight">취업의 문</span>이 열린다 🚪</h2>
+          <p class="slide-subtitle">면접에서 말솜씨는 당신의 미래를 결정합니다. 당신을 선택할 수밖에 없는 말을 준비하세요.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예의 바른 말이 <span class="highlight">취업</span>을 좌우한다</h2>
+          <p class="slide-subtitle">회사에서 원하는 인재는 '능력'보다 '예의'를 갖춘 사람입니다. 예의 바른 인상을 남기는 법을 알아봅시다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">👍 해야 할 것</h3>
+              <ul class="list-disc list-inside space-y-2 mt-2">
+                <li><b>겸손한 태도:</b> 면접관에게 "안녕하세요"라고 먼저 인사하고, 끝날 때도 정중히 인사합니다.</li>
+                <li><b>적당한 자기 PR:</b> 자신의 업적을 적당히 포장하되, 과시하거나 뽐내지 않습니다.</li>
+                <li><b>경청과 호응:</b> 면접관의 말을 중간에 끊지 않고, 적당한 호응으로 존중하는 모습을 보입니다.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">👎 피해야 할 것</h3>
+              <ul class="list-disc list-inside space-y-2 mt-2">
+                <li><b>지나친 침묵:</b> 내성적인 태도는 관심과 열정이 부족하다는 인상을 줍니다.</li>
+                <li><b>자기중심적 대화:</b> 자신이 알고 싶은 것만 직설적으로 묻지 않습니다. (예: "급여는 얼마죠?")</li>
+                <li><b>무례한 행동:</b> 면접 중 핸드폰을 받거나, 예의 없는 태도를 보이지 않습니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">함정이 보이면 <span class="highlight">돌아서 가야 한다</span> 🗺️</h2>
+          <p class="slide-subtitle">면접관은 당신의 능력을 시험하기 위해 일부러 함정을 팝니다. 현명하게 대처하는 방법을 알아봅시다.</p>
+          <div class="slide-content">
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">상황 1: 공격적인 발언을 할 때 🗣️</h3>
+                <p class="mt-2"><b>질문:</b> "사회 경험이 부족하네요."<br>
+                <b>대응:</b> "네, 부족한 점이 맞습니다. 하지만 저를 채용하신다면, 곧 회사에서 가장 경험이 풍부한 사람이 될 자신이 있습니다."<br>
+                <b>핵심:</b> 부족함을 인정하되, 긍정적인 가능성으로 전환하여 성실한 이미지를 줍니다.</p>
+            </div>
+             <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">상황 2: 선택 딜레마를 던졌을 때 🤔</h3>
+                <p class="mt-2"><b>질문:</b> "상사가 탈세를 요구하면 어떻게 하시겠습니까?"<br>
+                <b>대응:</b> "귀사와 같은 대기업은 법을 어기지 않을 것이라 믿습니다. 혹여 그런 요구를 하신다면 저는 사직할 수밖에 없습니다."<br>
+                <b>핵심:</b> '정답'을 찾기보다 질문의 의도(직업윤리)를 파악하고 소신을 보여주는 것이 중요합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Slide: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 말의 힘을 마스터하라</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">말하기는 단순한 의사 전달을 넘어, <span class="highlight">관계, 성공, 그리고 운명을 결정짓는</span> 가장 강력한 도구입니다. 이 책에서 배운 기술들을 꾸준히 연습하여 당신의 말을 예술의 경지로 끌어올리세요.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신의 말이 당신을 빛나게 할 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+      
+      // We are directly controlling the disabled state appearance via the classList.toggle
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
