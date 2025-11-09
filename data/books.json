@@ -140,6 +140,16 @@
     "cover": "assets/covers/사는-동안-한-번-은-팔아봐라.jpg"
   },
   {
+    "slug": "빠르게-실패하기",
+    "title": "빠르게 실패하기",
+    "author": "존 크럼볼츠 · 라이언 바비노",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/빠르게-실패하기.html",
+    "cover": "assets/covers/빠르게-실패하기.jpg"
+  },
+  {
     "slug": "번아웃의-종말",
     "title": "번아웃의 종말",
     "author": "조나단 말레식",
