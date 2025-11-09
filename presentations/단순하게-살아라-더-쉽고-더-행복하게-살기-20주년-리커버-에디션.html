@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>단순하게 살아라 (Simplify Your Life) 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8"> Simplify Your Life </div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">단순하게 살아라</h1>
+          <p class="text-xl md:text-2xl text-gray-700">더 <span class="highlight">쉽고</span> 더 <span class="highlight">행복하게</span> 살기</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜: 삶의 피라미드</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1단계:</b> 📦 물건들을 단순화시켜라</p>
+            <p><b>2단계:</b> 💰 재정 상태를 단순화시켜라</p>
+            <p><b>3단계:</b> ⏰ 시간을 단순화시켜라</p>
+            <p><b>4단계:</b> ❤️‍🩹 건강을 단순화시켜라</p>
+            <p><b>5단계:</b> 👥 관계를 단순화시켜라</p>
+            <p><b>6단계:</b> 💑 배우자와의 관계를 단순화시켜라</p>
+            <p><b>7단계:</b> 🌱 자신을 단순화시켜라</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Intro Quote -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <p class="slide-subtitle text-2xl leading-relaxed">
+            "쉬운 것이 올바른 것이다. <br>
+            올바르게 시작하면 모든 것이 쉬워진다. <br>
+            쉽게 앞으로 나아가라. 그게 올바르다. <br>
+            쉬운 것을 찾아내는 올바른 방법은 <br>
+            올바른 방법을 잊어버리고 <br>
+            그게 쉽다는 것을 <span class="highlight">잊어버리는 것</span>이다."
+          </p>
+          <p class="mt-8 font-bold text-xl text-gray-800">- 장자 -</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Intro Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">들어가는 말</p>
+          <h2 class="slide-title">🤔 '단순함'에 대해 <br>어떤 생각을 가지고 있나?</h2>
+          <p class="slide-content">‘간단하게’라는 말을 들었을 때 어떤 생각이 먼저 떠오르는가? 대부분 긍정적으로 받아들인다. 우리는 복잡한 삶 속에서 많은 고통을 받아왔기 때문이다. 핸드폰 사용 설명서부터 주식 시장까지, 삶의 복잡함에서 비롯되는 고통은 수없이 많다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">삶의 피라미드 1단계</p>
+          <h2 class="slide-title">📦 물건들을 <span class="highlight">단순화</span>시켜라</h2>
+          <p class="slide-content">주변 물건들을 단순화시킴으로써 자신을 단순화시켜라. 피라미드의 맨 아래 단계는 집, 직장, 자동차 등 주변에서 늘 보아왔던 물건들이다. 정리되지 않은 환경은 우리를 답답하게 만든다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Suggestion 1-1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제1제안: 일터를 정리 정돈하라 🧹</h2>
+          <p class="slide-subtitle">모든 일은 하나씩 차례대로 해나가야 한다. 어디서부터 시작해야 할지 모르면 쉽게 용기를 잃는다. 과중한 부담은 가장 큰 스트레스다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">💡 아이젠하워 원칙</h3>
+            <p class="mt-2">할 일이 너무 많아 책상을 정리할 시간이 없다면, 지금 당장 이 방법을 시도해보자. 두세 시간이 걸리더라도, 일단 하고 나면 머릿속이 개운해져 시간을 투자한 보람이 있을 것이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Suggestion 1-2 (Eisenhower 1) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아이젠하워 원칙: <span class="highlight">4등분 법칙</span></h2>
+          <p class="slide-subtitle">책상 옆 빈 공간이나 바닥을 4등분으로 나눈다. 그리고 책상 위 물건들을 하나씩 4등분한 공간 중 한 곳에 놓는다. 종이 한 장도 남기지 마라.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-4 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-lg">1. 🗑️ 버려야 할 것</h3>
+              <p>전부 버릴 것들. 오래된 팸플릿, 묵은 신문, 필요 없는 잡지 등.</p>
+            </div>
+            <div class="p-4 bg-yellow-50 rounded-lg">
+              <h3 class="font-bold text-lg">2. 🤝 도움받아야 할 것</h3>
+              <p>다른 사람에게 전달해 해결될 것들. 과감히 일을 분담하라.</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">3. ⚡️ 지금 해야 할 일</h3>
+              <p>당장 해결해야 할 것들. 반드시 바로 실행에 옮겨야 한다.</p>
+            </div>
+            <div class="p-4 bg-blue-50 rounded-lg">
+              <h3 class="font-bold text-lg">4. 📎 그 외</h3>
+              <p>전화, 팩스, 정리 정돈으로 처리될 특별한 것들.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Suggestion 2-1 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">제2제안: 사무실에 서류가 쌓이지 않게 하라 📂</h2>
+            <p class="slide-subtitle">"각각의 종이를 딱 한 번씩만 손에 잡고, 손에 잡은 즉시 곧바로 해결하라."</p>
+            <div class="slide-content">
+                <p>아이젠하워 원칙의 가장 중요한 원칙이다. 하지만 보통 사람에게는 중간에 걸쳐놓는 서류들이 늘 생기게 마련이다. 이런 것들이 시간이 지나면 산더미로 쌓이게 된다.</p>
+                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <h3 class="font-bold text-lg">💡 황금 원칙: 서류 정리함</h3>
+                    <p class="mt-2">쌓여 있던 서류 더미를 90도 각도로 눕힌 후, 작업 분야에 따라 서류를 위에서 꺼낼 수 있는 <span class="highlight">서류 정리함</span>에 정리해보자. 눈에 보이지 않던 서류 더미가 가시적인 모습으로 변하게 된다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Suggestion 2-2 -->
+    <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">산더미처럼 쌓인 것들을 정리하기 위한 <span class="highlight">십계명 (1/5)</span></h2>
+            <div class="slide-content space-y-4">
+                <p><b>1. 최종 보관:</b> 🗂️ 중요 서류는 바인더에 최종 보관하라. 처리된 서류는 더 이상 정리함에 보관하지 않는다. 보관하고 싶지 않은 것은 쓰레기통에 버린다.</p>
+                <p><b>2. 별도 보관:</b> 📦 별도의 보관 장소를 만들어라. 두꺼운 서류는 세로로 꽂아두는 서류 정리함에 보관한다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Suggestion 2-3 -->
+    <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">산더미처럼 쌓인 것들을 정리하기 위한 <span class="highlight">십계명 (2/5)</span></h2>
+            <div class="slide-content space-y-4">
+                <p><b>3. 기록:</b> 🗓️ 탁상용 달력에 적어놓아라. 꼭 해야 할 일을 기억하기 위해 현실적으로 가능한 기한을 정해놓는다.</p>
+                <p><b>4. 이름짓기:</b> 🏷️ 좋은 이름을 지어라. 이름만 보아도 금방 감잡을 수 있는 이름으로 짓자. '미결' 대신 '결정하자!', '청구서' 대신 '낼 돈은 내자' 와 같이 재미있고 기지 넘치는 이름이 좋다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Suggestion 2-4 -->
+    <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">산더미처럼 쌓인 것들을 정리하기 위한 <span class="highlight">십계명 (3/5)</span></h2>
+            <div class="slide-content space-y-4">
+                <p><b>5. 지속적 변화:</b> ✨ 지속적으로 변화시켜라. 서류 정리함이 살아 움직이도록 늘 관심을 가져라. 서류철의 이름을 자꾸 바꾸는 것에 주저하지 마라.</p>
+                <p><b>6. 빠른 반응:</b> 💨 반응은 빠르게 하라. 서류 정리함 앞쪽에는 급히 답장해야 할 경우에 대비해 편지지나 팩스 용지를 보관해두는 것이 좋다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 12: Suggestion 2-5 -->
+    <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">산더미처럼 쌓인 것들을 정리하기 위한 <span class="highlight">십계명 (4/5)</span></h2>
+            <div class="slide-content space-y-4">
+                <p><b>7. 결과에 따른 분류:</b> 📊 결과에 따라 분류하라. '아이들' 서류철에는 학교 안내문, 시간표 등을 넣고, '출장 갈 곳' 서류철에는 관련 자료를 모두 모아둔다.</p>
+                <p><b>8. 앞면 이용:</b> ✍️ 서류철의 앞면을 이용하라. 전화번호, 이름, 주소, 약속 등 중요한 정보를 기록해 둔다. 필요할 때 한눈에 정보를 확인할 수 있다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 13: Suggestion 2-6 -->
+    <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">산더미처럼 쌓인 것들을 정리하기 위한 <span class="highlight">십계명 (5/5)</span></h2>
+            <div class="slide-content space-y-4">
+                <p><b>9. 독창성:</b> 🎨 독창적이 되어라. 서류 정리함을 사용만 하지 말고 애정을 갖고 사랑하라. 다른 사람에게도 권유하면 더 좋은 결과가 있을 것이다.</p>
+                <p><b>10. 정기적 비우기:</b> 🗑️ 정기적으로 비우라. 서류철이 꽉 차 보이면 내용물을 점검하자. 10분만 투자해서 필요 없는 자료를 꺼내면 서류철이 다시 제 기능을 발휘하게 될 것이다.</p>
+            </div>
+        </div>
+    </div>
+      
+      <!-- Slide 14: Suggestion 3-1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제3제안: 주변에 있는 쓸데없는 것들을 없애라 🚫</h2>
+          <p class="slide-subtitle">불필요한 물건들은 당신이 생각하는 것보다 당신의 정신을 훨씬 더 지치게 만든다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">😱 무질서의 후유증</h3>
+              <p><b>장애물:</b> 감당할 수 없는 물건들은 당신을 위축시키고 발전을 방해한다.</p>
+              <p><b>비만:</b> 집 안을 어지럽게 해놓고 사는 사람들이 비만인 경우가 많다. 정신적인 '변비' 상태다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🤯 무질서의 문제</h3>
+              <p><b>고질병:</b> 주변이 지저분하면 결정을 뒤로 미루려는 병이 도지기 쉽다.</p>
+              <p><b>재정 문제:</b> 무질서는 비용이 든다. 사용하지 않을 물건을 보관하는 데 많은 비용이 든다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Suggestion 3-2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마법의 정리법: <span class="highlight">5단계</span></h2>
+          <p class="slide-subtitle">작은 일부터 시작하라. 대청소보다는 하루에 서랍 하나, 선반 하나씩만 정리하자.</p>
+          <div class="slide-content space-y-3">
+            <p><b>1단계. 전부 비운다:</b> 정리하기로 결정한 대상을 완전히 비운다.</p>
+            <p><b>2단계. 닦아준다:</b> 반짝반짝 윤이 나게 닦으며 아름다워질 모습을 상상한다.</p>
+            <p><b>3단계. 세 무더기로 나눈다:</b> 쓸 만한 것, 진짜 쓰레기, 보류.</p>
+            <p><b>4단계. 끼리끼리 모아둔다:</b> 남은 물건들을 함께 모아두고 새 용기에 이름을 적어놓는다.</p>
+            <p><b>5단계. 기뻐한다:</b> 정리한 다음 깔끔해진 모습을 보고 기뻐하라!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Suggestion 4-1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제4제안: 건망증을 무력화시켜라 🧠</h2>
+          <p class="slide-subtitle">물건을 찾느라 스트레스가 쌓이면 시간이 낭비되고 기분까지 망친다. 작은 물건을 자주 잃어버리는 건망증은 불치병이 아니다. 관심을 조금만 기울이면 삶이 훨씬 단순해질 수 있다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">💡 건망증 극복 방법</h3>
+            <p class="mt-2">모든 물건을 제자리에 놓는 정리 정돈의 원칙이 지켜졌을 때 성공률이 가장 높다. 기억력을 향상시키는 방법들을 적절히 사용해보자.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Suggestion 4-2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기억력 향상시키기 ✨</h2>
+          <p class="slide-subtitle">특정한 장소가 머릿속에 깊이 각인되어 있지 않기 때문에 물건을 잃어버린다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">1. 눈에 띄는 장소 📍</h3>
+              <p>출입문에서 가까운 눈에 잘 띄는 곳을 정하라. 장식장 서랍, 열쇠 걸이, 탁자 위 그릇 등.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">2. 눈에 띄는 색깔 🎨</h3>
+              <p>결정한 장소를 눈에 확 띄는 색으로 칠해 둔다. 색을 잘 기억하는 우뇌에 장소가 각인된다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">3. 눈길을 끄는 이름 🏷️</h3>
+              <p>절대 잊히지 않을 이름을 붙여준다. '파란 상자', '별그릇' 등. 이름은 좌뇌에 각인된다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">4. 호감 갖게 하기 ❤️</h3>
+              <p>즐거운 마음으로 정리 정돈을 하면 건망증에서 벗어날 확률이 높다. 좋아하는 향기나 색깔을 이용해보자.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">삶의 피라미드 2단계</p>
+          <h2 class="slide-title">💰 재정 상태를 <span class="highlight">단순화</span>시켜라</h2>
+          <p class="slide-content">후유증 없게 재정적으로 독립하는 방법을 터득하여 재정 상태를 단순화시켜라. 물질 세계에서 잡동사니가 당신의 앞길을 막듯이, 돈에 대한 당신의 생각과 감정이 그런 역할을 한다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Suggestion 5 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제5제안: 돈의 흐름을 차단하는 요소를 제거하라 💸</h2>
+          <p class="slide-subtitle">"언젠가 돈을 많이 벌면 행복해질 거야." 이것은 모든 사람을 불행하게 만드는 말이다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">💡 순서를 뒤바꾸라!</h3>
+            <p class="mt-2">행복과 부유함의 순서를 뒤바꾸라. 즉, <span class="highlight">지금 행복하면</span> 돈을 많이 벌 기회가 더 많을 것이라고 생각하자. '충분히 갖고 있다고 느끼는 사람이 부자다'라는 티베트 속담을 기억하라.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Suggestion 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제6제안: 돈에 걸려 있는 마술을 풀어라 🪄</h2>
+          <p class="slide-subtitle">너무 많은 것을 소유하는 것은 돈의 흐름을 막는 일이다.</p>
+          <div class="slide-content">
+              <p>어떤 물건을 사기 위해 많은 돈을 지불했지만 그 물건이 다시 돈을 벌어들이지 못한다면 그 돈은 이미 죽은 돈이다. 돈의 활발한 순환이 그것으로 인해 막히는 것이다.</p>
+              <p class="mt-4 font-bold">진정한 부를 쌓기 위한 다음 단계는 물건은 적게, 돈은 많이 갖고 있는 것이다. 돈은 돌아야 많아진다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Suggestion 7 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제7제안: 빚을 지지 마라 💳</h2>
+          <p class="slide-subtitle">"내 인생이 너무 꼬였어"라는 말은 마이너스 은행 구좌를 보면서 사람들이 자주 쓰는 말이다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                  <h3 class="font-bold text-lg">💡 빚쟁이 생활 청산 방법 (1/2)</h3>
+                  <p><b>현실 직면:</b> 빚이 있다는 것을 다른 사람에게 솔직히 말하라.</p>
+                  <p><b>지출 제한:</b> 갖고 있는 돈보다 많은 돈을 지불하지 마라. 소비재 구입을 위한 신용카드 사용은 금물이다.</p>
+                  <p><b>현금 지불:</b> 가능하면 현금으로 지불하라. 지갑은 자신의 재정 상태를 확인하는 가장 좋은 방법이다.</p>
+                  <p><b>내역 점검:</b> 통장의 입출금 내역을 점검하여 불필요한 지출을 정리하라.</p>
+              </div>
+              <div>
+                  <h3 class="font-bold text-lg">💡 빚쟁이 생활 청산 방법 (2/2)</h3>
+                  <p><b>규모 축소:</b> 생활 규모를 획기적으로 줄여라.</p>
+                  <p><b>익숙해지지 않기:</b> 빚의 악순환, 마이너스 통장에 익숙해지지 마라.</p>
+                  <p><b>꼼꼼히 따지기:</b> 한 푼이라도 꼼꼼히 따져가며 지출하고, 남은 돈은 저축하라.</p>
+                  <p><b>실패를 통해 배우기:</b> 부채를 청산한 후에도 계속 절약하며 살아가라.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Suggestion 8 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제8제안: '안전해야 한다'는 강박관념을 버려라 🛡️</h2>
+          <p class="slide-subtitle">당신의 수입은 운명이 아니라, 당신이 비료를 주며 크게 키울 수 있는 식물이다.</p>
+          <div class="slide-content">
+            <p>회사를 매년 바꾸라는 말이 아니다. 가끔은 자기의 울타리 너머를 살펴볼 필요가 있다. '단순하게 살기 위한 조언' 중 하나는 수입을 늘리기 위해 <span class="highlight">안락의자에 안주하지 말라</span>는 것이다.</p>
+            <p class="mt-4 font-bold">직장을 바꿀 의향이 전혀 없더라도 3년에 한 번쯤은 입사 원서를 제출해보자. 다른 곳에서도 당신을 원한다는 것을 알게 되면 더 큰 자신감이 생길 것이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Suggestion 9 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제9제안: 부에 대한 나만의 기준을 정하라 🎯</h2>
+          <p class="slide-subtitle">부유함이 돈과 상관이 있다는 생각을 지워버려라. 부와 가난은 <span class="highlight">의식의 문제</span>다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">부자가 되는 법</h3>
+            <p class="mt-2">이 책을 읽고 있는 지금 이 순간부터 당신은 부자가 될 수 있다. 스스로에게 '나는 부자다'라고 말함으로써 그렇게 되는 것이다. 비교적 적은 돈과 재산을 갖고 있더라도 스스로 부자라고 생각해야 한다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">삶의 피라미드 3단계</p>
+          <h2 class="slide-title">⏰ 시간을 <span class="highlight">단순화</span>시켜라</h2>
+          <p class="slide-content">시간을 능동적으로 다루는 법을 배워라. '시간을 절약해라'는 말이 아니라 '할 일을 줄여라'는 말이다. 시간을 관리하는 것이 아니라 자기 자신을 관리해야 한다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Suggestion 10 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제10제안: 같은 일을 두 번 하지 마라 🔄</h2>
+          <p class="slide-subtitle">성공하고 행복한 사람의 비결은 대부분 한 가지 일에 완전히 매달린다는 데 있다.</p>
+          <div class="slide-content">
+            <p>이론적으로는 쉽지만 실제로는 그렇지 않다. '단순하게 살기 위한 방법'은 타협이 불가능한 단순함, 절대적인 단순함을 주장한다.</p>
+            <p class="mt-4 font-bold text-xl">하루에 딱 <span class="highlight">한 가지만 1순위</span>에 올려놓아라.</p>
+            <p class="mt-2">2가지 일을 한꺼번에 해결하려고 하면 에너지가 소진된다. 성공의 비결은 다음 순위에 있는 할 일을 완전히 잊어버리는 것이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Suggestion 11 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제11제안: 삶을 완벽하게 만들지 마라 ✨</h2>
+          <p class="slide-subtitle">"몸이 더 날씬하고, 예쁘고, 돈이 더 많고, 더 똑똑했다면 더 행복할 텐데…"</p>
+          <div class="slide-content">
+            <p>완벽한 삶에 대한 신화는 위험한 착각이다. 그것은 힘을 불어넣어 주기는커녕 오히려 에너지를 빼앗아 간다. 인생에는 실수도 있고, 오점도 있고, 뾰족하게 모난 구석도 있어야 한다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 실수하는 사람이 최후의 승리자</h3>
+              <p class="mt-2">실수는 다음번에 잘할 수 있는 기회를 제공한다. 실수는 배우는 과정이다. 불완전한 자신을 받아들이는 것이다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Suggestion 12 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제12제안: 자주 "아니오!"라고 말함으로써 부담에서 벗어나자 🙅</h2>
+          <p class="slide-subtitle">해야 할 일이 하루 24시간 동안 해도 끝나지 않을 것 같다면, 그것은 하루가 너무 짧아서가 아니라 당신이 너무 많은 일을 하려고 하기 때문이다.</p>
+          <div class="slide-content">
+            <p>과도한 부담을 안고 살아가는 사람은 단순함의 효과를 종종 잊고 산다. 개인적으로나 직업적으로 너무 많은 일을 맡지 말라는 것이다.</p>
+            <p class="mt-4 font-bold">쉬지 않고 일하는 사람은 반드시 병이 난다. 건강한 자신감은 "아니오!"라고 말할 수 있게 도와준다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Suggestion 13 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제13제안: 속도를 높여라 (자신만의 리듬 찾기) 🐢🐇</h2>
+          <p class="slide-subtitle">누구에게나 똑같은 24시간이지만 개인적으로 느끼는 시간은 사람에 따라 천차만별이다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">‘당신의 시계’ 발견하기</h3>
+              <p>어떤 조건에서 일이 가장 효율적인가? 이상적인 기상과 취침 시간은 언제인가? 자신의 작업 능률과 시간을 기록하고 주관적으로 판단하여 가장 이상적인 방법을 찾아내라.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">‘시간 도둑’ 찾기</h3>
+              <p>높은 기대치, 수많은 미니 과제, 최고의 목표, 괴롭히는 의심, 잘못된 작업 방식 등 당신의 시간을 빼앗아가는 것들을 통제하는 방법을 찾아라.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Suggestion 14 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제14제안: 가끔 잠적하라 🗺️</h2>
+          <p class="slide-subtitle">혼자 일을 처리해야 하고, 다른 사람의 방해를 받고 싶지 않다면 딱 한 가지 방법밖에 없다. 잠적하는 것이다.</p>
+          <div class="slide-content">
+              <p>성공한 많은 사람들은 일에 몰두하기 위해 잠적한 경험을 갖고 있다. 사무실이 아닌 다른 곳에서 일에 몰두하기 위한 몇 가지 방법을 소개한다.</p>
+              <ul class="list-disc list-inside mt-4 space-y-2">
+                  <li><b>자동차 뒷좌석:</b> 한적한 곳을 찾아 운전사가 아닌 사장님이 되어보자.</li>
+                  <li><b>야외:</b> 공원이나 호수 등 영감이 떠오를 수 있는 곳에서 일해보자.</li>
+                  <li><b>텅 빈 공간:</b> 회사 내 사용하지 않는 회의실이나 식당을 이용하자.</li>
+                  <li><b>기차:</b> 몇 시간 동안 전화도, 불쑥 찾아오는 사람도 없는 곳이다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">삶의 피라미드 4단계</p>
+          <h2 class="slide-title">❤️‍🩹 건강을 <span class="highlight">단순화</span>시켜라</h2>
+          <p class="slide-content">육체가 하는 말을 듣고 힘을 비축하라. 건강하다는 것은 몸이 아프지 않은 것 이상을 뜻한다. 즉 자기 몸에 대해 편안하게 생각하고, 육체적인 노동으로부터 행복을 느끼고, 힘을 비축하고 신장시키는 상태를 말한다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 31: Suggestion 15 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제15제안: 육체적 행복의 원천을 찾아내자 🏃‍♂️</h2>
+          <p class="slide-subtitle">날마다 적어도 30분 간 몸을 움직이자. 자전거 타기, 산책, 조깅 등 당신이 즐거움을 느낄 수 있는 운동을 해보는 것이다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">많이 움직이자</h3>
+              <p>몸을 움직여주면 베타 엔도르핀이 나온다. 우울한 생각을 지워버리고 통증을 줄여주는 등 마약과 비슷한 효과를 낸다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">하늘을 느껴보자</h3>
+              <p>하루에 한 번 하늘을 바라보며 심호흡을 하자. 해야 할 일과 책임들로부터 벗어나는 느낌을 받을 수 있다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">건강한 미소를 짓자</h3>
+              <p>거울 앞에서 미소를 지으며 하루를 시작하자. 긍정적인 효과가 있다. 의기소침해지지 않게 만드는 최고의 무기다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">행복하게 자자</h3>
+              <p>잠이 잘 들고 푹 자는 사람은 행복을 느낄 수 있는 능력이 배가된다. 저녁 식사를 가볍게 하고, 편안한 잠자리를 마련하자.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Suggestion 16 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제16제안: 열정에 불을 붙이자 🔥</h2>
+          <p class="slide-subtitle">진정한 행복은 오래 지속되는 것이 아니라 사소한 행복의 순간들이 모여서 만들어진다. 심리학자 미하이 칙센트미하이는 이런 상태를 <span class="highlight">'몰입(Flow)'</span>이라고 불렀다.</p>
+          <div class="slide-content">
+            <p>삶의 최고의 순간은 수동적이거나 긴장을 푼 상태가 아니라, 육체와 정신이 팽팽하게 긴장되어 있을 때 다가온다. 행복은 당신의 마음속에 호기심의 불꽃이 타오르는 것을 느끼고 그 불꽃에서 열정이 불타오를 때 느껴진다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Suggestion 17 & 18 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몸매와 군더더기 🏃‍♀️</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">제17제안: 몸매 이야기에 기죽지 마라</h3>
+              <p>운동을 즐겁게 하는 것이다. 운동은 땀을 뻘뻘 흘리는 고행이 아니라 즐겁고 유쾌한 일, 힘든 훈련이 아니라 부드러운 움직임이어야 한다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제18제안: 몸에 군더더기가 붙지 않게 하라</h3>
+              <p>불필요한 살은 없애자. 다이어트가 아니라 특별 프로그램을 통해서 없앨 수 있다. 지나치게 하지 말고, 조금씩 규칙적으로 하는 것이다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Suggestion 19 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제19제안: 긴장을 적절하게 풀자 🧘</h2>
+          <p class="slide-subtitle">현대 사회에서 대부분의 사람들은 수면 부족에 시달린다. 정신적으로 여유가 생기고, 기분이 상승하며, 반응 능력과 실행 능력이 개선된다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">💡 토막 잠자기 방법</h3>
+            <p class="mt-2">잠을 밤에만 잘 것이 아니라 낮에 조금씩 나누어 자는 것도 좋은 방법이다. 피곤함을 가장 많이 느낄 때가 최적의 숙면 시간이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Section 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">삶의 피라미드 5단계</p>
+          <h2 class="slide-title">👥 관계를 <span class="highlight">단순화</span>시켜라</h2>
+          <p class="slide-content">다른 사람과의 관계를 지속적으로 유지·강화하고, 마음껏 즐기는 방법을 배우자.</p>
+        </div>
+      </div>
+
+      <!-- Slide 36: Suggestion 20 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제20제안: 네트워크를 통해 섬을 탈출하라 🏝️➡️🤝</h2>
+          <p class="slide-subtitle">직업적으로 성공한 사람들 가운데 훌륭한 네트워크 없이 자기 일을 해낸 사람은 없다.</p>
+          <div class="slide-content">
+            <p>네트워킹은 이득을 높이려는 행위가 아니라, 관계에 참여한 모든 사람이 함께 이득을 볼 수 있도록 <span class="highlight">윈-윈 상황</span>을 만들어내는 것을 말한다.</p>
+            <p class="mt-4">'이 사람이 나를 어디까지 밀어줄 것인가?'를 묻지 말고, '어떻게 하면 저 사람에게 도움을 주어 저 사람이 자발적으로 나와 인맥을 유지하고 싶게 만들까?'를 생각하라.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Suggestion 21 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제21제안: 가족 간의 연결 고리를 정돈하라 👨‍👩‍👧‍👦</h2>
+          <p class="slide-subtitle">가족은 당신의 인생에서 가장 중요하고도 복잡한 관계를 맺고 있는 사람들이다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">부모님과 소통하기</h3>
+              <p><b>연세 인정:</b> 부모님이 당신보다 한 세대 앞서 살았다는 것을 인식하라.</p>
+              <p><b>경청:</b> 가능한 부모의 말을 귀담아들어라. 뜻에 동의할 수 없더라도 충분히 이해하고 있음을 표현하라.</p>
+              <p><b>경험 존중:</b> 부모는 당신보다 더 많은 것을 경험했다. 지난 과거에 대해 많이 물어보라.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">자신을 위한 조언</h3>
+              <p><b>편안하게 해주기:</b> 부모가 진정으로 원하는 것을 알려고 노력하라.</p>
+              <p><b>성격 구분:</b> 부모의 성격 중 닮고 싶은 것과 아닌 것을 확실히 구분하라.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Suggestion 22 & 23 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인생의 끝과 감정 다루기</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">제22제안: 자신의 장례식을 간소하게 하라 🕊️</h3>
+              <p>생의 마지막 순간에 당신은 정신적으로 힘겨운 상황에 처해 있을 가능성이 높다. 살아 있는 동안 자신의 종말에 대해 미리 생각해두는 게 좋다. 서면으로 몇 가지 당부를 해둠으로써 가족의 짐을 덜어 줄 수 있다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제23제안: 질투심에서 벗어나라 😊</h3>
+              <p>계속해서 다른 사람과 누가 더 낫고 더 많이 갖고 있는지 비교하려고 하면, 자신과 다른 사람의 인생이 지나치게 힘들어질 것이다. 자신의 질투심과 다른 사람의 질투심을 모두 이기는 전략이 필요하다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Suggestion 24 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제24제안: 화를 내지 마라 😌</h2>
+          <p class="slide-subtitle">다른 사람에 대한 평가를 내리려는 욕구는 인간관계를 돈독히 하는 데 걸림돌이 된다.</p>
+          <div class="slide-content">
+            <p>유쾌하고, 단순하고, 여유 있는 삶을 살아가려면 다른 사람에 대한 평가와 선입견을 비워두는 게 좋다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 비판에서 벗어나기</h3>
+              <p class="mt-2">우리의 삶을 3가지(자연의 법칙, 타인의 기대, 자신의 삶)로 나눌 수 있다. 단순하게 살기 위해서는 오직 <span class="highlight">세 번째, 자신이 주인이 되는 삶</span>에만 정신을 집중해야 한다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Section 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">삶의 피라미드 6단계</p>
+          <h2 class="slide-title">💑 배우자와의 관계를 <span class="highlight">단순화</span>시켜라</h2>
+          <p class="slide-content">피상적인 것 속에 숨어 있는 것을 보는 법을 배우고, 옆에 나란히 서서 가는 것이 아니라 함께 가는 법을 배우자.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Suggestion 25 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제25제안: 인간관계를 넓게 가져라 👫</h2>
+          <p class="slide-subtitle">사랑하는 사람과의 관계에서 일어나는 대부분의 문제는 상대에 대해 이미 모든 것을 알고 있다는 착각에서 비롯된다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 '두 사람만의 대화' 원칙</h3>
+              <p class="mt-2"><b>시간:</b> 일주일에 한 번, 90분간 방해받지 않는 시간을 정한다.</p>
+              <p><b>과정:</b> 서로 마주 보고 앉아 방해 요소를 차단한다.</p>
+              <p><b>순서:</b> 한 사람이 15분간 말하고, 다른 사람은 질문 없이 듣는다.</p>
+              <p><b>주제:</b> 각자 자기 자신을 주제로, 평가 없이 느낌만을 말한다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Suggestion 26 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제26제안: 대화에 극적인 요소를 제거하라 💬</h2>
+          <p class="slide-subtitle">왜 그토록 많은 부부들이 헤어지는가? 남녀의 의사소통 태도가 근본적으로 다르다는 것을 인식하면 이혼율이 현격하게 줄어들 것이다. (존 그레이, "화성에서 온 남자, 금성에서 온 여자")</p>
+          <div class="slide-content">
+            <p><b>남자(화성인):</b> 문제를 해결하기 위해 존재한다고 생각하며, 혼자서 해결하려고 한다.</p>
+            <p><b>여자(금성인):</b> 문제가 있으면 대화를 나누어야 한다고 생각한다. 해결책이 아니라 이해를 필요로 한다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Suggestion 27 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제27제안: 공과 사를 확실히 나누어라 🏢🏠</h2>
+          <p class="slide-subtitle">"당신은 일 때문에 나와 함께 있을 시간이 너무 없어요."</p>
+          <div class="slide-content">
+            <p>행복한 부부 생활의 가장 큰 적은 직장 생활이라고 많은 사람들이 말한다. 하지만 직업적인 성공은 시간, 에너지, 열정, 결단력의 원천이며, 좋은 배우자가 갖고 있어야 할 덕목이다.</p>
+            <p class="mt-4 font-bold">시간 계획에 혁명을 일으켜라. 계획을 세울 때 배우자로부터 더 많은 도움을 받으라. 그/그녀는 당신의 직장 동료보다 더 객관적인 입장에서 말해줄 것이다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Suggestion 28 & 29 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑과 미래 계획하기 💖</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">제28제안: 성욕의 속박에서 벗어나라</h3>
+              <p>상대에 대한 애정은 사랑스러운 말, 관심 어린 태도, 작은 선물, 그리고 신체적인 사랑의 표현을 통해 생겨난다. 아주 간단한 것부터 시작하자. 평소에 입을 맞추지 않았던 시간에 사랑의 키스를 하라.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제29제안: 노년의 계획을 함께 오늘 당장 세우라</h3>
+              <p>실제로 우리의 삶은 균형을 이루며 뻗어나가는 곡선과 같다. 40대에 생활 환경을 어떻게 단순화시킬 것인지에 대해 배우자와 함께 결정해야 한다. 중요한 인생 계획을 세워놓지 않으면 노년의 위기가 현실화된다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Section 7 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">삶의 피라미드 7단계</p>
+          <h2 class="slide-title">🌱 자신을 <span class="highlight">단순화</span>시켜라</h2>
+          <p class="slide-content">자신을 더 잘 이해하고 삶의 목표에 가까이 다가가는 방법을 배워라. 삶의 피라미드 정상에는 바로 당신 자신이 있다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 46: Suggestion 30 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제30제안: 삶의 목표를 발견하라 🧭</h2>
+          <p class="slide-subtitle">아무 목적 없이 그냥 살아가는 사람은 아무도 없다. 누구나 목표가 있고, 삶의 의미를 간직하고 있다.</p>
+          <div class="slide-content">
+            <p>'단순하게 살아가기'라는 것은 목표를 향해 마침내 트인 시야를 확보하는 것을 의미한다. 당신의 삶의 목표는 어느 누구도 당신에게 줄 수 없다. <span class="highlight">스스로 그것을 발견해야 한다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 47: Suggestion 31 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제31제안: 자신의 장점을 발전시켜라 💪</h2>
+          <p class="slide-subtitle">"자신의 장점에 집중적으로 관심을 갖는 사람은 약점을 외면해도 된다."</p>
+          <div class="slide-content">
+            <p>많은 사람들은 성공하기 위해 자신의 약점과 싸워야 한다고 생각한다. 하지만 그것은 2가지 이유에서 아무 의미도 없는 일이다.</p>
+            <ol class="list-decimal list-inside mt-4">
+              <li>당신의 장점을 방치하면 당신은 그냥 평균적인 사람이 된다.</li>
+              <li>약점에만 몰두하다 보면 심한 좌절감을 느끼게 될 것이다.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: Suggestion 32 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제32제안: 양심의 부담을 덜어주자 ⚖️</h2>
+          <p class="slide-subtitle">죄의식과 양심은 인간적 발전에 가장 중요한 요소다. 하지만 과장되고, 건강하지 못한 죄의식에 시달리는 사람들이 있다.</p>
+          <div class="slide-content">
+            <p>지나친 죄의식에 시달리는 사람들에게는 무엇이 옳고 그른지 사사건건 참견하는 <span class="highlight">'재판관'</span>이 마음속에 있다.</p>
+            <p class="mt-4">그 재판관에게 이제는 당신도 성인이 되어 스스로 생각할 수 있게 되었다고 말하라. 성인이 되었다는 것은 다른 사람의 말에 의존하지 않게 되었다는 것을 의미한다. 자기 내면의 가치와 판단에 귀를 기울이는 것이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: Suggestion 33 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">제33제안: "나는 누구인가?"라는 의문에 대한 대답 ❓</h2>
+          <p class="slide-subtitle">우리는 늘 같은 문제를 안은 채 살아가고, 똑같은 실수를 되풀이하며, 똑같은 곳에서 실패를 경험한다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">에니어그램 (Enneagram)</h3>
+            <p class="mt-2">9가지 성격 분석 이론을 통해 자신을 이해하자. 삶의 주제는 사람마다 다르지만, 9가지 유형으로 나눌 수 있다. 자신의 성격 유형을 알면 약점 속의 장점을 발견하고, 자신과 다른 사람을 더 잘 이해할 수 있다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Appendix -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">부록</p>
+          <h2 class="slide-title">🦋 고치에서 깨어나라: <br>나비가 되어 가는 과정</h2>
+          <p class="slide-subtitle">단순하게 살기 위한 방법을 애벌레가 나비가 되어 가는 과정으로 생각하면 좋다.</p>
+          <div class="slide-content space-y-3">
+            <p><b>애벌레 시기 (교육):</b> 모든 것을 받아들여야 하는 힘겨운 시기.</p>
+            <p><b>고치 시기 (위기):</b> 고통스러운 고치로 살아가야 하는 시기.</p>
+            <p><b>나비 시기 (자유):</b> 나비처럼 훨훨 자유롭게 날아다니는 시기.</p>
+            <p class="mt-4">이 과정을 통해 당신은 애벌레로 생을 마감하지 않고, 나비의 날개를 달 수 있는 가능성이 있다는 것을 알게 하는 것이 중요하다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 당신의 삶은 탄탄한 피라미드</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">단순하게 살기 위한 길을 다 걸어 나와도 당신의 인생은 완벽하지 않을 것이다. 하지만 이제 당신의 인생은 더 이상 우연히 혼란이 생기는 불투명한 것이 아니라, 당신을 더 이상 헤매지 않게 만드는 <span class="highlight">투명한 구조</span>를 갖고 있다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신의 삶이 온전히 당신 자신의 것이고, 돌덩이가 아니라 탄탄한 피라미드로 만들어져 있다는 것을 알게 될 것이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
