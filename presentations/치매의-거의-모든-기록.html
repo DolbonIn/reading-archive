@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>치매의 거의 모든 기록</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">치매의 거의 모든 기록</h1>
+          <p class="text-xl md:text-2xl text-gray-700">치매 환자가 들려주는 <span class="highlight">치매 이야기</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>프롤로그:</b> '치매'와 함께하는 삶의 시작</p>
+            <p><b>1장. 왜곡되는 '감각':</b> 맛, 냄새, 소리, 시각의 변화</p>
+            <p><b>2장. 새로 도전하게 될 '관계':</b> 간병, 홀로서기, 그리고 이웃</p>
+            <p><b>3장. 여전히 소중한 '의사소통':</b> 언어 너머의 대화</p>
+            <p><b>4장. 치매 친화적인 '환경':</b> 안전하고 편안한 공간 만들기</p>
+            <p><b>5장. '지금 이 순간'에 몰두하는 '감정':</b> 감정의 변화와 이해</p>
+            <p><b>6장. 긍정적이어야 할 '태도':</b> 치매를 마주하는 마음가짐</p>
+            <p><b>결론:</b> 희망과 이해를 향한 여정</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Prologue Section -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">모두에게 알리고 싶은 <span class="highlight">'치매' 이야기</span></h2>
+          <p class="slide-content">조기 발병 치매 진단 후 7년, 저자 웬디 미첼은 여전히 간병인 없이 독립적인 생활을 하고 있습니다. 이 책은 치매 진단 이후에도 '삶이 있다'는 사실을 알리고, 치매에 대한 두려움을 넘어 <span class="highlight">이해와 정보</span>를 공유하고자 하는 마음에서 시작되었습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 4: Prologue Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두려움에서 <span class="highlight">출발점</span>으로</h2>
+          <p class="slide-subtitle">치매 진단은 두려운 일이지만, 인생의 끝이 아닙니다. 시작과 중간, 그리고 끝이 있는 여정의 한 부분일 뿐입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🤔 무엇을 배웠을까?</h3>
+              <p>생각했던 것만큼 크게 두렵지 않다는 것. 치매와 함께하는 여행에서 나는 오늘을 살아갈 뿐이며, 다른 모든 사람과 마찬가지로 '오늘만' 알 수 있다는 사실을 깨달았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">✍️ 왜 이 책을 쓰는가?</h3>
+              <p>치매에 대해 알게 된 것들을 공유하여 놀라움과 영감을 주고, 무엇보다 <span class="highlight">확실한 정보</span>를 제공하고 싶었습니다. 이 책이 치매 환자와 그들을 지지하는 모든 이에게 출발점이 되기를 바랍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Chapter 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">왜곡되는 <span class="highlight">'감각'</span> 🍽️👃👂👀</h2>
+          <p class="slide-content">치매는 기억력뿐만 아니라 우리가 세상을 경험하는 방식, 즉 우리의 오감을 변화시킵니다. 식사, 후각, 청각, 시각 등 일상의 감각들이 어떻게 왜곡되고, 우리는 어떻게 적응해 나갈 수 있을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Senses - Taste/Food -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">식사: 즐거움에서 <span class="highlight">과제</span>로 🍲</h2>
+          <p class="slide-subtitle">음식이 주는 사교의 기회와 즐거움이 점차 사라지고, 식사는 복잡하고 어려운 과제가 됩니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">포크와 나이프가 부딪히는 금속 소리, 검은 식탁보가 만들어내는 싱크홀 같은 착각, 하얀 접시 위에서 사라지는 하얀 음식. 식사는 미각뿐 아니라 청각, 시각적으로도 혼란스러운 경험이 될 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 해결책 찾기</h3>
+              <p class="mt-2">색깔 대비가 뚜렷한 <span class="highlight">노란색 접시</span>, 음식이 밖으로 떨어지지 않는 테두리 있는 그릇, 나이프 대신 숟가락을 사용하는 등 작은 변화만으로도 식사의 어려움을 크게 줄일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Senses - Loss of Appetite -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">음식과 <span class="highlight">무심함</span></h2>
+          <p class="slide-subtitle">음식에 대한 즐거움이 사라지고, 배고픔조차 느끼지 못하게 될 수 있습니다. 식사는 이제 생존을 위한 '연료' 주입과 같아집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🔥 뜨거운 음식의 위험</h3>
+              <p>뜨거운 감자를 입에 넣고 화상을 입어도, 다음 순간 그 사실을 잊고 또다시 입에 넣을 수 있습니다. 이는 신경학적 원인일 수도, 그저 식사가 힘들기 때문일 수도 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🍄 사라진 맛</h3>
+              <p>좋아하던 버섯과 고추의 맛이 느껴지지 않습니다. 판지를 씹는 것처럼 아무 맛이 없습니다. 하지만 차(茶)만큼은 포기할 수 없는, 따뜻한 포옹 같은 존재로 남았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Senses - Smell -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">후각: 기억의 <span class="highlight">보물 창고</span> 🌹</h2>
+          <p class="slide-subtitle">후각은 기억과 감정을 보관하는 가장 강력한 감각입니다. 장미 향기는 어린 시절의 정원을, 가죽 냄새는 딸들의 첫 신발을 떠올리게 합니다.</p>
+          <div class="slide-content">
+            <p>후각은 다른 감각과 달리 기억과 감정을 관장하는 뇌의 해마와 편도체로 직접 신호를 보냅니다. 이 때문에 <span class="highlight">후각 자극</span>은 치매 환자의 기억을 소환하고 정신 건강을 향상시키는 데 효과적일 수 있다는 연구 결과가 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Senses - Olfactory Hallucinations -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">후각 환각: 존재하지 않는 <span class="highlight">냄새</span> 🔥</h2>
+          <p class="slide-subtitle">때로는 존재하지 않는 냄새를 맡는 후각 환각을 경험합니다. 이는 즐거운 추억이 아닌, 불쾌하고 고통스러운 경험일 수 있습니다.</p>
+          <div class="slide-content">
+             <ul class="list-disc pl-5 space-y-2">
+                <li>화재 냄새, 나무 타는 냄새, 모닥불 냄새</li>
+                <li>고양이 오줌 냄새, 썩은 양배추 냄새</li>
+                <li>퀴퀴한 걸레 냄새, 하수구 냄새</li>
+             </ul>
+             <p class="mt-4">이런 환각은 치매의 전형적인 증상 중 하나이며, 환자에게는 <span class="highlight">실제로 존재하는 냄새</span>라는 것을 이해하는 것이 중요합니다. 과거의 불쾌한 기억이 '방출'되는 것일 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Senses - Hearing -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">청각: 왜곡되는 <span class="highlight">현실</span> 🔊</h2>
+          <p class="slide-subtitle">어느 날 갑자기 도시의 모든 소리가 증폭된 것처럼 느껴집니다. 구급차 사이렌, 자동차 소음, 사람들의 목소리가 나를 압도하고 위협합니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">청각과민증 (Hyperacusis)</h3>
+              <p class="mt-2">특정 음조에 민감도가 커져 일상의 소음(전화벨 등)이 불쾌하거나 고통스럽게 느껴지는 현상입니다. 이는 귀와 뇌 사이의 '문'이 계속 열려있기 때문이며, <span class="highlight">소음 차단 보청기</span>가 큰 도움이 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Senses - Vision -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시각: 뇌가 <span class="highlight">해석하는 방식</span>의 문제 👀</h2>
+          <p class="slide-subtitle">문제는 눈이 아니라, 눈이 수용한 메시지를 뇌가 해석하는 방식에 있습니다. 계단이 미끄럼틀처럼 보이고, 패턴 있는 카펫이 꿈틀대는 동물들처럼 보입니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🎨 색상과 대조의 중요성</h3>
+              <p>뇌는 색조와 대조를 구별하기 어려워합니다. 카펫과 벽의 색이 같으면 걷기 힘듭니다. 공간을 <span class="highlight">흑백 사진</span>으로 찍어봤을 때 음영 대조가 분명하면 괜찮습니다. 노란 바탕에 검은 글씨처럼 대비가 중요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">⚫ 검은색의 공포</h3>
+              <p>검은색 매트는 바닥에 뚫린 싱크홀처럼, 검은 옷을 입은 사람은 머리만 떠다니는 것처럼 보일 수 있습니다. 반면, 시각적 환각은 돌아가신 아버지를 만나는 것과 같은 <span class="highlight">선물</span>이 되기도 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Senses - Dreams -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">꿈: 현실과 과거의 <span class="highlight">교차점</span> 🛌</h2>
+          <p class="slide-subtitle">치매 진단 후, 꿈이 바뀌었습니다. 더 이상 현재의 꿈을 꾸지 않고 과거의 꿈만 꿉니다. 꿈속에서 딸들은 항상 어리고, 나는 치매에 걸리지 않습니다.</p>
+          <div class="slide-content">
+             <p>치매 말기가 되면 환자는 다른 시간대로 퇴행한다고 합니다. 뇌가 먼저 과거로 회귀하여, 나중에 몰입할 수 있는 현실의 창을 열어놓는 것일지도 모릅니다. 때로는 꿈과 현실의 경계가 모호해져, 꿈속의 경험이 실제처럼 느껴져 혼란스러울 때도 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Senses - Touch -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">촉감: 가장 원초적인 <span class="highlight">소통</span> 🤗</h2>
+          <p class="slide-subtitle">치매에 걸리면 안전함을 느끼는 것이 더 중요해지면서, 직관적인 접촉, 즉 동물적 본능으로 회귀하는지도 모릅니다.</p>
+          <div class="slide-content">
+            <p>예전엔 좋아하지 않던 접촉과 포옹이 이제는 감사의 표시가 됩니다. 접촉은 복잡한 단어가 생각나지 않을 때, 상대방에게 <span class="highlight">"내가 여기 있어"</span>라고 말해주는 가장 직접적인 수단이 됩니다. 손 마사지, 머리카락 잘라주기 등 작은 접촉이 큰 위안을 줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Chapter 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">새로 도전하게 될 <span class="highlight">'관계'</span> 👨‍👩‍👧‍👦</h2>
+          <p class="slide-content">치매 진단은 환자 한 사람뿐 아니라 주변 모든 사람의 생활을 바꿉니다. 가족, 친구, 사회와의 관계는 어떻게 변화하고, 우리는 그 속에서 어떻게 새로운 균형을 찾아가야 할까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Relationships - Caregiving -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">간병: 갑자기 주어진 <span class="highlight">새로운 역할</span></h2>
+          <p class="slide-subtitle">치매 진단은 아무런 준비 없이 가족에게 '간병인'이라는 역할을 부여합니다. 사후 관리나 지속적인 지원이 부족한 현실 속에서 가족들은 큰 부담을 안게 됩니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💬 대화의 중요성</h3>
+              <p class="mt-2">'돌봄'의 의미는 사람마다 다릅니다. 역할 전환 과정에서 오해를 피하고 서로를 이해하기 위해서는 지속적인 대화가 필수적입니다. <span class="highlight">"사랑하는 사람 돌보기"</span>의 의미를 함께 정의하고 조정해나가야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Relationships - Parent/Child Role Reversal -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">엄마와 딸, 역할의 <span class="highlight">전환</span></h2>
+          <p class="slide-subtitle">신발 끈 묶기를 도와주던 엄마가 이제 딸의 도움을 받게 됩니다. 치매는 부모와 자식의 역할을 전환시키지만, 그 본질을 잃지 않으려는 노력이 중요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🙋‍♀️ 엄마로서의 역할 지키기</h3>
+              <p>능력이 떨어져도 여전히 아이들에게 쓸모 있고, 아이들을 보살피는 '엄마'이고 싶습니다. 딸에게 세탁을 해주는 것과 같은 작은 일은 엄마로서의 정체성을 지키는 소중한 거래입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🚶‍♀️ 딸의 '온정적인 분리'</h3>
+              <p>딸(세라)은 과보호 대신 엄마의 독립성을 유지하도록 돕습니다. 위험을 감수하더라도 스스로 해낼 수 있도록 한 걸음 물러서서 지켜보는 것. 이것이 <span class="highlight">생활을 돕는 온정적인 분리</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Relationships - Living Alone -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">혼자 생활하기: 외로움과 <span class="highlight">자유</span> 🏠</h2>
+          <p class="slide-subtitle">혼자라는 사실이 때로는 외로움을 주지만, 동시에 누구의 재촉도 받지 않고 나만의 속도로 살아갈 수 있는 자유를 줍니다.</p>
+          <div class="slide-content">
+             <ul class="list-disc pl-5 space-y-2">
+                <li><b>장점:</b> '빨리 해'라는 말에서 오는 공포와 혼란이 없습니다. 내 행동에 대해 변명할 필요가 없습니다.</li>
+                <li><b>단점:</b> 레인지 끄는 것을 잊었을 때 꺼줄 사람이 없습니다. 함께 웃어줄 사람이 없습니다.</li>
+                <li><b>결론:</b> 그럼에도 불구하고, 혼자서도 <span class="highlight">잘 살아가고 있다</span>고 생각합니다. 혼자만의 시간과 속도를 존중받는 것이 중요하기 때문입니다.</li>
+             </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Relationships - Community & Neighbors -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">관계에 대한 욕구: <span class="highlight">작은 연결</span>의 힘 🤝</h2>
+          <p class="slide-subtitle">혼자 생활하지만, 우리는 여전히 사회적 존재입니다. 지역 사회와의 짧은 만남과 작은 연결이 외로움을 막아주는 중요한 안전망이 됩니다.</p>
+          <div class="slide-content">
+             <p>고독한 날에는 일부러 산책을 나갑니다. 누군가의 간단한 인사나 미소는 놀라운 효과를 발휘합니다. TV를 보는 것보다 사람의 미소에서 훨씬 큰 충족감을 느낍니다. <span class="highlight">이웃과의 꾸준한 교감</span>은 우울증으로 이어지는 고독감을 막아줄 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 19: Relationships - Friendship -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우정의 변화: 떠나가는 <span class="highlight">사람들</span></h2>
+          <p class="slide-subtitle">치매 진단 후, 친구 관계가 서서히 사라지는 경험을 합니다. 친구들은 겉모습은 같지만 내면은 변했다는 사실을 이해하지 못하고, 환자는 소외감을 느낍니다.</p>
+          <div class="slide-content">
+             <p>오랜 친구 관계였지만 대화를 따라가지 못해 모임에서 제외되기도 합니다. 이는 사회적 인식 부족, 치매라는 병에 대한 용인 부족, 동정심 부족 때문입니다. 고독감과 우울함을 느끼지 않도록 <span class="highlight">치매 친화적인 인식</span>을 구축하는 것이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Relationships - Caregiver with Dementia -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">치매 환자이자 <span class="highlight">간병인</span></h2>
+          <p class="slide-subtitle">자신도 치매 환자이면서, 치매를 앓는 다른 가족(배우자)을 돌보는 특별한 경우도 있습니다.</p>
+          <div class="slide-content">
+            <p>친구 아그네스는 본인도 치매 진단을 받았지만, 남편 앨런 역시 치매 진단을 받자 주 간병인이 되었습니다. 그녀는 신체 돌봄, 정신 돌봄, 인지 자극 등 여러 역할을 동시에 수행합니다. "내가 앨런에게 해주고 있는 것이 아내가 할 일이라고 생각했어요. 하지만 간병인이자 치매 환자로서 나에게도 필요한 것이 있는데, 그것들이 무시되고 있다는 점을 깨달아야 해요."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">여전히 소중한 <span class="highlight">'의사소통'</span> 💬</h2>
+          <p class="slide-content">말은 의사소통의 7%에 불과합니다. 우리는 평생에 걸쳐 비언어적 표현을 사용해왔습니다. 치매로 언어 능력이 쇠퇴하더라도, 우리의 소통은 결코 멈추지 않습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Communication - Non-verbal -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언어를 넘어선 <span class="highlight">대화</span></h2>
+          <p class="slide-subtitle">말을 못하게 된다고 해서 환자와의 대화를 중단해서는 안 됩니다. 미소, 끄덕임, 포옹, 웃음 등 비언어적 의사소통은 여전히 강력한 힘을 가집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">몸짓과 목소리 톤 🤫</h3>
+              <p>의사소통 수단 중 언어는 7%, 몸짓은 55%, 목소리 톤은 38%를 차지합니다. 흘끗 오가는 시선, 걱정이 담긴 목소리에는 천 마디의 의미가 담겨 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">침묵의 힘 😌</h3>
+              <p>때로는 침묵 속에서 함께 있는 것만으로도 충분한 소통이 이루어집니다. 말을 하지 못해도 함께 웃고, 유머를 통해 더 가까워질 수 있습니다. 말 대신 웃음이 그 자리를 채웁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Communication - The Power of Writing -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">블로그: 마음의 <span class="highlight">탈출구</span> 💻</h2>
+          <p class="slide-subtitle">말을 못하게 되었을 때, 블로그에 글을 쓰는 것은 마음속 장애물로부터 탈출하는 방법이었습니다.</p>
+          <div class="slide-content">
+            <p>신기하게도 글을 쓸 때는 단어가 생각나지 않는 좌절감이 없었습니다. 타이핑은 차분하고 유창하게 나 자신을 표현하는 방법이었습니다. 내 블로그는 전 세계 사람들과 아이디어와 정보를 나누는 소중한 장소가 되었습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">비판과 오해</h3>
+              <p class="mt-2">하지만 글을 쓸 수 있다는 사실 때문에 '진짜 치매'가 아니라는 비판을 받기도 합니다. 사람들은 우리가 겪는 노력과 고통은 보지 않고, 겉으로 드러나는 능력만으로 판단하려 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Communication - The Importance of Language -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언어의 중요성: 단어가 <span class="highlight">만드는 현실</span></h2>
+          <p class="slide-subtitle">우리가 사용하는 단어와 이미지는 치매에 대한 인식을 만듭니다. '노망', '고통받는 사람' 같은 부정적인 단어는 편견을 강화합니다.</p>
+          <div class="slide-content">
+            <p>'치매와의 싸움'이라는 표현은 패배를 전제로 합니다. '사망 선고'라는 말은 절망을 의미합니다. 저는 '치매를 앓는' 대신 <span class="highlight">'치매를 안고 사는 사람'</span>이라는 표현을 선호합니다. 이는 치매를 앓으면서도 여전히 '살 수 있다'는 의미를 담고 있기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Communication - Social Media -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소셜 미디어: 새로운 <span class="highlight">연결</span> 🌐</h2>
+          <p class="slide-subtitle">트위터와 같은 소셜 미디어는 치매 환자들이 서로 연결되고, 아이디어를 교환하며, 사회적 목소리를 내는 중요한 플랫폼이 됩니다.</p>
+          <div class="slide-content">
+            <p>트위터 덕분에 치매 환자는 테이블에서 한자리를 차지할 수 있게 되었습니다. 우리는 서로를 보살피고, 비판에 맞서며, 치매에 대한 대중의 인식에 이의를 제기합니다. 이것이 <span class="highlight">세상의 태도를 바꾸는</span> 가장 좋은 방법입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Chapter 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">치매 친화적인 <span class="highlight">'환경'</span> 🌳</h2>
+          <p class="slide-content">우리가 사는 환경은 걷기, 사회 활동, 그리고 일상의 안전에 큰 영향을 미칩니다. 집에서부터 지역 사회 전체에 이르기까지, 어떻게 하면 치매 환자에게 더 친화적인 환경을 만들 수 있을까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Environment - Seasons & Walking -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">계절과 걷기: 자연이 주는 <span class="highlight">교훈</span> 🍂❄️🌷☀️</h2>
+          <p class="slide-subtitle">자연은 변화에 대처하는 법을 가르쳐줍니다. 계절의 변화를 보며, 변화보다 더 자연스러운 것은 없다는 것을 깨닫습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🚶‍♂️ 걷기의 목적</h3>
+              <p>걷기는 목적을 줍니다. 주변을 둘러보며 사진 찍을 것을 찾는 행위는 뇌를 계속 활동하게 하고, 사회적 접촉의 기회를 만듭니다. 예전에는 '얼마나 멀리'가 중요했다면, 지금은 '무엇을 보는지'가 중요합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">❄️ 계절의 의미</h3>
+              <p>겨울은 휴식과 회복의 시간이며, 봄은 새로운 희망을, 여름은 빛과 그림자를, 가을은 변화에 대비하는 법을 알려줍니다. 자연의 순리를 통해 치매라는 병을 마주하는 법을 배웁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Environment - Creating Dementia-Friendly Spaces -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">치매 친화적 환경 <span class="highlight">만들기</span></h2>
+          <p class="slide-subtitle">치매 환자를 바르게 이해하면 모든 사람을 바르게 이해할 수 있습니다. 작은 변화가 큰 차이를 만듭니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">대리석 바닥이 파도처럼 보여 걷기 힘들었던 쇼핑센터의 경험처럼, 디자인은 매우 중요합니다. 좋은 디자인은 나쁜 디자인보다 비용이 더 들지 않지만, 삶의 질에 미치는 혜택은 상당합니다.</p>
+             <ul class="list-disc pl-5 space-y-2 mt-4">
+                <li><b>표지판:</b> 옅은 배경에 은색 글씨는 구별하기 어렵습니다. 밝은 배경에 굵은 글씨가 효과적입니다.</li>
+                <li><b>벤치:</b> 걷다가 쉴 수 있는 벤치는 사회적 참여를 촉진하는 중요한 요소입니다.</li>
+                <li><b>소음:</b> 강화마루나 블라인드보다 카펫과 커튼이 소음을 더 잘 흡수합니다.</li>
+                <li><b>사람:</b> 무엇보다 중요한 것은 치매를 이해하고 포용적인 환경을 만들고 싶어하는 사람들입니다.</li>
+             </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Environment - Home Modifications -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내 집: 가장 안전한 <span class="highlight">공간</span>으로 🛋️</h2>
+          <p class="slide-subtitle">집을 조금만 바꿔도 훨씬 치매 친화적으로 만들 수 있습니다. 중요한 것은 집이 진료실처럼 느껴지지 않게 하는 것입니다.</p>
+          <div class="slide-content">
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">💡 집 꾸미기 팁</h3>
+                <p class="mt-2">소용돌이 문양 카펫은 피하고, 바닥과 대조되는 색의 카펫을 사용하세요. 에너지 절약 전구는 켜지는 데 시간이 걸려 불편할 수 있습니다. 문을 떼어내 공간을 개방적으로 만들면 방향감각을 잃는 것을 줄일 수 있습니다. 아이패드, 열쇠, 펜 등 자주 쓰는 물건은 <span class="highlight">보이는 곳</span>에 두는 것이 좋습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Environment - The Memory Room -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">추억의 방: '나'를 <span class="highlight">찾는 곳</span></h2>
+          <p class="slide-subtitle">집 위층의 남는 방은 단순한 공간이 아니라, 행복했던 순간이 담긴 사진들로 가득 찬, '내가 누구인지'를 떠올리게 해주는 성스러운 곳입니다.</p>
+          <div class="slide-content">
+            <p>상태가 나빠져 내가 누구인지 모를 때, 이 방에 오면 나를 보며 미소 짓는 사람들, 내가 있었던 장소의 잔상을 통해 나 자신을 되찾습니다. 이 방은 나의 과거, 즉 내 삶이 씨실과 날실로 엮인 태피스트리입니다. 이곳에서는 치매라는 병이 존재하지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Environment - Care Homes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">집과 요양원: <span class="highlight">안전</span>과 <span class="highlight">자유</span> 사이</h2>
+          <p class="slide-subtitle">가족들은 환자가 안전하기를 바라지만, 갇혀서 생활하고 싶은 사람은 없습니다. 보안과 자율성 사이의 균형이 중요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🔒 잠긴 문의 의미</h3>
+              <p>문을 잠그는 것은 간병인에게 안도감을 줄지 모르지만, 환자에게는 갇혔다는 느낌을 줍니다. 요양원의 정원은 입소자들이 쉽고 안전하게 접근할 수 있어야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🏘️ 치매 마을</h3>
+              <p>네덜란드의 호그벡처럼 외부와 통제된 '치매 마을'은 이상적으로 들리지만, 한편으로는 특정 인구층을 격리한다는 우려를 낳습니다. 가짜 환경보다 실제 농장을 개방하는 '그린 케어'가 더 나은 대안일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Chapter 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">'지금 이 순간'에 몰두하는 <span class="highlight">'감정'</span> 😊😥😠😟</h2>
+          <p class="slide-content">치매는 우리의 감정마저 앗아갈까요? 슬픔, 두려움, 불안, 분노, 죄책감, 그리고 행복. 이 모든 감정은 어떻게 변화하고, 우리는 그것을 어떻게 느끼고 표현하게 될까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 33: Emotions - The Ability to Feel -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정을 느낄 수 있는 <span class="highlight">능력</span></h2>
+          <p class="slide-subtitle">치매가 모든 감정을 느끼는 능력에 똑같이 영향을 미치는 것은 아닙니다. 행복, 슬픔, 분노, 좌절 등 모든 감정은 여전히 존재합니다.</p>
+          <div class="slide-content">
+            <p>감정은 과거의 기억으로 돌아가게 해주는 창이 되기도 합니다. 런던 강연에서 주최 측이 나를 잊었을 때 느꼈던 슬픔은 지금도 생생하게 떠오릅니다. 뇌는 한 곳이 손상되어도 다른 경로를 이용해 감정을 기억하고 표현합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Emotions - Sadness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">슬픔: 짧고 <span class="highlight">강렬한 순간</span> 💧</h2>
+          <p class="slide-subtitle">가장 친한 친구 실비아의 죽음 후, 슬픔을 느끼는 방식이 변했습니다. 슬픔은 짧게 머물고, 금세 행복했던 기억으로 전환됩니다.</p>
+          <div class="slide-content">
+            <p>치매 덕분에(?) 슬픔의 순간을 짧게 줄이고, 금세 아주 행복했던 기억을 떠올릴 수 있게 되었습니다. 이는 슬픔이라는 감정이 오래 지속되지 못하는 뇌의 새로운 사고방식 때문일 수 있습니다. 슬픔은 여전히 존재하지만, 그 지속 시간이 달라졌습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Emotions - Fear & Anxiety -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두려움과 불안 😟</h2>
+          <p class="slide-subtitle">미래를 통제할 수 없다는 사실, 그리고 일상의 작은 불확실성들이 두려움과 불안을 만듭니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">😨 두려움의 실체</h3>
+              <p>치매에 대한 사회의 부정적인 이미지는 두려움을 키웁니다. 암처럼, 치매도 '앓으면서 살아갈 수 있다'는 인식이 필요합니다. 어둠에 대한 오랜 두려움처럼, 치매는 감정을 증폭시키기도 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">⏳ 시간에 대한 불안</h3>
+              <p>정해진 약속 시간, 제때 오지 않는 버스는 불안을 유발합니다. '내가 잊었나?' 하는 자기 의심이 불안을 키웁니다. 기술(버스 위치 추적 앱 등)의 도움이 불안을 줄여주기도 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Emotions - Anger -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">분노: 길을 잃은 <span class="highlight">감정</span> 😠</h2>
+          <p class="slide-subtitle">치매 진단 후, 뇌의 도로망 시스템에 공사 구간이 생긴 것처럼 감정의 흐름이 막히기도 합니다.</p>
+          <div class="slide-content">
+            <p>화를 내야 할 상황에서 화를 낼 수 없었습니다. 분노로 가는 길이 막히고, 대신 슬픔이 찾아왔습니다. 공사 중인 도로망처럼, 때로는 이런 감정의 차단이 더 나은 결과를 가져오기도 합니다. 분노를 터뜨리는 대신, 다른 감정을 통해 상황을 바라보게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Emotions - Guilt -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">죄책감: 다양한 <span class="highlight">모습들</span></h2>
+          <p class="slide-subtitle">진단을 받았을 때, 가족의 미래를 빼앗았다는 죄책감이 들었습니다. 또한 행복을 느낄 때조차 죄책감을 느끼기도 합니다.</p>
+          <div class="slide-content">
+            <p>배우자에게 '짐'이 되었다고 느끼는 죄책감, 혹은 치매 덕분에(?) 힘든 일상에서 벗어나 순간의 만족감을 느낄 때의 죄책감 등, 치매는 다양한 형태의 죄책감을 동반합니다. <span class="highlight">"우리는 결혼할 때 '건강할 때나 병들 때나'라고 서약했어요. 우린 그냥 하루하루를 살아요."</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Emotions - Happiness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복: 작은 꾸러미 속 <span class="highlight">발견</span> 😊</h2>
+          <p class="slide-subtitle">예전처럼 미래를 위해 행복을 찾는 대신, 이제는 아주 작은 것에서 즐거움을 찾는 법을 배웠습니다.</p>
+          <div class="slide-content">
+            <p>행복은 이제 작은 꾸러미로 찾아옵니다. 노래하는 새 한 마리, 나무를 오르는 다람쥐를 보며 행복을 느낍니다. 전체적인 상황이 아닌, <span class="highlight">아주 작은 순간</span>에서 아름다움을 보는 법을 배웠습니다. 치매가 가르쳐준 가장 큰 교훈은 우리 모두 '지금 당장'으로 돌아와야 한다는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Chapter 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">긍정적이어야 할 <span class="highlight">'태도'</span> 💪</h2>
+          <p class="slide-content">옳은 대처 전략은 없습니다. 우리가 역경에 대처하는 방식은 사람마다 다릅니다. 중요한 것은 치매라는 질병에 대해 우리가 어떤 태도를 갖느냐가 싸움의 절반을 결정한다는 것입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 40: Attitude - Bad Days -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상태가 나쁜 날: '안개' 대신 <span class="highlight">'아지랑이'</span></h2>
+          <p class="slide-subtitle">상태가 나쁜 날을 '안개 낀 날'이 아닌 '아지랑이 피는 날'이라고 부릅니다. 아지랑이는 더 일시적이고, 확실하게 걷힐 것이라는 희망을 주기 때문입니다.</p>
+          <div class="slide-content">
+            <p>아지랑이는 시작과 중간, 끝이 있습니다. 그리고 끝난 후에는 다시 햇살과 파란 하늘이 있습니다. 이런 순간들이 오는 것이 아니라 <span class="highlight">사라진다</span>는 사실이 중요합니다. 그것은 내가 아니라, 내 몸 안에서 일어나는 물리적 작용일 뿐입니다. 그리고 나는 항상 '나'로 되돌아옵니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Attitude - Diagnosis -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진단: 끝이 아닌 <span class="highlight">새로운 시작</span></h2>
+          <p class="slide-subtitle">진단을 받은 순간은 세상이 끝난 것 같았지만, 6년 후 저는 두 번째 책을 쓰고 있습니다. 진단은 인생의 종말이 아니라 새로운 시작일 수 있습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 한 독자의 말</h3>
+              <p class="mt-2">"당신의 책을 읽고 태도가 완전히 바뀌었어요. '이 여자가 할 수 있으면, 나도 할 수 있어. 내가 지금 하려는 것을 아무도 막지 못해'라고 생각했어요."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Attitude - Coping Styles -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">대처하기: 두 가지 <span class="highlight">스타일</span></h2>
+          <p class="slide-subtitle">사람들은 치매에 각기 다른 방식으로 대처합니다. 어느 한쪽이 옳다고 말할 수는 없습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">자기 유지 (Self-maintenance)</h3>
+              <p>자신이 치매에 걸린 사실을 인정하지 않고 건망증을 감추거나 무시하려는 스타일입니다. 치매라는 낙인이 두려워 자신을 보호하려는 자연스러운 반응일 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">자기 순응 (Self-adjustment)</h3>
+              <p>건망증에 더 잘 대처하기 위해 도움이 될 방법을 적극적으로 찾아보려는 스타일입니다. 변화를 받아들이고 적응하려는 태도입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Attitude - Role of Experts -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">전문가의 태도: 절망 대신 <span class="highlight">희망</span>을</h2>
+          <p class="slide-subtitle">환자들이 진단에 대해 느끼는 방식에 가장 큰 영향을 미치는 것은 전문가의 태도입니다. 부정적인 말 한마디가 환자의 모든 희망을 앗아갈 수 있습니다.</p>
+          <div class="slide-content">
+             <p>"더 이상 해줄 수 있는 것이 없다"는 말 대신, "네, 치매는 참 곤란한 병이에요. 하지만 이 새로운 꼬리표가 당신을 나타내지는 않을 겁니다. 당신은 여전히 많은 것을 할 수 있고, 많은 것이 될 수 있어요." 라고 말해주는 의사가 필요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Attitude - Family's Attitude -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가족의 태도: 가장 큰 <span class="highlight">지지</span> 혹은 <span class="highlight">상처</span></h2>
+          <p class="slide-subtitle">가족의 반응은 치매 환자에게 가장 큰 힘이 되기도, 깊은 상처를 주기도 합니다.</p>
+          <div class="slide-content">
+             <p>"'엄마가 날 만나러 여기로 올 거야'라고 말하는 나에게 오빠는 소리치며 나를 끌고 갔어요. 그는 치매를 이해하려 하지 않았죠." 반면, "내가 긍정적인 태도를 보이자 가족들의 태도도 바뀌었어요. 아들은 내가 자랑스럽다고 말해요."</p>
+             <p class="mt-4">결국 가족과 주변 사람들의 <span class="highlight">이해와 교육</span>이 환자가 병을 긍정적으로 받아들이는 데 결정적인 역할을 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: Attitude - Peer Support -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">동료 환자들의 지원: "우리는 <span class="highlight">혼자가 아니다</span>"</h2>
+          <p class="slide-subtitle">동료 환자 지원 모임 '마음과 목소리'에 처음 나갔을 때, '혼자가 아니구나'라는 사실을 깨달았습니다.</p>
+          <div class="slide-content">
+            <p>치매라는 공통점이 없었다면 결코 만나지 못했을 친구들. 우리는 서로의 과거를 잘 모르지만, <span class="highlight">치매를 진단받은 현재</span>를 공유하며 끈끈한 유대감을 형성합니다. 이곳에서는 우리는 그냥 자연스럽게 '있으면' 됩니다. 동료 환자들의 지원은 치매에 대한 태도를 바꾸는 가장 강력한 힘입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Epilogue Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">에필로그</p>
+          <h2 class="slide-title">"도대체 왜 <span class="highlight">멈춰야 하는가?</span>" 🪂</h2>
+          <p class="slide-subtitle">청년 치매 UK 자선기금을 위해 스카이다이빙에 도전하다.</p>
+          <div class="slide-content">
+             <p>치매 환자는 비행기에서 뛰어내릴 수 없다고 누가 말하겠는가? 의사의 허락을 받고, 딸 젬마와 함께 비행장으로 향합니다. 치매에 걸렸든 안 걸렸든, 나의 삶의 질은 다른 사람의 삶의 질만큼이나 중요하며, 나는 내 삶이 <span class="highlight">경험과 모험</span>으로 가득하길 원합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47: Epilogue - The Jump -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3킬로미터 상공에서의 <span class="highlight">자유</span></h2>
+          <p class="slide-subtitle">시속 210킬로미터의 속도로 떨어지며, 살아오면서 가장 크게, 활짝 미소를 짓습니다.</p>
+          <div class="slide-content">
+             <p>이것이 자유가 아니라면, 난 자유가 무엇인지 모릅니다. 지금까지는 치매가 없습니다. 지금까지는 치매라는 병이 내 뇌에 없습니다. 나를 땅에 묶어둔 모든 것으로부터 자유롭게 하늘을 날고 있습니다. 다른 사람들의 말을 귀담아들었다면 절대 비행기에서 뛰어내리지 못했을 것입니다. 지금 육지로 돌아왔는데도 여전히 들뜬 기분입니다.</p>
+             <p class="mt-4 font-bold text-xl text-gray-800 text-center">도대체 왜 멈춰야 하는가?</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 이해와 희망의 메시지</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">치매는 삶의 끝이 아니라, 다른 방식으로 살아가는 법을 배우는 <span class="highlight">새로운 여정의 시작</span>입니다. 감각의 왜곡, 관계의 변화, 소통의 어려움 속에서도 우리는 적응하고, 작은 행복을 찾고, 여전히 '나' 자신으로 살아갈 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">가장 중요한 것은 우리 자신과 주변 사람들의 긍정적인 '태도'와 서로에 대한 '이해'입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49: Key Takeaways -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 <span class="highlight">메시지</span> 요약</h2>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-3">
+              <li><b>삶은 계속된다:</b> 치매 진단 이후에도 의미 있고 독립적인 삶은 가능합니다.</li>
+              <li><b>작은 변화의 힘:</b> 환경, 소통 방식, 생각의 작은 변화가 삶의 질을 크게 향상시킵니다.</li>
+              <li><b>'나'는 사라지지 않는다:</b> 기억과 능력이 변하더라도 자아와 감정은 여전히 존재합니다.</li>
+              <li><b>소통은 언어 너머에 있다:</b> 비언어적 소통과 교감의 중요성을 잊지 마세요.</li>
+              <li><b>태도가 모든 것을 결정한다:</b> 긍정적인 태도와 동료의 지지는 가장 강력한 무기입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

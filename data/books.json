@@ -10,6 +10,16 @@
     "cover": "assets/covers/패턴-파괴.jpg"
   },
   {
+    "slug": "치매의-거의-모든-기록",
+    "title": "치매의 거의 모든 기록",
+    "author": "웬디 미첼, 아나 와튼",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/치매의-거의-모든-기록.html",
+    "cover": "assets/covers/치매의-거의-모든-기록.jpg"
+  },
+  {
     "slug": "천재가-어딨어-개정판-양장본-hardcover",
     "title": "천재가 어딨어 (개정판) (양장본 Hardcover)",
     "author": "그랜트스나이더",
