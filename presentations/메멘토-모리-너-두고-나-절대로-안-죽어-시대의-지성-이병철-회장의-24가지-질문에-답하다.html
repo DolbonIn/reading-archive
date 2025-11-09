@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메멘토 모리: 이어령의 마지막 질문들</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      flex-direction: column;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+    .highlight {
+      background: linear-gradient(to top, #ffd900 50%, transparent 50%);
+      padding: 0 0.1em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #545b62;
+      transform: translateY(-2px);
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-list p {
+        margin-bottom: 0.75rem;
+        padding-left: 1rem;
+        border-left: 3px solid #007bff;
+        transition: background-color 0.2s;
+    }
+    .toc-list p:hover {
+        background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full max-w-7xl">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center py-20">
+          <div class="text-7xl mb-8">🕊️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">메멘토 모리</h1>
+          <p class="text-xl md:text-2xl text-gray-700">너 두고 나 절대로 안 죽어</p>
+          <p class="mt-8 text-lg text-gray-600">시대의 지성, 故 이어령이 故 이병철 회장의 24가지 질문에 답하다</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg space-y-3 toc-list">
+            <p><b>서문:</b> 메멘토 모리, 일생의 좌우명이 되다.</p>
+            <p><b>1부:</b> 코로나 패러독스와 희망의 메시지.</p>
+            <p><b>2부:</b> 이병철 회장의 24가지 질문과 이어령의 답변.</p>
+            <p><b>3부:</b> 지성에서 영성으로, 대담의 기록.</p>
+            <p><b>결론:</b> 죽음이란 무시무시한 사자.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title (서문) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">시작하며</p>
+          <h2 class="slide-title">서문: <span class="highlight">메멘토 모리</span>, 일생의 좌우명이 되다 ✍️</h2>
+          <p class="slide-content">이어령 교수는 '메멘토 모리(죽음을 기억하라)'가 자신의 일생의 좌우명이 되었음을 밝힙니다. 여섯 살 때부터 죽음을 몸 전체로 느꼈던 경험을 시로 발표하며, 죽음은 태어날 때부터 함께하는 것임을 이야기합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: 서문 내용 1 -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">죽음의 기저귀, 수의의 촉감 👶</h2>
+              <p class="slide-subtitle">이어령의 시 <메멘토 모리> 전문 중 일부</p>
+              <div class="slide-content text-center italic text-lg bg-gray-50 p-6 rounded-lg">
+                  <p>목숨은 태어날 때부터</p>
+                  <p>죽음의 기저귀를 차고 나온다.</p>
+                  <p class="mt-4">아무리 부드러운 포대기로 감싸도</p>
+                  <p>수의(壽衣)의 까칠한 촉감은 감출 수가 없어</p>
+                  <p>잠투정을 하는 아이의 이유를 아는가</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 5: 이병철 회장의 질문 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">투병 중 마주한 <span class="highlight">스물네 가지 질문</span> 🤔</h2>
+          <p class="slide-subtitle">암 투병 중, 한 기자가 찾아와 故 이병철 회장이 죽음을 앞두고 신부에게 던졌던 24가지 질문에 대해 답변해달라고 요청합니다.</p>
+          <div class="slide-content">
+            <p>이어령 교수는 이 요청을 듣는 순간, 여섯 살 때 이미 '메멘토 모리'에 대한 질문을 스스로 던졌기에 자신이 '대선배'라는 엉뚱한 자부심을 느꼈다고 회고합니다. 그는 종교인이 아닌 '글 쓰는 사람'으로서 더 자유롭게 답변할 수 있다고 생각했습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: 코로나 시대의 질문 -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">코로나 시대, <span class="highlight">모두의 질문</span> 🌍</h2>
+              <p class="slide-subtitle">이병철 회장의 질문은 단지 한 사람의 것이 아니었습니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg text-blue-600">과거의 질문</h3>
+                      <p>이병철 회장이 던졌던 24가지 질문은 신, 죽음, 종교에 대한 근원적인 물음이었습니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg text-red-600">현재의 질문</h3>
+                      <p>코로나 팬데믹으로 인해 전 세계 인류가 동일한 질문, 즉 삶과 죽음의 의미에 대해 고뇌하게 되었습니다.</p>
+                  </div>
+              </div>
+               <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                  <p class="mt-2 text-center">이 책은 팬데믹으로 고통받는 사람들에게 작은 위안과 희망의 메시지가 될 수 있다는 기대감에서 시작되었습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 7: Section Title (1부) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1부</p>
+          <h2 class="slide-title"><span class="highlight">코로나 패러독스</span>와 희망의 메시지 💡</h2>
+          <p class="slide-content">암 투병 중인 이어령 전 장관은 코로나19 팬데믹이라는 대재앙 속에서 오히려 인류가 새로운 희망을 찾을 수 있다는 '코로나 패러독스'를 제시합니다. 역사적으로 대역병 이후에는 더 나은 번영이 찾아왔음을 강조합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: 1부 내용 1 - 위기 속의 가치 발견 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">불행 속에서 찾는 <span class="highlight">종교적 가치</span> 🙏</h2>
+          <p class="slide-subtitle">팬데믹은 우리가 잊고 있던 것들을 깨닫게 합니다.</p>
+          <div class="slide-content space-y-4">
+              <p><b>1. 인간 문명의 허망함:</b> 인간의 능력으로 쌓아 올린 문명과 문화가 바이러스 앞에서 얼마나 허망하게 무너지는지 보았습니다.</p>
+              <p><b>2. 생명의 귀중함:</b> GDP 숫자로 비교되던 세계 각국의 차이가 이제는 코로나 발생 수와 사망자 수로 바뀌었습니다. 생명보다 더 귀한 가치는 없음을 깨닫게 되었습니다.</p>
+              <p><b>3. 기독교의 시련과 역할:</b> 중세 페스트 시대처럼 기독교의 기반이 흔들리는 위기 속에서, 잊고 있던 종교적 가치와 구제의 역할을 다시 찾아야 할 때입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: 1부 내용 2 - 휴브리스의 깨달음 -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">인간의 오만, '<span class="highlight">휴브리스(Hubris)</span>'</h2>
+              <p class="slide-subtitle">기독교에서 가장 큰 죄악은 인간의 오만입니다.</p>
+              <div class="slide-content">
+                  <p>코로나19는 우리에게 인간 문명이 얼마나 허약한지를 보여주며, 우리의 오만을 깨닫게 했습니다. 이 세상 모든 가치 가운데 생명 이상의 것은 없다는 사실을 동시에 깨닫게 된 것입니다.</p>
+                  <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                      <h3 class="font-bold text-lg">💡 시련 뒤의 희망</h3>
+                      <p class="mt-2">"페스트라는 재앙의 마지막 종착지였던 파리도 페스트가 지나간 뒤 모든 면에서 이전보다 발전했고, 유럽의 문화 중심지로 화려한 꽃을 피우게 됐다."</p>
+                      <p class="mt-2 font-semibold">"오늘날 불신받고 쇠퇴해가는 기독교에 생명의 가치를 일깨우고 인간의 오만과 그로 인한 재앙을 극복했던 그 힘을 되살려내는 것이 희망이다."</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 10: 1부 내용 3 - 코로나 패러독스 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">코로나(Corona)의 역설 👑</h2>
+          <p class="slide-subtitle">'코로나'는 왕관을 의미합니다. 가장 성스러운 이름이 가장 죄악의 팬데믹 이름이 된 역설입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">재앙의 역사</h3>
+              <p>역사적으로 대역병이 지나가면 인구가 늘고 이전보다 번영이 이루어졌습니다. 1665년 런던 대역병 이후, 영국은 애덤 스미스의 『국부론』, 산업혁명, 그리고 '팍스 브리태니카' 시대를 맞이했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">패러독스의 희망</h3>
+              <p>이 패러독스의 마지막 희망은 '기독교'에 있다고 이어령 교수는 말합니다. 불신받던 기독교가 인간의 오만을 깨닫게 하고 생명의 가치를 일깨우는 힘을 되살려 새로운 시대를 여는 기회가 될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Section Title (2부) -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2부</p>
+          <h2 class="slide-title">이병철 회장의 24가지 질문과 <span class="highlight">이어령의 답변</span> 💬</h2>
+          <p class="slide-content">본격적으로 故 이병철 회장이 던진 24가지의 근원적 질문에 대해, 이어령 교수가 비유와 스토리텔링, 상상력을 바탕으로 풀어내는 답변들을 살펴봅니다.</p>
+        </div>
+      </div>
+
+      <!-- 질문 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 1: 하나님의 존재 ❓</h2>
+          <p class="slide-subtitle">하나님의 존재를 어떻게 증명할 수 있나요?</p>
+          <div class="slide-content">
+            <p>'하나님'이라는 말을 '부모님'이나 '연인'으로 바꿔보라고 제안합니다. 우리는 부모님의 존재나 사랑을 증명하라고 요구하지 않습니다. '증명'이라는 말이 나오는 순간, 그 관계는 이미 끝난 것이라고 말합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="font-bold text-lg">"하나님과 나와의 관계는, 증명하는 관계가 아니라, <span class="highlight">믿음의 관계</span>고, 하나님은 믿음의 대상이지요. 그것이 바로 가족의 사랑이고, 남녀의 사랑이고, 종교에서 말하는 믿음과 사랑으로 이루어진 신앙의 세계라고 생각합니다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 2: 왜 존재를 드러내지 않는가? ❓</h2>
+          <p class="slide-subtitle">하나님은 왜 자신의 존재를 똑똑히 드러내지 않을까요?</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">릴리전(Religion)의 의미</h3>
+              <p>'종교'를 뜻하는 '릴리전'은 '끊어진 끈을 다시 잇는다'는 의미를 가집니다. 인간과 하나님의 관계는 원죄로 인해 끊어진 관계이며, 이 관계가 회복될 때 하나님을 똑똑히 볼 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">극한 상황 속의 신</h3>
+              <p>빅터 프랭클의 《밤과 안개》를 예로 들며, 신은 아우슈비츠 같은 지옥의 극한 상황에 오히려 똑똑히 나타난다고 말합니다. 극한 상황에서 인간의 진짜 모습이 드러나듯, 신도 그 모습을 똑똑히 드러내 보입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 질문 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 3: 창조주라는 증거 ❓</h2>
+          <p class="slide-subtitle">하나님은 우주 만물의 창조주라는데, 무엇으로 증명할 수 있습니까?</p>
+          <div class="slide-content">
+            <p>창조주가 없다면 우주 만물도 없을 것입니다. 우주에는 우연이라고 볼 수 없는 <span class="highlight">수학적·물리적 질서</span>가 존재합니다. 이 질서를 기획하고 만든 창조주가 없다면 질서 자체가 존재할 수 없습니다.</p>
+             <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                <h3 class="font-bold text-lg">과학자들의 신</h3>
+                <p class="mt-2">갈릴레오, 뉴턴과 같은 위대한 과학자들은 신을 부정하지 않았습니다. 오히려 그들은 천체와 우주의 질서 속에서 하나님의 말씀을 발견하고 읽어냈습니다. 뉴턴은 만유인력을 단순히 물리 현상이 아니라, 창조주가 만드신 사물들이 가까워지려는 '사랑'이자 '친화력'으로 보았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 4: 진화와 창조 ❓</h2>
+          <p class="slide-subtitle">생물학자들은 인간도 오랜 진화의 산물이라고 하는데, 신의 인간 창조와 어떻게 다른가요?</p>
+          <div class="slide-content">
+            <p><span class="highlight">"진화 자체가 신의 프로그램이라면, 어떻게 반박할 수 있을까요?"</span></p>
+            <p class="mt-4">창세기는 진화 과정과 거의 다르지 않다고 설명합니다. 태초의 빅뱅(혼돈)에서 하늘과 땅이 갈라지고(질서), 동식물이 생기고, 마지막에 인간이 만들어지는 과정은 진화론과 일치합니다. 오늘날 생물학자들도 직접 '신'이라 말하지 않을 뿐, '섬싱 그레이트(something great)'의 존재를 인정합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 4 - 심화 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진화론의 진화: <span class="highlight">공생(Symbiosis)</span> 🤝</h2>
+          <p class="slide-subtitle">진화의 원리는 포식이나 기생 관계가 아닌, 공생의 원리로 진화하고 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">초기 진화론</h3>
+              <p>먹고 먹히는 포식(捕食) 관계, 혹은 숙주와 기생물의 기생 관계로 진화의 원리를 이해했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">현대 진화론 (린 마굴리스)</h3>
+              <p>'심바이오시스(symbiosis)', 즉 공생 이론이 인정을 받고 있습니다. 이는 '코이노니아(koinonia)', 즉 함께 나누고 서로 도우며 사는 초기 기독교의 가치와 다르지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 질문 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 5: 과학 발달과 신의 존재 ❓</h2>
+          <p class="slide-subtitle">과학이 끝없이 발달하면, 신의 존재도 부인되는 것이 아닌가요?</p>
+          <div class="slide-content">
+            <p>AI 로봇이 신에게 도전하는 우스갯소리로 답합니다.</p>
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg italic">
+              <p>AI 로봇: "당신이 만든 인간과 내가 만든 인간, 어느 쪽이 더 우수한지 내기를 해봅시다."</p>
+              <p>하나님: "어디 한번 해봐라."</p>
+              <p>AI 로봇이 흙을 모아 인간을 만들려고 하자, 하나님께서 말씀하셨습니다.</p>
+              <p class="font-bold">"잠깐, 내가 만든 흙에 손대지 마. 흙도 네가 만들어."</p>
+            </div>
+            <p class="mt-6">로봇을 만드는 금속, 플라스틱 등 지구의 모든 원자재는 하나님께서 지으신 것입니다. 모든 과학 기술의 근원은 <span class="highlight">창조주의 선물</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 6: 고통, 불행, 죽음의 이유 ❓</h2>
+          <p class="slide-subtitle">하나님이 인간을 사랑한다면, 왜 고통과 불행과 죽음을 주는 걸까요?</p>
+          <div class="slide-content">
+            <p>인간의 고통과 불행은 신이 준 것이 아니라, 따먹지 말라는 <span class="highlight">선악과(善惡果)</span>를 범하여 인간이 스스로 받은 벌이라고 설명합니다.</p>
+            <p class="mt-4">선악과를 따먹은 것은, 피조물인 인간이 조물주가 되려고 한 것입니다. 이는 아들이 아버지가 되려는 것과 같은 패륜입니다. 피조물이 조물주와의 관계를 부정하고 뛰어넘으려 할 때, 세계는 암흑과 혼돈의 세계가 됩니다. 그것이 바로 오늘날 인간이 만든 불완전한 문명에서 오는 고통입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 7 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 7: 악인의 존재 ❓</h2>
+          <p class="slide-subtitle">하나님은 왜 히틀러나 스탈린 같은 악인을 만들었을까요?</p>
+          <div class="slide-content">
+            <p>이 질문을 히틀러에게 해보라고 역으로 제안합니다. 그는 "하나님은 왜 유대인 같은 악인을 만들었는가?"라고 반문하며 "하나님을 대신해서 내가 악인을 죽였노라"고 말할 것입니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+                <h3 class="font-bold text-lg">⚔️ 전쟁 속의 기도</h3>
+                <p class="mt-2">남북전쟁 당시 남군과 북군 모두 같은 하나님께 "상대편은 악인이오니, 우리가 이기게 하소서"라고 기도했습니다. 하나님은 누구의 편을 들어야 할까요?</p>
+                <p class="mt-4 font-semibold">만일 양측이 동시에 하나님의 평화와 사랑을 느꼈다면, 1차 세계대전의 '크리스마스 휴전'과 같은 기적이 일어났을 것입니다. <span class="highlight">공감의 신이 전쟁의 신보다 크고 강합니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- 질문 8 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 8: 우리의 죄, 원죄 ❓</h2>
+          <p class="slide-subtitle">예수님은 우리의 죄를 대신 속죄하기 위해 죽었다는데, 우리의 죄란 무엇인가요?</p>
+          <div class="slide-content">
+            <p>우리의 죄는 '원죄(original sin)'입니다. 이는 개인이 저지르는 죄가 아니라, 피조물이 조물주가 되려고 한 것, 즉 <span class="highlight">인간의 오만(휴브리스)</span> 그 자체입니다.</p>
+             <p class="mt-4">우리 사회 전체 시스템에 내재하는 문명과 사회 자체에 죄가 있다는 의미입니다. 부족한 인간이 마치 전능한 신처럼 지식과 지혜를 갖고 선악을 판단하려고 하는 그것이 바로 원죄이며, 여기서 벗어나는 사람은 아무도 없습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 9 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 9: 왜 죄를 짓게 내버려 두었나? ❓</h2>
+          <p class="slide-subtitle">하나님은 왜 우리로 하여금 죄를 짓게 내버려 두었나요?</p>
+          <div class="slide-content text-center">
+            <p class="text-3xl font-bold mb-6">그것을 <span class="highlight">자유의지(自由意志)</span>라고 합니다.</p>
+            <p>하나님은 다른 짐승들과 달리, 인간만 자신과 가까운 모습으로 만들었습니다. 흙(육체)을 빚어 그 안에 숨(성령, 스피릿)을 불어넣었습니다.</p>
+            <p class="mt-4">오직 하나님이 흙에다 불어넣은 영, 그것이 자유의지입니다. 하나님은 인간이 선악과를 따먹지 못하게 물리적 장치를 하지 않았습니다. 그저 스스로의 의지로 따먹지 말라고 말했을 뿐입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- 질문 10, 11 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 10 & 11: 성경의 진실성 ❓</h2>
+          <p class="slide-subtitle">성경은 어떻게 만들어졌으며, 그것이 하나님의 말씀이라는 것을 어떻게 증명할 수 있나요?</p>
+          <div class="slide-content">
+            <p>성경은 하나님의 말씀이지만, 인간의 언어와 문자로 기록되었습니다. 어린아이가 '밥'을 '맘마'라고 하듯, 하나님의 말씀이 인간의 언어로 번역된 것입니다.</p>
+             <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p>성서의 '무오류설'은 그 진리에 오류가 없다는 것이지, 번역된 자구 하나하나가 절대적이라는 의미는 아닙니다. 불완전한 인간이 하나님의 말씀을 들으면 저마다 다르게 들을 수밖에 없습니다. 다만 그것을 정직하게 옮길 수 있어야 합니다.</p>
+                <p class="mt-4 font-semibold">성경을 문자 그대로 읽으면 모순이 많습니다. (예: 노아의 방주 속 육식동물의 먹이, 카인이 아벨을 죽인 후 다른 사람을 두려워하는 점 등) 성경은 문자적 해석이 아닌, 그 안에 숨겨진 비유와 구조적 의미를 파악해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- 질문 12 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 12: 종교의 필요성 ❓</h2>
+          <p class="slide-subtitle">종교란 무엇인가요? 왜 인간에게 필요한가요?</p>
+          <div class="slide-content">
+            <p>세상의 모든 것을 이룬 사람도 알지 못하는 것, 바로 <span class="highlight">죽음</span>입니다. 세상 아무리 위대한 사람도 다 죽었고, 그들 중에 죽음이 뭔지 알고 죽은 사람은 아무도 없습니다.</p>
+            <p class="mt-4">누구나 죽음을 두려워한다면, 그 종교의 이름이 무엇이라도, 마지막 질문은 죽음에 관한 것이 될 것입니다. 삼성의 창업주 이병철 회장조차 이 질문을 던졌습니다. 바로 그 질문 속에 종교의 필요성이 있는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 질문 13 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 13: 영혼이란 무엇인가? ❓</h2>
+          <p class="slide-subtitle">찻잔의 비유를 통해 영혼을 설명합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">물질 (Body) 컵 🏺</h3>
+              <p>찻잔을 만드는 물질(유리, 플라스틱)은 인간의 육체에 해당합니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">마음 (Mind) 내용물 ☕</h3>
+              <p>컵에 담기는 내용물(커피, 물)은 욕망과 같은 우리의 마음에 해당합니다. 컵이 깨지면 내용물도 사라지듯, 죽으면 육체와 욕망도 다 없어집니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg bg-blue-50">
+              <h3 class="font-bold text-lg text-blue-700">영혼 (Spirit) 빈 공간 ✨</h3>
+              <p>컵의 본질은 무언가를 담기 위한 '비어 있는 성질(void)'입니다. 컵이 깨져도 그 텅 비어 있던 공간 자체는 사라지지 않고 우주와 통합니다. 그것이 바로 스피릿, 영혼입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- 질문 14 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 14: 종교의 종류와 특징 ❓</h2>
+          <p class="slide-subtitle">종교를 각설탕에 비유합니다.</p>
+          <div class="slide-content">
+            <p>각설탕은 모양도 맛도 똑같습니다. 하지만 아이들에게 주면, 어떤 아이는 먹어버리고 어떤 아이는 그것으로 바벨탑을 쌓거나 집을 짓는 등 가지고 놉니다. 아이들마다 다릅니다.</p>
+            <p class="mt-4 font-bold">하나님도, 신도 사각형의 흰 각설탕 안에 존재하는 게 아니라, 그것을 <span class="highlight">구축하는 아이의 영혼, 마음속에서</span> 나타나는 것입니다.</p>
+            <p class="mt-4">종교적 영역은 지성의 영역이 아니라 영성의 영역입니다. 지하철 입구가 여러 개인 것처럼, 종교도 여러 입구가 있습니다. 일단 들어가면 서로 다른 방향으로 가는 열차가 있듯, 천국과 지옥이라는 다른 노선이 있는 것과 같습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- 질문 15 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 15: 비기독교인의 천국행 ❓</h2>
+          <p class="slide-subtitle">기독교를 믿지 않고는, 천국에 갈 수 없나요?</p>
+          <div class="slide-content">
+            <p>"기독교를 믿지 않으면 천국에 갈 수 없다고 성경 어디에 쓰여 있는지, 나는 아직 모릅니다."</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">✝️ 착한 사마리아 사람의 비유</h3>
+              <p class="mt-2">강도 만나 피 흘리는 사람을 제사장도, 레위인도 못 본 척 지나갔지만, 이교도인 착한 사마리아 사람만이 그를 살려주었습니다.</p>
+              <p class="mt-4 font-bold">"그러면 기독교인이 천국에 가겠어요, 착한 사마리아 사람이 천국에 가겠어요? <span class="highlight">기독교인이 아니라도 기독교 정신을 가진 사람이면 천국에 가는 거예요.</span>"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 질문 16 & 17 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 16 & 17: 타종교와 배타성 ❓</h2>
+          <p class="slide-subtitle">착한 무신론자는 어디로 가며, 왜 개신교만 제일이라고 하나요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">산상수훈의 약속</h3>
+              <p>예수님은 산상수훈에서 "심령이 가난한 자", "애통하는 자", "온유한 자" 등은 복이 있나니 천국이 그들의 것이라고 하셨습니다. 이는 종교를 넘어선 보편적인 가치입니다. 착한 사마리아 사람처럼, 우리 선인들 중에도 이런 분들은 모두 천국에 가 있을 것입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">진정한 기독교 정신</h3>
+              <p>"원수를 사랑하라", "오른쪽 뺨을 맞거든 왼쪽 뺨을 내주라"고 가르치는 종교가 배타적일 수 없습니다. 만약 그런 짓을 한다면, 그것은 기독교 정신에서 벗어난 사이비 종교입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- 질문 18 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 18: 사후세계 ❓</h2>
+          <p class="slide-subtitle">인간이 죽은 후에, 영혼은 죽지 않고 천국이나 지옥으로 간다는 것을 어떻게 믿을 수 있나요?</p>
+          <div class="slide-content">
+            <p>천국과 지옥은 우리가 사는 현세를 바탕으로 만들어진 개념입니다. 한 사람이 죽어 천국에 갔는데, 으리으리한 집에 하인이 수천 명이지만 아무것도 직접 할 수 없어 너무 심심해 "차라리 지옥에 가겠다"고 말합니다. 그러자 하인이 대답합니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center italic">
+              <p class="text-xl font-bold">"주인님, 여기가 바로 지옥이에요."</p>
+            </div>
+            <p class="mt-6">부딪치고 싸우고 피를 흘리면서도 참된 의미를 찾는 곳이 <span class="highlight">천국</span>입니다. 금은보화로 장식된 곳이 아니라, 서로 사랑하고, 자기가 먹을 것을 벌고, 서로 나눠 먹는, 그런 참된 의미가 있는 곳이 바로 우리 곁에 있는 천국입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 19 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 19: 신앙과 부귀 ❓</h2>
+          <p class="slide-subtitle">신앙이 없어도 부귀를 누리는 사람이 많은데, 신의 교훈은 무엇인가요?</p>
+          <div class="slide-content">
+            <p>현세에서 잘살고자 믿는 것은 기복 종교입니다. 욥은 하나님을 믿었지만 큰 재앙을 받았습니다. 그는 부귀를 위해 하나님을 믿은 것이 아닙니다.</p>
+            <p class="mt-4">예수님은 "구하라, 그리하면 너희에게 주실 것이요"라고 하셨지만, 우리는 돈과 부귀영화를 구합니다. 이는 '가이사의 것'입니다. 우리는 하나님의 문 앞에서 카이사르의 문을 두드리고 있는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 20 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 20: 부자는 악인인가? ❓</h2>
+          <p class="slide-subtitle">성경에서 부자가 천국에 가는 것을 낙타가 바늘구멍에 들어가는 것에 비유하는데, 부자는 악인이라는 말인가요?</p>
+          <div class="slide-content">
+            <p>이는 성경에서 가장 잘못 알려진 부분 중 하나라고 말합니다. 예수님은 "부자는 천국에 못 간다"고 말씀하시지 않았습니다. 가진 것이 너무 많으면 <span class="highlight">버리고 가기가 힘들 뿐</span>, 부자도 천국에 들어갈 수 있습니다.</p>
+             <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                <p>제자들이 "그럼 누가 천국에 가느냐"고 묻자, 예수님은 "내가 곧 길이요 진리요 생명이니, 나로 말미암지 않고는 아버지께로 올 자가 없느니라(요 14:6)"고 답하십니다. 가난한 자, 부유한 자가 중요한 것이 아니라, 하나님의 말씀을 거치지 않은 자는 누구도 천국에 들어갈 수 없다는 의미입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 21-23 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 21-23: 종교, 이념, 광신 ❓</h2>
+          <p class="slide-subtitle">기독교 국가의 혼란, 신앙인의 광신, 기독교와 공산주의의 관계에 대해 답합니다.</p>
+          <div class="slide-content space-y-4">
+              <p><b>미국의 모순:</b> 열린 악은 닫힌 선보다 희망이 있습니다. 미국은 범죄가 많지만 자유의지가 살아있습니다. 한 사람만 죽어도 나라 전체가 망하는 전체주의 국가와 달리, 미국은 여러 대통령이 암살당해도 끄떡없었습니다.</p>
+              <p><b>광신(Fanaticism):</b> 기독교와 공산주의에서 유독 광신이 많이 발견되는 것은, 종말론 같은 절대적인 이념을 바탕으로 하기 때문입니다. 이념에 눈이 머는 것입니다.</p>
+              <p><b>기독교와 공산주의의 공통점:</b> ①사회에서 소외된 계층을 대상으로 한다는 점, ②러시아 정교회의 부활론이 공산국가의 과학기술과 밀접한 연관을 가진다는 점, ③시작과 끝이 있는 선형적 역사관(종말론)을 공유한다는 점에서 의외의 공통점을 가집니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- 질문 24 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 24: 한국의 범죄와 시련 ❓</h2>
+          <p class="slide-subtitle">우리나라는 교회가 많은데, 왜 사회 범죄와 시련이 많은가요?</p>
+          <div class="slide-content">
+            <p>"마스크 쓰고, 손 씻고, 거리두기 하는데, 왜 코로나 안 없어지나요?" 라는 질문과 같다고 답합니다. 교회가 많은 것과 범죄자가 많은 것은 직접적인 인과 관계가 없습니다.</p>
+            <p class="mt-4 font-bold">만약 교회가 없었더라면 더 많은 범죄자의 사회가 되었을 것이라고 반박해도 반론하기 힘들 것입니다. 지금 가난하고 고통스러워도, <span class="highlight">자유와 희망을 꿈꿀 수 있는 쪽</span>을 택하려는 것이 인간입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 질문 25 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">질문 25: 지구의 종말 ❓</h2>
+          <p class="slide-subtitle">지구의 종말은 올까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">엔트로피 법칙</h3>
+              <p>종교가 아니라 과학(열역학 제2법칙)이 종말을 예견합니다. 형태 있는 것은 무너지고, 질서 있는 것은 무질서해지고, 따뜻한 것은 차가워지는 것이 법칙입니다. 지구는 끓는 물이 식어가는 거대한 냄비와 같습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-green-700">생명의 역(逆)엔트로피 🌱</h3>
+              <p>하지만 예외가 있습니다. 바로 '생명'입니다. 생명은 무질서하고 힘없는 아이가 거꾸로 질서와 힘을 만들어내는 역현상입니다. 차가운 냄비가 뜨겁게 끓어오르는 것과 같습니다. 이것이 생명체의 신비입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 죽음, 그리고 생명</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">결국 이 모든 질문은 죽음과 생명으로 귀결됩니다. 돌멩이를 빵으로 만드는 기적은 당장 편할지 몰라도 언젠가 사라집니다. 하지만 땀 흘려 곡식을 심는 '생식'과 '생명'의 힘은 영원합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">"나는 진리요, 생명이니라" 라는 말씀처럼, 종교는 죽음을 넘어서는, 엔트로피를 역행하는 <span class="highlight">생명의 운동</span>입니다. 부활이란 한 알의 곡식이 땅에 떨어져 죽어 수십 개의 열매를 맺는 것과 같습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center py-20">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
