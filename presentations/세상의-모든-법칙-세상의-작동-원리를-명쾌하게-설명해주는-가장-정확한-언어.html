@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세상의 모든 법칙</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">⚛️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">세상의 모든 법칙</h1>
+          <p class="text-xl md:text-2xl text-gray-700">세상의 작동 원리를 명쾌하게 설명해주는 <span class="highlight">가장 정확한 언어</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Preface 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">머리말: <span class="highlight">법칙</span>은 왜 필요할까?</h2>
+          <p class="slide-subtitle">법칙, 공식, 정리라고 하면 어렵다는 생각부터 떠오릅니다. 하지만 사실 이 법칙들은 우리 주변의 다양한 사건과 현상 속에서 <span class="highlight">핵심 원리</span>만을 추출해낸 것입니다.</p>
+          <div class="slide-content">
+            <p>하늘의 구름을 관찰하며 바람의 방향, 비와의 관계 등 몇 가지 법칙을 발견하고 이를 바탕으로 일기예보를 할 수 있게 된 것처럼, 주변 현상을 심플하게 정의하고 적용하여 새로운 지식을 얻도록 돕는 것이 바로 법칙입니다. 법칙을 잘 알면 자연과 사회에서 일어나는 일을 <span class="highlight">한눈에 이해</span>할 수 있습니다. 즉, 법칙은 인간의 지혜를 높이는 도구입니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 3: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-2 text-base">
+            <p><b>01. AIDMA의 법칙</b></p>
+            <p><b>02. 악마의 증명</b></p>
+            <p><b>03. 아보가드로의 법칙</b></p>
+            <p><b>04. 아르키메데스의 원리</b></p>
+            <p><b>05. 안토니아디 척도</b></p>
+            <p><b>06. 앙페르의 법칙</b></p>
+            <p><b>07. EPR 역설</b></p>
+            <p><b>08. 일반 상대성 이론</b></p>
+            <p><b>09. 이노베이션의 딜레마</b></p>
+            <p><b>10. 베버-페히너의 법칙</b></p>
+            <p><b>11. 운동의 법칙</b></p>
+            <p><b>12. 운동량 보존의 법칙</b></p>
+            <p><b>13. 에피메니데스의 역설</b></p>
+            <p><b>14. 에라토스테네스의 체</b></p>
+            <p><b>15. 장거리 연애의 법칙</b></p>
+            <p><b>16. 엔트로피 증가의 법칙</b></p>
+            <p><b>17. 엠메르트의 법칙</b></p>
+            <p><b>18. 오일러의 다면체 정리</b></p>
+            <p><b>19. 황금비</b></p>
+            <p><b>20. 옴의 법칙</b></p>
+            <p><b>21. 오컴의 면도날</b></p>
+            <p><b>22. 올베르스의 역설</b></p>
+            <p><b>23. 음속의 공식</b></p>
+            <p><b>24. 각운동량 보존의 법칙</b></p>
+            <p><b>25. 칵테일파티 효과</b></p>
+            <p><b>26. 카발리에리의 정리</b></p>
+            <p><b>27. 갈릴레이의 상대성 원리</b></p>
+            <p><b>28. 관성의 법칙</b></p>
+            <p><b>29. 캐즘 이론</b></p>
+            <p><b>30. 캐번디시의 실험</b></p>
+            <p><b>31. 키르히호프의 법칙</b></p>
+            <p><b>32. 쿨롱의 법칙</b></p>
+            <p><b>33. 클라크 수</b></p>
+            <p><b>34. 그레셤의 법칙</b></p>
+            <p><b>35. 그로슈의 법칙</b></p>
+            <p><b>36. 게슈탈트 심리학</b></p>
+            <p><b>37. 케플러의 법칙</b></p>
+            <p><b>38. 광속</b></p>
+            <p><b>39. 운동의 제3법칙</b></p>
+            <p><b>40. 질량 보존의 법칙</b></p>
+            <p><b>41. 자네의 법칙</b></p>
+            <p><b>42. 샤를의 법칙</b></p>
+            <p><b>43. 주기율표</b></p>
+            <p><b>44. 죄수의 딜레마</b></p>
+            <p><b>45. 중력 가속도</b></p>
+            <p><b>46. 줄의 법칙</b></p>
+            <p><b>47. 슈푀러의 법칙</b></p>
+            <p><b>48. 스넬의 법칙</b></p>
+            <p><b>49. 세의 법칙</b></p>
+            <p><b>50. 제논의 역설</b></p>
+            <p><b>...and more</b></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">Part 1</p>
+            <h2 class="text-6xl font-black">세상을 이해하는 열쇠</h2>
+            <p class="slide-subtitle mt-4">사회, 논리, 화학, 물리 등 다양한 분야의 기본 법칙들</p>
+        </div>
+      </div>
+
+      <!-- 01. AIDMA의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">01. AIDMA의 법칙 🛒</h2>
+          <p class="slide-subtitle">사람의 심리를 파악한 <span class="highlight">광고·마케팅</span>의 법칙</p>
+          <div class="slide-content">
+            <p>1920년대 미국 광고 업계에서 발표한 법칙으로, 소비자가 광고를 보고 상품을 구입하기까지의 심리 과정을 설명합니다. AIDMA는 각 단계의 머리글자를 딴 것입니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg space-y-2">
+              <p><b>A</b>ttention (주의): 상품을 인지한다.</p>
+              <p><b>I</b>nterest (흥미): 흥미를 갖는다.</p>
+              <p><b>D</b>esire (욕구): 갖고 싶다고 생각한다.</p>
+              <p><b>M</b>emory (기억): 상품을 기억에 각인시킨다.</p>
+              <p><b>A</b>ction (행동): 구입으로 이어진다.</p>
+            </div>
+            <p class="mt-4">이 법칙은 정보가 주어지지 않으면 구매 의사가 생기지 않음을 의미하며, 광고를 통한 정보 제공의 중요성을 강조합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02. 악마의 증명 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">02. 악마의 증명 😈</h2>
+          <p class="slide-subtitle"><span class="highlight">'존재하지 않음'</span>을 증명하는 것은 불가능하다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-green-600">존재 증명 (쉬움)</h3>
+              <p class="mt-2">'우주에 블랙홀이 있다'는 가설은 블랙홀을 <span class="highlight">하나만 찾아내면</span> 증명됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-red-600">부재 증명 (불가능)</h3>
+              <p class="mt-2">'우주에 블랙홀은 없다'는 가설을 증명하려면, 우주 전체를 샅샅이 뒤져 <span class="highlight">없음을 확인해야</span> 합니다. 이는 사실상 불가능합니다.</p>
+            </div>
+          </div>
+           <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">⚠️ 유사 과학과의 경계</h3>
+              <p class="mt-2">"너, 내 욕했지?" / "아니, 안 했는데?" / "그럼 안 했다는 증거를 대봐." 와 같이 반론이 불가능한 논리는 공정한 토론 방법이 아닙니다. 과학은 '반증 가능성'을 통해 유사 과학과 구별됩니다. 다른 과학자가 같은 실험으로 결과를 재현할 수 있어야 합니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- 03. 아보가드로의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">03. 아보가드로의 법칙 💨</h2>
+          <p class="slide-subtitle">화학 변화의 주역은 원자가 아니라 <span class="highlight">분자</span>다!</p>
+          <div class="slide-content">
+            <p>1806년 게이뤼삭은 '기체 반응의 법칙'을 발견했지만, 이는 '원자는 더 이상 쪼갤 수 없다'는 돌턴의 원자설로는 설명이 불가능했습니다. 예를 들어, 수소 2부피와 산소 1부피가 반응해 물 2부피가 만들어지는 반응(2H₂ + O₂ = 2H₂O)을 설명하려면 산소 원자가 쪼개져야 했습니다.</p>
+            <p class="mt-4">아보가드로는 화학 반응의 주체가 원자가 아니라 <span class="highlight">원자 몇 개가 결합한 분자</span>라고 생각하여 이 문제를 해결했습니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">아보가드로의 법칙</h3>
+              <p class="mt-2">"압력과 온도, 부피가 같다면 모든 종류의 기체에는 <span class="highlight">같은 수의 분자</span>가 들어 있다."</p>
+              <p class="mt-2">이 법칙은 '분자'라는 존재의 강력한 증거가 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04. 아르키메데스의 원리 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">04. 아르키메데스의 원리 🛁</h2>
+          <p class="slide-subtitle">"유레카!" 목욕탕에서 발견한 <span class="highlight">부력의 원리</span></p>
+          <div class="slide-content">
+            <p>시라쿠사 왕의 왕관이 순금인지 은이 섞였는지 알아내라는 명령을 받은 아르키메데스. 그는 목욕탕에 들어갔을 때 물이 넘치는 것을 보고 원리를 깨달았습니다. 왕관과 같은 무게의 금덩이를 각각 물에 넣었을 때, 왕관이 더 많은 물을 밀어냈습니다. 이는 왕관의 부피가 더 크다는 것, 즉 밀도가 낮은 다른 물질(은)이 섞였다는 증거였습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">아르키메데스의 원리</h3>
+              <p class="mt-2">물체가 유체 속에 있을 때, 물체가 밀어낸 유체의 무게와 같은 크기의 <span class="highlight">부력</span>이 물체에 작용한다.</p>
+              <p class="mt-4 font-mono text-center text-lg">F = ρVg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05. 안토니아디 척도 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">05. 안토니아디 척도 ✨</h2>
+            <p class="slide-subtitle">별이 반짝거리는 정도의 지표, 즉 천체 관측의 <span class="highlight">선명도(Seeing)</span></p>
+            <div class="slide-content">
+                <p>밤하늘의 별이 반짝이는 이유는 약 10km 상공의 제트 기류 때문입니다. 이 대기의 흔들림(Scintillation)과 투명도를 합쳐 성상이 깨끗하게 보이는 정도를 '시상'이라고 합니다. 그리스의 천문학자 유진 안토니아디가 화성 관측 경험을 바탕으로 시상을 5단계로 나눈 척도를 만들었습니다.</p>
+                <div class="mt-6 p-6 bg-gray-800 text-white rounded-lg space-y-2">
+                    <p><b>I:</b> 아주 작은 흔들림조차 없는 완벽한 성상.</p>
+                    <p><b>II:</b> 수 초 동안 평온하며 이따금 살짝 흔들림.</p>
+                    <p><b>III:</b> 대기의 큰 흔들림으로 성상이 번짐.</p>
+                    <p><b>IV:</b> 항상 성상이 흔들림.</p>
+                    <p><b>V:</b> 성상이 매우 나빠 행성 스케치가 어려움.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- 06. 앙페르의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">06. 앙페르의 법칙 ⚡</h2>
+          <p class="slide-subtitle">전류의 신, 앙페르가 밝혀낸 <span class="highlight">전류와 자기장</span>의 관계</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">발견의 시작</h3>
+              <p>1820년, 외르스테드는 전류가 흐르는 도선 주위에서 나침반 바늘이 움직이는 것을 발견했습니다. 이 소식을 들은 앙페르는 즉시 실험을 시작하여, 평행한 두 도선에 전류를 흘려보냈습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">실험 결과</h3>
+              <p>전류 방향이 <span class="highlight">같을 때</span>는 서로 잡아당기는 힘(인력)이, 전류 방향이 <span class="highlight">반대일 때</span>는 서로 밀어내는 힘(척력)이 작용함을 발견했습니다. 이는 '오른나사의 법칙'으로 설명됩니다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">앙페르의 법칙</h3>
+              <p class="mt-2">"전류 주위에 생기는 자기장의 크기는 <span class="highlight">전류의 크기에 비례한다.</span>" 이 법칙은 전류 단위인 암페어(A)의 유래가 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07. EPR 역설 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">07. EPR 역설 ⚛️</h2>
+            <p class="slide-subtitle">양자 얽힘은 광속을 초월한다? <span class="highlight">"신은 주사위 놀이를 하지 않는다."</span></p>
+            <div class="slide-content">
+                <p>아인슈타인은 입자의 위치와 운동을 확률로만 기술하는 양자 역학에 불만을 품었습니다. 1935년, 그는 포돌스키, 로젠과 함께 'EPR 역설'을 발표했습니다.</p>
+                <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <h3 class="font-bold text-lg">양자 얽힘 (Quantum Entanglement)</h3>
+                    <p class="mt-2">동시에 생성된 한 쌍의 양자는 서로 스핀(각운동량)이 관계를 맺고 있습니다. 한쪽의 스핀이 변하면, 다른 쪽 양자의 스핀도 <span class="highlight">아무리 멀리 떨어져 있어도 즉시</span> 변합니다. 정보가 광속보다 빠르게 전달되는 것처럼 보입니다.</p>
+                </div>
+                <p class="mt-4">이는 '이 우주에 광속보다 빠른 것은 존재하지 않는다'는 아인슈타인의 특수 상대성 이론과 모순됩니다. 이 현상은 아직 그 실태가 자세히 밝혀지지 않았습니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- 08. 일반 상대성 이론 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">08. 일반 상대성 이론 🌌</h2>
+            <p class="slide-subtitle">중력은 공간의 <span class="highlight">일그러짐</span>이다.</p>
+            <div class="slide-content">
+                <p>1915년 아인슈타인이 발표한 중력 이론입니다. 무중력 공간에서 상승하는 엘리베이터 안의 사람은 자신이 느끼는 힘이 중력 때문인지 가속도 때문인지 구별할 수 없습니다. 이처럼 중력이 만들어내는 힘과 가속도가 만들어내는 힘이 동등하다는 것이 <span class="highlight">'등가 원리'</span>입니다.</p>
+                <div class="mt-8 p-6 bg-gray-800 text-white rounded-lg">
+                    <h3 class="font-bold text-lg">중력이란 무엇인가?</h3>
+                    <p class="mt-2">아인슈타인은 중력이란 질량 때문에 휘어진 공간이 만들어내는 것이라고 설명했습니다. 고무 시트 위에 무거운 공을 놓으면 시트가 움푹 들어가는 것처럼, 질량이 있는 지점에서는 공간(시공간)이 휘어집니다. 그리고 그 움푹 들어간 곳으로 다른 물체가 굴러 내려가는 것이 바로 <span class="highlight">중력</span>입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- 09. 이노베이션의 딜레마 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">09. 이노베이션의 딜레마 📉</h2>
+            <p class="slide-subtitle">기술의 혁신이 역으로 <span class="highlight">기업을 망하게</span> 할 때도 있다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">딜레마의 정의</h3>
+                    <p>클레이튼 크리스텐슨이 제창한 이론. 기업이 새로운 기술로 혁신적인 제품을 내놓아 성공하지만, 그 성공에 안주하여 다음 세대 제품으로 연결시키지 못하고 다른 회사에 시장 점유율을 빼앗기는 상황을 의미합니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">발생 원인</h3>
+                    <p>1. 대기업은 기존 기술을 발전시키는 <span class="highlight">'지속적 혁신'</span>에 집중하고, 시장을 파괴하는 <span class="highlight">'파괴적 혁신'</span>을 하지 않는다.<br>2. 성공한 기업은 더 큰 기술 혁신을 추구하지만, 소비자는 흥미를 보이지 않아 수요와 멀어진다.<br>3. 대기업의 혁신 속도는 느려, 신규 기업의 파괴적 혁신에 가치가 소멸된다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- 10. 베버-페히너의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">10. 베버-페히너의 법칙 ⚖️</h2>
+            <p class="slide-subtitle">감각의 강도는 어떻게 달라지는가? <span class="highlight">"사람은 자극이 강해지면 점점 잘 느끼지 못하게 된다."</span></p>
+            <div class="slide-content">
+                <p>독일의 생리학자 베버는 인간의 감각에 대해 연구했습니다. 100g의 물건을 들고 있을 때와 200g의 물건을 들고 있을 때, 무게 변화를 인지하는 최소 자극의 양은 어떻게 다를까요?</p>
+                <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <h3 class="font-bold text-lg">베버의 법칙</h3>
+                    <p class="mt-2">무거워졌다고 식별할 수 있는 자극의 양(ΔR)은 최초의 무게(R)에 비례한다. 즉, <span class="highlight">ΔR / R = k (일정)</span>. 이 비(k)를 '베버 비'라고 합니다.<br>• 100g → 104g (4g 추가 시 인지)<br>• 200g → 208g (8g 추가 시 인지)</p>
+                </div>
+                <p class="mt-4">베버의 제자 페히너는 이를 발전시켜, 인체에 대한 자극 강도의 로그에 비례하여 지각된다는 '페히너의 법칙'을 만들었습니다. 이는 무게뿐 아니라 소리, 빛, 미각 등에도 적용됩니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- 11. 운동의 법칙 (제2법칙) -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">11. 운동의 법칙 (운동의 제2법칙) 🏎️</h2>
+            <p class="slide-subtitle">뉴턴의 제2법칙: <span class="highlight">힘, 질량, 가속도</span>의 관계</p>
+            <div class="slide-content">
+                <p>정지한 자동차의 가속 페달을 밟으면 점점 빨라집니다. 스포츠카는 5초도 안되어 시속 50km에 도달하지만, 대형 트럭은 10초 이상 걸릴 수 있습니다. 왜 이런 차이가 생길까요?</p>
+                <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg text-center">
+                    <h3 class="font-bold text-2xl font-mono">ma = F</h3>
+                    <p class="mt-2">질량(mass) × 가속도(acceleration) = 힘(Force)</p>
+                </div>
+                <p class="mt-4">이 수식을 통해 우리는 더 빨리 속력을 내기 위해서는 물체에 가하는 <span class="highlight">힘(F)을 키우거나</span>, 물체의 <span class="highlight">질량(m)을 줄여야</span> 함을 알 수 있습니다. 스포츠카는 마력이 큰 엔진(큰 힘)을 가졌고, 트럭은 차체가 무겁기(큰 질량) 때문에 가속이 느립니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- 12. 운동량 보존의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">12. 운동량 보존의 법칙 🎳</h2>
+            <p class="slide-subtitle">동전 몇 개 속에도 <span class="highlight">과학</span>이 숨겨져 있다.</p>
+            <div class="slide-content">
+                <p>일렬로 놓인 5개의 동전 끝에서 한 개의 동전을 튕겨 부딪히면, 반대쪽 끝의 동전 1개가 튕겨 나갑니다. 2개를 부딪히면 2개가 튕겨 나갑니다. 이 실험은 물체 사이에 힘이 작용하기 전과 후의 운동량이 서로 같음을 보여줍니다.</p>
+                <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
+                    <h3 class="font-bold text-lg">운동량 보존의 법칙</h3>
+                    <p class="mt-2 font-mono text-xl">m₁v₁ + m₂v₂ = m₁v₁' + m₂v₂'</p>
+                    <p class="mt-2">두 물체가 충돌했을 때, 외부에서 힘을 받지 않는 한 충돌 전후의 <span class="highlight">운동량 총합은 일정</span>합니다. (m: 질량, v: 속도)</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- 13. 에피메니데스의 역설 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">13. 에피메니데스의 역설 🗣️</h2>
+            <p class="slide-subtitle">말로는 완벽한 논리를 구축할 수 없다.</p>
+            <div class="slide-content">
+                <p>대표적인 '자기 언급의 역설'입니다. 자신을 포함해서 말하기 때문에 모순이 발생합니다.</p>
+                <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <h3 class="font-bold text-lg text-center">"크레타인은 거짓말쟁이라고 크레타인이 말했다."</h3>
+                    <p class="mt-4">1. "크레타인은 거짓말쟁이다"라는 말이 <span class="highlight">참</span>이라면, 말한 사람(크레타인)도 거짓말쟁이이므로 그가 한 말은 거짓이 됩니다.</p>
+                    <p class="mt-2">2. 이 말이 <span class="highlight">거짓</span>이라면, 크레타인은 정직한 사람이므로 그가 한 말은 참이 됩니다.</p>
+                </div>
+                <p class="mt-4">이처럼 말 자체는 모순이 없는 듯 보이지만, 참인지 거짓인지 확실하게 알 수 없는 상황이 발생합니다. 이는 언어만으로는 완벽하게 올바른 논리를 구축할 수 없음을 보여줍니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- 14. 에라토스테네스의 체 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">14. 에라토스테네스의 체  sieve</h2>
+            <p class="slide-subtitle"><span class="highlight">소수(Prime Number)</span>를 찾아내는 가장 간단한 방법</p>
+            <div class="slide-content">
+                <p>소수란 1과 자기 자신 이외의 수로는 나눌 수 없는 수를 말합니다 (2, 3, 5, 7, 11...). 고대 그리스의 수학자 에라토스테네스는 숫자를 체로 걸러내듯이 소수를 찾는 방법을 고안했습니다.</p>
+                <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+                    <h3 class="font-bold text-lg">소수 찾는 법 (1부터 100까지)</h3>
+                    <p class="mt-2">1. 1은 지운다.<br>2. 남은 수 중 가장 작은 2를 남기고, 2의 배수를 모두 지운다. (4, 6, 8...)<br>3. 남은 수 중 가장 작은 3을 남기고, 3의 배수를 모두 지운다. (6, 9, 12...)<br>4. 남은 수 중 가장 작은 5를 남기고, 5의 배수를 모두 지운다.<br>5. 이 과정을 반복하면 마지막에 남는 수는 <span class="highlight">모두 소수</span>입니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- 15. 장거리 연애의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">15. 장거리 연애의 법칙 💔</h2>
+            <p class="slide-subtitle">먼 곳에 있는 애인과 파국을 맞이하기 쉬운 이유</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="font-bold text-lg">심리적 거리와 물리적 거리</h3>
+                    <p>인간 심리에 따르면 <span class="highlight">접촉률이 높을수록</span> 심리적 거리는 줄어듭니다. 자주 볼수록 기억에 남을 뿐 아니라, '이 사람과 인연이 있나?'라고 생각하기 쉽습니다. </p>
+                    <p class="mt-2">장거리 연애의 법칙은 "남녀 사이의 물리적 거리가 가까울수록 심리적 거리는 좁아진다"는 사실을 알려줍니다.</p>
+                </div>
+                <div>
+                    <div class="p-6 bg-red-50 border border-red-200 rounded-lg">
+                        <h3 class="font-bold text-lg">파국을 피하려면?</h3>
+                        <p class="mt-2">1. 빈번한 연락과 소통<br>2. 최대한 많은 정보 공유<br>공유하는 정보가 많을수록 서로의 마음이 깊어지고, '상대가 바람 피우는 게 아닐까?' 하는 의심도 줄어들게 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- 16. 엔트로피 증가의 법칙 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">16. 엔트로피 증가의 법칙 🌀</h2>
+          <p class="slide-subtitle">인생은 엔트로피로 설명할 수 있다? <span class="highlight">자연은 언제나 평형 상태를 바란다.</span></p>
+          <div class="slide-content">
+            <p>엔트로피는 열역학에서 탄생한 개념으로, 계(시스템)의 '무질서도'를 나타냅니다. 뜨거운 물이 담긴 컵의 온도가 서서히 내려가 실온과 같아지는 것처럼, 엔트로피는 항상 증가하여 결국 평형 상태에 이릅니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <p>• <b>엔트로피가 작은 상태:</b> 정보가 한쪽에 치우쳐져 있는 상태 (e.g., 기억이 머릿속에 남아있는 상태)</p>
+                <p class="mt-2">• <b>엔트로피가 큰 상태:</b> 정보가 흩어져 무질서한 상태 (e.g., 말을 한 귀로 듣고 한 귀로 흘리는 상태)</p>
+            </div>
+            <p class="mt-4">생물이 죽으면 원자로 돌아가 엔트로피 최대 상태가 되고, 아무리 방을 치워도 시간이 지나면 다시 어질러지는 것 또한 엔트로피 증가의 법칙에 따른 결과입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 18. 오일러의 다면체 정리 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">18. 오일러의 다면체 정리 🎲</h2>
+          <p class="slide-subtitle">반드시 값 2가 나오는 다면체의 <span class="highlight">불가사의한 법칙</span></p>
+          <div class="slide-content">
+            <p>다면체에는 공통된 법칙이 있습니다. 꼭짓점의 수에서 변의 수를 뺀 다음 면의 수를 더하면 그 값은 항상 '2'가 나온다는 것입니다. 이 법칙은 수학의 천재 레온하르트 오일러가 1752년에 발견했습니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg text-center">
+              <h3 class="font-bold text-2xl font-mono">V - E + S = 2</h3>
+              <p class="mt-2">V: 꼭짓점의 수 (Vertex)<br>E: 변의 수 (Edge)<br>S: 면의 수 (Surface)</p>
+            </div>
+             <p class="mt-4">예시) 정삼각뿔: 꼭짓점(4) - 변(6) + 면(4) = 2<br>예시) 정육면체: 꼭짓점(8) - 변(12) + 면(6) = 2</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 19. 황금비 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">19. 황금비 (The Golden Ratio) ✨</h2>
+          <p class="slide-subtitle">밀로의 비너스상, 파르테논 신전에 숨겨진 <span class="highlight">가장 아름다운 비율</span></p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p>인간이 가장 아름답다고 느끼는 균형의 비율, 바로 황금비입니다. 한 선분을 둘로 분할할 때, '전체(a+b) : 큰 부분(b)'의 비와 '큰 부분(b) : 작은 부분(a)'의 비가 같아지도록 나누는 방법입니다.</p>
+              <div class="mt-4 p-4 bg-yellow-100 border border-yellow-300 rounded-lg text-center">
+                <p class="text-3xl font-bold font-mono">1 : 1.618...</p>
+              </div>
+            </div>
+            <div>
+                <p>이 비율은 명함, 신용카드, 35mm 필름 등 수많은 디자인에 활용되고 있습니다. 소라 껍데기의 나선 모양이나 식물의 잎이 배열되는 방식 등 자연의 조형에서도 황금비를 찾아볼 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 2 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">Part 2</p>
+            <h2 class="text-6xl font-black">보이지 않는 힘의 작용</h2>
+            <p class="slide-subtitle mt-4">전기, 역설, 우주, 그리고 인간 심리에 대한 탐구</p>
+        </div>
+      </div>
+
+      <!-- 20. 옴의 법칙 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">20. 옴의 법칙 💡</h2>
+          <p class="slide-subtitle">전류·전압·전기 저항의 <span class="highlight">아름다운 삼각관계</span></p>
+          <div class="slide-content">
+            <p>전기란 본질적으로 '전자의 흐름'입니다. 이 흐름(전류)이 발생하려면 두 극 사이에 전위차(전압)가 필요하며, 전류가 흐를 때 그것을 방해하는 작용이 전기 저항입니다.</p>
+            <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+              <h3 class="font-bold text-lg">옴의 법칙 (1826년 발견)</h3>
+              <p class="mt-2">"전류의 세기는 전압에 비례하고, 전기 저항에 반비례한다."</p>
+              <p class="mt-4 font-mono text-3xl">V = IR</p>
+              <p class="mt-1">(V: 전압, I: 전류, R: 저항)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 21. 오컴의 면도날 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">21. 오컴의 면도날 🔪</h2>
+          <p class="slide-subtitle">논리에서 불필요한 부분을 깎아내라. <span class="highlight">가장 단순한 가설이 옳다.</span></p>
+          <div class="slide-content">
+            <p>14세기 영국의 신학자 오컴의 윌리엄이 내린 정의로, '사고 절약의 원리'라고도 합니다. 어떤 현상을 설명할 때 불필요한 가정을 해서는 안 된다는 것입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">오컴의 정의</h3>
+              <p class="mt-2">"존재는 필요 이상으로 수를 늘려서는 안 된다."<br>이는 "근본이 되는 원리는 꼭 필요한 것만 있어야 한다" 또는 "가설은 가장 단순한 것이 옳다"로 해석됩니다.</p>
+            </div>
+            <p class="mt-4">예를 들어, 현대 우주론은 빅뱅에서 우주가 탄생했다고 가정합니다. 그런데 '우리가 사는 우주 외에 또 다른 우주가 존재한다'는 다중 우주론은 '존재를 필요 이상으로 늘린 것'이므로 오컴의 면도날에 위배되는 사상입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 22. 올베르스의 역설 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">22. 올베르스의 역설 🌃</h2>
+          <p class="slide-subtitle">우주는 무한한가, 유한한가? <span class="highlight">"우주가 무한하다면 왜 밤하늘은 어두운가?"</span></p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">올베르스의 주장 (1823년)</h3>
+              <p>만약 우주가 무한하고 별들이 균일하게 분포한다면, 어느 방향을 보더라도 시선 끝에는 별이 있어야 합니다. 따라서 밤하늘은 별들로 가득 차서 대낮처럼 밝아야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">역설의 해결</h3>
+              <p>하지만 실제 밤하늘은 어둡습니다. 이 역설은 <span class="highlight">우주가 팽창</span>하고 있다는 사실로 해결됩니다. 멀리 있는 천체일수록 더 빨리 후퇴하며, 후퇴 속도가 광속을 넘어서면 그 빛은 지구에 도달하지 못합니다. 따라서 우리가 볼 수 있는 우주는 <span class="highlight">유한</span>합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 23. 음속의 공식 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">23. 음속의 공식 ⚡️🔊</h2>
+          <p class="slide-subtitle">소리의 속도는 <span class="highlight">온도</span>에 따라 달라진다.</p>
+          <div class="slide-content">
+            <p>번개가 친 뒤 몇 초 후에 천둥소리가 들리는 것처럼, 소리의 속도는 빛보다 훨씬 느립니다. 소리의 속도는 공기의 온도에 따라 변하며, 기온이 높으면 빨라지고 낮으면 느려집니다.</p>
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg text-center">
+              <h3 class="font-bold text-lg">음속(v) 계산 공식</h3>
+              <p class="mt-4 font-mono text-3xl">v = 331.5 + 0.61t</p>
+              <p class="mt-1">(v: m/s, t: 섭씨 온도 °C)</p>
+            </div>
+            <p class="mt-4">예시) 기온이 35°C일 때 음속은 약 352m/s, 0°C일 때는 331.5m/s입니다. 번개가 보인 뒤 10초 후에 천둥이 들렸다면, 여름에는 약 3.5km, 겨울에는 3.3km 떨어진 곳에서 번개가 친 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 24. 각운동량 보존의 법칙 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">24. 각운동량 보존의 법칙 ⛸️</h2>
+          <p class="slide-subtitle">피겨스케이팅 회전의 비밀</p>
+          <div class="slide-content">
+            <p>피겨스케이팅 선수가 팔을 벌리고 회전할 때는 속도가 느리고, 팔을 오므리면 속도가 빨라집니다. 이는 '각운동량 보존 법칙' 때문입니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg grid grid-cols-2 gap-4">
+              <div>
+                  <h3 class="font-bold text-lg">팔을 벌렸을 때</h3>
+                  <p>회전 반지름이 길어져 <span class="highlight">관성 모멘트가 커집니다.</span><br>각운동량이 보존되어야 하므로 <span class="highlight">각속도(회전 속도)는 작아집니다.</span></p>
+              </div>
+              <div>
+                  <h3 class="font-bold text-lg">팔을 오므렸을 때</h3>
+                  <p>회전 반지름이 짧아져 <span class="highlight">관성 모멘트가 작아집니다.</span><br>결과적으로 <span class="highlight">각속도(회전 속도)는 커집니다.</span></p>
+              </div>
+            </div>
+             <p class="mt-4 text-center font-bold">각운동량(L) = 각속도(ω) × 관성 모멘트(I)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 25. 칵테일파티 효과 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">25. 칵테일파티 효과 🍸</h2>
+          <p class="slide-subtitle">내 귀에 듣고 싶은 목소리만 들리는 이유</p>
+          <div class="slide-content">
+            <p>시끄러운 카페나 파티장에서도 특정한 사람의 목소리를 분간해 들을 수 있는 현상입니다. 마이크는 모든 소리를 동일하게 녹음하지만, 인간은 소음 속에서도 원하는 소리를 식별할 수 있습니다.</p>
+            <div class="mt-8 p-6 bg-purple-50 border border-purple-200 rounded-lg">
+                <h3 class="font-bold text-lg">어떻게 가능할까?</h3>
+                <p class="mt-2">이는 뇌의 뛰어난 <span class="highlight">정보 처리 능력</span> 덕분입니다.<br>1. 상대방의 얼굴이나 입 움직임 같은 <span class="highlight">시각 정보</span>가 청각 정보를 보조합니다.<br>2. 두 귀를 사용해 음원의 위치를 특정하고 그 방향에 <span class="highlight">의식을 집중</span>할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 3 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">Part 3</p>
+            <h2 class="text-6xl font-black">우주와 물질의 근원</h2>
+            <p class="slide-subtitle mt-4">상대성, 관성, 그리고 원소에 대한 심층적 이해</p>
+        </div>
+      </div>
+
+      <!-- 27. 갈릴레이의 상대성 원리 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">27. 갈릴레이의 상대성 원리 🚢</h2>
+          <p class="slide-subtitle">상대론의 선구적 존재</p>
+          <div class="slide-content">
+            <p>움직이는 배의 돛대 위에서 돌을 떨어뜨리면 어디로 떨어질까요? 배 뒤쪽으로 떨어질까요? 아닙니다. 돌은 <span class="highlight">수직으로</span> 떨어집니다. 이는 아리스토텔레스의 천동설을 비판하고 지동설을 주장한 갈릴레이의 사고실험입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">상대성 원리</h3>
+              <p class="mt-2">등속 운동(속도가 일정한 운동)을 하고 있는 계의 내부에서는 같은 운동의 법칙이 성립한다.</p>
+              <p class="mt-4">돌에는 배가 나아가는 방향으로 <span class="highlight">관성력</span>이 똑같이 작용하기 때문에 수직으로 떨어집니다. 달리는 기차 안에서 공을 떨어뜨려도 마찬가지입니다. 하지만 기차 밖에서 보면 공은 포물선을 그리며 떨어지는 것처럼 보입니다. 이처럼 관찰자의 상태에 따라 움직임이 다르게 보이는 현상을 갈릴레이의 상대성 원리라고 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 28. 관성의 법칙 (운동의 제1법칙) -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">28. 관성의 법칙 (운동의 제1법칙) 🧊</h2>
+          <p class="slide-subtitle">움직이지 않는 것은 계속 움직이지 않고, 움직이는 것은 계속 움직인다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">정지 관성</h3>
+              <p>정지해 있는 물체는 외부로부터 힘을 받지 않는 한 계속 정지한 상태를 유지합니다. 버스가 급출발할 때 몸이 뒤로 쏠리는 현상입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">운동 관성</h3>
+              <p>등속 직선 운동을 하고 있는 물체는 외부 힘이 없는 한 그 상태를 계속 유지합니다. 마찰이 없는 우주 공간에서 던져진 물체는 영원히 같은 속도로 나아갑니다.</p>
+            </div>
+          </div>
+          <p class="mt-6">이것은 뉴턴의 운동 제1법칙으로, '관성계' (정지 또는 등속 직선 운동하는 계)에서 성립합니다.</p>
+        </div>
+      </div>
+
+      <!-- 29. 캐즘 이론 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">29. 캐즘(Chasm) 이론 🌉</h2>
+          <p class="slide-subtitle">하이테크 제품이 팔리기 위해 넘어야 하는 <span class="highlight">깊은 골짜기</span></p>
+          <div class="slide-content">
+            <p>제프리 무어가 제창한 마케팅 이론으로, 신제품이 초기 시장(이노베이터, 얼리 어답터)에서 주류 시장(얼리 머저리티, 레이트 머저리티)으로 넘어가기 위해 극복해야 하는 큰 단절을 의미합니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg flex justify-between text-center">
+              <div><b class="text-blue-600">이노베이터</b><br>2.5%</div>
+              <div><b class="text-blue-600">얼리 어답터</b><br>13.5%</div>
+              <div class="font-black text-red-500 text-2xl self-center">CHASM</div>
+              <div><b class="text-green-600">얼리 머저리티</b><br>34%</div>
+              <div><b class="text-green-600">레이트 머저리티</b><br>34%</div>
+              <div><b class="text-gray-500">래거드</b><br>16%</div>
+            </div>
+            <p class="mt-4">초기 시장의 소비자들은 '새로움' 자체에 가치를 두지만, 주류 시장의 소비자들은 '실용성'과 '안정성', '대중성'을 중시합니다. 이 둘 사이의 가치관 차이가 바로 캐즘이며, 이 골을 넘지 못하면 제품은 성공하지 못합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 31. 키르히호프의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">31. 키르히호프의 법칙 ⚡️</h2>
+          <p class="slide-subtitle">전기 회로는 <span class="highlight">수로</span>와 같다고 생각하자.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">제1법칙 (전류 법칙)</h3>
+              <p>"회로의 어떤 한 점으로 흘러들어오는 전류의 양과 흘러나가는 전류의 양은 같다."</p>
+              <p class="mt-2">두 갈래의 수로가 한 지점(A)에서 만나 하나로 합쳐져 흘러나가는 것과 같습니다. 들어온 물의 양과 나가는 물의 양은 같습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제2법칙 (전압 법칙)</h3>
+              <p>"전류가 회로를 한 바퀴 돌고 출발점으로 돌아오면 전위는 원래의 값이 된다."</p>
+              <p class="mt-2">물레방아에서 나온 물이 밭을 한 바퀴 돌고 다시 원래 위치로 돌아오는 것과 같습니다. 중간에 저항(좁은 수로)이 있어도 결국 출발점의 높이(전위)로 돌아옵니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 32. 쿨롱의 법칙 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">32. 쿨롱의 법칙 ↔️</h2>
+          <p class="slide-subtitle">전기의 <span class="highlight">만유인력 법칙</span></p>
+          <div class="slide-content">
+            <p>건조한 날 스웨터를 벗을 때 머리카락이 쭈뼛 서는 정전기 현상. 이는 마찰로 인해 머리카락과 스웨터가 각각 플러스(+)와 마이너스(-) 전기를 띠게 되어 서로 잡아당기는 힘(인력)이 작용하기 때문입니다.</p>
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">쿨롱의 법칙 (1785년)</h3>
+              <p class="mt-2">전기를 띤 두 입자 사이에 작용하는 힘(쿨롱 힘)은 두 입자가 가진 <span class="highlight">전기량의 곱에 비례</span>하고, <span class="highlight">거리의 제곱에 반비례</span>한다.</p>
+              <p class="mt-2">이는 두 물체의 질량에 비례하고 거리의 제곱에 반비례하는 만유인력의 법칙과 형태가 매우 유사합니다. 다만, 쿨롱 힘이 만유인력보다 훨씬 강합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 34. 그레셤의 법칙 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">34. 그레셤의 법칙 💰</h2>
+          <p class="slide-subtitle"><span class="highlight">"악화(Bad money)가 양화(Good money)를 몰아낸다."</span></p>
+          <div class="slide-content">
+            <p>16세기 영국 재정가 그레셤이 제창한 법칙. 금 함유량이 다른 두 종류의 금화(악화: 금 함유량 낮음, 양화: 금 함유량 높음)가 동일한 액면가로 유통될 때 나타나는 현상을 설명합니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p>사람들은 가치가 높은 <span class="highlight">양화는 장롱 속에 보관</span>하고, 가치가 낮은 <span class="highlight">악화만 사용</span>하게 됩니다. 결과적으로 시장에는 악화만 유통됩니다.</p>
+            </div>
+            <p class="mt-4">이 법칙은 현대에 와서 "악인이 선인을 몰아낸다" 또는 "통속적인 문화가 전통적인 문화를 몰아낸다"와 같이 다양한 의미로 원용되기도 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 37. 케플러의 법칙 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">37. 케플러의 법칙 🪐</h2>
+          <p class="slide-subtitle">천체의 운행에 관한 <span class="highlight">3개의 법칙</span></p>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>1. 제1법칙 (타원 궤도의 법칙):</b> 행성은 태양을 하나의 초점으로 삼는 타원 궤도 위를 공전한다.</p>
+            <p><b>2. 제2법칙 (면적 속도 일정의 법칙):</b> 행성과 태양을 연결하는 선은 같은 시간 동안 항상 같은 면적을 휩쓸고 지나간다. (즉, 태양에 가까울수록 행성은 빠르게 움직인다)</p>
+            <p><b>3. 제3법칙 (조화의 법칙):</b> 행성의 공전 주기의 제곱은 타원 궤도의 긴반지름의 세제곱에 비례한다.</p>
+          </div>
+          <p class="mt-4 font-bold">이 법칙들은 지동설이 우주관으로 자리 잡는 데 결정적인 역할을 했으며, 이후 뉴턴 역학의 탄생으로 이어졌습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Part 4 Title -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <p class="slide-part-title">Part 4</p>
+            <h2 class="text-6xl font-black">법칙으로 보는 세상</h2>
+            <p class="slide-subtitle mt-4">자연 현상부터 인간 사회까지, 세상을 움직이는 다양한 원리들</p>
+        </div>
+      </div>
+
+      <!-- 44. 죄수의 딜레마 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">44. 죄수의 딜레마 ⚖️</h2>
+          <p class="slide-subtitle">최선책은 상대의 행동에 따라 달라진다.</p>
+          <div class="slide-content">
+            <p>게임 이론의 대표적인 명제로, 두 공범자가 서로 협력하면 둘 모두에게 이익이 됨에도 불구하고, 서로를 믿지 못해 자신에게 불리한 선택을 하게 되는 상황을 설명합니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <h3 class="font-bold text-lg">상황 설정</h3>
+                <p>두 죄수는 격리되어 있으며, 선택지는 '자백' 또는 '묵비권'입니다.<br>• 둘 다 묵비권 → 각 2년형<br>• 한 명만 자백 → 자백한 쪽은 1년형, 묵비권 행사한 쪽은 10년형<br>• 둘 다 자백 → 각 5년형</p>
+            </div>
+            <p class="mt-4">죄수 각자의 입장에서는 상대방이 어떤 선택을 하든 <span class="highlight">'자백'</span>하는 것이 자신에게 유리합니다 (상대가 묵비권 행사 시 2년->1년, 상대가 자백 시 10년->5년). 결국 두 죄수 모두 자백하게 되어, 둘 다 묵비권을 행사했을 때(각 2년)보다 나쁜 결과(각 5년)를 맞게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 45. 중력 가속도 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">45. 중력 가속도 🍎</h2>
+          <p class="slide-subtitle">지구의 중심을 향해 끌어당겨지는 힘</p>
+          <div class="slide-content">
+            <p>중력은 물체가 지구 중심을 향해 끌어당겨지는 힘입니다. 물건을 떨어뜨리면 시간에 비례해서 낙하 속도가 증가하는데, 이를 '중력 가속도'라고 합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
+              <h3 class="font-bold text-lg">국제단위계 기준 중력 가속도(g)</h3>
+              <p class="mt-4 font-mono text-3xl">g = 9.80665 m/s²</p>
+              <p class="mt-1">(1초마다 속도가 약 9.8m/s씩 증가한다는 의미)</p>
+            </div>
+             <p class="mt-4">중력 가속도는 장소에 따라 미묘하게 달라집니다. 그 이유는 지구의 자전으로 인한 원심력, 완전한 구가 아닌 타원체 형태, 그리고 지표면의 높이(표고) 차이 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 65. 파킨슨의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">65. 파킨슨의 법칙 📈</h2>
+          <p class="slide-subtitle">공무원의 수는 계속 증가한다.</p>
+          <div class="slide-content">
+            <p>1957년 영국의 사회학자 시릴 파킨슨이 발표한 법칙으로, 조직(특히 관료 조직)의 비효율성을 풍자합니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">파킨슨의 법칙 요약</h3>
+              <p class="mt-2">1. 공무원의 수는 <span class="highlight">업무의 양과 상관없이</span> 기하급수적으로 증가한다.<br>(이유: 공무원은 경쟁자가 아닌 부하를 늘리고 싶어 하고, 서로를 위해 새로운 업무를 만들어내기 때문)</p>
+              <p class="mt-2">2. 업무의 양은 <span class="highlight">사용할 수 있는 시간을 채우도록</span> 확대된다.<br>(예: "마감 전에 미리 할 수 있는 일도 최종일 직전까지 시간을 낭비한다.")</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 70. 파레토의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">70. 파레토의 법칙  Pareto Principle</h2>
+          <p class="slide-subtitle">일부를 보면 전체를 알 수 있다. <span class="highlight">"80/20 법칙"</span></p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p>이탈리아 경제학자 빌프레도 파레토가 제창한 법칙입니다. "전체 결과의 80%는 전체 원인의 20%에서 발생한다"는 내용입니다.</p>
+               <div class="mt-4 p-4 bg-yellow-100 border border-yellow-300 rounded-lg">
+                <ul class="list-disc list-inside">
+                  <li>전체 <span class="highlight">매출의 80%</span>는 상위 <span class="highlight">20%의 고객</span>으로부터 나온다.</li>
+                  <li>사회 전체 <span class="highlight">부의 80%</span>는 상위 <span class="highlight">20%의 고소득자</span>가 차지한다.</li>
+                  <li>프로그램 <span class="highlight">오류의 80%</span>는 상위 <span class="highlight">20%의 버그</span>에서 발생한다.</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <p>이 경험칙은 마케팅, 경제, 품질 관리 등 다양한 분야에서 중요한 소수에 집중하여 효율을 극대화하는 전략을 세우는 데 활용됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 73. 피터의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">73. 피터의 법칙 (Peter Principle) 🤷</h2>
+          <p class="slide-subtitle">인간은 모두 다 <span class="highlight">무능하다</span>.</p>
+          <div class="slide-content">
+            <p>미국의 교육학자 로런스 J. 피터가 제창한 법칙. 조직 내 모든 구성원은 자신의 무능력이 드러나는 직급까지 승진하려는 경향이 있다는 내용입니다.</p>
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">왜 그럴까?</h3>
+              <p class="mt-2">성과를 내서 승진하더라도, 그 성과가 진짜 실력이라는 보장은 없습니다. 상위 계층으로 올라갈수록 모르는 것도 아는 척해야 하며, 결국 자신의 역량이 한계에 다다르는 지점(무능의 수준)에 도달하게 됩니다. 결국 기업 조직은 이런 <span class="highlight">무능한 사람들로 가득 차게 된다</span>는 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 96. 무어의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">96. 무어의 법칙 (Moore's Law) 💻</h2>
+          <p class="slide-subtitle">반도체의 집적도는 <span class="highlight">2년마다 2배가 된다.</span></p>
+          <div class="slide-content">
+            <p>인텔의 공동 창립자인 고든 무어가 1960년대 중반에 제창한 법칙입니다. 반도체 칩에 들어가는 트랜지스터의 수가 약 24개월(초기 18개월)마다 2배씩 증가한다는 내용입니다. 이는 컴퓨터의 성능이 기하급수적으로 발전해왔음을 보여주는 경험칙입니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">트랜지스터 수의 변화</h3>
+                <p class="mt-2">• 1970년대 초 (Intel 404 CPU): 약 3,000개</p>
+                <p class="mt-2">• 2010년대 (Core i7 CPU): 약 14억 개</p>
+            </div>
+            <p class="mt-4">더 많은 트랜지스터를 탑재하기 위해 배선 간격을 좁혀나가는 기술 발전 덕분에, 무어의 법칙은 수십 년간 유효했으며, 이는 IT 산업의 폭발적인 성장을 이끌었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 101. 란체스터의 법칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">101. 란체스터의 법칙 ⚔️</h2>
+          <p class="slide-subtitle">현대전에서 인해전술은 시대에 뒤떨어진 전법이다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">제1법칙 (고대전)</h3>
+              <p>1:1 전투를 모델로 한 법칙. 마지막에 한 사람이라도 더 많이 남는 쪽이 승리한다. 전투력은 <span class="highlight">병력 수에 정비례</span>한다. (전투력 차이 = 병력 수 차이)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">제2법칙 (현대전)</h3>
+              <p>항공기나 로켓탄 등 하나의 병기로 다수의 적을 공격할 수 있는 근대 전투 상황을 가정한 법칙. 전투력은 <span class="highlight">병력 수의 제곱에 비례</span>한다. (전투력 차이 = 병력 수²의 차이)</p>
+            </div>
+          </div>
+           <p class="mt-6">이 법칙은 제2차 세계 대전 이후 비즈니스 분야에도 응용되어, 경쟁사와 경쟁할 때의 경영 전략(사원 수, 상품 성능 등)을 분석하는 데 사용되었습니다.</p>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">:dart:</div>
+          <h2 class="slide-title">결론: 법칙은 세상을 보는 창</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">이 발표에서 다룬 법칙들은 물리학, 화학, 사회학, 심리학 등 다양한 분야에 걸쳐 있습니다. 이 법칙들은 복잡해 보이는 세상의 현상들 속에 숨겨진 <span class="highlight">단순하고 명쾌한 원리</span>를 보여줍니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">법칙을 이해하는 것은 곧 과학의 역사를 아는 것이며, 세상을 더 깊이 이해하는 첫걸음입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">:clap:</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
