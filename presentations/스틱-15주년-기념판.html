@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Made to Stick Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 40px;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid #eee;
+        z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .card {
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">💡</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">스틱! (Made to Stick)</h1>
+          <p class="text-xl md:text-2xl text-gray-700">왜 어떤 아이디어는 살아남고 다른 아이디어는 사라지는가</p>
+          <p class="mt-4 text-lg text-gray-500">칩 히스 & 댄 히스 저</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: What is a Sticky Idea? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">착 달라붙는 메시지란? 🤔</h2>
+          <p class="slide-subtitle">이해하기 쉽고, 기억에 오래 남으며, 사람들의 생각이나 행동을 바꿀 수 있는 메시지입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card bg-red-50 border-red-200">
+              <h3 class="font-bold text-lg text-red-800">끈적이지 않는 메시지 👎</h3>
+              <p class="mt-2">"포괄적인 공동체 구축은 그 본질적인 특성으로 인해 현존하는 실행 방식과 일치하는 모범적인 투자수익 원리 모델에 적합하다..."</p>
+              <p class="mt-4 text-sm text-red-600">→ 복잡하고, 추상적이며, 기억하기 어렵습니다.</p>
+            </div>
+            <div class="card bg-green-50 border-green-200">
+              <h3 class="font-bold text-lg text-green-800">끈적이는 메시지 👍</h3>
+              <p class="mt-2">"어떤 남자가 술집에서 매력적인 여자를 만났습니다. 여자가 사준 술을 마신 뒤, 그는 얼음이 가득한 호텔 욕조에서 깨어났습니다. 쪽지에는 '911에 전화하시오. 신장을 도둑맞았소.'라고 적혀 있었습니다."</p>
+              <p class="mt-4 text-sm text-green-600">→ 구체적이고, 감성적이며, 이야기가 있어 잊히지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: The Core Problem -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 문제: <span class="highlight">지식의 저주</span></h2>
+          <p class="slide-subtitle">일단 무언가를 알게 되면, 그것을 몰랐던 시절을 상상하기 어려워지는 현상입니다. 이로 인해 다른 사람과 소통하기가 힘들어집니다.</p>
+          <div class="slide-content text-center">
+            <p class="mb-4">스탠퍼드 대학의 '두드리는 사람/듣는 사람' 실험을 예로 들 수 있습니다.</p>
+            <div class="flex justify-around items-center mt-8">
+                <div class="w-1/3">
+                    <div class="text-5xl">👏</div>
+                    <h3 class="font-bold text-lg mt-2">두드리는 사람</h3>
+                    <p>머릿속에 유명한 노래를 떠올리며 리듬을 두드립니다. (예: 생일 축하 노래)</p>
+                    <p class="mt-2 font-bold text-blue-600">예상 성공률: 50%</p>
+                </div>
+                <div class="text-4xl font-bold text-gray-400">➡️</div>
+                <div class="w-1/3">
+                    <div class="text-5xl">👂</div>
+                    <h3 class="font-bold text-lg mt-2">듣는 사람</h3>
+                    <p>두드리는 소리만 듣고 무슨 노래인지 맞힙니다.</p>
+                    <p class="mt-2 font-bold text-red-600">실제 성공률: 2.5%</p>
+                </div>
+            </div>
+            <p class="mt-8">두드리는 사람은 머릿속에서 멜로디를 듣지만, 듣는 사람은 의미 없는 소리만 듣습니다. 이것이 바로 <span class="highlight">지식의 저주</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차: SUCCESs 모델</h2>
+          <p class="slide-subtitle">메시지를 착 달라붙게 만드는 여섯 가지 원칙</p>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>S</b>implicity (단순성) - <span class="highlight">강한 것은 단순하다</span></p>
+            <p><b>U</b>nexpectedness (의외성) - <span class="highlight">듣는 이의 추측 기제를 망가뜨려라</span></p>
+            <p><b>C</b>oncreteness (구체성) - <span class="highlight">지식의 저주를 깨뜨리는 법</span></p>
+            <p><b>C</b>redibility (신뢰성) - <span class="highlight">내 말을 믿게 만들어라</span></p>
+            <p><b>E</b>motion (감성) - <span class="highlight">감성이 담긴 메시지는 행동하게 만든다</span></p>
+            <p><b>S</b>tory (스토리) - <span class="highlight">머릿속에 생생히 행동하게 만든다</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Principle 1: Simplicity -->
+      <!-- Slide 5: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">원칙 1: 단순성 (Simplicity)</p>
+          <h2 class="slide-title">강한 것은 <span class="highlight">단순하다</span></h2>
+          <p class="slide-content">단순함이란 쉬운 단어를 쓰거나 정보를 요약하는 것이 아닙니다. 메시지의 <span class="highlight">핵심(Core)</span>을 찾아 간결하게(Compact) 전달하는 것입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Commander's Intent -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 찾기: <span class="highlight">지휘관의 의도</span> (CI) 🎖️</h2>
+          <p class="slide-subtitle">군대에서는 복잡한 작전 계획이 예측 불가능한 전장에서 쓸모없어질 때를 대비해 '지휘관의 의도'를 공유합니다.</p>
+          <div class="slide-content">
+            <div class="card">
+                <p>수백 페이지의 작전 계획 대신, 계획의 <span class="highlight">궁극적인 목표와 최종 상태</span>를 명확하고 간결한 문장으로 요약합니다.</p>
+                <p class="mt-4"><b>예시:</b> "나의 의도는 4305고지에 주둔하고 있는 제3대대가 적들을 완전히 궤멸하여 무력화시킴으로써 전선을 통과하는 제3여단의 측면을 방어하는 것이다."</p>
+                <p class="mt-4">→ 이 핵심 의도만 공유되면, 계획이 틀어져도 병사들 각자가 상황에 맞게 <span class="highlight">스스로 판단하고 행동</span>하여 최종 목표를 달성할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Southwest Airlines Case -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: 사우스웨스트 항공 ✈️</h2>
+          <p class="slide-subtitle">사우스웨스트의 창업자 허브 켈러허는 회사의 핵심을 한 문장으로 정의했습니다.</p>
+          <div class="slide-content text-center">
+            <div class="mt-4 p-8 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-black text-4xl text-blue-800">"우리는 <span class="highlight">가장 저렴한 항공사</span>다."</h3>
+            </div>
+            <p class="mt-8">이 단순한 핵심은 모든 의사결정의 기준이 되었습니다.</p>
+             <p class="mt-4">마케팅 부서가 기내식으로 '치킨 시저 샐러드'를 추가하자고 제안했을 때, 켈러허의 대답은 명확했습니다: <br><b>"치킨 샐러드를 추가해도 우리가 가장 저렴한 항공사로 남을 수 있는가? 아니라면 서비스할 필요가 없네."</b></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Compact -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">간결하게 만들기: 속담과 스키마 🧠</h2>
+            <p class="slide-subtitle">핵심을 찾았다면, 청중이 이미 알고 있는 지식(스키마)을 활용하여 간결하게 전달해야 합니다.</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">속담 (Proverbs)</h3>
+                    <p>"손 안에 든 한 마리 새가 덤불 속 두 마리보다 낫다."</p>
+                    <p class="text-sm mt-2">→ 짧고 간결하지만, 수많은 경험과 지혜가 압축되어 있습니다. 가장 이상적인 단순한 메시지입니다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">스키마 활용 (Schemas)</h3>
+                    <p><b>포멜로(pomelo)</b>라는 과일을 설명할 때:</p>
+                    <p class="mt-2">"기본적으로 매우 두껍고 부드러운 껍질을 지닌 <span class="highlight">거대한 그레이프프루트(자몽)</span>다."</p>
+                    <p class="text-sm mt-2">→ '자몽'이라는 익숙한 스키마를 이용해 새로운 개념을 쉽게 이해시킵니다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: High Concept -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">할리우드의 기술: <span class="highlight">하이 콘셉트</span> 🎬</h2>
+            <p class="slide-subtitle">새로운 영화를 한 줄로 설명하기 위해 기존의 성공작을 스키마로 활용합니다.</p>
+            <div class="slide-content space-y-4">
+                <div class="card">
+                    <p class="text-xl">영화 <span class="font-bold">〈에일리언〉</span>은 우주선 버전 <span class="highlight">〈조스〉</span>다.</p>
+                </div>
+                <div class="card">
+                    <p class="text-xl">영화 <span class="font-bold">〈스피드〉</span>는 버스 버전 <span class="highlight">〈다이 하드〉</span>다.</p>
+                </div>
+                <p class="mt-4">이러한 비유는 단순한 요약을 넘어 영화의 장르, 분위기, 긴장감 등 복잡한 정보를 즉시 전달하는 강력한 도구입니다.</p>
+            </div>
+        </div>
+      </div>
+
+
+      <!-- Principle 2: Unexpectedness -->
+      <!-- Slide 10: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">원칙 2: 의외성 (Unexpectedness)</p>
+          <h2 class="slide-title">듣는 이의 <span class="highlight">추측 기제를 망가뜨려라</span></h2>
+          <p class="slide-content">관심을 끌기 위해서는 사람들의 예상을 깨야 합니다. 하지만 관심을 유지하기 위해서는 <span class="highlight">호기심</span>을 자극해야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 11: Breaking Patterns -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">관심 끌기: <span class="highlight">패턴 파괴</span> 💥</h2>
+          <p class="slide-subtitle">우리의 뇌는 변화에 민감합니다. 상식과 예상을 깨는 '놀라움'은 사람들의 주의를 집중시킵니다.</p>
+          <div class="slide-content space-y-6">
+            <div class="card">
+              <h3 class="font-bold text-lg">사례 1: 안전수칙 안내 ✈️</h3>
+              <p>"애인과 헤어지는 방법에는 수십 가지가 있지만, 이 비행기에서 나가는 방법은 단 여섯 가지뿐입니다..."</p>
+              <p class="mt-2 text-sm">→ 지루한 안전수칙 안내의 패턴을 깨고 유머를 섞어 승객들의 관심을 집중시켰습니다.</p>
+            </div>
+            <div class="card">
+              <h3 class="font-bold text-lg">사례 2: 신형 자동차 광고 🚐</h3>
+              <p>행복한 가족이 미니밴을 타고 교외를 드라이브합니다. 평화로운 음악이 흐르다... 갑자기 다른 차가 미니밴을 들이받으며 쾅! 하는 굉음과 함께 화면이 암전됩니다. 그리고 뜨는 메시지: <span class="highlight">"안전띠를 꼭 매세요."</span></p>
+              <p class="mt-2 text-sm">→ 평범한 자동차 광고라는 예상을 깨고 충격을 주어 핵심 메시지를 각인시켰습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Gap Theory -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">관심 유지: <span class="highlight">호기심의 공백 이론</span></h2>
+          <p class="slide-subtitle">호기심은 우리가 아는 것과 알고 싶은 것 사이에 '공백(Gap)'이 생길 때 발생합니다. 이 공백은 고통스러워서 우리는 그것을 메우고 싶어 합니다.</p>
+          <div class="slide-content">
+            <p>사람들의 관심을 유지하려면, 먼저 그들이 가진 지식의 공백을 열어주어야 합니다.</p>
+            <div class="card mt-6">
+                <h3 class="font-bold text-lg">사례: 노라 에프론의 언론학 수업 📝</h3>
+                <p>교사는 학생들에게 여러 사실을 나열한 뒤 기사의 첫 문장(리드)을 써보라고 했습니다.<br>
+                "케네스 L. 피터스 교장은 다음 주 목요일 전 교직원이 새크라멘토에서 열리는 교수법 세미나에 참가할 것이라고 말했다. 마거릿 미드 박사 등이 강연자로 참석할 예정이다."</p>
+                <p class="mt-4">학생들이 사실을 나열한 리드를 쓰자 교사가 말했습니다.</p>
+                <p class="mt-2 text-center text-2xl font-bold text-red-600">"이 이야기의 리드는 ‘<span class="highlight">다음 주 목요일 휴교</span>’란다!"</p>
+                <p class="mt-4">→ 학생들은 자신들이 무엇을 놓치고 있었는지 깨닫는 순간(공백 발견), 진정한 저널리즘이 무엇인지에 대한 강렬한 호기심을 느끼게 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Using Mysteries -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">호기심 활용: <span class="highlight">미스터리 구조</span> 🪐</h2>
+          <p class="slide-subtitle">미스터리나 추리소설처럼 질문을 던지고 단서를 제공하며 해답을 찾아가는 과정은 사람들의 관심을 끝까지 붙잡아 둡니다.</p>
+          <div class="slide-content">
+             <div class="card">
+                <p><b>천문학자의 글쓰기:</b> 토성의 고리는 무엇으로 이루어져 있을까? 🤔</p>
+                <ol class="list-decimal list-inside mt-4 space-y-2">
+                    <li><b>미스터리 제시:</b> "토성의 고리는 어떻게 생겨난 것일까? 무엇으로 이루어져 있을까?"</li>
+                    <li><b>단서와 갈등:</b> "케임브리지 연구진은 '가스'라고, MIT는 '먼지'라고, 캘리포니아 공대는 '얼음'이라고 주장했다. 어떻게 하나의 대상을 놓고 완전히 다른 결론이 나올 수 있을까?"</li>
+                    <li><b>해결 과정:</b> 과학자들이 막다른 길에 부딪히고, 작은 단서를 발견하며 조금씩 전진하는 과정을 보여줍니다.</li>
+                    <li><b>결론:</b> "장장 20페이지가 지난 뒤에야 결론이 등장했다. 바로 얼음으로 뒤덮인 먼지였다."</li>
+                </ol>
+                <p class="mt-4">→ 독자는 고리의 성분에 관심이 없었음에도, 미스터리를 해결하려는 욕구 때문에 끝까지 책장을 넘기게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Principle 3: Concreteness -->
+      <!-- Slide 14: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">원칙 3: 구체성 (Concreteness)</p>
+          <h2 class="slide-title">지식의 저주를 <span class="highlight">깨뜨리는 법</span></h2>
+          <p class="slide-content">추상적인 개념은 사람마다 다르게 해석할 수 있습니다. 메시지를 명확하게 만들려면 <span class="highlight">감각적인 언어</span>(보고, 듣고, 만질 수 있는 것)로 설명해야 합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Abstract vs Concrete -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">추상 vs. 구체 ⚖️</h2>
+          <p class="slide-subtitle">우리의 뇌는 구체적인 정보를 기억하도록 만들어져 있습니다. '지식의 저주'는 우리를 추상적인 세계로 이끕니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-lg">추상적 😴</h3>
+              <p>"세계 최고의 고객 서비스"</p>
+              <p>"효율적인 자원 배분"</p>
+              <p>"전략적 비전"</p>
+              <p class="mt-4 text-sm text-gray-500">→ 애매모호하고, 사람마다 다르게 해석하며, 기억에 남지 않습니다.</p>
+            </div>
+            <div class="card">
+              <h3 class="font-bold text-lg">구체적  vivid 🤩</h3>
+              <p>이솝 우화: 여우가 높은 곳의 포도를 따려다 실패하고 "<span class="highlight">저 포도는 실 거야</span>"라고 말한다.</p>
+              <p>노드스트롬: 직원이 경쟁 백화점에서 산 선물을 기꺼이 포장해준다.</p>
+              <p class="mt-4 text-sm text-gray-500">→ 뇌 속에 그림을 그리고, 모두가 동일한 이미지를 떠올리게 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Jane Elliott's Experiment -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: 제인 엘리엇의 <span class="highlight">눈 색깔</span> 실험</h2>
+          <p class="slide-subtitle">초등학교 교사 제인 엘리엇은 '편견'이라는 추상적인 개념을 학생들에게 구체적으로 체험하게 했습니다.</p>
+          <div class="slide-content">
+            <p>1968년, 마틴 루서 킹 목사가 암살된 다음 날, 그녀는 학생들을 두 집단으로 나누었습니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>첫째 날:</b> "<span class="highlight">갈색 눈</span>의 아이들이 푸른 눈의 아이들보다 더 우수하다." 갈색 눈의 아이들은 모든 특권을 누렸고, 푸른 눈의 아이들은 차별받았습니다.</li>
+                <li><b>둘째 날:</b> "내가 틀렸다. 사실은 <span class="highlight">푸른 눈</span>의 아이들이 더 우수하다." 상황이 역전되었습니다.</li>
+            </ul>
+            <p class="mt-4">아이들은 단 하루 만에 친구를 경멸하고 차별하는 잔인한 아이들로 변했습니다. 이 <span class="highlight">구체적인 경험</span>은 '편견'이 무엇인지 20년이 지나도 잊지 못할 교훈으로 남았습니다. 추상적인 설교보다 훨씬 강력했습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: The Nature Conservancy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: 자연보호협회(TNC) 🏞️</h2>
+          <p class="slide-subtitle">TNC는 "캘리포니아 토지의 40% 보호"라는 추상적 목표를 구체적인 '풍경'으로 바꾸었습니다.</p>
+          <div class="slide-content">
+            <p>'매년 200만 에이커 보호' 같은 숫자는 너무 거대해서 와닿지 않습니다. 대신 TNC는 실리콘밸리 동쪽의 황무지에 이름을 붙였습니다.</p>
+            <div class="mt-4 p-6 bg-green-50 border-green-200 rounded-lg text-center">
+              <h3 class="font-bold text-2xl text-green-800">'해밀턴 황야(Mount Hamilton Wilderness)'</h3>
+            </div>
+            <p class="mt-4">단순히 '지도 위의 한 점'이던 추상적 공간에 <span class="highlight">이름과 정체성</span>을 부여하자, 지역 단체와 주민들의 관심과 기부가 쏟아지기 시작했습니다. 사람들은 '에이커'를 보호하지 않습니다. 그들은 '<span class="highlight">해밀턴 황야</span>'를 보호합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Velcro Theory of Memory -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">기억의 <span class="highlight">벨크로 이론</span></h2>
+            <p class="slide-subtitle">우리의 기억은 벨크로(찍찍이)와 같습니다. 더 많은 갈고리(hook)가 있을수록 더 잘 달라붙습니다.</p>
+            <div class="slide-content text-center">
+                <p>구체성은 메시지에 더 많은 갈고리를 만들어 줍니다.</p>
+                <div class="mt-8 flex justify-around items-start">
+                    <div>
+                        <p class="font-bold">추상적 개념: '진실'</p>
+                        <p class="text-6xl mt-2">❓</p>
+                        <p class="text-sm">(갈고리가 거의 없음)</p>
+                    </div>
+                    <div>
+                        <p class="font-bold">구체적 이미지: '모나리자'</p>
+                        <p class="text-6xl mt-2">🖼️</p>
+                        <p class="text-sm">(시각적, 역사적, 문화적 갈고리)</p>
+                    </div>
+                     <div>
+                        <p class="font-bold">감각적 경험: '어린 시절 집'</p>
+                        <p class="text-6xl mt-2">🏡</p>
+                        <p class="text-sm">(냄새, 소리, 풍경, 촉감 등 수많은 갈고리)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+      <!-- Principle 4: Credibility -->
+      <!-- Slide 19: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">원칙 4: 신뢰성 (Credibility)</p>
+          <h2 class="slide-title">내 말을 <span class="highlight">믿게 만들어라</span></h2>
+          <p class="slide-content">사람들이 당신의 메시지를 믿게 하려면 어떻게 해야 할까요? 외부 권위(전문가, 유명인)에 기댈 수도 있지만, 메시지 자체에 <span class="highlight">내적 신뢰성</span>을 부여하는 것이 더 강력합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Sources of Credibility -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신뢰성의 원천들</h2>
+          <p class="slide-subtitle">권위에는 여러 종류가 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-lg">권위 (Authorities) 👨‍🔬</h3>
+              <p><b>전문가:</b> 스티븐 호킹, 앨런 그린스펀.<br>그들의 전문 분야에 대한 발언은 강력한 신뢰를 얻습니다.</p>
+              <p class="mt-4"><b>유명인/동경의 대상:</b> 마이클 조던.<br>사람들은 자신이 좋아하거나 닮고 싶은 사람의 말을 신뢰하는 경향이 있습니다.</p>
+            </div>
+            <div class="card">
+              <h3 class="font-bold text-lg">반권위 (Anti-authorities) 🚬</h3>
+              <p><b>팸 라핀:</b> 10대 때 흡연을 시작해 31세에 사망한 평범한 어머니.<br>그녀의 금연 광고는 의사나 보건부 장관의 말보다 더 강력한 호소력을 가졌습니다.</p>
+              <p class="mt-4">진정한 권위는 지위가 아니라, 출처의 <span class="highlight">정직성과 신뢰도</span>에서 나옵니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Internal Credibility -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내적 신뢰성 구축하기</h2>
+          <p class="slide-subtitle">외부의 권위가 없을 때, 메시지 자체로 믿음을 주는 방법들입니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 생생한 세부 사항:</b> 구체적인 디테일은 메시지를 더 현실적이고 믿음직하게 만듭니다. 모의재판 실험에서 "아이는 <span class="highlight">'스타워즈' 다스베이더 칫솔</span>을 사용한다"는 사소한 디테일 하나가 배심원의 판결에 큰 영향을 미쳤습니다.</p>
+            <p><b>2. 인간적인 척도의 통계:</b> 통계는 그 자체로 의미를 갖기 어렵습니다. 관계와 맥락을 통해 인간이 이해할 수 있는 규모로 만들어야 합니다. (예: "핵무기 5,000개" → "양동이에 쏟아붓는 BB탄 5,000개 소리")</p>
+            <p><b>3. 시나트라 테스트:</b> 가장 어려운 하나의 사례를 통과했음을 보여주면, 다른 모든 사례도 통과할 수 있다는 믿음을 줍니다. (예: "인도에서 <span class="highlight">해리 포터 신간</span>을 단 한 권의 유출도 없이 정시에 배송했습니다.")</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Testable Credentials -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">궁극의 신뢰성: <span class="highlight">검증 가능한 신용</span> ✅</h2>
+          <p class="slide-subtitle">청중이 직접 메시지를 시험하고 검증해볼 수 있도록 하는 것입니다. "내 말을 믿지 말고, 직접 확인해보라."</p>
+          <div class="slide-content space-y-6">
+            <div class="card">
+              <h3 class="font-bold text-lg">웬디스 광고 캠페인 (1984) 🍔</h3>
+              <p>세 명의 할머니가 경쟁사의 거대한 햄버거 빵을 보며 외칩니다. <b>"고기는 어딨어?(Where's the beef?)"</b></p>
+              <p class="mt-2">→ 이 광고는 시청자들에게 "직접 가서 비교해보세요. 우리 햄버거에 고기가 더 많습니다"라고 말하며, 주장을 직접 검증할 수 있는 기회를 제공했습니다. 결과는 엄청난 성공이었습니다.</p>
+            </div>
+            <div class="card">
+              <h3 class="font-bold text-lg">로널드 레이건의 대선 질문 (1980) 💼</h3>
+              <p>복잡한 경제 통계를 나열하는 대신, 레이건은 유권자들에게 간단한 질문을 던졌습니다.</p>
+              <p class="mt-2 font-semibold text-center text-xl">"여러분은 4년 전보다 더 잘살고 있습니까?"</p>
+              <p class="mt-2">→ 유권자들이 자신의 경험을 바탕으로 직접 답을 찾게 함으로써 강력한 신뢰를 얻었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Ulcer Story -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: 헬리코박터균과 위궤양 🔬</h2>
+          <p class="slide-subtitle">1980년대, 호주의 두 무명 의학자(배리 마셜, 로빈 워런)는 "위궤양의 원인은 스트레스가 아니라 박테리아다"라고 주장했지만 아무도 믿지 않았습니다.</p>
+          <div class="slide-content">
+            <p>상식(강력한 위산 속에서 박테리아가 살 수 없다), 권위의 부재(무명의 인턴과 병리학자) 등 모든 것이 그들에게 불리했습니다.</p>
+            <p class="mt-4">결국, 배리 마셜은 자신의 주장을 증명하기 위해 극단적인 방법을 택했습니다.</p>
+            <div class="mt-4 p-6 bg-yellow-50 border-yellow-200 rounded-lg text-center">
+                <p class="text-4xl">🤢</p>
+                <h3 class="font-bold text-2xl mt-2">헬리코박터균이 가득 담긴 비커를 <span class="highlight">직접 마셨습니다.</span></h3>
+            </div>
+            <p class="mt-4">며칠 후 그는 위염 증상을 보였고, 내시경으로 박테리아 감염을 확인한 뒤 항생제로 자신을 치료했습니다. 이 <span class="highlight">궁극의 검증 가능한 신용</span>은 의학계의 통념을 뒤집는 결정적 계기가 되었고, 그들은 2005년 노벨상을 수상했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Principle 5: Emotion -->
+      <!-- Slide 24: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">원칙 5: 감성 (Emotion)</p>
+          <h2 class="slide-title">감성이 담긴 메시지는 <span class="highlight">행동하게 만든다</span></h2>
+          <p class="slide-content">사람들이 무언가를 알게 하는 것만으로는 부족합니다. 그들이 <span class="highlight">마음을 쓰게</span> 만들어야 행동을 이끌어낼 수 있습니다. 분석은 생각을 이끌지만, 감정은 행동을 이끕니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Mother Teresa Effect -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마더 테레사 효과: <span class="highlight">한 사람에게 집중하기</span></h2>
+          <p class="slide-subtitle">"나는 대중을 위해서라면 행동하지 않겠지만, 한 사람을 위해서라면 발 벗고 나설 것이다." - 마더 테레사</p>
+          <div class="slide-content">
+            <p>카네기멜론 대학의 기부 실험:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+              <div class="card">
+                <h3 class="font-bold text-lg">그룹 1: 통계 자료 📊</h3>
+                <p>"아프리카에서 300만 명의 아이들이 식량 부족으로 고통받고 있습니다..."</p>
+                <p class="mt-4 text-2xl font-bold text-center text-red-600">평균 기부액: $1.14</p>
+              </div>
+              <div class="card">
+                <h3 class="font-bold text-lg">그룹 2: 한 아이의 이야기 👧</h3>
+                <p>"말라위에 사는 일곱 살 소녀 로키아는 끔찍한 굶주림에 시달리고 있습니다. 당신의 작은 손길이 로키아의 삶을 바꿀 수 있습니다."</p>
+                <p class="mt-4 text-2xl font-bold text-center text-green-600">평균 기부액: $2.38</p>
+              </div>
+            </div>
+            <p class="mt-6"><b>결론:</b> 우리는 추상적인 통계에는 공감하기 어렵지만, <span class="highlight">한 명의 구체적인 개인</span>에게는 강한 감정을 느낍니다. 분석 모자를 쓰면 감정은 억제됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: Appealing to Self-Interest -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사람들이 마음 쓰게 하는 법 ①: <span class="highlight">개인적 이익</span></h2>
+          <p class="slide-subtitle">가장 기본적인 방법은 "What's In It For You?(WIIFY)"에 답하는 것입니다. 혜택의 혜택을 강조하세요.</p>
+          <div class="slide-content">
+            <p>사람들은 전기 드릴을 사는 것이 아니라, 벽에 뚫린 구멍을 사는 것입니다. 단순히 제품의 특징을 나열하는 대신, 그 특징이 가져다 줄 <span class="highlight">궁극적인 혜택</span>을 보여주세요.</p>
+            <div class="card mt-6">
+                <h3 class="font-bold text-lg">케이블 TV 설득 실험 🛋️</h3>
+                <p>두 그룹에게 케이블 TV의 혜택을 설명했습니다.</p>
+                <ul class="list-disc list-inside mt-2">
+                    <li><b>그룹 A (정보 제공):</b> 케이블 TV의 다양한 혜택을 설명. (신청률: 20%)</li>
+                    <li><b>그룹 B (상상 유도):</b> "1분만 시간을 내어 케이블 TV가 당신에게 얼마나 큰 즐거움을 줄지 상상해보세요..." (신청률: 47%)</li>
+                </ul>
+                <p class="mt-4">→ 추상적인 혜택을 나열하기보다, 청중이 그 혜택을 <span class="highlight">스스로 누리는 모습</span>을 상상하게 만드는 것이 훨씬 효과적입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Appealing to Identity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사람들이 마음 쓰게 하는 법 ②: <span class="highlight">정체성</span></h2>
+          <p class="slide-subtitle">사람들은 자신의 이익뿐만 아니라, 자신이 어떤 사람인지, 어떤 집단에 속하고 싶은지에 따라 행동합니다.</p>
+          <div class="slide-content">
+            <div class="card">
+              <h3 class="font-bold text-lg">사례 연구: "Don't Mess with Texas" 🤠</h3>
+              <p>텍사스의 쓰레기 무단 투기 문제를 해결하기 위한 캠페인.</p>
+              <div class="grid grid-cols-2 gap-4 mt-4">
+                  <div>
+                      <p><b>기존 접근법 (이성/공포):</b> "쓰레기를 버리지 마시오", 벌금 경고, 우는 인디언 광고 등</p>
+                      <p class="text-sm">→ 주요 투기층(18-35세 남성, '부바')에게 효과가 없었음.</p>
+                  </div>
+                   <div>
+                      <p><b>새로운 접근법 (정체성):</b> 유명 텍사스 운동선수와 가수들이 나와서 말합니다.</p>
+                      <p class="font-bold mt-2">"진정한 텍사스인이라면 텍사스를 더럽히지 않는다."</p>
+                  </div>
+              </div>
+              <p class="mt-4">→ 이 캠페인은 '쓰레기를 버리는 행위'를 '텍사스인의 정체성'에 반하는 행동으로 규정했습니다. 결과적으로, 5년 만에 쓰레기 투기율이 <span class="highlight">72% 감소</span>하는 엄청난 성공을 거두었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 28: Maslow's Hierarchy -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">매슬로를 넘어서... 🧗</h2>
+          <p class="slide-subtitle">사람들은 흔히 타인이 생리적 욕구나 안전 같은 '지하실' 욕구에 의해 움직일 것이라 생각하지만, 정작 자신은 학습, 미학, 자기실현 같은 '펜트하우스' 욕구를 추구합니다.</p>
+          <div class="slide-content">
+            <p>메시지를 만들 때, 단순히 돈이나 안전과 같은 기본적인 이익에만 호소하지 마세요.</p>
+            <div class="card mt-6">
+                <h3 class="font-bold text-lg">사례: 군대 식당의 요리사, 플로이드 리 👨‍🍳</h3>
+                <p>이라크 바그다드에서 군 식당을 운영하는 플로이드 리는 자신의 임무를 다르게 정의했습니다.</p>
+                <p class="text-xl text-center mt-4 font-semibold italic">"나는 단순히 병사들의 식사를 책임지고 있는 것이 아니다.<br>나는 <span class="highlight">그들의 사기</span>를 책임지고 있다."</p>
+                <p class="mt-4">→ 그는 같은 재료를 가지고도, 병사들에게 존중과 위안을 제공한다는 더 높은 차원의 동기(초월 욕구)를 부여했습니다. 그의 식당은 사막의 오아시스가 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Principle 6: Story -->
+      <!-- Slide 29: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">원칙 6: 스토리 (Story)</p>
+          <h2 class="slide-title">머릿속에 생생히, <span class="highlight">행동하게 만든다</span></h2>
+          <p class="slide-content">스토리는 뇌를 위한 시뮬레이션입니다. 스토리를 듣는 것은 우리가 직접 경험하는 것과 유사한 뇌 활동을 일으키며, 어떻게 행동해야 할지에 대한 <span class="highlight">지식(시뮬레이션)</span>과 <span class="highlight">동기(영감)</span>를 동시에 제공합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Story as Simulation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스토리 = 정신적 시뮬레이션 🧠✈️</h2>
+          <p class="slide-subtitle">스토리를 듣는 것은 단순한 정보 수집이 아니라, 정신적인 예행연습입니다.</p>
+          <div class="slide-content">
+            <p>UCLA의 연구:</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+              <li><b>결과 시뮬레이션:</b> "문제가 해결된 후의 뿌듯함을 상상해보라." → 효과 미미</li>
+              <li><b>과정 시뮬레이션:</b> "문제가 발생한 과정을 차근차근 따라가 보라." → 문제 해결 능력, 계획 수립 능력, 긍정적 심리 상태 모두 향상</li>
+            </ul>
+            <p class="mt-4">스토리는 '과정'을 담고 있습니다. 신생아 집중치료실 간호사가 심전도 모니터의 정상 신호에도 불구하고 청진기로 아기의 심장이 멈춘 것을 확인하고 생명을 구한 스토리는, 다른 간호사들에게 "기계를 맹신하지 마라"는 교훈을 시뮬레이션하게 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Xerox Technicians Case -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 연구: 제록스 수리공들의 이야기 📠</h2>
+          <p class="slide-subtitle">제록스 복사기 수리공들은 공식 매뉴얼 대신, 점심시간에 카드 게임을 하며 서로의 경험담, 즉 '스토리'를 공유하며 문제를 해결합니다.</p>
+          <div class="slide-content">
+            <div class="card">
+              <h3 class="font-bold text-lg">한 수리공의 스토리</h3>
+              <p>"E053 오류 메시지가 떠서 4시간이나 헤맸는데, 알고 보니 디코로트론 문제였어. 실제 오류는 F066이었던 거지."</p>
+            </div>
+            <p class="mt-4">이 스토리는 단순한 정보 전달("E053 오류는 디코로트론 문제일 수 있다")을 넘어섭니다.</p>
+            <ul class="list-disc list-inside mt-2">
+              <li><b>맥락 제공:</b> 4시간의 고생, 잘못된 오류 코드라는 드라마가 있습니다.</li>
+              <li><b>교훈 제공:</b> 에러 코드를 절대적으로 신뢰하지 말라는 교훈을 줍니다.</li>
+              <li><b>정신적 시뮬레이션:</b> 다른 수리공들은 이 이야기를 들으며 '나였다면 어떻게 해결했을까?'를 시뮬레이션하고, 미래에 유사한 문제에 더 잘 대처하게 됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Three Basic Plots -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">영감을 주는 3가지 스토리 플롯</h2>
+          <p class="slide-subtitle">수많은 감동적인 이야기들은 세 가지 기본적인 플롯으로 분류할 수 있습니다. 이 플롯들은 스토리 발견의 나침반이 됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card text-center">
+              <h3 class="font-bold text-lg">① 도전 플롯 (The Challenge Plot)</h3>
+              <p class="text-3xl mt-2">🧗</p>
+              <p class="mt-2">다윗과 골리앗 이야기. 주인공이 불가능해 보이는 거대한 난관에 맞서 결국 성공을 거두는 스토리.</p>
+              <p class="mt-2 text-sm font-semibold">예: 재러드 포글, 〈스타워즈〉</p>
+            </div>
+            <div class="card text-center">
+              <h3 class="font-bold text-lg">② 연결 플롯 (The Connection Plot)</h3>
+              <p class="text-3xl mt-2">🤝</p>
+              <p class="mt-2">선한 사마리아인 이야기. 인종, 계급, 종교 등 장벽을 넘어 관계를 맺고 서로 돕는 스토리.</p>
+              <p class="mt-2 text-sm font-semibold">예: 〈로미오와 줄리엣〉, 코카콜라 광고</p>
+            </div>
+            <div class="card text-center">
+              <h3 class="font-bold text-lg">③ 창의성 플롯 (The Creativity Plot)</h3>
+              <p class="text-3xl mt-2">💡</p>
+              <p class="mt-2">뉴턴의 사과 이야기. 정신적인 돌파구를 통해 오랫동안 풀리지 않던 문제를 기발한 방식으로 해결하는 스토리.</p>
+              <p class="mt-2 text-sm font-semibold">예: 맥가이버, 잉거솔랜드의 '드래그 테스트'</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Jared Fogle as Challenge Plot -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사례 분석: 재러드 포글 스토리 🥪</h2>
+          <p class="slide-subtitle">서브웨이의 '재러드 캠페인'은 전형적인 '도전 플롯'으로, SUCCESs의 모든 요소를 담고 있습니다.</p>
+          <div class="slide-content">
+            <ul class="space-y-2">
+                <li><b>단순성:</b> "서브웨이를 먹어라, 그러면 몸무게가 줄 것이다."</li>
+                <li><b>의외성:</b> 패스트푸드를 먹고 100kg을 감량했다!</li>
+                <li><b>구체성:</b> 192kg의 몸무게, 허리 60인치 바지, 특정 샌드위치 메뉴.</li>
+                <li><b>신뢰성:</b> 평범한 대학생이라는 '반권위', 직접 경험한 실화.</li>
+                <li><b>감성:</b> 거대한 난관을 극복한 개인의 이야기에 대한 감동.</li>
+                <li><b>스토리:</b> 불가능에 도전해 성공한 완벽한 '도전 플롯'.</li>
+            </ul>
+            <p class="mt-4">이에 비해, "지방 6g 미만 샌드위치 7종" 캠페인은 단순하기만 할 뿐, 다른 어떤 요소도 갖추지 못했습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Spotting vs. Creating -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창조가 아닌 <span class="highlight">발견</span> 🕵️‍♂️</h2>
+          <p class="slide-subtitle">훌륭한 스토리는 '창조'하는 것보다 '발견'하는 것이 더 쉽고 효과적입니다. 우리 주변에는 이미 강력한 스토리가 존재합니다.</p>
+          <div class="slide-content">
+            <p>재러드 스토리는 서브웨이 본사에서 기획한 것이 아닙니다. 한 지역 가맹점주가 학생 신문에서 발견했고, 광고회사 디렉터가 그 가치를 알아봤으며, 사장이 '공짜로' 광고를 찍기로 결심했습니다.</p>
+            <p class="mt-4">우리의 임무는 메시지 감각을 뼛속 깊이 유지하며, 우리 주변의 일상적인 사건들 속에서 핵심 메시지를 상징하는 스토리를 <span class="highlight">알아차리는 것</span>입니다. 메리 스미스가 고객의 타이어를 고쳐준 이야기는 단순한 일화가 아니라, '완벽한 고객 서비스'의 상징입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <!-- Slide 35: Summary -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">SUCCESs 요약 🏆</h2>
+          <p class="slide-subtitle">기억에 남는 아이디어를 만드는 6가지 원칙 체크리스트</p>
+          <div class="slide-content space-y-3">
+              <p>✔️ <b>단순성(Simplicity):</b> 메시지의 핵심을 찾았는가?</p>
+              <p>✔️ <b>의외성(Unexpectedness):</b> 상식을 깨고 호기심을 자극하는가?</p>
+              <p>✔️ <b>구체성(Concreteness):</b> 감각으로 이해할 수 있도록 명확한 그림을 그리는가?</p>
+              <p>✔️ <b>신뢰성(Credibility):</b> 사람들이 당신의 말을 믿게 할 근거가 있는가?</p>
+              <p>✔️ <b>감성(Emotion):</b> 사람들이 메시지에 마음을 쓰게 만드는가?</p>
+              <p>✔️ <b>스토리(Story):</b> 사람들이 당신의 아이디어를 바탕으로 행동하도록 시뮬레이션하고 영감을 주는가?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Final Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">훌륭하고 끈끈한 아이디어는 <span class="highlight">타고나는 것이 아니라 만들어지는 것</span>입니다. SUCCESs 모델은 창의성의 천재가 아니더라도 누구나 효과적인 메시지를 만들 수 있는 체계적인 방법을 제공합니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">가장 큰 적은 '지식의 저주'입니다. 항상 청중의 입장에서 생각하고, 발견하고, 소통하십시오.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
