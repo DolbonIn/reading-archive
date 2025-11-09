@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가진 돈은 몽땅 써라 - 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e9ecef;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd60a;
+      padding: 0 0.25em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-secondary {
+      background-color: #f1f3f5;
+      color: #343a40;
+    }
+    .btn-secondary:hover {
+      background-color: #e9ecef;
+    }
+    .progress-bar-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 40px;
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid #dee2e6;
+        z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center border-none shadow-none bg-transparent">
+          <div class="text-7xl mb-8">💸</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">가진 돈은 몽땅 써라</h1>
+          <p class="text-xl md:text-2xl text-gray-700">먹고 놀고 마시는 데 목숨 걸어라. <span class="highlight">다시 살 수 없는 것들</span>에 투자하라.</p>
+          <p class="mt-8 text-lg text-gray-600">호리에 다카후미 지음</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content text-lg space-y-3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+            <p><b>프롤로그:</b> 돈을 쓸수록 기회가 늘어난다!</p>
+            <p><b>Part 1. 마인드셋:</b> '안전제일'이 가장 위험한 시대</p>
+            <p><b>Part 2. 행동 혁명:</b> 원 없이 놀아본 사람만이 한계를 뛰어넘는다</p>
+            <p><b>Part 3. 시간 혁명:</b> 돈으로 살 수 있는 시간은 몽땅 사라</p>
+            <p><b>Part 4. 습관 혁명:</b> 절약과 인내에도 비용이 든다</p>
+            <p><b>Part 5. 커리어 혁명:</b> 당신의 돈을 브랜드로 바꾸는 법</p>
+            <p><b>에필로그:</b> 정말로 하고 싶은 일에 파묻혀 살아보기</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Prologue Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">프롤로그</p>
+          <h2 class="slide-title">돈을 쓸수록 <span class="highlight">기회</span>가 늘어난다!</h2>
+          <p class="slide-content">우리가 오랫동안 세뇌당해온 '저축 신앙'의 허상을 깨고, 돈의 진짜 본질을 파헤쳐 봅니다. 쓰는 것이 어떻게 더 큰 가치를 창출하는지 알아봅시다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Prologue - Ant & Grasshopper -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🐜 개미와 베짱이: <span class="highlight">다시 보기</span></h2>
+          <p class="slide-subtitle">'저축 신앙'의 상징, 개미와 베짱이 우화를 현대 사회의 관점에서 재해석합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🐜 과거의 영웅: 개미</h3>
+              <p>성실하게 일하고 저축하며 미래를 대비합니다. 농경 사회의 생존 방식이자 미덕이었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🦗 현재의 영웅: 베짱이</h3>
+              <p>현재를 즐기고 놀이를 통해 즐거움을 창출합니다. 물질적으로 풍요로운 현대 사회가 요구하는 새로운 가치입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Prologue - Essence of Money -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돈의 본질: 잠자는 <span class="highlight">신용</span> 깨우기</h2>
+          <p class="slide-subtitle">돈은 단순히 쌓아두는 것이 아니라, 사용할 때 비로소 그 가치가 실현되는 '신용'의 도구입니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💰 돈은 신용을 수치화한 것</h3>
+              <p class="mt-2">저축만으로는 신용이 현실 세계에 구현되지 않습니다. 돈을 써야 당신의 가치가 커지고, 새로운 생산의 순환이 생겨납니다. 돈은 쓰면 쓸수록 신용을 더 강력하게 구현하는 공평하고 편리한 도구입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Part 1 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1. 마인드셋</p>
+          <h2 class="slide-title">'안전제일'이 가장 <span class="highlight">위험한 시대</span></h2>
+          <p class="slide-content">안정적인 삶을 추구하는 것이 오히려 인생을 위축시키는 시대입니다. 불확실성을 두려워하지 않고 과감하게 도전하는 새로운 마인드셋을 제시합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 7: Part 1 - Reaching Space -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🚀 15년을 달려 마침내 <span class="highlight">우주</span>에 도달하다</h2>
+          <p class="slide-subtitle">모두가 불가능하다고 했던 민간 로켓 개발. 꿈을 현실로 만든 15년의 여정.</p>
+          <div class="slide-content">
+            <ul class="list-disc pl-5 space-y-3">
+              <li>2004년 우주 사업 시작, 수많은 난관과 자금난에 부딪혔습니다.</li>
+              <li>수감 중에도 이메일 매거진으로 자금을 벌며 포기하지 않았습니다.</li>
+              <li>'죽음의 계곡'을 넘어 2019년, 일본 최초로 민간 로켓 발사에 성공했습니다.</li>
+              <li class="mt-4 font-bold">➡️ 꿈을 꿈으로 끝내지 않으려면 현실을 직시하고, <span class="highlight">멈추지 않는 의지</span>가 무엇보다 중요합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Part 1 - The Joy of Money -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">살아 숨 쉬는 <span class="highlight">돈의 행복</span></h2>
+          <p class="slide-subtitle">저축은 은행의 채권을 사는 투자일 뿐, 인생의 폭을 넓혀주지 않습니다. 돈은 써야 생명력을 얻습니다.</p>
+          <div class="slide-content">
+            <p>어릴 적, 세뱃돈을 강제로 '우편저축'해야 했던 경험. 왜 저축해야 하는지 이해할 수 없었습니다. 목적 없는 저축은 어리석은 짓입니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">⚠️ 저축의 함정</h3>
+              <p class="mt-2">저축은 미덕이라는 말은 잘못되었습니다. 돈은 쓰지 않으면 생명력을 잃습니다. 저축 대신 <span class="highlight">경험에 투자</span>했을 때 얻는 가치는 곱절의 돈을 내도 재현할 수 없습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Part 1 - Raise Your Hand -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🙋‍♂️ 제일 먼저 <span class="highlight">손을 번쩍</span> 드는 사람이 되라</h2>
+          <p class="slide-subtitle">분위기에 아랑곳하지 않고 '눈치 없는 바보'가 되어야 기회를 잡을 수 있습니다.</p>
+          <div class="slide-content">
+            <p>"할 사람?"이라는 질문에 가장 먼저 "저요!"라고 외치며 행동으로 옮겼습니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+                <li>23살에 창업, 프로야구단 인수 시도, 미디어 혁명 등 끊임없이 도전했습니다.</li>
+                <li>리스크 때문에 멈칫거리는 사람은 성공할 수 없습니다.</li>
+                <li>AI와 로봇의 시대, 기술이나 지식보다 중요한 것은 먼저 뛰어드는 <span class="highlight">실행력</span>입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Part 1 - Organization vs Self -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">중요한 건 조직이 아니라 <span class="highlight">나 자신</span></h2>
+          <p class="slide-subtitle">종신고용과 연공서열이 붕괴된 시대, 조직에 기대는 것은 위험합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🏢 과거의 안정: 조직</h3>
+              <p>정규직이라는 '안심'에 기대어 살았습니다. 하지만 이제 대기업도 평생을 보장하지 않습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">👤 현재의 기회: 개인</h3>
+              <p>불안을 새로운 기회로 여기세요. 자신의 능력에 맞는 일과 수입을 찾아 나설 최고의 기회입니다. 유튜브, 글쓰기, 요리 등 무엇이든 시작하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Part 1 - Freedom vs House -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나는 집 살 돈으로 <span class="highlight">자유</span>를 샀다</h2>
+          <p class="slide-subtitle">'내 집=행복'이라는 가치관은 철 지난 환상입니다.</p>
+          <div class="slide-content">
+            <p>집을 소유하는 것은 수억대의 대출, 고정자산세, 감가상각, 수리비 등 수많은 리스크를 짊어지는 것입니다. 주거지 변동이 어려워 급변하는 시대에 큰 단점이 됩니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 새로운 주거 방식: 유목민 라이프</h3>
+              <p class="mt-2">소유 대신 <span class="highlight">이동하며 살자</span>. 라이프 스타일에 따라 집을 계속 바꾸는 것이 가장 좋은 방법입니다. 호텔 생활처럼 계속 이동하며 쾌적한 생활을 유지하는 것이 진정한 자유입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Part 1 - Loaned Money -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">빌려준 돈은 이미 <span class="highlight">버린 돈</span>이다</h2>
+          <p class="slide-subtitle">돈 문제로 후회하지 않는 마음가짐에 대하여.</p>
+          <div class="slide-content">
+            <p>돈을 빌려주고 못 받았을 때의 스트레스는 돈 자체보다 '나를 우습게 봤다'는 생각에서 비롯됩니다. 이런 스트레스를 피하는 방법은 간단합니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>'줘도 상관없는 사람', '이 정도 금액은 괜찮다'고 생각될 때만 빌려주세요.</li>
+              <li>애초에 <span class="highlight">'준다'는 마음</span>으로 빌려주면 마음에 두지 않게 됩니다.</li>
+              <li>조금이라도 주저하는 마음이 든다면 절대 빌려주지 마세요.</li>
+              <li>돈을 떼먹은 사람과는 확실하게 인연을 끊어야 합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Part 1 - Finance vs Insurance -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생명보험 대신 <span class="highlight">금융 공부</span></h2>
+          <p class="slide-subtitle">생명보험의 본질은 도박입니다. 불안을 악용한 상품에 돈을 낭비하지 마세요.</p>
+          <div class="slide-content">
+            <p>생명보험은 보험료에 비해 보험금이 터무니없이 낮습니다. 보험회사의 운영 경비 대부분이 이용자에게 전가되는 구조이기 때문입니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">🧠 진짜 필요한 대비책</h3>
+              <p class="mt-2">가족을 위하는 마음과 불안을 악용한 도박에 불과합니다. 진짜 문제는 금융 시스템의 원리를 이해하는 교육이 없다는 것입니다. 불안을 근본적으로 없애기 위해서는 <span class="highlight">생명보험보다 금융 공부가 더 시급</span>합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Part 2 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2. 행동 혁명</p>
+          <h2 class="slide-title">원 없이 놀아본 사람만이 <span class="highlight">한계를 뛰어넘는다</span></h2>
+          <p class="slide-content">'즐기는 시대'가 오고 있습니다. 일과 놀이의 경계가 사라지는 지금, 뒤처지는 자는 급변하는 시대에서 결국 도태됩니다. 즐기는 자는 자발적으로 역량을 키우고 경계를 유유히 감상하며 온전히 누립니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 15: Part 2 - Start Anything -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일단 무엇이든 <span class="highlight">시작</span>해야 의욕도 생긴다</h2>
+          <p class="slide-subtitle">재미있는 일이 없다고 말하는 것은 신경의 감도가 떨어졌다는 의미입니다.</p>
+          <div class="slide-content">
+            <p>뭐든 해봐야 재미가 있는지 없는지 알 수 있습니다. 닥치는 대로 하다 보면 생각지도 못한 한두 가지는 반드시 성공하게 됩니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>아주 사소한 성공이라도 맛보면 그 일 자체가 즐거워지고 없던 의욕도 다시 생겨납니다.</li>
+              <li>긍정적인 자극은 신경의 감도를 높여 설렘과 희열을 느끼게 합니다.</li>
+              <li class="font-bold">'과연 할 수 있을까?'라며 주저하지 말고, '<span class="highlight">할 수 있어, 하면 되지!</span>' 라는 마음으로 일단 해보는 것이 중요합니다. 근거 따위 필요 없습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Part 2 - Live by 'Plan' not 'Allowance' -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'용돈'에 맞춰 살지 말고 <span class="highlight">'계획'</span>에 맞춰 산다</h2>
+          <p class="slide-subtitle">용돈이라는 말은 그 어감에서부터 가난의 냄새가 납니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">💸 용돈 생활의 문제</h3>
+              <p>정해진 돈으로 하루하루를 견디는 삶. 자신의 근로소득을 온전히 상납하고 쥐꼬리만 한 용돈으로 사는 것은 이해할 수 없습니다. 이는 하고 싶은 일을 다 하면서 살 수 없다는 그릇된 생각에서 비롯된 발상입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">💡 계획 생활의 제안</h3>
+              <p>각자 번 돈은 각자 관리하는 것이 합리적입니다. 돈을 많이 번다는 것은 큰돈을 관리할 능력이 있다는 뜻입니다. 쓸 수 있는 돈의 상한을 정해놓고 아껴 쓰는 것은 현대 사회의 미덕이 아닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Part 2 - Self-Management -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">죽을 때까지 <span class="highlight">자기관리</span>를 해야 하는 이유</h2>
+          <p class="slide-subtitle">결혼 후 자기관리를 포기하는 것은 사고 정지 상태에 빠졌다는 위험 신호입니다.</p>
+          <div class="slide-content">
+            <p>결혼 후 안정감에 빠져 자기관리를 놓는 순간, 대부분 '아저씨'가 되어버립니다. 불룩한 배, 싸구려 양복, 아내가 사준 양말... 스타일 좋던 남자는 온데간데없습니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">🚨 자기관리 포기의 위험성</h3>
+              <p class="mt-2">자기관리를 포기한 사람 중에 일을 잘하는 사람은 한 명도 못 봤습니다. 우수한 사람들은 아내에게 사랑받는 동시에 자기관리에도 철저해 주변 사람들에게도 인기가 많습니다. 이는 당연한 결과입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Part 2 - Go to Fun Places -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🥂 재미있는 술자리는 <span class="highlight">무조건 간다</span></h2>
+          <p class="slide-subtitle">중요한 것은 발상과 만남입니다. 구체적인 계획보다 유행을 따르세요.</p>
+          <div class="slide-content">
+            <p>대학 동아리 모임 같은 옛 친구들과의 술자리는 무시해도 됩니다. 하지만 사업으로 연결될 수 있거나, 조금이라도 재미있다고 느낀 사람이 초대하는 자리에는 가능한 참석하는 것이 좋습니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>가보고 재미없으면 두 번 다시 가지 않으면 됩니다.</li>
+              <li>그때그때 떠오르는 발상과 만남에 몸과 마음을 맡기고 일단 행동으로 옮기는 의욕이 중요합니다.</li>
+              <li>수준이 높고 재미있는 사람이 있는 술자리에는 적극적으로 참석하세요. 대화 자체가 재미있고, 문제 상황에서 날카로운 조언을 얻는 유익함까지 챙길 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Part 2 - The Reason for No Results -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">결실이 없는 이유는 <span class="highlight">몰두</span>하지 않았기 때문</h2>
+          <p class="slide-subtitle">삶의 즐거움을 가르쳐준 것은 가정과 학교가 아니라 몰두한 경험이 전부입니다.</p>
+          <div class="slide-content">
+            <p>많은 사람이 타인이 깔아놓은 레일 위를 벗어나지 못하고 길을 잃습니다. 무엇을 하고 싶고 어디에 몰입할 수 있는지 알지 못하기 때문입니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 몰두를 위한 방법</h3>
+              <p class="mt-2">스스로 정한 룰에 따라 움직이세요. 취미, 연애, 사업 모두 자신만의 방식으로 실행해보세요. 주변의 충고에 귀 기울이지 말고, <span class="highlight">'자신만의 룰'</span>을 정하고 철저히 따르세요. "즐거우니까 한다. 좋아하니까 한다. 스스로 정했으니까 한다!"는 마음가짐으로 몰두하면 충분합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Part 2 - Stocks and Real Estate -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">주식도 부동산도 결국은 <span class="highlight">도박</span></h2>
+          <p class="slide-subtitle">불확실한 미래에 돈을 거는 모든 것은 도박과 다름없습니다.</p>
+          <div class="slide-content">
+            <p>주식은 합법적인 도박에 불과합니다. 확실하게 한몫 잡을 수 있는 주식이란 세상에 존재하지 않습니다. 절대불패의 이론이나 완벽한 해법 따위는 없습니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">🚀 진짜 투자해야 할 곳</h3>
+              <p class="mt-2">앞으로 투자해야 할 곳은 단언컨대 <span class="highlight">놀이</span>입니다. 테크놀로지의 발달로 여가 시간이 늘어날 것입니다. 소비자로서 즐길 놀이도 중요하지만, 생산자로서 놀이에 투자해야 할 때가 오고 있습니다. 놀 줄 모르는 사람은 힘든 인생을 살게 될 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Part 3 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3. 시간 혁명</p>
+          <h2 class="slide-title">돈으로 살 수 있는 시간은 <span class="highlight">몽땅 사라</span></h2>
+          <p class="slide-content">돈이 최고라 하지만 돈보다 귀한 것이 시간입니다. 시간이야말로 가치를, 성공을, 행복을 낳는 거위입니다. 현명한 이는 이 진실을 알고 있습니다. 돈을 벌기보다는 시간을 사기 위해 움직여라. 승자가 되고 싶다면 먼저 이 규칙을 이해해야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 22: Part 3 - Borrow Money for Ideas -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">💡 아이디어만 있다면 돈은 얼마든지 <span class="highlight">빌려도 된다</span></h2>
+          <p class="slide-subtitle">빚에 대한 부정적인 인식은 저축 신앙만큼이나 잘못된 고정관념입니다.</p>
+          <div class="slide-content">
+            <p>처음 창업할 때 600만 엔을 빚내어 시작했습니다. 빚은 결코 나쁜 것이 아닙니다. 대출은 진심으로 하고 싶은 일이 있고, 대담한 용기를 발휘한 자가 치밀한 준비까지 마친 뒤에야 쥘 수 있는 훈장과 같습니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">⏳ 시간 > 돈</h3>
+              <p class="mt-2">줄여야 할 것은 원하는 것의 크기가 아니라 <span class="highlight">준비에 필요한 시간</span>입니다. 기회를 포착했으나 돈 때문에 잡을 수 없다면 주저하지 말고 돈을 빌리세요. 돈은 원하는 것을 손에 넣은 이후에 자연스레 따라오게 되어 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Part 3 - No Wallet, No Cash -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">나는 지갑도 없고 <span class="highlight">현금도 없다</span></h2>
+          <p class="slide-subtitle">지갑은 현금 거래에 얽매여 있는 사고 정지 상태를 상징합니다.</p>
+          <div class="slide-content">
+            <p>지갑을 가지고 다니지 않습니다. 잘 잃어버리기 때문입니다. 현금을 내고 거스름돈을 기다리는 몇 초의 시간조차 아깝습니다. 지갑을 없애니 매우 쾌적해졌습니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>지갑 대신 머니 클립에 지폐와 카드만 끼워 다닙니다.</li>
+              <li>요즘은 주로 카드나 전자화폐를 사용합니다. 비현금 사회가 되면 좋겠습니다.</li>
+              <li class="font-bold">지갑을 한번 없애보세요. 그 자리에는 신용카드 등을 사용하는 데 필요한 <span class="highlight">새로운 지식</span>이 차게 될 것입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Part 3 - Delegate to Experts -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">청소와 빨래는 <span class="highlight">전문가</span>에게</h2>
+          <p class="slide-subtitle">가사 분담으로 다투는 것은 시간 낭비입니다. 가사 대행업체에 맡기면 쉽게 해결됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">😩 가사 노동의 스트레스</h3>
+              <p>힘든 일을 굳이 부부가 다퉈가며 할 필요가 없습니다. 가사 대행 서비스는 부부 싸움의 싹을 자르는 값이라 치면 합리적인 비용입니다. 게다가 남는 시간을 유용하게 쓸 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🤝 공유 경제 시대의 지혜</h3>
+              <p>집안일은 그런 전문가에게 맡기고, 당신의 시간은 다른 일을 하며 더 가치 있게 쓰라는 말입니다. 그렇게 하면 대행업체 시장도 확대돼 고용 창출에도 일조하게 될 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Part 3 - Location Determines Life -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신이 사는 곳이 당신의 <span class="highlight">삶을 결정</span>한다</h2>
+          <p class="slide-subtitle">태어난 곳에 묶여 자신에게 더 잘 맞을 수도 있는 환경을 접해보지 못한다면, 그건 틀림없이 불행한 인생일 것입니다.</p>
+          <div class="slide-content">
+            <p>일본의 중심은 도쿄입니다. 재미있는 사람, 흥미로운 정보가 지방과는 비교할 수 없을 정도로 많습니다. 고향을 떠나올 때 아쉬움은 없었습니다. 도쿄에서 펼쳐질 창창한 미래에 대한 기대가 압도적으로 컸습니다.</p>
+            <div class="mt-6 p-6 bg-purple-50 border border-purple-200 rounded-lg">
+              <h3 class="font-bold text-lg">🏞️ 시골 vs. 도시</h3>
+              <p class="mt-2">시골에 대한 애착이 강할수록 "도쿄는 살기 힘들다"고 말하는 경향이 있습니다. 어른이 되면 몸이든 마음이든 가능한 부모님과 거리를 두는 게 좋습니다. 시골은 <span class="highlight">'멀리 두고 그리워하는 곳'</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Part 3 - Talent Gathers Around You -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사람을 잘 다루는 사람 주위에 <span class="highlight">인재</span>가 몰려든다</h2>
+          <p class="slide-subtitle">가장 중요한 자원은 시간이고, 그다음은 사람입니다. 아무리 승산 있는 아이디어라도 훌륭한 인재가 받쳐주지 않으면 성공할 수 없습니다.</p>
+          <div class="slide-content">
+            <p>모든 일을 혼자서 다 할 생각이 없습니다. '내 시간의 최적화'를 가장 우선합니다. 다른 사람에게 맡길 수 있는 일은 적극적으로 맡깁니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>사업에 성공한 사람들은 하나같이 사람을 잘 다룹니다. 쓸데없는 자존심 대신 다른 사람의 손을 빌리기를 주저하지 않습니다.</li>
+              <li>굳이 협업을 강조하는 것이 아닙니다. 하고 싶은 일을 더 원활하게 큰 규모로 추진하려면 <span class="highlight">필요한 곳에 적절한 인재를 투입</span>해야 효율적으로 진행됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Part 3 - Commute Time -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">⏰ 출퇴근 2시간 = 월급 <span class="highlight">20% 삭감</span></h2>
+          <p class="slide-subtitle">출퇴근 스트레스는 실제 수입을 낮추고 있습니다. 직장 가까이 사는 것이 최고입니다.</p>
+          <div class="slide-content">
+            <p>왕복 2시간 출퇴근은 월급의 20%가 깎이는 것과 같습니다. 직주근접만 하더라도 더 많은 돈을 버는 잠재력이 있다는 이야기입니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">💸 돈으로 스트레스 해소하기</h3>
+              <p class="mt-2">만원 전철을 탈 때의 스트레스는 전쟁터 최전선의 병사가 받는 스트레스와 비슷하다고 합니다. 돈으로 해소할 수 있는 스트레스라면 가능한 한 해소해야 합니다. 그렇지 않으면 죽을 때까지 스트레스의 굴레에서 벗어나지 못합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Part 4 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4. 습관 혁명</p>
+          <h2 class="slide-title">절약과 인내에도 <span class="highlight">비용이 든다</span></h2>
+          <p class="slide-content">"신은 디테일에 있다." 일상의 사소한 동작, 몸짓, 습관, 사고... 자그마한 가난의 흔적도 완전히 털어내라. 움츠러들 이유는 어디에도 없다. 호쾌하게 살아라.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Part 4 - Lunch Menu -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">점심 메뉴는 고민 말고 <span class="highlight">장어덮밥</span></h2>
+          <p class="slide-subtitle">먹는 데는 쩨쩨하게 굴지 말고 돈을 써라. 쓴 것 이상의 기회가 열리고 지식을 채워줄 무엇인가가 돌아올 것입니다.</p>
+          <div class="slide-content">
+            <p>싸게 적당히 배를 채우는 음식으로 혼자 밥을 먹으면 그 횟수만큼 인생이라는 무대의 격을 높일 기회를 잃는다는 것을 빨리 깨닫기 바랍니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>전통 있는 식당의 5,000엔짜리 장어덮밥은 인생의 수업료라고 생각하면 비싼 가격이 아닙니다.</li>
+              <li>그런 곳에서 식사하는 사람은 대부분 부자입니다. 대화의 수준도 높고, 생각지도 못한 만남의 기회가 늘어납니다.</li>
+              <li class="font-bold">비싼 점심은 단순히 허기를 채우는 것을 넘어 <span class="highlight">정보 샤워</span>를 한다는 의미입니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Part 4 - Smartphone Specs -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스마트폰은 언제나 <span class="highlight">최신형, 최고 스펙</span>으로</h2>
+          <p class="slide-subtitle">정보야말로 새로운 가치를 낳는 원료입니다. 가격 따위 신경 쓰지 말고 항상 최고의 도구를 사용하세요.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">📱 스마트폰 중독의 오해</h3>
+              <p>'스마트폰을 많이 쓸수록 성적이 떨어진다'는 주장은 지나친 비약입니다. 스마트폰은 죄가 없습니다. 아이들에게 이 유용한 도구를 잘 사용할 수 있는 올바른 사용법을 가르쳐야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">💰 도구에 대한 투자</h3>
+              <p>중요한 정보를 얻기 위한 도구에 돈을 아끼면 그만큼 들어오는 정보의 질도 떨어질 수 있습니다. 저가폰은 설정이 귀찮고 사용에 제한도 많습니다. 항상 <span class="highlight">최신, 최고 스펙의 스마트폰</span>을 고르세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Part 4 - Physical Strength -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">💪 '꺾이지 않는 마음'의 지지대는 <span class="highlight">체력</span>이다</h2>
+          <p class="slide-subtitle">일이든 놀이든, 체력이 부족해 중간에 그만둘 때면 억울하지 않은가?</p>
+          <div class="slide-content">
+            <p>꾸준히 운동한 덕분에 나의 체력은 경이로운 수준입니다. 여러 일을 동시에 진행하는 '다동력'을 발휘하는 날들의 연속이지만 피로를 느낀 적은 거의 없습니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">🔥 체력의 중요성</h3>
+              <p class="mt-2">꺾이지 않는 마음의 근본적인 지지대는 체력입니다. 스스로 정한 목표를 달성해 최고의 경치를 보기 위해 체력은 평소에 길러둬야 합니다. 자신에게 맞는 다양한 유인책을 활용하면 헬스장에 꾸준히 다닐 수 있을 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Part 4 - Thinking Muscle -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시대를 읽는 <span class="highlight">'사고 근육'</span> 단련법</h2>
+          <p class="slide-subtitle">독서를 꾸준히 하면 '사고 근육'을 유지할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>사고 근육은 사물을 깊이 파고들어 본질을 꿰뚫어 보는 데 필요합니다. 꼭 두꺼운 소설이나 전문 서적이 아니어도 됩니다. 사실에 근거한 만화도 좋습니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>독서가 반드시 최선은 아닙니다. 멋진 사람을 만나거나 특이한 장소에서 체험을 하다 보면 사고 근육은 자연스레 활성화됩니다.</li>
+              <li>시간 대비 효율로는 잘 정리된 뉴스 미디어를 읽는 것이 빠릅니다.</li>
+              <li class="font-bold">꼭 시간을 들여 정독할 필요는 없습니다. 요점만 파악해 읽는 독서법, 닥치는 대로 가볍게 훑어보는 <span class="highlight">독서법</span>을 추천합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Part 4 - Courage and Timing -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">용기도 돈처럼 <span class="highlight">타이밍</span>에 맞게 아낌없이 써라</h2>
+          <p class="slide-subtitle">성공 경험이 쌓일수록 사람은 대담해집니다. 더 큰 성공을 하기 위해서는 대담함이 필요합니다.</p>
+          <div class="slide-content">
+            <p>행동하고 바보 취급당하는 것보다, 아무것도 하지 않는 것이야말로 부끄러운 일입니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">💥 용기를 내라!</h3>
+              <p class="mt-2">조금만 용기 내어 시도하다 보면 결국 성공할 수 있는데, 기회를 빤히 놓치고서는 성공한 사람을 질투하고 부러워하는 것이 몇 배는 더 부끄러운 일입니다. 주저하지 말고 <span class="highlight">용기를 내세요.</span> 용기도 돈처럼 마구 써야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Part 5 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5. 커리어 혁명</p>
+          <h2 class="slide-title">당신의 돈을 <span class="highlight">브랜드</span>로 바꾸는 법</h2>
+          <p class="slide-content">당신이 쓴 돈은 반드시 당신에게 돌아온다. '신용'이라는 이름의 브랜드로 바뀌어서. 외측 계산이나 공정에는 필요 없다. 순수함을 잊지 마라. '지금'만 바라보는 열정이 미래에 결실을 맺을 것이다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 35: Part 5 - Give Credit to Others -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🏅 공적은 <span class="highlight">남에게 넘겨라</span></h2>
+          <p class="slide-subtitle">'인정받고 싶다'는 욕구는 성가신 잡념입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🏆 공적의 함정</h3>
+              <p>돈과 마찬가지로 공적도 환상에 불과합니다. 그런 것은 다른 사람에게 줘버리세요. 공적을 갖고 있어봤자 번거롭고 자신의 심지만 흔들리게 할 뿐입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🎁 공적을 선물하라</h3>
+              <p>공적을 선물처럼 누군가에게 주면 오히려 주위 사람들이 감사해합니다. 이 선순환이 구르기 시작하면 만나는 사람이나 들어오는 정보의 질도 올라갑니다. 공적을 잘 나눌 줄 아는 사람에게는 자연스레 좋은 인연이 찾아옵니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Part 5 - Treat People to Meals -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">내가 누구에게나 <span class="highlight">밥을 잘 사는</span> 이유</h2>
+          <p class="slide-subtitle">식사는 새로운 친구를 만드는 데 꽤 효율적인 수단입니다.</p>
+          <div class="slide-content">
+            <p>나는 밥만큼은 통 크게 잘 삽니다. 특별한 이유는 없습니다. 단지 맛있는 음식을 많은 사람과 나누고 싶습니다. 그 행복을 나누는 것으로 충분합니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>같이 식사를 하면 상대가 재미있는 사람인지 판단하는 데 도움이 됩니다.</li>
+              <li>언제 식사를 해도 재밌다고 느껴지는 사람은 대부분 사업 성적도 좋습니다.</li>
+              <li class="font-bold">상대의 지위나 경력은 따지지 말고 통 크게 밥을 사고 좋은 친구를 만들면 그걸로 충분합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Part 5 - Investment-Type Thinking -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1을 100으로 만드는 <span class="highlight">'투자형 사고'</span></h2>
+          <p class="slide-subtitle">모으고 지킨다는 '저축형 사고'에서 투자하여 새로운 성과를 낸다는 '투자형 사고'로의 전환이 필요합니다.</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 투자형 사고란?</h3>
+              <p class="mt-2">수중에 1만 엔이 있을 때, '이 1만 엔을 어디에 쓰면 100만 엔으로 만들 수 있을까?'를 고민하는 것입니다. 돈의 가치를 최대한으로 끌어올려 돈의 역할을 확대하려는 사고입니다. <span class="highlight">현상 유지를 선택하지 않습니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Part 5 - Leaning on Others -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">남에게 잘 <span class="highlight">기대는 능력</span>도 필수다</h2>
+          <p class="slide-subtitle">자신이 맡은 일은 어떻게든 혼자서 끝내려고 필사적으로 노력하는 사람들이 있는데, 그럴 필요 없습니다.</p>
+          <div class="slide-content">
+            <p>다른 사람에게 맡겨도 지장이 없는 일은 주저하지 말고 맡기세요. 그리고 정말 하고 싶은 일에만 집중하세요. 세상에는 여러분이 기대면 흔쾌히 어깨를 내어줄 사람이 의외로 많습니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">🤝 '중지를 모으는 힘'</h3>
+              <p class="mt-2">파나소닉의 창업주 마쓰시타 고노스케처럼, 학력 콤플렉스를 뛰어난 인재 등용으로 극복하세요. 쓸데없는 자존심 때문에 실력을 발휘하지 못하는 것은 어리석습니다. <span class="highlight">뻔뻔하게 기대도 전혀 문제없습니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Part 5 - Speed vs. Idea -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이제는 아이디어가 아니라 <span class="highlight">속도 싸움</span>이다</h2>
+          <p class="slide-subtitle">지금까지 그 누구도 생각한 적 없는 참신하고 혁명적인 아이디어는 이 세상에 존재하지 않습니다.</p>
+          <div class="slide-content">
+            <p>핵심은 실행입니다. 아이디어는 실행에 옮길 때에야 가치가 창출됩니다. 전화기를 발명한 알렉산더 그레이엄 벨보다 더 먼저, 더 빠르게 연구를 진행한 발명가들도 있었습니다. 하지만 가장 먼저 특허를 신청한 사람은 벨이었습니다.</p>
+            <ul class="list-disc pl-5 mt-4 space-y-3">
+              <li>중요한 것은 아이디어가 아니라, 다른 사람보다 빨리 움직였다는 점입니다.</li>
+              <li>"훌륭한 아이디어를 내는 자"가 아니라 "<span class="highlight">빨리 움직이는 자</span>"가 성공을 거머쥔다.</li>
+              <li class="font-bold">"아이디어가 떠오르면 바로 행동하라!"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Part 5 - What to do if you become rich? -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">🤔 "부자가 되면 <span class="highlight">뭐하시게요?</span>"</h2>
+          <p class="slide-subtitle">부자가 되겠다는 생각 자체를 한 적이 없습니다. 사업으로 이익을 내는 것과 부자를 목표로 하는 것은 전혀 다른 차원의 이야기입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">💰 부자의 목표</h3>
+              <p>부자를 목표로 하면 지금의 주류 사회에서는 손해가 큽니다. 인기가 없고, 벌이의 총량도 한정됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🎉 재미의 목표</h3>
+              <p>"저 사람과 함께 있으면 항상 재미있다!"라는 말을 듣는 인생을 지향하세요. 그러면 돈에 구애받지 않는, 돈으로부터 자유로운 인생을 살 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Part 5 - Unsolvable Problems -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">돈으로 해결할 수 <span class="highlight">없는 문제</span></h2>
+          <p class="slide-subtitle">돈보다 사람을 소중히 하라는 얄팍한 도덕관을 말하는 것이 아닙니다. 돈을 신용하게 되면 돈에 끌려다니는 인생을 살게 됩니다.</p>
+          <div class="slide-content">
+            <p>은행에 저축한다는 진정한 의미는 은행에 무상으로 돈을 빌려준다는 것입니다. "빚은 절대 안 돼!"라고 주장하는 사람이, 거대 자본을 보유한 은행에 돈을 마구 빌려주는 것은 모순입니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 신용의 역전 현상</h3>
+              <p class="mt-2">"내 돈은 믿어도 남은 못 믿는다"는 말이 있습니다. 하지만 돈이 아니라 <span class="highlight">사람을 믿어야</span> 하는 것 아닐까요? 저축 신앙에서 지금 당장 벗어나세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Epilogue Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">에필로그</p>
+          <h2 class="slide-title">정말로 하고 싶은 일에 <span class="highlight">파묻혀 살아보기</span></h2>
+          <p class="slide-content">저축하지 않는 자는 굶어 죽어 마땅하다는 논리는 구시대적인 발상입니다. 통장 잔고는 당신이 지금 이 순간에도 잃고 있는 수많은 기회의 총액일 뿐입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Epilogue - Live Your Life -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">후회 없는 <span class="highlight">인생</span>을 위하여</h2>
+          <p class="slide-subtitle">사람은 죽을 때 저지른 일보다 시작도 해보지 않은 일을 더 크게 후회한다고 합니다.</p>
+          <div class="slide-content text-center">
+            <p class="text-2xl font-bold">쓴 후회보다 쓰지 않은 후회가 더 클 것입니다.</p>
+            <p class="mt-6 text-xl">주저 말고 하고 싶은 일에, 갖고 싶은 것에, 먹고 싶은 음식에 돈을 써라.</p>
+            <p class="mt-2 text-xl">여러분이 정말로 하고 싶은 일에 파묻혀 인생을 살아갈 수 있기를 바랍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 돈의 주인이 되는 법</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">돈을 모으는 '저축 신앙'의 굴레에서 벗어나, 돈을 '경험'과 '시간', 그리고 '기회'를 사는 데 사용하세요. 돈은 목적이 아니라, 더 풍요로운 삶을 위한 <span class="highlight">가장 강력한 도구</span>입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">지금 당장, 당신의 돈을 살아 숨 쉬게 만드세요!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
