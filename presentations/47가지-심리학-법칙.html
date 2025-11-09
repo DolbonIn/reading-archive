@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>47가지 심리학 법칙 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">사람의 마음을 움직이는 47가지 심리학 법칙</h1>
+          <p class="text-xl md:text-2xl text-gray-700">직장, 사회, 인간 관계에서 <span class="highlight">성공하는</span> 심리학 법칙들</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖 (1/3)</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p class="font-bold text-xl">PROLOGUE: 심리학을 둘러싼 21세기의 변화</p>
+            <p class="ml-4"><b>01.</b> 배움을 나누는 문화가 교육을 혁신한다</p>
+            <p class="ml-4"><b>02.</b> 심리학이 다양화되면서 오해가 생겼다</p>
+            <p class="ml-4"><b>03.</b> 근면한 사람의 행복감이 낮은 이유</p>
+            <p class="font-bold text-xl mt-6">PART 1: 기초심리학</p>
+            <p class="ml-4"><b>CHAPTER 1.</b> 심리학이란 무엇일까?</p>
+            <p class="ml-4"><b>CHAPTER 2.</b> 행동과 습관을 과학으로 접근하는 '행동심리학'</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Table of Contents 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖 (2/3)</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p class="font-bold text-xl">PART 1: 기초심리학 (계속)</p>
+            <p class="ml-4"><b>CHAPTER 3.</b> 기억, 사고, 감정을 과학으로 접근하는 '인지심리학'</p>
+            <p class="ml-4"><b>CHAPTER 4.</b> 배움과 발달을 과학으로 접근하는 '발달심리학'</p>
+            <p class="font-bold text-xl mt-6">PART 2: 응용심리학</p>
+            <p class="ml-4"><b>CHAPTER 5.</b> 커뮤니케이션을 위한 '대인관계심리학'</p>
+            <p class="ml-4"><b>CHAPTER 6.</b> 집단과 조직에서 사용하는 '조직심리학'</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Table of Contents 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖 (3/3)</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p class="font-bold text-xl">PART 2: 응용심리학 (계속)</p>
+            <p class="ml-4"><b>CHAPTER 7.</b> 다양한 문화, 환경을 현실에 반영하는 '문화심리학'</p>
+            <p class="ml-4"><b>CHAPTER 8.</b> 마음의 병을 고치기 위한 '임상심리학'</p>
+            <p class="ml-4"><b>CHAPTER 9.</b> 심리학에서 알아두면 좋은 인물들</p>
+            <p class="font-bold text-xl mt-6">EPILOGUE: 실천과 혁신의 심리학</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: Prologue Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">PROLOGUE</p>
+          <h2 class="slide-title">심리학을 둘러싼 <span class="highlight">21세기의 변화</span> ⏳</h2>
+          <p class="slide-content">디지털 사회로의 급속한 전환 속에서 심리학은 어떻게 변하고 있으며, 우리는 이를 어떻게 이해해야 할까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Prologue 01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">교육의 혁신: <span class="highlight">배움을 나누는 문화</span> 🤝</h2>
+          <p class="slide-subtitle">기술 자체보다 커뮤니케이션을 통해 배우는 것이 학습 동기를 강화합니다.</p>
+          <div class="slide-content">
+            <p>80년대 애플의 PC 기부 프로젝트 결과, PC 수업을 받은 학생들의 대학 진학률이 2배 높았습니다. 핵심 요인은 일방적 배움이 아닌, 학생들이 서로 상의하고 가르쳐주는 <span class="highlight">'실천 공동체'</span> 문화였습니다.</p>
+            <p class="mt-4">이러한 협력적 학습은 자신감(자기 효능감)을 높이고 새로운 능력 개발에 긍정적 영향을 미칩니다. 현대의 SNS나 학습 앱이 바로 이 원리를 적용한 좋은 예입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Prologue 02 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다양화 속의 오해: <span class="highlight">심리 전문가?</span> 🤔</h2>
+          <p class="slide-subtitle">'사람을 조종할 수 있다'는 식의 자극적인 주장은 심리학에 대한 오해를 불러일으킵니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">잘못된 전문가 이미지</h3>
+              <p>해외 실험 결과만 나열하고 전제를 설명하지 않는 경우가 많습니다. '무의식의 힘', '뇌는 O_O하다' 같은 표현은 <span class="highlight">'할로 효과(후광 효과)'</span>를 이용해 신뢰성을 부여하지만, 실제로는 심리학을 왜곡할 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">비판적 시각의 필요성</h3>
+              <p>권위나 현란한 용어에만 의존하는 전문가의 말은 한발 물러서서 바라볼 필요가 있습니다. 심리학은 단순한 쇼가 아니라 복잡한 인간의 마음을 과학적으로 탐구하는 학문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Prologue 03 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행복의 패러독스: 왜 근면한데 <span class="highlight">행복감은 낮을까?</span> 📉</h2>
+          <p class="slide-subtitle">행복을 '추구'할수록 행복이 멀어지는 현상, '행복의 패러독스'에 대해 알아봅니다.</p>
+          <div class="slide-content">
+             <p>일본인의 직장 만족도와 사회 변화 기대감은 다른 선진국에 비해 현저히 낮습니다. 이는 '겉보기 근면성', 즉 의무감이나 타인의 시선을 의식한 수동적인 태도에서 비롯될 수 있습니다.</p>
+             <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">💡 행복의 열쇠: 플로우(Flow)</h3>
+              <p class="mt-2">행복은 결과가 아닌 과정에 있습니다. 긍정심리학자 칙센트미하이가 정의한 <span class="highlight">'플로우'</span>는 시간에 잊을 만큼 일에 몰두하는 상태를 말합니다. 일에 열중하는 것만으로도 우리는 이미 행복의 길을 걷고 있는 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Part 1 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">PART 1</p>
+          <h2 class="slide-title">기초심리학: <span class="highlight">마음의 작동 원리</span> ⚙️</h2>
+          <p class="slide-content">심리학의 기초를 이루는 핵심 분야들을 통해 인간의 행동, 사고, 감정, 발달의 원리를 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 1</p>
+          <h2 class="slide-title">심리학이란 무엇일까? <span class="highlight">기본 개념</span>  foundational concepts</h2>
+          <p class="slide-content">사회의 진보와 함께 발전해 온 심리학의 역사와 다양한 관점을 살펴봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Chapter 1-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">심리학의 발전: <span class="highlight">사회와 함께</span> 📈</h2>
+          <p class="slide-subtitle">심리학은 시대의 요구에 따라 발전해왔습니다. 전시에는 군대 훈련, 경제난에는 생산성 향상에 기여했습니다.</p>
+          <div class="slide-content">
+            <p>심리학 연구는 크게 두 영역으로 나뉩니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>임상계:</b> 우울증 등 정신 질환을 치료하는 연구 영역 (프로이트, 융)</li>
+                <li><b>실험계:</b> 일상과 직장에서의 인간 관계, 창조성을 다루는 연구 영역 (분트, 피아제)</li>
+            </ul>
+             <p class="mt-4">최근에는 이 둘을 종합한 <span class="highlight">'인지과학'</span>과 이야기의 힘을 중시하는 <span class="highlight">'내러티브 심리학'</span> 등이 새롭게 주목받고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Chapter 1-02 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">살아가는 의미: <span class="highlight">아들러 심리학</span> 💡</h2>
+          <p class="slide-subtitle">과거의 원인에 얽매이지 않고, 미래의 목적을 향해 나아갈 용기를 주는 아들러의 관점입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-red-600">원인론 (프로이트)</h3>
+              <p>과거의 경험(특히 유아기)이 현재를 결정한다고 봅니다. '교사에게 폭력당한 경험 때문에 학교에 가지 못한다'는 식의 사고방식입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-blue-600">목적론 (아들러)</h3>
+              <p>미래에 '되고 싶은 모습'을 위해 현재의 행동을 선택한다고 봅니다. '학교에 가지 않기 위해' 과거의 경험을 이유로 삼는다는 관점입니다.</p>
+            </div>
+          </div>
+           <p class="mt-6">아들러는 <span class="highlight">'열등 콤플렉스'</span>를 극복하고 '공동체 의식' 속에서 의미를 부여하며 살아가는 것이 중요하다고 강조했습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Chapter 1-03 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행동주의 심리학: <span class="highlight">학습의 원리</span> 🔔</h2>
+          <p class="slide-subtitle">눈에 보이지 않는 마음보다 관찰 가능한 행동을 분석하여 학습 원리를 설명합니다.</p>
+          <div class="slide-content">
+            <p>스키너의 <span class="highlight">'오페란트 학습'</span> 이론은 '보상'을 통해 자발적 행동을 강화하는 원리입니다. 예를 들어, 버튼을 누르면 먹이가 나오는 상자 속 비둘기는 점차 버튼 누르는 행동을 학습합니다.</p>
+            <p class="mt-4">구몬식 학습에서 정답을 맞히면 받는 칭찬이나 동그라미 표시가 바로 이 '보수'에 해당하여 학습 행동을 촉진합니다. 하지만 결과만을 중시하여 의미나 이해를 경시할 수 있다는 단점도 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Chapter 1-04 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">실수는 왜 생길까?: <span class="highlight">인지심리학</span> 🐔</h2>
+          <p class="slide-subtitle">닭 다리를 4개로 그리는 실수는 왜 발생하는 걸까요? 인지 과정의 비밀을 파헤쳐 봅니다.</p>
+          <div class="slide-content">
+            <p>우리의 사고는 직관적인 '1차적 사고'와 시간을 들여 분석하는 '2차적 사고'로 나뉩니다. 실수는 주로 1차적 사고에서 발생합니다.</p>
+             <div class="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">대표성 휴리스틱스</h3>
+              <p class="mt-2">사람들은 닭을 그릴 때 '가축은 다리가 4개'라는 전형적 이미지(<span class="highlight">대표성 휴리스틱스</span>)에 무의식적으로 영향을 받아 다리를 4개로 그리는 실수를 범할 수 있습니다. 이는 경험에 의한 기억이 항상 정확하지 않음을 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Chapter 1-05 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">긍정적인 사람의 성공?: <span class="highlight">행복 우위성</span> 😊</h2>
+          <p class="slide-subtitle">'성공하면 행복해진다'가 아니라 '행복하기 때문에 성공한다'는 긍정심리학의 관점입니다.</p>
+          <div class="slide-content">
+            <p>긍정심리학의 창시자 마틴 셀리그먼은 기존 심리학이 부정적인 주제에 치우쳐 있음을 지적하고, 행복과 탁월성을 목표로 하는 <span class="highlight">'행복 우위성'</span>을 주장했습니다.</p>
+            <p class="mt-4 font-bold">행복은 단순한 감정이 아니라, 두뇌와 신체를 단련하여 키울 수 있는 '기술'입니다. 이는 '마인드풀니스' 등의 연구를 통해 증명되었습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 16: Chapter 1-05 (PERMA) -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지속적 행복감의 5요소: <span class="highlight">PERMA</span> 🌿</h2>
+          <p class="slide-subtitle">셀리그먼이 제시한 웰빙(Well-being)의 5가지 핵심 요소입니다.</p>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>P (Positive Emotion):</b> 긍정적 감정 - 낙관과 희망</p>
+            <p><b>E (Engagement):</b> 몰입 - 동료와의 유대감, 조직과의 일체화</p>
+            <p><b>R (Relationships):</b> 관계 - 좋은 인간 관계</p>
+            <p><b>M (Meaning):</b> 의미 - 인생과 생활 전체의 의미</p>
+            <p><b>A (Achievement):</b> 성취 - 일과 관심사의 성과 달성</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 1-06 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'자기다움'과 <span class="highlight">문화심리학</span> 🌏</h2>
+          <p class="slide-subtitle">'집안일은 여성이 하는 일'과 같은 고정관념은 어떻게 형성될까요? 문화와 개인 심리의 연결을 이해하는 것이 중요합니다.</p>
+          <div class="slide-content">
+            <p>개인의 고민은 단순히 마음의 문제가 아니라, 그를 둘러싼 시스템과 조직 문화의 영향을 받습니다. 예를 들어, 회의실 책상 배치에 따라 발언 순서나 내용이 달라지는 것은 '자리 위치'에 지위와 명예가 관련된다고 보는 문화 때문입니다.</p>
+            <p class="mt-4">문화심리학은 행동의 원인을 개인의 내면에서만 찾지 않고, <span class="highlight">'배경'</span>이 되는 문화적 규칙과 시스템과의 상호작용을 함께 고려합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 1-07 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">마음의 컨트롤: <span class="highlight">두뇌만이 아니다</span> 💪</h2>
+          <p class="slide-subtitle">'우뇌형 인간'과 같은 표현은 뇌의 특정 부분만으로 마음을 설명하려는 단편적인 시각입니다.</p>
+          <div class="slide-content">
+            <p>뇌의 특정 부위(예: 기억을 담당하는 '해마')만 활성화한다고 해서 특정 능력이 향상되는 것은 아닙니다. 뇌는 여러 부분이 <span class="highlight">연계</span>하여 복합적으로 작동합니다.</p>
+             <p class="mt-4">최근 연구에 따르면 근육, 뼈, 내장 활동 역시 신경 전달 물질에 영향을 주어 뇌와 상호작용합니다. 즉, 신체는 뇌를 담는 그릇이 아니라 뇌의 움직임을 컨트롤하는 <span class="highlight">'파트너'</span>입니다. 뇌 훈련보다 근육 운동이 심리 문제 해결에 더 도움이 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Chapter 1-08 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시대가 추구하는 <span class="highlight">비즈니스 심리학</span> 💼</h2>
+          <p class="slide-subtitle">제조업 중심에서 서비스, 정보 산업으로 변화하면서 심리학의 역할도 진화하고 있습니다.</p>
+          <div class="slide-content">
+            <p>과거 '산업심리학'이 생산성 향상에 주목했다면, 현대의 <span class="highlight">'비즈니스 심리학'</span>은 지식 노동자의 리더십, 팀워크, 혁신 능력 육성에 중점을 둡니다.</p>
+            <p class="mt-4">이는 단순한 카운슬링을 넘어, 개인과 조직을 함께 개선하는 컨설팅의 역할을 합니다. '분노 매니지먼트'와 같이 개인의 감정 컨트롤을 넘어, 조직 시스템의 모순을 해결하고 변화의 동기로 삼는 종합적인 실천 이론입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 20: Chapter 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 2: 행동심리학</p>
+          <h2 class="slide-title">행동과 습관의 과학 🔬</h2>
+          <p class="slide-content">우리의 선택, 습관, 무의식적 행동 뒤에 숨겨진 심리적 원리를 과학적으로 분석합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 2-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">선택의 착각: <span class="highlight">현수교 효과</span> 🌉</h2>
+          <p class="slide-subtitle">불안한 현수교 위에서 만난 이성에게 더 큰 호감을 느끼는 이유는 무엇일까요?</p>
+          <div class="slide-content">
+            <p>더튼과 알론의 실험에서, 흔들리는 현수교를 건넌 남성 그룹이 일반 다리를 건넌 그룹보다 여성이 건넨 전화번호로 연락할 확률이 4배 높았습니다. 이는 다리를 건널 때의 <span class="highlight">생리적 흥분(두근거림)</span>을 상대방에 대한 <span class="highlight">호감으로 착각</span>했기 때문입니다.</p>
+            <p class="mt-4">이 '감정의 이중 요소 이론'에 따르면, ①신체적 흥분 발생 후 ②그에 대한 '인식'(해석)이 일어나 감정이 결정됩니다. 중요한 결정은 생리적 흥분을 가라앉힌 후에 하는 것이 좋습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 22: Chapter 2-02 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">혼내는 것 vs 칭찬하는 것 🤔</h2>
+          <p class="slide-subtitle">행동분석학의 'ABC 원리'를 통해 아이의 장난을 멈추는 효과적인 방법을 알아봅니다.</p>
+          <div class="slide-content">
+             <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">ABC 원리</h3>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>A (Antecedent):</b> 선행 사건 (예: 도서관에서 부모가 책을 읽을 때)</li>
+                <li><b>B (Behavior):</b> 표적 행동 (예: 아이가 장난 대신 그림을 그린다)</li>
+                <li><b>C (Consequence):</b> 후속 결과 (예: 부모가 그림 그리는 것을 칭찬한다)</li>
+              </ul>
+               <p class="mt-3">핵심은 바람직하지 않은 행동(장난)을 '혼내는 것'이 아니라, 예외적으로 나타나는 바람직한 행동(그림 그리기)을 찾아 <span class="highlight">'칭찬'(강화)</span>하는 것입니다. 이렇게 하면 아이는 관심을 끌기 위해 장난칠 필요가 없어집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Chapter 2-03 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몸짓은 마음을 말한다: <span class="highlight">비언어 커뮤니케이션</span> 🕺</h2>
+          <p class="slide-subtitle">'메라비언의 법칙'은 말의 내용보다 시각, 청각 정보가 인상에 더 큰 영향을 준다고 말합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 bg-blue-100 rounded-lg">
+              <h3 class="font-bold text-2xl">시각 (표정, 몸짓)</h3>
+              <p class="text-4xl font-black mt-2">55%</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg">
+              <h3 class="font-bold text-2xl">청각 (목소리 톤, 속도)</h3>
+              <p class="text-4xl font-black mt-2">38%</p>
+            </div>
+            <div class="p-4 bg-red-100 rounded-lg">
+              <h3 class="font-bold text-2xl">언어 (말의 내용)</h3>
+              <p class="text-4xl font-black mt-2">7%</p>
+            </div>
+          </div>
+          <p class="mt-6">하지만 이는 말과 행동이 불일치하는 모순적인 상황에 대한 연구 결과입니다. '겉모습이 전부'라고 일반화하는 것은 오해입니다. 중요한 것은 <span class="highlight">상황과 문화</span> 속에서 몸짓의 의미를 파악하는 것입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 24: Chapter 2-04 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">휴식 시간이 <span class="highlight">생산성을 결정한다</span> ☕</h2>
+          <p class="slide-subtitle">히타치 그룹의 연구는 신체 활동량이 기업 성과에 큰 영향을 미친다는 것을 발견했습니다.</p>
+          <div class="slide-content">
+            <p>웨어러블 센서로 직원들의 행동을 분석한 결과, 대화 중 신체 움직임이 활발한, 즉 <span class="highlight">'행동의 활발도'</span>가 높은 조직일수록 성과가 높았습니다.</p>
+            <p class="mt-4">이러한 활발함은 주변 사람들에게 '전염'되는 <span class="highlight">'미러링 효과'</span>를 보입니다. 콜센터 연구에서는 신체 행동 활성도가 높은 그룹의 수주율이 1.3배나 높았습니다. 생산성 향상의 힌트는 바로 '휴식 시간'을 어떻게 보내는지에 달려있을 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Chapter 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 3: 인지심리학</p>
+          <h2 class="slide-title">기억, 사고, 감정의 과학 🧠</h2>
+          <p class="slide-content">우리가 어떻게 정보를 받아들이고, 생각하고, 느끼는지 그 내면의 과정을 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 26: Chapter 3-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">납득의 원리: <span class="highlight">스키마와 메타포</span> 💡</h2>
+          <p class="slide-subtitle">'개천에서 용 난다'와 같은 비유(메타포)는 어떻게 설득력을 가질까요?</p>
+          <div class="slide-content">
+            <p>메타포는 서로 다른 개념을 연결(A=B)하여 추상적인 내용을 쉽게 이해시킵니다. 이는 우리가 세상을 이해하는 인식의 틀, 즉 <span class="highlight">'스키마(schema)'</span>를 활용하기 때문입니다.</p>
+            <p class="mt-4">예를 들어, '전기 회로'를 '물이 흐르는 파이프'에 비유하면, 저항이나 전압 같은 추상적 원리를 쉽게 상상할 수 있습니다. 메타포와 스키마는 어려운 과학과 인생의 의미를 <span class="highlight">'납득'</span>하게 만드는 강력한 수단입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Chapter 3-02 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">학력만이 전부일까?: <span class="highlight">비인지 능력</span> 🎨</h2>
+          <p class="slide-subtitle">IQ와 같은 지적 능력 외에, 성공적인 삶에 중요한 역할을 하는 능력들입니다.</p>
+          <div class="slide-content">
+            <p>마시멜로 실험에서 눈앞의 마시멜로를 먹지 않고 참았던 아이들이 성인이 되어 더 높은 성취를 이룬 것은 <span class="highlight">'자제심'</span>이라는 비인지 능력의 중요성을 보여줍니다.</p>
+            <p class="mt-4">또한, 곤란을 극복하는 'GRIT(근성)'도 주목받고 있습니다. 하워드 가드너의 <span class="highlight">'다중 지능 이론'</span>은 인간의 지능이 언어, 논리수학 외에도 음악, 신체운동, 인간관계 등 9가지 영역으로 구성되어 있다고 설명하며, 비인지 능력의 다양성을 강조합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Chapter 3-03 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">건망증을 막는 법: <span class="highlight">메타인지</span> 🔍</h2>
+          <p class="slide-subtitle">'사고를 사고하는' 능력, 즉 자신의 인지 과정을 한 단계 위에서 객관적으로 바라보는 것입니다.</p>
+          <div class="slide-content">
+            <p>지하철에 우산을 두고 내리는 실수를 막기 위해서는 '잊어버리지 않도록 해야지'라고 생각하는 <span class="highlight">메타인지</span>의 작용이 중요합니다. 이는 '전망 기억'(미래에 할 일을 기억하는 것)과 관련이 깊습니다.</p>
+            <p class="mt-4">이러한 기억력은 단순히 뇌 트레이닝만으로 향상되기 어렵습니다. 정보를 일시적으로 유지하고 처리하는 <span class="highlight">'워킹 메모리'</span>를 강화하는 것이 핵심이며, 명상이나 호흡법 같은 '마인드풀니스'가 효과적이라는 연구 결과가 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Chapter 3-04 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">프레젠테이션 성공법: <span class="highlight">슬리퍼 효과</span> 😴</h2>
+          <p class="slide-subtitle">시간이 지나면서 정보의 출처는 잊히고 내용만 기억에 남는 현상입니다.</p>
+          <div class="slide-content">
+            <p>신뢰도가 낮은 사람이 한 말이라도, 시간이 지나면 '누가 말했는지'는 잊히고 '이야기의 내용'만 기억에 남아 설득력이 높아질 수 있습니다. 이것이 슬리퍼 효과(Sleeper effect)입니다.</p>
+            <p class="mt-4">이를 응용하려면, 처음에는 <span class="highlight">인상 깊은 키워드</span> 위주로 짧게 반복해서 이야기하는 것이 효과적입니다. 사장이 신입사원의 제안을 처음엔 무시했다가, 나중에 자신의 아이디어인 것처럼 받아들이는 경우가 바로 이 효과 때문일 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Chapter 3-05 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌가 쉴 때 능력은 향상된다: <span class="highlight">디폴트 모드 네트워크</span> ✨</h2>
+          <p class="slide-subtitle">아무것도 생각하지 않고 멍하니 있을 때, 뇌의 특정 부위는 오히려 더 활발하게 움직입니다.</p>
+          <div class="slide-content">
+            <p>자동차의 공회전처럼, 뇌는 의식적 활동을 하지 않을 때도 많은 에너지를 소비하며 활성화됩니다. 이를 '디폴트 모드 네트워크(DMN)'라고 합니다.</p>
+             <div class="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">창조성의 비밀, '아하! 효과'</h3>
+              <p class="mt-2">목욕을 하거나 산책을 할 때 갑자기 기발한 아이디어가 떠오르는 것은 바로 이 DMN 상태에서 창조적 사고가 촉진되기 때문입니다. 일상 속에서 의도적으로 <span class="highlight">'멍때리는 시간'</span>을 갖는 것은 생산성 향상에 도움이 될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 31: Chapter 3-06 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뇌를 풀가동하면 머리가 좋아질까? 🧠</h2>
+          <p class="slide-subtitle">'인간은 뇌의 5%만 사용한다'는 말은 사실일까요? 뇌는 병렬 분산 처리 모델로 작동합니다.</p>
+          <div class="slide-content">
+            <p>뇌는 자동차의 액셀과 브레이크처럼 각 기능이 엑셀레이터와 브레이크 역할을 동시에 수행하며 최적의 움직임을 보입니다. 특정 부분만 사용하는 것이 아니라, 여러 뉴런 집단이 <span class="highlight">'병렬적'</span>으로 상호 작용합니다.</p>
+            <p class="mt-4">인공지능의 '병렬 분산 처리(PDP)' 모델처럼, 뇌는 작은 '소인(뉴런 집단)'들이 연결된 네트워크입니다. 한 부분이 손상되어도 전체 기능은 유지되는 유연한 구조를 가지고 있습니다. 우리의 능력은 단일한 것이 아니라, 여러 소인들의 <span class="highlight">'조합'</span>으로 발휘됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 32: Chapter 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 4: 발달심리학</p>
+          <h2 class="slide-title">배움과 발달의 과학 🌱</h2>
+          <p class="slide-content">인간이 전 생애에 걸쳐 어떻게 성장하고 변화하는지, 그 단계와 원리를 과학적으로 접근합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 33: Chapter 4-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">발달 단계를 알면 육아가 쉬워진다 👶</h2>
+          <p class="slide-subtitle">피아제의 '발생적 인식론'은 아이의 사고와 감정 발달을 '동화'와 '조절'의 과정으로 설명합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">동화 (Assimilation)</h3>
+              <p>'고양이'를 배운 아이가 '개'를 보고도 '고양이'라고 말하는 것처럼, 새로운 대상을 기존의 인식 틀(셰마)에 맞추어 이해하는 과정입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">조절 (Accommodation)</h3>
+              <p>부모가 '저건 개야'라고 수정해주면, 아이는 '고양이'와 '개'를 구분하며 새로운 인식의 틀을 만들어 나갑니다. 이것이 바로 학습이자 발달입니다.</p>
+            </div>
+          </div>
+          <p class="mt-6">아이의 발달 단계를 이해하면, '학과 거북이 산수 문제'를 억지로 이해시키기보다 아이의 논리적 사고가 발달할 때까지 기다려주는 유연한 교육이 가능해집니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 34: Chapter 4-02 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'의지력'은 키울 수 있을까? 💪</h2>
+          <p class="slide-subtitle">의지력은 근육과 같아서 훈련을 통해 단련할 수 있으며, 한 분야에서의 단련이 다른 분야로 '전이'될 수 있습니다.</p>
+          <div class="slide-content">
+            <p>바른 자세를 유지하는 훈련을 한 학생들이 악력기 테스트에서 더 높은 점수를 얻은 실험은 의지력 단련의 효과와 <span class="highlight">'학습의 전이'</span>를 보여줍니다.</p>
+            <p class="mt-4">최근 주목받는 <span class="highlight">'GRIT(그릿)'</span>은 노력 자체를 즐거운 경험으로 여기며 끈기 있게 버티는 능력입니다. 이는 재능이 아니라, 동료 관계(SQ), 낙관성(EQ), 목표 설정(OQ), 의미 부여(IQ), 행동 개선(AQ) 등 5가지 요소의 조합을 통해 강화할 수 있는 능력입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Chapter 4-03 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'자제심'이 인생의 성공을 결정한다 🎯</h2>
+          <p class="slide-subtitle">'마시멜로 실험'은 유아기의 자제심이 미래의 성공과 깊은 관련이 있음을 보여주었습니다.</p>
+          <div class="slide-content">
+            <p>15분간 마시멜로를 먹지 않고 참았던 4세 아이들은 성인이 되어 더 높은 대학 진학률과 경제적 성공을 거두었습니다. 이는 눈앞의 욕구를 참고 더 큰 미래의 보상을 선택하는 능력의 중요성을 시사합니다.</p>
+            <p class="mt-4">하지만 경제적 빈곤과 같은 환경적 요인도 자제심에 영향을 미칩니다. 약속이 지켜지지 않는 환경에서는 '현재 지향 바이어스'(눈앞의 이익을 우선시하는 경향)가 높아질 수 있습니다. 자제심은 의지력뿐 아니라 <span class="highlight">'숨기기'</span>와 같은 환경적 노력으로도 기를 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Chapter 4-04 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 기술을 배우려면 전문가 집단에 참여하라 🧑‍🤝‍🧑</h2>
+          <p class="slide-subtitle">비고츠키의 '근접 발달 영역' 이론은 학습이 타인과의 상호 교류를 통해 일어난다고 설명합니다.</p>
+          <div class="slide-content">
+            <p>아이의 언어 발달은 단순 암기가 아니라, 부모와의 교류 속에서 '맘마'와 같은 말을 함께 '창조'해나가는 과정입니다. 이처럼 혼자 할 수 있는 영역과 도움을 받아 할 수 있는 영역 사이의 공간을 <span class="highlight">'근접 발달 영역(ZPD)'</span>이라고 합니다.</p>
+            <p class="mt-4">이는 성인의 학습에도 적용됩니다. 전문가 집단(<span class="highlight">실천 공동체</span>)에 참여하여 전문적인 언어로 대화하는 과정 자체가 학습의 동기를 만들고 성장을 촉진하는 가장 효과적인 방법입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Chapter 4-05 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창의성의 토대, <span class="highlight">'놀이'</span> 🎲</h2>
+          <p class="slide-subtitle">놀이는 단순한 기분 전환이 아니라, 창조적 사고를 확장하고 문화의 토대를 이루는 중요한 활동입니다.</p>
+          <div class="slide-content">
+            <p>'모든 고양이는 짖는다'와 같은 추상적인 3단 논법 문제를 아이들은 어려워하지만, '놀이' 상황으로 재미있게 제시하면 논리적으로 대답합니다. 이는 사고력이 개인의 머릿속이 아니라 <span class="highlight">'상황'</span>에 따라 유연하게 변함을 보여줍니다.</p>
+            <div class="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+              <h3 class="font-bold text-lg">던커의 양초 문제</h3>
+              <p class="mt-2">코미디 영상을 본 그룹이 진지한 수학 영상을 본 그룹보다 '양초 문제' 해결률이 3배 높았습니다. 이는 즐거운 '놀이' 상황이 고정관념(<span class="highlight">기능적 고착</span>)을 깨고 창조적 문제 해결 능력을 높인다는 것을 증명합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Part 2 Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">PART 2</p>
+          <h2 class="slide-title">응용심리학: <span class="highlight">실생활의 지혜</span> ✨</h2>
+          <p class="slide-content">기초심리학의 원리를 바탕으로 커뮤니케이션, 조직 생활, 문화, 임상 등 실제 문제 해결에 적용하는 방법을 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Chapter 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 5: 대인관계심리학</p>
+          <h2 class="slide-title">커뮤니케이션의 비밀 💬</h2>
+          <p class="slide-content">성격, 착각, 갈등의 원리를 이해하여 더 나은 인간관계를 만드는 방법을 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 40: Chapter 5-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">서로의 '상성'은 어떻게 알 수 있을까? 💑</h2>
+          <p class="slide-subtitle">단기적으로는 비슷한 사람에게 끌리고(유사성 효과), 장기적으로는 반대인 사람과 잘 맞습니다(상보성 효과).</p>
+          <div class="slide-content">
+            <p>성격 진단에 널리 쓰이는 <span class="highlight">'특성 5인자 모델(Big 5)'</span>은 성격을 5가지 차원(외향성, 애착성, 통제성, 정동성, 유희성)으로 분석합니다.</p>
+            <p class="mt-4">면접관이 자신과 비슷한 외향적 지원자에게 호감을 느끼는 것은 단기적인 <span class="highlight">'유사성 효과'</span>입니다. 하지만 결혼 생활처럼 장기적인 관계에서는 서로를 보완해주는 <span class="highlight">'상보성 효과'</span>가 더 중요합니다. 진정한 상성은 고정된 것이 아니라, 공동의 가치와 경험을 공유하며 함께 만들어가는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Chapter 5-02 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">능력 없는 사람의 착각: <span class="highlight">더닝-크루거 효과</span> 🧐</h2>
+          <p class="slide-subtitle">능력이 부족한 사람일수록 자신의 능력을 과대평가하는 인지 편향입니다.</p>
+          <div class="slide-content">
+            <p>실험 결과, 성적이 낮은 학생들은 자신의 예상 점수를 실제보다 훨씬 높게 예측했습니다. 이는 능력이 부족하여 자신의 무지를 인지하지 못하는 <span class="highlight">'이중 부담'</span> 때문입니다.</p>
+            <p class="mt-4">이를 극복하기 위해서는 '자신 과잉'의 가능성을 인정하고, 자신의 능력을 객관적으로 모니터링하는 <span class="highlight">'메타인지'</span> 능력을 길러야 합니다. 매일 밤 하루의 계획과 실제 성과를 비교하는 '자가 체크' 습관이 도움이 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Chapter 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 6: 조직심리학</p>
+          <h2 class="slide-title">집단과 조직의 역학 🏢</h2>
+          <p class="slide-content">리더십, 목표 관리, 조직 문화 등 성공적인 조직을 만드는 심리학적 원리를 배웁니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 43: Chapter 6-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">차세대 리더십: <span class="highlight">어센틱 리더십</span> 🌟</h2>
+          <p class="slide-subtitle">진정성(자기 일관성)을 바탕으로 자신의 약점을 인정하고 타인을 신뢰하며 이끄는 리더십입니다.</p>
+          <div class="slide-content">
+            <p>과거의 PM이론(성과-배려)이나 변혁형, 서번트 리더십을 넘어, 현대 조직은 리더의 '진심'을 요구합니다. 호시노 리조트 사장은 MBA식 상하적 리더십으로 실패한 후, 현장에서 직원들과 소통하며 대등한 입장에서 해결책을 찾는 방식으로 성공했습니다.</p>
+            <p class="mt-4">이는 리더의 언행일치를 바탕으로, 모두가 알아들을 수 있는 공통의 언어로 비전을 제시하는 <span class="highlight">'오픈성'</span>을 핵심으로 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Chapter 6-02 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목표 관리의 3요소 🏆</h2>
+          <p class="slide-subtitle">성공은 '성과 목표', '방향 목표', '프로세스 목표' 세 가지의 곱으로 결정됩니다.</p>
+          <div class="slide-content">
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>방향 목표 (Why):</b> 무엇을 위해 하는가? (예: 회계사가 되어 부자가 되기 위해)</li>
+                <li><b>성과 목표 (What):</b> 무엇을 달성할 것인가? (예: 회계사 시험 합격)</li>
+                <li><b>프로세스 목표 (How):</b> 어떻게 할 것인가? (예: 매일 교과서 5페이지 읽기)</li>
+            </ul>
+             <p class="mt-4">이 세 가지 목표를 명확히 구분하고 연관시키면, 목표 관리가 쉬워지고 실패했을 때 어떤 부분에 문제가 있었는지 파악하여 교훈으로 삼을 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 45: Chapter 6-03 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무엇이든 말할 수 있는 회사: <span class="highlight">심리적 안전성</span> 🛡️</h2>
+          <p class="slide-subtitle">어떤 의견을 말해도 불이익을 받지 않고, 자신의 모습 그대로 존중받는 조직 문화를 의미합니다.</p>
+          <div class="slide-content">
+            <p>구글의 '프로젝트 아리스토텔레스'는 성공적인 팀의 가장 중요한 요인이 바로 <span class="highlight">심리적 안전성</span>임을 발견했습니다.</p>
+            <p class="mt-4">이를 구축하기 위해서는 리더가 'OO 하지 말자'는 부정적 표현 대신 <span class="highlight">'OO 하자'</span>는 긍정적 표현을 사용하고, 스스로 비판을 수용하는 자세를 보이는 것이 중요합니다. 또한 익명의 건의함('작은 소리 BOX') 등을 통해 실패나 불만 정보를 투명하게 공개하고 함께 해결하려는 노력이 필요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Chapter 7-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 7: 문화심리학</p>
+          <h2 class="slide-title">말싸움을 잘하고 싶다면? 🗣️</h2>
+          <p class="slide-subtitle">기억과 지식은 머릿속 창고가 아니라, '상황'과 '말' 속에서 사회적으로 재구성됩니다.</p>
+          <div class="slide-content">
+            <p>목격자 증언은 수사관의 질문 방식(예: '찼다' vs '차서 넘어뜨렸다')에 따라 내용이 달라집니다. 이는 지식이 사용하는 장소의 <span class="highlight">'상황'</span>과 발화하는 <span class="highlight">'언어 표현'</span>에 의해 크게 영향을 받는다는 '사회 구성주의' 이론으로 설명됩니다.</p>
+            <p class="mt-4">우리의 말은 결코 중립적이지 않으며 권위, 문화 등 보이지 않는 힘의 영향을 받습니다. 이 사실을 이해하면 말로 인한 오해를 줄이고 서로를 더 깊이 이해할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 47: Chapter 8-01 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 8: 임상심리학</p>
+          <h2 class="slide-title">경청의 힘: <span class="highlight">라포(Rapport)</span> 🎧</h2>
+          <p class="slide-subtitle">카운슬링의 핵심은 조언이 아니라, 안심하고 신뢰할 수 있는 관계, 즉 라포를 형성하는 것입니다.</p>
+          <div class="slide-content">
+            <p>클라이언트 중심 치료를 개발한 칼 로저스는 상대방을 <span class="highlight">'있는 그대로'</span> 받아들이는 '수용'의 자세를 강조했습니다. 이는 내담자 스스로 문제를 해결할 힘이 있다고 믿는 것에서 출발합니다.</p>
+            <p class="mt-4">상대방의 말을 단순히 반복해주는 <span class="highlight">'앵무새 말하기'</span>나 현재 상태를 점수로 표현하게 하는 <span class="highlight">'스케일링 퀘스천'</span> 등은 공감을 유도하고 라포를 형성하는 데 효과적인 기법입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 48: Chapter 8-03 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원인 찾기를 멈춰라: <span class="highlight">해결 지향 치료법</span> 🚀</h2>
+          <p class="slide-subtitle">과거의 '원인'에 집착하기보다, '되고 싶은 모습'이라는 미래의 해결책에 초점을 맞추는 접근법입니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">원인 지향 (Why)</h3>
+              <p>과거의 실패 경험과 약점을 분석하는 데 집중합니다. '왜 지각했는가?'</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">해결 지향 (What, How)</h3>
+              <p>미래의 긍정적인 모습과 성공했던 예외적인 경험('예외 찾기')에 집중합니다. '기적이 일어나 문제가 해결된다면 무엇을 하고 싶은가?'</p>
+            </div>
+          </div>
+          <p class="mt-6">해결 지향 치료는 문제의 원인 제거가 불가능한 경우에도, 현재의 <span class="highlight">'변화'</span>를 통해 긍정적인 미래를 만들어갈 수 있다는 희망을 줍니다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 49: Chapter 9 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 9</p>
+          <h2 class="slide-title">심리학의 거장들 🏛️</h2>
+          <p class="slide-content">현대 심리학의 토대를 마련한 주요 인물들을 소개합니다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 50: Chapter 9 Figures -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">알아두면 좋은 <span class="highlight">심리학 인물</span></h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>지그문트 프로이트:</b> '무의식'의 세계를 탐구한 정신분석학의 창시자</p>
+            <p><b>칼 융:</b> '집합적 무의식'과 '원형' 개념을 제시한 분석심리학의 창시자</p>
+            <p><b>알프레드 아들러:</b> '열등감'과 '목적론'을 통해 개인심리학을 개척</p>
+            <p><b>레브 비고츠키:</b> 사회문화적 상호작용을 강조한 '근접 발달 영역' 이론가</p>
+            <p><b>하워드 가드너:</b> '다중 지능 이론'으로 지능의 다양성을 제시한 인지과학자</p>
+            <p><b>마틴 셀리그먼:</b> '학습된 무력감'을 넘어 '웰빙'을 탐구한 긍정심리학의 창시자</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 실천과 혁신의 심리학</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">심리학은 단순히 이론에 머무는 학문이 아닙니다. 이 책의 핵심 메시지는 <span class="highlight">'실천의 장소를 어떻게 이해하고 혁신할 것인가'</span>에 대한 해답을 심리학에서 찾는 것입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">심리학적 지식을 활용하여 우리의 일상과 관계, 그리고 조직을 긍정적으로 변화시킬 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
