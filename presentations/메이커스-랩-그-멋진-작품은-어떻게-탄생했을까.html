@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메이커스 랩: 그 멋진 작품은 어떻게 탄생했을까</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .slide-part-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd60a;
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-secondary {
+      background-color: #f1f3f5;
+      color: #343a40;
+      border-color: #dee2e6;
+    }
+    .btn-secondary:hover {
+      background-color: #e9ecef;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 6px;
+      margin-bottom: 12px;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .quote-block {
+        border-left: 4px solid #007bff;
+        padding-left: 1.5rem;
+        margin-top: 1.5rem;
+        font-style: italic;
+        color: #495057;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🛠️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">메이커스 랩</h1>
+          <p class="text-xl md:text-2xl text-gray-700">그 멋진 작품은 어떻게 탄생했을까</p>
+          <div class="mt-8 text-lg text-gray-600">
+            <p>세계적 디자인 리더 론 버크먼의 크리에이티브 연구소</p>
+            <p class="mt-2 italic">"지금 무언가를 만들고 있는 모든 사람과 이 책을 함께 읽고 싶다." - 김중혁(소설가)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📚 목차</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>들어가며:</b> 0에서 1을 만든다는 것: <span class="highlight">애플 스토어 설계의 비밀</span></p>
+            <p><b>1장:</b> 만들면서 알게 되는 <span class="highlight">창작의 모든 것</span></p>
+            <p><b>2장:</b> 이야기의 세계: <span class="highlight">소설가, 시나리오 작가, 영화감독</span></p>
+            <p><b>3장:</b> 그림과 추상의 세계: <span class="highlight">화가, 시각예술가, 일러스트레이터</span></p>
+            <p><b>4장:</b> 디자인의 세계: <span class="highlight">건축가, 그래픽 디자이너, 자동차 디자이너</span></p>
+            <p><b>5장:</b> 즉흥의 세계: <span class="highlight">연극배우, 싱어송라이터, 재즈 연주자</span></p>
+            <p><b>6장:</b> 결국 우리는 <span class="highlight">인생을 만든다</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Section Title - Intro -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">들어가며</p>
+          <h2 class="slide-title">0에서 1을 만든다는 것: 🍎<br>애플 스토어 <span class="highlight">설계의 비밀</span></h2>
+          <p class="slide-content">스티브 잡스와 디자인 회사 에이트(Eight Inc.)의 CEO 팀 코베의 만남을 통해, 불명확한 아이디어가 어떻게 세계적인 애플 스토어로 탄생했는지 그 과정을 살펴봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Apple Store Story 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">예기치 못한 만남</h2>
+          <p class="slide-subtitle">1999년 가을, 팀 코베는 스티브 잡스로부터 애플의 시그니처 매장을 만들어보자는 제안에 관한 전화를 받습니다.</p>
+          <div class="slide-content">
+            <p>코베는 잡스에게 먼저 아이디어를 보냈지만, 잡스의 반응은 예상 밖이었습니다. 잡스는 코베의 기존 포트폴리오(나이키, 노스페이스 등)가 <span class="highlight">"애플과 어울리는 것이 아무것도 없다"</span>고 말했습니다.</p>
+            <p class="mt-4 quote-block">코베의 대답: "이 작업물이 모두 애플과 어울리지 않는다는 게 바로 저희에게 일을 맡겨야 하는 이유입니다. 저희가 애플과 작업한다면 <span class="highlight">애플에 맞는 디자인을 할 테니까요.</span>"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Apple Store Story 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비전 없이 시작하기</h2>
+          <p class="slide-subtitle">애플 스토어 설계에는 처음부터 명확한 청사진이나 비전이 없었습니다. 모든 것은 <span class="highlight">화이트보드에서 시작되었습니다.</span></p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🤔 통념</h3>
+              <p>상상력이 풍부한 스티브 잡스가 애플 스토어에 대한 명쾌한 비전을 가지고 있었을 것이라 생각합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">💡 진실</h3>
+              <p>코베에 따르면, 잡스는 직관에 따라 반복적으로 검토하며 결정하는 사람이었습니다. 명확한 비전보다는 <span class="highlight">'만드는 과정'</span> 자체를 통해 길을 찾았습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Apple Store Story 3 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">만드는 과정: <span class="highlight">'응용 제작'</span></h2>
+            <p class="slide-subtitle">애플 스토어는 비전의 산물이 아니라, 만드는 과정에서 결정을 바꾸고 구성을 수정하며 만들어낸 결과물이었습니다.</p>
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">프로토타이핑의 힘 📦</h3>
+                <p class="mt-2">팀은 매장의 버블 다이어그램부터 시작해 작은 모형, 그리고 실물 크기의 모형까지 제작했습니다. 딱딱한 플라스틱(폼코어)으로 매장 구성물을 만들고, 스티브 잡스는 모형 주위를 돌며 살펴보았습니다. <span class="highlight">"애플의 느낌이 나는 결과물이 나올 때까지 꾸준히 수정을 반복했지요."</span></p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Apple Store Story 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">고객 경험의 발견</h2>
+          <p class="slide-subtitle">제작 과정 자체가 고객의 경험과 그 경험을 배려하는 디자인을 알아가는 길이었습니다.</p>
+          <div class="slide-content">
+            <p>초기에는 매장을 얼마나 크게 만들지조차 몰랐습니다. 제품 진열 방식, 조명, 심지어 테이블 두께(20cm로 늘릴지를 두고 논쟁)까지 모든 것을 <span class="highlight">실험하고 느끼면서</span> 결정했습니다.</p>
+            <div class="quote-block mt-4">
+                <p>"스티브는 사용자 입장을 고려해야 한다고 강조했어요. 무엇에 만족하게 될지 몰랐지만, <span class="highlight">만족스러울 때까지 실험을 거듭했죠.</span> 그러한 과정이 없었다면 많은 걸 알 수 없었을 거예요."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Apple Store Story 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">맥락의 중요성: <span class="highlight">젖은 돌</span> 🪨</h2>
+          <p class="slide-subtitle">시카고 애플 스토어 설계 시, 인테리어에 사용할 인디애나 석회암 샘플을 캘리포니아에서 검토하던 중 스티브 잡스의 통찰이 빛을 발합니다.</p>
+          <div class="slide-content">
+             <p class="mb-4">잡스는 갑자기 말했습니다. "생각해보니 우린 참 바보 같았군요. 시카고에는 비가 내립니다. 그런데 우리는 해가 쨍쨍한 캘리포니아에서 이 돌을 살펴보고 있잖아요."</p>
+             <p>그들은 즉시 물을 가져와 바위에 쏟아부었고, 그날 다섯 시간 동안 젖은 바위를 관찰했습니다. 이 경험은 <span class="highlight">비가 오는 날이건 맑은 날이건 아름다워 보이도록</span> 매장을 설계하는 교훈이 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Section Title - Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">만들면서 알게 되는<br>💡 <span class="highlight">창작의 모든 것</span></h2>
+          <p class="slide-content">창작은 비전의 실현이 아니라, 만드는 행위 자체를 통해 백지 위의 불확실성에서 창조로 나아가는 과정입니다. 이 장에서는 창조성의 본질과 그것을 발휘하는 과정의 비밀을 탐구합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 1 Content 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'만들기'와 '알기'의 연결</h2>
+          <p class="slide-subtitle">위대한 예술가들은 창조적 활동과 발견, 즉 <span class="highlight">만드는 것과 아는 것 사이를 연결</span>합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">알렉산더 칼더 (조각가)</h3>
+              <p>"나는 철사를 이용할 때 새로운 생각이 가장 잘 떠오른다."<br>➡️ <span class="highlight">만들기 때문에 생각한다.</span></p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">움베르토 에코 (소설가)</h3>
+              <p>소설 『장미의 이름』을 집필하는 과정에서 줄거리의 핵심을 알게 되었다.<br>➡️ <span class="highlight">쓰기 때문에 안다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Chapter 1 Content 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창조성을 왜곡하는 통념들</h2>
+          <p class="slide-subtitle">우리는 왜 '만들면서 알게 되는' 개념을 쉽게 받아들이지 못할까요? 그것은 창조성에 대한 <span class="highlight">오랜 통념</span> 때문입니다.</p>
+          <div class="slide-content space-y-4">
+            <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-bold text-blue-800">✨ 천재 (Genius)</h3>
+                <p>위대한 예술은 천재성의 산물이라는 믿음. 베토벤이 내면의 음악을 듣고, 미켈란젤로가 돌 속의 천사를 보았다는 전설처럼, 작품은 작가의 머릿속 비전에서 나온다는 생각.</p>
+            </div>
+            <div class="p-4 bg-red-50 rounded-lg">
+                <h3 class="font-bold text-red-800">🤪 광기 (Madness)</h3>
+                <p>예술가에게는 광기가 있다는 개념. 플라톤 시대부터 이어진 '발광하는 시인'의 이미지로, 예술가의 비정상성이 깊은 통찰을 준다고 믿는 경향.</p>
+            </div>
+             <div class="p-4 bg-yellow-50 rounded-lg">
+                <h3 class="font-bold text-yellow-800">🌟 영감 (Inspiration)</h3>
+                <p>신비로운 영감이 창작의 원천이라는 생각. 뮤즈(Muse)의 개념처럼, 창조성은 선택받은 존재만이 받을 수 있는 신성한 힘이라는 믿음.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: Chapter 1 Content 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">천재라는 종교를 넘어서</h2>
+          <p class="slide-subtitle">천재성에 대한 집착은 창조성의 본질을 제대로 이해하지 못하게 만듭니다.</p>
+          <div class="slide-content">
+            <p>하버드대 마저리 가버 교수는 '천재성에 대한 집착'과 '천재가 나타나 우리를 구해줄 거라는 희망'을 <span class="highlight">'중독'</span>으로 규정합니다. 이는 창조성에 대한 사람들의 관심을 그릇된 방향으로 이끕니다.</p>
+             <p class="mt-4 quote-block">천재성에 매혹되기보다 창작 과정에서 발현되는 <span class="highlight">놀라운 가능성</span>에 관심을 돌린다면, 우리는 무엇을 배울 수 있을까? 조금만 초점을 바꾸어본다면, 인간의 성취와 발전을 바라보는 새로운 시각을 갖게 될 것이다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Chapter 1 Content 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">익숙하지만 의식하기 힘든 것</h2>
+          <p class="slide-subtitle">대부분의 창작자들은 '만들면서 알게 된다'는 개념을 이미 인식하고 있습니다.</p>
+          <div class="slide-content">
+            <p>인터뷰에 응한 사람들은 대부분 "맞네요. 정말 그랬어요. 제 작품과 인생은 만들면서 알게 되는 과정이었어요. 여태껏 그렇게 생각해본 적이 없었다는 게 신기하네요." 와 같이 답했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">🤔 왜 이 관점은 널리 알려지지 않았을까?</h3>
+              <p class="mt-2">만드는 것과 아는 것의 관계를 깊이 연구한 사람은 거의 없었습니다. 그 이유는 바로 앞서 언급한 <span class="highlight">창조에 관한 고정관념</span> 때문일 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Section Title - Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">이야기의 세계 ✍️<br><span class="highlight">소설가, 시나리오 작가, 영화감독</span></h2>
+          <p class="slide-content">글로 새로운 세계를 빚어내는 작가들의 작업에 초점을 맞춥니다. 백지 앞에서 어떻게 첫발을 내딛고, 작품의 물꼬를 트는 시작점을 찾는지 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 15: Chapter 2 Content 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">어떻게 시작할까, <span class="highlight">백지 위에서 한 발 앞으로</span></h2>
+          <p class="slide-subtitle">작가들은 말 그대로 백지를 마주하는 순간의 기분을 잘 압니다. 이때의 시작점은 각양각색입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">에이미 벤더 (소설가)</h3>
+              <p>강제적으로 시작점을 만듭니다. "저는 매일 글을 써요. 무조건 한 시간 반 동안은 책상 앞에 앉아 있기로 했어요." <span class="highlight">지루함</span>을 받아들이자 글이 바뀌기 시작했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">에이미 탄 (소설가)</h3>
+              <p>'윤리적 모호함'에 대한 의문이 시작점입니다. "저는 질문을 하며 힌트와 단서를 얻어요." <span class="highlight">핵심 질문</span>에 집중하며 글을 시작합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Chapter 2 Content 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소극적 수용력: <span class="highlight">불확실성에 머무는 능력</span></h2>
+          <p class="slide-subtitle">낭만주의 시인 존 키츠가 셰익스피어를 설명하며 사용한 '소극적 수용력(negative capability)'은 창작의 시작과 맞닿아 있습니다.</p>
+          <div class="slide-content">
+             <div class="quote-block">
+                <p>소극적 수용력이란 '성급하게 증명하려 들거나 이유를 찾으려 애쓰지 않고, <span class="highlight">불확실하거나 놀랍거나 회의적인 상태에 머무를 수 있는 능력</span>'입니다.</p>
+             </div>
+             <p class="mt-4">이는 미지의 상태를 순순히 받아들이는 가운데 발견을 경험한다는 것을 뜻합니다. 창조의 가능성은 쉽게 정의되지 않는 공간에서 시작됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 2 Content 3 -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">작품의 뼈대, <span class="highlight">우주론 창조하기</span></h2>
+          <p class="slide-subtitle">에이미 탄: "작가는 자기가 그릴 세계의 우주론을 만들어야 해요."</p>
+          <div class="slide-content">
+            <p>우주론은 창작을 위한 환경이자 틀입니다. 탄은 양자역학을 비유로, 작품 속 인물들을 움직이는 힘(작동 원리)을 글을 쓰면서 추적해나가는 과정이라고 설명합니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">뜻밖의 우연과 기회 🎲</h3>
+              <p class="mt-2">창작 과정에서 우연히 발견한 소재나 인물이 작품의 핵심 요소가 되기도 합니다. 작가는 글을 쓰면서 <span class="highlight">기회로 가득 찬 우주 안으로</span> 들어갑니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Chapter 2 Content 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창작자의 <span class="highlight">준비된 즉흥성</span></h2>
+          <p class="slide-subtitle">미디어 아티스트 다이애나 세이터의 작업은 치밀한 계획과 현장의 즉흥성이 어떻게 결합하는지 보여줍니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">계획된 촬영 📜</h3>
+              <p>멸종위기 코뿔소 '수단'을 촬영할 때, 세이터는 '코뿔소 뒤로 해가 저무는 장면'이라는 명확한 이미지를 가지고 있었습니다. 이는 촬영의 지침이 되었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">즉흥적 발견 🌠</h3>
+              <p>체르노빌에서 야생마 무리를 촬영할 때, 그녀는 '버려진 도시 길거리의 야생마'를 상상만 했습니다. 하지만 현장에서 우연히 그 장면을 마주쳤고, 작은 카메라로 즉시 포착했습니다.</p>
+            </div>
+          </div>
+          <p class="mt-6 text-center font-semibold">"기회는 <span class="highlight">준비된 자에게</span> 찾아온다." - 루이 파스퇴르</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: Chapter 2 Content 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">언제 수정을 멈추고 마침표를 찍어야 할까?</h2>
+          <p class="slide-subtitle">수정(revision)은 '새로운 시각(new vision)'을 갖는 것, 즉 고쳐서 더 낫게 만드는 과정이자 <span class="highlight">앎에 이르는 방법</span>입니다.</p>
+          <div class="slide-content">
+            <p>소설가 톰 스턴은 '임신한 남자'라는 이미지를 떠올린 후, 이미 쓴 50페이지를 처음부터 다시 쓰기 시작했습니다. 새로운 개념이 떠오르자, 인물의 반응과 이야기의 방향이 모두 바뀌었습니다.</p>
+            <p class="quote-block mt-4">"수정이라는 건 없고, <span class="highlight">다시 쓰기(rewriting)만 있는 건 아닐까요?</span> 써놓은 글을 고치는 게 아니라, 새로운 눈으로 다시 보고, 다시 쓰는 거죠." - 조지프 디 프리스코</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Section Title - Chapter 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">그림과 추상의 세계 🎨<br><span class="highlight">화가, 시각예술가, 일러스트레이터</span></h2>
+          <p class="slide-content">창작자는 창작 재료와 어떤 관계를 맺을까요? 화가, 음악가, 시각 예술가들은 다양한 재료를 움직여보며 새로운 가능성과 발견의 길을 열어갑니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 3 Content 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">모르는 상태를 만들기 (Making Not Knowing)</h2>
+          <p class="slide-subtitle">예술가 앤 해밀턴에게 '알지 못하는 상태'는 창작을 위한 <span class="highlight">준비 기간</span>이자, 창작 재료와 <span class="highlight">소통하는 시간</span>입니다.</p>
+          <div class="slide-content">
+            <p>"알지 못하는 상태는 무지의 상태가 아니에요. 우리는 모르는 걸 두려워하죠. 그러나 '아직' 모르는 상태라는 걸 잊지 말아야 해요. 결과 없이도 가능성을 믿고, 가능한 모든 방법을 고려하는 거예요."</p>
+            <p class="mt-4">그녀는 '인식(recognition)'과 '놀라움(surprise)'을 구분합니다. 창작 과정에서 인식에 도달하려면, '나'를 의식하지 않아야 처음의 의도에 매몰되지 않고 <span class="highlight">새로운 가능성</span>을 포착할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Chapter 3 Content 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">공간이라는 재료 🧊</h2>
+          <p class="slide-subtitle">앤 해밀턴은 화가가 캔버스를 다루듯 <span class="highlight">공간</span>을 다룹니다. 그녀에게 공간은 작품의 근본적인 요소입니다.</p>
+          <div class="slide-content">
+            <p>그녀는 공간을 느끼고 이해하기 위해 직접 그곳에 갑니다. "공간의 작동법을 알아야 해요. 시작할 수 있는 유일한 방법은 걷고 느끼는 것뿐이죠."</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">빈 공간(Empty Space)</h3>
+              <p class="mt-2">연극 연출가 피터 브룩의 '빈 공간' 개념과 유사합니다. "빈 공간에 누군가 걸어 들어가고, 그 모습을 다른 누군가가 바라보는 것. 이것이 연극을 구성하는 데 필요한 전부다." 해밀턴 역시 <span class="highlight">'반응하는 공간'</span>의 가능성을 탐색합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: Chapter 3 Content 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시간이라는 재료 ⏳</h2>
+          <p class="slide-subtitle">예술가 에드거 아르세노는 <span class="highlight">시간의 구조</span>를 활용해 창작물을 만듭니다.</p>
+          <div class="slide-content">
+            <p>그의 작품 <아직, 아직, 아직…>은 1981년 벤 베린의 '블랙페이스' 공연 사건을 소재로 합니다. 이 작품은 현재, 1981년, 그리고 20세기 초 보드빌 시대를 오가며 <span class="highlight">시간의 메아리</span>를 만들어냅니다.</p>
+            <p class="mt-4">작품의 핵심은 우연한 강연에서 시작되었습니다. 영상을 본 한 여성 관객의 눈물에서 '관객' 그리고 '보고 있는 사람을 보는 것'이라는 주제를 <span class="highlight">'뜻밖에 발견'</span>하게 됩니다. 이 발견으로 작품은 '관객에 대한 공연'으로 구성됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Chapter 3 Content 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그림의 재료 🖌️</h2>
+          <p class="slide-subtitle">화가들은 창작을 위해 다양한 재료를 탐구합니다. 재료와의 <span class="highlight">대화</span>가 작업의 시작점이 됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">스티븐 빌</h3>
+              <p>"첫 단계에서 필요한 건 아이디어가 아니에요. 그보다는 재료를 민감하게 살피고 그것과 관계를 맺는 게 중요합니다."</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">앤 필드</h3>
+              <p>"저는 재료를 좋아해요. 촉감이 중요해요. 붓, 초크, 잉크의 필압을 느끼고, 소리를 들어요. 냄새도 반드시 맡아야 해요."</p>
+            </div>
+          </div>
+           <p class="mt-6 text-center font-semibold">창작자는 재료와 호응하며 함께 변화하고, 작품을 완성합니다. 이는 <span class="highlight">창작 과정에서만 경험할 수 있는 상호작용</span>입니다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 25: Chapter 3 Content 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">슬럼프와 매너리즘의 늪에서 빠져나오는 방법</h2>
+          <p class="slide-subtitle">"영감은 아마추어를 위한 것이다. 프로는 그저 자리에 앉아 작업을 시작한다." - 척 클로스</p>
+          <div class="slide-content">
+            <p>화가 톰 넥텔은 『거울 나라의 앨리스』를 인용하며, 때로는 가려던 길에서 벗어나 방향을 틀 때 <span class="highlight">비밀의 정원</span>을 발견하게 된다고 말합니다. 익숙한 기법에서 벗어나 새로운 무언가를 '만들어야' 했습니다.</p>
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">웬디 맥노튼의 해결책 ☕</h3>
+                <p class="mt-2">작업이 정체될 때면 갑갑한 작업실에서 벗어나 카페로 갑니다. 그리고 커피잔을 그립니다. "물리적인 이유에서예요. 그저 제 모터를 작동시키고, 손을 움직이게 하려는 거죠." <span class="highlight">행동을 통해서 아이디어를 얻습니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Section Title - Chapter 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">디자인의 세계 🏗️<br><span class="highlight">건축가, 그래픽 디자이너, 자동차 디자이너</span></h2>
+          <p class="slide-content">디자인에서 '만들면서 알게 된다는 것'은 어떤 의미일까요? 디자이너들이 어떻게 문제를 해결하고, 창작 과정에서 앎에 이르는지 살펴봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Chapter 4 Content 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">문제를 해결하는 디자인</h2>
+          <p class="slide-subtitle">대부분의 디자이너들은 자신의 일을 <span class="highlight">문제 해결</span>에 관한 것이라고 말합니다.</p>
+          <div class="slide-content">
+            <p>디자인은 단순히 '보기 좋은' 모양을 만드는 것이 아닙니다. 아이팟은 '공공장소에서 음악을 듣고 싶어하는' 문제를 해결하기 위해 만들어졌습니다. 디자이너는 브랜드 정체성, 글로벌 공급망, 폐기물 관리 등 중요한 사안과 직결된 문제에 중대한 영향을 미치는 존재입니다.</p>
+            <p class="quote-block mt-4">디자인은 만듦(making)을 통한 <span class="highlight">앎(knowing)</span>이라고 정의할 수 있습니다. 본질적으로 '탐구 활동'이며, 이 과정에서 뜻밖의 발견을 하고 기존의 생각을 재검토하게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Chapter 4 Content 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">로고 디자인에 담긴 브랜딩: <span class="highlight">VH1 사례</span></h2>
+          <p class="slide-subtitle">그래픽 디자이너 숀 애덤스는 VH1 로고 디자인을 통해 문제의 본질을 파고들었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🤔 주어진 문제</h3>
+              <p>시청률이 하락하는 VH1 채널의 로고를 새롭게 디자인해달라는 요청.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">💡 발견한 문제</h3>
+              <p>단순히 로고가 문제가 아니었습니다. 채널의 정체성 자체가 불분명했습니다. 애덤스는 근본적인 질문을 던졌습니다: <span class="highlight">"VH1의 정체성은 무엇인가?"</span></p>
+            </div>
+          </div>
+          <p class="mt-6">이 질문을 통해 '미국 팝의 역사를 다룰 수 있는 채널'이라는 핵심 정체성을 발견했고, 'Music First'라는 슬로건을 더해 로고를 완성했습니다. 이는 방송사의 핵심 목표를 정리하고 불필요한 프로그램을 퇴출시키는 계기가 되었습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Chapter 4 Content 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">군살 없는 테슬라 모델S 디자인의 비밀</h2>
+          <p class="slide-subtitle">수석 디자이너 프란츠 폰 홀츠하우젠은 백지상태에서 근본적인 질문으로 디자인을 시작했습니다.</p>
+          <div class="slide-content">
+             <ul class="list-disc list-inside space-y-2">
+                <li>테슬라의 사명을 어떻게 자동차로 보여줄 수 있을까?</li>
+                <li>테슬라가 중시하는 <span class="highlight">효율성</span>이란 무엇일까?</li>
+                <li>이것을 어떻게 시각 언어로 구현할지 고민했죠.</li>
+             </ul>
+             <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">영감의 원천: 사이클 선수 🚴</h3>
+                <p class="mt-2">그는 프로 자전거 선수에게서 영감을 얻었습니다. "선수들은 아주 정교하게 정비된 기계와 마찬가지예요." 군살 없이 다져진 근육질 몸처럼, <span class="highlight">군더더기 없는 효율적인 디자인</span>을 추구했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Chapter 4 Content 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">거장 건축가 프랭크 게리의 호기심</h2>
+          <p class="slide-subtitle">게리에게 건축가가 반드시 갖춰야 할 덕목은 <span class="highlight">호기심</span>입니다. 깊은 호기심에서 나온 질문은 불확실한 창조적 공간으로 들어가는 시작점입니다.</p>
+          <div class="slide-content">
+            <p>"호기심에서 모든 것이 시작돼요. 제가 사용하는 건 탈무드 모델이에요. '질문으로 이어지는 질문'이 핵심이지요."</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+                <li>여기에는 뭐가 적합할까?</li>
+                <li>이곳은 어떤 종류의 공간인가?</li>
+                <li>주변 공간과 어떻게 조화시킬까?</li>
+                <li>사람과 공간이 어떤 관계를 맺을까?</li>
+            </ul>
+            <p class="mt-4">좋은 질문은 <span class="highlight">가능성</span>을 열어주고, 경험은 그 범위를 더 넓혀줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Chapter 4 Content 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">작품과 나누는 대화에 길이 있다</h2>
+          <p class="slide-subtitle">디자이너들은 만들면서 알게 되는 과정에서 여러 <span class="highlight">대화</span>에 참여합니다.</p>
+          <div class="slide-content">
+            <p>디자이너들은 엔지니어, 고객, 개발자 등 사람들과 대화할 뿐만 아니라, 현재 사용되는 기술, 색상, 소재, 다른 디자이너의 작품, 문화, 역사, 시장과 같은 <span class="highlight">개념화된 대상</span>들과도 대화를 나눕니다.</p>
+            <p class="quote-block mt-4">볼보 디자이너 티샤 존슨: "목탄이 종이를 스치는 순간 대화가 시작된다는 거였죠. 선생님은 목탄이 '오, 너는 그렇게 하고 싶어? 그럼 이건 어때?'라고 말을 걸어올 거라고 하셨어요."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Chapter 4 Content 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스케치로 생각하기 ✏️</h2>
+          <p class="slide-subtitle">스케치는 불확실한 창조의 공간에 진입하기 위해 디자이너들이 사용하는 <span class="highlight">'다듬어지지 않은 초기 공정'</span>입니다.</p>
+          <div class="slide-content">
+            <p>프랭크 게리: "저는 스케치를 많이 해요. 하지만 제 스케치는 다른 사람들에게는 의미가 없을 수 있어요. 명확하지도 않고, 봐도 이해가 잘 되지 않을 테니까요. 전 스케치를 하면서 사물에 대해 <span class="highlight">생각하기 시작해요.</span> 다른 사람에게 보여주려고 그리는 게 아니에요."</p>
+            <p class="mt-4">스케치는 아이디어를 발견하기 위해 만들고, 물리적인 형태를 통해 생각하는 과정입니다. 재료를 통해 배우고, 만들면서 알아가는 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: Section Title - Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">즉흥의 세계 🎭<br><span class="highlight">연극배우, 싱어송라이터, 재즈 연주자</span></h2>
+          <p class="slide-content">공연의 유동적인 특성이 가장 잘 드러나는 즉흥 창작(improvisation)은, 그 자체가 만드는 것과 앎의 관계를 설명하는 가장 효과적인 방법입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 34: Chapter 5 Content 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">뮤지션의 작곡법 🎶</h2>
+          <p class="slide-subtitle">즉흥적인 창작은 구조나 맥락 없이는 존재하지 않습니다. 예측하지 못한 것을 만들려면 <span class="highlight">준비</span>가 필요합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">준비된 틀 (Framework)</h3>
+              <p>멜로디 구조, 분위기, 장조와 단조, 심지어 조지 거슈윈의 <서머타임> 같은 기존 곡도 즉흥 연주의 틀이 될 수 있습니다. 틀은 창작 활동이 진행되는 맥락과 구조입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">시작점 (Starting Point)</h3>
+              <p>시작점은 단순히 창작에 진입하는 지점(강한 욕구, 질문 등)입니다. 피아니스트 마티노는 어떤 선입견도 없이 '자신을 비운 채로' 연주를 시작합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 35: Chapter 5 Content 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연주하면서 발견하기</h2>
+          <p class="slide-subtitle">피아니스트 프랜시스 마티노는 연주를 통해 음악을 발견하고, 흥에 겨워 계속 연주하게 됩니다.</p>
+          <div class="slide-content">
+            <p class="mb-4">"음악은 계속해서 발전해요. 그리고 음악이 발전하는 동안 더 좋은 음악이라고 생각되는 것에 매우 깊은 주의를 기울여야 해요."</p>
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">아름다움의 포착 ✨</h3>
+              <p class="mt-2">그는 연주 중에 가장 매력적이라고 생각되는, <span class="highlight">"마음을 움직이는 아름다운 선율"</span>을 인식하고 꽉 붙잡습니다. 그 선율을 기억하고, 정교하게 다듬고, 변주를 찾습니다. 즉흥 연주를 하는 예술가는 연주하면서 틀을 만듭니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Chapter 5 Content 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">즉흥극 연출하는 법</h2>
+          <p class="slide-subtitle">즉흥극 <입구와 출구>는 창작 과정에서 <span class="highlight">규칙과 제약</span>이 어떻게 창조적 기획의 원동력이 되는지 보여줍니다.</p>
+          <div class="slide-content">
+            <p>연출가 파올로 산타루치아는 배우들이 즉흥적으로 연기할 수 있도록 최소한의 상황적 틀(거실과 침실)과 제약(관객이 고른 '듣고 싶지 않은 소리')을 설정합니다.</p>
+            <p class="quote-block mt-4">"이런 규칙들이 모든 사람에게 더 열정적으로 연기할 자유를 주지요, 각자 어떤 책임이 있는지를 알게 되니까요."</p>
+             <p class="mt-4">관객의 참여는 또 하나의 중요한 틀이 됩니다. 관객이 아이디어를 내면서 창작의 동반자가 되고, 이는 배우와 관객의 간격을 좁힙니다. </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Chapter 5 Content 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">말없이 말하는 배우의 몸과 광대의 빨간 코 🔴</h2>
+          <p class="slide-subtitle">자크 르콕 국제연극마임학교에서는 가면을 활용해 말과 표정 없이 <span class="highlight">몸의 표현을 극대화</span>하는 훈련을 합니다.</p>
+          <div class="slide-content">
+            <p>가장 작은 가면인 '광대의 빨간 코'는 배우에게 촉매제이자 잠재력을 발휘하게 하는 도구입니다.</p>
+             <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">비아 네가티바 (Via Negativa)</h3>
+                <p class="mt-2">폴란드 감독 예지 그로토프스키의 개념으로, <span class="highlight">'제거를 통해 표현을 찾는 것'</span>입니다. 익숙한 도구(표정, 말)를 치워버리면, 우리는 다른 수단을 이용하게 되고, 자기 몸에서 나오는 새로운 표현을 보고 놀라게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Chapter 5 Content 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창작의 절정이자 새로운 시작, <span class="highlight">공연</span></h2>
+          <p class="slide-subtitle">라이브 공연은 실시간으로 진행되는 창조 활동입니다. 노래는 부르는 순간 실현되고, 부를 때마다 계속해서 진화합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">폴 레딕</h3>
+              <p>"라이브로 부를 때 노래는 항상 진화해요. 같은 곡을 연주해도 연주자가 바뀌면 새로운 곡처럼 들려요. 그 차이 덕분에 제가 만든 곡에 대해 전혀 몰랐던 뭔가를 알게 돼요."</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">데이브 비디니</h3>
+              <p>"공연은 그 순간에 존재하는 겁니다. 라이브 공연은 태생적으로 즉흥적인 행위예요. 처음부터 다시 만드는 것처럼 느껴지기도 하죠."</p>
+            </div>
+          </div>
+          <p class="mt-6 text-center font-semibold">뮤지션은 스릴을 느끼거나, 연약함을 드러내면서 순간을 발견하고 창조적 행위를 확장합니다. 라이브 공연에서 <span class="highlight">부르는 것 자체가 만드는 과정</span>이 됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 39: Section Title - Chapter 6 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">결국 우리는<br>🌍 <span class="highlight">인생을 만든다</span></h2>
+          <p class="slide-content">창작과 앎의 원리는 예술의 영역을 넘어 우리 삶의 모든 과정에 적용됩니다. 리더십, 교육, 그리고 인생 그 자체를 '만들면서 알아가는 과정'으로 탐구합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Chapter 6 Content 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창작과 뇌 과학 🧠</h2>
+          <p class="slide-subtitle">신경과학은 창작과 앎의 경험에 대한 흥미로운 지식을 제공합니다.</p>
+          <div class="slide-content">
+            <p>재즈 피아니스트의 즉흥연주 시 뇌 활동(fMRI)을 관찰한 결과:</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+              <li><b>활성화 🔥:</b> 자기표현과 관련된 뇌의 <span class="highlight">복내측 전전두피질</span> 활동이 급상승합니다. ('자서전의 중심')</li>
+              <li><b>비활성화 💤:</b> 충동 조절과 관련된 <span class="highlight">배측 전전두피질</span>이 비활성화됩니다. (안전장치 해제)</li>
+            </ul>
+            <p class="mt-4">즉흥적인 창작은 억제를 느슨하게 하여 내면을 들여다보고 그것을 인식하게 하는, 우리가 <span class="highlight">누구인지를 밝혀내는 활동</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 41: Chapter 6 Content 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창작을 통한 배움</h2>
+          <p class="slide-subtitle">'만들면서 알게 되는 원리'는 유치원부터 대학까지 모든 교육 과정에 적용될 수 있습니다.</p>
+          <div class="slide-content">
+             <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">디자인 기반 학습 (DBL) 📐</h3>
+                <p class="mt-2">학생들이 추상적인 개념(예: 『주홍 글자』의 관계, 계급, 분열)을 구체적인 아이디어(공간적으로 표현된 모형 '도시들')와 연결합니다. 학생들은 3차원 구조를 만드는 동안 책을 더 깊이 조사하고 '법치주의, 죄' 등의 개념을 '만들게' 됩니다.</p>
+                <p class="mt-2 font-semibold">이 학습법은 학생들이 <span class="highlight">스스로 배움을 창조하는 사람</span>으로 생각하도록 이끄는 수단입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Chapter 6 Content 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">규칙을 없애는 리더십 🚦</h2>
+          <p class="slide-subtitle">네덜란드 드라흐텐 시의 교통 문제 해결 사례는 '만들면서 알게 되는' 리더십을 보여줍니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">문제</h3>
+              <p>교통사고가 빈번한 교차로. 신호등과 표지판을 추가했지만 사고는 줄지 않았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">해결</h3>
+              <p>디자이너 한스 몬더만은 <span class="highlight">모든 신호등과 표지판, 차선</span>을 없앴습니다. 운전자와 보행자들은 불확실성 속에서 서로를 조심스럽게 살피며 다니기 시작했고, 사고율은 급격히 떨어졌습니다.</p>
+            </div>
+          </div>
+          <p class="mt-6">리더는 하향식 규칙을 줄이고, 사람들이 '자발적으로' 행동하며 최상의 측면을 끌어낼 수 있는 <span class="highlight">공간(틀)</span>을 만들어야 합니다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 43: Chapter 6 Content 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기업가의 북극성 ⭐</h2>
+          <p class="slide-subtitle">성공한 기업가들을 움직이는 것은 명확한 '비전'이 아니라, '북극성'과 같은 <span class="highlight">가치</span>입니다.</p>
+          <div class="slide-content">
+            <p>린다닷컴(Lynda.com)의 창업자 린다 와인먼은 처음부터 명확한 비전이 없었다고 말합니다. 그녀를 이끌어준 것은 두 가지였습니다.</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+              <li><b>생존:</b> 현실적으로 사람들의 요구를 찾아서 만족시키고 시장의 검증을 통과해야 한다는 생각.</li>
+              <li><b>가치관(북극성):</b> '아직' 모르는 이들을 존중하고 그들에게 배움을 나누겠다는 <span class="highlight">교육학에 대한 믿음.</span> 이것이 린다닷컴의 변치 않는 북극성이었습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 44: Chapter 6 Content 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶 또한 예술 작품처럼</h2>
+          <p class="slide-subtitle">"무엇보다도, 당신의 삶을 예술 작품처럼 만들어가야 한다는 점을 기억하라." - 랍비 아브라함 요수아 헤셸</p>
+          <div class="slide-content">
+            <p>우리의 삶에서 '만들면서 알게 되는 것'이란, 어떤 경험을 할 때마다 알지 못하는 것들과 마주하는 것입니다. 신비롭고, 낯설고, 인식하기 어려운 것들의 문턱에 서는 것입니다.</p>
+            <p class="mt-4">창작자는 불확실함의 공간에 들어가, 자신이 배우고 익힌 창작 과정을 통해 발견에 이르게 됩니다. 이를 통해 전에는 보지 못했던 것을 볼 수 있게 됩니다. 그리고 모호하여 알지 못했던 삶의 여러 측면을 이해하게 됩니다.</p>
+             <p class="mt-4 font-bold text-center">결국, 우리는 인생을 만듭니다. 그리고 그 과정에서 차차 삶을 알게 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 만들면서 알게 되는 과정</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">창조성은 천재의 번뜩이는 비전에서 나오는 것이 아니라, 불확실성을 끌어안고 직접 <span class="highlight">만들어보는 행위</span> 속에서 발견되고 발전합니다.</p>
+            <p class="mt-4">작가, 예술가, 디자이너, 그리고 우리 모두는 삶의 모든 영역에서 이 원리를 경험합니다. <span class="highlight">실행하고, 실험하고, 때로는 실패하면서</span> 우리는 비로소 알게 됩니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">창작은 결과가 아닌, 과정 그 자체입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+      <!-- More slides to reach 50+ -->
+
+      <!-- Slide 47: More on Apple Store -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">애플의 핵심 가치: <span class="highlight">인간적인 기술</span></h2>
+          <p class="slide-subtitle">애플 스토어 디자인팀은 브랜드의 핵심 가치를 공간 속에 녹여내야 한다는 것을 깨달았습니다.</p>
+          <div class="slide-content">
+            <p>"애플을 특별하게 만드는 것이 뭘까 생각해보니, 엔지니어가 아닌 평범한 사람들도 '쉽게 접근할 수 있는 기술'이더라고요. 이를테면 인간적인 기술이랄까요. 그게 애플과 다른 브랜드들의 근본적인 차이이자, 애플이 제시하는 핵심 가치였어요."</p>
+            <p class="mt-4">이러한 가치를 바탕으로, 애플 스토어는 <span class="highlight">고객 친화적이고 다가가기 쉬운 매장</span>으로 설계되었습니다. 개방적이고 직관적인 공간, 물리적 배경, 환경, 고객을 응대하는 직원이 모두 그 요소였습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: More on Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">만들면서 알게 되었던 나의 인생 이야기</h2>
+          <p class="slide-subtitle">저자 론 버크먼의 개인적인 경험: 연극 연출을 통해 창조력을 처음으로 느끼다.</p>
+          <div class="slide-content">
+            <p>대학 시절, 연기에는 소질이 없었지만 연출 수업을 통해 '만들면서 알게 되는' 과정을 처음으로 의식적으로 경험합니다. 안톤 체호프의 희극 「곰」을 연출해야 했을 때, 처음에는 무엇을 해야 할지 막막했습니다.</p>
+            <div class="quote-block mt-4">
+              "그런데 연습 장소에 걸어 들어간 순간, 거의 즉각적인 변화가 나타났다. 연습을 시작하자 뭔가가 나를 덮쳐왔다. ... 무대에서 배우들이 실제로 움직이는 모습을 보니 내가 무엇을 해야 할지를 정확히 알 수 있었다. <span class="highlight">나는 만들고 있었다.</span>"
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49: More on Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">각색: <span class="highlight">창의적인 재창조</span></h2>
+          <p class="slide-subtitle">각색 또한 만들면서 알게 되는 원리가 똑같이 적용됩니다. 원작을 단순히 옮기는 것이 아니라, 새로운 것을 발견하고 창조하는 작업입니다.</p>
+          <div class="slide-content">
+            <p>영화 <어댑테이션>의 시나리오 작가 찰리 카우프만은 수전 올리언의 책 『난초 도둑』을 각색하며 극심한 창작의 고통을 겪습니다. 극적인 요소가 거의 없는 원작으로 시나리오를 만드는 것은 불가능해 보였습니다.</p>
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">카우프만의 돌파구 💡</h3>
+                <p class="mt-2">그는 해결책으로, <span class="highlight">『난초 도둑』을 각색하는 시나리오 작가 '찰리 카우프만' 자신을 영화의 주인공으로</span> 만들어 버립니다. 이처럼 과정이 곧 결과물이 되는 것, 이것이 만들면서 알게 되는 가장 균형 잡힌 방식입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50: More on Chapter 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">디자인과 협업: <span class="highlight">대즐 프로젝트</span></h2>
+          <p class="slide-subtitle">디자이너 닉 하퍼마스는 샌디에이고 공항 렌터카 센터 외벽 디자인을 통해 다양한 '대화 상대'와 협업하는 과정을 보여줍니다.</p>
+          <div class="slide-content">
+             <p class="mb-4">처음 의뢰는 단순히 '건물 외벽을 예쁘게 보이게 하는 것'이었습니다. 하지만 그는 상투적인 디자인을 거부하고, 1차 세계대전 군함 위장 무늬인 '대즐 카무플라주(dazzle camouflage)'에서 영감을 얻어 <span class="highlight">'지각을 흔드는 디자인'</span>을 제안합니다.</p>
+             <p>이 아이디어는 건축가, 동료 예술가, 엔지니어(NASA, E-Ink)와의 협업을 통해 태양광으로 구동되는 전자 잉크 타일 외벽이라는 혁신적인 결과물로 발전했습니다. 이 과정은 <span class="highlight">다양한 주체와의 다층적인 대화</span> 그 자체였습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 51: More on Chapter 5 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">싱어송라이터에게는 뭔가 특별한 게 있다</h2>
+          <p class="slide-subtitle">음악가들은 어떻게 창작을 시작할까요? 그들만의 고유한 시작점이 존재합니다.</p>
+          <div class="slide-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-4 rounded-lg bg-gray-50">
+                    <h3 class="font-bold">폴 레딕 (블루스)</h3>
+                    <p>시(詩)를 진입점으로 삼습니다. 시의 형태, 패턴, 운율에서 노래의 불꽃을 찾고, 음악의 구조를 짭니다.</p>
+                </div>
+                <div class="p-4 rounded-lg bg-gray-50">
+                    <h3 class="font-bold">커트 스윙해머 (록)</h3>
+                    <p>리듬과 박자를 활용합니다. 기존에 쓰던 코드를 반복하지 않고, 비대칭 타임 시퀀스를 통해 새로운 화성 조합을 찾습니다.</p>
+                </div>
+                 <div class="p-4 rounded-lg bg-gray-50">
+                    <h3 class="font-bold">데이브 비디니 (록)</h3>
+                    <p>낯선 코드를 이용합니다. 우연히 잘못 기억한 코드를 치는 순간, 새로운 가능성이 열리는 것을 경험했습니다.</p>
+                </div>
+            </div>
+            <p class="mt-4">이처럼 음악가들은 시, 리듬, 낯선 코드 등 <span class="highlight">예술 형식 특유의 촉발 요인</span>을 통해 불확실한 창조의 세계로 들어갑니다.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
