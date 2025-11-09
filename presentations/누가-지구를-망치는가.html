@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>누가 지구를 망치는가 (Oneness vs. The 1%)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🌍</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">누가 지구를 망치는가</h1>
+          <p class="text-xl md:text-2xl text-gray-700">1%가 기획한 <span class="highlight">환상</span>과 그 너머의 진실</p>
+          <p class="mt-4 text-lg text-gray-600">Oneness vs. The 1% by Vandana Shiva</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">📜 목차</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>머리말:</b> 우리 시대의 근본적인 질문들</p>
+            <p><b>1. 전체(Oneness) vs 1%:</b> 두 세계관의 충돌</p>
+            <p><b>2. 1%의 도구, 금융:</b> 어떻게 돈이 돈을 버는가</p>
+            <p><b>3. 1%의 도구, 기술:</b> 독점과 통제의 제국</p>
+            <p><b>4. 민주주의의 전복:</b> 1%는 어떻게 우리를 지배하는가</p>
+            <p><b>결론:</b> 자유와 미래를 위한 씨앗 심기</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title - 머리말 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">머리말</p>
+          <h2 class="slide-title">우리 시대의 <span class="highlight">근본적인 질문</span> 🤔</h2>
+          <p class="slide-content">산다는 것, 잘산다는 것은 무엇인가? <br>지식, 생태, 경제, 자유, 민주주의는 무엇이며 우리의 미래는 어떻게 될 것인가? <br> 이 책은 시대가 요구하는 이 질문들에서 시작합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: 머리말 내용 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">지배하는 <span class="highlight">1%</span>, 파괴되는 지구</h2>
+          <p class="slide-subtitle">전 세계 인구의 1%가 부와 권력을 통제하며 지구와 나머지 사람들의 삶을 파괴하고 있습니다.</p>
+          <div class="slide-content">
+            <p>이들은 자신들의 행동에 대한 책임감이 없으며, '환상'을 창조하는 방법을 통해 인간과 지구를 별개의 존재로 취급합니다. 이 환상 속에서 1%와 나머지는 서로 무관한 존재로 전락합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: 머리말 내용 2 - 부의 집중 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">가속화되는 <span class="highlight">부의 불평등</span> 📉</h2>
+          <p class="slide-subtitle">세계 하위 50%의 부와 맞먹는 부를 소유한 억만장자의 수는 급격히 감소했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div>
+              <h3 class="font-bold text-2xl">2010년</h3>
+              <p class="text-4xl font-black mt-2">388명</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl">2017년</h3>
+              <p class="text-4xl font-black mt-2 text-red-600">8명</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8">이러한 부의 집중은 우연이 아니며, 1%가 사용하는 <span class="highlight">금융</span>이라는 도구의 결과입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: 머리말 내용 3 - 금융의 역할 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">금융: 1%의 <span class="highlight">주구(走狗)</span> 🐺</h2>
+          <p class="slide-subtitle">금융은 1%의 명령을 따르는 암세포와 같습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg text-center">금융에 입력된 명령</h3>
+            <p class="mt-4 text-center text-lg">짓밟고, 파괴하며, 집적하고, 축적하라. <br> 암세포처럼 끝없이 <span class="highlight">융합, 합병, 집중</span>하며 성장하여 결국 유기체(지구와 사회)를 파괴할 것이다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: 머리말 내용 4 - 우리의 선택 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">인류는 <span class="highlight">운명의 기로</span>에 서 있다  crossroads.</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+            <div class="p-6 border-2 border-red-500 rounded-lg">
+              <h3 class="font-bold text-xl mb-2">선택 1: 절멸</h3>
+              <p>하나의 권력(금융계)의 통치를 받으며 '운영체제'에 의해 절멸로 달려갈 것인가?</p>
+            </div>
+            <div class="p-6 border-2 border-green-500 rounded-lg">
+              <h3 class="font-bold text-xl mb-2">선택 2: 전체(Oneness)</h3>
+              <p>지구 공동체와 인류 공동체를 아우르는 <span class="highlight">전체(Oneness)</span>가 힘을 모아 운영체제의 전원을 끌 것인가?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Section Title - 1장 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장: 1퍼센트 VS 지구 공동체, 인류 공동체</p>
+          <h2 class="slide-title">전체(Oneness)와 <span class="highlight">분리(Separation)</span></h2>
+          <p class="slide-content">우리는 한 가족, 지구 공동체이자 인류 공동체입니다. 우리는 다양한 존재이면서 지성, 창의력, 연민으로 연결됩니다. 1%는 이러한 연결을 끊고 분리를 통해 지배하려 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 9: 1장 내용 1 - 다양성과 연결된 자유 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">다양성과 <span class="highlight">연결된 자유</span> 🕊️</h2>
+          <p class="slide-subtitle">하나됨(Oneness)은 우리 존재의 근원이며, 상호 연결성입니다. 생명과 자유는 하나입니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li><b>생물 다양성:</b> 나무와 식물은 산소를, 인간과 동물은 이산화탄소를 제공하며 탄소 순환을 이룹니다.</li>
+              <li><b>토양의 생명:</b> 균근 균류는 식물에 영양분을 공급하고, 유익한 균류는 인간과 동물에게도 유익합니다.</li>
+              <li><b>연결성에서 오는 연민:</b> 상호 연결성에 대한 인식은 자연스럽게 연민을 낳습니다. 이것은 억만장자의 '자선활동'과는 다릅니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: 1장 내용 2 - 숲의 교훈 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">숲이 가르쳐주는 <span class="highlight">민주주의</span> 🌳</h2>
+          <p class="slide-subtitle">인도 사상가 타고르는 숲에서의 삶을 문화적 진화의 가장 높은 형태로 보았습니다.</p>
+          <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+            <h3 class="font-bold text-lg"><i class="fa-solid fa-tree mr-2"></i>숲의 교훈</h3>
+            <p class="mt-2">숲은 생물다양성의 창고이자 민주주의 학교입니다. 다른 존재들과 공간을 공유하며 생명의 그물망 속에서 각자의 생계를 유지하는 법을 가르칩니다. <span class="highlight">참여 민주주의</span>의 살아있는 모델입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: 1장 내용 3 - 생명은 스스로 조직한다 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생명은 스스로 조직하고, <span class="highlight">생명은 지혜롭다</span> 🧠</h2>
+          <p class="slide-subtitle">모든 세포, 모든 존재는 자율적·자기생산적·자조적이며, 자유롭고 역동적으로 진화합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">자기생산적 체계 (Autopoiesis)</h3>
+              <p>살아있는 체계는 내부에서 조직됩니다. 서로 연결되어 있고 분리할 수 없습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">타자생산적 체계 (Allopoiesis)</h3>
+              <p>반면 기계는 외부에서 조립되고 통제됩니다. 1%는 살아있는 유기체(종자 등)를 기업이 '발명한' 기계로 재정의합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 12: 1장 내용 4 - 생태-아파르트헤이트 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생태-아파르트헤이트: <span class="highlight">인간과 자연의 분리</span></h2>
+          <p class="slide-subtitle">지난 2세기 동안 인간과 지구를 인위적으로 분리하는 '생태-아파르트헤이트'라는 지적 구조가 형성되었습니다.</p>
+          <div class="slide-content">
+            <p>기계론적 패러다임 속에서 자연은 죽은 물질, 착취의 대상인 원료로 전락했습니다. 지구가 살아있다는 자각에 기반한 과학적 사고는 비과학, 심지어 반과학으로 치부되었습니다. 이것이 1%가 세계를 지배하는 경제, 정치, 과학, 기술 체계의 기반이 되었습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 13: 1장 내용 5 - 경제학과 생태학 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">같은 뿌리, 다른 길: 경제학과 생태학 🏛️</h2>
+          <p class="slide-subtitle">두 용어는 모두 집을 의미하는 그리스어 '오이코스(oikos)'에서 파생되었습니다.</p>
+          <div class="slide-content mt-8 text-center">
+            <p class="text-2xl">생태학 (Ecology) = <span class="font-bold">가정의 과학</span></p>
+            <p class="text-2xl mt-4">경제학 (Economy) = <span class="font-bold">가정 관리에 관한 학문</span></p>
+            <p class="mt-8 text-xl">경제학이 생태학에 반할 때, 우리는 우리의 집인 <span class="highlight">지구를 잘못 관리하게 됩니다.</span> 그 결과가 바로 기후 위기, 물 위기, 생물다양성 위기입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: 1장 내용 6 - 칩코 운동 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저항의 상징, <span class="highlight">칩코(Chipko) 운동</span> 🤗</h2>
+          <p class="slide-subtitle">히말라야 지역 여성 농민들이 숲을 수호하기 위해 벌인 비폭력 평화 운동. '칩코'는 '껴안다'는 의미입니다.</p>
+          <div class="slide-content">
+            <p>벌목은 산사태와 홍수, 물 부족을 유발했습니다. 여성들은 나무를 보호하기 위해 "나무를 베려면 먼저 나를 죽여라"고 외치며 나무를 껴안았습니다. 숲이 제공하는 진정한 가치는 목재가 아니라, 샘물, 가축 사료, 연료임을 알고 있었습니다.</p>
+            <div class="mt-6 p-4 bg-gray-100 rounded-lg italic text-center">
+              "이 아름다운 떡갈나무와 진달래가 우리에게 시원한 물을 줍니다. 이 나무를 자르지 마세요."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: 1장 내용 7 - 1%의 제국 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1%의 제국: <span class="highlight">분리, 폭력, 멸종</span> 帝国</h2>
+          <p class="slide-subtitle">'현상 유지'는 1%의 지배를 의미합니다. 이는 분리의 이념을 내세워 생물종, 문화, 공동체를 멸종으로 몰아넣습니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li><b>분리는 폭력이다:</b> 다른 존재와 인간을 식민화하고, 정복하고, 착취하고, 분할하려는 생각은 권력자들이 만든 환상입니다.</li>
+              <li><b>3가지 분리:</b> ①인간과 자연의 분리, ②계급, 인종, 성별에 따른 인간과 인간의 분리, ③통합적 인간 존재와 자아의 분리.</li>
+              <li><b>채굴주의(Mining):</b> 과학, 경제, 인간의 '진보'로 정의되며, 자연과 사회의 자기조직화 능력을 부인하고 착취를 정당화합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Section Title - 2장 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장: 1퍼센트의 앞잡이</p>
+          <h2 class="slide-title">금융: <span class="highlight">돈으로 돈을 버는 기술</span> 💸</h2>
+          <p class="slide-content">1% 경제 모델에서 '누가 무엇을 생산하는가'는 중요하지 않습니다. 오직 '돈 버는 도구'에 대한 질문만이 남습니다. 이것이 바로 '이재학(chrematistics)'입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 17: 2장 내용 1 - 금융 경제 vs 실물 경제 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">금융 경제 vs <span class="highlight">실물 경제</span></h2>
+          <p class="slide-subtitle">금융 경제는 실물 경제보다 20~50배 더 큽니다. 이는 무역의 경제가 아닌 투기의 경제입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">금융 경제</h3>
+              <p>초첨단 인프라를 통해 하루 수조 달러가 규제 없이 이동합니다. 실물 경제를 추월하고 말라붙게 만듭니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">실물 경제</h3>
+              <p>실제 노동을 통해 상품과 서비스를 생산하고 교환하는 경제. 과거 화폐는 이 교환의 수단에 불과했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: 2장 내용 2 - 워렌 버핏의 사례 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">버핏의 부: <span class="highlight">확률을 이용한 도박</span> 🎲</h2>
+          <p class="slide-subtitle">워렌 버핏은 어떻게 거부가 되었을까요? 그는 공무원 보험 회사와 '풋옵션 매도' 전략을 통해 부를 축적했습니다.</p>
+          <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+            <h3 class="font-bold text-lg">카지노와 보험 회사</h3>
+            <p class="mt-2">두 기업 모두 <span class="highlight">확률</span>을 사용하여 이윤을 창출합니다. 거의 발생하지 않는 사건(보험 사고)을 보장하여 이윤을 얻습니다. 시카고 상업거래소 데이터에 따르면 옵션 상품의 76.5%가 아무 가치 없이 만료됩니다. 보험 회사의 소득은 100% 확실하게 보장됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 19: 2장 내용 3 - 풋옵션 매도 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">버핏의 전략: <span class="highlight">풋옵션(Put Option)</span> 매도</h2>
+          <p class="slide-subtitle">1993년, 버핏은 코카콜라 주식 500만 주에 대한 풋옵션 계약 5만 개를 판매하여 750만 달러를 선취했습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">시나리오 1: 주가 상승/유지</h3>
+              <p>만기일에 코카콜라 주가가 35달러(보험가액)보다 높으면, 버핏은 판매대금 750만 달러를 그대로 갖습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">시나리오 2: 주가 하락</h3>
+              <p>주가가 하락하면, 버핏은 750만 달러를 유지한 채 시장가보다 낮은 가격에 주식을 매입할 기회를 갖습니다.</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8">결과적으로 그는 어떤 경우에도 이익을 봅니다. 풋옵션 판매자들은 <span class="highlight">경제 붕괴의 유일한 생존자</span>입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 20: 2장 내용 4 - 뱅가드 그룹 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 투자 펀드 함대: <span class="highlight">뱅가드(Vanguard)</span> 🚢</h2>
+          <p class="slide-subtitle">뱅가드는 전 세계 억만장자들이 뒤에 숨어 모습을 감추는 '투자자의 소유' 기업입니다.</p>
+          <div class="slide-content">
+            <p>자산 규모는 전체 헤지펀드 산업과 맞먹으며, 어떤 대기업을 들여다봐도 그 회사의 주식 지분을 가장 많이 보유한 회사는 뱅가드입니다. (예: Apple, Microsoft, Amazon, Facebook 등)</p>
+            <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+              <h3 class="font-bold text-lg">성장 신화 📈</h3>
+              <p>2003년 뱅가드 웰링턴 펀드의 자산은 약 3만 달러였습니다. 오늘날 뱅가드 그룹의 운용 자산은 7조 달러가 넘습니다. 이것이 바로 <span class="highlight">금융화가 부리는 마법</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Section Title - 3장 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장: 1퍼센트의 앞잡이</p>
+          <h2 class="slide-title">기술: 독과 <span class="highlight">통제의 도구</span> 🔬</h2>
+          <p class="slide-content">악덕 자본가와 유독성 카르텔은 어떻게 우리의 식량과 지구를 독으로 물들이는가. 기술은 중립적이지 않으며, 1%의 지배를 강화하는 도구로 사용됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 22: 3장 내용 1 - 유독성 카르텔 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">유독성 카르텔의 탄생 <span class="highlight">☠️</span></h2>
+          <p class="slide-subtitle">악덕 자본가들의 자금과 석유가 금융, 그리고 유독성 기술과 만났습니다.</p>
+          <div class="slide-content">
+            <p>제2차 세계대전 중 IG 파르벤(IG Farben) 실험실에서 개발된 유독성 화학물질(강제수용소 학살용)이 종전 후 농화학물질로 탈바꿈했습니다. 이로 인해 전 세계 농민들은 산업 농업 방식에 종속되었습니다.</p>
+            <p class="mt-4">전쟁에서 활약했던 몬산토, 바이엘 등 유독성 카르텔은 최근 다시 거대 합병을 추진하며 <span class="highlight">현대판 IG 파르벤</span>으로 거듭나고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 23: 3장 내용 2 - 몬산토의 불법 재배 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">몬산토의 인도 침공: <span class="highlight">불법 Bt 목화</span></h2>
+          <p class="slide-subtitle">몬산토는 인도에서 Bt 기술의 처참한 실패를 맛봤지만, 또 다른 유독성 제품인 '라운드업 레디 Bt 목화'를 불법으로 퍼뜨리고 있습니다.</p>
+          <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+            <h3 class="font-bold text-lg">라운드업(Roundup) 제초제</h3>
+            <p class="mt-2">주성분인 글리포세이트는 세계보건기구(WHO)에서 <span class="highlight">'2A등급 발암물질'</span>로 지정했습니다. 미국에서는 수천 명의 암 환자가 몬산토를 고소했으며, 유럽에서는 사용 금지 움직임이 활발합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: 3장 내용 3 - 디지털 제국 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신흥 악덕 자본가와 <span class="highlight">디지털 제국</span> 👑</h2>
+          <p class="slide-subtitle">빌 게이츠는 현대판 콜럼버스입니다. 그의 제국은 500년간 이어진 식민 전통의 맥을 잇고 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">과거의 문명화 임무</h3>
+              <p>콜럼버스는 교황의 지원을 받아 비기독교권 사회를 정복하고 가톨릭으로 개종시키는 임무를 수행했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">오늘날의 문명화 임무</h3>
+              <p>빌 게이츠는 GMO와 디지털 독재를 강요합니다. 그는 다원주의 세계의 사람들을 <span class="highlight">'디지털 야만인'</span>으로 폄하하고, 1%의 제국으로 끌어들이려 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 25: 3장 내용 4 - 하나의 농업 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1%의 비전: <span class="highlight">하나의 농업, 하나의 과학</span></h2>
+          <p class="slide-subtitle">빌 게이츠와 마크 저커버그는 스마트폰과 무료 인터넷 서비스를 이용해 농민과 소외된 사람들을 데이터 공급원으로 만듭니다.</p>
+          <div class="slide-content">
+            <p>스마트폰의 지시를 기다리는 농민은 스스로 학습할 역량을 잃고 기술의 노예가 됩니다. 페이스북의 '프리 베이직스'는 사용자가 접근할 정보를 페이스북이 결정합니다. 이는 <span class="highlight">개인정보보호와는 거리가 먼 '자유'</span>입니다.</p>
+            <p class="mt-4">빅데이터는 지식이 아니며, 정보 비만과 통제 수단에 불과합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 26: 3장 내용 5 - 생물해적질 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">디지털 해적질: <span class="highlight">생물해적질(Biopiracy)</span> 🏴‍☠️</h2>
+          <p class="slide-subtitle">농민들이 수천 년에 걸쳐 길러낸 기후 회복력이 뛰어난 종자는 인류의 공유지입니다.</p>
+          <div class="slide-content">
+             <p>하지만 기업과 빌 게이츠 재단은 이 종자들을 공공 유전자 은행에서 가져다가 유전체 지도를 작성하고, 특정 형질에 대한 특허를 취득합니다. 이는 농민들의 지식을 훔치는 <span class="highlight">디지털 형태의 생물해적질</span>입니다. 이들은 '혁신'이라는 이름으로 포장됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: 3장 내용 6 - 유전자 드라이브 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 GMO: <span class="highlight">유전자 드라이브</span> 🧬</h2>
+          <p class="slide-subtitle">종결자 기술에서 몰살자 기술로: 유전자 드라이브는 '돌연변이 연쇄 반응' 또는 '유전자 폭탄'이라 불립니다.</p>
+          <div class="mt-8 p-6 bg-yellow-50 border border-yellow-300 rounded-lg">
+             <h3 class="font-bold text-lg text-red-700">⚠️ 경고</h3>
+             <p class="mt-2">미국 국립과학원은 "유전자 드라이브 변형 유기체를 풀어놓으면 <span class="highlight">표적 생물종의 멸종</span> 또는 개체수의 급격한 감소가 유발될 수 있다"고 경고합니다. 빌 게이츠 재단과 미 국방부는 이 기술의 주요 후원자입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Section Title - 4장 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장: 1퍼센트가 민주주의를 전복하는 방법</p>
+          <h2 class="slide-title">선택의 시간: <span class="highlight">하나됨 또는 멸종</span></h2>
+          <p class="slide-content">우리는 1%가 닦아놓은 길을 따라 멸종으로 갈 것인가, 아니면 지구 공동체의 구성원으로서 다른 길을 선택할 것인가? 실재의 부활은 우리 손에 달려 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 29: 4장 내용 1 - 간디의 세 가지 원칙 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저항의 원칙: <span class="highlight">간디의 가르침</span> 🙏</h2>
+          <p class="slide-subtitle">자유를 쟁취하기 위한 투쟁과 실천에서 얻은 세 가지 원칙은 우리의 영감이 됩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 border-2 rounded-lg">
+              <h3 class="font-bold text-xl">스와라지 (Swaraj)</h3>
+              <p>자조, 자치, 자유로운 자기생산</p>
+            </div>
+            <div class="p-4 border-2 rounded-lg">
+              <h3 class="font-bold text-xl">스와데시 (Swadeshi)</h3>
+              <p>자립, 지역 경제 창출</p>
+            </div>
+            <div class="p-4 border-2 rounded-lg">
+              <h3 class="font-bold text-xl">사티아그라하 (Satyagraha)</h3>
+              <p>진리의 힘, 창조적 시민 불복종</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 30: 4장 내용 2 - 스와라지 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스와라지: 진정한 <span class="highlight">자유의 부활</span></h2>
+          <p class="slide-subtitle">우리는 고립된 원자가 아니라 상호 연결된 존재입니다. 인간의 자유는 지구의 자유와 불가분의 관계입니다.</p>
+          <div class="slide-content">
+            <p>자유는 자조, 자기생산입니다. 외부에서 강요된 균일성이 아닌, 내면에서 비롯된 자치(Self-rule)입니다. 간디는 "우리가 우리 자신을 지배하는 법을 배우면 그것이 바로 스와라지이다"라고 말했습니다. 이는 중앙집중식 통치와 강압으로부터의 자유를 의미합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: 4장 내용 3 - 스와데시 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스와데시: 진정한 <span class="highlight">부와 복리의 부활</span> 🌾</h2>
+          <p class="slide-subtitle">스와데시는 지역 생활 경제, 경제 주권을 의미합니다. 1%를 위한 경제가 아닌 99%를 위한 경제를 창조하는 것입니다.</p>
+          <div class="slide-content">
+            <p>진정한 부의 부활은 <span class="highlight">공유지의 회복</span>을 통해 이루어져야 합니다. 세계화와 무역 자유화라는 불공정한 규칙을 재검토하고, 강요된 세계화에서 벗어나 지방화를 이루는 전환이 필요합니다. 이는 환경을 보호하고, 모두를 위한 진정한 복리를 늘리는 길입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: 4장 내용 4 - 사티아그라하 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사티아그라하: 진정한 <span class="highlight">저항과 민주주의의 부활</span></h2>
+          <p class="slide-subtitle">사티아그라하는 '진리의 힘'입니다. 지구를 파괴하고 자유를 강탈하는 부당한 법과 체계에 대한 비협조, 비참여입니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">비자 사티아그라하 (종자 사티아그라하)</h3>
+            <p class="mt-2">"우리는 자연과 조상으로부터 이 씨앗을 물려받았다. ...우리의 고귀한 의무를 방해하는 어떠한 법도 따르지 않을 것이고, 어떠한 기술도 채택하지 않을 것이다. 우리는 계속 우리의 씨앗을 보관하고 공유할 것이다."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: 4장 내용 5 - 지구민주주의 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리 시대의 스와라지: <span class="highlight">지구민주주의</span> 🌐</h2>
+          <p class="slide-subtitle">경제민주주의를 지구민주주의에 연결해야 합니다. 하나의 인류공동체로서 생각하고 행동하는 것입니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li>지구가 파괴되면 인간은 번영할 수 없다.</li>
+              <li>어느 하나의 생물종이 다른 생물종을 착취하거나 절멸시킬 수 없다.</li>
+              <li>어느 누구도 다른 사람의 자유, 존중, 존엄을 부정함으로써 '위대'해질 수 없다.</li>
+            </ul>
+            <p class="mt-4">지역의 민중은 <span class="highlight">분권민주주의</span>를 통해 거버넌스의 원칙을 재정의하며 세계화에 맞서고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 추가 슬라이드 생성 (50개 이상을 위해) -->
+
+      <!-- Slide 34: 1% 경제의 특징 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1% 경제의 <span class="highlight">핵심 특징</span></h2>
+          <p class="slide-subtitle">1% 경제는 단순한 부의 불평등을 넘어, 특정 세계관과 가치 체계를 상징합니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>- 무한 성장 신화:</b> 유한한 지구에서 무한한 성장이 가능하다는 환상을 기반으로 합니다.</p>
+            <p><b>- 외부화(Externalization):</b> 사회적, 환경적 비용을 사회 전체에 떠넘기고 이익만 사유화합니다.</p>
+            <p><b>- 독점과 중앙집중화:</b> 경쟁을 제거하고 소수의 손에 권력과 부를 집중시킵니다.</p>
+            <p><b>- 생명 경시:</b> 살아있는 모든 것을 이윤 창출을 위한 자원 또는 상품으로 취급합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 35: 살아있는 지식 체계 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기계론적 지식 vs <span class="highlight">살아있는 지식</span></h2>
+          <p class="slide-subtitle">1%는 단일하고 기계적인 지식 체계만을 인정하지만, 세상은 다양한 지식으로 가득 차 있습니다.</p>
+          <div class="slide-content mt-8 p-6 bg-indigo-50 border border-indigo-200 rounded-lg">
+            <h3 class="font-bold text-lg">다양한 지식의 과학자들 👩‍🔬</h3>
+            <p class="mt-2">경작지에서 영양가 있는 음식을 만드는 할머니는 <b>식품 과학자</b>입니다.<br> 아유르베다 의사는 <b>과학자</b>입니다.<br> 토착 원주민은 <b>과학자</b>입니다.<br> 여성은 <b>과학자</b>입니다.<br> 이들은 모두 상호작용하며 진화하는 살아있는 지식을 체화하고 있기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: 실패한 현대 농업 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현대 농업은 <span class="highlight">실패한 모델</span> 👎</h2>
+          <p class="slide-subtitle">산업적 농업 모델은 더 많은 에너지를 사용하면서 지구를 파괴하고 있습니다.</p>
+          <div class="slide-content text-center space-y-4">
+            <p class="text-xl"><b>10배</b> 더 많은 에너지 사용</p>
+            <p class="text-xl">토양, 물, 생물다양성의 <b>75%</b> 파괴</p>
+            <p class="text-xl">온실가스 배출량의 <b>50%</b> 차지</p>
+            <p class="mt-8">기아 문제를 해결한다고 선전되지만, 실제로는 전 세계 생태 및 건강 문제의 <span class="highlight">75%</span>가 산업적 농업에서 기인합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: 양자 이론의 가르침 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">양자 이론과 생태학의 <span class="highlight">공통점</span></h2>
+          <p class="slide-subtitle">칩코 운동의 여성들에게서 배운 생태학과 양자 이론은 같은 진리를 가르쳐주었습니다.</p>
+          <div class="slide-content">
+            <ul class="space-y-3">
+              <li><b>모든 것은 연결된다 (Connectedness):</b> 세상은 분리된 입자가 아닌, 상호작용하는 관계로 이루어져 있습니다.</li>
+              <li><b>모든 것은 잠재력이다 (Potentiality):</b> 양자는 파동이거나 입자일 수 있습니다. 확정되어 있지 않습니다.</li>
+              <li><b>모든 것은 불확정적이다 (Uncertainty):</b> 고정된 실체는 없습니다.</li>
+              <li><b>상호 의존적이다 (Complementarity):</b> 'A이거나 B이다'가 아니라 'A이면서 B이다'가 가능합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: 빌 게이츠의 자선 제국주의 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자선인가, 제국주의인가? <span class="highlight">빌 게이츠의 두 얼굴</span></h2>
+          <p class="slide-subtitle">빌 게이츠는 '자선자본주의'라는 모델을 통해 돈의 힘을 무책임하게 사용합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">겉모습: 자선가</h3>
+              <p>재산을 기부하여 질병과 기아를 해결하려는 자선가로 자신을 포장합니다.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-bold text-lg">실체: 자선 제국주의자</h3>
+              <p>자신의 비전에 따라 미래를 형성하며, 특허를 통해 새로운 독점 구조를 창출합니다. 기부하는 돈보다 더 많은 돈을 벌어들입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: 황금쌀의 진실 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">황금쌀(Golden Rice)이라는 <span class="highlight">신기루</span> 🌾</h2>
+          <p class="slide-subtitle">GMO 기술의 실패를 감추기 위해 107명의 노벨상 수상자까지 동원된 선전 행사</p>
+          <div class="slide-content">
+            <p>황금쌀은 비타민A 결핍을 치료할 기적의 치료제로 알려졌습니다. 하지만 실제 비타민A 제공 효율은 여성이 제공할 수 있는 대안 식품(시금치, 당근 등)에 비해 <span class="highlight">400%나 떨어집니다.</span></p>
+            <p class="mt-4">24년간의 연구에도 불구하고, 수확량 감소와 대사 붕괴 등 예기치 못한 부작용으로 인해 단 한 번도 상업화되지 못했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: 금융 위기의 교훈 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2008년 금융위기: <span class="highlight">누구를 위한 구제인가?</span></h2>
+          <p class="slide-subtitle">서브프라임 위기가 전 세계를 휩쓸었을 때, 사회는 중요한 질문에 답해야 했습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg text-center">
+            <p class="text-xl">"터무니없이 큰돈이 걸린 권력의 도박판에서 <span class="highlight">엘리트를 구해낼 것인가?</span>"</p>
+            <p class="my-4 text-lg">vs</p>
+            <p class="text-xl">"존엄하게 생존할 방법을 찾는 과정에서 <span class="highlight">민중이 감수해야 하는 위험을 처리할 것인가?</span>"</p>
+          </div>
+          <p class="slide-content mt-8">결과적으로, 평범한 사람들은 일자리와 집을 잃었지만 금융시장에서 도박을 벌인 사람들은 더 부유해졌습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 41: 디지털 화폐와 현금 없는 사회 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">디지털화와 <span class="highlight">현금 없는 사회</span> 💳</h2>
+          <p class="slide-subtitle">2016년 인도의 고액권 화폐 유통 중지 조치는 민중의 부를 암호 키 뒤에 가두려는 기업의 모험이었습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">현금 경제</h3>
+              <p>100루피를 100번 교환해도 100루피가 남습니다. 실제 노동을 반영하는 돈이 순환합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">디지털 경제</h3>
+              <p>100루피를 100번 교환하면 거래를 통제하는 사람들이 매번 수수료를 떼어갑니다. 돈이 사라집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: 식량권과 인터넷 접근권 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">기본권의 재정의: 식량권과 <span class="highlight">인터넷 접근권</span></h2>
+          <p class="slide-subtitle">권리는 기업이 제공하는 몇몇 상품 중 선택하는 것이 아닙니다.</p>
+          <div class="slide-content">
+            <p><b>식량권:</b> 식품에 무엇이 들어 있는지 알고, 영양가 있고 맛있는 음식을 선택할 권리입니다. 기업이 내미는 포장 제품을 소비할 권리가 아닙니다.</p>
+            <p class="mt-4"><b>인터넷 접근권:</b> 미디어와 정보를 선택할 권리입니다. 인간을 풍요롭게 만드는 생태적, 정치적, 지적 공간을 선택할 권리입니다. 기업이 '기본'이라고 권하는 정보에 접근할 권리가 아닙니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 43: 미래를 위한 두 가지 길 -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">미래를 위한 두 가지 길: <span class="highlight">호킹과 머스크의 제안</span></h2>
+          <p class="slide-subtitle">스티븐 호킹과 일론 머스크는 인류가 멸종을 피하기 위해 지구를 떠나야 한다고 말합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+            <div class="p-6 border-2 rounded-lg">
+              <h3 class="font-bold text-xl mb-2">길 1: 탈출과 멸종</h3>
+              <p>지구에 머물다 멸종하거나, 다른 행성으로 탈출하여 새로운 식민지를 건설한다.</p>
+            </div>
+            <div class="p-6 border-2 rounded-lg">
+              <h3 class="font-bold text-xl mb-2">길 3: 재생과 공존</h3>
+              <p>우리가 집이라고 부르는 지구에 활력을 되찾아주며, 다른 모든 생명체와 공존하는 길을 선택한다.</p>
+            </div>
+          </div>
+          <p class="slide-content mt-8">탈출은 또 다른 식민화를 부를 뿐입니다. <span class="highlight">지구 시민</span>이 되는 데에는 우주여행이 필요하지 않습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 44: 코로나19와 생명에 대한 전쟁 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">맺음말: 코로나19와 <span class="highlight">생명에 대한 전쟁</span></h2>
+          <p class="slide-subtitle">코로나19는 전쟁의 결과입니다. 그것은 바로 생명에 대한 전쟁입니다.</p>
+          <div class="slide-content">
+            <p>멸종, 생물다양성 상실, 기후 위기, 그리고 코로나19는 모두 서로 연결된 비상사태입니다. 이 모든 것은 인간과 다른 존재가 분리되어 있고, 인간이 다른 존재를 소유하고 통제할 수 있다는 <span class="highlight">기계론적, 군사화된 세계관</span>에서 비롯됩니다.</p>
+            <p class="mt-4">세계화된 산업 농업이 서식지를 침범하고 생태계를 파괴하며, 유전공학으로 생명을 조작할수록 우리는 질병을 통해 더욱 밀접하게 연결될 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 45: 1%의 지배 구조 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1%가 지배하는 <span class="highlight">경제 패러다임</span></h2>
+          <p class="slide-subtitle">오늘날 주된 체계는 1%가 강요하는 경제 패러다임을 바탕으로 구축되었습니다.</p>
+          <div class="slide-content">
+            <p>이러한 체계는 인식론적, 존재론적, 생태학적, 정치적, 경제적, 사회적, 문화적 폭력을 강화합니다. 경제적 양극화는 1%와 99% 사이의 깊은 불평등을 증폭시킬 뿐 아니라, 배제된 사람들에게 잔인한 폭력을 행사하고 삶의 터전에서 수백만 명의 뿌리를 뽑아냅니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 46: 빅데이터와 농업의 미래 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">빅데이터와 <span class="highlight">디지털 농업</span>의 미래</h2>
+          <p class="slide-subtitle">몬산토는 기후 데이터 기업을 인수하며 '데이터'를 새로운 상품으로 판매합니다.</p>
+          <div class="slide-content">
+            <p>몬산토에게 데이터는 단순한 상품이 아니라 '인텔리전스'입니다. 위성과 드론으로 농장을 감시하고, 디지털 농업, 데이터 과학, 유전공학을 결합하여 통합농업 시스템 플랫폼을 구축합니다. 이는 식량 안보가 아닌 <span class="highlight">식량 통제</span>를 위한 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47: 저항 운동의 사례들 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">살아있는 저항 운동들 <span class="highlight">✊</span></h2>
+          <p class="slide-subtitle">전 세계에서 지역 공동체는 1%의 제국에 맞서 자신들의 권리를 위해 싸우고 있습니다.</p>
+          <div class="slide-content">
+            <ul>
+              <li><b>물 민주주의 운동:</b> 코카콜라에 맞서 물을 지키고 갠지스강의 민영화를 막았습니다.</li>
+              <li><b>종자 사티아그라하:</b> 종자 법률을 폐지시키고, 기업의 종자 독점에 맞서고 있습니다.</li>
+              <li><b>식품 주권 운동:</b> 안전하고 건강한 토착 음식에 대한 권리를 지켜내고 있습니다.</li>
+              <li><b>토지 사티아그라하:</b> 기업의 토지 갈취에 맞서 니얌기리 언덕과 싱구르 지역을 지켜냈습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: 진정한 진보란 무엇인가 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무엇이 진정한 <span class="highlight">진보</span>인가?</h2>
+          <p class="slide-subtitle">1%는 사람들의 뿌리를 뽑아내는 일을 '진보의 길'이라고 간주합니다.</p>
+          <div class="slide-content">
+            <p>모든 댐, 모든 고속도로, 모든 도시 확장의 바탕에는 토지를 폭력적으로 갈취하는 과정이 자리 잡고 있습니다. 이로 인해 수많은 난민이 발생하고, 자원 채굴과 생태학적 저하로 인한 전쟁이 벌어집니다.</p>
+            <p class="mt-4">오늘날 삶의 터전에서 강제로 쫓겨난 사람은 전 세계적으로 <span class="highlight">6,560만 명</span>에 달합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 49: 실재의 부활 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">실재의 부활: <span class="highlight">감옥에서 벗어나기</span></h2>
+          <p class="slide-subtitle">실재의 부활은 1%가 만든 보이지 않는 감옥에서 벗어나는 것에서 시작합니다.</p>
+          <div class="slide-content">
+            <p>첫 번째 감옥은 <span class="highlight">기계론적 사고방식</span>입니다. 우리의 세계관을 파편화하고, 우리의 잠재력을 축소하며, 인간과 자연을 쓸모없는 존재로 만듭니다. 이 사고방식을 바꾸는 것이 가장 중요한 단계입니다.</p>
+            <p class="mt-4">살아있는 현실과 지성을 통해 현실을 아는 것에서 실재의 부활은 시작됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 50: 대안 창출의 시급성 -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">대안 창출의 <span class="highlight">시급성</span> 🚨</h2>
+            <p class="slide-subtitle">금융계의 큰손이 창조한 세계에 대한 대안 창출이 시급합니다.</p>
+            <div class="slide-content">
+                <p>그러지 않으면 지구와 인류의 권리를 수호하고 되찾으며 심화하고 확대할 수 없을 것입니다. 자유와 민주주의를 바탕으로 미래를 내다볼 수도 없을 것입니다. 우리는 모든 존재의 살아있는 지성을 발휘하여 지구와 우리 스스로를 치유하고 활력을 되찾아야 할 때입니다.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🌱</div>
+          <h2 class="slide-title">결론: 희망과 자유의 씨앗을 심자</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">우리는 멸종으로 향하는 1%의 길이 아닌, 생명과 공존의 길을 선택할 수 있습니다. 그 힘은 우리 각자가 <span class="highlight">지구 공동체의 일원임을 자각</span>하고, 비폭력적으로 저항하며, 공동으로 창조하는 '하나됨(Oneness)'에서 나옵니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">이것이 바로 실재이며, 우리 앞에 성큼 다가와 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 52: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
