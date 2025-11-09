@@ -260,6 +260,16 @@
     "cover": "assets/covers/넷-포지티브.jpg"
   },
   {
+    "slug": "넘버스-스틱",
+    "title": "넘버스 스틱!",
+    "author": "칩 히스・칼라 스타 지음, 박슬라 옮김",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/넘버스-스틱.html",
+    "cover": "assets/covers/넘버스-스틱.jpg"
+  },
+  {
     "slug": "내가-천-개의-인생에서-배운-것들-돈-명예-시간-그-무엇보다-소중한-것에-관하여",
     "title": "내가 천 개의 인생에서 배운 것들 - 돈, 명예, 시간 그 무엇보다 소중한 것에 관하여",
     "author": "김도윤",

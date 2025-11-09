@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>넘버스 스틱! (Making Numbers Count) Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        border: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">💡</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">넘버스 스틱!</h1>
+          <p class="text-xl md:text-2xl text-gray-700">1초 만에 착 달라붙는 <span class="highlight">숫자 스토리텔링</span>의 기술</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: The Problem -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리는 왜 숫자를 어려워할까요? 🤔</h2>
+          <p class="slide-subtitle">인간의 뇌는 크고 추상적인 숫자를 다루도록 진화하지 않았습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+            <div>
+              <h3 class="font-bold text-2xl mb-2">✔️ 즉시세기 (Subitizing)</h3>
+              <p>우리는 1, 2, 3개 정도의 작은 수는 '세지' 않고 즉시 알아볼 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl mb-2">❌ 큰 숫자</h3>
+              <p>하지만 5개를 넘어가면 뇌는 그저 '<span class="highlight">많다</span>'라고 뭉뚱그려 인식할 뿐입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Million vs. Billion -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'100만'과 '10억'의 차이, <span class="highlight">얼마나 클까요?</span></h2>
+          <p class="slide-subtitle">매일 5만 달러씩 쓴다고 상상해봅시다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-2xl text-center mb-4">💵 100만 달러</h3>
+              <p class="text-4xl text-center font-black">20일</p>
+              <p class="text-center mt-2 text-gray-600">추수감사절에 시작하면 크리스마스 전에 전부 쓰게 됩니다.</p>
+            </div>
+            <div class="card">
+              <h3 class="font-bold text-2xl text-center mb-4">💰 10억 달러</h3>
+              <p class="text-4xl text-center font-black">55년</p>
+              <p class="text-center mt-2 text-gray-600">자녀와 손주가 다 자라는 것을 볼 수 있는 시간입니다.</p>
+            </div>
+          </div>
+           <p class="slide-content text-center mt-8 font-bold">추상적인 숫자는 뇌에 와닿지 않습니다. <span class="highlight">인간적인 경험으로 바꿔야</span> 비로소 그 거대함을 실감합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: The Solution -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🎯</div>
+            <h2 class="slide-title">해결책: 숫자를 번역하라!</h2>
+            <p class="slide-content max-w-4xl mx-auto text-xl">
+                가장 완벽한 숫자 번역에는 <span class="highlight">숫자가 전혀 없다.</span><br>
+                숫자를 직관적으로 인식 가능한 인간적 경험으로 변환해야 합니다.
+            </p>
+        </div>
+      </div>
+
+      <!-- Slide 5: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-4">
+            <p><b>1. 모든 숫자를 번역하라:</b> 사용자 친화적인 숫자의 원칙</p>
+            <p><b>2. 일상에 가까운 숫자를 찾아라:</b> 구체적이고 인간적인 규모로 만들기</p>
+            <p><b>3. 숫자에 감성을 얹어라:</b> 마음을 움직이는 숫자 스토리텔링</p>
+            <p><b>4. 숫자를 미니어처로 만들어라:</b> 복잡함을 단순하게 만드는 지도와 모델</p>
+            <p><b>5. 결론:</b> 당신의 이야기로 만들기</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Section 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">모든 숫자를 <span class="highlight">번역하라</span> 🌐</h2>
+          <p class="slide-content text-xl">숫자는 그 자체로 자연스러운 언어가 아닙니다. 청중이 이해할 수 있는 인간의 언어로 바꿔야 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 7: Principle 1-1 Avoid Raw Numbers -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">원칙 1: <span class="highlight">숫자를 피하라</span></h2>
+          <p class="slide-subtitle">가장 좋은 번역은 숫자를 사용하지 않고도 의미를 전달하는 것입니다.</p>
+          <div class="slide-content">
+            <div class="card mb-6">
+                <h3 class="font-bold text-lg mb-2">숫자 중심 통계 (원본)</h3>
+                <p>전 세계 수자원의 97.5%는 바닷물이며, 담수는 2.5%입니다. 그 중 99% 이상이 빙하와 얼음 형태입니다. 인간이 마실 수 있는 물은 전체의 0.025%에 불과합니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <h3 class="font-bold text-lg mb-2">경험 중심 번역 (개선) 💧</h3>
+                <p>물을 가득 채운 4리터 물병과 각얼음 세 개가 있습니다. 물병의 물은 모두 소금물입니다. 얼음 조각만이 담수입니다. 우리는 <span class="highlight">얼음이 녹은 물방울만</span> 마실 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Principle 1-2 User-Friendly Numbers -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">원칙 2: <span class="highlight">사용자 친화적인 숫자</span>를 찾아라</h2>
+            <p class="slide-subtitle">정확성보다 이해하기 쉬운 단순함이 더 중요할 때가 많습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 9: Rounding -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2-1. 열심히 <span class="highlight">반올림하라</span></h2>
+          <p class="slide-subtitle">정확한 숫자는 기억력과 계산에 부담을 줍니다. 과감한 반올림은 오히려 기억력을 예리하게 만듭니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg text-red-600">❌ 복잡한 숫자</h3>
+              <p class="text-2xl mt-2">미술관은 약 <span class="font-mono">3,810</span> 제곱미터 확장 공간 중 <span class="font-mono">370</span> 제곱미터를 전시에 사용합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-green-600">✔️ 단순한 숫자</h3>
+              <p class="text-2xl mt-2">미술관은 약 <span class="font-mono">4,000</span> 제곱미터 확장 공간 중 <span class="font-mono">400</span> 제곱미터를 전시에 사용합니다.</p>
+            </div>
+          </div>
+            <p class="slide-content text-center mt-8 font-bold">실험 결과, 반올림된 숫자를 본 사람들이 <span class="highlight">1.5배 더 정확하게 기억</span>했습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 10: Avoid Decimals -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2-2. 소수, 분수, 백분율을 <span class="highlight">피하라</span></h2>
+          <p class="slide-subtitle">정수, 즉 실제로 셀 수 있는 숫자는 우리 뇌에 '진짜'처럼 느껴집니다. '바구니 담기' 기법을 사용하세요.</p>
+          <div class="slide-content">
+            <div class="card mb-6">
+                <h3 class="font-bold text-lg mb-2">추상적 표현 (원본)</h3>
+                <p>미국 성인의 <span class="font-mono">40%</span>는 집에서 화장실을 사용한 후 항상 손을 씻지는 않습니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <h3 class="font-bold text-lg mb-2">구체적 정수 (개선) 🤝</h3>
+                <p>당신이 악수를 나눈 <span class="highlight">5명 중 2명</span>은 화장실을 사용한 뒤 손을 씻지 않았을지도 모릅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 11: Example of Fractions -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <h2 class="slide-title">분수는 왜 <span class="highlight">어려울까요?</span></h2>
+            <div class="text-4xl mb-6">🍔</div>
+            <p class="slide-subtitle">A&W 레스토랑은 맥도날드의 '쿼터파운더' (1/4 파운드) 버거보다 더 큰 '서드파운더' (1/3 파운드) 버거를 같은 가격에 출시했습니다.</p>
+            <div class="slide-content max-w-4xl mx-auto">
+                <p class="mb-4 text-2xl">결과는? <span class="highlight">실패했습니다.</span></p>
+                <p class="text-lg">절반 이상의 고객이 4가 3보다 크기 때문에 <span class="font-bold">1/4 파운드가 1/3 파운드보다 더 크다고 착각</span>하고 바가지를 썼다고 생각했습니다.</p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 12: Principle 1-3 Context -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2-3. 청중의 <span class="highlight">이해를 존중하라</span></h2>
+          <p class="slide-subtitle">때로는 전문 지식이 일반 원칙보다 우선합니다. 상대가 잘 알고 익숙한 것을 제시하세요.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+            <div>
+              <h3 class="font-bold text-xl mb-2">일반인에게 👨‍👩‍👧‍👦</h3>
+              <p>4번 중 1번 성공</p>
+              <p class="text-gray-500">(가장 직관적)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">야구 팬에게 ⚾</h3>
+              <p>타율 0.250</p>
+              <p class="text-gray-500">(소수점이 더 익숙함)</p>
+            </div>
+          </div>
+           <p class="slide-content text-center mt-8 font-bold">결국, <span class="highlight">친숙함</span>이 승리합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 13: Section 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">일상에 가까운 숫자를 <span class="highlight">찾아라</span> 🏠</h2>
+          <p class="slide-content text-xl">추상적인 숫자를 친숙하고, 구체적이며, 인간적인 규모의 사물로 바꾸세요.</p>
+        </div>
+      </div>
+
+      <!-- Slide 14: Simple & Familiar Comparison -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">단순하고 <span class="highlight">익숙한 것</span>과 비교하라</h2>
+          <p class="slide-subtitle">청중이 이미 알고 있는 것을 기준으로 새로운 개념을 설명해야 합니다.</p>
+          <div class="slide-content text-center">
+            <h3 class="font-bold text-lg mb-4">코로나19 사회적 거리두기 지침 "1.8미터"</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="card p-4"><p class="text-4xl">🏒</p><p>하키스틱 1개 (캐나다)</p></div>
+                <div class="card p-4"><p class="text-4xl">🏄</p><p>서핑보드 1개 (캘리포니아)</p></div>
+                <div class="card p-4"><p class="text-4xl">🥐</p><p>바게트 2개 (프랑스)</p></div>
+                <div class="card p-4"><p class="text-4xl">🐻</p><p>곰 1마리 (러시아)</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Abstract to Concrete -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">추상적 숫자를 <span class="highlight">구체적 사물로</span></h2>
+          <p class="slide-subtitle">눈에 보이지 않는 개념을 만질 수 있는 물건으로 바꾸면 메시지가 한눈에 보입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Grace Hopper Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">그레이스 호퍼와 <span class="highlight">나노초</span></h2>
+          <p class="slide-subtitle">컴퓨터 과학자 그레이스 호퍼는 '1마이크로초'라는 추상적인 시간을 어떻게 설명했을까요?</p>
+          <div class="slide-content">
+            <div class="card mb-6">
+                <h3 class="font-bold text-lg mb-2">추상적 설명 (원본)</h3>
+                <p>우리는 100만 분의 1초인 마이크로초를 아껴야 합니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <h3 class="font-bold text-lg mb-2">구체적 시각화 (개선) ⚡</h3>
+                <p>그녀는 <span class="highlight">300미터 길이의 전선</span>을 들고 말했습니다. "이것이 당신이 낭비한 1마이크로초 동안 전기 신호가 이동할 수 있는 거리입니다. 거의 축구장 3개 길이죠."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Tumor Size Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">종양 크기를 <span class="highlight">과일로</span> 🍇</h2>
+          <p class="slide-subtitle">의사와 심각한 대화를 나누는 중에는 숫자를 잊기 쉽습니다. 하지만 "포도알 크기"는 잊히지 않습니다.</p>
+          <div class="slide-content text-center">
+            <img src="https://i.imgur.com/KqS1H6H.png" alt="Tumor sizes compared to fruits and nuts" class="mx-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x300/f0f0f0/333?text=Tumor+Size+Chart';" />
+            <p class="mt-4 text-sm text-gray-500">2cm는 땅콩, 3cm는 포도알, 4cm는 호두 크기입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Ever Given Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">수에즈 운하를 막은 배 🚢</h2>
+          <p class="slide-subtitle">길이 400미터인 배는 상상하기 어렵습니다. 더 구체적이고 생생한 이미지가 필요합니다.</p>
+           <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-lg mb-2">단순 설명</h3>
+              <p>컨테이너선 에버기븐호의 선체 길이는 거의 400미터에 달합니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+              <h3 class="font-bold text-lg mb-2">생생한 이미지</h3>
+              <p><span class="highlight">엠파이어 스테이트 빌딩</span>이 옆으로 넘어져 운하를 가로막았다고 상상해보라.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Human Scale -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🚶‍♂️</div>
+            <h2 class="slide-title">모든 것을 <span class="highlight">인간적인 규모(Human Scale)</span>로</h2>
+            <p class="slide-content max-w-4xl mx-auto text-xl">
+               너무 크거나 작은 것은 이해하기 어렵습니다. 우리의 경험에 맞는 규모로 번역해야 합니다.
+            </p>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Human Scale Everest Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">에베레스트 산의 높이, <span class="highlight">얼마나 높을까?</span></h2>
+          <p class="slide-subtitle">우리가 카드 6장을 겹친 높이(1.668mm)라고 상상해봅시다. 10,000:1 축척입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🏔️ 에베레스트 산 (8,848m)</h3>
+              <p>약 8.8미터 높이의 <span class="highlight">다락방 딸린 2층집</span>과 같습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">🗻 K2 (8,611m)</h3>
+              <p>약 8.6미터로, 에베레스트와 고작 <span class="highlight">24cm</span>밖에 차이 나지 않습니다. 거의 똑같은 높이입니다.</p>
+            </div>
+          </div>
+            <p class="slide-content mt-8 font-bold">인간적인 규모로 보면, 세계 1위와 2위의 차이가 생각보다 크지 않다는 통찰을 얻게 됩니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 21: Human Scale Ant Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사막 개미의 여정 🐜</h2>
+          <p class="slide-subtitle">작은 것을 크게 확대하면 그 능력을 더 잘 이해할 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-lg mb-2">원본 스케일</h3>
+              <p>사막개미는 둥지에서 수백 미터 떨어진 곳까지 먹이를 찾아 나섭니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+              <h3 class="font-bold text-lg mb-2">인간 스케일로 확대</h3>
+              <p>인간으로 치면 반경 <span class="highlight">38km</span>에 해당하는 거리입니다. 워싱턴 D.C. 전체를 아우르는 넓이입니다.</p>
+            </div>
+          </div>
+           <p class="slide-content text-center mt-8">더 놀라운 것은, 먹이를 찾은 후 지도도 없이 <span class="highlight">직선으로 둥지에 복귀</span>한다는 사실입니다. 오차 범위는 M&M 초콜릿 한 알 크기입니다!</p>
+        </div>
+      </div>
+      
+      <!-- Slide 22: Section 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">숫자에 <span class="highlight">감성을 얹어라</span> ❤️‍🔥</h2>
+          <p class="slide-content text-xl">숫자를 이해시키는 것을 넘어, 사람들이 행동하게 만들려면 감성적인 연결이 필요합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 23: Florence Nightingale -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감성적 숫자의 선구자: <span class="highlight">나이팅게일</span></h2>
+          <p class="slide-subtitle">그녀는 단지 숫자를 제시한 것이 아니라, 숫자를 통해 분노, 슬픔, 그리고 변화의 필요성을 느끼게 했습니다.</p>
+          <div class="slide-content">
+            <div class="card mb-6">
+                <h3 class="font-bold text-lg mb-2">건조한 통계</h3>
+                <p>크림 전쟁 첫 7개월 동안, 병사 1,000명당 600명이 사망했습니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <h3 class="font-bold text-lg mb-2">감성적 번역</h3>
+                <p>질병으로 인한 사망률이 <span class="highlight">런던 대역병의 사망률</span>을 능가합니다. 이는 거의 범죄에 가깝습니다. 매년 1,100명의 병사들을 솔즈베리 평원에서 <span class="highlight">마구잡이로 사살</span>하는 것과 다름없습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Comparison for Emotion -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">비교를 통해 <span class="highlight">감정 유발하기</span></h2>
+          <p class="slide-subtitle">청중이 이미 감정을 느끼고 있는 대상과 비교하여 그 감정을 새로운 정보로 옮겨오세요.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">사실 전달</h3>
+              <p>그레이트스모키산맥 국립공원은 연평균 <span class="font-mono">1,250만</span> 명의 이용객이 찾는 곳입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">감정 연결</h3>
+              <p>그레이트스모키산맥 국립공원은 2위인 <span class="highlight">그랜드캐니언 국립공원보다 2배 이상</span> 많은 사람이 찾는, 미국에서 가장 인기 있는 국립공원입니다.</p>
+            </div>
+          </div>
+            <p class="slide-content text-center mt-8 font-bold">사람들이 '가보고 싶은 곳'으로 여기는 그랜드캐니언과의 비교는 <span class="highlight">"왜 저긴 저렇게 인기가 많지?"</span>라는 궁금증과 관심을 유발합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 25: Absolute Best -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🏆</div>
+            <h2 class="slide-title">절대적 최고, <span class="highlight">비교 불가</span></h2>
+            <p class="slide-content max-w-4xl mx-auto text-xl">
+               2위와 비교할 수 없을 정도로 압도적인 대상을 설명할 때는, 그 격차를 명확히 보여주어야 합니다.
+            </p>
+        </div>
+      </div>
+      
+       <!-- Slide 26: Amazon River Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아마존 강은 얼마나 <span class="highlight">거대한가?</span></h2>
+          <p class="slide-subtitle">'세계에서 가장 큰 강'이라는 말만으로는 부족합니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">압도적인 규모 보여주기</h3>
+              <p class="mt-2 text-xl">아마존 강은 그다음으로 큰 11개의 강을 <span class="highlight">모두 합친 것보다</span> 더 큽니다.</p>
+          </div>
+          <p class="slide-content mt-8">이런 비교는 단순한 1위가 아니라, 다른 모든 것을 압도하는 '비교 불가능한' 존재임을 각인시킵니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Breaking Expectations -->
+      <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🤯</div>
+            <h2 class="slide-title">기대는 <span class="highlight">깨트리라고</span> 있는 것</h2>
+            <p class="slide-content max-w-4xl mx-auto text-xl">
+               청중의 예상을 설정한 뒤(굳히기), 그 예상을 깨트려(깨트리기) 충격과 놀라움을 선사하세요.
+            </p>
+        </div>
+      </div>
+      
+       <!-- Slide 28: MacBook Air Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스티브 잡스의 맥북 에어 발표 💻</h2>
+          <p class="slide-subtitle">그는 먼저 경쟁사 소니의 노트북이 얼마나 얇은지 칭찬하며 청중의 기대를 설정했습니다.</p>
+          <div class="slide-content">
+            <h3 class="font-bold text-lg mb-4">1. 굳히기: "아주 좋은 노트북입니다. 매우 얇지요."</h3>
+            <img src="https://i.imgur.com/gK0Z43t.png" alt="Sony Vaio thickness" class="mx-auto rounded-lg shadow-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/500x150/f0f0f0/333?text=Sony+Laptop+Thickness';" />
+            
+            <h3 class="font-bold text-lg mb-4">2. 깨트리기: "이것은 맥북 에어입니다."</h3>
+            <img src="https://i.imgur.com/rE39E0s.png" alt="MacBook Air thickness" class="mx-auto rounded-lg shadow-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/500x150/f0f0f0/333?text=MacBook+Air+Thickness';" />
+
+            <p class="text-2xl font-black text-center mt-4">"맥북 에어에서 가장 두꺼운 부분도, <br>소니의 <span class="highlight">가장 얇은 부분보다 더 얇습니다.</span>"</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Your Story -->
+       <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">👤</div>
+            <h2 class="slide-title">"이건 숫자가 아니다. <span class="highlight">당신의 이야기다.</span>"</h2>
+            <p class="slide-content max-w-4xl mx-auto text-xl">
+               추상적인 통계를 청중 개인의 이야기로 전환하여 직접적인 관련성을 느끼게 하세요.
+            </p>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Your Story Example 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">통계를 <span class="highlight">개인적인 경험으로</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-lg mb-2">추상적 통계</h3>
+              <p>법학전문대학원 1년차 중퇴율은 33%입니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+              <h3 class="font-bold text-lg mb-2">개인적 이야기</h3>
+              <p>"<span class="highlight">왼쪽을 보세요. 그리고 오른쪽을 보세요.</span> 3명 중 1명은 내년 가을에 여기 없을 겁니다."</p>
+            </div>
+          </div>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div class="card">
+              <h3 class="font-bold text-lg mb-2">추상적 통계</h3>
+              <p>일생에서 정신질환 진단을 받을 확률은 50%입니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+              <h3 class="font-bold text-lg mb-2">개인적 이야기</h3>
+              <p>"<span class="highlight">여러분과 당신 앞에 앉아 있는 사람 중 한 명</span>은 살아 있는 동안 언젠가 정신질환 진단을 받을 겁니다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 31: Your Story Example 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">행동을 통한 <span class="highlight">개인화</span></h2>
+          <p class="slide-subtitle">청중이 자신의 행동을 상상하게 만들어 데이터에 대한 공감과 이해를 높입니다.</p>
+           <div class="slide-content">
+            <div class="card mb-6">
+                <h3 class="font-bold text-lg mb-2">정보 전달</h3>
+                <p>프리우스 하이브리드로 차를 바꾸면 휘발유를 50% 절약할 수 있습니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <h3 class="font-bold text-lg mb-2">보상 상상하기 🎁</h3>
+                <p>차를 바꾸면, <span class="highlight">1개월 후</span>에는 데이트 상대를 근사한 레스토랑에 데려갈 돈을, <span class="highlight">6개월 후</span>에는 스마트워치를 살 돈을, <span class="highlight">1년 후</span>에는 헬스클럽 연회원권을 구입할 돈을 절약할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Section 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">숫자를 <span class="highlight">미니어처로</span> 만들어라 🗺️</h2>
+          <p class="slide-content text-xl">복잡한 시스템을 이해하기 쉬운 지도나 축소 모델로 만들어 전체 그림을 보여주세요.</p>
+        </div>
+      </div>
+
+      <!-- Slide 33: Map Principle -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">길을 잃지 않도록 <span class="highlight">지도를 그려라</span></h2>
+          <p class="slide-subtitle">지하철 노선도처럼, 지도는 복잡한 현실에서 꼭 필요한 정보만을 간략하게 보여줍니다. 숫자도 마찬가지입니다.</p>
+           <div class="slide-content">
+            <div class="card mb-6">
+                <h3 class="font-bold text-lg mb-2">복잡한 데이터 나열</h3>
+                <p>환자분의 혈소판 수치는 40,000입니다. 정상 수치는 150,000에서 450,000 사이이며, 50,000 이하면 여행이 금지되고, 10,000 이하면 자발 출혈의 위험이 있습니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <h3 class="font-bold text-lg mb-2">의미 있는 지도 📍</h3>
+                <p>혈소판 수치는 150~450이 정상 범위입니다. 50까지 내려가면 여행을 할 수 없습니다. 10 이하면 위험하고요. <span class="highlight">환자분의 수치는 지금 40입니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 34: Time Map -->
+       <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">⏳</div>
+            <h2 class="slide-title">시간 지도가 <span class="highlight">가장 좋은 지도다</span></h2>
+            <p class="slide-content max-w-4xl mx-auto text-xl">
+               우리는 시간에 대한 직관적인 이해력을 가지고 있습니다. 방대한 역사를 시간 지도로 축소하면 심오한 통찰을 얻을 수 있습니다.
+            </p>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Cosmic Calendar -->
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">우주의 역사를 <span class="highlight">24시간으로</span></h2>
+            <p class="slide-subtitle">138억 년의 우주 역사를 하루로 압축해봅시다.</p>
+            <div class="slide-content text-lg space-y-3">
+                <p><b>00:00:00</b> - 빅뱅 💥</p>
+                <p><b>16:10:00</b> - 태양 탄생 ☀️</p>
+                <p><b>23:37:00</b> - 공룡 등장 🦖</p>
+                <p><b>23:59:00</b> - 공룡 멸종 ☄️</p>
+                <p><b>23:59:59</b> - <span class="highlight font-black">인류의 모든 역사가 마지막 1초 안에 일어납니다.</span></p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Slide 36: Miniature Model -->
+       <div class="slide">
+        <div class="slide-container text-center">
+            <div class="text-6xl mb-6">🎲</div>
+            <h2 class="slide-title">다루기 쉬운 <span class="highlight">미니어처 모델</span> 만들기</h2>
+            <p class="slide-content max-w-4xl mx-auto text-xl">
+               복잡한 시스템(정부 예산, 회사 조직)을 단순하고 유연한 모델로 만들어 상호작용을 이해하게 하세요.
+            </p>
+        </div>
+      </div>
+
+      <!-- Slide 37: US Budget Model -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미국 연방 예산을 <span class="highlight">1년 근무일로</span> 🗓️</h2>
+          <p class="slide-subtitle">1년 동안 번 돈을 모두 세금으로 낸다고 가정해봅시다. 당신의 돈은 어디에 쓰일까요?</p>
+          <div class="slide-content text-lg">
+            <p><b class="highlight">1월 초 ~ 2월 중순:</b> 사회보장 및 의료보험</p>
+            <p><b class="highlight">2월 중순 ~ 4월:</b> 국방비 및 국가 부채 이자</p>
+            <p class="text-gray-600">(...중략...)</p>
+            <p>그리고, NASA에 투자되는 시간은 1년 중 약 <b class="highlight">2시간</b>입니다.</p>
+            <p class="mt-4">거대한 '조' 단위의 돈보다 '몇 주간의 내 노동'이 훨씬 더 직관적으로 와닿습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Soccer Team Model -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성과 없는 조직을 <span class="highlight">축구팀으로</span> ⚽</h2>
+          <p class="slide-subtitle">스티븐 코비는 조직의 문제점을 설명하기 위해 축구팀 비유를 사용했습니다.</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg slide-content">
+              <p>선수 11명 중,</p>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                  <li><b>4명</b>만이 어느 쪽 골대에 골을 넣어야 하는지 압니다.</li>
+                  <li><b>2명</b>만이 골을 넣는 데 관심이 있습니다.</li>
+                  <li><b>2명</b>만이 자기 포지션을 알고 있습니다.</li>
+                  <li>대부분의 선수는 <span class="highlight">아무 목적 없이 필드를 어슬렁거릴 뿐입니다.</span></li>
+              </ul>
+          </div>
+          <p class="slide-content mt-4">이 모델을 통해 우리는 조직의 문제가 무엇인지 즉시 공감하고 이해할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 39: Review Principles 1&2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 원칙 복습 ① & ②</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-2xl mb-4">1. 모든 숫자를 <span class="highlight">번역하라</span></h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li>숫자를 피하고 경험으로 말하라.</li>
+                <li>열심히 반올림하라.</li>
+                <li>정수를 사용하라 (5명 중 2명).</li>
+                <li>청중의 언어로 말하라.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="font-bold text-2xl mb-4">2. 일상에 가까운 숫자를 <span class="highlight">찾아라</span></h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li>단순하고 익숙한 것과 비교하라.</li>
+                <li>추상적 개념을 구체적 사물로 바꿔라.</li>
+                <li>인간적인 규모로 확대/축소하라.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Review Principles 3&4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 원칙 복습 ③ & ④</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="font-bold text-2xl mb-4">3. 숫자에 <span class="highlight">감성을 얹어라</span></h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li>감정이 있는 대상과 비교하라.</li>
+                <li>비교 불가능한 최고를 강조하라.</li>
+                <li>기대를 설정하고 깨트려라.</li>
+                <li>'당신의 이야기'로 만들어라.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="font-bold text-2xl mb-4">4. 숫자를 <span class="highlight">미니어처로</span> 만들어라</h3>
+              <ul class="list-disc list-inside space-y-2">
+                <li>단순한 지도를 그려줘라.</li>
+                <li>시간 지도를 활용하라.</li>
+                <li>상호작용하는 모델을 만들어라.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Additional Slides to meet 50-page requirement -->
+
+      <!-- Slide 41: No Such Thing as a "Number Person" -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">"숫자에 약한 사람은 <span class="highlight">없다</span>"</h2>
+          <p class="slide-subtitle">숫자와 잘 맞는 사람은 아무도 없습니다. 단지, 숫자를 번역하는 법을 아는 사람이 있을 뿐입니다.</p>
+          <p class="slide-content">이 책의 원칙들은 우리가 숫자를 두려워하는 것이 아니라, 숫자에 담긴 의미에 열광하는 존재임을 깨닫게 합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 42: The Power of Awe -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">잘 번역된 숫자는 <span class="highlight">경외감</span>을 준다</h2>
+          <p class="slide-subtitle">숫자를 통해 세상을 새롭게 바라볼 때, 우리는 경이로움을 느낍니다.</p>
+          <div class="slide-content max-w-4xl mx-auto space-y-4">
+            <p>💧 마실 수 있는 물이 얼마나 적은지에 대한 충격</p>
+            <p>🐜 사막 개미의 경이로운 길찾기 능력에 대한 감탄</p>
+            <p>🌌 우주 역사 속 인류의 찰나 같은 존재에 대한 겸허함</p>
+          </div>
+          <p class="slide-content mt-8 font-bold">경외감은 우리의 우선순위를 바꾸고, 더 중요한 것에 집중하게 만듭니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 43: Encore Technique -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">앙코르 기법: <span class="highlight">결정타를 날려라</span> 앵콜!</h2>
+          <p class="slide-subtitle">거대한 숫자를 한 번에 제시하면 무감각해집니다. 두 단계로 나누어 충격을 극대화하세요.</p>
+          <div class="slide-content">
+            <div class="card mb-6">
+                <h3 class="font-bold text-lg mb-2">한 번에 제시</h3>
+                <p>전 세계인이 미국인처럼 고기를 먹으려면 지구상 거주 가능 토지의 138%가 필요합니다.</p>
+            </div>
+            <div class="card bg-yellow-50 border-yellow-200">
+                <h3 class="font-bold text-lg mb-2">앙코르 기법</h3>
+                <p><b>1단계:</b> 먼저, 지구상의 모든 숲과 들판, 우리가 사는 동네까지 전부 가축을 기르는 데 사용해야 합니다. <span class="text-gray-600">(잠시 멈춤)</span></p>
+                <p class="mt-2"><b>2단계(앙코르):</b> 그리고 거기에 <span class="highlight">아프리카와 호주 대륙을 합친 만큼의 땅</span>이 더 필요합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 44: Two Column Layout Example - CEO Names -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">숨겨진 불평등 <span class="highlight">드러내기</span></h2>
+          <p class="slide-subtitle">때로는 놀라운 비교가 어떤 설명보다 강력한 메시지를 전달합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">단순 통계</h3>
+              <p>《포천》 선정 500대 기업 CEO 중 여성 CEO의 비율은 매우 적습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">충격적 비교</h3>
+              <p>《포천》 선정 500대 기업 CEO 중에는 <span class="highlight">'제임스'라는 이름을 가진 남성</span>이 <span class="highlight">여성 CEO 전체보다</span> 더 많습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Two Column Layout Example - Racial Inequality -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">장벽의 <span class="highlight">높이 보여주기</span></h2>
+          <p class="slide-subtitle">단순히 차별이 있다는 말로는 부족합니다. 그 심각성을 체감하게 만들어야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">숫자 나열</h3>
+              <p>전과 없는 백인 지원자의 34%, 흑인 지원자의 14%가 연락을 받았습니다. 전과가 있는 경우 각각 17%와 5%가 연락을 받았습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">핵심 비교</h3>
+              <p><span class="highlight">중범죄 전과가 있는 백인 지원자</span>가 전과가 전혀 없는 흑인 지원자보다 합격 통보를 받을 확률이 <span class="highlight">더 높았습니다.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 46: Call to Action: Be a Translator -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">당신도 <span class="highlight">숫자 번역가</span>가 될 수 있습니다</h2>
+          <p class="slide-subtitle">숫자를 더 자주, 그리고 더 현명하게 활용하면 세상은 더 나은 곳이 될 것입니다.</p>
+          <p class="slide-content">단순한 배경지식이 아닌, 심오한 이야기와 함께 핵심 정보를 전달하세요.<br>우리는 진심으로 숫자를 믿습니다. 그리고 사람들이 중요한 숫자를 이해시킬 수 있으리라고 진심으로 믿습니다.</p>
+        </div>
+      </div>
+
+       <!-- Slide 47: Special Block - Creative Idea -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연습: <span class="highlight">"1%"의 의미</span> 번역하기</h2>
+          <p class="slide-subtitle">1%라는 작은 숫자를 어떻게 실감나게 만들 수 있을까요?</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">다양한 단위로 번역해보기</h3>
+              <p class="mt-2 text-lg">
+                - 한 세기(100년) 중 <span class="highlight">1년</span><br>
+                - 1달러 중 <span class="highlight">1센트</span><br>
+                - 평균 길이 영화(100분)에서 <span class="highlight">1분</span><br>
+                - 100미터 달리기 중 <span class="highlight">1미터</span>
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 48: Demonstrations - Making it Real -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <h2 class="slide-title">숫자를 <span class="highlight">시연하라</span> 🎬</h2>
+          <p class="slide-subtitle">직접 경험하면 기억에 더 깊이 남고, 반복할 수 있는 '스토리'가 됩니다.</p>
+          <p class="slide-content">"막대그래프를 봤어요"는 이야기가 되지 않지만, <br>"긴 구리선을 들고 5분 동안 방 안을 돌아다녔어요"는 훌륭한 이야기가 됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 49: The Batting Time Example -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">야구 타격에 걸리는 시간: <span class="highlight">0.25초</span></h2>
+          <p class="slide-subtitle">이 짧은 순간을 어떻게 체감하게 할 수 있을까요?</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">박수로 시연하기 👏</h3>
+              <p class="mt-2 text-lg">1초에 박수를 4번 칠 수 있다고 가정해봅시다.<br>
+              타자는 당신이 <span class="highlight">첫 번째 박수</span>를 치는 사이에 스윙 여부를 결정해야 하고,<br>
+              <span class="highlight">두 번째 박수</span>를 쳤을 무렵이면 이미 플레이가 끝납니다.
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">숫자는 단지 정보가 아닙니다. 숫자는 세상을 이해하고, 다른 사람을 설득하며, 변화를 만드는 강력한 도구입니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">숫자를 당신의 이야기로 만드세요. <span class="highlight">그때 숫자는 착 달라붙습니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
