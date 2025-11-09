@@ -20,6 +20,16 @@
     "cover": "assets/covers/천재가-어딨어-개정판-양장본-hardcover.jpg"
   },
   {
+    "slug": "착각의-쓸모",
+    "title": "착각의 쓸모",
+    "author": "샹커 베단텀, 빌 메슬러",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/착각의-쓸모.html",
+    "cover": "assets/covers/착각의-쓸모.jpg"
+  },
+  {
     "slug": "진짜-좋아하는-일만-하고-사는-법-데릭-시버스",
     "title": "진짜 좋아하는 일만 하고 사는 법",
     "author": "데릭 시버스",
