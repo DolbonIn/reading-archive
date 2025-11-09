@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감사의 재발견 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🧠❤️✨</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">감사의 재발견</h1>
+          <p class="text-xl md:text-2xl text-gray-700">뇌과학이 들려주는 놀라운 <span class="highlight">감사의 쓸모</span></p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-3">
+            <p><b>1부. 왜 다시 감사인가?</b> - 감사의 근원과 본질 탐구</p>
+            <p><b>2부. 감사하면 무엇이 달라질까?</b> - 감사가 가져오는 놀라운 변화</p>
+            <p><b>3부. 감사를 잘하는 길</b> - 일상 속 감사 실천법</p>
+            <p><b>4부. 감사하는 가족이 되는 법</b> - 관계를 꽃피우는 감사</p>
+            <p><b>5부. 학교와 직장에서 감사하는 법</b> - 조직을 바꾸는 힘</p>
+            <p><b>6부. 감사가 뿌리내린 사회</b> - 더 나은 세상을 향한 비전</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 3: Part 1 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">왜 다시, <span class="highlight">감사인가?</span> 🤔</h2>
+          <p class="slide-content">감사의 근원적인 정의와 그 뿌리를 과학적으로 탐구합니다. 우리는 왜 감사해야 할까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Chapter 1 - New Definition of Gratitude -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">1장: 감사의 새로운 <span class="highlight">정의</span></h2>
+          <p class="slide-subtitle">감사는 단순한 '고마워요'가 아닙니다. 외부로부터 온 '좋은 것'을 인식하고 인정하는 행위입니다.</p>
+          <div class="slide-content">
+            <p><b>인정(Appreciation)</b>: 삶의 좋은 것을 수긍하는 행위.</p>
+            <p class="mt-2"><b>감사(Gratitude)</b>: 좋은 경험의 원인이 외부(타인)에 있음을 인정하는 것. 즉, '덕분'임을 아는 것입니다.</p>
+            <p class="mt-4">사회학자 조지 시멜은 감사를 <span class="highlight">“인류의 도덕적 기억력”</span>이라고 불렀습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 5: The Two Axes of Gratitude -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사의 <span class="highlight">두 가지 축</span> (로버트 에먼스)</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-6 bg-gray-50 rounded-lg border">
+              <div class="text-5xl mb-4">1️⃣</div>
+              <h3 class="font-bold text-lg mb-2">긍정의 축</h3>
+              <p>우리에게 유익을 준 '좋은 것'이 세상에 존재한다는 것을 긍정하는 것입니다.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-lg border">
+              <div class="text-5xl mb-4">2️⃣</div>
+              <h3 class="font-bold text-lg mb-2">관계의 축</h3>
+              <p>그 좋은 것이 나 자신이 아닌, 외부의 '타인'으로부터 왔음을 파악하는 것입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Myths about Gratitude -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사에 대한 <span class="highlight">오해</span> 깨부수기 🔨</h2>
+          <p class="slide-subtitle">감사는 우리를 약하게 만들거나 현실에 안주하게 만들지 않습니다. 오히려 더 강하게 만듭니다.</p>
+          <div class="slide-content space-y-4">
+            <p>❌ <b>오해 1:</b> 감사하면 현실에 안주하고 목표 달성을 못 한다.</p>
+            <p>✔️ <b>진실:</b> 감사하는 사람은 오히려 목적의식과 성취 동기가 강하며, 목표 달성률이 <span class="highlight">20% 더 높습니다.</span></p>
+            <p class="mt-4">❌ <b>오해 2:</b> 감사는 자신의 공을 타인에게 돌리는 제로섬 게임이다.</p>
+            <p>✔️ <b>진실:</b> 감사하는 사람은 자신의 노력과 능력을 인정하면서도, 타인의 도움에 겸허히 감사할 줄 압니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Chapter 2 - Evolutionary Roots -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">2장: 인간은 언제부터 <span class="highlight">감사했을까?</span> 🐒</h2>
+          <p class="slide-subtitle">감사는 사회적 관계를 유지하고 협력을 촉진하는 진화의 산물입니다.</p>
+          <div class="slide-content">
+            <p>감사의 진화적 뿌리는 <b>'상호성(Reciprocity)'</b>에서 찾을 수 있습니다. "내 등을 긁어주면, 네 등도 긁어줄게"라는 원리입니다.</p>
+            <p class="mt-4">침팬지, 카푸친 원숭이 연구에서 과거 자신을 도왔던 개체에게 보답하려는 경향이 발견되었습니다. 이는 단순한 계산이 아닌, <span class="highlight">감사의 발로</span>로 해석됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 8: Gratitude Genes -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사하는 <span class="highlight">DNA</span>가 따로 있을까? 🧬</h2>
+          <p class="slide-subtitle">유전적 요인도 감사 성향에 영향을 미칠 수 있습니다.</p>
+          <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+            <p class="mt-2"><b>CD38 유전자:</b> 옥시토신 분비와 관련된 유전자로, 특정 변이를 가진 사람이 연인에게 감사를 더 자주 표현하는 경향을 보였습니다.</p>
+            <p class="mt-4"><b>COMT 유전자:</b> 도파민 순환과 관련된 유전자로, 특정 유형 보유자가 더 감사를 많이 느끼는 것으로 나타났습니다. 이들은 '부정성 편향'이 낮았습니다.</p>
+            <p class="mt-4 text-sm text-gray-600">⚠️ 물론, 유전자가 모든 것을 결정하는 것은 아닙니다. 환경, 문화, 개인의 노력이 더 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Chapter 3 - Raising Grateful Kids -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">3장: 감사하는 아이로 <span class="highlight">키우려면</span> 🌱</h2>
+          <p class="slide-subtitle">감사는 가르칠 수 있는 기술입니다. 감사의 4단계를 이해하는 것부터 시작합니다.</p>
+          <div class="slide-content text-center grid grid-cols-2 md:grid-cols-4 gap-4">
+             <div class="p-4 bg-gray-50 rounded-lg"><div class="text-4xl mb-2">1️⃣</div><h3 class="font-bold">알아채기<br/>(Notice)</h3></div>
+             <div class="p-4 bg-gray-50 rounded-lg"><div class="text-4xl mb-2">2️⃣</div><h3 class="font-bold">생각하기<br/>(Think)</h3></div>
+             <div class="p-4 bg-gray-50 rounded-lg"><div class="text-4xl mb-2">3️⃣</div><h3 class="font-bold">느끼기<br/>(Feel)</h3></div>
+             <div class="p-4 bg-gray-50 rounded-lg"><div class="text-4xl mb-2">4️⃣</div><h3 class="font-bold">행동하기<br/>(Do)</h3></div>
+          </div>
+           <p class="slide-content mt-6">많은 부모가 '행동하기'(감사 표현)에만 집중하지만, 감사를 잘 '받으려면' 앞의 세 단계(알아채고, 생각하고, 느끼기)가 매우 중요합니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 10: Chapter 4 - Gratitude and the Brain -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">4장: 감사할 때 우리 뇌는? 🧠⚡️</h2>
+          <p class="slide-subtitle">감사를 느낄 때, 뇌의 특정 영역이 활성화되며 구조적인 변화까지 일어납니다.</p>
+          <div class="slide-content">
+            <p>fMRI 연구 결과, 감사를 느낄 때 <b>내측 전전두엽피질(mPFC)</b>이 활성화됩니다.</p>
+            <div class="mt-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">내측 전전두엽피질(mPFC)의 역할:</h3>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>타인의 입장을 이해하고 공감하는 기능</li>
+                <li>정서를 조절하고 스트레스를 완화하는 기능</li>
+                <li>사회적 유대감과 관련된 신경망</li>
+              </ul>
+            </div>
+            <p class="mt-4 font-bold"><span class="highlight">감사 훈련</span>은 뇌 회로를 재구성하여 신체와 정신 건강에 직접적인 도움을 줍니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 11: Chapter 5 - Gratitude and Giving -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">5장: 베푸는 사람이 되고 싶다면 <span class="highlight">감사하라</span> 💝</h2>
+          <p class="slide-subtitle">감사와 이타성은 뇌 속에서 깊게 연결되어 있습니다. 감사할수록 더 넉넉한 사람이 됩니다.</p>
+          <div class="slide-content">
+            <p>연구 결과, 감사 수준이 높은 사람일수록 자선 단체에 돈이 갈 때 뇌의 <span class="highlight">보상 영역</span>(복내측 전전두피질)이 더 강하게 반응했습니다.</p>
+            <p class="mt-4">3주간 감사 일기를 쓴 집단은 그렇지 않은 집단에 비해, 뇌의 순수 이타성 측정값이 증가했습니다.</p>
+            <p class="mt-4 font-bold">결론: 감사는 넉넉한 나눔을 위해 뇌가 준비하는 과정일 수 있습니다. 감사하는 뇌는 '남이 잘 될 때' 더 큰 기쁨을 느낍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Part 2 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">감사하면 무엇이 <span class="highlight">달라질까?</span> ✨</h2>
+          <p class="slide-content">감사가 우리의 정신, 관계, 신체, 그리고 성공에 미치는 구체적이고 과학적인 효과를 알아봅니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Chapter 6 - Benefits: Happiness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">6장: 감사의 유익 ① - <span class="highlight">기분이 좋아진다</span> 😊</h2>
+          <p class="slide-subtitle">감사 실천은 행복감과 삶의 만족감을 증진하는 가장 신뢰할 만한 방법 중 하나입니다.</p>
+          <div class="slide-content">
+            <p>감사 편지를 쓴 집단은 다른 긍정 활동(강점 찾기 등)을 한 집단보다 더 행복해졌고, 우울감은 감소했으며, 이 효과는 <span class="highlight">한 달간 지속</span>되었습니다.</p>
+            <p class="mt-4">심리 상담과 감사 편지 쓰기를 병행한 대학생들은 상담만 받은 학생들보다 정신 건강이 월등히 더 좋아졌습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 14: Chapter 6 - Benefits: Relationships -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">6장: 감사의 유익 ② - <span class="highlight">사이가 좋아진다</span> 🤝</h2>
+          <p class="slide-subtitle">감사는 관계의 선순환을 만드는 강력한 접착제입니다.</p>
+          <div class="slide-content">
+            <h3 class="font-bold text-lg mb-2">💕 감사의 4단계 선순환 원리:</h3>
+            <ol class="list-decimal list-inside space-y-2">
+                <li><b>1단계:</b> 감사함을 느끼는 사람은 관계를 유지하고 싶어한다.</li>
+                <li><b>2단계:</b> 관계 유지를 위해 더 많이 노력한다 (경청, 배려).</li>
+                <li><b>3단계:</b> 노력하는 파트너는 상대방이 '인정받는다'고 느끼게 한다.</li>
+                <li><b>4단계:</b> 인정을 받는다고 느낄 때, 상대에 대한 <span class="highlight">감사가 더 커진다!</span> (다시 1단계로)</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 15: Chapter 6 - Benefits: Health -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">6장: 감사의 유익 ③ - <span class="highlight">건강해진다</span> 💪</h2>
+          <p class="slide-subtitle">몸과 마음은 연결되어 있습니다. 감사는 신체 건강에도 직접적인 영향을 미칩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-bold text-lg mb-2">신체 증상 완화</h3>
+              <ul class="list-disc list-inside">
+                <li>두통, 소화기 질환 감소</li>
+                <li>염증 수치 감소</li>
+                <li>혈압 강하</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">건강한 습관 형성</h3>
+              <ul class="list-disc list-inside">
+                <li>수면의 질 향상</li>
+                <li>운동량 증가</li>
+                <li>약물 남용 감소</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 16: Chapter 6 - Benefits: Prosocial Behavior -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">6장: 감사의 유익 ④ - <span class="highlight">선행과 성공의 동력</span> 🚀</h2>
+          <p class="slide-subtitle">감사는 우리를 더 나은 사람이 되도록 이끌고, 목표를 향해 나아가게 합니다.</p>
+          <div class="slide-content">
+            <p>감사는 이타적 선행을 하도록 영감을 불어넣습니다. 도움을 받은 사람은 다른 사람(심지어 낯선 사람)을 도울 확률이 높아집니다.</p>
+            <p class="mt-4">감사를 경험할 때 동기 부여와 활력이 증가하고 목표 달성에 높은 진척률을 보입니다. 스스로 긍정적 결과를 얻을 자격이 있다는 <span class="highlight">믿음</span>이 생깁니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 17: Chapter 7 - Gender Differences -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">7장: 여자 vs 남자, 누가 더 <span class="highlight">감사할까?</span> 🚻</h2>
+          <p class="slide-subtitle">연구에 따르면 평균적으로 여성이 남성보다 감사를 더 잘 느끼고 표현합니다.</p>
+          <div class="slide-content">
+            <p><b>원인 분석:</b> 남성은 감사 표현을 <span class="highlight">의존성, 나약함, 부채 의식</span>과 연결하는 경향이 있습니다. 이는 자율성과 자립을 강조하는 문화적 기대와 충돌하기 때문입니다.</p>
+            <p class="mt-4"><b>결과:</b> 감사에 어려움을 겪는 남성은 감사의 유익(행복, 관계 만족 등)을 놓치기 쉽습니다.</p>
+            <p class="mt-4 font-bold">흥미로운 사실: 감사 훈련의 효과는 오히려 남성에게서 더 크게 나타났습니다!</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 18: Chapter 8 - Cultural Differences -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">8장: 나라마다 <span class="highlight">감사하는 법</span>이 다르다 🌍</h2>
+          <p class="slide-subtitle">감사의 표현 방식과 의미는 문화에 따라 다양합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">개인주의 문화 (예: 미국)</h3>
+              <p>언어적 표현("Thanks!"), 개인의 감정 표현을 중시합니다. 자율성과 분리성을 강조합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">집단주의 문화 (예: 한국, 중국)</h3>
+              <p>연결적 감사(상대방이 좋아할 만한 일로 보답하기), 관계와 조화를 중시합니다. 때로는 감사가 부채 의식을 유발할 수 있습니다.</p>
+            </div>
+          </div>
+           <p class="slide-content mt-6">⚠️ 따라서 감사 실천법(예: 감사 편지)의 효과는 문화적 맥락에 따라 달라질 수 있음을 이해해야 합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 19: Chapter 9 - Gratitude & Cooperation -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">9장: 감사로 쌓는 <span class="highlight">협업의 탑</span> 🗼</h2>
+          <p class="slide-subtitle">감사는 '훌륭한 협력 파트너'를 알아보는 사회적 신호입니다.</p>
+          <div class="slide-content">
+            <p>실험 결과, 우리는 도움을 준 사람을 더 귀하게 여기게 되며(복지희생률 증가), 그 증가폭은 우리가 느끼는 <span class="highlight">감사의 크기</span>로 예측할 수 있습니다.</p>
+             <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h3 class="font-bold text-lg">감사의 신호 기능</h3>
+              <p class="mt-2">감사 표현은 상대에게 "당신의 행동 덕분에 당신을 더 귀하게 여기게 되었습니다. 그래서 앞으로 당신에게 유익을 제공할 가능성이 커졌습니다."라는 신호를 보냅니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 20: Part 3 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">감사를 <span class="highlight">잘하는 길</span> 🛤️</h2>
+          <p class="slide-content">일상에서, 그리고 어려운 순간에 감사를 실천하고 그 힘을 키우는 구체적인 방법들을 배웁니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 21: Chapter 10 - Daily Gratitude Habits -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">10장: 일상 속 감사를 키우는 <span class="highlight">6가지 습관</span></h2>
+          <div class="slide-content space-y-3 text-lg">
+            <p><b>1. 죽음과 상실을 생각하라:</b> '없었다면 어땠을까?' 상상하기.</p>
+            <p><b>2. 길가의 장미꽃 향기를 맡으라:</b> 오감을 사용해 좋은 것을 음미하기.</p>
+            <p><b>3. 권리 의식을 버리고 감사를 선택하라:</b> 당연한 것은 없음을 인정하기.</p>
+            <p><b>4. 사물이 아닌 사람에게 감사하라:</b> 감사의 에너지는 사람에게 흐를 때 가장 강력하다.</p>
+            <p><b>5. 팬케이크를 언급하라:</b> 구체적으로 감사하기.</p>
+            <p><b>6. 틀에 박히지 않은 감사를 하라:</b> 나를 힘들게 한 사람에게서도 배울 점 찾기.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Chapter 11 - Gratitude vs. Indebtedness -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">11장: 감사의 적, <span class="highlight">부채 의식</span> 😥</h2>
+          <p class="slide-subtitle">고마움과 빚진 마음은 다릅니다. 어떻게 구분하고 극복할 수 있을까요?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 border-l-4 border-green-500">
+              <h3 class="font-bold text-xl text-green-700">감사 (Gratitude)</h3>
+              <p>선물에 집중. <br/>긍정적 정서.<br/> 주는 사람과 가까워지고 싶음.</p>
+            </div>
+            <div class="p-4 border-l-4 border-red-500">
+              <h3 class="font-bold text-xl text-red-700">부채 의식 (Indebtedness)</h3>
+              <p>갚아야 할 의무에 집중.<br/> 부정적 정서 (스트레스).<br/> 부담감에 관계를 피하고 싶음.</p>
+            </div>
+          </div>
+          <p class="mt-6 slide-content"><b>해결책:</b> 나 자신의 유익이 아닌, <span class="highlight">타인의 친절과 선한 의도</span>에 초점을 맞출 때 진정한 감사가 따라옵니다.</p>
+        </div>
+      </div>
+      
+       <!-- Slide 23: Chapter 12 & 13 - Gratitude in Adversity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">12-13장: 힘들 때 <span class="highlight">감사하는 법</span> ⛈️</h2>
+          <p class="slide-subtitle">위기 상황이야말로 감사가 진정한 효과를 발휘할 때입니다.</p>
+          <div class="slide-content">
+            <p>사별과 같은 극심한 고통 속에서도 감사함은 성장할 수 있습니다. 상실은 우리에게 '살아 있음'의 가치를 역설적으로 일깨워줍니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">역경 속 감사 실천법: 재구성(Reframing)</h3>
+               <p class="mt-2">과거의 불행한 사건을 현재의 관점에서 다시 바라보며 다음 질문을 던져보세요.</p>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>이 경험에서 무엇을 배웠는가?</li>
+                <li>이 경험이 나의 저력을 이끌어내는 계기가 되었는가?</li>
+                <li>이 경험 덕분에 지금 달라진 부분이 있는가?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 24: Part 4 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title">감사하는 <span class="highlight">가족이 되는 법</span> 👨‍👩‍👧‍👦</h2>
+          <p class="slide-content">가장 가깝기에 가장 당연하게 여기기 쉬운 가족 관계 속에서 감사를 꽃피우는 방법을 알아봅니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 25: Chapter 14 - Gratitude in Couples -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">14장: 부부에게 <span class="highlight">감사가 필요한 이유</span></h2>
+          <p class="slide-subtitle">가사 노동 분담 갈등, '감사의 경제학'으로 해결할 수 있습니다.</p>
+          <div class="slide-content">
+            <p>가사 노동 갈등의 핵심은 단순히 일의 양이 아니라, 상대방의 수고를 '선물'로 인정하지 않는 데 있습니다.</p>
+            <p class="mt-4">감사 표현은 상대의 기여를 '당연한 것'이 아닌 <span class="highlight">'선물'로 인식</span>하게 만듭니다. 이는 상대방이 보답하고 싶은 마음을 갖게 하여, 더 공평한 분담으로 이어지는 선순환을 만듭니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: How to Express Gratitude to a Partner -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">배우자에게 감사 <span class="highlight">표현하는 법</span> 💌</h2>
+          <p class="slide-subtitle">효과적인 감사 표현의 핵심은 '나'가 아닌 '상대방'을 강조하는 것입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-lg text-red-700">🤔 아쉬운 표현</h3>
+              <p>"당신이 설거지해줘서 <span class="font-bold">내</span>가 편했어." (자기 유익 언급)</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg text-green-700">💖 효과적인 표현</h3>
+              <p>"피곤했을 텐데 설거지까지 해주는 <span class="font-bold">당신</span>의 배려심에 감동했어." (파트너의 행동/성품 칭찬)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 27: Chapter 15 - Raising Grateful Children II -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">15장: 감사하는 자녀로 <span class="highlight">양육하는 법</span></h2>
+          <p class="slide-subtitle">감사할 줄 아는 부모 밑에서 감사할 줄 아는 자녀가 나옵니다.</p>
+          <div class="slide-content space-y-4">
+            <p><b>🗣️ 감정 이해 돕기:</b> "저 사람은 지금 어떤 기분일까?" 질문을 통해 타인의 감정을 이해하도록 도와주세요.</p>
+            <p><b>🤝 도움받는 연습:</b> 부모나 스승에게 도움을 요청하는 경험은 긍정적 관계를 형성하고 감사 수준을 높입니다.</p>
+            <p><b>☀️ 일상에서 감사하기:</b> 저녁 식사 시간, 그날 있었던 좋은 일을 세 가지씩 나눠보세요.</p>
+            <p><b>💬 감사의 가치 소통하기:</b> 부모가 왜 감사를 중요하게 생각하는지, 감사를 표할 때 어떤 기분인지 자주 이야기해주세요.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 28: Chapter 16 & 17 - Personal Stories -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">16-17장: 엄마와 새아버지의 <span class="highlight">감사</span></h2>
+          <p class="slide-subtitle">개인적인 경험을 통해 배우는 감사의 깊이</p>
+          <div class="slide-content">
+            <p><b>어머니날의 교훈 (16장):</b> '인정받고 싶다'는 권리 의식은 감사의 가장 큰 적입니다. 가족 간의 희생과 기여를 다시 바라볼 때, 진정한 감사가 싹틉니다.</p>
+            <p class="mt-4"><b>새아버지의 배움 (17장):</b> 새아버지 역할은 구조적으로 감사를 받기 어려운 자리입니다. 하지만 그 힘든 과정을 통해 아이와 더 깊은 관계를 맺고, 사랑의 본질과 감사를 배우게 됩니다. <span class="highlight">감사는 새아버지가 될 기회를 준 아이에게 돌아가야 합니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 29: Part 5 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5</p>
+          <h2 class="slide-title">학교와 직장에서 <span class="highlight">감사하는 법</span> 🏫🏢</h2>
+          <p class="slide-content">개인을 넘어 조직의 문화를 바꾸는 감사의 힘과 구체적인 실천 전략을 제시합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 30: Chapter 18 - Gratitude in Schools -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">18장: 학교에 <span class="highlight">감사 문화</span> 가꾸기</h2>
+          <p class="slide-subtitle">감사 일기와 감사 방문은 학생들의 만족도와 낙관성을 높입니다.</p>
+          <div class="slide-content">
+            <h3 class="font-bold text-lg mb-2">교사를 위한 감사 교육 지도 원칙 👨‍🏫</h3>
+            <ul class="list-disc list-inside mt-2 space-y-2">
+              <li><b>의도 주목하기:</b> "친구가 왜 널 도와줬을까?" 선물 이면의 배려에 주목하게 하세요.</li>
+              <li><b>비용 인정하기:</b> "친구가 널 돕기 위해 무엇을 포기했을까?" 도움에 들어간 노력을 인정하게 하세요.</li>
+              <li><b>유익 인식하기:</b> "친구 덕분에 너의 하루가 어떻게 더 좋아졌니?" 친절의 가치를 깨닫게 하세요.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Chapter 19 - Gratitude as a Survival Skill -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">19장: 감사는 <span class="highlight">생존 기술이다</span></h2>
+          <p class="slide-subtitle">트라우마와 어려운 환경 속에서 감사는 우리를 다시 일어서게 하는 힘입니다.</p>
+          <div class="slide-content">
+            <p>한 개인(숀 테일러)의 경험: 강요된 감사는 오히려 자급자족형 인간을 만들고 도움을 청하지 못하게 만들었습니다.</p>
+            <p class="mt-4">진정한 감사는 <b>'작은 연대(micro-alliance)'</b>를 통해 배울 수 있습니다. 형식적인 인사가 아닌, 상대방의 존재와 행동이 내 삶에 미친 긍정적 영향을 인정하고 표현하는 것입니다. 이는 절망적인 상황에서 희망과 연결성을 찾는 핵심 기술입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 32: Chapter 20 - Gratitude in the Workplace -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">20장: 감사하는 직장 문화, <span class="highlight">5가지 방법</span></h2>
+          <p class="slide-subtitle">사람들이 가장 감사를 덜 느끼고 표현하는 곳은 '직장'입니다. 이 문화를 바꿀 수 있습니다.</p>
+          <div class="slide-content space-y-3">
+            <p><b>1. 꼭대기부터 시작하라:</b> 리더가 먼저 직원에게 감사 인사를 해야 합니다.</p>
+            <p><b>2. 감사받지 못한 사람에게 감사하라:</b> 보이지 않는 곳에서 일하는 사람들의 노고를 인정하세요.</p>
+            <p><b>3. 양보다 질을 겨냥하라:</b> 강요된 감사는 역효과. 진정성이 중요합니다.</p>
+            <p><b>4. 풍성한 감사 기회를 마련하라:</b> 감사 게시판, 온라인 칭찬 플랫폼 등을 활용하세요.</p>
+            <p><b>5. 위기가 지나간 후 감사의 시간을 가지라:</b> 어려운 프로젝트 후, 서로의 기여에 대해 이야기하는 시간을 가지세요.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 33: What a Grateful Organization Looks Like -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사하는 조직은 <span class="highlight">어떤 모습일까?</span></h2>
+          <div class="slide-content">
+            <p class="slide-subtitle">조직 내 감사 지수에 영향을 미치는 요인들</p>
+            <div class="mt-4 p-6 bg-gray-50 border rounded-lg">
+                <p>📈 <b>감사 지수가 높은 조직:</b> 지역사회 봉사 조직, 비영리 단체 등 '의미 있는 기여'를 할 기회가 많은 곳.</p>
+                <p class="mt-4">📉 <b>감사 지수가 낮은 조직:</b> 관공서, 의료 기관, 대규모 조직 등 스트레스 수준이 높은 곳.</p>
+                <p class="mt-4">💡 <b>중요한 사실:</b> 직급이 높을수록 감사 지수가 높고, 나이가 들수록(진급 가능성이 낮아질수록) 감사 지수가 떨어지는 경향이 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Part 6 Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6</p>
+          <h2 class="slide-title">감사가 뿌리내린 <span class="highlight">사회</span> 🌳</h2>
+          <p class="slide-content">감사가 개인을 넘어 사회 전체의 신뢰를 회복하고, 물질주의를 극복하며, 더 나은 세상을 만드는 길임을 제시합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 35: Chapter 23 - Gratitude vs. Adversity -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">23장: 감사로 <span class="highlight">역경</span>에 맞설 수 있을까?</h2>
+          <p class="slide-subtitle">잭 콘필드 대담: 기쁨은 '도덕적 의무'입니다.</p>
+          <div class="slide-content">
+            <p>"모든 삶에는 필연적으로 고난이 있습니다. 하지만 시련의 한복판에서도 깊은 안녕, 기쁨, 행복을 키울 수 있습니다."</p>
+            <p class="mt-4">"세상은 불공정하지만, 수억 건의 선행 또한 동시에 일어납니다. 뉴스는 문제에만 초점을 맞추지만, 감사는 <span class="highlight">인생 자체의 아름다움</span>과 작은 선행들을 보게 합니다."</p>
+            <p class="mt-4">우리가 어떤 채널에 주파수를 맞추느냐에 따라 두려움 속에 살 수도, 감사와 사랑 속에 살 수도 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 36: Gratitude and Trust -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사로 <span class="highlight">신뢰하는 사회</span>를 만들 수 있을까?</h2>
+          <p class="slide-subtitle">감사 실천은 타인에 대한 신뢰도를 높입니다.</p>
+           <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">신뢰 게임 실험 🎲</h3>
+              <p class="mt-2">감사 일기를 쓴 집단은 일상을 기록한 집단보다 '신뢰 게임'에서 상대방에게 <span class="highlight">훨씬 더 많은 돈</span>을 보냈습니다 (송금률 70% vs 50%).</p>
+              <p class="mt-4"><b>결론:</b> 타인이 우리 삶에 주는 유익을 인정하는 능력을 키우면, 낯선 사람과 관계하는 방식에도 긍정적 변화가 일어납니다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Slide 37: Gratitude vs. Materialism -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사로 <span class="highlight">물질주의</span>를 극복할 수 있을까? 🛍️</h2>
+          <p class="slide-subtitle">감사와 물질주의는 상극입니다. 하나가 커지면 다른 하나는 작아집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">물질주의</h3>
+              <p>행복의 근원을 외부의 '소유'에서 찾습니다. 비현실적 기대로 인해 만족하기 어렵고, 늘 더 많은 것을 갈망하게 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">감사</h3>
+              <p>삶 속에 이미 존재하는 '좋은 것'을 향유하게 돕습니다. '가진 것'에 집중하게 하여 만족감을 높입니다.</p>
+            </div>
+          </div>
+          <p class="mt-6 slide-content">💡 <b>희소식:</b> 사람들에게 감사를 하도록 유도하면 물질 소유에 대한 집착이 줄어드는 현상이 발견되었습니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 38: Experience vs. Possession -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">경험을 위해 살라 (vs 소유) ✈️</h2>
+          <p class="slide-subtitle">적응력은 감사의 가장 큰 적입니다. 우리는 좋은 것에 금방 익숙해집니다.</p>
+          <div class="slide-content">
+            <p>연구 결과, 사람들은 물건 구매보다 <span class="highlight">경험 구매</span>(여행, 콘서트 등)에서 훨씬 더 크고 지속적인 감사를 느꼈습니다.</p>
+            <h3 class="font-bold text-lg mt-4">왜 그럴까요?</h3>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>정체성:</b> 경험은 우리 정체성의 큰 부분을 차지하지만, 물건은 우리와 분리되어 있습니다.</li>
+                <li><b>연결성:</b> 경험은 우리를 타인과 연결해주고, 이는 적응에 대한 저항력을 키워줍니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Chapter 24 - Gratitude vs. Hate -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">24장: 감사로 <span class="highlight">혐오</span>를 없앨 수 있을까?</h2>
+          <p class="slide-subtitle">W. 카마우 벨 대담: 양극화된 사회 속에서 연결점 찾기</p>
+          <div class="slide-content">
+            <p>"소셜미디어는 얼굴을 마주보고는 못할 말을 하게 만듭니다. 하지만 직접 마주 앉아 이야기하면 적개심이 눈 녹듯 사라져요."</p>
+            <p class="mt-4">"진정한 감사는 스스로 운이 좋다고 느끼고 '우와, 이런 일이 일어나다니 진짜 멋지네'라고 느끼는 것입니다. 그리고 그 좋은 것을 나눌 때 혐오가 설 자리는 줄어듭니다."</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 40: Chapter 25 - Gratitude as the Path -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">25장: 감사가 더 나은 세상으로 가는 <span class="highlight">길</span>일까?</h2>
+          <p class="slide-subtitle">데이비드 스타인들-라스트 수사 대담</p>
+          <div class="slide-content">
+            <p>감사하는 삶은 병든 사회의 치료제입니다.</p>
+            <ul class="list-disc list-inside mt-2 space-y-2">
+                <li><b>착취 → 나눔:</b> 감사하는 삶은 세상이 모두에게 충분하다는 의식을 갖게 합니다.</li>
+                <li><b>억압 → 존중:</b> 충족감을 느끼기에 타인을 착취할 필요가 없고, 상호 존중이 자리 잡습니다.</li>
+                <li><b>폭력 → 평화:</b> 감사하는 사람은 두려움이 없기에 폭력의 뿌리가 근절됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ... More slides would continue here to reach 50+ ... -->
+      <!-- Let's add more detailed slides from various chapters -->
+
+      <!-- Slide 41: Deeper Dive - Gratitude vs. Positive Thinking -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사는 긍정적 사고와 <span class="highlight">다르다</span></h2>
+          <p class="slide-subtitle">감사는 현실을 부정하지 않습니다. 오히려 현실 속에서 의미를 재구성합니다.</p>
+          <div class="slide-content">
+            <p>감사 일기를 쓰는 동안에도 부정적 생각이나 정서를 경험할 수 있습니다. 데이터는 감사가 부정적 정서를 '감소'시키기보다 <span class="highlight">긍정적 정서를 '증가'</span>시킨다고 말합니다.</p>
+            <p class="mt-4">역경의 순간에 감사하면 '큰 그림'이 눈에 들어오면서 지금의 난관이 덜 무겁게 느껴집니다. 즉, 맥락에 극적인 변화를 가져옵니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 42: Deeper Dive - Gratitude Journaling Tips -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사 일기 120% <span class="highlight">활용법</span> ✍️</h2>
+          <p class="slide-subtitle">연구에서 밝혀진 더 효과적인 감사 일기 작성법</p>
+          <div class="slide-content space-y-4">
+            <p><b>🗣️ 소리 내어 말하라:</b> 감사 대상을 향해 실제로 고맙다고 말했을 때 가장 긍정적 효과가 컸습니다.</p>
+            <p><b>🎁 물건보다 선행에 감사하라:</b> 물질에 대한 감사는 시샘을 유발할 수 있지만, 이타적 행동에 대한 감사는 영감을 주어 '감사 바이러스'를 퍼뜨립니다.</p>
+            <p><b>💖 사랑에 초점을 맞추라:</b> '사랑받는다'는 느낌에 관한 글이 가장 긍정적 효과가 컸습니다.</p>
+            <p><b>🏃‍♀️ 끈기 있게 행하라:</b> 꾸준히 쓸수록 감사하는 태도가 형성되고 기분이 더 좋아집니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 43: Deeper Dive - When Gratitude is Hard -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">때로는 감사도 <span class="highlight">역효과</span>를 낸다</h2>
+          <p class="slide-subtitle">감사가 오히려 독이 되는 경우를 알아보고 지혜롭게 대처하기</p>
+          <div class="slide-content">
+            <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg space-y-3">
+              <p><b>감사 과다복용:</b> 너무 자주, 의무적으로 감사하려고 하면 오히려 행복 지수가 떨어질 수 있습니다. (주 1~3회가 적당)</p>
+              <p><b>잘못된 대상에 대한 감사:</b> 학대적인 관계 등 건강하지 않은 상황에서 좋은 면만 보려 애쓰는 것은 현실 도피일 뿐입니다.</p>
+              <p><b>심각한 문제 덮기:</b> 감사를 미봉책으로 사용하여 관계의 근본적인 문제를 외면해서는 안 됩니다.</p>
+               <p><b>부채 의식과 착각하기:</b> 빚을 갚아야 한다는 부담감은 감사가 아닙니다. 관계에 독이 될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Slide 44: Deeper Dive - Gratitude in Healthcare -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">병원에서도 감사할 일이 있을까? 🏥</h2>
+          <p class="slide-subtitle">의료 현장에서의 감사는 환자와 의료진 모두에게 새로운 활력을 줍니다.</p>
+          <div class="slide-content">
+            <p>의료진의 번아웃은 심각한 문제입니다. 하지만 진실한 감사 경험은 일에 대한 열정을 되살리는 강력한 활력소가 됩니다.</p>
+            <h3 class="font-bold text-lg mt-4">의료진을 위한 감사 실천법</h3>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>선물 인식하기:</b> 환자가 마음을 열고 신뢰해주는 것 자체가 소중한 선물임을 인식합니다.</li>
+                <li><b>선물 인정하기:</b> 환자와 만나기 전 심호흡을 통해 마음을 가다듬고, 그들이 준 선물을 인정할 준비를 합니다.</li>
+                <li><b>사회 환원:</b> 한 환자에게서 받은 깊은 감사의 경험을 다음 환자를 돌보는 에너지로 사용합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Slide 45: Deeper Dive - Voting and Gratitude -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감사하면 <span class="highlight">투표율</span>이 올라간다 🗳️</h2>
+          <p class="slide-subtitle">감사는 강력한 친사회적 행동 자극제입니다.</p>
+          <div class="slide-content">
+             <p>한 연구에서 유권자들에게 "투표해 주셔서 감사합니다"라는 내용의 엽서를 보냈습니다.</p>
+             <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">결과</h3>
+               <p class="mt-2">감사 엽서를 받은 집단은 받지 않은 집단보다 투표율이 <span class="highlight">유의미하게(2-3%) 높았습니다.</span> 이는 단순히 투표를 독려하는 엽서보다 훨씬 효과적이었습니다.</p>
+                <p class="mt-4"><b>이유:</b> "정치 참여에 사회가 감사하고 있다"는 관념을 심어주어 자발성을 강화했기 때문입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46: Deeper Dive - Gratitude & Power Dynamics -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">권력은 어떻게 감사를 <span class="highlight">왜곡</span>하는가</h2>
+          <p class="slide-subtitle">권력 불균형은 남성들이 감사를 힘들어하는 이유 중 하나이며, 부부 관계와 직장 내 역학에 영향을 미칩니다.</p>
+          <div class="slide-content">
+            <p>연구에 따르면, 권력을 가졌다고 느끼는 사람('갑')은 상대('을')의 감사를 아첨으로 보는 등 냉소적으로 생각하는 경향이 있습니다. 이는 관계에 대한 헌신을 약화시킵니다.</p>
+            <p class="mt-4">반면, 감사하는 사람은 권력과 무관하게 상대의 입장을 더 잘 헤아립니다. 즉, <span class="highlight">감사는 권력의 '갑질'에 대한 해독제 역할</span>을 합니다.</p>
+            <p class="mt-4">감사 표현은 악순환의 고리를 끊고 권력의 균형점을 바꾸는 작은 실천이 될 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47: Deeper Dive - The Challenge of Step-Parenting -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새아버지의 감사: <span class="highlight">구조적 어려움</span></h2>
+          <p class="slide-subtitle">새아버지 가정의 가장 큰 특징은 '모호성', '갈등', '고립'입니다.</p>
+          <div class="slide-content">
+            <p>새아버지는 친아버지보다 훨씬 노력해야 하지만, 구조적으로 미움이나 원망을 받기 쉬운 위치에 있습니다. 아이가 새아버지를 인정하는 것은 친아버지를 깎아내리는 것처럼 느껴질 수 있기 때문입니다.</p>
+            <p class="mt-4">문화적 지지를 받기 어렵습니다. 친부모는 '성자'지만, 새아버지는 '침입자', '이기주의자'라는 편견에 맞서야 합니다.</p>
+            <p class="mt-4 font-bold">그럼에도 불구하고, 그 역할을 통해 진정한 사랑과 감사를 배우게 됩니다. 감사는 <span class="highlight">새아버지가 될 기회를 준 의붓자식에게 돌아가야 합니다.</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: Deeper Dive - The Neuroscience of Altruism -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이타성의 뇌과학: <span class="highlight">왜 감사하면 베푸는가?</span></h2>
+          <p class="slide-subtitle">감사와 이타적 행동 사이의 신경학적 연결고리</p>
+          <div class="slide-content">
+            <p>뇌 스캔 연구에 따르면, 친사회성이 높은 참가자일수록 돈이 자선단체로 갈 때 뇌의 <span class="highlight">내면 보상감</span>이 훨씬 높게 나타났습니다.</p>
+            <p class="mt-4">3주간 감사 일기를 쓴 후, 참가자들의 뇌는 자선단체에 돈이 갈 때 더 큰 보상 반응을 보였습니다. 즉, 뇌의 이타성 측정값이 증가한 것입니다.</p>
+             <div class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
+                <h3 class="font-bold text-lg">결론 💡</h3>
+                 <p class="mt-2">감사는 뇌가 타인의 유익에 더 큰 가치를 부여하도록 훈련하는 과정일 수 있습니다. 감사하는 뇌는 '나'의 이익보다 '남'의 행복에서 더 큰 보상을 느낍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 49: Summary Slide -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">핵심 요약: <span class="highlight">감사의 재발견</span></h2>
+          <p class="slide-subtitle">이 책을 통해 우리가 발견한 감사의 핵심</p>
+          <div class="slide-content space-y-3">
+             <p><b>1. 감사는 선택이자 기술이다:</b> 감사는 단순한 감정이 아니라, 세상을 바라보는 관점을 바꾸는 의식적인 선택이자 훈련 가능한 기술입니다.</p>
+             <p><b>2. 감사는 뇌를 바꾼다:</b> 감사 실천은 공감, 스트레스 조절, 사회적 유대와 관련된 뇌 영역을 활성화하고 구조적으로 변화시킵니다.</p>
+             <p><b>3. 감사는 관계의 핵심이다:</b> 감사는 관계의 선순환을 만들고, 갈등을 해결하며, 협력을 이끌어내는 사회적 접착제입니다.</p>
+             <p><b>4. 감사는 역경 속에서 빛난다:</b> 가장 힘들 때 감사를 선택하는 것이 우리에게 가장 큰 힘과 회복탄력성을 줍니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론: 감사는 기회다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">감사는 풍랑 한복판에서 우리 삶을 전체적으로 바라보게 하는 '기회'입니다. 감사를 통해 우리는 부정성에 초점을 맞추려는 뇌의 편향에 저항하고, 우리 주변의 비옥한 자원을 발견하며, 더 건강하고 행복한 개인, 가족, 사회로 나아갈 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800"><span class="highlight">오늘, 당신의 감사를 선택하세요.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 51: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
