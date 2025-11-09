@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation: 트러스트 (Trust)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin: 20px;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0077b6;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: rgba(0, 119, 182, 0.15);
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      font-weight: 700;
+      color: #0077b6;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: #0077b6;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #023e8a;
+    }
+    .btn-secondary {
+      background-color: #f0f0f0;
+      color: #333;
+      border: 2px solid #ddd;
+    }
+    .btn-secondary:hover {
+      background-color: #e0e0e0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #0077b6;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    ul {
+      list-style-type: '✔  ';
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+    }
+    li {
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🤝</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">트러스트 (Trust)</h1>
+          <p class="text-xl md:text-2xl text-gray-700">신뢰는 <span class="highlight">시장</span>을 어떻게 움직이는가</p>
+          <p class="mt-8 text-lg text-gray-500">벤저민 호 지음 | 조용빈 옮김</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📚</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <p><b>제1장. 신뢰의 역사:</b> 생물학, 선물, 종교, 법률</p>
+            <p><b>제2장. 전문기관에 대한 신뢰:</b> 정치, 미디어, 의학, 과학</p>
+            <p><b>제3장. 서로 신뢰하기:</b> 낯선 사람, 자신, 사과, 프라이버시</p>
+            <p><b>제4장. 신뢰의 경제학:</b> 신뢰 게임과 경제학적 분석</p>
+            <p><b>제5장. 현대경제와 신뢰:</b> 화폐, 금융, 계약, 브랜드, 공유경제</p>
+            <p><b>제6장. 결론:</b> 신뢰의 미래와 희망</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Section Title 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 1: 신뢰의 역사</p>
+          <h2 class="slide-title">신뢰의 기원: <span class="highlight">생물학</span> 🧬</h2>
+          <p class="slide-content text-xl">우리는 왜 타인을 신뢰하도록 진화했을까요? 모든 것은 생물학적 본능에서 시작됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4: Standard Content Slide -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">아기는 왜 <span class="highlight">웃는가?</span> 😊</h2>
+          <p class="slide-subtitle">아기의 미소는 단순한 감정 표현이 아닌, 생존과 신뢰 구축을 위한 본능적인 행동입니다.</p>
+          <div class="slide-content">
+            <p>인간의 아기는 다른 포유류와 달리 스스로 걷기까지 오랜 시간이 걸립니다. 하지만 걷기 전에 웃는 법부터 배웁니다. 이는 자신을 돌봐주는 사람에게 <span class="highlight">신뢰할 만한 존재</span>임을 보여주어 생존 가능성을 높이는 진화적 전략입니다. 진정한 미소는 따라 하기 어려워, 상대의 감정을 파악하는 중요한 신호가 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Content with a special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이타적 행동의 비밀: <span class="highlight">독재자 게임</span></h2>
+          <p class="slide-subtitle">인간은 왜 아무런 이득이 없어도 타인에게 관대함을 보일까요?</p>
+          <div class="slide-content">
+            <p>행동경제학의 '독재자 게임'은 한 사람에게 돈을 주고, 아무런 제약 없이 다른 사람과 나누도록 요청하는 실험입니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">놀라운 결과 🎲</h3>
+              <p class="mt-2">놀랍게도 참가자의 <span class="highlight">64%</span>가 돈을 혼자 독차지하지 않고 다른 사람과 나누는 선택을 합니다. 이는 인간에게 자신의 행복보다 사회 구성원의 행복을 고려하는 '사회적 선호'라는 선천적 이타주의 성향이 있음을 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 6: Two Column Layout -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신뢰의 언어: <span class="highlight">농담과 욕설</span></h2>
+          <p class="slide-subtitle">농담과 욕설은 사회적 규범을 통해 신뢰를 구축하는 의외의 도구가 될 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">농담의 역할 😂</h3>
+              <p>누군가와 웃음 코드가 맞는다는 것은 <span class="highlight">같은 규범과 가치관</span>을 공유한다는 의미입니다. 규범의 파괴가 웃음을 유발하는데, 같은 지점에서 웃는다는 것은 서로 신뢰해도 좋다는 강력한 신호가 됩니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">욕설의 역할 🤬</h3>
+              <p>욕설은 의도적으로 사회적 금기를 깨는 행위입니다. 이를 통해 자신이 취약한 위치에 있음을 드러내고, 상대방이 이에 긍정적으로 반응하면 신뢰 사이클이 시작될 수 있습니다. <span class="highlight">위험 감수</span>를 통한 신뢰 형성입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 7: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">사랑의 호르몬, <span class="highlight">옥시토신</span> ❤️</h2>
+              <p class="slide-subtitle">옥시토신은 인간의 유전자에 신뢰가 새겨져 있음을 보여주는 가장 강력한 생물학적 증거입니다.</p>
+              <div class="slide-content">
+                  <ul>
+                      <li>옥시토신은 엔도르핀이 고통과 쾌락, 아드레날린이 위험과 관계있듯, <span class="highlight">신뢰감</span>과 깊은 관련이 있습니다.</li>
+                      <li>연인 관계, 부모와 자식 간의 정서적 유대감을 강화하는 역할을 합니다.</li>
+                      <li>폴 잭(Paul Zak)의 신뢰 게임 실험에서, 상대에 대한 신뢰가 클수록 뇌에서 옥시토신 수치가 높게 나타났으며, 인위적으로 옥시토신을 투여하면 신뢰도가 증가하는 것이 밝혀졌습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 8: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 1: 신뢰의 역사</p>
+          <h2 class="slide-title">관계의 경제학: <span class="highlight">선물</span> 🎁</h2>
+          <p class="slide-content text-xl">선물은 단순한 물건이 아니라, 신뢰를 측정하고 관계를 구축하는 중요한 사회적 제도입니다.</p>
+        </div>
+      </div>
+      
+      <!-- Slide 9: Two Column Layout -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">선물, <span class="highlight">비효율적인가 유용한가?</span></h2>
+              <p class="slide-subtitle">경제학자 조엘 월드포겔은 선물이 비효율적이라 주장했지만, 인간관계를 고려하면 다른 시각이 가능합니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">비효율성 주장 (스크루지노믹스) 💸</h3>
+                      <p>받는 사람이 원치 않는 선물은 경제적 낭비입니다. 차라리 그 돈을 현금으로 주는 것이 받는 사람의 효용을 극대화할 수 있다는 주장입니다. </p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">신뢰 구축의 역할 💝</h3>
+                      <p>선물은 <span class="highlight">상대방을 얼마나 잘 아는지</span>를 보여주는 신뢰성 측정 도구입니다. 선물을 고르는 데 드는 시간과 노력은 관계에 대한 투자를 의미하며, 받는 사람의 취향을 정확히 파악했다는 사실 자체가 신뢰를 강화합니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 10: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">선물 경제의 작동 방식 🏹</h2>
+              <p class="slide-subtitle">사냥꾼이 잡은 가젤 고기를 이웃과 나누는 행위는 원시적 보험이자 신뢰의 시작이었습니다.</p>
+              <div class="slide-content">
+                  <p>사냥 성공이 불확실했던 시절, 남는 음식을 저장할 방법이 없었을 때 이웃에게 선물로 주는 것은 미래를 위한 투자였습니다. 이는 <span class="highlight">호혜성</span>의 원칙에 기반합니다.</p>
+                  <ul>
+                      <li><b>협력의 이익:</b> 음식을 나누면 모두에게 이롭습니다.</li>
+                      <li><b>신뢰의 위험:</b> 상대방이 나중에 갚는다는 보장은 없습니다.</li>
+                      <li><b>평판 형성:</b> 주고받는 과정이 반복되면서 누가 믿을 만한 사람인지 자연스럽게 알게 됩니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 11: Content with special block -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">실험으로 하는 시간여행 ⏳</h2>
+              <p class="slide-subtitle">인류학자들은 전 세계 15개 마을에서 경제 게임 실험을 통해 신뢰의 진화를 연구했습니다.</p>
+              <div class="slide-content">
+                  <p>수렵채집 사회부터 현대 미국 사회까지, '시장통합' 정도가 다른 여러 문화를 비교 분석했습니다. 실험 결과는 많은 사람들의 예상을 뒤엎었습니다.</p>
+                  <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-lg">뜻밖의 발견 💡</h3>
+                      <p class="mt-2">모르는 사람에게 돈을 얼마나 나눠주겠냐는 질문에, <span class="highlight">현대 미국인</span>이 수렵채집 사회 구성원보다 훨씬 더 많이 나눈다고 답했습니다. 이는 협력이 '모르는 사람'에게까지 확장되려면 호혜성과 신뢰를 보장하는 <span class="highlight">시장 경제</span>와 같은 사회적 제도가 필요함을 시사합니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 12: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 1: 신뢰의 역사</p>
+          <h2 class="slide-title">신뢰의 확장: <span class="highlight">종교</span> 🙏</h2>
+          <p class="slide-content text-xl">종교는 어떻게 개인 간의 신뢰를 거대한 공동체의 믿음으로 확장시켰을까요?</p>
+        </div>
+      </div>
+      
+      <!-- Slide 13: Content with special block -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">던바의 숫자와 <span class="highlight">신뢰의 한계</span></h2>
+              <p class="slide-subtitle">인간의 두뇌는 안정적으로 관계를 유지할 수 있는 사람의 수에 명확한 한계가 있습니다.</p>
+              <div class="slide-content">
+                  <p>인류학자 로빈 던바는 영장류의 대뇌 신피질 크기와 무리 구성원 숫자 사이에 상관관계가 있음을 발견했습니다. 인간의 경우, 그 숫자는 약 150명입니다.</p>
+                  <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-lg">던바의 숫자 (Dunbar's Number): <span class="highlight">150</span> 🧍‍♂️🧍‍♀️</h3>
+                      <p class="mt-2">150명이 넘어가면 개인적인 상호작용만으로 집단의 신뢰와 질서를 유지하기 어렵습니다. 인류 문명이 이 숫자를 초월하기 위해서는 <span class="highlight">종교</span>와 같은 새로운 사회적 제도를 통해 더 많은 사람을 '우리'로 묶는 방법이 필요했습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 14: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">그룹화와 <span class="highlight">진입 장벽</span></h2>
+              <p class="slide-subtitle">종교는 명확한 '우리'와 '그들'을 구분하고, 높은 진입 장벽을 통해 내부 결속과 신뢰를 다졌습니다.</p>
+              <div class="slide-content">
+                  <ul>
+                      <li><b>정체성 구별:</b> '쉽볼렛' 발음처럼, 특정 언어, 지식, 의례를 통해 소속 집단을 명확히 구분했습니다.</li>
+                      <li><b>고통스러운 입문 의식:</b> 문신, 할례, 복잡한 교리 공부 등 어려운 입문 의식은 집단에 대한 <span class="highlight">장기적인 충성</span>을 약속하는 값비싼 신호 역할을 했습니다.</li>
+                      <li><b>독특한 규칙:</b> 코셔(Kosher) 식단법이나 정해진 시간의 기도처럼, 외부인과 구별되는 규칙은 집단 구성원을 드러내는 상징이 되어 내부 신뢰를 강화했습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 15: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">지옥을 믿는 국가가 <span class="highlight">성장한다?</span> 🔥</h2>
+              <p class="slide-subtitle">경제학자 배로와 매클리리의 연구는 '복수하는 신'에 대한 믿음이 경제 성장에 긍정적인 영향을 미친다는 흥미로운 결과를 보여주었습니다.</p>
+              <div class="slide-content">
+                  <p>지옥과 천벌에 대한 믿음은 '보이지 않는 감시자' 역할을 합니다. 이는 제러미 벤담의 <span class="highlight">파놉티콘</span>(원형 감옥) 개념과 유사합니다. 아무도 보지 않는 상황에서도 규율을 지키게 만들어 사회적 협력과 신뢰의 범위를 크게 확장시키는 것입니다. 이처럼 종교는 초자연적인 존재를 통해 사회적 통제와 신뢰 구축에 기여했습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 16: Section Title -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Chapter 1: 신뢰의 역사</p>
+              <h2 class="slide-title">제도적 신뢰: <span class="highlight">법률과 시장</span> ⚖️</h2>
+              <p class="slide-content text-xl">개인적 관계를 넘어선 대규모 협력은 어떻게 가능해졌을까요? 그 해답은 법과 시장에 있습니다.</p>
+          </div>
+      </div>
+
+      <!-- Slide 17: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">중세 샹파뉴 <span class="highlight">시장의 기적</span></h2>
+              <p class="slide-subtitle">강력한 중앙 정부 없이도, 상인들은 어떻게 국경을 넘어 복잡한 거래를 할 수 있었을까요?</p>
+              <div class="slide-content">
+                  <p>12-13세기 프랑스 샹파뉴 시장은 유럽 전역의 상인들이 모이는 국제 무역의 중심지였습니다. 이곳에서는 강력한 공권력 대신 <span class="highlight">민간 재판소</span>가 상인들 사이의 신뢰를 유지하는 핵심 역할을 했습니다. </p>
+                  <ul>
+                      <li><b>평판 기반 시스템:</b> 계약을 위반한 상인은 블랙리스트에 올라 시장에서 퇴출되었습니다.</li>
+                      <li><b>자발적 규칙 준수:</b> 모든 상인이 평판의 중요성을 알았기에, 재판관은 공정한 판결을, 상인들은 규칙을 자발적으로 따르는 <span class="highlight">내시 균형</span>이 형성되었습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 18: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 2: 전문기관에 대한 신뢰</p>
+          <h2 class="slide-title">신뢰의 위기: <span class="highlight">전문가는 믿을 만한가?</span></h2>
+          <p class="slide-content text-xl">현대 사회는 왜 전문가와 기관에 대한 불신이 깊어지고 있을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 19: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">하락하는 <span class="highlight">신뢰도</span> 📉</h2>
+              <p class="slide-subtitle">언론, 의학, 정부 등 여러 전문 분야에서 대중의 신뢰가 감소하는 현상이 나타나고 있습니다.</p>
+              <div class="slide-content">
+                  <p>퓨리서치센터 조사에 따르면, 1970년대와 비교하여 2018년 미국의 주요 기관에 대한 신뢰도는 크게 하락했습니다.</p>
+                  <ul>
+                      <li><b>언론:</b> 20% → 13%</li>
+                      <li><b>의학:</b> 60% → 37%</li>
+                      <li><b>연방정부:</b> (1960년대 초) 80% → (2018년) 20% 이하</li>
+                      <li>반면, <span class="highlight">군대</span>(40%→60%)와 <span class="highlight">과학계</span>(40%→44%)에 대한 신뢰는 유지되거나 증가했습니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 20: Content with special block -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신뢰 위기의 <span class="highlight">세 가지 원인</span></h2>
+          <p class="slide-subtitle">전문가에 대한 신뢰 하락은 복합적인 사회 변화의 결과입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <h3 class="font-bold text-lg">1. 선택권의 증가 🌐</h3>
+                <p>과거보다 다른 의견과 정보를 구하기 쉬워지면서, 기존 권위에 집착할 이유가 줄어들었습니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <h3 class="font-bold text-lg">2. 공동의 적 부재 🕊️</h3>
+                <p>과거 부족 사회나 냉전 시대처럼 '공동의 적'에 대한 공포가 줄어들면서, 내부적으로 뭉쳐야 할 명분이 약해졌습니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <h3 class="font-bold text-lg">3. 정보 접근성 확대 💻</h3>
+                <p>인터넷 등으로 정보 접근이 쉬워지자, 사람들이 자신의 인지 능력을 과신하게 되고 전문가의 의견에 의문을 제기하는 경향이 강해졌습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">정치인과 신뢰: <span class="highlight">누구를 믿을 것인가?</span></h2>
+              <p class="slide-subtitle">복잡한 정책의 세계에서 유권자는 후보자의 세부 공약보다 '가치관'과 '성향'을 보고 신뢰 여부를 결정합니다.</p>
+              <div class="slide-content">
+                  <p>에탄올 정책처럼 매우 복잡한 이슈에 대해 유권자가 모든 정보를 파악하고 판단하기는 불가능합니다. 따라서 유권자는 자신과 가치관이 같고, 비슷한 상황에서 비슷한 선택을 할 것 같은 <span class="highlight">성향이 일치하는 후보</span>를 선택하는 것이 합리적입니다. 이를 '신 슬라이싱(thin slicing)' 실험이 뒷받침하는데, 사람들은 단 10초의 무음 영상만 보고도 후보자의 당락을 정확히 예측했습니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 22: Two Column Layout -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">미디어와 신뢰: <span class="highlight">편향의 경제학</span></h2>
+              <p class="slide-subtitle">우리는 왜 자신과 비슷한 관점의 뉴스만 소비하게 될까요?</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">확증 편향 (Confirmation Bias) 🤔</h3>
+                      <p>사람들은 자신의 기존 믿음을 확인시켜주는 정보를 더 신뢰하는 심리적 편향을 가지고 있습니다. 2+2=4라고 믿는 사람은 2+2=5라고 보도하는 신문을 불신하게 됩니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">시장의 논리 📰</h3>
+                      <p>미디어는 결국 상품입니다. 구독자와 시청자를 확보하기 위해 독자들이 <span class="highlight">보고 싶어 하는 기사</span>를 더 많이 제공하게 됩니다. 이로 인해 미디어 시장은 정치적 성향에 따라 분열되고, 사람들은 자신의 신념을 강화해주는 '반향실(echo chamber)'에 갇히게 됩니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 23: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">의학에 대한 신뢰: <span class="highlight">위약(Placebo) 효과</span></h2>
+              <p class="slide-subtitle">의사에 대한 신뢰는 약의 성분만큼이나 강력한 치료 효과를 가질 수 있습니다.</p>
+              <div class="slide-content">
+                  <p>하버드 대학의 연구에 따르면, 환자가 위약(가짜 약)인 것을 <span class="highlight">알고 먹어도</span> 의사와 환자 간의 끈끈한 관계가 형성되어 있다면 치료 효과가 나타났습니다. 이는 환자가 의사를 신뢰할 때 증상이 실제로 나아진다는 것을 의미합니다. 신뢰는 단순한 믿음을 넘어, 측정 가능한 생리학적 화학 반응을 일으킵니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 24: Content with special block -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">터스키기 매독 생체실험과 <span class="highlight">무너진 신뢰</span></h2>
+              <p class="slide-subtitle">의료계의 비윤리적인 행위는 수십 년에 걸쳐 특정 집단의 신뢰를 파괴하고 건강 격차를 악화시켰습니다.</p>
+              <div class="slide-content">
+                  <p>1932년부터 1972년까지 미국 정부는 흑인 남성들을 대상으로 매독 치료제를 주지 않고 병의 경과를 관찰하는 비윤리적인 실험을 진행했습니다. </p>
+                  <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+                      <h3 class="font-bold text-lg text-red-800">장기적인 영향 💔</h3>
+                      <p class="mt-2">이 사건이 알려진 후, 흑인 사회에서 의료계에 대한 불신이 극도로 커졌습니다. 이로 인해 병원을 기피하고 의사의 처방을 따르지 않는 경향이 강해졌으며, 결과적으로 흑인 노인의 평균 수명이 <span class="highlight">1.4년 단축</span>되었다는 연구 결과가 있습니다. 한번 무너진 신뢰는 회복하기 매우 어렵습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 25: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 3: 서로 신뢰하기</p>
+          <h2 class="slide-title">신뢰의 재건: <span class="highlight">사과와 용서</span></h2>
+          <p class="slide-content text-xl">무너진 신뢰를 어떻게 다시 쌓을 수 있을까요? 사과는 그 핵심적인 열쇠입니다.</p>
+        </div>
+      </div>
+
+      <!-- Slide 26: Two Column Layout -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">사과의 <span class="highlight">경제학</span></h2>
+              <p class="slide-subtitle">진정한 사과는 '비싼 대가'를 치를 때 효과가 있습니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">사과하지 않는 이유 🚫</h3>
+                      <p>사과하기 어려운 주된 이유는 비싼 대가를 치러야 할 수 있기 때문입니다. 예를 들어 의료사고에서 의사가 사과하는 것은 법적 책임을 인정하는 것으로 비칠 수 있어 소송의 위험을 높입니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">값비싼 신호 (Costly Signal) ✨</h3>
+                      <p>바로 그 '비싼 대가' 때문에 사과는 강력한 신뢰 회복 장치가 됩니다. 아무런 비용이 들지 않는 말뿐인 사과는 의미가 없습니다. <span class="highlight">상당한 대가</span>(금전적 보상, 미래에 대한 약속, 자기 비하 등)가 따르는 사과만이 상대방에게 진정성을 전달하고 신뢰를 회복시킬 수 있습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 27: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">자신을 <span class="highlight">신뢰하기</span></h2>
+              <p class="slide-subtitle">우리는 왜 새해 다짐을 지키지 못하고, 중요한 일을 자꾸 미룰까요?</p>
+              <div class="slide-content">
+                  <p>행동경제학은 '현재의 나'와 '미래의 나'를 다른 사람처럼 인식하는 경향이 있다고 설명합니다. 현재의 즐거움(햄버거 한 개)은 미래의 더 큰 보상(다음 주의 햄버거 두 개)보다 훨씬 더 크게 느껴집니다. 마찬가지로 현재의 고통(오늘 금연)은 미래의 고통(폐암)보다 두 배 더 고통스럽게 느껴집니다.</p>
+                  <p class="mt-4">따라서 <span class="highlight">'다음 주부터'</span>는 영원히 오지 않을 수 있습니다. 자신에 대한 신뢰는 '미래의 나'를 현재의 나와 동일시하고, 미래의 나를 위해 현재의 내가 책임감 있는 선택을 할 때 구축됩니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 28: Section Title -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Chapter 4: 신뢰의 경제학</p>
+              <h2 class="slide-title">신뢰를 해부하다: <span class="highlight">신뢰 게임</span></h2>
+              <p class="slide-content text-xl">경제학은 '신뢰'라는 추상적인 개념을 어떻게 분석하고 측정할까요?</p>
+          </div>
+      </div>
+
+      <!-- Slide 29: Content with special block -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">신뢰 게임(Trust Game)의 <span class="highlight">구조</span></h2>
+              <p class="slide-subtitle">이 간단한 게임은 신뢰와 관련된 모든 핵심 요소를 담고 있습니다.</p>
+              <div class="slide-content">
+                  <ul>
+                      <li><b>투자자 (신뢰자):</b> 10달러를 가지고 시작합니다. 이 돈을 '기업가'에게 투자하거나, 자신이 가질 수 있습니다.</li>
+                      <li><b>기업가 (피신뢰자):</b> 투자자에게 돈을 받으면, 그 돈은 3배(30달러)가 됩니다.</li>
+                      <li><b>선택의 기로:</b> 기업가는 불어난 돈을 투자자와 나누거나(협조), 전부 가질 수 있습니다(배신).</li>
+                  </ul>
+                  <div class="mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-lg">전통 경제학 vs 현실 🧐</h3>
+                      <p class="mt-2">전통 경제학 이론에 따르면, 기업가는 항상 배신할 것이고, 이를 아는 투자자는 절대 투자하지 않아야 합니다. 하지만 실제 실험에서는 <span class="highlight">수많은 투자자가 신뢰를 선택</span>하고, 상당수의 기업가가 이익을 공유합니다. 이는 인간의 행동이 단순한 이기심만으로 설명되지 않음을 보여줍니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 30: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">신뢰 모델의 <span class="highlight">4가지 요소</span></h2>
+              <p class="slide-subtitle">신뢰 관계는 4가지 핵심 요소가 순환하는 사이클로 구성됩니다.</p>
+              <div class="slide-content">
+                  <ol class="list-decimal list-inside space-y-2">
+                      <li><b>신뢰 (평판):</b> 피신뢰자의 신뢰성에 대한 신뢰자의 믿음. 과거 행동이나 평판에 기반합니다.</li>
+                      <li><b>신뢰성 (가치관):</b> 피신뢰자가 가진 내재적 특성. 이타심, 공정성 등 경제학의 '선호'에 해당합니다.</li>
+                      <li><b>신뢰 행위 (위험 감수):</b> 신뢰자가 더 큰 이익을 기대하고 위험을 감수하는 행동 (예: 투자).</li>
+                      <li><b>신뢰성의 행위 (희생):</b> 피신뢰자가 대가를 치르며 신뢰에 보답하는 행동 (예: 이익 공유).</li>
+                  </ol>
+                  <p class="mt-4">이 네 가지 요소는 서로 영향을 주며 <span class="highlight">신뢰의 선순환(또는 악순환)</span>을 만듭니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 31: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 5: 현대경제와 신뢰</p>
+          <h2 class="slide-title">보이지 않는 기둥: <span class="highlight">화폐와 금융</span></h2>
+          <p class="slide-content text-xl">우리는 어떻게 종잇조각에 불과한 화폐를 믿고, 복잡한 금융 시스템에 의존하게 되었을까요?</p>
+        </div>
+      </div>
+
+      <!-- Slide 32: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">화폐란 무엇인가? <span class="highlight">얍(Yap) 섬의 돌돈</span></h2>
+              <p class="slide-subtitle">얍 섬의 거대한 돌돈 '라이(Rai)'는 화폐의 본질이 물질이 아닌 사회적 '신뢰'에 있음을 보여줍니다.</p>
+              <div class="slide-content">
+                  <p>얍섬 주민들은 크고 무거운 돌돈을 직접 옮기지 않았습니다. 배가 침몰하여 돌돈이 바다 밑에 가라앉았을 때도, 모든 주민이 그 돌돈의 소유권이 이전되었다는 사실을 <span class="highlight">인정하고 합의</span>했기 때문에 여전히 화폐로서 기능했습니다.</p>
+                  <p class="mt-4">이는 현대의 명목화폐(fiat money)와 본질적으로 같습니다. 우리가 지폐를 가치있게 여기는 이유는 금으로 바꿀 수 있어서가 아니라, 정부와 중앙은행, 그리고 사회 구성원 모두가 그 가치를 <span class="highlight">믿기</span> 때문입니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 33: Two Column Layout -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">화폐 발행과 <span class="highlight">신뢰의 딜레마</span></h2>
+              <p class="slide-subtitle">화폐를 발행하는 권력은 왜 정치인으로부터 독립되어야 할까요?</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">권력의 유혹 😈</h3>
+                      <p>정치인은 선거에서 이기기 위해 돈을 마구 찍어내 복지 예산을 늘리거나, 전쟁 비용을 충당하려는 유혹에 빠지기 쉽습니다. 이는 결국 통제 불가능한 하이퍼인플레이션으로 이어져 경제를 파괴할 수 있습니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">독립성의 가치 🛡️</h3>
+                      <p>중앙은행에 독립성을 부여하는 것은 이러한 <span class="highlight">정치적 유혹</span>으로부터 화폐 시스템을 보호하기 위함입니다. 장기적인 관점에서 화폐 가치의 안정을 책임지는 독립된 기관이 존재할 때, 사람들은 정부와 화폐를 신뢰하고 경제는 안정적으로 성장할 수 있습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 34: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">금융의 역할: <span class="highlight">노동과 자본의 연결</span></h2>
+              <p class="slide-subtitle">금융은 단순한 '돈놀이'가 아니라, 경제 성장의 핵심인 노동과 자본을 연결하는 필수적인 시스템입니다.</p>
+              <div class="slide-content">
+                  <p>농부가 트랙터(자본)를 이용해 생산성을 높이듯, 금융은 사회의 여유 자본(저축)을 필요한 곳(투자)에 연결해주는 역할을 합니다.</p>
+                  <ul>
+                      <li><b>은행:</b> 개인의 저축을 모아 기업 대출 등으로 전환하여 새로운 가치를 창출합니다.</li>
+                      <li><b>주식/채권 시장:</b> 기업이 대규모 자본을 조달하여 공장을 짓거나 기술을 개발할 수 있게 합니다.</li>
+                  </ul>
+                  <p class="mt-4">이 과정에는 항상 <span class="highlight">신뢰</span>가 필요합니다. 예금주는 은행을, 투자자는 기업을 믿어야만 시스템이 작동합니다.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 35: Content with special block -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">2008년 금융위기가 남긴 <span class="highlight">교훈</span></h2>
+              <p class="slide-subtitle">금융위기는 신뢰가 단순한 개별 관계가 아닌, 시스템 전체에 대한 믿음임을 보여주었습니다.</p>
+              <div class="slide-content">
+                  <p>리먼 브라더스의 파산은 연쇄적인 공포를 불러일으켰습니다. 문제는 개별 은행의 부실이 아니었습니다.</p>
+                  <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-lg">시스템적 불신 🕸️</h3>
+                      <p class="mt-2">내가 거래하는 은행이 안전한지 뿐만 아니라, 그 은행에 돈을 빌려준 다른 은행, 그 다른 은행과 거래하는 또 다른 주체들까지... <span class="highlight">금융 시스템 전체의 연결망</span>에 대한 신뢰가 무너지면서 누구도 거래하려 하지 않았습니다. 이는 '모르는 불확실성(unknown unknowns)'에 대한 공포였으며, 신뢰가 무너졌을 때 시장 전체가 어떻게 마비되는지를 보여준 사건입니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 36: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">계약과 신뢰: <span class="highlight">보완재인가, 대체재인가?</span></h2>
+              <p class="slide-subtitle">완벽한 계약은 오히려 신뢰를 해칠 수 있습니다.</p>
+              <div class="slide-content">
+                  <p>실험경제학 연구에 따르면, 투자자가 피신탁자의 선택에 '최소 10%를 돌려줘야 한다'는 제한 조건을 걸었을 때, 오히려 피신탁자는 조건이 없을 때보다 더 적은 금액을 돌려주었습니다. 이는 계약 조건이 <span class="highlight">상대방을 믿지 못한다는 신호</span>로 작용하여, 호혜적으로 행동하려는 동기를 감소시켰기 때문입니다. 때로는 약간의 '불완전한 계약'이 서로 신뢰를 보여줄 여지를 남겨두어 더 좋은 결과를 낳기도 합니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 37: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">브랜드는 <span class="highlight">현대판 평판 시스템</span></h2>
+              <p class="slide-subtitle">과거 작은 마을에서 개인의 평판이 신뢰의 기반이었듯, 현대 대량생산 사회에서는 브랜드가 그 역할을 합니다.</p>
+              <div class="slide-content">
+                  <ul>
+                      <li><b>정보 문제 해결:</b> 낯선 곳에서도 맥도날드나 스타벅스를 보면 어떤 품질의 제품과 서비스를 기대할 수 있는지 알 수 있습니다. 브랜드는 품질에 대한 불확실성을 줄여줍니다.</li>
+                      <li><b>정체성 표현:</b> 소비자는 특정 브랜드를 소비함으로써 자신이 어떤 사람인지 표현하고, 비슷한 가치관을 가진 다른 사람들과 <span class="highlight">신뢰 관계</span>를 형성하는 단서로 사용합니다. (예: 애플의 'Think Different')</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 38: Section Title -->
+      <div class="slide">
+          <div class="slide-container">
+              <p class="slide-part-title">Chapter 5: 현대경제와 신뢰</p>
+              <h2 class="slide-title">신뢰의 미래: 공유경제와 <span class="highlight">블록체인</span></h2>
+              <p class="slide-content text-xl">기술은 신뢰의 방식을 어떻게 바꾸고 있는가?</p>
+          </div>
+      </div>
+
+      <!-- Slide 39: Two Column Layout -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">공유경제의 <span class="highlight">두 가지 혁신</span></h2>
+              <p class="slide-subtitle">인터넷은 낯선 사람과의 신뢰를 가능하게 하여 공유경제를 탄생시켰습니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">1. 평판 시스템의 확산 ⭐</h3>
+                      <p>인터넷은 익명의 판매자에 대한 평판을 쉽게 전파하고 축적할 수 있게 했습니다. 이베이, 우버, 에어비앤비의 평점 시스템은 <span class="highlight">신뢰의 기반</span>이 되어 낯선 사람 간의 거래를 가능하게 했습니다.</p>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">2. 플랫폼 기업의 등장 🏢</h3>
+                      <p>전통적인 대기업 대신, 판매자와 구매자를 연결해주는 <span class="highlight">플랫폼 기업</span>이 등장했습니다. 이들은 직접 제품을 생산하는 대신, 신뢰를 중개하는 시장을 설계하고 운영합니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Slide 40: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">플랫폼의 독점과 <span class="highlight">신뢰의 양면성</span></h2>
+              <p class="slide-subtitle">플랫폼은 이용자에게 편리함을 주지만, 독점화되면서 새로운 문제를 낳습니다.</p>
+              <div class="slide-content">
+                  <p>우버나 에어비앤비 같은 플랫폼에 한번 평판이 쌓이면 다른 플랫폼으로 옮기기 어렵습니다 (Lock-in 효과). 이로 인해 플랫폼은 강력한 독점력을 갖게 됩니다.</p>
+                  <ul>
+                      <li><b>장점:</b> 사용자에게는 한 곳에서 모든 것을 해결하는 편리함을 제공합니다.</li>
+                      <li><b>단점:</b> 독점력이 생기면 혁신과 서비스 개선에 대한 동기가 줄어들 수 있습니다. 고객이 달리 갈 곳이 없는데 굳이 관계에 더 투자할 필요가 없기 때문입니다.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 41: Content with special block -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">블록체인: <span class="highlight">신뢰를 코드로 대체하다</span></h2>
+              <p class="slide-subtitle">블록체인은 중앙 기관에 대한 신뢰 없이도 거래의 신뢰성을 보장하려는 기술입니다.</p>
+              <div class="slide-content">
+                  <p>비트코인은 은행 같은 중앙 관리 기관 없이 개인 간의 거래를 가능하게 합니다. 그 핵심 기술이 블록체인입니다.</p>
+                  <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                      <h3 class="font-bold text-lg">작동 원리 ⛓️</h3>
+                      <p class="mt-2">모든 거래 기록(원장)을 하나의 중앙 서버가 아닌, 전 세계 수백만 개의 컴퓨터에 <span class="highlight">분산하여 저장</span>합니다. 거래 내용을 바꾸려면 과반수 이상의 컴퓨터를 동시에 해킹해야 하므로 사실상 위조가 불가능합니다. 이는 사람이나 기관에 대한 신뢰를 <span class="highlight">수학적 알고리즘에 대한 신뢰</span>로 대체하려는 시도입니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 42: Standard Content -->
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">블록체인의 <span class="highlight">한계와 가능성</span></h2>
+          <p class="slide-subtitle">블록체인은 아직 해결해야 할 문제가 많지만, 특정 분야에서 중요한 역할을 할 수 있습니다.</p>
+          <div class="slide-content">
+              <ul>
+                  <li><b>한계:</b> 비트코인은 가격 변동성이 극심하고, 엄청난 양의 에너지를 소비하며, 여전히 해킹 위험에서 자유롭지 못합니다. 사람들은 아직 알고리즘보다 은행을 더 신뢰합니다.</li>
+                  <li><b>가능성:</b> 정부나 금융 시스템을 신뢰할 수 없는 국가의 국민들에게는 합리적인 대안이 될 수 있습니다. 또한, 해킹 위험이 큰 선거 시스템이나 데이터 보안이 중요한 분야에서 투명성을 높이는 데 활용될 수 있습니다.</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Section Title -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Chapter 6: 결론</p>
+          <h2 class="slide-title">신뢰의 진화, <span class="highlight">인류의 희망</span> ✨</h2>
+          <p class="slide-content text-xl">우리는 왜 미래를 긍정적으로 바라볼 수 있는가?</p>
+        </div>
+      </div>
+
+      <!-- Slide 44: Standard Content -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">역사는 <span class="highlight">낙관론자</span>의 편이었다</h2>
+              <p class="slide-subtitle">소크라테스부터 맬서스까지, 기술 변화의 시대에는 항상 비관론이 득세했지만 결과적으로 인류는 발전해왔습니다.</p>
+              <div class="slide-content">
+                  <p>소크라테스는 책이 대화를 대체하여 문명이 무너질 것이라 걱정했지만, 책은 지식 보급의 핵심 수단이 되었습니다. 맬서스는 인구 폭발로 인한 기아를 예언했지만, 기술 발전은 식량 생산성을 극적으로 높였습니다.</p>
+                  <p class="mt-4">지금 우리는 SNS로 인한 신뢰 붕괴, 환경 문제 등을 걱정하지만, 데이터를 보면 인류의 삶은 역사상 그 어느 때보다 개선되었습니다. <span class="highlight">사망률, 빈곤, 불평등, 폭력은 모두 감소</span>하고 있습니다.</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 45: Two Column Layout -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">신뢰의 <span class="highlight">양날의 검</span></h2>
+          <p class="slide-subtitle">신뢰를 구축하는 메커니즘은 필연적으로 배제와 불신을 동반합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">내집단 결속 (In-Group) 끈끈함</h3>
+              <p>인류는 종교, 국가, 시장, 법률과 같은 제도를 발전시켜 신뢰의 범위를 가족과 부족을 넘어 수십억 명으로 확장시켰습니다. 이는 엄청난 사회적 진보를 가능하게 한 원동력입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">외집단 배척 (Out-Group) ⚔️</h3>
+              <p>하지만 신뢰를 구축하는 바로 그 메커니즘이 '우리'와 다른 사람을 <span class="highlight">불신하도록</span> 만들었습니다. 신뢰의 확장은 항상 새로운 형태의 갈등과 배제를 낳는 역설적인 과정을 거쳐왔습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 46: Standard Content -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'나와 같은 사람'의 <span class="highlight">확장</span></h2>
+          <p class="slide-subtitle">희망은 '나와 같은 사람'의 정의가 역사적으로 계속 확장되어 왔다는 사실에 있습니다.</p>
+          <div class="slide-content">
+              <p>과거 부족 사회에서 '나와 같은 사람'의 범위는 매우 좁았습니다. 하지만 종교, 민족, 국가의 개념이 등장하면서 그 범위는 꾸준히 넓어졌습니다.</p>
+              <p class="mt-4">우리는 지금 기술과 상호연결로 인해 전 지구적 문제에 직면한 <span class="highlight">인류세(Anthropocene)</span>에 살고 있습니다. 이는 다시 한번 '나와 같은 사람'의 범위를 '인류 전체'로 확장해야 할 도전을 우리에게 던져줍니다. 역사가 보여주듯, 우리는 이 도전을 극복할 도구를 이미 가지고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 47: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">최종 결론</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">신뢰는 인간의 생물학적 본능에서 시작하여, 선물, 종교, 시장, 법률이라는 사회적 제도를 통해 확장되어 온 인류 문명의 핵심 동력입니다. 기술의 발전으로 새로운 도전에 직면했지만, 우리는 <span class="highlight">신뢰의 범위를 확장</span>하며 문제를 해결해 온 역사를 가지고 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">우리가 향후 닥치게 될 도전을 극복할 수 있다고 믿는 것, 그것이 바로 신뢰의 시작입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide 48: About the author -->
+      <div class="slide">
+          <div class="slide-container">
+              <h2 class="slide-title">저자 소개: <span class="highlight">벤저민 호</span></h2>
+              <p class="slide-subtitle">행동경제학자로서 신뢰, 협력, 정체성 등 다양한 주제를 연구합니다.</p>
+              <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                      <h3 class="font-bold text-lg">학력 및 경력 🎓</h3>
+                      <ul>
+                          <li>배서칼리지(Vassar College) 행동경제학 부교수</li>
+                          <li>스탠퍼드, MIT에서 경제학, 교육학, 정치학 등 7개 학위 취득</li>
+                          <li>코넬대학교 MBA 과정 강의</li>
+                          <li>백악관 경제자문위원회 수석 에너지 경제학자</li>
+                      </ul>
+                  </div>
+                  <div>
+                      <h3 class="font-bold text-lg">주요 연구 분야 🔬</h3>
+                      <p>게임 이론과 실험 설계를 이용하여 사과, 신뢰, 불평등, 기후 변화와 같은 주제를 경제학적으로 분석합니다. 그의 연구는 〈뉴욕 타임스〉와 〈월스트리트 저널〉에도 소개되었습니다.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 49: Author's Message -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">저자의 말: <span class="highlight">감사의 말</span></h2>
+          <p class="slide-subtitle">이 책은 수많은 동료, 제자, 그리고 가족의 지지와 피드백 덕분에 탄생할 수 있었습니다.</p>
+          <div class="slide-content">
+            <p>책의 초안에 대한 지적과 피드백을 준 모든 독자와 학생, 연구를 도와준 동료들, 그리고 방향을 설정해준 편집자에게 감사를 전합니다. 특히 타계하신 지도교수 에드워드 러지어 교수님의 영향이 책 곳곳에 남아있습니다. 무엇보다 이 책을 쓰는 모든 과정에 도움을 준 평생의 반려자 로미나와 아이들에게 감사의 마음을 전하고 싶습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 50: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
