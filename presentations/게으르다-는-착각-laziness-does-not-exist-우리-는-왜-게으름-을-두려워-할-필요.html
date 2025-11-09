@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게으르다는 착각 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      position: absolute;
+      width: 100%;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      position: relative;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    /* Specific styles for better presentation */
+    .toc-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .toc-item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full relative">
+    <!-- Slides Container: Add your slides here -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🛋️</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">게으르다는 착각</h1>
+          <p class="text-xl md:text-2xl text-gray-700">Laziness <span class="highlight">Does Not Exist</span></p>
+          <p class="mt-6 text-lg text-gray-600">데번 프라이스 (Devon Price) | 요약 및 정리</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg space-y-2">
+            <p class="toc-item"><b>도입:</b> 내가 게으르다는 착각에 빠진 이유</p>
+            <p class="toc-item"><b>1장:</b> '게으름'이라는 거짓</p>
+            <p class="toc-item"><b>2장:</b> 게으름에 대한 잘못된 상식들</p>
+            <p class="toc-item"><b>3장:</b> 일을 덜 해도 된다</p>
+            <p class="toc-item"><b>4장:</b> 나의 성취가 나의 가치는 아니다</p>
+            <p class="toc-item"><b>5장:</b> 모든 것에 전문가일 필요는 없다</p>
+            <p class="toc-item"><b>6장:</b> 지치게 하는 관계에서 벗어나는 법</p>
+            <p class="toc-item"><b>7장:</b> 사회가 부과한 당위를 떨쳐버려라</p>
+            <p class="toc-item"><b>결론:</b> 연민은 게으름이라는 거짓을 없앤다</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 0: Introduction -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">도입</p>
+          <h2 class="slide-title">내가 <span class="highlight">게으르다는 착각</span>에 빠진 이유</h2>
+          <p class="slide-content">저자는 '생산적인 사람'이라는 평판 뒤에 숨겨진 개인적인 고통과 번아웃의 경험을 공유하며 책을 시작합니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">생산성의 이면 🎭</h2>
+          <p class="slide-subtitle">세상에 비춰지는 모습 vs 실제 모습</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-6 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg text-green-800">👍 보여지는 모습</h3>
+              <p class="mt-2">야무지고, 정리 정돈을 잘하며, 부지런한 일벌. 직업적 성공, 글쓰기, 사회 운동 참여 등 모든 것을 잘 해내는 사람.</p>
+            </div>
+            <div class="p-6 bg-red-50 rounded-lg">
+              <h3 class="font-bold text-lg text-red-800">👎 실제 모습</h3>
+              <p class="mt-2">엉망진창. 지나치게 예민하고 지칠 대로 지쳐서 어둠 속에서 홀로 시간을 보내는 사람. 약속을 계속하지만 내심 분개하는 상태.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">과로와 <span class="highlight">죄책감</span>의 악순환</h2>
+          <p class="slide-subtitle">"나는 너무 게을러서 쉬면 안 돼."</p>
+          <div class="slide-content">
+            <p>저자는 끊임없이 자신을 몰아붙였습니다. 아무리 많이 성취해도 만족감을 느끼지 못하고, 쉴 자격이 없다고 생각했습니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <p class="mt-2">소진(burnout), 스트레스, 만성 수면 부족을 겪으면서도 한계에 부딪히는 자신을 '<span class="highlight">게으르다</span>'고 탓했습니다. 게으름은 항상 나쁜 것이라고 확신했습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">탈진의 주기 🔄</h2>
+          <p class="slide-subtitle">폭풍 같은 집중, 그리고 그 후의 공허함</p>
+          <div class="slide-content">
+             <ul class="space-y-4 list-disc list-inside">
+                <li><b>집중:</b> 아침 일찍부터 대여섯 시간 동안 식사도 잊은 채 폭풍처럼 일에 몰두합니다.</li>
+                <li><b>탈진:</b> 일이 끝나면 아무것도 못하고 멍하니 SNS를 보거나 유튜브를 보며 시간을 보냅니다.</li>
+                <li><b>죄책감:</b> 시간을 생산적으로 쓰지 못했다는 죄책감에 시달립니다. ('친구를 만나야 하는데', '창의적인 일을 해야 하는데' 등)</li>
+                <li><b>반복:</b> 다음 날 아침, 죄책감, 과로, 탈진의 주기가 다시 시작됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">건강의 붕괴와 <span class="highlight">깨달음</span> 🏥</h2>
+          <p class="slide-subtitle">몸이 보내는 마지막 경고</p>
+          <div class="slide-content">
+            <p>2014년, 논문 제출을 앞두고 심한 독감에 걸렸지만 쉬지 않고 일했습니다. 졸업 후에도 몇 달간 열과 오한이 계속되었습니다. 수많은 검사에도 원인을 찾지 못했습니다.</p>
+            <p class="mt-4">결국, 몸의 경고를 더 이상 무시할 수 없게 되자 강제로 모든 것을 멈추고 쉬어야 했습니다. 두 달간 아무것도 하지 않은 후에야 기력이 돌아오기 시작했습니다. 이 경험을 통해 <span class="highlight">지속 가능한 삶</span>의 방식을 찾아야 함을 깨달았습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 1: The Lie of Laziness -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장</p>
+          <h2 class="slide-title">'게으름'이라는 <span class="highlight">거짓</span></h2>
+          <p class="slide-content">우리가 '게으름'이라고 부르는 것은 사실 존재하지 않으며, 이는 우리 문화에 깊이 뿌리박힌 해로운 신념 체계일 뿐입니다.</p>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">게으름이라는 거짓의 <span class="highlight">세 가지 교리</span></h2>
+          <p class="slide-subtitle">우리 사회가 우리에게 주입하는 믿음들</p>
+          <div class="slide-content space-y-4">
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">1. 당신의 가치는 곧 당신의 생산성이다.</h3>
+              <p>우리는 사람을 직업으로 정의하고, 생산적이지 않으면 가치가 떨어진다고 여깁니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">2. 자신의 감정과 한계를 신뢰할 수 없다.</h3>
+              <p>피곤하거나 아픈 것은 게으름의 신호일 뿐이며, 이를 무시하고 계속 나아가야 한다고 배웁니다.</p>
+            </div>
+             <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-bold text-lg">3. 항상 더 할 수 있는 여지가 있다.</h3>
+              <p>결코 '충분히' 일했다는 느낌을 받지 못하게 하며, 끊임없이 다음 목표를 향해 달려가도록 부추깁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">게으름이라는 거짓은 <span class="highlight">어디에서 왔는가?</span></h2>
+          <p class="slide-subtitle">역사적 뿌리: 청교도주의와 자본주의</p>
+          <div class="slide-content">
+            <p class="mb-4">'Lazy'라는 단어는 16세기 영국에서 처음 등장했으며, 일하기 싫어하는 사람을 비판하는 데 사용되었습니다.</p>
+            <ul class="space-y-3 list-disc list-inside">
+              <li><b>청교도주의:</b> 근면 성실은 신의 선택을 받은 증거이고, 게으름은 저주받았다는 신호로 여겼습니다. 이는 미국 식민지 개척 시대에 널리 퍼졌습니다.</li>
+              <li><b>노예제와 산업혁명:</b> 지배층은 피지배층(노예, 노동자)에게 '열심히 일하는 것이 미덕'이라고 가르치며 착취를 정당화했습니다. 휴식은 반사회적인 것으로 간주되었습니다.</li>
+              <li><b>자수성가 신화:</b> '열심히 노력하면 누구나 성공할 수 있다'는 신화는 성공하지 못한 사람을 게으름 탓으로 돌리게 만들었고, 사회 구조적 문제를 개인의 실패로 치부하게 했습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리 주변의 <span class="highlight">게으름이라는 거짓</span></h2>
+          <p class="slide-subtitle">대중 매체와 학교, 그리고 가정까지</p>
+          <div class="slide-content">
+            <p>영화, TV 프로그램, 소셜 미디어는 끊임없이 개인의 의지력과 성취를 찬양합니다. 실패와 휴식은 조롱의 대상이 되기 쉽습니다.</p>
+            <div class="mt-6 p-6 bg-blue-50 border-l-4 border-blue-400">
+              <p>
+                <b>사례: &lt;어벤져스: 엔드게임&gt;의 토르</b><br>
+                트라우마로 고통받는 토르는 살이 찌고 무기력한 모습으로 그려지며 '게으름뱅이'로 조롱받습니다. 그의 고통은 비생산적이라는 이유로 무시됩니다.
+              </p>
+            </div>
+            <p class="mt-6">학교와 직장, 심지어 소셜 미디어의 '좋아요' 경쟁까지, 우리 삶의 모든 측면이 <span class="highlight">게임화(Gamification)</span>되어 끊임없는 성취 압박을 가합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'게으르다'고 느끼는 이유 🤔</h2>
+          <p class="slide-subtitle">그것은 당신의 잘못이 아닙니다.</p>
+          <div class="slide-content">
+            <p>우리가 게으르다고 느끼는 것은 개인의 의지 부족 때문이 아닙니다. 오히려 우리를 둘러싼 환경이 비현실적인 기대를 강요하기 때문입니다.</p>
+            <ul class="space-y-4 mt-6 list-disc list-inside">
+              <li><b>경제적 불확실성:</b> 안정적인 일자리가 줄고 '긱 경제'가 확산되면서, 쉬는 시간을 부업으로 채워야 한다는 압박감이 커졌습니다.</li>
+              <li><b>디지털 도구의 확산:</b> 스마트폰과 이메일은 일과 삶의 경계를 무너뜨려 진정한 퇴근을 불가능하게 만듭니다.</li>
+              <li><b>소셜 미디어:</b> 다른 사람들의 '완벽한' 삶을 보며 끊임없이 비교하고, 자신은 부족하다는 느낌을 받게 합니다.</li>
+            </ul>
+            <p class="mt-6 font-bold">결론적으로, 우리가 '게으르다'고 느끼는 것은 우리가 <span class="highlight">형편없는 사람이라서가 아니라, 지쳤기 때문</span>입니다.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Part 2: Misconceptions about Laziness -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장</p>
+          <h2 class="slide-title">게으름에 대한 <span class="highlight">잘못된 상식들</span></h2>
+          <p class="slide-content">우리가 게으름에 대해 가지고 있는 부정적인 생각들을 뒤집고, 그 이면에 숨겨진 진정한 의미를 탐구합니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상식 1: 게으름은 <span class="highlight">죄악</span>이다 ❌</h2>
+          <p class="slide-subtitle">우울한 사람, 늑장 부리는 사람, 무관심한 사람에 대한 오해</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold">😔 우울한 사람들</h3>
+              <p>우울증은 '유약한 성격'이 아닙니다. 우울증과 싸우는 것은 그 자체로 엄청난 에너지를 소모하는 일입니다. 무기력함은 보호와 치유를 위한 몸의 신호입니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold">⏰ 늑장 부리는 사람들</h3>
+              <p>늑장은 게으름이 아니라, 완벽주의, 불안, 실패에 대한 두려움에서 비롯되는 경우가 많습니다. 일을 잘 해내고 싶은 마음이 너무 커서 시작조차 못하는 것입니다.</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold">🤷 무관심한 사람들</h3>
+              <p>진정한 무관심은 드뭅니다. 대부분은 그 일이 왜 중요한지 이해하지 못했거나(동기 부족), 우울증이나 트라우마로 인한 '학습된 무기력' 상태일 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상식 2: 게으름은 <span class="highlight">경고</span>다 🚨</h2>
+          <p class="slide-subtitle">당신의 몸과 뇌가 보내는 중요한 신호</p>
+          <div class="slide-content">
+            <p>생산성에 대한 과학적 연구에 따르면, 한 사람이 할 수 있는 일의 양에는 명확한 한계가 있습니다. 우리는 기계가 아닙니다.</p>
+            <p class="mt-4">게으르다는 느낌은 일상의 요구를 최적으로 관리하지 못하고 있다는 신호입니다. 몸은 우리에게 필요한 것을 얻도록 놀라운 방법으로 우리를 이끕니다.</p>
+             <div class="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-500">
+                <h3 class="font-bold text-lg">몸의 신호들:</h3>
+                <ul class="list-disc list-inside mt-2 space-y-2">
+                    <li><b>배고픔:</b> 음식에 대한 집착, 짜증, 기력 저하</li>
+                    <li><b>수면 부족:</b> 피곤함, 낮잠에 대한 유혹, 마이크로 수면(microsleep)</li>
+                    <li><b>정신적 피로:</b> 집중력 저하, 한숨 돌리고 싶은 강한 욕구 (사이버로핑 등)</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">게으름에 <span class="highlight">경청하라</span> 🎧</h2>
+          <p class="slide-subtitle">통찰, 문제 해결, 그리고 자기 이해의 시간</p>
+          <div class="slide-content space-y-6">
+            <div>
+                <h3 class="text-xl font-bold mb-2">💡 게으름은 창의력을 높인다</h3>
+                <p>휴식을 취하고 게으름을 피울 때, 우리는 새로운 것을 발견하거나 환상적인 통찰을 얻을 수 있습니다. 심리학자들은 이를 '<span class="highlight">부화기(incubation period)</span>'라고 부릅니다. 뇌가 쉬는 동안 무의식적으로 아이디어를 만들어냅니다.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-2">🛠️ 게으름은 문제 해결에 도움이 된다</h3>
+                <p>번아웃을 겪은 후 충분한 휴식을 취하면, 삶을 재평가하고 더 건강하고 지속 가능한 삶의 방식을 찾을 수 있는 통찰을 얻게 됩니다. 문제에서 한 발짝 물러설 때 새로운 해결책이 보입니다.</p>
+            </div>
+             <div>
+                <h3 class="text-xl font-bold mb-2">❤️ 게으름은 무엇이 중요한지 알려준다</h3>
+                <p>의식적으로 한가로운 시간을 만들고 게으른 감정을 수용하면, 우리에게 진정으로 중요한 것이 무엇인지, 어떤 일의 강도를 줄여야 하는지 알 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">상식 3: <span class="highlight">덜 하는 것</span>이 우리를 치유하는 원리다 🧘‍♀️</h2>
+          <p class="slide-subtitle">감정을 느끼고, 명상하고, 받아들이기</p>
+          <div class="slide-content">
+            <p>'아무것도 하지 않고' 자신의 감정에만 집중하는 시간은 강력한 치유 효과가 있습니다. 심리치료사 제임스 페니베이커의 '표현적 글쓰기' 연구는 이를 과학적으로 증명했습니다.</p>
+            <div class="mt-6 p-6 bg-green-50 rounded-lg">
+              <h3 class="font-bold text-lg">표현적 글쓰기 (Expressive Writing)</h3>
+              <p>매일 20분간 방해받지 않고 자신의 가장 깊은 감정과 생각에 대해 글을 쓰는 것. 문법이나 형식에 구애받지 않고 오직 자신만을 위해 씁니다. 이 활동은 스트레스 감소, 면역 기능 향상, 정신 건강 개선에 효과적입니다.</p>
+            </div>
+             <p class="mt-6">명상 역시 마찬가지입니다. 목표를 내려놓고 현재 순간에 집중함으로써, 우리는 삶에서 진정으로 중요한 것이 무엇인지 파악하고 더 나은 경계를 설정하는 데 도움을 받습니다.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Part 3: It's Okay to Work Less -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장</p>
+          <h2 class="slide-title">일을 <span class="highlight">덜 해도 된다</span></h2>
+          <p class="slide-content">우리는 그 어느 때보다 더 많이 일하고 있으며, 이는 우리의 생산성과 건강을 해치고 있습니다. 인간의 능력에는 명확한 한계가 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">길어진 노동 시간의 역사 🕰️</h2>
+          <p class="slide-subtitle">우리는 왜 이렇게 오래 일하게 되었나?</p>
+          <div class="slide-content">
+            <ul class="space-y-4 list-disc list-inside">
+              <li><b>산업혁명 시대:</b> 노동자들은 하루 16시간씩 위험한 환경에서 일했습니다.</li>
+              <li><b>노동 운동의 성과:</b> 노동조합의 투쟁으로 20세기 중반까지 주 40시간 근무가 표준으로 자리 잡았습니다.</li>
+              <li><b>역전된 추세:</b> 하지만 최근 수십 년간 평균 노동 시간은 다시 증가하고 있습니다. 2014년 미국인의 평균 주당 근무 시간은 47시간으로 늘어났습니다.</li>
+              <li><b>디지털 시대의 함정:</b> 스마트폰, 긱 경제(gig economy) 등은 우리가 항상 일해야 한다는 압박감을 가중시키고 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인간의 한계: <span class="highlight">생산성</span>의 진실</h2>
+          <p class="slide-subtitle">더 오래 일한다고 더 잘하는 것은 아니다</p>
+          <div class="slide-content">
+             <div class="p-6 bg-gray-50 border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">헨리 포드의 발견 🚗</h3>
+              <p class="mt-2">헨리 포드는 노동 시간을 주 48시간에서 40시간으로 줄이자 오히려 생산성이 향상된다는 사실을 발견했습니다.</p>
+            </div>
+            <p class="mt-6">과학적 연구는 이를 뒷받침합니다.</p>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+              <li>주 <b>50시간</b>을 넘어서면 생산성은 급격히 떨어집니다.</li>
+              <li>주 <b>55시간</b>을 넘어서면, 추가로 일하는 것은 아무런 생산성 향상 없이 시간만 낭비하는 것과 같습니다.</li>
+              <li>사무직 노동자는 하루 평균 <b>3시간</b> 정도만 생산적일 수 있습니다. 나머지 시간은 잡담, 휴식, 딴짓 등으로 채워집니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">초과 근무 시 벌어지는 일 😵</h2>
+          <p class="slide-subtitle">소진(Burnout)의 심각한 결과</p>
+          <div class="slide-content">
+            <p>사회심리학자 크리스티나 매슬랙의 연구에 따르면, 소진은 단순한 피로가 아닙니다. 그것은 <span class="highlight">정서적 탈진, 몰개인화, 개인적 성취감 상실</span>이라는 세 가지 특징을 가집니다.</p>
+             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-bold text-lg">📉 업무 능력 저하</h3>
+                  <p>실수가 잦아지고, 창의력이 말살되며, 인지 능력이 저하됩니다. 심지어 위생 규칙과 같은 기본적인 것도 지키기 어려워집니다.</p>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">💔 삶의 질 저하</h3>
+                  <p>세상이 흑백으로 보이고, 감정을 느끼기 어려워지며, 타인에 대한 공감 능력이 떨어져 사회적 고립을 유발합니다. 뇌 부피 감소와 같은 신체적 변화까지 초래할 수 있습니다.</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">일을 <span class="highlight">덜 하는 법</span> 📝</h2>
+          <p class="slide-subtitle">자율성을 주장하고, 질에 집중하며, 경계를 설정하라</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 자율성을 주장하라:</b> 직원의 만족도와 동기 부여에 가장 큰 영향을 미치는 것은 '자유'입니다. 스스로 우선순위를 정하고 자신에게 맞는 속도로 일할 때 우리는 더 행복하고 생산적입니다. 유연 근무제나 원격 근무를 요청하고, 자신에게 맞는 업무를 맡으려 노력하세요.</p>
+            <p><b>2. 일한 시간이 아니라 일의 질에 주목하라:</b> 몇 시간을 일했는지가 아니라, 어떤 결과를 만들어냈는지에 집중하세요. "이번 달에 내가 달성한 자랑스러운 일은 무엇인가?" 와 같은 질문을 통해 자신의 가치를 재평가하세요.</p>
+            <p><b>3. 일-생활 간섭 고리를 깨라:</b> 퇴근 후에는 업무 관련 알림을 끄고 디지털 업무에서 벗어나세요. 저녁 8시 이후에는 이메일에 답장하지 않는 것과 같은 자신만의 규칙을 만드세요. 때로는 직장을 그만두는 것이 유일한 해결책일 수도 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 4: Accomplishments Are Not Value -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장</p>
+          <h2 class="slide-title">나의 성취가 나의 <span class="highlight">가치는 아니다</span></h2>
+          <p class="slide-content">삶의 모든 측면이 게임처럼 변해버린 세상에서, 우리는 성취에 대한 집착에서 벗어나 삶의 가치를 재설정해야 합니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">게임이 되어버린 삶 🎮</h2>
+          <p class="slide-subtitle">학습, 취미, 건강까지 모든 것이 경쟁이 되다</p>
+          <div class="slide-content">
+            <p>코딩 학습 사이트, 외국어 학습 앱(듀오링고), 운동 기록 앱(핏빗) 등은 즉각적인 만족감(배지, 포인트)을 제공하며 우리의 참여를 유도합니다. 이 과정에서 우리는 쉬는 시간마저 '생산적인' 활동으로 채워야 한다는 압박감을 느낍니다.</p>
+            <p class="mt-4">요리, 공예, 심지어 휴식까지 소셜 미디어에 기록되고 공유되면서, 모든 활동은 타인과의 비교와 경쟁의 대상이 되어버렸습니다. 우리는 <span class="highlight">진정한 즐거움과 여유를 잃어가고 있습니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">성취에 목맬 때 경험은 어떻게 망가지는가?</h2>
+          <p class="slide-subtitle">'음미(Savoring)'의 상실</p>
+          <div class="slide-content">
+            <p>긍정심리학자 프레드 브라이언트는 '음미'란 긍정적인 경험을 지금 이 순간 깊게 만끽하는 과정이라고 설명합니다. 이는 행복의 핵심 요소입니다.</p>
+            <div class="mt-6 p-6 bg-red-50 border-l-4 border-red-500">
+              <h3 class="font-bold text-lg">음미를 방해하는 네 가지 습관 (가라앉히기)</h3>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li><b>억압:</b> 행복한 티를 내지 않으려 감정을 숨기는 것.</li>
+                <li><b>주의 분산:</b> 즐거운 순간에도 다른 일(멀티태스킹)에 신경 쓰는 것.</li>
+                <li><b>트집 잡기:</b> 완벽하지 않은 부분에만 집중하며 긍정적 측면을 무시하는 것.</li>
+                <li><b>부정적인 시간 여행:</b> 미래를 걱정하거나 과거의 나쁜 기억에 얽매이는 것.</li>
+              </ul>
+              <p class="mt-4">게으름이라는 거짓은 바로 이 네 가지 습관을 강력하게 장려합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶의 가치를 <span class="highlight">재설정하는 법</span></h2>
+          <p class="slide-subtitle">성취의 덫에서 벗어나기 위한 전략</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 음미하는 법을 배워라:</b> 행복감을 높이는 네 가지 사고 습관(행동으로 나타내기, 현재에 머물기, 소통의 기회로 이용하기, 긍정적인 시간 여행)을 연습하세요. 맛있는 음식을 먹을 때 온전히 집중하고, 좋은 일이 생기면 다른 사람과 나누세요.</p>
+            <p><b>2. 시간을 내어 경외감을 느껴라:</b> 새로운 장소를 탐험하거나, 자연의 아름다움을 감상하거나, 예술 작품에 몰입하는 등 일상에서 벗어나 경이로운 순간을 의식적으로 찾으세요. 경외감은 개인적인 걱정을 잠시 잊게 하고 삶에 더 큰 목적의식을 부여합니다.</p>
+            <p><b>3. 잘하지 못하는 일을 해라:</b> 성공할 가망이 없는 활동을 통해 실패를 인정하고, 결과가 아닌 과정을 즐기는 법을 배우세요. 이는 '잘해야 한다'는 압박에서 벗어나 진정한 자유를 느끼게 해줍니다.</p>
+            <p><b>4. 삶에 대한 기록을 덜 남겨라:</b> 모든 경험을 기록하고 공유하려는 충동에서 벗어나세요. 스마트폰 없는 시간을 갖고, 결과가 아닌 과정 자체에 집중하는 법을 연습하세요.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Part 5: You Don't Need to Be an Expert -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장</p>
+          <h2 class="slide-title">모든 것에 <span class="highlight">전문가일 필요는 없다</span></h2>
+          <p class="slide-content">우리는 정보 과부하의 시대에 살고 있습니다. 모든 것을 알아야 한다는 압박감은 우리를 지치게 하고 건강을 해칩니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정보 과부하의 시대 🌊</h2>
+          <p class="slide-subtitle">알아야 할 것이 너무 많은 세상</p>
+          <div class="slide-content">
+            <p>과거에는 소수의 전문가만이 지식을 독점했지만, 인터넷의 발달로 누구나 방대한 정보에 접근할 수 있게 되었습니다. 하지만 이는 새로운 문제를 낳았습니다.</p>
+            <ul class="list-disc list-inside space-y-3 mt-6">
+                <li><b>지식의 폭발:</b> 매일 250경 바이트의 데이터가 추가됩니다. 현재 인터넷 정보의 90%는 지난 2년 사이에 만들어졌습니다.</li>
+                <li><b>정크 데이터:</b> 우리가 접하는 정보의 대부분은 의미 없는 댓글, 광고, 자기 홍보 등 '정크 데이터'입니다.</li>
+                <li><b>위험한 데이터:</b> 혐오 발언, 가짜 뉴스, 트라우마를 유발하는 콘텐츠 등 유해한 정보에도 쉽게 노출됩니다.</li>
+            </ul>
+             <p class="mt-4 font-bold">결과적으로, 우리는 유용한 정보를 걸러내기 위해 엄청난 노력을 기울여야 하며, 이 과정에서 끊임없는 <span class="highlight">죄책감과 불안감</span>에 시달립니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정보 과부하가 건강에 미치는 영향 🤕</h2>
+          <p class="slide-subtitle">뉴스 중독과 무력감</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🧠 정신적 영향</h3>
+              <p>부정적인 뉴스를 과도하게 소비하면 불안, 우울, 무력감이 증가합니다. 특히 통제할 수 없는 문제에 집착할 때 더욱 그렇습니다. 이는 세상을 실제보다 더 위험한 곳으로 인식하게 만듭니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">💪 인지 능력 저하</h3>
+              <p>정보 과부하는 집중력을 잃게 하고, 기억력과 의사 결정 능력을 해칩니다. 너무 많은 정보는 오히려 올바른 판단을 방해하고, 피싱 사기나 가짜 뉴스에 취약하게 만듭니다.</p>
+            </div>
+          </div>
+           <div class="mt-8 p-6 bg-yellow-100 rounded-lg text-center">
+             <p>아이러니하게도, 겁을 주는 정보는 문제 해결을 위한 행동 가능성을 오히려 <span class="highlight">감소</span>시킵니다.</p>
+           </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정보의 양을 <span class="highlight">제한하라</span> 🛡️</h2>
+          <p class="slide-subtitle">디지털 세상에서 나를 지키는 방법</p>
+          <div class="slide-content space-y-3">
+            <p><b>필터와 뮤트 기능 사용하기:</b> SNS에서 특정 단어, 문구, 사람을 뮤트하여 트라우마를 유발하거나 불필요한 논쟁을 일으키는 콘텐츠를 차단하세요.</p>
+            <p><b>필요하다면 누구든 차단하기:</b> 온라인 공간은 당신의 공간입니다. 당신에게 스트레스를 주는 사람을 언팔로우하거나 차단하는 것을 미안해하지 마세요.</p>
+            <p><b>헤드라인만 훑어보고 넘어가기:</b> 모든 기사를 자세히 읽을 필요는 없습니다. 세상이 어떻게 돌아가는지 대략 파악한 후, 당신의 삶에 집중하세요. 정말 중요한 주제 한두 가지만 깊이 파고드세요.</p>
+            <p><b>댓글 창 문화에 저항하기:</b> 댓글 창은 분노와 논쟁을 유발하도록 설계되었습니다. 소모적인 논쟁에 참여하는 대신, 직접 만나서 대화하세요.</p>
+             <p><b>잠자리에 들기 전에는 뉴스를 읽지 마라:</b> 잠들기 전 부정적인 뉴스를 읽는 것은 수면의 질을 떨어뜨리고 불안감을 증폭시킵니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정보를 더 <span class="highlight">의미 있게 소비하라</span></h2>
+          <p class="slide-subtitle">통제할 수 있는 것에 집중하기</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 적극적으로 읽기를 연습하라:</b> 정보를 수동적으로 흡수하는 대신, 질문하고, 예측하고, 자신의 지식과 연결하며 비판적으로 읽으세요.</p>
+            <p><b>2. 만나서 대화를 나눠라:</b> 온라인상의 논쟁보다 직접 만나 나누는 대화가 더 깊은 이해와 만족감을 줍니다.</p>
+            <p><b>3. 알지 못하는 것에 대해 마음을 편하게 가져라:</b> 모든 것을 알 필요는 없습니다. 자신의 한계를 겸손하게 인정하는 것이 더 건강한 방법입니다.</p>
+            <p><b>4. 통제할 수 있는 것에 집중하라:</b> 거대하고 추상적인 문제(기후 변화 등)에 압도당하는 대신, 내가 직접 참여하고 변화를 만들 수 있는 작고 구체적인 활동에 집중하세요. 이는 무력감을 줄이고 행동을 지속할 동기를 부여합니다.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Part 6: Escaping Draining Relationships -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장</p>
+          <h2 class="slide-title">지치게 하는 <span class="highlight">관계에서 벗어나는 법</span></h2>
+          <p class="slide-content">게으름이라는 거짓은 우리의 관계에도 영향을 미칩니다. 우리는 타인의 요구를 들어주기 위해 자신의 욕구를 희생하며, 건강한 경계를 설정하는 데 어려움을 겪습니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">요구가 많은 가족을 대하는 법 👨‍👩‍👧‍👦</h2>
+          <p class="slide-subtitle">죄책감 없이 '아니오'라고 말하기</p>
+          <div class="slide-content">
+            <p>우리는 종종 사랑하는 사람을 실망시킬까 봐 두려워 그들의 무리한 요구를 거절하지 못합니다. 특히 감정적으로 미성숙한 부모 밑에서 자란 경우, 타인의 욕구를 우선시하도록 배우게 됩니다.</p>
+            <div class="mt-6 p-6 bg-gray-50 rounded-lg">
+              <h3 class="font-bold text-lg">균형 깨진 관계의 특징:</h3>
+              <p class="mt-2">한쪽은 끊임없이 베풀고, 다른 한쪽은 받기만 합니다. 이런 관계에 익숙해지면 자신의 욕구를 표현하는 것 자체를 이기적이라고 느끼게 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">건강한 경계를 설정하는 <span class="highlight">4단계 전략</span></h2>
+          <p class="slide-subtitle">점진적으로 관계의 역동을 바꾸기</p>
+          <div class="slide-content space-y-3">
+            <p><b>1. 기대를 없애라:</b> 상대방이 당신에게 무엇을 기대하는지 명시적으로 대화하여 불분명한 기대를 제거하세요. "네가 나한테 뭘 기대하니?"라고 직접 물어보세요.</p>
+            <p><b>2. 발을 뺄 거라고 경고하라:</b> "요즘 일이 바빠서 예전만큼 자주 연락하기 힘들 것 같아"와 같이, 당신의 상황이 변했음을 미리 알려주세요.</p>
+            <p><b>3. 작은 일들에 대해 '싫다'고 말하라:</b> 큰 갈등을 피하기 위해, 사소한 부탁부터 거절하는 연습을 시작하세요. ("미안, 공항에 데려다주기 어려울 것 같아.")</p>
+            <p><b>4. 고장 난 레코드판이 될까 봐 두려워하지 마라:</b> 상대방이 당신의 경계를 존중하지 않을 때, 같은 말을 계속 반복해야 할 수도 있습니다. "미안하지만 바빠. 사랑해."</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">눈에 보이지 않는 짐을 <span class="highlight">내려놓아라</span></h2>
+          <p class="slide-subtitle">정서적 노동과 '2교대 근무'의 문제</p>
+          <div class="slide-content">
+            <p>'2교대(second shift)'란 여성이 직장에서 퇴근한 후에도 집안일, 육아 등 무급 가사 노동을 계속하는 현상을 말합니다. 이는 가정뿐만 아니라 직장 내 '보이지 않는 노동'(사무실 정리, 동료 생일 챙기기 등)으로 확장됩니다.</p>
+            <p class="mt-4">이러한 보이지 않는 짐을 내려놓기 위해서는 다음과 같은 노력이 필요합니다.</p>
+             <ul class="list-disc list-inside mt-4 space-y-2">
+                <li><b>시간을 어떻게 쓰는지 추적하라:</b> 당신이 얼마나 많은 보이지 않는 노동을 하고 있는지 기록하고 인식하세요.</li>
+                <li><b>당신의 가치를 명료화하라:</b> 당신에게 진정으로 중요한 활동이 무엇인지 파악하고, 중요하지 않은 일은 과감히 줄이세요.</li>
+                <li><b>다른 사람들이 제대로 못 해도 나서지 마라:</b> 다른 사람이 서툴게 하더라도, 그들의 책임을 대신 져주려는 충동을 억제하세요. 그들이 배우고 성장할 기회를 주세요.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 7: Shake Off the 'Shoulds' -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">7장</p>
+          <h2 class="slide-title">사회가 부과한 <span class="highlight">당위</span>를 떨쳐버려라</h2>
+          <p class="slide-content">우리는 사회가 정한 '정상성'의 기준에 맞추기 위해 끊임없이 자신을 억압합니다. 이제 그만 저항하고, 있는 그대로의 자신을 받아들여야 합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리 몸은 이미 <span class="highlight">완벽하다</span></h2>
+          <p class="slide-subtitle">살에 대한 혐오와 다이어트 산업의 거짓말</p>
+          <div class="slide-content">
+            <p>사회는 끊임없이 우리 몸이 '잘못되었다'고 말하며, 특히 살찐 사람들을 게으름의 상징으로 낙인찍습니다. 720억 달러 규모의 다이어트 산업은 이러한 불안감을 이용해 이윤을 창출합니다.</p>
+            <div class="mt-6 p-6 bg-yellow-50 rounded-lg">
+                <p><b>진실:</b> 다이어트를 시도한 사람의 95% 이상이 5년 내에 요요현상을 겪습니다. 체중을 반복해서 빼고 찌우는 것은 일정한 과체중을 유지하는 것보다 건강에 훨씬 해롭습니다.</p>
+            </div>
+             <p class="mt-4">우리는 몸을 '고쳐야 할 대상'이 아니라 '나 자신'으로 인식해야 합니다. 몸의 신호에 귀 기울이고, 몸이 할 수 있는 일들을 축하하며, 사회가 강요하는 미의 기준에 저항해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">꼭 멋져야만 잘 사는 게 아니다</h2>
+          <p class="slide-subtitle">'존스네 따라하기(Keeping up with the Joneses)'의 허상</p>
+          <div class="slide-content">
+            <p>소셜 미디어는 완벽하고 멋진 타인의 삶을 전시하며, 우리에게 끊임없는 비교와 불안감을 안겨줍니다. 하지만 우리가 보는 것은 대부분 연출된 이미지일 뿐, 실제 삶이 아닙니다.</p>
+             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-bold text-lg">💔 상향 비교의 함정</h3>
+                  <p>나보다 더 나아 보이는 사람과 끊임없이 비교하는 '사회적 상향 비교'는 번아웃과 우울감의 주요 원인입니다. 우리는 결코 따라잡을 수 없는 허상을 좇고 있습니다.</p>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">✨ 수치심 대신 영감을</h3>
+                  <p>비교 대상을 수치심의 원천이 아닌, 동기 부여와 격려의 원천으로 삼으세요. 그 사람의 성공 기준에 나를 맞추는 대신, 그들의 열정과 태도에서 영감을 얻으세요.</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">세상을 구하는 건 당신의 <span class="highlight">책임이 아니다</span></h2>
+          <p class="slide-subtitle">활동가의 소진과 지속 가능한 참여</p>
+          <div class="slide-content">
+            <p>세상의 수많은 문제(기후 변화, 인종차별 등)를 해결해야 한다는 죄책감은 우리를 쉽게 소진시킵니다. 하지만 한 사람이 모든 것을 해결할 수는 없습니다.</p>
+             <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 class="font-bold text-lg">지속 가능한 활동을 위한 조언</h3>
+               <ul class="list-disc list-inside mt-2 space-y-2">
+                <li><b>죄책감이 아닌 공감을 기준으로 목표를 설정하라:</b> 두려움이 아닌, 진정으로 마음이 가는 문제에 집중하세요.</li>
+                <li><b>당신이 바꿀 수 없는 것들에 대해 애도하라:</b> 모든 문제를 해결할 수 없다는 사실을 인정하고, 슬퍼할 시간을 가지세요.</li>
+                <li><b>작은 활동으로 만족하라:</b> 거대한 문제를 해결하려 하기보다, 내가 할 수 있는 작고 구체적인 일에 집중하며 만족감을 찾으세요.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">❤️‍🩹</div>
+          <h2 class="slide-title">결론: 연민은 게으름이라는 거짓을 없앤다</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">게으름이라는 거짓을 해체하는 치료법은 <span class="highlight">한없는 연민</span>입니다. 타인의 고통을 그들의 탓으로 돌리지 않을 때, 우리는 자신에게도 친절해질 수 있습니다.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">당신의 가치는 생산성과 상관없이 존재합니다. 다른 모든 사람도 마찬가지입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">연민을 <span class="highlight">실천하는 법</span></h2>
+          <p class="slide-subtitle">게으름이라는 거짓의 자동 반응을 멈추기</p>
+          <div class="slide-content space-y-4">
+            <p><b>1. 연민 어린 호기심을 실천하라:</b> 누군가를 '게으르다'고 비판하기 전에, "왜 저렇게 행동할까?", "어떤 어려움을 겪고 있을까?", "어떤 도움이 필요할까?"라고 질문해보세요.</p>
+            <p><b>2. 더 큰 맥락을 보라:</b> 개인의 행동을 비난하기 전에, 그가 처한 사회적, 경제적, 제도적 맥락을 고려하세요. 우리 자신에게도 똑같이 적용됩니다.</p>
+            <p><b>3. 생산성을 선량함과 연결시키기를 중단하라:</b> '무언가를 하는 것'이 '아무것도 하지 않는 것'보다 항상 더 낫다는 믿음을 버리세요. 때로는 휴식과 성찰이 더 중요합니다.</p>
+            <p><b>4. 자신에게 친절하라:</b> 게으름이라는 거짓을 탈학습하는 것은 평생의 과제입니다. 비판적인 생각이 떠오를 때마다, 그것을 알아차리고 대신 연민으로 자신을 바라보세요.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
