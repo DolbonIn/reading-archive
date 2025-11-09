@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>에리히 프롬: 우리는 여전히 삶을 사랑하는가</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #FCFCFC;
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #111;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+    }
+    .highlight {
+      background-color: #FFDD00;
+      padding: 0 0.25em;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #111;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #333;
+    }
+    .btn-secondary {
+      background-color: #F0F0F0;
+      color: #333;
+    }
+    .btn-secondary:hover {
+      background-color: #E0E0E0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 9999px;
+      height: 8px;
+      margin-bottom: 15px;
+    }
+    .progress {
+      background-color: #111;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .list-item {
+        margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full">
+    <!-- Slides Container -->
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">🤔</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">우리는 여전히 삶을 사랑하는가</h1>
+          <p class="text-xl md:text-2xl text-gray-700">에리히 프롬의 철학을 통해 <span class="highlight">현대인의 삶을</span> 성찰하다</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+            <p><b>1. 우리는 여전히 삶을 사랑하는가</b></p>
+            <p><b>2. 인간은 수단이 아니라 목적이다</b></p>
+            <p><b>3. 이기심과 자기애</b></p>
+            <p><b>4. 창의적인 삶</b></p>
+            <p><b>5. 죽음에 대한 태도</b></p>
+            <p><b>6. 무력감에 대하여</b></p>
+            <p><b>7. 기본 소득으로 자유를 얻으려면</b></p>
+            <p><b>8. 소비하는 인간의 공허함</b></p>
+            <p><b>9. 활동적인 삶</b></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 1: 우리는 여전히 삶을 사랑하는가 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 1</p>
+          <h2 class="slide-title">우리는 여전히 <span class="highlight">삶을</span> 사랑하는가</h2>
+          <p class="slide-content">현대 사회는 우리에게 끊임없이 질문을 던집니다. 우리는 진정으로 살아있는 것을 향한 사랑, '바이오필리아'를 간직하고 있는가?</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">삶이란 무엇인가: <span class="highlight">성장과 변화</span></h2>
+          <p class="slide-subtitle">프롬에게 삶은 정지된 상태가 아닌, 끊임없는 과정입니다.</p>
+          <div class="slide-content">
+            <p class="list-item">🌱 <b>성장의 과정:</b> 삶은 어쩔 수 없이 성장과 변화의 과정입니다. 이 과정이 멈추면 죽음이 찾아옵니다.</p>
+            <p class="list-item">🎲 <b>예측 불가능성:</b> 삶은 구조 안에서 성장하지만, 동시에 예측할 수 없는 놀라움으로 가득 차 있습니다. 살아 있는 것은 본질적으로 '무질서'합니다.</p>
+            <p class="list-item">🕊️ <b>자유의 아이:</b> 삶을 통제하려는 시도는 실패하고 증오를 낳습니다. 사랑이 '자유의 아이'이듯, 삶도 그러하기 때문입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">사랑과 폭력: 삶을 대하는 <span class="highlight">두 가지 원칙</span></h2>
+          <p class="slide-subtitle">우리는 삶을 사랑으로 대하는가, 아니면 폭력으로 통제하려 하는가?</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl text-green-600">❤️ 사랑의 원칙</h3>
+              <p>이해하고, 설득하며, 생명력을 불어넣으려 애쓰는 태도입니다. 성장을 향한 적극적 관심을 담고 있으며, 끊임없이 자신을 변화시킵니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl text-red-600">💣 폭력의 원칙</h3>
+              <p>통제하고, 강요하며, 상대를 자신의 목적을 위한 수단으로 삼는 태도입니다. 사랑과 폭력은 결코 화합할 수 없는 적수입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">바이오필리아 vs <span class="highlight">네크로필리아</span></h2>
+          <p class="slide-subtitle">프롬은 인간의 두 가지 근본적 성향을 제시합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl">🌱 바이오필리아 (Biophilia)</h3>
+              <p>삶과 살아있는 모든 것을 사랑하는 성향입니다. 성장, 창조, 통합을 지향합니다. 얼굴에 생기가 돌고 주변을 환하게 만듭니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl">💀 네크로필리아 (Necrophilia)</h3>
+              <p>죽은 것, 파괴, 기계적인 것에 매력을 느끼는 성향입니다. 통제, 분해, 강제를 지향합니다. 진정한 기쁨을 느끼지 못합니다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <p class="mt-2">현대 문화는 기계에 대한 찬양, 과정보다 결과 중시, 소비주의를 통해 <span class="highlight">네크로필리아적 성향</span>을 부추기고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">최악은 고통이 아니라 <span class="highlight">무관심이다</span></h2>
+          <p class="slide-subtitle">프롬은 현대인의 가장 큰 위험으로 '무관심'을 꼽습니다.</p>
+          <div class="slide-content">
+            <p class="list-item">😖 <b>고통:</b> 원인을 없애려 노력하게 만드는, 변화의 산파 역할을 합니다.</p>
+            <p class="list-item">😶 <b>무관심:</b> 아무 감정도 느끼지 못하는 마비 상태. 운명을 바꾸는 인간의 능력을 짓밟아 버립니다.</p>
+            <p class="list-item">💡 <b>결론:</b> 인생에서 가장 중요한 것은 행복이 아니라 <span class="highlight">살아 있는 것</span>입니다. 살아있음을 느끼기 위해 우리는 다시 사랑을 배워야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 2: 인간은 수단이 아니라 목적이다 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 2</p>
+          <h2 class="slide-title">인간은 <span class="highlight">수단이 아니라 목적이다</span></h2>
+          <p class="slide-content">19세기와 20세기의 윤리적 문제는 어떻게 변화했으며, 오늘날 우리가 마주한 진정한 과제는 무엇인가?</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">19세기의 악덕들 🏭</h2>
+          <p class="slide-subtitle">과거의 사회가 싸워왔던 윤리적 문제들입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <p><b>👑 권위주의:</b> 맹목적 복종의 요구.</p>
+            <p><b>⛓️ 착취:</b> 타인의 고혈을 빠는 야만적 행태.</p>
+            <p><b>⚖️ 불평등:</b> 성과 인종에 대한 차별.</p>
+            <p><b>💰 탐욕과 축재:</b> 저축이 최고의 덕목인 시대.</p>
+            <p><b> selfish 개인주의:</b> "내 집은 내 성이다."</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">20세기의 새로운 악덕들 🤖</h2>
+          <p class="slide-subtitle">오늘날 우리는 과거와 다른, 더 교묘한 형태의 문제에 직면해 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">👤 <span class="highlight">익명의 권위</span> (↔ 권위주의)</h3>
+              <p>시장, 여론, 상식의 이름으로 우리를 통제합니다. 누구도 강요하지 않지만 모두가 자발적으로 따릅니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">⚙️ <span class="highlight">자기 착취</span> (↔ 착취)</h3>
+              <p>스스로를 상품으로 여기고, 더 나은 '상품'이 되기 위해 자신을 소모하고 착취합니다. 우리는 로봇이 될 위험에 처해 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">👥 <span class="highlight">획일성</span> (↔ 불평등)</h3>
+              <p>평등이 '동일함'으로 변질되었습니다. 타인과 구분되지 않을 때 안정감을 느끼며, 무리에서 추방될 것을 두려워합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🛒 <span class="highlight">소비</span> (↔ 탐욕)</h3>
+              <p>영원한 소비자가 되었습니다. 우리는 담배, 술, 책, 심지어 사랑까지 소비합니다. 생산적이지 않기에 계속 실망합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현대의 과제: <span class="highlight">분리를 넘어 통합으로</span></h2>
+          <p class="slide-subtitle">오늘날 우리가 극복해야 할 가장 큰 과제는 내면의 분리입니다.</p>
+          <div class="slide-content">
+            <p class="list-item">🧠 <b>지성과 감성의 분리:</b> 데카르트 이래로 감정은 비합리적인 것으로 낙인찍혔습니다. 우리는 생각과 감정이 분리된 채 살아갑니다.</p>
+            <p class="list-item">🎭 <b>수용에서 창조로:</b> 소비하고 수용하는 수동적 태도를 극복하고 <span class="highlight">창조적 인간</span>이 되어야 합니다. 이는 세상을 대하는 자세의 변화를 의미합니다.</p>
+            <p class="list-item">🎯 <b>수단을 목적으로:</b> 사물이 인간을 지배하는 세상을 끝내고, 다시 인간을 모든 것의 목적으로 되돌려 놓는 것이 우리의 과제입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3: 이기심과 자기애 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 3</p>
+          <h2 class="slide-title">이기심과 <span class="highlight">자기애</span></h2>
+          <p class="slide-content">자신을 사랑하는 것은 죄악인가? 프롬은 이기심과 자기애를 명확히 구분하며 전통적 관념을 뒤집습니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">잘못된 이분법: <span class="highlight">나 or 타인</span></h2>
+          <p class="slide-subtitle">"타인을 사랑하거나, 자신을 사랑하거나." 이 생각은 어디에서 비롯되었을까요?</p>
+          <div class="slide-content">
+            <p class="list-item">✝️ <b>신학적 배경 (칼뱅):</b> 인간은 본질적으로 하찮고 무력한 존재. 따라서 자신을 사랑하는 '자기애'는 가장 큰 죄악('역병')으로 간주되었습니다.</p>
+            <p class="list-item">🤔 <b>철학적 배경 (칸트):</b> 타인의 행복을 바라는 것은 덕목이지만, 자신의 행복을 바라는 것은 자연적 경향일 뿐 윤리적 가치가 없다고 보았습니다.</p>
+            <p class="list-item">🔄 <b>오류:</b> 이 모든 관점은 <span class="highlight">자신에 대한 사랑</span>과 <span class="highlight">타인에 대한 사랑</span>이 서로 배제된다는 잘못된 전제 위에 서 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이기심 vs 자기애: <span class="highlight">근본적 차이</span></h2>
+          <p class="slide-subtitle">프롬에 따르면, 이기심과 자기애는 정반대의 개념입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl text-red-600">😠 이기적인 사람</h3>
+              <p>자신에게만 관심이 있고 모든 것을 가지려 합니다. 하지만 그는 결코 만족하지 못하고 늘 불안에 떱니다. 그의 근원은 <span class="highlight">자기애의 결핍</span>이며, 자신을 증오합니다. 탐욕은 자기애 부족을 보상하려는 시도입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl text-green-600">🥰 자기를 사랑하는 사람</h3>
+              <p>자신의 삶, 행복, 성장, 자유를 긍정합니다. 자신을 사랑하고 존중하기에 타인 또한 존중하고 사랑할 수 있습니다. 자기애는 이웃 사랑의 <span class="highlight">전제 조건</span>입니다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <h3 class="font-bold text-lg">💡 핵심 통찰</h3>
+            <p class="mt-2">성경의 "네 이웃을 네 몸과 같이 사랑하라"는 말은, 자신의 온전함과 유일함에 대한 존중(자기애)이 타인에 대한 존중 및 사랑과 분리될 수 없음을 의미합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 4: 창의적인 삶 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 4</p>
+          <h2 class="slide-title"><span class="highlight">창의적인</span> 삶</h2>
+          <p class="slide-content">창의성이란 예술가만의 전유물이 아닙니다. 그것은 세상을 '보고 대답하는' 능력이며, 우리 모두가 도달해야 할 삶의 자세입니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">당신은 장미를 '보는가'? 🧐</h2>
+          <p class="slide-subtitle">우리는 대부분의 시간을 진정으로 '보지' 않고 '인지'만 하며 살아갑니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🧠 지성적 인지 (비창의적)</h3>
+              <p>장미를 보고 '이것은 장미다'라고 개념적으로 분류하는 행위. 대상을 인식하고 언어화하는 것에 그칩니다. 우리는 그 장미의 고유한 현실을 경험하지 못합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">👁️ 창의적 경험 (창의적)</h3>
+              <p>완두콩이 굴러가는 것을 난생 처음 본 것처럼 느끼는 경험. 대상의 본질을 온 인격으로 경험하고 응답하는 것입니다. 아이가 공이 구르는 것을 백번 봐도 지루해하지 않는 이유입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창의성을 위한 <span class="highlight">4가지 조건</span></h2>
+          <p class="slide-subtitle">창의적인 삶의 자세를 기르기 위해 필요한 것들입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+              <p class="list-item"><b>1. 감탄하는 능력 ✨:</b> 당연한 것에 놀라고 의문을 품는 능력. 모든 발견의 시작입니다.</p>
+              <p class="list-item"><b>2. 집중력 🎯:</b> '지금, 여기'에 온전히 존재하는 능력. 현대인은 분주하지만 집중하지 못합니다.</p>
+              <p class="list-item"><b>3. '나'를 경험하는 능력 🙋:</b> 타인의 생각이나 감정이 아닌, 자신의 고유한 경험을 하는 것. 독창성의 기원입니다.</p>
+              <p class="list-item"><b>4. 갈등을 수용하는 능력 ☯️:</b> 양극성에서 생기는 갈등과 긴장을 회피하지 않고 받아들이는 능력.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">매일 새롭게 태어날 <span class="highlight">용기</span></h2>
+          <p class="slide-subtitle">창의성이란 본질적으로 '죽기 전에 온전히 태어나는 것'을 의미합니다.</p>
+          <div class="slide-content">
+            <p class="list-item">🏃 <b>안전을 버릴 용기:</b> 익숙한 과거(자궁)를 떠나 미지의 세계로 나아갈 용기.</p>
+            <p class="list-item">🌍 <b>고립을 견딜 용기:</b> 타인과 다를 수 있는 용기, 자신의 진실을 따를 용기.</p>
+            <p class="list-item">💖 <b>믿음:</b> 과학적으로 증명할 수 없는 자신의 경험과 확신을 신뢰하는 것.</p>
+            <p class="mt-4 font-bold">창의성은 특별한 재능이 아니라, 용기와 믿음을 통해 모든 사람이 도달해야 할 삶의 교육입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 5: 죽음에 대한 태도 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 5</p>
+          <h2 class="slide-title"><span class="highlight">죽음에 대한</span> 태도</h2>
+          <p class="slide-content">현대 사회는 죽음을 은폐하고 부정합니다. 죽음에 대한 우리의 태도는 우리가 어떻게 살고 있는지를 보여줍니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">죽음의 부인과 <span class="highlight">불멸의 착각</span></h2>
+          <p class="slide-subtitle">우리는 왜 죽음을 외면하는가?</p>
+          <div class="slide-content">
+            <p class="list-item">🏞️ <b>자연으로부터의 소외:</b> 자연을 정복의 대상으로 여기면서, 우리가 자연의 일부이며 죽는다는 사실을 부정하게 되었습니다. 죽음은 기술의 한계를 보여주는 유일한 현상입니다.</p>
+            <p class="list-item">🎭 <b>죽음의 은폐:</b> 장례식은 전문가의 손에 넘어가고, 슬픔은 감춰야 할 감정이 되었습니다. 죽음은 일상에서 추방당했습니다.</p>
+            <p class="list-item">💭 <b>'불멸의 착각':</b> 자신은 죽지 않을 것이라는 무의식적 믿음. 이 때문에 사람들은 암 검진과 같은 생명을 지키려는 노력에 무관심합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">죽음의 공포, 그 진짜 이유</h2>
+          <p class="slide-subtitle">죽음에 대한 공포는 다양한 원인을 갖지만, 핵심은 하나로 모아집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🚫 <span class="highlight">살지 못한 삶</span>에 대한 두려움</h3>
+              <p>진정으로 자신의 삶을 살지 못했다는 감정이 죽음의 공포로 나타납니다. 온전히 살지 못했기에 죽음을 받아들일 수 없는 것입니다. 진정으로 사는 사람은 죽음을 두려워하지 않습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">👜 <span class="highlight">소유</span>를 잃는 것에 대한 두려움</h3>
+              <p>자신을 '가진 것'으로 정의하는 사람('나는 내가 가진 것이다')에게 죽음은 모든 것을 잃는 것, 즉 자기 자신을 잃는 것을 의미합니다. 존재가 아닌 소유에 집착할수록 죽음의 공포는 커집니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 6: 무력감에 대하여 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 6</p>
+          <h2 class="slide-title"><span class="highlight">무력감에</span> 대하여</h2>
+          <p class="slide-content">현대인은 역사상 가장 강력한 물질 세계를 창조했지만, 동시에 그 창조물 앞에서 가장 무력한 존재가 되었습니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시민 계급의 <span class="highlight">분열된 특성</span></h2>
+          <p class="slide-subtitle">현대인은 능동성과 무력감이라는 극단적인 양면성을 동시에 보여줍니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🚀 극도의 능동성</h3>
+              <p>자연을 정복하고, 사회를 합리적으로 조직하며, 유례없는 부를 쌓았습니다. 인간이 물질세계의 온전한 주인이었던 적은 없었습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🙇‍♂️ 극도의 무력감</h3>
+              <p>스스로 만든 거대한 기계(경제, 사회 시스템) 앞에서 무력하게 복종합니다. 창조물이 주인이 되고 인간은 시종이 되었습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무력감의 원인: <span class="highlight">진지하지 않은 대우</span></h2>
+          <p class="slide-subtitle">무력감은 어린 시절의 경험에서부터 시작됩니다.</p>
+          <div class="slide-content">
+            <p class="list-item">🧸 <b>가짜 권력:</b> 아이는 보살핌을 받지만, 자신의 의지로 세상을 바꿀 수 없다는 것을 배웁니다. 어른이 개입하지 않으면 아무것도 이룰 수 없습니다. 마치 장난감 전화기처럼, 진짜 세상과 연결되어 있지 않습니다.</p>
+            <p class="list-item">🌐 <b>사회적 확장:</b> 성인이 되어서도 이 경험은 반복됩니다. 개인은 거대한 사회경제적, 정치적 힘 앞에서 자신의 운명을 결정할 수 없다고 느낍니다.</p>
+            <p class="list-item">🎭 <b>이데올로기와의 괴리:</b> '개인의 노력으로 모든 것을 이룰 수 있다'는 이데올로기와 '아무것도 바꿀 수 없다'는 현실 사이의 괴리가 무력감을 심화시킵니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">무력감 극복을 위한 <span class="highlight">왜곡된 노력</span></h2>
+          <p class="slide-subtitle">무력감이라는 고통을 피하기 위해 우리는 다양한 방어기제를 사용합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+              <p class="list-item"><b>🔮 기적에 대한 믿음:</b> 외부의 사건(새로운 연인, 이사, 새해)이 갑자기 모든 것을 해결해 줄 것이라는 환상.</p>
+              <p class="list-item"><b>⏳ 시간에 대한 믿음:</b> '시간이 가면' 모든 것이 저절로 나아질 것이라는 수동적 기대.</p>
+              <p class="list-item"><b>🏃‍♂️ 분주함 (과보상):</b> 끊임없이 활동하고 바쁘게 움직임으로써 내면의 무력감을 억압하고 외면함.</p>
+              <p class="list-item"><b>👑 통제와 지배 욕구:</b> 상상 속에서, 혹은 자신보다 약한 대상(가족 등)을 통제하며 무력감을 보상받으려 함.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 7: 기본 소득으로 자유를 얻으려면 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 7</p>
+          <h2 class="slide-title">기본 소득으로 <span class="highlight">자유를 얻으려면</span></h2>
+          <p class="slide-content">경제적 과잉 시대에, '보장된 소득'은 인간을 경제적 협박에서 해방시켜 진정한 자유를 향한 길을 열 수 있습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">두 가지 속박으로부터의 <span class="highlight">해방</span></h2>
+          <p class="slide-subtitle">인류 역사는 인간의 자유를 제약하는 두 가지 요인에 의해 지배되어 왔습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">⚔️ 지배자의 폭력</h3>
+              <p>물리적인 힘을 통해 개인의 행동을 통제하고 제약했습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🍞 굶주림의 협박</h3>
+              <p>"일하지 않는 자여, 먹지도 마라!"는 원칙. 생존에 대한 불안은 인간이 부과된 조건에 순응하도록 강요했습니다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <p class="mt-2">기본 소득은 역사상 처음으로 인간을 <span class="highlight">굶어 죽을 위험</span>에서 자유롭게 하여, 경제적 이유로 특정 노동조건을 수락할 필요가 없게 만듭니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 질문, 새로운 자유</h2>
+          <p class="slide-subtitle">생존의 문제에서 벗어날 때, 인간은 비로소 실존적 질문과 마주하게 됩니다.</p>
+          <div class="slide-content">
+            <p class="list-item">🤔 "인생의 의미는 무엇인가?"</p>
+            <p class="list-item">🙏 "나는 무엇을 믿는가?"</p>
+            <p class="list-item">🌟 "나는 어떤 가치를 추구하는가?"</p>
+            <p class="list-item">👤 "나는 누구인가?"</p>
+            <p class="mt-4 font-bold">일에만 매달리지 않아도 된다면, 인간은 자유롭게 이 문제들을 고민하거나, 혹은 권태에 빠져 반쯤 미치게 될 것입니다. 이는 <span class="highlight">진정으로 인간적인 사회로의 이행</span>을 의미합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 8: 소비하는 인간의 공허함 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 8</p>
+          <h2 class="slide-title">소비하는 인간의 <span class="highlight">공허함</span></h2>
+          <p class="slide-content">현대의 새로운 인간상 '호모 컨슈멘스(Homo Consumens)'는 끝없는 소비를 통해 내면의 공허함을 채우려 합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">새로운 종교: <span class="highlight">소비주의</span></h2>
+          <p class="slide-subtitle">소비주의는 자본주의와 사회주의를 막론하고 세계를 정복한 새로운 비전이 되었습니다.</p>
+          <div class="slide-content">
+            <p class="list-item">🛍️ <b>천국으로서의 백화점:</b> 바라는 모든 것을 살 수 있고, 이웃보다 조금 더 많이 가질 수 있는 곳이 곧 천국이라는 비전.</p>
+            <p class="list-item">🍽️ <b>모든 것의 상품화:</b> 책, 사랑, 섹스, 강연, 미술관 등 세상 모든 것이 소비품으로 변질됩니다.</p>
+            <p class="list-item">😶 <b>내면의 실체:</b> 소비하는 인간의 내면은 무의식적으로 수동적이고, 허전하며, 불안하고, 고립되어 있습니다. 그는 삶의 의미를 찾지 못하고 권태에 시달립니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소비의 악순환 🔄</h2>
+          <p class="slide-subtitle">소비는 불안을 잠재우는 동시에 더 큰 불안을 낳습니다.</p>
+          <div class="slide-content text-center text-lg space-y-4">
+              <p>소외감과 불안을 느낌</p>
+              <p class="text-2xl">⬇️</p>
+              <p class="p-4 bg-yellow-100 rounded-lg">강박적으로 <span class="highlight">소비</span>함 (음식, 쇼핑, 미디어)</p>
+              <p class="text-2xl">⬇️</p>
+              <p>더욱 수동적이고 공허해짐</p>
+              <p class="text-2xl">⬇️</p>
+              <p>불안이 더욱 커짐</p>
+              <p class="text-2xl">⬇️</p>
+              <p class="p-4 bg-yellow-100 rounded-lg">더 많이 <span class="highlight">소비</span>함</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">소비와 <span class="highlight">가짜 자유</span></h2>
+          <p class="slide-subtitle">소비는 현대인에게 '자유'롭다는 착각을 심어줍니다.</p>
+          <div class="slide-content">
+            <p>10종의 똑같은 담배, 수많은 브랜드의 비누. 본질적으로는 같지만, 소비자는 이 중 하나를 '선택'함으로써 자신이 권력을 가졌다고 경험합니다. 그는 '말보로를 피우는' 사람으로 자신을 정의합니다.</p>
+            <p class="mt-4">이러한 가짜 선택을 통해 그는 <span class="highlight">무의식적인 무력감</span>을 감추고, 의식적으로는 자유를 누린다고 믿게 됩니다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">소비 = 행복?</h3>
+                <p class="mt-2">대중적인 행복 개념은 '갖고 싶은 것은 뭐든 가질 수 있는 것'이 되었습니다. 자유와 행복을 가로막는 유일한 것은 돈이 부족한 것뿐이라는 생각이 팽배합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Part 9: 활동적인 삶 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">Part 9</p>
+          <h2 class="slide-title"><span class="highlight">활동적인</span> 삶 (Vita Activa)</h2>
+          <p class="slide-content">프롬이 말하는 '활동성'이란 현대 사회의 '분주함'과는 전혀 다른, 내면에서 비롯되는 창조적 힘을 의미합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">활동성: 두 가지 의미</h2>
+          <p class="slide-subtitle">우리는 '활동적'이라는 단어의 의미를 혼동하고 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">🏃‍♀️ 현대적 의미: 분주함 (Busyness)</h3>
+              <p>사회에 유익한 결과를 내는 것, 돈을 버는 행위. 외부의 강제(불안, 의무)에 의해 움직이며, 그 과정에서 자유롭거나 즐겁지 않습니다. 이것은 <span class="highlight">수동성</span>의 다른 이름입니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🧘 전통적 의미: 내면의 활동성</h3>
+              <p>아리스토텔레스, 스피노자, 마르크스가 말한 활동성. 우리 자신에게서 비롯되고, 강요되지 않은 창조적 힘의 발현입니다. 이성과 감정, 미적 감수성이 자유롭게 표현되는 상태입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">우리는 왜 분주함에 <span class="highlight">도망치는가?</span></h2>
+          <p class="slide-subtitle">일은 현대인의 최고 진통제가 되었습니다.</p>
+          <div class="slide-content">
+            <p class="list-item">😰 <b>불안으로부터의 도피:</b> 우리는 삶의 무의미, 경쟁, 관계의 어려움 등 온갖 불안으로부터 도망치기 위해 일에 몰두합니다. 단 한 순간도 고요해지는 것을 견디지 못합니다.</p>
+            <p class="list-item">🎭 <b>가짜 활동성:</b> 마취 후 최면에 걸린 사람처럼, 우리는 외부의 힘(내면화된 강제)에 의해 행동하면서도 그것이 자신의 의지라고 합리화합니다.</p>
+            <p class="list-item">😩 <b>결과:</b> 강제된 활동은 단조롭고 고통스럽습니다. 우리는 이 고통을 의식하지 않기 위해 더욱 일에 매달려 무감각해지려 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진정한 활동성을 향하여</h2>
+          <p class="slide-subtitle">수동성을 극복하고 제대로 사는 법을 배우기 위한 첫걸음.</p>
+          <div class="slide-content">
+            <p class="list-item"><b>1. 깨달음 🧘:</b> 먼저 우리 자신의 수동성을 의식하고, 그것이 우리에게 고통을 준다는 사실을 깨달아야 합니다.</p>
+            <p class="list-item"><b>2. 연습 🚶‍♂️:</b> 진정한 활동성을 연습해야 합니다. 그 시작은 '가만히 앉아 바라보고, 들어보고, 명상하려는 노력'일 수 있습니다.</p>
+            <p class="mt-4 font-bold">"그게 뭐 특별하다고?" 라고 반문할 수 있지만, 한번 시도해보면 우리가 얼마나 쉼 없는 행동의 강제와 분주함에서 헤어 나올 수 없는지 깨닫게 될 것입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slide: Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 삶을 향한 선택</h2>
+          <div class="slide-content max-w-4xl mx-auto">
+            <p class="mb-4">에리히 프롬은 현대인에게 근본적인 선택을 요구합니다. 기계적인 것과 죽음을 향하는 <span class="highlight">네크로필리아</span>의 길을 갈 것인가, 아니면 성장과 창조, 살아있는 모든 것을 사랑하는 <span class="highlight">바이오필리아</span>의 길을 갈 것인가.</p>
+            <p class="mt-8 font-bold text-xl text-gray-800">소비와 수동성, 무력감에서 벗어나 창의적이고 활동적인 자세로 자신의 삶을 온전히 살아내는 것, 그것이 프롬이 제시하는 해답입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

@@ -60,6 +60,16 @@
     "cover": "assets/covers/인생에서-가장-후회되는-게-뭐냐고-묻는다면.jpg"
   },
   {
+    "slug": "우리는-여전히-삶을-사랑하는가",
+    "title": "우리는 여전히 삶을 사랑하는가",
+    "author": "에리히 프롬",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/우리는-여전히-삶을-사랑하는가.html",
+    "cover": "assets/covers/우리는-여전히-삶을-사랑하는가.jpg"
+  },
+  {
     "slug": "오십의-주역공부-다산처럼-인생의-고비에서-역경을-뛰어넘는-힘",
     "title": "오십의 주역공부 다산처럼 인생의 고비에서 역경을 뛰어넘는 힘",
     "author": "김 동완, author",
