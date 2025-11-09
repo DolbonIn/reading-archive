@@ -390,6 +390,16 @@
     "cover": "assets/covers/개인주의자의-철학-수업.jpg"
   },
   {
+    "slug": "한-번-더-의-힘",
+    "title": "‘한 번 더’의 힘",
+    "author": "에드 마일렛",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/한-번-더-의-힘.html",
+    "cover": "assets/covers/한-번-더-의-힘.jpg"
+  },
+  {
     "slug": "ai-지도책-세계의-부와-권력을-재편하는-인공지능의-실체",
     "title": "AI 지도책 - 세계의 부와 권력을 재편하는 인공지능의 실체",
     "author": "케이트 크로퍼드",
