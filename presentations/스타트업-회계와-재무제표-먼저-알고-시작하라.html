@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스타트업 회계 및 재무 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 90vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 50px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e9ecef;
+    }
+    .slide-part-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #495057;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .slide-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #fff3cd;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(5px);
+      border-top: 1px solid #dee2e6;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .toc-item {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .toc-item:last-child {
+        border-bottom: none;
+    }
+    .special-block {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: #f8f9fa;
+      border-left: 5px solid #007bff;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4 pb-32">
+
+  <div class="w-full">
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center py-20">
+          <div class="text-7xl mb-6">🚀</div>
+          <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4">스타트업, 회계와 재무제표 먼저 알고 시작하라</h1>
+          <p class="text-xl md:text-2xl text-gray-700 mt-6">"살아남는 스타트업은 <span class="highlight">회계 관리</span>부터 다르다!"</p>
+          <p class="text-lg text-gray-500 mt-8">곽상빈 저자 도서 요약 프레젠테이션</p>
+        </div>
+      </div>
+      
+      <!-- Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖 (1/3)</h2>
+          <div class="slide-content text-lg space-y-2">
+            <div class="toc-item"><b>서문: 왜 회계인가?</b><br><span class="text-gray-600 text-base">스타트업에게 회계 관리의 중요성</span></div>
+            <div class="toc-item"><b>제1장: 스타트업, 재무부터 챙겨라</b><br><span class="text-gray-600 text-base">준비, 자금유출 전략, 주주 이익 실현, 벤처 인증, 세무조사 대비</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖 (2/3)</h2>
+          <div class="slide-content text-lg space-y-2">
+              <div class="toc-item"><b>제2장: 회계와 재무제표 첫걸음</b><br><span class="text-gray-600 text-base">재무제표의 이해, 기업 분석, 차변/대변, 주요 계정과목</span></div>
+              <div class="toc-item"><b>제3장: 알수록 쓸모있는 회계상식</b><br><span class="text-gray-600 text-base">회계의 분류, 필요성, 순환과정, 감사, 원가계산</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📖 (3/3)</h2>
+          <div class="slide-content text-lg space-y-2">
+              <div class="toc-item"><b>제4장: 스타트업 필수 세무상식</b><br><span class="text-gray-600 text-base">세금 준비, 부가가치세, 법인세, 절세, 정부지원</span></div>
+              <div class="toc-item"><b>부록 및 결론</b><br><span class="text-gray-600 text-base">유튜버 세금상식 및 핵심 요약</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Preface -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">서문</p>
+          <h2 class="slide-title">스타트업이라면 <span class="highlight">회계관리</span>는 필수 🧭</h2>
+          <p class="slide-subtitle">회계는 사업의 나침반과 같습니다.</p>
+          <div class="slide-content">
+            <p>사업의 성공은 기술이나 아이디어뿐만 아니라, 이를 실현할 수 있는 인력과 자금이 뒷받침되어야 합니다. 회계는 이러한 자금의 흐름을 효과적으로 관리하고 기록하는 핵심 도구이며, 그 결과물이 바로 <span class="highlight">재무제표</span>입니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">🚨 초기 소홀함의 대가</h3>
+              <p class="mt-2">초기에 회계, 재무, 세무를 등한시하면 각종 <span class="highlight">세무조사, 이해관계자 갈등, 심지어 소송</span>까지 겪으며 회사의 존립 자체가 위협받을 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 1 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제1장: 스타트업 재무 관리</p>
+          <h2 class="slide-title">준비된 기업만이 <span class="highlight">살아남는다</span> 🛡️</h2>
+          <p class="slide-subtitle">아이디어만으로는 충분하지 않습니다.</p>
+          <div class="slide-content">
+            <p>과거에는 기술력만으로 성공할 수 있다는 믿음이 있었지만, 지금은 다릅니다. 정확한 비용관리, 매출 파악, 세금 신고 등 철저한 <span class="highlight">재무 및 회계 관리</span>가 없다면 아무리 좋은 아이템도 빛을 보기 어렵습니다.</p>
+             <p class="mt-4">안정적인 기업 운영을 위한 지름길은 철저한 시장조사와 재무계획 수립에서 시작됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">창업가의 현실적 <span class="highlight">어려움</span> 🧑‍💻</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🏢 대기업</h3>
+              <p>경영전략, 기획, 회계, 법무 등 전문화된 지원 부서가 존재하여 각자의 역할에 집중할 수 있습니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🚀 스타트업</h3>
+              <p>회계, 재무, 마케팅, 인사 등 모든 것을 창업가가 직접 통제하고 관리해야 합니다. 이는 창업가의 역량이 회사의 운명을 좌우한다는 의미이며, 따라서 <span class="highlight">회계 공부는 선택이 아닌 필수</span>입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자금 유출 전략: <span class="highlight">내 돈과 회사 돈</span> 💸</h2>
+          <p class="slide-subtitle">"이 돈이 다 내 돈"이라는 생각은 가장 큰 착각입니다. 회삿돈을 합법적으로 인출하는 전략이 필요합니다.</p>
+          <div class="slide-content">
+            <p>가장 기본적인 자금 유출 전략은 창업가와 동업자의 <span class="highlight">인건비(급여, 상여)</span>를 지급하는 것입니다. 이는 회계상 비용으로 처리되어 법인세 절감 효과도 있습니다.</p>
+            <div class="special-block">
+                <h3 class="font-bold text-lg">⚠️ 잘못된 자금 유출의 위험</h3>
+                <p class="mt-2">증빙 없는 지출, 개인적 목적의 접대비 사용, 임의의 가공비용 등은 <span class="highlight">탈세</span>로 간주되어 법인세와 대표자 소득세가 이중으로 부과될 수 있으며, 형사 처벌까지 받을 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">자금유출 시 <span class="highlight">6가지</span> 주의사항 🚦</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <p><b>1. 증빙 없는 지출:</b> 대표자 상여 처리, 소득세 과세.</p>
+            <p><b>2. 대여금 미변제:</b> 업무무관 가지급금으로 비용 불인정.</p>
+            <p><b>3. 대표자 돈 입금:</b> 이자 수령 시 원천징수 필요.</p>
+            <p><b>4. 회사 돈으로 보험:</b> 업무 무관 시 개인 소득세 과세.</p>
+            <p><b>5. 대표자-회사 거래:</b> 시가 거래 원칙, 어길 시 증여세 문제.</p>
+            <p><b>6. 가족 급여 지급:</b> 가공비용으로 처리 시 세무조사 위험.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">주주의 이익 실현 방법: <span class="highlight">배당 vs 엑시트</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">💰 배당금 (Dividends)</h3>
+              <p>기업의 누적된 이익잉여금을 주주에게 분배하는 것입니다. 배당소득세(15.4%)가 과세되며, 기업은 이를 원천징수해야 합니다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🚀 엑시트 (Exit)</h3>
+              <p>주식을 제3자나 회사에 매각하여 투자금을 회수하는 것입니다. 비상장주식의 경우 <span class="highlight">가치평가(Valuation)</span>가 매우 중요하며, 양도소득세가 발생합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">벤처기업 인증이란? 🌟</h2>
+          <p class="slide-subtitle">정부로부터 혁신성을 인정받아 다양한 정책적 혜택을 받는 제도입니다.</p>
+          <div class="slide-content">
+            <p>벤처기업 인증을 받으면 법인세·소득세 50% 감면, 취득세 75% 감면 등 강력한 세제 혜택과 정책자금, 기술보증기금 한도 확대 등 금융 지원을 받을 수 있습니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">인증 유형</h3>
+              <p class="mt-2">벤처투자유형, 연구개발유형, 혁신성장유형 등으로 나뉘며, 각 유형에 따라 요건이 다르므로 중소벤처기업 벤처확인시스템(<span class="highlight">www.smes.go.kr/venturein</span>)에서 확인이 필요합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">병역특례제도 알아두기 (전문연구요원) 🧑‍🔬</h2>
+          <p class="slide-subtitle">우수 인재 확보가 어려운 스타트업에게 큰 도움이 되는 제도입니다.</p>
+          <div class="slide-content">
+            <p>석사 이상 학위 소지자를 36개월간 연구 인력으로 활용할 수 있는 제도입니다. IT, 소프트웨어 개발 등 전문 인력이 중요한 스타트업에게는 핵심 인재를 안정적으로 확보할 수 있는 좋은 기회입니다.</p>
+            <p class="mt-4">병역지정업체로 선정되기 위한 조건(예: 상시근로자 수, 산업재해율 등)이 있으므로 사전에 꼼꼼히 확인하고 준비해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">반드시 알아야 하는 <span class="highlight">노무관리 리스크</span> 🤝</h2>
+          <p class="slide-subtitle">고용노동부 점검은 예고 없이 찾아올 수 있습니다.</p>
+          <div class="slide-content">
+            <p>최근 노사 분쟁이 증가하고 있으며, 고용노동부의 근로감독이 강화되는 추세입니다. 경영자는 노동법상 의무를 다하고 있는지 항상 점검해야 합니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">주요 점검 사항</h3>
+              <ul class="list-disc list-inside mt-2">
+                <li>근로계약서 작성 및 교부 여부</li>
+                <li>임금 지급 원칙 준수 (최저임금, 주휴수당, 연장수당 등)</li>
+                <li>연차휴가 부여 및 미사용 수당 지급</li>
+                <li>퇴직금 지급 (퇴직연금 교육 포함)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">세무조사, 미리 대비하자! 🔍</h2>
+          <p class="slide-subtitle">세무조사는 탈세나 조세회피 행위를 적발하고 추징하는 과정입니다.</p>
+          <div class="slide-content">
+            <p>신고 소득이 업종 평균에 미달하거나, 특정 경비가 급증하는 경우 세무조사 리스크가 발생할 수 있습니다. 특히 가공경비 계상은 세무조사 시 손금불산입 및 가산세 추징으로 이어집니다.</p>
+            <p class="mt-4">세무조사는 보통 <span class="highlight">최근 5년</span>의 거래에 대해 개시될 가능성이 높으므로, 평상시에 세법상 위험 요인을 관리하고 모든 거래에 대한 <span class="highlight">적격 증빙</span>을 철저히 구비해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정관: 우리 회사의 <span class="highlight">내부 헌법</span> 📜</h2>
+          <p class="slide-subtitle">정관은 회사의 조직과 운영에 관한 근본 규칙을 담은 자치법규입니다.</p>
+          <div class="slide-content">
+            <p>회사 설립 시 반드시 작성해야 하며, 발기인, 주주 등 회사 내부 당사자 간에 효력을 가집니다. 정관이 제대로 설계되지 않으면 개정된 상법 규정을 반영하지 못하거나, 효율적인 세무계획을 수행할 수 없습니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">절세는 정관 설계부터!</h3>
+              <p class="mt-2">임원 보수 및 퇴직금, 주식매수선택권(스톡옵션), 자기주식 취득 등 세무적으로 중요한 조항들을 정관에 명확히 규정함으로써 절세의 기초를 마련할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 2 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제2장: 회계와 재무제표 첫걸음</p>
+          <h2 class="slide-title">재무제표는 기업의 <span class="highlight">진단서이자 성적표</span> 🩺📊</h2>
+          <p class="slide-subtitle">기업을 객관적인 숫자로 나타내는 회계 보고서입니다.</p>
+          <div class="slide-content">
+            <p>재무제표를 통해 기업의 재산 상태(정상인가?), 경영 성과(성적이 좋은가?)를 파악할 수 있습니다. 이는 마치 우리가 매년 건강검진을 받아 건강 상태를 진단받고, 학창 시절 시험을 통해 성적표를 받는 것과 같습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">재무제표의 <span class="highlight">5가지</span> 구성요소</h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div><b>1. 재무상태표 (B/S):</b> 특정 시점의 재산 상태 (자산, 부채, 자본)</div>
+            <div><b>2. 손익계산서 (I/S):</b> 일정 기간의 경영 성과 (수익, 비용)</div>
+            <div><b>3. 현금흐름표 (C/F):</b> 일정 기간의 현금 유출입 내역</div>
+            <div><b>4. 자본변동표:</b> 자본의 변동 내역 상세 표시</div>
+            <div><b>5. 주석:</b> 재무제표 본문을 보충 설명하는 상세 정보</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">재무상태표: <span class="highlight">자산 = 부채 + 자본</span></h2>
+          <p class="slide-subtitle">특정 시점(예: 12월 31일)에 회사가 무엇을 가지고 있고(자산), 얼마를 빚지고 있으며(부채), 진짜 내 돈은 얼마인지(자본) 보여주는 스냅샷 사진입니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">차변 (자금의 운용)</h3>
+              <p><b>자산 (Assets):</b> 회사가 보유한 경제적 자원 (현금, 건물, 재고 등)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">대변 (자금의 조달)</h3>
+              <p><b>부채 (Liabilities):</b> 갚아야 할 빚 (차입금, 외상매입금 등)<br>
+                 <b>자본 (Equity):</b> 주주의 몫, 순자산 (자산-부채)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">손익계산서: <span class="highlight">수익 - 비용 = 이익</span></h2>
+          <p class="slide-subtitle">일정 기간(예: 1월 1일 ~ 12월 31일) 동안 회사가 얼마나 벌었고(수익), 얼마나 썼으며(비용), 그래서 얼마를 남겼는지(이익) 보여주는 영상입니다.</p>
+          <div class="special-block">
+            <h3 class="font-bold text-lg">주요 이익의 종류</h3>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li><b>매출총이익:</b> 매출액 - 매출원가</li>
+              <li><b>영업이익:</b> 매출총이익 - 판매비와관리비 (회사의 핵심 영업활동 성과)</li>
+              <li><b>당기순이익:</b> 모든 수익에서 모든 비용과 세금을 뺀 최종 이익</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">현금흐름표: <span class="highlight">흑자도산</span>을 막는 지표 🌊</h2>
+          <p class="slide-subtitle">손익계산서상 이익이 나더라도, 현금이 돌지 않으면 회사는 망할 수 있습니다. (흑자도산)</p>
+          <div class="slide-content">
+            <p>현금흐름표는 실제 현금의 유입과 유출을 3가지 활동으로 구분하여 보여줍니다.</p>
+            <ul class="mt-4 space-y-2">
+                <li><b>① 영업활동 현금흐름:</b> 제품 판매, 서비스 제공 등 주된 영업활동으로 인한 현금흐름. <span class="highlight">(가장 중요!)</span></li>
+                <li><b>② 투자활동 현금흐름:</b> 설비 투자, 자산 처분 등 투자활동으로 인한 현금흐름.</li>
+                <li><b>③ 재무활동 현금흐름:</b> 자금 차입, 상환, 증자, 배당 등 재무활동으로 인한 현금흐름.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">재무제표 분석의 <span class="highlight">삼박자</span> 🎶</h2>
+          <p class="slide-subtitle">기업을 분석할 때는 안정성, 수익성, 성장성을 종합적으로 파악해야 합니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-bold text-lg text-blue-800">1. 안정성 (튼튼한가?)</h3>
+                <p>회사가 망할 위험은 없는가? (주요지표: 유동비율, 부채비율)</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg">
+                <h3 class="font-bold text-lg text-green-800">2. 수익성 (돈은 버는가?)</h3>
+                <p>얼마나 효율적으로 이익을 내는가? (주요지표: 영업이익률, ROE)</p>
+            </div>
+            <div class="p-4 bg-yellow-50 rounded-lg">
+                <h3 class="font-bold text-lg text-yellow-800">3. 성장성 (크고 있는가?)</h3>
+                <p>미래 성장 가능성이 있는가? (주요지표: 매출액증가율, 총자산증가율)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       <!-- Chapter 3 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제3장: 알수록 쓸모있는 회계상식</p>
+          <h2 class="slide-title">회계는 기업의 <span class="highlight">언어</span>다 🌐</h2>
+          <p class="slide-subtitle">회계를 모른다는 것은 자본주의 사회에서 문맹으로 살아가는 것과 같습니다.</p>
+          <div class="slide-content">
+            <p>회계는 숫자를 통해 기업의 정보를 전달하는, 경영활동의 가장 기초적이고 기본적인 언어입니다. 회계를 알면 기업이 전달하는 정보를 해석하고, 기업의 현재 활동과 미래 실적을 예측하는 눈을 가질 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">회계의 <span class="highlight">3가지</span> 분류</h2>
+          <p class="slide-subtitle">누구를 위한 정보를 만드느냐에 따라 나뉩니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+             <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">재무회계</h3>
+                <p>주주, 채권자 등 <span class="highlight">외부</span> 정보이용자를 위해 통일된 기준(기업회계기준)에 따라 재무제표를 작성합니다.</p>
+            </div>
+             <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">관리회계</h3>
+                <p>경영자 등 <span class="highlight">내부</span> 정보이용자의 의사결정을 돕기 위해 작성하며, 정해진 양식 없이 자유롭게 작성합니다.</p>
+            </div>
+             <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">세무회계</h3>
+                <p><span class="highlight">과세관청</span>에 세금을 신고·납부할 목적으로 세법 규정에 따라 작성합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">회계의 순환과정 🔄</h2>
+          <p class="slide-subtitle">거래 발생부터 재무제표 작성까지의 여정입니다.</p>
+          <div class="slide-content text-center">
+            <p class="text-lg">거래 식별 → <span class="font-bold text-blue-600">분개 (차변/대변 기록)</span> → 원장에 전기 → 시산표 작성 → 결산 정리 → <span class="font-bold text-green-600">재무제표 작성</span></p>
+          </div>
+          <div class="special-block mt-6">
+            <h3 class="font-bold text-lg">핵심 개념: 분개 (Journalizing)</h3>
+            <p class="mt-2">모든 거래를 <span class="highlight">차변(왼쪽)</span>과 <span class="highlight">대변(오른쪽)</span>으로 나누어 기록하는 복식부기의 핵심 절차입니다. 이 과정을 통해 거래의 이중성을 파악하고 오류를 검증할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chapter 4 -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">제4장: 스타트업 필수 세무상식</p>
+          <h2 class="slide-title">세금, 피할 수 없다면 <span class="highlight">준비하라</span> 🧾</h2>
+          <p class="slide-subtitle">세법을 모르면 의도치 않게 탈세자가 될 수 있습니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">✅ 절세 (Tax Saving)</h3>
+              <p>세법이 허용하는 범위 내에서 합법적으로 세금을 줄이는 행위입니다. (예: 세액공제, 감면 활용)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">❌ 탈세 (Tax Evasion)</h3>
+              <p>고의로 사실을 숨기거나 왜곡하여 불법적으로 세금을 내지 않는 행위입니다. 가산세는 물론 형사 처벌의 대상이 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스타트업 주요 세금 <span class="highlight">3가지</span></h2>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">1. 부가가치세 (VAT)</h3>
+                <p>재화나 용역을 공급할 때 발생하는 부가가치에 대해 과세합니다. (매출세액 - 매입세액). <span class="highlight">10% 세율</span>이 적용됩니다.</p>
+            </div>
+             <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">2. 법인세</h3>
+                <p>법인의 소득에 대해 과세하는 세금입니다. 과세표준에 따라 <span class="highlight">9% ~ 24%</span>의 누진세율이 적용됩니다.</p>
+            </div>
+             <div class="p-4 bg-gray-100 rounded-lg">
+                <h3 class="font-bold text-lg">3. 원천세</h3>
+                <p>직원에게 급여를 지급할 때 소득세를 미리 떼어(원천징수) 국가에 납부하는 세금입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">개인사업자 vs 법인사업자 <span class="highlight">세금 비교</span></h2>
+          <p class="slide-subtitle">사업의 규모와 예상 소득에 따라 유불리가 달라집니다.</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg mb-2">🧑‍💼 개인사업자</h3>
+              <p><b>세금:</b> 종합소득세 (6% ~ 45% 누진세율)<br>
+                 <b>장점:</b> 자금 인출이 자유롭고, 소득이 낮을 경우 세율이 낮음.<br>
+                 <b>단점:</b> 소득이 높을수록 세율 부담이 급격히 증가.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">🏢 법인사업자</h3>
+              <p><b>세금:</b> 법인세 (9% ~ 24%) + 대표자 급여/배당소득세<br>
+                 <b>장점:</b> 소득이 높아도 상대적으로 낮은 세율, 대외 신인도 높음.<br>
+                 <b>단점:</b> 자금 인출 절차가 복잡하고, 이중과세 문제 발생.</p>
+            </div>
+          </div>
+          <p class="mt-6 text-center font-bold">💡 Tip: 일반적으로 과세표준이 약 8,800만원을 초과하면 법인 전환이 유리할 수 있습니다.</p>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정부지원제도 <span class="highlight">적극 활용하기</span> 🎁</h2>
+          <p class="slide-subtitle">스타트업의 성장을 돕는 다양한 지원 제도를 놓치지 마세요.</p>
+          <div class="special-block">
+            <h3 class="font-bold text-lg">주요 지원 제도 예시</h3>
+            <ul class="list-disc list-inside mt-2 space-y-2">
+              <li><b>청년채용특별장려금:</b> 청년을 신규 채용 시 인건비 일부 지원.</li>
+              <li><b>청년내일채움공제:</b> 청년의 장기근속을 위해 정부, 기업, 청년이 함께 적립.</li>
+              <li><b>연구인력개발비 세액공제:</b> R&D 비용의 일정 비율을 법인세에서 공제.</li>
+              <li><b>고용촉진장려금:</b> 취업 취약계층 고용 시 인건비 지원.</li>
+            </ul>
+             <p class="mt-3">자세한 내용은 고용노동부, 중소벤처기업부 등 관련 기관 홈페이지에서 확인하세요!</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">부록: 유튜버를 위한 <span class="highlight">세금상식</span> 📹</h2>
+          <p class="slide-subtitle">유튜버도 수익이 발생하면 세금 신고는 필수입니다.</p>
+          <div class="slide-content">
+            <p>구글 애드센스 수익은 외화 획득으로, 부가가치세 신고 시 <span class="highlight">영세율</span>이 적용됩니다. 이를 통해 방송 장비, 편집 인력 비용 등에 포함된 부가가치세를 환급받을 수 있으므로 반드시 <span class="highlight">일반과세자로 사업자등록</span>을 하는 것이 유리합니다.</p>
+            <div class="special-block">
+              <h3 class="font-bold text-lg">유튜버 절세 Tip</h3>
+              <ul class="list-disc list-inside mt-2">
+                <li>사업자등록을 통해 부가가치세 환급받기.</li>
+                <li>청년창업 세액감면, 국가지원금 등 혜택 챙기기.</li>
+                <li>집에서 작업 시 월세 일부를 비용으로 처리하기.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Conclusion -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-6xl mb-6">🎯</div>
+          <h2 class="slide-title">결론: 핵심 요약</h2>
+          <div class="slide-content max-w-4xl mx-auto space-y-4">
+            <p>1. 회계는 <span class="highlight">선택이 아닌 필수</span>입니다. 초반부터 재무 흐름을 관리하세요.</p>
+            <p>2. 재무제표(특히 <span class="highlight">재무상태표, 손익계산서, 현금흐름표</span>)를 읽는 눈을 기르세요.</p>
+            <p>3. 세금은 복잡하지만 피할 수 없습니다. <span class="highlight">절세 전략</span>을 미리 세우고 성실히 신고하세요.</p>
+            <p>4. 정부지원제도는 스타트업의 든든한 버팀목입니다. <span class="highlight">적극적으로 찾고 활용</span>하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center py-20">
+          <div class="text-7xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-xl md:text-2xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === a-slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
