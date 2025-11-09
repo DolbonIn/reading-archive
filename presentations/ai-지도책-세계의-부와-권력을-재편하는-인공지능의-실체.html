@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 지도책 (Atlas of AI) Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .slide {
+      display: none;
+      min-height: 85vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border: 1px solid #dee2e6;
+      border-radius: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      flex-direction: column;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 30px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-part-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #495057;
+      margin-bottom: 12px;
+    }
+    .slide-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #212529;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+    .slide-subtitle {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #343a40;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .slide-content {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #343a40;
+    }
+    .highlight {
+      background-color: #ffd700;
+      padding: 0.1em 0.3em;
+      border-radius: 0.3em;
+    }
+    .btn {
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #e9ecef;
+      z-index: 10;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .progress {
+      background-color: #007bff;
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease-in-out;
+    }
+    ul {
+        list-style-position: inside;
+        padding-left: 1.5rem;
+    }
+    li {
+        margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 pb-32">
+
+  <div class="w-full max-w-7xl">
+    <div id="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <div class="slide-container text-center">
+          <div class="text-8xl mb-8">🗺️</div>
+          <h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-6">AI 지도책</h1>
+          <p class="text-2xl md:text-3xl text-gray-700">Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence</p>
+          <p class="text-lg md:text-xl text-gray-600 mt-6">케이트 크로퍼드 지음</p>
+        </div>
+      </div>
+
+      <!-- Slide 2: Table of Contents -->
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">목차 📜</h2>
+          <div class="slide-content text-lg grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+            <p><b>서문:</b> 세상에서 가장 영리한 말</p>
+            <p><b>1장. 지구:</b> 연산의 지형학</p>
+            <p><b>2장. 노동:</b> 거대기계로서의 AI</p>
+            <p><b>3장. 데이터:</b> 기계에 보는 법 훈련시키기</p>
+            <p><b>4장. 분류:</b> 순환 논증 체계</p>
+            <p><b>5장. 감정:</b> 세계에서 가장 유명한 관상가</p>
+            <p><b>6장. 국가:</b> 제3차 상쇄 전략</p>
+            <p><b>결론:</b> 권력과 새로운 저항</p>
+            <p><b>덧붙이며:</b> 우주로의 탈출</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 1: Preface -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">서문</p>
+          <h2 class="slide-title">세상에서 가장 <span class="highlight">영리한 말</span> 🐴</h2>
+          <p class="slide-content">인공지능에 대한 우리의 이해가 어떻게 형성되었는지, 그리고 그 이면에 숨겨진 두 가지 핵심적인 <span class="highlight">환상</span>은 무엇인지 살펴봅니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">영리한 한스 이야기</h2>
+          <p class="slide-subtitle">19세기 말, 유럽을 사로잡았던 말 '한스'의 놀라운 능력</p>
+          <div class="slide-content">
+            <ul class="list-disc">
+              <li><b>능력:</b> 산수 문제, 날짜 판독, 단어 표현 등 인간과 유사한 지능을 선보임.</li>
+              <li><b>방법:</b> 발굽으로 땅을 두드려 정답을 표시.</li>
+              <li><b>열광:</b> 수많은 군중이 몰려들고, 언론은 '경이로운 말'이라며 찬사를 보냄.</li>
+              <li><b>조련사:</b> 은퇴한 수학 교사 빌헬름 폰 오스텐은 동물의 지능을 굳게 믿고 한스를 훈련시킴.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">진실의 폭로: <span class="highlight">영리한 한스 효과</span></h2>
+          <p class="slide-subtitle">조사위원회가 밝혀낸 한스의 비밀과 그 의미</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-2">🕵️‍♂️ 조사 과정</h3>
+              <p>독일 교육위원회는 심리학자, 동물학자 등으로 구성된 조사위원회를 꾸려 한스의 능력을 검증. 처음에는 속임수의 증거를 찾지 못함.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">💡 발견</h3>
+              <p>결정적 단서는 질문자가 정답을 <span class="highlight">모르거나</span> 멀리 서 있을 때 한스가 정답을 맞히지 못한다는 것. 한스는 질문자의 <span class="highlight">무의식적인 신호</span>(자세, 호흡, 표정의 미묘한 변화)를 읽고 정답에 가까워지면 멈췄던 것.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">영리한 한스 효과 (Clever Hans Effect)</h3>
+            <p class="mt-2">실험자가 무의식적으로 피실험자에게 단서를 주어 결과에 영향을 미치는 현상. 오늘날 기계학습 분야에서 모델이 데이터의 진짜 패턴이 아닌, 주어진 데이터의 편견이나 우연한 신호를 학습하는 현상을 경고하는 용어로 쓰임.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">AI를 둘러싼 두 가지 환상 🔮</h2>
+          <p class="slide-subtitle">영리한 한스 이야기가 보여주는 AI에 대한 근본적인 오해</p>
+          <div class="slide-content">
+            <ul class="list-disc">
+              <li><b>환상 1: AI는 인간 정신과 비슷하다.</b><br>컴퓨터든 말이든, 충분한 훈련과 자원을 투입하면 인간과 유사한 지능을 '백지상태'에서 만들어낼 수 있다는 믿음. 이는 지능이 체화되고 관계적인 과정임을 간과한다.</li>
+              <li class="mt-4"><b>환상 2: 지능은 독립적으로 존재한다.</b><br>지능이 사회적, 문화적, 역사적, 정치적 힘과 분리된 순수한 무언가라는 믿음. 역사적으로 '지능' 개념은 노예제와 우생학 등 지배 방식을 정당화하는 데 동원되었다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이 책의 관점: AI란 무엇인가?</h2>
+          <p class="slide-subtitle">단순한 기술을 넘어, 권력의 인프라로서 AI를 바라보기</p>
+          <div class="slide-content">
+            <p class="mb-4">이 책은 AI가 '<span class="highlight">인공적</span>'이지도 않고 '<span class="highlight">지능</span>'도 아니라고 주장한다.</p>
+            <ul class="list-disc">
+              <li><b>AI는 물질적이다:</b> 천연자원, 연료, 인간 노동, 하부 구조, 물류, 역사, 분류를 통해 만들어진다.</li>
+              <li><b>AI는 자율적이지 않다:</b> 대규모 데이터 집합과 집약적인 훈련 없이는 아무것도 분간하지 못한다.</li>
+              <li><b>AI는 권력의 등기부다:</b> 대규모로 구축될 자본이 필요하며, 결국 기득권에 유리하게 설계된다.</li>
+              <li><b>AI 지도책(Atlas):</b> AI를 더 넓은 맥락에서 이해하기 위해, AI를 구성하는 다양한 지형(정치, 노동, 문화, 자본)을 탐험하는 지도책의 관점을 제안한다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Earth -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">1장. 지구 🌍</p>
+          <h2 class="slide-title">연산의 <span class="highlight">지형학</span></h2>
+          <p class="slide-content">'클라우드'라는 깨끗한 이미지 뒤에 숨겨진 인공지능의 물질적 토대, 즉 지구 자원의 추출과 막대한 에너지 소비의 현실을 파헤칩니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">AI를 위한 채굴 ⛏️</h2>
+            <p class="slide-subtitle">네바다 주 실버 피크의 리튬 광산에서 시작되는 AI의 공급망</p>
+            <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-bold text-xl mb-2">실리콘밸리와의 연결</h3>
+                    <p>19세기 금광이 샌프란시스코를 건설했듯, 오늘날의 리튬, 코발트 등 희귀 광물 채굴이 기술 산업의 부를 떠받치고 있다. 기술 발전의 이야기는 그 이면의 채굴과 착취의 역사를 종종 망각한다.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl mb-2">리튬: '회색 금'</h3>
+                    <p>스마트폰부터 전기차까지, 현대 기술의 핵심인 충전용 배터리의 핵심 원료. 리튬 수요는 기술 기업들의 사활을 좌우하며, 이는 네바다의 황량한 소금 호수를 글로벌 지정학의 중심지로 만들었다.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">연산의 풍경: 배터리와 데이터센터</h2>
+            <p class="slide-subtitle">우리의 디지털 생활을 지탱하는 물리적 인프라의 막대한 비용</p>
+             <div class="slide-content">
+                <ul class="list-disc">
+                    <li><b>테슬라 기가팩토리:</b> 세계 최대의 리튬 이온 배터리 공장. 전 세계 리튬 소비량의 절반을 차지하며, 배터리 시장의 경쟁과 필수 광물 고갈을 가속화한다.</li>
+                    <li class="mt-4"><b>전기차의 딜레마:</b> 전기차가 이산화탄소 배출의 완벽한 해결책이 아님. 배터리 공급망(채굴, 제련, 운송)은 심각한 환경 파괴를 유발하며, 전력 생산 자체가 화석 연료에 의존하는 경우가 많다.</li>
+                    <li class="mt-4"><b>클라우드의 실체:</b> '클라우드'는 암석과 리튬 염수, 원유로 만들어진 인공지능 산업의 뼈대다. 우리의 모든 디지털 활동은 이 물질적 기반 위에 있다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">미디어의 <span class="highlight">지질학</span>  Geology of Media</h2>
+          <p class="slide-subtitle">지구의 연장으로서 기술을 바라보기</p>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <p class="mt-2">미디어 이론가 <span class="highlight">유시 파리카(Jussi Parikka)</span>는 미디어를 인간 감각의 연장이 아닌 '지구의 연장'으로 볼 것을 제안한다. AI 시스템의 모든 요소는 수십억 년에 걸쳐 지구 내부에서 생성된 원료를 이용해 만들어진다. 우리는 지구의 지질학적 역사를 뽑아내 현대 기술 시대라는 찰나를 떠받치고 있는 셈이다.</p>
+          </div>
+           <p class="slide-content mt-6">스마트폰의 평균 수명은 4.7년에 불과하다. 이 짧은 노후화 주기는 더 많은 기기 구매를 유도하고, 지속 불가능한 <span class="highlight">추출 관행</span>을 부추긴다. AI 시스템의 탄생부터 사멸까지, 그 일생에는 인간 노동과 천연자원의 착취가 존재한다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">광물학적 층위: 분쟁과 오염</h2>
+          <p class="slide-subtitle">AI 공급망이 남기는 전 지구적 상흔</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">분쟁 광물 (Conflict Minerals)</h3>
+              <p>콩고민주공화국 등 분쟁 지역에서 채굴되는 주석, 텅스텐, 탄탈럼 등은 수십 년간 분쟁의 자금줄이 되어왔다. 인텔, 애플 같은 기업들은 공급망의 투명성을 주장하지만, 실제로는 제련소만 감사하는 등 한계를 보이며 착취 관행을 사실상 용인한다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">검은 호수와 흰 라텍스</h3>
+              <p>중국 바오터우의 독성 폐기물 호수, 인도네시아의 주석 채굴로 파괴된 해변, 그리고 19세기 해저 케이블을 위해 사라진 팔라퀴움 구타 나무까지. 기술의 발전은 시공간을 넘어 환경 파괴의 패턴을 반복한다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">청정 기술이라는 <span class="highlight">환상</span> ☁️</h2>
+            <p class="slide-subtitle">AI와 데이터센터의 숨겨진 탄소 발자국</p>
+            <div class="slide-content">
+                <p class="mb-4">'클라우드', '녹색산업' 같은 비유는 AI 산업의 오염 실태를 가린다. 실제로는 아마존 웹서비스(AWS)나 마이크로소프트 애저 같은 연산 인프라를 운영하기 위해 막대한 에너지가 필요하다.</p>
+                <ul class="list-disc">
+                    <li><b>탄소 배출량:</b> 전 세계 연산 인프라의 탄소 발자국은 이미 항공업계 최고치에 도달했으며, 2040년에는 전 세계 온실가스 배출량의 14%를 차지할 것으로 추정된다.</li>
+                    <li><b>AI 모델 훈련 비용:</b> 자연어 처리(NLP) 모델 하나를 훈련하는 데 배출되는 이산화탄소는 자동차 5대가 수명이 다할 때까지 내뿜는 양과 맞먹는다.</li>
+                    <li><b>화석 연료 산업과의 결탁:</b> 구글, MS, 아마존은 탄소 중립을 약속하면서도, 화석 연료 기업들이 더 많은 석유를 채굴하도록 돕기 위해 자사의 AI 플랫폼과 인력을 제공하고 있다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Section 3: Labor -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">2장. 노동 👨‍🏭</p>
+          <h2 class="slide-title">거대기계로서의 <span class="highlight">AI</span></h2>
+          <p class="slide-content">자동화와 효율성이라는 구호 뒤에 가려진, AI 시스템을 떠받치는 인간 노동의 현실과 그 착취의 계보를 추적합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+            <h2 class="slide-title">아마존 물류 센터의 시간기록계</h2>
+            <p class="slide-subtitle">초 단위로 감시되고 통제되는 인간의 몸</p>
+            <div class="slide-content">
+                <p class="mb-4">아마존 물류 센터에서 '시간기록계(TIME CLOCK)'는 모든 것의 중심이다. 작업자들은 출퇴근부터 휴식 시간까지 모든 움직임을 스캔해야 한다. 이들의 몸은 갈색 골판지 상자와 같이 효율성의 단위로 측정된다.</p>
+                <ul class="list-disc">
+                    <li><b>인간-로봇 하이브리드:</b> 키바 로봇이 '수고롭지 않은 효율성'을 상징하는 동안, 인간 작업자들은 로봇이 할 수 없는 자질구레한 작업을 처리하며 '집품률'의 압박에 시달린다.</li>
+                    <li><b>시간 통제:</b> 상자가 늦게 도착하면 브랜드 가치가 하락하듯, 작업자의 몸은 연산 시스템의 장단에 맞춰 통제된다. 이는 노동 관리를 연산의 문제로 바라보는 현대적 경향을 보여준다.</li>
+                    <li><b>숨겨진 사실:</b> '인공지능'이라는 용어 뒤에는, 실제로는 사람들이 단순 작업을 수행하며 기계가 그 일을 할 수 있다는 인상을 떠받치고 있다는 사실이 숨겨져 있다.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">포템킨 AI와 <span class="highlight">메커니컬 터크</span></h2>
+          <p class="slide-subtitle">자동화의 환상 뒤에 숨겨진 보이지 않는 노동</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">포템킨 AI (Potemkin AI)</h3>
+              <p>실제로는 인간 노동에 의존하면서 자동화된 것처럼 보이는 시스템. 투자자와 대중에게 보여주기 위한 허울에 불과하다. '포토메이션(Fauxtomation)'이라고도 불린다. (예: 회의 일정을 '마법처럼' 정리해주던 x.ai의 AI 비서 '에이미'는 사실 계약직 노동자 집단이었다.)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">메커니컬 터크 (Mechanical Turk)</h3>
+              <p>18세기 체스를 두는 자동인형으로 위장했지만 내부에 체스 명인이 숨어있던 기계. 오늘날 아마존의 크라우드소싱 플랫폼 이름이 되었다. 진짜 노동자들이 시야에서 사라진 채, AI가 마법적 지능을 가졌다는 환각을 불러일으킨다.</p>
+            </div>
+          </div>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                <h3 class="font-bold text-lg">그림자 노동 (Ghost Work)</h3>
+                <p class="mt-2">AI 시스템을 구축, 유지, 검증하기 위해 필요한 저임금의 보이지 않는 노동. 데이터 라벨링, 콘텐츠 검토 등 반복적인 디지털 업무를 수행하는 크라우드 노동자들이 대표적이다. 이들의 공로는 인정받지 못하며 보상도 형편없다.</p>
+            </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">노동 착취의 계보</h2>
+          <p class="slide-subtitle">배비지, 테일러, 포드에서 오늘날의 AI 작업장까지</p>
+          <div class="slide-content">
+            <ul class="list-disc">
+              <li><b>찰스 배비지:</b> 노동 분업을 통해 노동을 간소화하고, 기업을 일종의 연산 시스템으로 간주. 노동자를 가치의 원천이 아닌, 오류를 일으키는 존재로 봄.</li>
+              <li><b>프레더릭 테일러:</b> '과학적 관리법'의 창시자. 스톱워치를 이용해 노동자의 모든 동작을 측정하고 정량화하여 최소 비용으로 최대 산출을 목표.</li>
+              <li><b>헨리 포드:</b> 시카고 도축장의 '해체 라인'에서 영감을 얻어 이동식 조립 라인을 구축. 노동자를 컨베이어 벨트의 속도에 종속시킴.</li>
+              <li class="mt-2"><b>오늘날:</b> 맥도날드 주방, 폭스콘 공장, 아마존 물류센터는 모두 시간과 동작을 극도로 통제하는 이 계보를 잇고 있다. AI는 이를 디지털 방식으로 더욱 강화하고 심화시킨다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">시간 관리, 시간 사유화 🕒</h2>
+          <p class="slide-subtitle">알고리즘이 지배하는 노동자의 시간</p>
+          <div class="slide-content">
+            <p class="mb-4">과거 공장의 시간 규율이 노동자의 반발을 샀듯, 오늘날에도 시간은 투쟁의 핵심 영역이다. 하지만 이제 그 투쟁의 대상은 알고리즘이다.</p>
+            <ul class="list-disc">
+              <li><b>알고리즘적 일정 관리:</b> 맥도날드는 수요 예측 알고리즘을 이용해 직원의 근무 시간을 결정. 이로 인해 노동자들은 극히 짧은 시간만 일하거나, 출근하자마자 퇴근해야 하는 등 불안정한 삶을 강요당한다.</li>
+              <li><b>사적인 시간, 권력의 전략:</b> 구글의 '트루타임(TrueTime)'과 같은 시스템은 전 지구적 데이터센터의 시간을 동기화한다. 이는 기술 기업이 자신만의 보편적 시간 형식을 창안하고 통제하려는 시도이며, 이는 곧 권력의 행사다.</li>
+              <li><b>저항의 역사:</b> 1930년대 포드랜디아 노동자들의 시간기록계 파괴에서 오늘날 아마존 노동자들의 '속도'에 대한 저항까지, 중앙 집중적 시간에 대한 투쟁은 계속되고 있다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Data -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">3장. 데이터 📊</p>
+          <h2 class="slide-title">기계에 <span class="highlight">보는 법</span> 훈련시키기</h2>
+          <p class="slide-content">AI의 '지능'을 구성하는 핵심 연료인 데이터가 어떻게 수집되고, 가공되며, 그 과정에서 맥락과 동의, 윤리는 어떻게 사라지는지 탐구합니다.</p>
+        </div>
+      </div>
+      
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'이미지'에서 '<span class="highlight">인프라</span>'로</h2>
+          <p class="slide-subtitle">NIST의 머그샷 데이터베이스가 보여주는 데이터의 변신</p>
+          <div class="slide-content">
+            <p class="mb-4">미국 국립표준기술연구소(NIST)의 '다회 피검자 데이터 집합'에는 여러 번 체포된 사람들의 머그샷 사진 수천 장이 들어있다. 이 사진들은 원래 개인을 식별하는 수단이었지만, 이제는 얼굴 인식 AI 시스템을 검증하는 <span class="highlight">기술적 기준</span>, 즉 인프라가 되었다.</p>
+            <ul class="list-disc">
+              <li><b>맥락의 소거:</b> 사진 속 인물들의 사연, 유무죄 여부, 고통은 모두 무시된다. 그들은 단지 기술 자원의 일부, '데이터 성분'으로 간주된다.</li>
+              <li><b>권력의 작동:</b> 사진에 담긴 개인적·사회적 의미가 무효화되고, 오직 기술적 성능 향상을 위한 자료로만 취급된다. 이는 데이터 추출 이데올로기의 핵심 전제다.</li>
+              <li><b>AI 구축 방식의 원본:</b> 머그샷 데이터베이스는 맥락과 동의 없이 수집된 데이터가 어떻게 AI 시스템의 토대가 되는지를 보여주는 원본(prototype)과 같다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">데이터 수요의 역사 💾</h2>
+          <p class="slide-subtitle">데이터에 굶주린 기계들의 진화</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">전문가 시스템 시대</h3>
+              <p>1970년대에는 규칙 기반 프로그래밍이 주를 이뤘다. 전문가의 지식을 논리 규칙으로 만들어 시스템에 입력하는 방식이었다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">통계적 전환</h3>
+              <p>1980년대 IBM 음성인식 연구팀 등은 문법 원리 대신, 단어의 등장 빈도 같은 통계적 방법을 이용하기 시작했다. 이로 인해 '더 많은 데이터만 한 데이터는 없다'는 격언이 생겨났다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">초기 데이터셋의 출처</h3>
+            <p class="mt-2">초기 연구자들은 데이터를 얻기 위해 사방을 헤맸다. IBM 반독점 소송 기록, 엔론 이메일, 에너지부 보고서 등이 중요한 언어 데이터(말뭉치)가 되었다. 이 데이터들은 중립적이지 않으며, 특정한 역사와 맥락을 담고 있다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">인터넷에서 이미지넷으로 🌐</h2>
+          <p class="slide-subtitle">데이터 수집 방식의 혁명과 그 그림자</p>
+          <div class="slide-content">
+            <p class="mb-4">인터넷의 등장은 데이터 수집의 풍경을 완전히 바꿨다. 이제 AI 연구자들은 무한에 가까운 텍스트와 이미지를 '채굴'할 수 있게 되었다.</p>
+            <ul class="list-disc">
+              <li><b>ImageNet 프로젝트:</b> 2006년 리 페이페이 교수가 구상. '사물의 세계를 통째로 지도화'하려는 목표로, 인터넷에서 1,400만 장 이상의 사진을 긁어모았다.</li>
+              <li><b>라벨링의 문제:</b> 수집한 이미지에 라벨을 붙이는 작업은 엄청난 노동력을 요구했다. 연구팀은 아마존 메커니컬 터크의 저임금 노동자 수만 명을 고용하여 이 문제를 해결했다.</li>
+              <li><b>문제적 범주들:</b> '주정뱅이', '창녀', '미치광이' 등 인종차별적이고 성차별적인, 모욕적인 라벨들이 포함되어 논란이 되었다. 이는 데이터셋이 결코 가치중립적이지 않음을 보여준다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title"><span class="highlight">동의 따위는 필요 없다</span>는 관행</h2>
+          <p class="slide-subtitle">데이터 추출의 시대, 사라진 윤리적 경계</p>
+          <div class="slide-content">
+            <p class="mb-4">21세기 초, 데이터 수집에서 '동의'는 사라지기 시작했다. 인터넷의 콘텐츠는 동의나 윤리 감사 없이 입수해도 되는 자원으로 간주되었다.</p>
+            <ul class="list-disc">
+              <li><b>무단 촬영:</b> 듀크 대학교에서는 학생들이 이동하는 영상을 당사자 모르게 수집하여 연구에 사용했다.</li>
+              <li><b>유명인 데이터베이스:</b> 마이크로소프트의 MS-Celeb 데이터베이스는 유명인 사진 1,000만 장을 인터넷에서 긁어모아 구축했다. 감시를 비판하는 학자나 활동가의 얼굴도 포함되었다.</li>
+              <li><b>공유재의 약탈:</b> 과거 공유재였던 우리의 일상, 표현, 관계가 데이터 추출의 대상이 되어 상업적으로 이용된다. 이는 공적 공간의 약탈이다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Classification -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">4장. 분류 🏷️</p>
+          <h2 class="slide-title">순환 논증 <span class="highlight">체계</span></h2>
+          <p class="slide-content">AI가 세계를 이해하는 방식, 즉 '분류'가 어떻게 권력을 행사하고 사회적 편견을 강화하며, 그 역사적 뿌리는 어디에 있는지 살펴봅니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">모턴의 두개골과 분류의 정치학</h2>
+          <p class="slide-subtitle">19세기 두개측정학에서 시작된 '객관적' 분류의 위험한 유산</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">💀 새뮤얼 모턴의 연구</h3>
+              <p>19세기 의사 모턴은 1,000여 점의 두개골을 수집하여 무게와 부피를 측정. 이를 통해 인종을 5개 그룹으로 나누고, 백인의 두개골이 가장 크고 흑인이 가장 작다고 주장하며 인종 간 지능의 서열을 '과학적으로' 입증하려 했다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">🔬 과학의 탈을 쓴 편견</h3>
+              <p>후대 연구 결과, 모턴의 연구는 표본 선택의 편향, 계산 착오 등 오류로 가득 차 있었음이 밝혀졌다. 그의 연구는 객관적 과학이 아니라, 백인 우월주의와 노예제를 정당화하려는 정치적 행위였다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">분류는 권력의 행위다</h3>
+            <p class="mt-2">분류는 단순히 사물을 정리하는 중립적 행위가 아니다. 그것은 세계관을 반영하고, 서열을 만들며, 사회적·정치적 결과를 낳는다. 모턴의 분류법은 인종차별적 지능 모형을 떠받치는 기술적 알리바이로 작용했다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">AI의 편향: 버그인가, 특징인가?</h2>
+          <p class="slide-subtitle">아마존 채용 AI가 보여준 편향의 작동 방식</p>
+          <div class="slide-content">
+            <p class="mb-4">2014년, 아마존은 이력서를 분석하여 직원을 추천하는 AI 시스템을 개발했다. 그러나 이 시스템은 심각한 <span class="highlight">성차별</span> 문제를 드러냈다.</p>
+            <ul class="list-disc">
+              <li><b>문제 발생:</b> 시스템이 여성 지원자를 추천하지 않았다. '여자대학' 출신이나 '여성'이라는 단어가 들어간 이력서는 감점 처리했다.</li>
+              <li><b>원인 분석:</b> AI는 지난 10년간 채용된 직원(대부분 남성 엔지니어)의 이력서를 학습했다. 즉, 과거의 남성 중심적 채용 패턴을 그대로 학습하고 미래에도 남성을 추천하도록 학습한 것이다.</li>
+              <li><b>순환 논증:</b> 과거의 데이터가 현재의 편향된 결과를 낳고, 이 결과는 다시 미래의 데이터가 되어 편향을 강화한다. 이는 기술적 버그가 아니라, 분류 시스템 자체에 내재된 <span class="highlight">구조적 특징</span>이다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">이미지넷의 세계관 들여다보기</h2>
+          <p class="slide-subtitle">'사람'을 분류하는 범주에 담긴 정치성</p>
+          <div class="slide-content">
+            <p class="mb-4">이미지넷의 '사람' 범주에는 2,832개의 하위 범주가 존재했다. 이 분류 체계는 우리의 세계관과 편견을 그대로 반영한다.</p>
+            <ul class="list-disc">
+              <li><b>성별 이분법:</b> '남성 신체', '여성 신체'만 존재하며, 트랜스젠더나 제3의 성별은 배제된다. 성적 지향은 '호색가', '양성애자' 같은 계층 아래에 배치되어 정상성을 전제한다.</li>
+              <li><b>인종과 국적:</b> '흑인', '백인' 뿐만 아니라 '니카라과인', '줄루족' 등 다양한 인종/국가 범주가 남아있어 사람을 외모로 분류하는 위험성을 내포한다.</li>
+              <li><b>모욕적 라벨:</b> '실패자', '잡년', '저능아' 등 수많은 욕설과 인종차별적, 성차별적, 장애인 차별적 용어들이 10년간 존재했다.</li>
+            </ul>
+            <p class="mt-6">👉 이러한 분류는 <span class="highlight">중립적이지 않다</span>. 어떤 범주를 만들고, 누구를 어디에 포함시킬지 결정하는 행위 자체가 세상을 정의하는 권력이다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">'공정성' 시스템의 한계</h2>
+          <p class="slide-subtitle">기술적 해결책이 근본 문제를 가릴 때</p>
+          <div class="slide-content">
+            <p class="mb-4">AI 편향 문제가 제기되자, IBM 등은 '얼굴의 다양성(Diversity in Faces)' 같은 더 '포괄적인' 데이터셋을 구축하여 문제를 해결하려 했다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">IBM의 접근법과 그 문제점</h3>
+              <p class="mt-2">플리커에서 1억 장의 사진을 수집하고, 100만 장의 얼굴에서 두개골 수치를 측정하여 '다양성'을 확보하고자 했다. 하지만 이는 다음과 같은 문제를 낳았다:</p>
+              <ul class="list-disc mt-2">
+                <li><b>정체성의 탈정치화:</b> 다양성 개념을 '변이(variation)'라는 기술적 용어로 축소했다.</li>
+                <li><b>위험한 결론:</b> '인종, 민족, 문화 ... 같은 개인적 정체성은 우리의 얼굴에 반영된다'고 주장하며 생물학적 결정론으로 회귀했다.</li>
+                <li><b>도구의 논리:</b> 왜 분류하는가가 아니라, '기계학습으로 할 수 있는' 방식이기 때문에 두개골 측정을 이용했다.</li>
+              </ul>
+            </div>
+            <p class="mt-6">결국 기술적 '공정성' 추구는 분류 행위 자체에 내재된 정치적, 사회적 문제를 해결하기보다, 오히려 그것을 은폐하고 정당화하는 결과를 낳을 수 있다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 6: Affect -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">5장. 감정 😊</p>
+          <h2 class="slide-title">세계에서 가장 유명한 <span class="highlight">관상가</span></h2>
+          <p class="slide-content">AI 감정 인식 기술의 과학적 토대로 여겨지는 '보편 감정 이론'의 탄생 배경과 그 허구성을 역사적으로 추적합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정 인식 산업의 부상 📈</h2>
+          <p class="slide-subtitle">얼굴에서 내면을 읽어내려는 거대한 시장</p>
+          <div class="slide-content">
+            <p class="mb-4">오늘날 자동 감정 인식 기술은 채용, 교육, 공항 보안, 마케팅 등 다양한 분야로 확장되고 있다. 이 기술들은 얼굴 표정 분석을 통해 사람의 내면 감정 상태를 정확히 판단할 수 있다고 주장한다.</p>
+            <ul class="list-disc">
+              <li><b>채용:</b> 하이어뷰(HireVue) 같은 기업은 AI를 이용해 입사 지원자의 동영상 면접을 분석하고 업무 적합도를 추정한다.</li>
+              <li><b>광고:</b> 애펙티바(Affectiva)는 소비자의 감정 반응을 측정하여 광고 효과를 분석한다.</li>
+              <li><b>기본 가정:</b> 이 모든 시스템은 <span class="highlight">소수의 구별되고 보편적인 감정 범주</span>가 존재하며, 이것이 얼굴에 나타나고, 기계로 탐지할 수 있다는 공통된 가정을 기반으로 한다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">폴 에크먼과 보편 감정 이론</h2>
+          <p class="slide-subtitle">파푸아뉴기니에서 시작된 논쟁적 가설</p>
+          <div class="slide-content">
+            <p class="mb-4">감정 인식 산업의 이론적 토대는 심리학자 <span class="highlight">폴 에크먼(Paul Ekman)</span>의 연구에 깊이 뿌리내리고 있다.</p>
+            <ul class="list-disc">
+              <li><b>1967년, 파푸아뉴기니 연구:</b> 외부 세계와 단절된 포레(Fore)족에게 서양인의 표정 사진을 보여주며 감정을 맞히게 하는 실험을 진행.</li>
+              <li><b>보편성 주장:</b> 이 실험을 근거로 기쁨, 슬픔, 분노, 공포, 놀람, 혐오 등 6가지 기본 감정은 문화와 무관하게 모든 인류에게 보편적이라고 주장.</li>
+              <li><b>군사적 배경:</b> 에크먼의 초기 연구는 미 국방부 고등연구계획국(ARPA)의 자금 지원으로 이루어졌다. 냉전 시대, 문화를 아우르는 비언어 소통에 대한 군사적 관심이 연구의 배경이 되었다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">감정 연구의 역사적 뿌리</h2>
+          <p class="slide-subtitle">관상학에서 전기생리학적 분석까지</p>
+          <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-lg">관상학 (Physiognomy)</h3>
+              <p>아리스토텔레스 시대부터 내려온, 사람의 외모(특히 얼굴)를 통해 성격과 내면을 판단하려는 시도. 18세기 라바터에 의해 체계화되었다.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">뒤셴의 실험</h3>
+              <p>19세기 신경학자 뒤셴은 환자들의 얼굴 근육에 전기 충격을 가해 인위적으로 표정을 만들고 이를 사진으로 기록했다. '객관적'으로 감정을 포착하려는 시도였지만, 이는 고도로 조작된 결과물이었다.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">FACS: 얼굴 움직임 해독법</h3>
+            <p class="mt-2">에크먼은 뒤셴의 연구를 발전시켜 얼굴의 모든 근육 움직임을 '행동 단위(Action Unit)'로 나누고 코딩하는 시스템(FACS)을 개발했다. 이는 현대 감정 인식 AI가 표정을 분석하는 기본 도구가 되었지만, 그 기원은 연출되고 조작된 이미지에 있다.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">표정은 실제로 감정을 표현하는가? 🤔</h2>
+          <p class="slide-subtitle">보편 감정 이론에 대한 과학적 비판</p>
+          <div class="slide-content">
+            <p class="mb-4">에크먼의 이론은 발표 초기부터 수많은 비판에 직면했으며, 최근 연구들은 그 과학적 근거가 매우 박약함을 보여준다.</p>
+            <ul class="list-disc">
+              <li><b>방법론적 문제:</b> 연출된 사진과 강제 선택 방식의 실험은 피험자들이 연구자의 의도에 맞게 답하도록 유도하는 순환 논리에 빠져있다.</li>
+              <li><b>과학적 합의 부재:</b> 감정이란 무엇인가, 어떻게 형성되는가, 뇌에서 어떻게 작동하는가 등 근본적인 질문에 대해 과학계의 합의는 전혀 이루어지지 않았다.</li>
+              <li><b>최신 연구 결과:</b> 2019년 대규모 메타 분석 연구는 "현재의 많은 기술이 과학적 사실로 오인되는 것을 적용하려 할 때와 마찬가지로, 얼굴에서 감정을 확실하게 추론하는 것은 불가능하다"고 결론 내렸다.</li>
+            </ul>
+            <p class="mt-6"><b>결론:</b> 얼굴 표정이 내면 감정 상태의 '지문'이나 '진단적 표시'라는 신뢰할 만한 근거는 없다. 그럼에도 이 불확실한 이론은 수십억 달러 규모의 산업을 떠받치고 있다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 7: State -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">6장. 국가 🏛️</p>
+          <h2 class="slide-title">제3차 <span class="highlight">상쇄 전략</span></h2>
+          <p class="slide-content">AI가 어떻게 국가 권력의 도구가 되고, 군사 및 정보 기관에서 민간 부문으로 기술이 이전되면서 감시 체계가 어떻게 일상에 스며드는지 분석합니다.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">스노든 자료실과 군사적 기원</h2>
+          <p class="slide-subtitle">AI 발전의 원동력이 된 국가의 감시 욕망</p>
+          <div class="slide-content">
+            <p class="mb-4">에드워드 스노든이 폭로한 NSA 문서들은 AI 기술 발전의 이면에 정보 공동체의 역할이 있었음을 보여준다.</p>
+            <ul class="list-disc">
+              <li><b>트레저맵(TREASUREMAP):</b> NSA가 개발한 프로그램으로, 전 세계 모든 인터넷 연결 기기를 추적하여 '인터넷 전체를 지도화'하려는 목표를 가졌다.</li>
+              <li><b>군사적 뿌리:</b> AI 연구는 1950년대부터 방위고등연구계획국(DARPA) 등 군사 연구 기관의 주된 후원 대상이었다. 지휘, 통제, 자동화, 감시는 초기부터 AI의 핵심 과제였다.</li>
+              <li><b>제3차 상쇄 전략:</b> 2010년대 미국 국방부는 AI, 컴퓨터 전쟁, 로봇을 결합하여 군사적 우위를 유지하려는 '제3차 상쇄 전략'을 추진. 이는 실리콘밸리와 군부의 관계를 더욱 긴밀하게 만들었다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">메이븐 계획 (Project Maven)</h2>
+          <p class="slide-subtitle">구글과 국방부의 만남, 그리고 내부의 저항</p>
+           <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+            <h3 class="font-bold text-lg">📝 프로젝트 개요</h3>
+            <p class="mt-2">2017년 미 국방부가 시작한 '알고리즘 전쟁' 프로젝트. 목표는 드론이 촬영한 방대한 양의 영상에서 사람과 물체를 자동으로 탐지하고 추적하는 AI 검색 엔진을 만드는 것이었다.</p>
+          </div>
+          <div class="slide-content mt-6">
+            <ul class="list-disc">
+              <li><b>구글의 참여:</b> 펜타곤은 이 프로젝트를 구글에 맡겼다. 구글의 텐서플로 AI 인프라를 이용해 드론 영상을 분석할 계획이었다.</li>
+              <li><b>내부 반발:</b> 자신들의 기술이 전쟁 목적에 쓰인다는 사실에 격분한 3,100여 명의 구글 직원들이 계약 철회를 요구하는 항의 서한에 서명했다.</li>
+              <li><b>결과:</b> 거센 압박에 구글은 결국 메이븐 계획 참여를 중단하고, '사람에게 부상을 일으키는 무기' 개발에 참여하지 않겠다는 AI 윤리 원칙을 발표했다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">국가의 외주화와 <span class="highlight">팔란티르</span></h2>
+          <p class="slide-subtitle">민간 기업이 주도하는 감시 인프라</p>
+          <div class="slide-content">
+            <p class="mb-4">국가와 AI 업계의 관계는 군사 부문을 넘어, 국가의 핵심 기능을 기술 도급업체에 외주하는 형태로 확장되고 있다. 그 중심에 <span class="highlight">팔란티르(Palantir)</span>가 있다.</p>
+            <ul class="list-disc">
+              <li><b>군·산·복합 스타트업:</b> CIA의 지원을 받아 설립. 국방부, NSA 등 정보기관을 주요 고객으로 삼아 성장했으며, 스노든 문서에 나온 것과 유사한 데이터 추출 및 분석 기법을 구사한다.</li>
+              <li><b>민간 부문으로의 확장:</b> 이제 팔란티르의 도구는 이민자 단속(ICE), 경찰 업무(LAPD), 복지 수급 관리, 범죄 예측 등 지방정부와 민간 영역으로 확산되고 있다.</li>
+              <li><b>경계의 붕괴:</b> 과거 정보기관의 전유물이던 감시 기술이 민간 기업을 통해 사회 전반으로 퍼져나가면서, 공공 감시의 민영화가 이루어지고 국가와 기업의 경계가 흐릿해지고 있다. (예: 아마존 링, 비질런트 솔루션스)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 8: Conclusion -->
+      <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">결론 맺음말</p>
+          <h2 class="slide-title">AI는 <span class="highlight">권력</span>이다</h2>
+          <p class="slide-content">인공지능은 중립적인 도구가 아니라, 기존의 권력 구조를 증폭하고 새로운 형태의 통제를 만들어내는 사회적, 정치적, 경제적 시스템의 표현입니다.</p>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">AI의 파이프라인 다시 보기</h2>
+          <p class="slide-subtitle">AI 시스템의 온전한 라이프 사이클</p>
+          <div class="slide-content">
+            <p class="mb-4">이 책은 AI를 '추출 산업'으로 규정하고, 그 실상을 이해하기 위해 지도책의 관점을 제안했다. AI의 진짜 버팀목은 인공화, 추상화, 자동화가 아니라, 지구적으로 연결된 <span class="highlight">추출과 권력의 체계</span>다.</p>
+            <ul class="list-disc">
+              <li><b>🌎 지구:</b> 희토류 광물, 물, 석탄, 석유를 깎아내어 고도로 에너지 집약적인 하부 구조에 연료를 공급한다.</li>
+              <li><b>👨‍🔧 노동:</b> 주석 광부, 크라우드 노동자, 공장 노동자의 노동력을 착취하여 시스템을 만들고 유지한다.</li>
+              <li><b>📊 데이터:</b> 동의 없이 수집된 우리의 일상을 원료로 삼아 시스템을 훈련시키고 세상을 분류한다.</li>
+              <li><b>🏷️ 분류:</b> 인종, 성별, 감정 등에 대한 편협한 규범을 코드화하여 사회적 서열을 강화한다.</li>
+              <li><b>🏛️ 국가:</b> 감시, 통제, 군사화의 논리를 통해 국가 권력과 결합하고 사회 전반으로 확장된다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       <div class="slide">
+        <div class="slide-container">
+          <p class="slide-part-title">덧붙이며</p>
+          <h2 class="slide-title">우주로의 탈출 🚀</h2>
+          <p class="slide-subtitle">기술 억만장자들의 우주 개척 꿈이 담고 있는 위험한 이데올로기</p>
+          <div class="slide-content">
+            <p class="mb-4">제프 베이조스, 일론 머스크 등 기술 엘리트들은 인류의 미래가 우주 식민지에 있다고 주장한다. 이들의 비전은 지구의 에너지 고갈과 성장 정체 문제를 우주 채굴과 개척으로 해결하자는 것이다.</p>
+            <div class="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h3 class="font-bold text-lg">탈출주의의 문제점</h3>
+              <p class="mt-2">이 우주 쇼의 이데올로기는 AI 산업의 이데올로기와 깊이 연관되어 있다. 이는 지구의 문제를 해결하는 대신, <span class="highlight">지구를 폐기하고 새로운 미개척지로 확장</span>하려는 정착식민주의의 논리를 반복한다. 결국 이는 지구의 자원을 고갈시키고 불평등을 심화시킨 바로 그 추출주의적 자본주의를 우주로 확장하는 것에 불과하다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-container">
+          <h2 class="slide-title">정의를 위한 <span class="highlight">연대</span>를 향하여</h2>
+          <p class="slide-subtitle">기술 불가피론을 넘어 새로운 저항의 정치를 모색하기</p>
+          <div class="slide-content">
+            <p class="mb-4">'AI 윤리' 원칙 선언만으로는 충분하지 않다. AI가 강화하고 있는 권력 구조에 도전하고 다른 사회의 토대를 쌓기 위해서는 더 근본적인 질문과 행동이 필요하다.</p>
+            <ul class="list-disc">
+              <li><b>'왜'라고 묻기:</b> 단순히 '가능하다'는 이유로 기술을 적용할 것이 아니라, '왜' 적용되어야 하는지, 누구를 위한 것인지 물어야 한다.</li>
+              <li><b>저항의 연대:</b> 예측 기반 치안 반대, 얼굴 인식 금지 요구 등 국지적 승리를 넘어, <span class="highlight">노동, 기후, 데이터 정의</span>를 요구하는 운동들이 서로 연결되어야 한다.</li>
+              <li><b>새로운 지도 그리기:</b> 기술적 해결책의 매혹을 떨쳐버리고, 가치 추출을 넘어선 지속 가능한 집단적 정치, 차별과 최적화를 넘어선 삶의 방식을 상상하고 그곳으로 가는 길을 그려야 한다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 56: Thank You / Q&A -->
+      <div class="slide">
+        <div class="slide-container text-center">
+          <div class="text-8xl mb-8">👏</div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">감사합니다</h1>
+          <p class="text-2xl md:text-3xl text-gray-600">Q&A</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+      <button id="prevBtn" class="btn btn-secondary"><i class="fa-solid fa-arrow-left mr-2"></i> 이전</button>
+      <span id="slideCounter" class="text-gray-600 font-medium"></span>
+      <button id="nextBtn" class="btn btn-primary">다음 <i class="fa-solid fa-arrow-right ml-2"></i></button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progress');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
+      });
+      slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide) / (slides.length - 1)) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+      prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+      nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+      nextBtn.classList.toggle('cursor-not-allowed', currentSlide === slides.length - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevBtn.click();
+      }
+    });
+
+    // Initial setup
+    updateSlide();
+  </script>
+
+
+<script data-reading-archive-scroll-nav>
+(function () {
+  function findButton(selectors) {
+    for (var i = 0; i < selectors.length; i += 1) {
+      var el = document.querySelector(selectors[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  var nextBtn = findButton(['[data-reading-archive-next]', '[data-slide-next]', '#nextBtn', '.next-slide']);
+  var prevBtn = findButton(['[data-reading-archive-prev]', '[data-slide-prev]', '#prevBtn', '.prev-slide']);
+  var hasButtonNav = !!(nextBtn || prevBtn);
+
+  function collectSections() {
+    var nodes = document.querySelectorAll('.slide, [data-slide], section');
+    var list = Array.prototype.slice.call(nodes || []);
+    var result = [];
+    for (var i = 0; i < list.length; i += 1) {
+      var node = list[i];
+      if (!node) continue;
+      var duplicate = false;
+      for (var j = 0; j < result.length; j += 1) {
+        if (result[j] === node) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (duplicate) continue;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      var visible = node.offsetHeight > 0 && (!style || style.visibility !== 'hidden');
+      if (visible) result.push(node);
+    }
+    return result;
+  }
+
+  function buildSectionNavigator(elements) {
+    if (!elements || elements.length <= 1) return null;
+    var index = 0;
+    var animating = false;
+
+    function clamp(value) {
+      if (value < 0) return 0;
+      if (value > elements.length - 1) return elements.length - 1;
+      return value;
+    }
+
+    function syncIndex() {
+      var best = index;
+      var bestDist = Infinity;
+      for (var i = 0; i < elements.length; i += 1) {
+        var rect = elements[i].getBoundingClientRect();
+        var dist = Math.abs(rect.top);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      }
+      index = best;
+    }
+
+    function smoothScroll(target) {
+      var top = window.scrollY + target.getBoundingClientRect().top;
+      if (typeof window.scrollTo === 'function') {
+        try {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      } else {
+        document.documentElement.scrollTop = top;
+        document.body.scrollTop = top;
+      }
+    }
+
+    function scrollToIndex(next) {
+      next = clamp(next);
+      if (next === index) return false;
+      animating = true;
+      index = next;
+      smoothScroll(elements[index]);
+      setTimeout(function () {
+        animating = false;
+      }, 420);
+      return true;
+    }
+
+    window.addEventListener('resize', syncIndex);
+
+    return {
+      move: function (step) {
+        if (animating) return false;
+        syncIndex();
+        return scrollToIndex(index + step);
+      },
+    };
+  }
+
+  var sectionNav = null;
+  if (!hasButtonNav) {
+    sectionNav = buildSectionNavigator(collectSections());
+  }
+  var hasAnyNavigation = hasButtonNav || !!sectionNav;
+  if (!hasAnyNavigation) return;
+
+  var lock = false;
+  var lockTimer = null;
+
+  function armLock() {
+    lock = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(function () {
+      lock = false;
+    }, 420);
+  }
+
+  function canUseButton(btn) {
+    if (!btn) return false;
+    if (typeof btn.disabled === 'boolean' && btn.disabled) return false;
+    var aria = btn.getAttribute ? btn.getAttribute('aria-disabled') : null;
+    if (aria && aria.toLowerCase() === 'true') return false;
+    return true;
+  }
+
+  function trigger(step) {
+    if (!step || lock) return;
+    var handled = false;
+    if (step > 0) {
+      if (canUseButton(nextBtn)) {
+        nextBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(1)) {
+        handled = true;
+      }
+    } else if (step < 0) {
+      if (canUseButton(prevBtn)) {
+        prevBtn.click();
+        handled = true;
+      } else if (sectionNav && sectionNav.move(-1)) {
+        handled = true;
+      }
+    }
+    if (handled) {
+      armLock();
+    }
+  }
+
+  function extractHorizontalDelta(event) {
+    var deltaX = event.deltaX || 0;
+    var deltaY = event.deltaY || 0;
+    if (Math.abs(deltaX) >= Math.abs(deltaY) && Math.abs(deltaX) >= 16) {
+      return deltaX;
+    }
+    if (event.shiftKey && Math.abs(deltaY) >= 16) {
+      return deltaY;
+    }
+    return 0;
+  }
+
+  window.addEventListener('wheel', function (event) {
+    var horizontal = extractHorizontalDelta(event);
+    if (!horizontal) return;
+    event.preventDefault();
+    trigger(horizontal);
+  }, { passive: false });
+
+  if (!hasButtonNav && sectionNav) {
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowRight', 'PageDown', ' ', 'Spacebar'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(1);
+      } else if (['ArrowLeft', 'PageUp'].indexOf(event.key) !== -1) {
+        event.preventDefault();
+        trigger(-1);
+      }
+    });
+  }
+
+  var touchStartY = null;
+  var touchStartX = null;
+
+  window.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (event) {
+    if (touchStartX === null || touchStartY === null) return;
+    var touch = event.changedTouches[0];
+    var dy = touchStartY - touch.clientY;
+    var dx = touchStartX - touch.clientX;
+    touchStartY = null;
+    touchStartX = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    trigger(dx);
+  }, { passive: true });
+
+  window.addEventListener('touchcancel', function () {
+    touchStartY = null;
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

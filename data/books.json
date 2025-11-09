@@ -390,6 +390,16 @@
     "cover": "assets/covers/개인주의자의-철학-수업.jpg"
   },
   {
+    "slug": "ai-지도책-세계의-부와-권력을-재편하는-인공지능의-실체",
+    "title": "AI 지도책 - 세계의 부와 권력을 재편하는 인공지능의 실체",
+    "author": "케이트 크로퍼드",
+    "date": "2025-11-09",
+    "tags": [],
+    "description": "",
+    "presentation": "presentations/ai-지도책-세계의-부와-권력을-재편하는-인공지능의-실체.html",
+    "cover": "assets/covers/ai-지도책-세계의-부와-권력을-재편하는-인공지능의-실체.jpg"
+  },
+  {
     "slug": "47가지-심리학-법칙",
     "title": "47가지 심리학 법칙",
     "author": "타쿠미 에이치",
